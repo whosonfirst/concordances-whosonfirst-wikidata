@@ -1,0 +1,33 @@
+
+version: '2'
+
+services:
+  db:
+    image: mdillon/postgis:9.6 
+    volumes:
+      - ../postgres_data:/var/lib/postgresql/data    
+    tmpfs:
+     - /tmp
+    environment:
+     - POSTGRES_DB=whosonfirst
+     - POSTGRES_USER=whosonfirst
+     - POSTGRES_PASSWORD=whosonfirst 
+
+  wof_wiki_dw:
+    image: wof_wiki_dw
+    volumes:
+     - ../whosonfirst-data:/wof/whosonfirst-data
+     - ../wikidata_dump:/wof/wikidata_dump
+     - ./code:/wof/code
+    links:
+     - db:db
+    environment:
+     - PGHOST=db         
+     - PGUSER=whosonfirst
+     - PGDATABASE=whosonfirst
+     - PGPASSWORD=whosonfirst
+     - DB_HOST=db         
+     - DB_USER=whosonfirst
+     - DB_NAME=whosonfirst
+     - DB_PASS=whosonfirst
+

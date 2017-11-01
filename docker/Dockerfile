@@ -21,6 +21,11 @@ RUN \
         wget \
     && rm -rf /var/lib/apt/lists/* /tmp/* 
 
+RUN \
+    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash \
+    && apt-get install -y git-lfs  \
+    && rm -rf /var/lib/apt/lists/* /tmp/* 
+
 # Build jq from source : https://github.com/stedolan/jq
 RUN \
     git clone git://github.com/stedolan/jq.git \

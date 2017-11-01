@@ -46,3 +46,29 @@ RUN    git clone --quiet --depth 1 -b add_properties_column  https://github.com/
     && cd go-whosonfirst-pgis \
     && make dwindex
  
+RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-utils.git \
+    && cd go-whosonfirst-utils \
+    && make bin  
+
+RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-s3.git \
+    && cd go-whosonfirst-s3 \
+    && make bin
+
+RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-concordances.git \
+    && cd go-whosonfirst-concordances \
+    && make bin 
+
+RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/whosonfirst-data-utils.git \
+    && cd whosonfirst-data-utils
+
+RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/git-whosonfirst-data.git \
+    && cd git-whosonfirst-data 
+
+RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/py-mapzen-whosonfirst-search.git 
+RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/py-mapzen-whosonfirst-spatial
+
+
+
+
+
+

@@ -34,7 +34,8 @@ RUN \
     
 RUN \ 
     go get github.com/lukasmartinelli/pgfutter \
-    && go get github.com/svent/sift 
+    && go get github.com/svent/sift \
+    && go get github.com/Code-Hex/pget/cmd/pget
 
 RUN    git clone --quiet --depth 1 -b add_properties_column  https://github.com/ImreSamu/go-whosonfirst-pgis \
     && cd go-whosonfirst-pgis \

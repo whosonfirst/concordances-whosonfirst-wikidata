@@ -25,6 +25,8 @@ echo """
 awk -F, 'NR==1 || ( $15=="HU"  ) ' \
      /wof/whosonfirst-data/meta/wof-locality-latest.csv > /wof/whosonfirst-data/meta/xx-wof-locality-latest.csv
 
+wc -l /wof/whosonfirst-data/meta/xx-wof-locality-latest.csv
+
 #cp ../whosonfirst-data/meta/wof-locality-latest.csv ../whosonfirst-data/meta/wof-xx-locality-latest.csv
 
 echo "--------------- load with wof-pgis-index -----------------"
@@ -34,6 +36,7 @@ time /wof/go-whosonfirst-pgis/bin/wof-pgis-index \
      -mode meta /wof/whosonfirst-data/meta/xx-wof-locality-latest.csv
 
 #    -verbose \
+
 
 echo "======== index & test ==========="
 

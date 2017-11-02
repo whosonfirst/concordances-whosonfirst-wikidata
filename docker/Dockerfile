@@ -16,6 +16,7 @@ RUN \
         git \
         libtool \
         mc \
+        nano \
         postgresql-client-10 \
         sudo \
         wget \

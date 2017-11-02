@@ -14,7 +14,7 @@ echo """
 pgfutter --schema wikidata \
          --table wd \
          --jsonb \
-         json wd.json
+         json /wof/wikidata_dump/wd.json
 
 echo """
     --

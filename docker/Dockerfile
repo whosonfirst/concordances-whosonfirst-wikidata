@@ -18,6 +18,7 @@ RUN \
         mc \
         nano \
         postgresql-client-10 \
+        python-pip \
         sudo \
         wget \
     && rm -rf /var/lib/apt/lists/* /tmp/* 
@@ -39,9 +40,14 @@ RUN \
     && rm -rf /tmp/*
     
 RUN \ 
-    go get github.com/lukasmartinelli/pgfutter \
+       go get github.com/Code-Hex/pget/cmd/pget \
+    && go get github.com/lukasmartinelli/pgclimb \
+    && go get github.com/lukasmartinelli/pgfutter \
+    && go get github.com/miku/parallel \
     && go get github.com/svent/sift \
-    && go get github.com/Code-Hex/pget/cmd/pget
+    && go get github.com/tidwall/gjson
+
+RUN pip install csvkit
 
 RUN    git clone --quiet --depth 1 -b add_properties_column  https://github.com/ImreSamu/go-whosonfirst-pgis \
     && cd go-whosonfirst-pgis \
@@ -65,9 +71,44 @@ RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/whosonfirst-data
 RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/git-whosonfirst-data.git \
     && cd git-whosonfirst-data 
 
-RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/py-mapzen-whosonfirst-search.git 
-RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/py-mapzen-whosonfirst-spatial
+RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/py-mapzen-whosonfirst-search.git \
+    && cd py-mapzen-whosonfirst-search \
+    && pip install -r requirements.txt . \
+    && python setup.py install 
 
+RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/py-mapzen-whosonfirst-spatial.git \
+    && cd py-mapzen-whosonfirst-spatial \
+    && pip install -r requirements.txt . \
+    && pip install psycopg2 shapely \
+    && python setup.py install 
+
+RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/py-mapzen-whosonfirst-utils.git \
+    && cd py-mapzen-whosonfirst-utils \
+    && pip install -r requirements.txt . \
+    && python setup.py install
+
+RUN   git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-clone.git \
+    && cd go-whosonfirst-clone \
+    && make deps \
+    && make bin
+
+RUN   git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-meta.git \
+    && cd go-whosonfirst-meta \
+    && make bin
+
+RUN   git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-inspector.git \
+    && cd go-whosonfirst-inspector \
+    && make bin
+
+RUN   git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-csv.git \
+    && cd go-whosonfirst-csv \
+    && make build
+
+#RUN \
+#       apt-get update \
+#    && apt-get install -y \
+#        python-dev python-pip python-setuptools build-essential \
+#    && rm -rf /var/lib/apt/lists/* /tmp/* 
 
 
 

@@ -13,12 +13,15 @@ services:
      - POSTGRES_USER=whosonfirst
      - POSTGRES_PASSWORD=whosonfirst 
 
+
   wof_wiki_dw:
     image: wof_wiki_dw
     volumes:
-     - ../whosonfirst-data:/wof/whosonfirst-data
-     - ../wikidata_dump:/wof/wikidata_dump
+     - ./test/whosonfirst-data:/wof/whosonfirst-data
+     - ./test/wikidata_dump:/wof/wikidata_dump
      - ./code:/wof/code
+     - ./reports:/wof/reports
+     - ./test:/wof/test
     links:
      - db:db
     environment:

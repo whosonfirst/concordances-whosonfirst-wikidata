@@ -10,7 +10,7 @@ select
    ,jsonb_object_keys(properties)              as wof_property
    ,properties->jsonb_object_keys(properties)  as wof_jvalue
    ,jsonb_typeof( properties->jsonb_object_keys(properties) ) as wof_jtype 
-from whosonfirst;
+from wof;
 
 create index on wof_rec  ( id );
 create index on wof_rec  ( wd_id );

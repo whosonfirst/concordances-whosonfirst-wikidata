@@ -80,3 +80,23 @@ from p625_extract
 --limit 1000
 ; 
 
+
+
+drop table if exists wikidata.wd_rank_point;
+create table wikidata.wd_rank_point as
+SELECT 
+     wd_id
+    ,wd_rank
+    ,wd_point
+    ,point_rank 
+FROM 
+    (
+        SELECT *
+         , ROW_NUMBER() OVER (PARTITION BY wd_id  order by point_rank DESC) AS Row_ID 
+        FROM wikidata.wd_point
+    ) AS A
+WHERE Row_ID = 1 
+ORDER BY wd_id 
+;
+
+

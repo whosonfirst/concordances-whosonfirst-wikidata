@@ -5,16 +5,16 @@ set -u
 
 echo """
     --
-    CREATE SCHEMA IF NOT EXISTS  wikidata;
-    DROP TABLE IF EXISTS wikidata.wd;
+    CREATE SCHEMA IF NOT EXISTS wikidata;
+    DROP TABLE IF EXISTS wikidata.wd CASCADE;
     --
 """ | psql
 
 
-pgfutter --schema wikidata \
-         --table wd \
-         --jsonb \
-         json /wof/wikidata_dump/wd.json
+time pgfutter   --schema wikidata \
+                --table wd \
+                --jsonb \
+                json /wof/wikidata_dump/wikidata.json
 
 echo """
     --

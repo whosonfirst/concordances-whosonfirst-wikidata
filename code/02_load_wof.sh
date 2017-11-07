@@ -6,7 +6,7 @@ echo "======== 02_load_wof START ==========="
 
 
 #repo=/wof/whosonfirst-data/
-wof_repo=/wof/test/whosonfirst-data/
+wof_repo=/wof/whosonfirst-data/
 
 function load_wof(){
 

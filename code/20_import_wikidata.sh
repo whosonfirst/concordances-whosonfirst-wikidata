@@ -12,8 +12,9 @@ head /wof/whosonfirst-data/wd.txt
 wc -l /wof/whosonfirst-data/wd.txt
 
 echo "======== parse wikidata_dump/latest-all.json.gz ==========="
-time zcat /wof/wikidata_dump/latest-all.json.gz | go run ./code/wdwofparse.go > /wof/wikidata_dump/wikidata.json
-
+ls -la /wof/wikidata_dump/latest-all.json.bz2
+rm -f /wof/wikidata_dump/wikidata.json
+time bzcat /wof/wikidata_dump/latest-all.json.bz2 | go run /wof/code/wdwofparse.go > /wof/wikidata_dump/wikidata.json
 
 echo """
     --

@@ -112,10 +112,5 @@ RUN \
        apt-get update \
     && apt-get install -y \
         parallel \
+        pbzip2 \
     && rm -rf /var/lib/apt/lists/* /tmp/* 
-
-
-
-
-
-

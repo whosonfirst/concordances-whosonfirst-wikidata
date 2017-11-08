@@ -17,11 +17,12 @@ services:
   wof_wiki_dw:
     image: wof_wiki_dw
     volumes:
-     - ./test/whosonfirst-data:/wof/whosonfirst-data
-     - ./test/wikidata_dump:/wof/wikidata_dump
+     - ../whosonfirst-data:/wof/whosonfirst-data
+     - ../wikidata_dump:/wof/wikidata_dump
      - ./code:/wof/code
      - ./reports:/wof/reports
      - ./test:/wof/test
+     - ./log:/wof/log
     links:
      - db:db
     environment:

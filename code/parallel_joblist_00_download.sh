@@ -1,2 +1,2 @@
-/wof/init-wikidata.sh
-/wof/init-wofdata.sh
+/wof/code/init-wikidata.sh
+/wof/code/init-wofdata.sh

@@ -104,11 +104,16 @@ RUN   git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-
     && cd go-whosonfirst-csv \
     && make build
 
-#RUN \
-#       apt-get update \
-#    && apt-get install -y \
-#        python-dev python-pip python-setuptools build-essential \
-#    && rm -rf /var/lib/apt/lists/* /tmp/* 
+
+RUN   go get -u github.com/shenwei356/rush/ \
+   && go get github.com/fd0/machma 
+
+RUN \
+       apt-get update \
+    && apt-get install -y \
+        parallel \
+    && rm -rf /var/lib/apt/lists/* /tmp/* 
+
 
 
 

@@ -4,18 +4,15 @@ set -u
 
 cd /wof
 
-time /wof/code/01_load_iso_language_codes.sh
-time /wof/code/02_load_wof.sh
-time /wof/code/10_wof_parse_wdid.sh
-time /wof/code/20_import_wikidata.sh
+mkdir -p /wof/log
+rm -rf /wof/log/joblog01
+rm -rf /wof/log/joblog02
+rm -rf /wof/log/joblog03
 
 
-
-time psql -f /wof/code/50_wof_sql_step1.sql
-time psql -f /wof/code/60_wd_sql_views.sql
-time psql -vreportdir="/wof/reports" -f /wof/code/71_disambiquation.sql
-time psql -vreportdir="/wof/reports" -f /wof/code/72_extreme_distance.sql
-
+time parallel --results /wof/log/joblog01 -k -j 4 < /wof/code/parallel_joblist_01_load_tables.sh
+time parallel --results /wof/log/joblog02 -k -j 4 < /wof/code/parallel_joblist_02_sql_processing.sh
+time parallel --results /wof/log/joblog03 -k -j 4 < /wof/code/parallel_joblist_03_reporting.sh
 
 
 rm -f /wof/reports/wof_wikidata_status.xlsx
@@ -27,8 +24,5 @@ pgclimb -o /wof/reports/wof_wikidata_status.xlsx \
     -c "SELECT * FROM wof_extreme_distance_report;" \
     xlsx --sheet "extreme_distance"
 
-
-
 ls /wof/reports/* -la
-
 echo "-ok-"

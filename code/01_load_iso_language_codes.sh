@@ -21,14 +21,13 @@ pgfutter --schema codes \
 
 echo """
     -- analyze --
-    ANALYZE whosonfirst;
+    ANALYZE codes.iso_language_codes;
 
     -- test --
     SELECT * 
     FROM codes.iso_language_codes 
     LIMIT 12;
 
-    \d+ codes.iso_language_codes ;
+    \d+ codes.iso_language_codes;
 
 """ | psql
-

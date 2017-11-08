@@ -11,10 +11,10 @@ rm -rf /wof/log/joblog01
 rm -rf /wof/log/joblog02
 rm -rf /wof/log/joblog03
 
-time parallel --results /wof/log/joblog00 -k -j 4 < /wof/code/parallel_joblist_00_download.sh
-time parallel --results /wof/log/joblog01 -k -j 4 < /wof/code/parallel_joblist_01_load_tables.sh
-time parallel --results /wof/log/joblog02 -k -j 4 < /wof/code/parallel_joblist_02_sql_processing.sh
-time parallel --results /wof/log/joblog03 -k -j 4 < /wof/code/parallel_joblist_03_reporting.sh
+time parallel --results /wof/log/joblog00 -k  < /wof/code/parallel_joblist_00_download.sh
+time parallel --results /wof/log/joblog01 -k  < /wof/code/parallel_joblist_01_load_tables.sh
+time parallel --results /wof/log/joblog02 -k  < /wof/code/parallel_joblist_02_sql_processing.sh
+time parallel --results /wof/log/joblog03 -k  < /wof/code/parallel_joblist_03_reporting.sh
 
 
 rm -f /wof/reports/wof_wikidata_status.xlsx

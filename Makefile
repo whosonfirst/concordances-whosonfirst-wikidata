@@ -7,23 +7,7 @@ init:
 	mkdir -p ../postgres_data
 	mkdir -p ../whosonfirst-data
 	mkdir -p ../wikidata_dump
-
-init-wofdata:
-	pushd ..
-	git clone --depth 1 https://github.com/whosonfirst-data/whosonfirst-data.git
-	cd whosonfirst-data
-	git lfs ls-files
-	git lfs fetch
-	git lfs checkout
-	popd 
-
-init-wikidata:
-	pushd ..
-	mkdir -p wikidata_dump
-	cd wikidata_dump
-	rm -f latest-all.json.bz2
-	wget https://dumps.wikimedia.org/wikidatawiki/entities/latest-all.json.bz2
-	popd
+	mkdir -p ./log
 
 build:
 	cd ./docker && docker build -t wof_wiki_dw  . && cd ..

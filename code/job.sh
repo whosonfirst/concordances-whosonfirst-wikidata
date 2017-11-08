@@ -4,6 +4,8 @@ set -u
 
 cd /wof
 
+date -u
+
 mkdir -p /wof/log
 
 rm -rf /wof/log/joblog00
@@ -16,7 +18,6 @@ time parallel --results /wof/log/joblog01 -k  < /wof/code/parallel_joblist_01_lo
 time parallel --results /wof/log/joblog02 -k  < /wof/code/parallel_joblist_02_sql_processing.sh
 time parallel --results /wof/log/joblog03 -k  < /wof/code/parallel_joblist_03_reporting.sh
 
-
 rm -f /wof/reports/wof_wikidata_status.xlsx
 pgclimb -o /wof/reports/wof_wikidata_status.xlsx \
     -c "SELECT * FROM wof_disambiguation_report;" \
@@ -28,3 +29,4 @@ pgclimb -o /wof/reports/wof_wikidata_status.xlsx \
 
 ls /wof/reports/* -la
 echo "-ok-"
+date -u

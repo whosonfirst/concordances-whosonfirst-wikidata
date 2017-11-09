@@ -53,5 +53,16 @@ order by distance desc
 ; 
 
 
+create or replace view wof_extreme_distance_sum_report as
+select
+      metatable
+    , wof_country
+    , count(*) as number_of_distance_problems
+from  wof_extreme_distance_report
+group by metatable , wof_country
+order by metatable , wof_country
+; 
+
+
 \cd :reportdir
 \copy (select * from wof_extreme_distance_report) TO 'wof_extreme_distance_report.csv' CSV;

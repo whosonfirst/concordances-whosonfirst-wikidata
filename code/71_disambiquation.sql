@@ -39,6 +39,17 @@ order by
     ,wof_name
 ;
 
+create or replace view wof_disambiguation_sum_report as
+select
+      metatable
+    , wof_country
+    , count(*) as number_of_disambiguation
+from  wof_disambiguation_report
+group by metatable , wof_country
+order by metatable , wof_country
+; 
+
+
 SELECT metatable, count(*) AS N 
 FROM wof_disambiguation_report
 GROUP BY  metatable

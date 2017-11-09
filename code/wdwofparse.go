@@ -1,10 +1,11 @@
 // Filter Wikidata JSON dump  Order of lines is not preserved.
 //
-//  $ head wof_wd_id.json | go run ./code/wdwofparse.go
+//   go run ./code/wdwofparse.go
 
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -13,6 +14,9 @@ import (
 
 	"github.com/miku/parallel"
 	"github.com/tidwall/gjson"
+
+	//"compress/gzip"
+	gzip "github.com/klauspost/pgzip"
 )
 
 func main() {
@@ -34,8 +38,21 @@ func main() {
 
 	}
 
+	filename := "/wof/wikidata_dump/latest-all.json.gz"
+	file, err := os.Open(filename)
+	if err != nil {
+		log.Fatal(err)
+	}
+	gz, err := gzip.NewReader(file)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+	defer gz.Close()
+	gzipreader := bufio.NewReader(gz)
+
 	// Setup input, output and business logic.
-	p := parallel.NewProcessor(os.Stdin, os.Stdout, func(b []byte) ([]byte, error) {
+	p := parallel.NewProcessor(gzipreader, os.Stdout, func(b []byte) ([]byte, error) {
 		wdid := gjson.GetBytes(b, "id").String()
 		_, ok := wq[wdid]
 		if !ok {

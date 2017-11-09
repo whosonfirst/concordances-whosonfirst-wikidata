@@ -105,8 +105,11 @@ RUN   git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-
     && make build
 
 
-RUN   go get -u github.com/shenwei356/rush/ \
-   && go get github.com/fd0/machma 
+RUN    go get github.com/shenwei356/rush/ \
+    && go get github.com/fd0/machma \
+    && go get github.com/klauspost/compress \
+    && go get github.com/klauspost/crc32 \
+    && go get github.com/klauspost/pgzip/... 
 
 RUN \
        apt-get update \

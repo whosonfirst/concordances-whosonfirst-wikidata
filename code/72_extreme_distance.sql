@@ -11,15 +11,13 @@ select
     ,wof.properties->'wof:concordances'->>'wd:id'   as wd_id
     ,wof.properties->>'wof:population'              as wof_population
     ,wof.properties->>'wof:population_rank'         as wof_population_rank     
-   -- ,ST_Transform(wdp.wd_point, 3857 )              as g1
-   -- ,ST_Transform(wof.centroid::geometry, 3857 )    as g2
     ,ST_Distance(
-         ST_Transform(wdp.wd_point, 3857 )
-        ,ST_Transform(wof.centroid::geometry, 3857 )  
+          CDB_TransformToWebmercator(wdp.wd_point)   --   ST_Transform(wdp.wd_point, 3857 )
+        , CDB_TransformToWebmercator(wof.centroid::geometry)    --   ST_Transform(wof.centroid::geometry, 3857 )  
         )     as distance_centroid
     ,ST_Distance(
-         ST_Transform(wdp.wd_point, 3857 )
-        ,ST_Transform(wof.geom::geometry, 3857 )  
+         CDB_TransformToWebmercator(wdp.wd_point)   --  ST_Transform(wdp.wd_point, 3857 )
+        ,CDB_TransformToWebmercator(wof.geom::geometry)  -- ST_Transform(wof.geom::geometry, 3857 )  
         )     as distance_geom        
 from public.wof                  as wof
     ,wikidata.wd_rank_point      as wdp

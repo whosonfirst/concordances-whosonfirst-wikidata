@@ -13,6 +13,11 @@ rm -rf /wof/log/joblog01
 rm -rf /wof/log/joblog02
 rm -rf /wof/log/joblog03
 
+# install postgis functions;
+wget https://raw.githubusercontent.com/CartoDB/cartodb-postgresql/master/scripts-available/CDB_TransformToWebmercator.sql
+psql -f CDB_TransformToWebmercator.sql
+
+
 time parallel --results /wof/log/joblog00 -k  < /wof/code/parallel_joblist_00_download.sh
 time parallel --results /wof/log/joblog01 -k  < /wof/code/parallel_joblist_01_load_tables.sh
 time parallel --results /wof/log/joblog02 -k  < /wof/code/parallel_joblist_02_sql_processing.sh

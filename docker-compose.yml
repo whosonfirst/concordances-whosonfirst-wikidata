@@ -23,6 +23,7 @@ services:
      - ./reports:/wof/reports
      - ./test:/wof/test
      - ./log:/wof/log
+     - /var/www/html/wof-wiki-dw/output:/wof/output     
     links:
      - db:db
     environment:

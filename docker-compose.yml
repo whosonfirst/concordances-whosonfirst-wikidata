@@ -20,9 +20,6 @@ services:
      - ../whosonfirst-data:/wof/whosonfirst-data
      - ../wikidata_dump:/wof/wikidata_dump
      - ./code:/wof/code
-     - ./reports:/wof/reports
-     - ./test:/wof/test
-     - ./log:/wof/log
      - /var/www/html/wof-wiki-dw/output:/wof/output     
     links:
      - db:db

@@ -25,13 +25,13 @@ up:
 	docker-compose up db -d
 
 download_inputs:
-	docker-compose run --rm  wof_wiki_dw /wof/code/job_download_inputs.sh
+	time docker-compose run --rm  wof_wiki_dw /wof/code/job_download_inputs.sh
 
 update_wof:
-	docker-compose run --rm  wof_wiki_dw /wof/code/job_update_wof.sh
+	time docker-compose run --rm  wof_wiki_dw /wof/code/job_update_wof.sh
 
 run:
-	docker-compose run --rm  wof_wiki_dw /wof/code/job.sh
+	time docker-compose run --rm  wof_wiki_dw /wof/code/job.sh
 
 listsize:
 	du -sh ../*

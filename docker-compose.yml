@@ -3,7 +3,7 @@ version: '2'
 
 services:
   db:
-    image: mdillon/postgis:10 
+    image: wof_postgis
     volumes:
       - ../postgres_data:/var/lib/postgresql/data    
     tmpfs:

@@ -12,8 +12,9 @@ init:
 	docker-compose -v
 
 build:
-	cd ./docker && docker build -t wof_wiki_dw  . && cd ..
-	docker images | grep  wof_wiki_dw
+	cd ./docker && docker build -t wof_wiki_dw -f Dockerfile         . && cd ..
+	cd ./docker && docker build -t wof_postgis -f Dockerfile_postgis . && cd ..
+	docker images | grep  wof_
 
 dev:
 	docker-compose run --rm  wof_wiki_dw /bin/bash
@@ -22,7 +23,7 @@ down:
 	docker-compose down
 
 up:
-	docker-compose up db -d
+	docker-compose up  -d
 
 download_inputs:
 	time docker-compose run --rm  wof_wiki_dw /wof/code/job_download_inputs.sh

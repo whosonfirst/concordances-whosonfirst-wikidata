@@ -39,9 +39,9 @@ rm -rf ${outputdir}/joblog01
 rm -rf ${outputdir}/joblog02
 rm -rf ${outputdir}/joblog03
 
-time parallel --load 80% --noswap --results ${outputdir}/joblog01 -k  < /wof/code/parallel_joblist_01_load_tables.sh
-time parallel --load 80% --noswap --results ${outputdir}/joblog02 -k  < /wof/code/parallel_joblist_02_sql_processing.sh
-time parallel --load 80% --noswap --results ${outputdir}/joblog03 -k  < /wof/code/parallel_joblist_03_reporting.sh
+time parallel --eta --results ${outputdir}/joblog01 -k  < /wof/code/parallel_joblist_01_load_tables.sh
+time parallel --eta --results ${outputdir}/joblog02 -k  < /wof/code/parallel_joblist_02_sql_processing.sh
+time parallel --eta --results ${outputdir}/joblog03 -k  < /wof/code/parallel_joblist_03_reporting.sh
 
 time psql -f /wof/code/91_summary.sql
 

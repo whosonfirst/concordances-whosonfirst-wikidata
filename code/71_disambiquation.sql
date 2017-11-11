@@ -18,6 +18,8 @@ where
     wof.properties->'wof:concordances'->>'wd:id' =  wdd.wikidataid 
 ;
 
+ANALYSE wof_disambiguation;
+
 
 create or replace view wof_disambiguation_report
 AS

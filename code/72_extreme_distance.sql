@@ -26,6 +26,7 @@ where
 --LIMIT 1000
 ;
 
+ANALYSE wof_extreme_distance;
 
 
 create or replace view wof_extreme_distance_report

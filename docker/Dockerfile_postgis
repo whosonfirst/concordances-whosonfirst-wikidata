@@ -1,4 +1,4 @@
-FROM mdillon/postgis:10
+FROM mdillon/postgis:9.6
 
 ADD pgtune.py              /pgtune.py
 ADD pgtune-db.sh           /docker-entrypoint-initdb.d/pgtune-db.sh

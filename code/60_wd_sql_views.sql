@@ -22,7 +22,7 @@ FROM wd_names_iso2                      as wd
      left join codes.iso_language_codes as langcodes  on wd.wd_lang=langcodes.alpha2
 order by wd_id
 ;
-
+ANALYZE wikidata.wd_names_preferred;
 
 
 

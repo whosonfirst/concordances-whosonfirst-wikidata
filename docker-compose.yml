@@ -20,6 +20,7 @@ services:
      - ../whosonfirst-data:/wof/whosonfirst-data
      - ../wikidata_dump:/wof/wikidata_dump
      - ../natural-earth-vector:/wof/natural-earth-vector
+     - ../geonames:/wof/geonames
      - ./code:/wof/code
      - /var/www/html/wof-wiki-dw/output:/wof/output     
     links:

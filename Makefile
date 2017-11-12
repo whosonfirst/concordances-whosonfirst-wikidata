@@ -8,6 +8,7 @@ init:
 	mkdir -p ../whosonfirst-data
 	mkdir -p ../wikidata_dump
 	mkdir -p ../natural-earth-vector
+	mkdir -p ../geonames
 	mkdir -p /var/www/html/wof-wiki-dw/output
 	docker -v
 	docker-compose -v

@@ -11,15 +11,16 @@ csv=$2
 echo """
     DROP TABLE IF EXISTS ${table} CASCADE ;
     CREATE TABLE ${table} (
-            id             BIGINT PRIMARY KEY
+         id             BIGINT PRIMARY KEY
         ,parent_id      BIGINT
         ,placetype_id   BIGINT
+        ,wd_id          TEXT
         ,is_superseded  SMALLINT
         ,is_deprecated  SMALLINT
         ,meta           JSONB
         ,properties     JSONB
-        ,geom_hash      CHAR(32)
-        ,lastmod        CHAR(25)
+        ,geom_hash      TEXT
+        ,lastmod        TEXT
         ,geom           GEOGRAPHY(MULTIPOLYGON, 4326)
         ,centroid       GEOGRAPHY(POINT, 4326)
     )
@@ -39,6 +40,8 @@ echo "======== index & test: ${table} ==========="
 echo """
 
     -- index --
+    CREATE INDEX ${table}_by_wd_id          ON ${table}(wd_id);
+
     -- CREATE INDEX ${table}_by_geom        ON ${table} USING GIST(geom);
     -- CREATE INDEX ${table}_by_centroid    ON ${table} USING GIST(centroid);
     -- CREATE INDEX ${table}_by_placetype   ON ${table} (placetype_id);

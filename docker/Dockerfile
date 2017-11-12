@@ -1,6 +1,6 @@
 FROM golang:latest
 
-WORKDIR /wof
+WORKDIR /wof/tools
 
 RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
@@ -13,10 +13,14 @@ RUN \
         build-essential \
         curl \
         flex \
+        gdal-bin \
         git \
         libtool \
         mc \
         nano \
+        osmium-tool \
+        parallel \
+        pbzip2 \
         postgresql-client-10 \
         python-pip \
         sudo \
@@ -47,12 +51,16 @@ RUN \
     && go get github.com/svent/sift \
     && go get github.com/tidwall/gjson
 
+RUN    go get github.com/shenwei356/rush/ \
+    && go get github.com/fd0/machma \
+    && go get github.com/klauspost/compress \
+    && go get github.com/klauspost/crc32 \
+    && go get github.com/klauspost/pgzip/... 
+
+
 RUN pip install csvkit
 
-RUN    git clone --quiet --depth 1 -b add_properties_column  https://github.com/ImreSamu/go-whosonfirst-pgis \
-    && cd go-whosonfirst-pgis \
-    && make dwindex
- 
+
 RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-utils.git \
     && cd go-whosonfirst-utils \
     && make bin  
@@ -104,18 +112,8 @@ RUN   git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-
     && cd go-whosonfirst-csv \
     && make build
 
-
-RUN    go get github.com/shenwei356/rush/ \
-    && go get github.com/fd0/machma \
-    && go get github.com/klauspost/compress \
-    && go get github.com/klauspost/crc32 \
-    && go get github.com/klauspost/pgzip/... 
-
-RUN \
-       apt-get update \
-    && apt-get install -y \
-        parallel \
-        pbzip2 \
-        gdal-bin \
-        osmium-tool \
-    && rm -rf /var/lib/apt/lists/* /tmp/* 
+RUN    git clone --quiet --depth 1 -b add_properties_column  https://github.com/ImreSamu/go-whosonfirst-pgis \
+    && cd go-whosonfirst-pgis \
+    && make dwindex
+ 
+WORKDIR /wof/

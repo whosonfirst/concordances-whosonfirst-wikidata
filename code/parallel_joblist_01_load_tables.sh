@@ -20,3 +20,4 @@
 /wof/code/cmd_load_wof.sh      wof_continent       wof-continent-latest.csv
 /wof/code/cmd_load_wof.sh      wof_disputed        wof-disputed-latest.csv
 /wof/code/01_load_iso_language_codes.sh
+/wof/code/22_import_natural_earth.sh

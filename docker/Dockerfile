@@ -116,4 +116,6 @@ RUN \
     && apt-get install -y \
         parallel \
         pbzip2 \
+        gdal-bin \
+        osmium-tool \
     && rm -rf /var/lib/apt/lists/* /tmp/* 

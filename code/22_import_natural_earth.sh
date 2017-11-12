@@ -1,6 +1,5 @@
 #!/bin/bash
-
-#    PGCLIENTENCODING=LATIN1    
+  
 ogr2ogr \
     -clipsrc -180.1 -85.0511 180.1 85.0511 \
     -f Postgresql \

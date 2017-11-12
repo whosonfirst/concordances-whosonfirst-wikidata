@@ -11,6 +11,27 @@ sort -u -o /wof/whosonfirst-data/wd.txt  /wof/whosonfirst-data/wd.txt
 head /wof/whosonfirst-data/wd.txt
 wc -l /wof/whosonfirst-data/wd.txt
 
+
+echo "======== parse wikidataid_redirects ==========="
+
+cat /wof/wikidata_dump/wikidata_redirects.csv | go run ./code/wdredirect_wofparse.go             > /wof/wikidata_dump/wikidata_redirects_filtered.csv
+echo """
+    -- import 
+    CREATE SCHEMA IF NOT EXISTS wikidata;
+    DROP TABLE IF EXISTS wikidata.wd_redirects CASCADE;
+    CREATE TABLE wikidata.wd_redirects (wd_from text , wd_to text );
+    \copy wikidata.wd_redirects (wd_from,wd_to)  FROM '/wof/wikidata_dump/wikidata_redirects_filtered.csv' DELIMITER ',' CSV
+    --
+""" | psql
+
+
+
+cat /wof/wikidata_dump/wikidata_redirects_filtered.csv | cut -d',' -f2 > /wof/whosonfirst-data/wd_redirects.txt
+
+cat /wof/whosonfirst-data/wd.txt /wof/whosonfirst-data/wd_redirects.txt > /wof/whosonfirst-data/wd_extended.txt
+
+
+
 echo "======== parse wikidata_dump/latest-all.json.gz ==========="
 ls -la /wof/wikidata_dump/latest-all.json.*
 rm -f /wof/wikidata_dump/wikidata.json
@@ -41,4 +62,7 @@ echo """
     --
     \d+ wikidata.wd 
 """ | psql
+
+
+
 

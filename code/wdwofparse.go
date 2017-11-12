@@ -22,7 +22,7 @@ import (
 func main() {
 
 	wq := make(map[string]bool)
-	content, err := ioutil.ReadFile("/wof/whosonfirst-data/wd.txt")
+	content, err := ioutil.ReadFile("/wof/whosonfirst-data/wd_extended.txt")
 	if err != nil {
 		fmt.Print(err)
 	}

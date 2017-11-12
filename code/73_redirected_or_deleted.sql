@@ -1,3 +1,6 @@
+
+
+
 select 
     id
    ,properties->>'wof:name'                    as wof_name 

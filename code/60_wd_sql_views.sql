@@ -100,3 +100,17 @@ ORDER BY wd_id
 ;
 
 
+
+
+
+
+create or replace view wikidata.wd_sitelinks;
+ select 
+      data->>'id'::text                                                     as wd_id 
+    , data->'sitelinks'->jsonb_object_keys(data->'sitelinks')->>'site'      as wd_site    
+    , data->'sitelinks'->jsonb_object_keys(data->'sitelinks')->>'title'     as wd_title 
+    , data->'sitelinks'->jsonb_object_keys(data->'sitelinks')->'badges'     as wd_badges   
+    , jsonb_array_length(data->'sitelinks'->jsonb_object_keys(data->'sitelinks')->'badges')        as wd_badges_num      
+    FROM wikidata.wd 
+;
+    

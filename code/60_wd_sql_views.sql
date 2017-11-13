@@ -114,3 +114,12 @@ create or replace view wikidata.wd_sitelinks;
     FROM wikidata.wd 
 ;
     
+
+create or replace view wikidata.wd_descriptions;
+ select 
+      data->>'id'::text                                                             as wd_id 
+    , data->'descriptions'->jsonb_object_keys(data->'descriptions')->>'language'    as wd_language    
+    , data->'descriptions'->jsonb_object_keys(data->'descriptions')->>'value'       as wd_descriptions
+    FROM wikidata.wd 
+;
+ 

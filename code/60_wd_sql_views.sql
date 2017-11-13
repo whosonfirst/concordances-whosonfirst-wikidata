@@ -123,3 +123,12 @@ create or replace view wikidata.wd_descriptions;
     FROM wikidata.wd 
 ;
  
+
+--  it can be multiple language values , so wd_id + wd_language is not unique !! ;
+create or replace view wikidata.wd_aliases;
+ select 
+      data->>'id'::text                                                   as wd_id 
+    , data->'aliases'->jsonb_object_keys(data->'aliases')->>'language'    as wd_language    
+    , data->'aliases'->jsonb_object_keys(data->'aliases')->>'value'       as wd_aliases
+    FROM wikidata.wd 
+;

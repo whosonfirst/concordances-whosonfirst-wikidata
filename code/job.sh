@@ -46,8 +46,6 @@ time parallel  --results ${outputdir}/joblog03 -k  < /wof/code/parallel_joblist_
 time psql -f /wof/code/91_summary.sql
 
 rm -f ${outputdir}/wof_wikidata_status.xlsx
-
-
 pgclimb -o ${outputdir}/wof_wikidata_status.xlsx \
     -c "SELECT * FROM wof_extended_status_summary;" \
     xlsx --sheet "_status_summary_"
@@ -79,6 +77,48 @@ pgclimb -o ${outputdir}/wof_wikidata_status.xlsx \
 pgclimb -o ${outputdir}/wof_wikidata_status.xlsx \
     -c "SELECT * FROM wof_wd_redirects_sum_report;" \
     xlsx --sheet "wd_redirects_sum"
+
+
+
+
+
+
+
+
+rm -f ${outputdir}/wikidata_properties.xlsx
+pgclimb -o ${outputdir}/wikidata_properties.xlsx \
+    -c "SELECT * FROM wikidata.wd_names_preferred;" \
+    xlsx --sheet "wd_names_preferred"
+
+pgclimb -o ${outputdir}/wikidata_properties.xlsx \
+    -c "SELECT * FROM wikidata.wd_sitelinks;" \
+    xlsx --sheet "wd_sitelinks"
+
+pgclimb -o ${outputdir}/wikidata_properties.xlsx \
+    -c "SELECT * FROM wikidata.wd_descriptions;" \
+    xlsx --sheet "wd_descriptions"
+
+pgclimb -o ${outputdir}/wikidata_properties.xlsx \
+    -c "SELECT * FROM wikidata.wd_aliases;" \
+    xlsx --sheet "wd_aliases"
+
+pgclimb -o ${outputdir}/wikidata_properties.xlsx \
+    -c "SELECT * FROM wikidata.wd_names_preferred;" \
+    xlsx --sheet "wd_names_preferred"
+
+pgclimb -o ${outputdir}/wikidata_properties.xlsx \
+    -c "SELECT * FROM wikidata.wd_labels;" \
+    xlsx --sheet "wd_labels"
+
+pgclimb -o ${outputdir}/wikidata_properties.xlsx \
+    -c "SELECT * FROM wikidata.wd_P227_gnd_id;" \
+    xlsx --sheet "wd_P227_gnd_id"
+
+pgclimb -o ${outputdir}/wikidata_properties.xlsx \
+    -c "SELECT * FROM wikidata.wd_P300_iso3166_2_code;" \
+    xlsx --sheet "wd_P300_iso3166_2_code"
+
+
 
 ls ${outputdir}/* -la
 

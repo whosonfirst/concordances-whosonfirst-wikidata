@@ -126,17 +126,23 @@ create or replace view wikidata.wd_descriptions as
 
 --  it can be multiple language values , so wd_id + wd_language is not unique !! ;
 create or replace view wikidata.wd_aliases as
- select
-      data->>'id'::text                                                   as wd_id
-    , data->'aliases'->jsonb_object_keys(data->'aliases')->>'language'    as wd_language
-    , data->'aliases'->jsonb_object_keys(data->'aliases')->>'value'       as wd_alias
+with aliases as ( 
+    select
+      data->>'id'::text                                                           as wd_id
+    , jsonb_array_elements( data->'aliases'->jsonb_object_keys(data->'aliases'))  as wd_aliases_object
     FROM wikidata.wd
-;
+)
+select 
+   wd_id
+  ,wd_aliases_object->>'language' as wd_language
+  ,wd_aliases_object->>'value'    as wd_alias
+
+from aliases;
 
 
 create or replace view wikidata.wd_labels as
  select
-       data->>'id'::text as wd_id
+      data->>'id'::text as wd_id
     , data->'labels'->jsonb_object_keys(data->'labels')->>'language'   as wd_language
     , data->'labels'->jsonb_object_keys(data->'labels')->>'value'      as wd_label
     FROM wikidata.wd

@@ -71,6 +71,14 @@ pgclimb -o ${outputdir}/wof_wikidata_status.xlsx \
     -c "SELECT * FROM wof_extreme_distance_sum_report;" \
     xlsx --sheet "extreme_distance_sum"
 
+pgclimb -o ${outputdir}/wof_wikidata_status.xlsx \
+    -c "SELECT * FROM wof_wd_redirects_report;" \
+    xlsx --sheet "wd_redirects"
+
+pgclimb -o ${outputdir}/wof_wikidata_status.xlsx \
+    -c "SELECT * FROM wof_wd_redirects_sum_report;" \
+    xlsx --sheet "wd_redirects_sum"
+
 ls ${outputdir}/* -la
 
 echo "----------------------------------------------------------"

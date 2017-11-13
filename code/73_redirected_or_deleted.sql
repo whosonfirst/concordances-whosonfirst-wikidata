@@ -3,12 +3,11 @@
 
 select 
     id
-   ,properties->>'wof:name'                    as wof_name 
-   ,properties->'wof:concordances'->>'wd:id'   as wd_id
+   ,properties->>'wof:name'               as wof_name 
+   ,wd_id
 from wof
 where
-  properties->'wof:concordances'->>'wd:id'  IS NOT NULL
+   wd_id != ''
 and
-  properties->'wof:concordances'->>'wd:id'   NOT IN
- (select  data->>'id'::text as wd_id  FROM wikidata.wd )
+  wd_id  NOT IN (select  data->>'id'::text as wd_id  FROM wikidata.wd )
 ;

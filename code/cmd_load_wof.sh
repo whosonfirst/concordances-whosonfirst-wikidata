@@ -56,7 +56,7 @@ echo """
         id
     ,placetype_id
     ,properties->>'wof:name'                     AS wof_name
-    ,properties->'wof:concordances'->>'wd:id'    AS wd_id
+    ,wd_id
     FROM ${table}
     LIMIT 10;
 

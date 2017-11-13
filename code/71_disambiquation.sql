@@ -9,13 +9,13 @@ SELECT
     ,wof.id
     ,wof.properties->>'wof:name'                    as wof_name 
     ,wof.properties->>'wof:country'                 as wof_country
-    ,wof.properties->'wof:concordances'->>'wd:id'   as wd_id
+    ,wd_id
     ,wof.properties->>'wof:population'              as wof_population
     ,wof.properties->>'wof:population_rank'         as wof_population_rank 
 from public.wof                  as wof
     ,wikidata.wd_disambiguation  as wdd
 where 
-    wof.properties->'wof:concordances'->>'wd:id' =  wdd.wikidataid 
+    wof.wd_id =  wdd.wikidataid 
 ;
 
 ANALYSE wof_disambiguation;

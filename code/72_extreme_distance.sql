@@ -8,7 +8,7 @@ select
     ,wof.id
     ,wof.properties->>'wof:name'                    as wof_name 
     ,wof.properties->>'wof:country'                 as wof_country
-    ,wof.properties->'wof:concordances'->>'wd:id'   as wd_id
+    ,wof.wd_id
     ,wof.properties->>'wof:population'              as wof_population
     ,wof.properties->>'wof:population_rank'         as wof_population_rank     
     ,ST_Distance(
@@ -22,7 +22,7 @@ select
 from public.wof                  as wof
     ,wikidata.wd_rank_point      as wdp
 where 
-    wof.properties->'wof:concordances'->>'wd:id' =  wdp.wd_id
+    wof.wd_id =  wdp.wd_id
 --LIMIT 1000
 ;
 

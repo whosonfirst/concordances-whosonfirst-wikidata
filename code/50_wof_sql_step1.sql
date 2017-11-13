@@ -30,7 +30,7 @@ create table wof_rec as
 select 
     id
    ,properties->>'wof:name'                    as wof_name 
-   ,properties->'wof:concordances'->>'wd:id'   as wd_id
+   ,wd_id
    ,jsonb_object_keys(properties)              as wof_property
    ,properties->jsonb_object_keys(properties)  as wof_jvalue
    ,jsonb_typeof( properties->jsonb_object_keys(properties) ) as wof_jtype 

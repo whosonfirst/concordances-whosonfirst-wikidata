@@ -104,7 +104,7 @@ ORDER BY wd_id
 
 
 
-create or replace view wikidata.wd_sitelinks
+create or replace view wikidata.wd_sitelinks as
  select
       data->>'id'::text                                                     as wd_id
     , data->'sitelinks'->jsonb_object_keys(data->'sitelinks')->>'site'      as wd_site
@@ -115,7 +115,7 @@ create or replace view wikidata.wd_sitelinks
 ;
 
 
-create or replace view wikidata.wd_descriptions
+create or replace view wikidata.wd_descriptions as
  select
       data->>'id'::text                                                             as wd_id
     , data->'descriptions'->jsonb_object_keys(data->'descriptions')->>'language'    as wd_language
@@ -125,7 +125,7 @@ create or replace view wikidata.wd_descriptions
 
 
 --  it can be multiple language values , so wd_id + wd_language is not unique !! ;
-create or replace view wikidata.wd_aliases
+create or replace view wikidata.wd_aliases as
  select
       data->>'id'::text                                                   as wd_id
     , data->'aliases'->jsonb_object_keys(data->'aliases')->>'language'    as wd_language
@@ -134,10 +134,108 @@ create or replace view wikidata.wd_aliases
 ;
 
 
-create or replace view wikidata.wd_labels
+create or replace view wikidata.wd_labels as
  select
        data->>'id'::text as wd_id
     , data->'labels'->jsonb_object_keys(data->'labels')->>'language'   as wd_language
     , data->'labels'->jsonb_object_keys(data->'labels')->>'value'      as wd_label
     FROM wikidata.wd
+;
+
+
+
+
+/*
+CREATE OR REPLACE FUNCTION get_wd_claim(wdvar JSONB, claim TEXT)
+RETURNS TEXT AS $$
+    SELECT CASE
+        WHEN jsonb_array_elements( wdvar ->'claims'->claim )  ->'mainsnak'->'datavalue'->>'value'  IS NOT NULL THEN 
+             jsonb_array_elements( wdvar ->'claims'->claim )  ->'mainsnak'->'datavalue'->>'value'
+        ELSE ''
+    END;
+$$ LANGUAGE SQL IMMUTABLE STRICT;
+
+
+create or replace function jsonb_array_p227_values(jsonb_arr jsonb) returns text as $$
+	select array(select jsonb_array_elements(jsonb_arr->'claims'->'P227'))[1] ->'mainsnak'->'datavalue'->>'value'
+$$ language 'sql' immutable;
+*/
+
+
+
+/*
+create or replace view wikidata.wd_concordances
+select
+       data->>'id'::text as wd_id
+       , get_wd_claim(data,'p227') as wd_p227_gnd_id
+   FROM wikidata.wd
+;
+
+       ,case
+       when    jsonb_array_elements( data->'claims'->'P227' )  ->'mainsnak'->'datavalue'->>'value' is not null  
+               jsonb_array_elements( data->'claims'->'P227' )  ->'mainsnak'->'datavalue'->>'value'
+           else ''
+       end as wd_p227_gnd_id
+
+       ,jsonb_array_elements( data->'claims'->'P300' )  ->'mainsnak'->'datavalue'->>'value'  as wd_P300_iso3166_2
+       ,jsonb_array_elements( data->'claims'->'P901' )  ->'mainsnak'->'datavalue'->>'value'  as wd_P901_fips10_4     
+       ,jsonb_array_elements( data->'claims'->'P214' )  ->'mainsnak'->'datavalue'->>'value'  as wd_P214_viaf_id 
+       ,jsonb_array_elements( data->'claims'->'P1997' ) ->'mainsnak'->'datavalue'->>'value'  as wd_P1997_facebook_places_id 
+
+       ,jsonb_array_elements( data->'claims'->'P646' )  ->'mainsnak'->'datavalue'->>'value'  as wd_P646_freebase_id 
+       ,jsonb_array_elements( data->'claims'->'P3417')  ->'mainsnak'->'datavalue'->>'value'  as wd_P3417_quora_topic_id 
+       ,jsonb_array_elements( data->'claims'->'P166' )  ->'mainsnak'->'datavalue'->>'value'  as wd_P1566_geonames_id  -- TODO! array!
+       ,jsonb_array_elements( data->'claims'->'P268' )  ->'mainsnak'->'datavalue'->>'value'  as wd_P268_bnf_id 
+       ,jsonb_array_elements( data->'claims'->'P244' )  ->'mainsnak'->'datavalue'->>'value'  as wd_P244_loc_gov_id
+
+   FROM wikidata.wd
+;
+
+*/
+
+
+
+create or replace view wikidata.wd_P227_gnd_id as
+with
+p227 as (
+    select
+         data->>'id'::text                              as wd_id
+        ,jsonb_array_elements( data->'claims'->'P227' ) ->'mainsnak'->'datavalue'->>'value'  as wd_p227_gnd_id
+        ,jsonb_array_elements( data->'claims'->'P227' ) ->>'rank'                            as wd_p227_rank
+    FROM wikidata.wd
+)
+select  wd_id
+       ,case
+	        when wd_p227_rank='preferred'  then 100
+	        when wd_p227_rank='normal'     then 1
+	        when wd_p227_rank='deprecated' then -100
+	        else 0
+        end as wd_p227_rank_point
+       ,wd_p227_rank
+       ,wd_p227_gnd_id        
+from p227
+;
+
+
+
+
+create or replace view wikidata.wd_P300_iso3166_2_code as
+with
+P300 as (
+    select
+         data->>'id'::text                              as wd_id
+        ,jsonb_array_elements( data->'claims'->'P300' ) ->'mainsnak'->'datavalue'->>'value'  as wd_P300_iso3166_2_code
+        ,jsonb_array_elements( data->'claims'->'P300' ) ->>'rank'                            as wd_P300_rank
+    FROM wikidata.wd
+)
+select  wd_id
+       ,case
+	        when wd_P300_rank='preferred'  then 100
+	        when wd_P300_rank='normal'     then 1
+	        when wd_P300_rank='deprecated' then -100
+	        else 0
+        end as wd_P300_rank_point
+       ,wd_P300_rank
+       ,wd_P300_iso3166_2_code        
+from P300
 ;

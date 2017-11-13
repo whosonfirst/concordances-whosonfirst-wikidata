@@ -9,6 +9,8 @@ select
     ,wof.properties->>'wof:name'                    as wof_name 
     ,wof.properties->>'wof:country'                 as wof_country
     ,wof.wd_id
+    ,wof.is_superseded
+    ,wof.is_deprecated    
     ,wof.properties->>'wof:population'              as wof_population
     ,wof.properties->>'wof:population_rank'         as wof_population_rank     
     ,ST_Distance(
@@ -44,6 +46,8 @@ select
     , wof_name
     , wof_country
     , wd_id
+    , is_superseded
+    , is_deprecated    
     , wof_population
     , wof_population_rank    
     ,'https://whosonfirst.mapzen.com/spelunker/id/'||id    as wof_spelunker_url

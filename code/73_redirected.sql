@@ -8,10 +8,10 @@ select
     ,wof.properties->>'wof:name'                    as wof_name 
     ,wof.properties->>'wof:country'                 as wof_country
     ,wof.wd_id
+    ,wof.is_superseded
+    ,wof.is_deprecated    
     ,wof.properties->>'wof:population'              as wof_population
     ,wof.properties->>'wof:population_rank'         as wof_population_rank     
-    ,wof.is_superseded
-    ,wof.is_deprecated
     ,wd_redirects.wd_to
 from wof,
      wikidata.wd_redirects as wd_redirects

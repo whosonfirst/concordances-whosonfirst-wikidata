@@ -47,13 +47,14 @@ time psql -f /wof/code/91_summary.sql
 
 rm -f ${outputdir}/wof_wikidata_status.xlsx
 
-pgclimb -o ${outputdir}/wof_wikidata_status.xlsx \
-    -c "SELECT * FROM wof_extended_meta_status_country_summary;" \
-    xlsx --sheet "meta_status_country_summary"
 
 pgclimb -o ${outputdir}/wof_wikidata_status.xlsx \
     -c "SELECT * FROM wof_extended_status_summary;" \
-    xlsx --sheet "_status_summary"
+    xlsx --sheet "_status_summary_"
+
+pgclimb -o ${outputdir}/wof_wikidata_status.xlsx \
+    -c "SELECT * FROM wof_extended_meta_status_country_summary;" \
+    xlsx --sheet "meta_status_country_summary"
 
 pgclimb -o ${outputdir}/wof_wikidata_status.xlsx \
     -c "SELECT * FROM wof_disambiguation_report;" \

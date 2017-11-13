@@ -13,17 +13,21 @@ with
             from wof_wd_redirects
         ),        
         extrdist as (
-            select id, 1 as is_extreme_distance
+            select id, distance_km, 1 as is_extreme_distance
             from wof_extreme_distance_report
         )
 select 
      wof.id
     ,wof.metatable
-    ,case when disamb.is_disambiguation=1       then 'wikidata-ERR-Disambiguation'
-          when extrdist.is_extreme_distance=1   then 'wikidata-ERR-Extreme distance>50km'
-          when redirected.is_redirected=1       then 'wikidata-ERR-Redirected'          
-          when wof.wd_id!=''                    then 'no-wikidataid-yet'
-                                                else 'wikidata-maybe ok'
+    ,case when disamb.is_disambiguation=1                                       then 'wikidata-ERR01-Disambiguation'
+          when redirected.is_redirected=1                                       then 'wikidata-ERR02-Redirected'           
+          when extrdist.is_extreme_distance=1   and  extrdist.distance_km>=1500 then 'wikidata-ERR03-Extreme distance 1500-    km'    
+          when extrdist.is_extreme_distance=1   and  extrdist.distance_km>=700  then 'wikidata-ERR04-Extreme distance  700-1500km'
+          when extrdist.is_extreme_distance=1   and  extrdist.distance_km>=400  then 'wikidata-ERR05-Extreme distance  400- 700km'
+          when extrdist.is_extreme_distance=1   and  extrdist.distance_km>=200  then 'wikidata-ERR06-Extreme distance  200- 400km'
+          when extrdist.is_extreme_distance=1   and  extrdist.distance_km>=50   then 'wikidata-ERR07-Extreme distance   50- 200km'                              
+          when wof.wd_id!=''                                                    then 'wikidata-MAYBE ok (need more investigate)'
+                                                                                else 'no-wikidataid-yet'
      end as _status     
     ,wof.is_superseded
     ,wof.is_deprecated

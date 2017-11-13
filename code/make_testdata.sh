@@ -10,7 +10,7 @@ function sample_wof(){
     csvgrep -c wof_country -m AR  /wof/whosonfirst-data/meta/$metacsv  > /wof/test/whosonfirst-data/$metacsv
     wc -l /wof/test/whosonfirst-data/$metacsv
 
-    /wof/go-whosonfirst-clone/bin/wof-clone-metafiles \
+    /wof/tools/go-whosonfirst-clone/bin/wof-clone-metafiles \
         -dest /wof/test/whosonfirst-data/data/ \
         -source file:///wof/whosonfirst-data/data/  \
         /wof/test/whosonfirst-data/$metacsv
@@ -45,6 +45,6 @@ sample_wof    wof-microhood-latest.csv
 sample_wof    wof-region-latest.csv
 
 ls -la /wof/test/whosonfirst-data/data/
-/wof/go-whosonfirst-meta/bin/wof-build-metafiles -repo /wof/test/whosonfirst-data/
+/wof/tools/go-whosonfirst-meta/bin/wof-build-metafiles -repo /wof/test/whosonfirst-data/
 ls -la /wof/test/whosonfirst-data/meta/*
 

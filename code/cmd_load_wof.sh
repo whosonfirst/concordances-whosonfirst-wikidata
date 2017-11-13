@@ -29,7 +29,7 @@ echo """
 
 
 echo "--------------- load ${table} - with wof-pgis-index -----------------"
-time /wof/go-whosonfirst-pgis/bin/wof-pgis-index \
+time /wof/tools/go-whosonfirst-pgis/bin/wof-pgis-index \
     -pgis-password $PGPASSWORD \
     -pgis-host     $PGHOST \
     -pgis-table ${table} \

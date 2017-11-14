@@ -1,3 +1,4 @@
+/wof/code/21_import_wdplace.sh
 /wof/code/20_import_wikidata.sh
 /wof/code/cmd_load_wof.sh      wof_locality        wof-locality-latest.csv
 /wof/code/cmd_load_wof.sh      wof_localadmin      wof-localadmin-latest.csv

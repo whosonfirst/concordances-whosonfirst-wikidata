@@ -2,7 +2,7 @@
 //
 //       go run ./code/wdplaceparse.go
 //  time go run ./code/wdplaceparse.go > /wof/wikidata_dump/wdplace.json
-//  go run ./code/wdplaceparse.go | split -d --additional-suffix=.json  -n r/4 - wdplace
+//  go run ./code/wdplaceparse.go | split -d --additional-suffix=.json  -n r/4 - /wof/wikidata_dump/wdplace
 
 package main
 

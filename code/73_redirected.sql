@@ -13,10 +13,8 @@ select
     ,wof.properties->>'wof:population'              as wof_population
     ,wof.properties->>'wof:population_rank'         as wof_population_rank     
     ,wd_redirects.wd_to
-from wof,
-     wikidata.wd_redirects as wd_redirects
-where
-   wof.wd_id=wd_redirects.wd_from
+from wof
+     left join  wikidata.wd_redirects as wd_redirects  on wof.wd_id=wd_redirects.wd_from
 order by wof.id   
 ;
 

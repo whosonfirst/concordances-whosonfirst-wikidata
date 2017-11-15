@@ -21,10 +21,8 @@ select
          CDB_TransformToWebmercator(wdp.wd_point)   --  ST_Transform(wdp.wd_point, 3857 )
         ,CDB_TransformToWebmercator(wof.geom::geometry)  -- ST_Transform(wof.geom::geometry, 3857 )  
         )     as distance_geom        
-from public.wof                  as wof
-    ,wikidata.wd_rank_point      as wdp
-where 
-    wof.wd_id =  wdp.wd_id
+from         public.wof                  as wof
+   left join wikidata.wd_rank_point      as wdp   on  wof.wd_id =  wdp.wd_id
 --LIMIT 1000
 ;
 

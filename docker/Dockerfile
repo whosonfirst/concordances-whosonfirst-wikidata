@@ -116,4 +116,7 @@ RUN    git clone --quiet --depth 1 -b add_properties_column  https://github.com/
     && cd go-whosonfirst-pgis \
     && make dwindex
  
+RUN git clone --quiet --depth 1 https://github.com/whosonfirst/whosonfirst-properties.git
+
+
 WORKDIR /wof/

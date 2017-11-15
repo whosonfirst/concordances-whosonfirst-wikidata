@@ -1,6 +1,5 @@
 #!/bin/bash
-set -e
-set -u
+set -eo pipefail
 
 cd /wof
 STARTTIME=$(date +%s)
@@ -79,45 +78,26 @@ pgclimb -o ${outputdir}/wof_wikidata_status.xlsx \
     xlsx --sheet "wd_redirects_sum"
 
 
+/wof/code/92_country_export_to_xls.sh ${outputdir} AR
+/wof/code/92_country_export_to_xls.sh ${outputdir} HU
 
+/wof/code/92_country_export_to_xls.sh ${outputdir} US
+/wof/code/92_country_export_to_xls.sh ${outputdir} MX
+/wof/code/92_country_export_to_xls.sh ${outputdir} CA
 
+/wof/code/92_country_export_to_xls.sh ${outputdir} RU
+/wof/code/92_country_export_to_xls.sh ${outputdir} CN 
 
+/wof/code/92_country_export_to_xls.sh ${outputdir} AU
+/wof/code/92_country_export_to_xls.sh ${outputdir} NZ
 
+/wof/code/92_country_export_to_xls.sh ${outputdir} CH
+/wof/code/92_country_export_to_xls.sh ${outputdir} DE 
+/wof/code/92_country_export_to_xls.sh ${outputdir} AT
 
-
-rm -f ${outputdir}/wikidata_properties.xlsx
-pgclimb -o ${outputdir}/wikidata_properties.xlsx \
-    -c "SELECT * FROM wikidata.wd_names_preferred;" \
-    xlsx --sheet "wd_names_preferred"
-
-pgclimb -o ${outputdir}/wikidata_properties.xlsx \
-    -c "SELECT * FROM wikidata.wd_sitelinks;" \
-    xlsx --sheet "wd_sitelinks"
-
-pgclimb -o ${outputdir}/wikidata_properties.xlsx \
-    -c "SELECT * FROM wikidata.wd_descriptions;" \
-    xlsx --sheet "wd_descriptions"
-
-pgclimb -o ${outputdir}/wikidata_properties.xlsx \
-    -c "SELECT * FROM wikidata.wd_aliases;" \
-    xlsx --sheet "wd_aliases"
-
-pgclimb -o ${outputdir}/wikidata_properties.xlsx \
-    -c "SELECT * FROM wikidata.wd_names_preferred;" \
-    xlsx --sheet "wd_names_preferred"
-
-pgclimb -o ${outputdir}/wikidata_properties.xlsx \
-    -c "SELECT * FROM wikidata.wd_labels;" \
-    xlsx --sheet "wd_labels"
-
-pgclimb -o ${outputdir}/wikidata_properties.xlsx \
-    -c "SELECT * FROM wikidata.wd_P227_gnd_id;" \
-    xlsx --sheet "wd_P227_gnd_id"
-
-pgclimb -o ${outputdir}/wikidata_properties.xlsx \
-    -c "SELECT * FROM wikidata.wd_P300_iso3166_2_code;" \
-    xlsx --sheet "wd_P300_iso3166_2_code"
-
+/wof/code/92_country_export_to_xls.sh ${outputdir} ES 
+/wof/code/92_country_export_to_xls.sh ${outputdir} PT
+/wof/code/92_country_export_to_xls.sh ${outputdir} FR 
 
 
 ls ${outputdir}/* -la
@@ -130,4 +110,5 @@ echo "-----------------------------------------------------------"
 echo "### Finished:"
 date -u
 
+date -u > ${outputdir}/_____________finished__________________.txt
 echo "========== END OF job.sh log ============== "

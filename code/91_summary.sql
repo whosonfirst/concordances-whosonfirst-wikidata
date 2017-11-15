@@ -1,6 +1,6 @@
 
-
-create or replace view wof_extended
+DROP MATERIALIZED VIEW IF EXISTS wof_extended CASCADE;
+CREATE MATERIALIZED VIEW wof_extended
 as
 
 with 
@@ -28,7 +28,12 @@ select
           when extrdist.is_extreme_distance=1   and  extrdist.distance_km>=50   then 'wikidata-ERR07-Extreme distance   50- 200km'                              
           when wof.wd_id!=''                                                    then 'wikidata-MAYBE ok (need more investigate)'
                                                                                 else 'no-wikidataid-yet'
-     end as _status     
+     end as _status   
+    ,case when   disamb.is_disambiguation=1 
+              or redirected.is_redirected=1
+              or extrdist.is_extreme_distance=1     then 1
+                                                    else 0
+     end as _wd_is_problematic       
     ,wof.is_superseded
     ,wof.is_deprecated
     ,wof.properties->>'wof:name'                    as wof_name 
@@ -40,21 +45,37 @@ from wof
   left join disamb      on disamb.id    = wof.id
   left join extrdist    on extrdist.id  = wof.id   
   left join redirected  on redirected.id = wof.id
+order by wof.id  
+;
+
+CREATE UNIQUE INDEX  wof_extended_id            ON wof_extended( id );
+CREATE        INDEX  wof_extended_wd_id         ON wof_extended( wd_id );
+CREATE        INDEX  wof_extended_wof_country   ON wof_extended( wof_country );
+
+ANALYSE wof_extended;
+
+
+-- helper table for country extract  
+create or replace view wof_extended_wd_ok
+as
+    select id,metatable,wof_name,wof_country,wd_id
+    from  wof_extended
+    where _wd_is_problematic=0 and wd_id!=''
 ;
 
 
 create or replace view wof_extended_meta_status_country_summary
 as
-select metatable, _status , wof_country, count(*) as N
-from wof_extended
-group by metatable, _status , wof_country
-order by metatable, _status , wof_country
+    select metatable, _status , wof_country, count(*) as N
+    from wof_extended
+    group by metatable, _status , wof_country
+    order by metatable, _status , wof_country
 ;
 
 create or replace view wof_extended_status_summary
 as
-select  _status , count(*) as N
-from wof_extended
-group by _status
-order by _status
+    select  _status , count(*) as N
+    from wof_extended
+    group by _status
+    order by _status
 ;

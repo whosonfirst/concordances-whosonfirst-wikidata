@@ -1,3 +1,4 @@
+\timing
 
 DROP MATERIALIZED VIEW IF EXISTS wof_extended CASCADE;
 CREATE MATERIALIZED VIEW wof_extended

@@ -21,4 +21,4 @@ echo """
     CREATE TABLE wikidata.wd_redirects (wd_from text , wd_to text );
     \copy wikidata.wd_redirects (wd_from,wd_to)  FROM '/wof/wikidata_dump/wikidata_redirects_filtered.csv' DELIMITER ',' CSV
     --
-""" | psql
+""" | psql -e

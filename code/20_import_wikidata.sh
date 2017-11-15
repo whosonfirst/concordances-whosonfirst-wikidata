@@ -22,7 +22,7 @@ echo """
     CREATE TABLE wikidata.wd_redirects (wd_from text , wd_to text );
     \copy wikidata.wd_redirects (wd_from,wd_to)  FROM '/wof/wikidata_dump/wikidata_redirects_filtered.csv' DELIMITER ',' CSV
     --
-""" | psql
+""" | psql -e
 
 
 
@@ -43,7 +43,7 @@ echo """
     CREATE SCHEMA IF NOT EXISTS wikidata;
     DROP TABLE IF EXISTS wikidata.wd CASCADE;
     --
-""" | psql
+""" | psql -e
 
 
 time pgfutter   --schema wikidata \
@@ -61,7 +61,7 @@ echo """
     SELECT count(*) FROM wikidata.wd ;
     --
     \d+ wikidata.wd 
-""" | psql
+""" | psql -e
 
 
 

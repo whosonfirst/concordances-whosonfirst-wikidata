@@ -10,7 +10,7 @@ wget http://pkgstore.datahub.io/core/language-codes:language-codes-3b2_csv/data/
 echo """
     CREATE SCHEMA IF NOT EXISTS  codes;
     DROP TABLE IF EXISTS codes.iso_language_codes;
-""" | psql
+""" | psql -e
 
 
 pgfutter --schema codes \
@@ -30,4 +30,4 @@ echo """
 
     \d+ codes.iso_language_codes;
 
-""" | psql
+""" | psql -e 

@@ -118,5 +118,8 @@ RUN    git clone --quiet --depth 1 -b add_properties_column  https://github.com/
  
 RUN git clone --quiet --depth 1 https://github.com/whosonfirst/whosonfirst-properties.git
 
+RUN    git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-bundles.git  \
+    && cd go-whosonfirst-bundles \
+    && make bin
 
 WORKDIR /wof/

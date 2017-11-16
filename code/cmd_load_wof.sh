@@ -25,7 +25,7 @@ echo """
         ,centroid       GEOGRAPHY(POINT, 4326)
     )
     ;  
-""" | psql
+""" | psql -e 
 
 
 echo "--------------- load ${table} - with wof-pgis-index -----------------"
@@ -61,6 +61,6 @@ echo """
     LIMIT 10;
 
     ;  
-""" | psql
+""" | psql -e
 
 

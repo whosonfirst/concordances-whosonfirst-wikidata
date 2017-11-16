@@ -22,7 +22,7 @@ echo """
     DROP TABLE IF EXISTS wdplace.wd6 CASCADE;
     DROP TABLE IF EXISTS wdplace.wd7 CASCADE;                   
     --
-""" | psql
+""" | psql -e
 
 
 time pgfutter --schema wdplace --table wd0 --jsonb  json /wof/wikidata_dump/wdplace00.json
@@ -70,7 +70,7 @@ echo """
     SELECT count(*) FROM wdplace.wd ;
     --
     \d+ wdplace.wd 
-""" | psql
+""" | psql -e
 
 
 echo "END:======== parse wikidata_dump/latest-all.json.gz   by wdplaceparse.go ==========="

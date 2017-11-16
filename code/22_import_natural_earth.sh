@@ -7,7 +7,7 @@ echo """
     DROP TABLE IF EXISTS ne.ne_10m_populated_places CASCADE;
 
     --
-""" | psql
+""" | psql -e
 
 ogr2ogr \
     -f Postgresql \
@@ -34,4 +34,4 @@ echo """
     select ogc_fid,scalerank,iso_a2,name  from ne.ne_10m_populated_places limit 10;
 
     --
-""" | psql
+""" | psql -e

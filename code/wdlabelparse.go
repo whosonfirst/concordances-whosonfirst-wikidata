@@ -60,7 +60,7 @@ func main() {
 	createTableStr := []string{
 		"CREATE SCHEMA IF NOT EXISTS wdlabels;",
 		"DROP TABLE IF EXISTS wdlabels.en CASCADE;",
-		"CREATE TABLE wdlabels.en (wd_id TEXT PRIMARY KEY , wd_label TEXT );",
+		"CREATE TABLE wdlabels.en (wd_id TEXT, wd_label TEXT );",
 	}
 
 	for _, str := range createTableStr {
@@ -93,7 +93,7 @@ func main() {
 			log.Fatal(err)
 		}
 
-		if (c.v % 10000) == 0 {
+		if (c.v % 100000) == 0 {
 			fmt.Println("..loading:", c.v, "   wdid:", wdid, wdlabel)
 		}
 		return nil, nil
@@ -115,7 +115,7 @@ func main() {
 	}
 
 	postprocessingStr := []string{
-		//"CREATE UNIQUE INDEX wdlabels_en_id ON wdlabels.en(wd_id);",
+		"CREATE INDEX wdlabels_en_id ON wdlabels.en(wd_id);",
 		"ANALYSE wdlabels.en;",
 	}
 
@@ -132,5 +132,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("... wdlabels.en Loaded ...")
+	fmt.Println("... wdlabels.en Loaded:", c.v)
 }

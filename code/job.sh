@@ -39,7 +39,7 @@ rm -rf ${outputdir}/joblog04
 time parallel  --results ${outputdir}/joblog01 -k  < /wof/code/parallel_joblist_01_load_tables.sh
 time parallel  --results ${outputdir}/joblog02 -k  < /wof/code/parallel_joblist_02_sql_processing.sh
 time parallel  --results ${outputdir}/joblog03 -k  < /wof/code/parallel_joblist_03_reporting.sh
-time psql -e -f /wof/code/91_summary.sql
+time psql -e -vreportdir="${outputdir}" -f /wof/code/91_summary.sql
 time parallel  --results ${outputdir}/joblog04 -k  < /wof/code/parallel_joblist_04_country_reporting.sh
 
 ls ${outputdir}/* -la

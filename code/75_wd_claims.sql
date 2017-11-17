@@ -115,4 +115,7 @@ create index on wikidata.wd_claims ( wd_id );
 ANALYSE wikidata.wd_claims ;
 
 
+\cd :reportdir
+\copy (select * from wikidata.wd_claims) TO 'wikidata_wd_claims.csv' CSV  HEADER;
+
 --  Todo:  https://www.wikidata.org/wiki/Q79791 Reconquista (Q79791)  ...

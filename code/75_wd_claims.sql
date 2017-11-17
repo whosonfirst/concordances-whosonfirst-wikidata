@@ -24,6 +24,26 @@ AS $$
 $$;
 
 
+-- https://www.wikidata.org/wiki/Help:Dates
+CREATE OR REPLACE FUNCTION public.get_claims_dates(data jsonb, wdproperty text)
+RETURNS jsonb
+IMMUTABLE
+LANGUAGE sql
+AS $$
+    select  jsonb_agg( split_part(timevalue,'T',1)) 
+    from (
+            SELECT
+                 jsonb_array_elements( data->'claims'->wdproperty ) ->'mainsnak'->'datavalue'->'value'->>'time'  as timevalue
+            FROM jsonb_array_elements( data->'claims'->wdproperty ) as wdp
+            WHERE wdp->>'rank'='preferred'
+          UNION ALL
+            SELECT
+                 jsonb_array_elements( data->'claims'->wdproperty ) ->'mainsnak'->'datavalue'->'value'->>'time'  as timevalue
+            FROM jsonb_array_elements( data->'claims'->wdproperty ) as wdp
+            WHERE wdp->>'rank'='normal'
+        ) t
+    ;
+$$;
 
 
 
@@ -116,13 +136,33 @@ AS $$
     where rank != 'deprecated'    ;
 $$;
 
+CREATE OR REPLACE FUNCTION public.get_claims_amount(data jsonb, wdproperty text)
+RETURNS jsonb
+IMMUTABLE
+LANGUAGE sql
+AS $$
+    select  jsonb_agg( amountvalue ) 
+    from (
+            SELECT
+                 jsonb_array_elements( data->'claims'->wdproperty ) ->'mainsnak'->'datavalue'->'value'->>'amount'  as amountvalue
+            FROM jsonb_array_elements( data->'claims'->wdproperty ) as wdp
+            WHERE wdp->>'rank'='preferred'
+          UNION ALL
+            SELECT
+                 jsonb_array_elements( data->'claims'->wdproperty ) ->'mainsnak'->'datavalue'->'value'->>'amount'  as amountvalue
+            FROM jsonb_array_elements( data->'claims'->wdproperty ) as wdp
+            WHERE wdp->>'rank'='normal'
+        ) t
+    ;
+$$;
+
 
 
 
 drop table if exists wikidata.wd_claims CASCADE;
 create table wikidata.wd_claims as
 select
-    data->>'id'::text                 as wd_id
+     data->>'id'::text                      as wd_id
     ,get_claims2ajsonb_label(data,'P31')    as p31_instance_of
     ,get_claims2ajsonb_label(data,'P279')   as p279_subclass_of    
     ,get_claims2ajsonb_label(data,'P17')    as p17_country_id     
@@ -173,7 +213,7 @@ select
 
     ,get_claims2jsonba(data, 'P2959')   as p2959_permanent_dupl
     ,get_claims2jsonba(data, 'P18')     as p18_image
-    ,get_claims2jsonba(data, 'P2044')   as p2044_elevation
+    ,get_claims_amount(data, 'P2044')   as p2044_elevation
 
     ,get_claims2jsonba(data, 'P443')    as p443_pronunciation_audio
     ,get_claims2jsonba(data, 'P898')    as p898_ipa_transcription
@@ -185,7 +225,7 @@ select
     ,get_claims2jsonba(data, 'P41')     as p41_flag_image
     ,get_claims2jsonba(data, 'P935')    as p935_commons_gallery
 
-    ,get_claims2jsonba(data, 'P1151')   as p111_main_wikimedia_portal   
+    ,get_claims2ajsonb_label(data, 'P1151')   as p111_main_wikimedia_portal   
     ,get_claims2jsonba(data, 'P473')    as p473_local_dialing_code
 
     ,get_monolingualtext_claims2ajsonb(data, 'P1813')   as p1813_short_name
@@ -194,10 +234,10 @@ select
     ,get_monolingualtext_claims2ajsonb(data, 'P1705')   as p1705_native_label
     ,get_monolingualtext_claims2ajsonb(data, 'P1449')   as p1449_nick_name
 
-    ,get_claims2jsonba(data, 'P580')    as p580_start_time
-    ,get_claims2jsonba(data, 'P582')    as p582_end_time
-    ,get_claims2jsonba(data, 'P571')    as p571_incepion_date
-    ,get_claims2jsonba(data, 'P576')    as p576_dissolved_date
+    ,get_claims_dates(data, 'P580')    as p580_start_time
+    ,get_claims_dates(data, 'P582')    as p582_end_time
+    ,get_claims_dates(data, 'P571')    as p571_incepion_date
+    ,get_claims_dates(data, 'P576')    as p576_dissolved_date
 FROM wikidata.wd
 ORDER BY data->>'id'::text
 ;

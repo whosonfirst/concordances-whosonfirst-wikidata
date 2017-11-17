@@ -36,5 +36,8 @@ update_wof:
 run:
 	time docker-compose run --rm  wof_wiki_dw /wof/code/job.sh
 
+test:
+	time docker-compose run --rm  wof_wiki_dw /wof/code/rjob.sh
+
 listsize:
 	du -sh ../*

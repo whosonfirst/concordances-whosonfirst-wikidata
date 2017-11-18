@@ -58,6 +58,17 @@ AS $$
     ;
 $$;
 
+CREATE OR REPLACE FUNCTION public.get_wdlabeltext(wdid text)
+RETURNS text
+IMMUTABLE
+LANGUAGE sql
+AS $$
+    SELECT wd_label          
+    FROM wdlabels.en
+    WHERE wd_id=wdid
+    ;
+$$;
+
 
 CREATE OR REPLACE FUNCTION public.get_claims2ajsonb_label(data jsonb, wdproperty text)
 RETURNS jsonb
@@ -143,19 +154,64 @@ LANGUAGE sql
 AS $$
     select  jsonb_agg( amountvalue ) 
     from (
-            SELECT
-                 jsonb_array_elements( data->'claims'->wdproperty ) ->'mainsnak'->'datavalue'->'value'->>'amount'  as amountvalue
-            FROM jsonb_array_elements( data->'claims'->wdproperty ) as wdp
-            WHERE wdp->>'rank'='preferred'
+            SELECT jsonb_array_elements( data->'claims'->wdproperty ) ->'mainsnak'->'datavalue'->'value'->>'amount'  as amountvalue
+                  ,1 as claimorder
+            FROM   jsonb_array_elements( data->'claims'->wdproperty ) as wdp
+            WHERE  wdp->>'rank'='preferred'
           UNION ALL
-            SELECT
-                 jsonb_array_elements( data->'claims'->wdproperty ) ->'mainsnak'->'datavalue'->'value'->>'amount'  as amountvalue
-            FROM jsonb_array_elements( data->'claims'->wdproperty ) as wdp
-            WHERE wdp->>'rank'='normal'
+            SELECT jsonb_array_elements( data->'claims'->wdproperty ) ->'mainsnak'->'datavalue'->'value'->>'amount'  as amountvalue
+                   ,2 as claimorder
+            FROM   jsonb_array_elements( data->'claims'->wdproperty ) as wdp
+            WHERE  wdp->>'rank'='normal'
         ) t
+    order by claimorder    
     ;
 $$;
 
+
+
+-- [{"latitude": "-40.7", "longitude": "-66.15"}]
+-- [{"latitude": "-32.6", "longitude": "-66.125"}]
+-- [{"latitude": "-28.05", "longitude": "-58.233333333333"}, {"latitude": "-28.04532", "longitude": "-58.22835"}]
+
+CREATE OR REPLACE FUNCTION public.get_wdc_globecoordinate(data jsonb, wdproperty text)
+RETURNS jsonb
+IMMUTABLE
+LANGUAGE sql
+AS $$
+    select  jsonb_agg(coord) 
+    from (
+    
+        select  *,claimorder
+        FROM(
+        
+            SELECT
+            	jsonb_build_object(
+                  'latitude'  
+                  ,wdp ->'mainsnak'->'datavalue'->'value'->>'latitude'
+                  ,'longitude' 
+                  ,wdp ->'mainsnak'->'datavalue'->'value'->>'longitude'
+                ) as coord
+                ,1 as claimorder
+            FROM jsonb_array_elements( data->'claims'->wdproperty ) as wdp
+            WHERE  wdp->>'rank'='preferred'  and  wdp->'mainsnak'->'datavalue'->>'type' = 'globecoordinate'
+          UNION ALL
+            SELECT
+            	jsonb_build_object(
+                  'latitude'  
+                  ,wdp ->'mainsnak'->'datavalue'->'value'->>'latitude'
+                  ,'longitude' 
+                  ,wdp ->'mainsnak'->'datavalue'->'value'->>'longitude'
+                ) as coord
+                ,2 as claimorder
+            FROM jsonb_array_elements( data->'claims'->wdproperty ) as wdp
+            WHERE wdp->>'rank'='normal'  and  wdp->'mainsnak'->'datavalue'->>'type' = 'globecoordinate'
+        ) s
+        order BY claimorder     
+    ) t
+ 
+    ;
+$$;
 
 
 
@@ -163,6 +219,9 @@ drop table if exists wikidata.wd_claims CASCADE;
 create table wikidata.wd_claims as
 select
      data->>'id'::text                      as wd_id
+
+    ,get_wdc_globecoordinate(data,'P625')   as p625_coordinate location    
+
     ,get_claims2ajsonb_label(data,'P31')    as p31_instance_of
     ,get_claims2ajsonb_label(data,'P279')   as p279_subclass_of    
     ,get_claims2ajsonb_label(data,'P17')    as p17_country_id     

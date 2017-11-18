@@ -34,4 +34,5 @@ services:
      - DB_USER=whosonfirst
      - DB_NAME=whosonfirst
      - DB_PASS=whosonfirst
+     - outputdir=/wof/output
 

@@ -70,6 +70,56 @@ AS $$
 $$;
 
 
+-- [{"population": "+1436697", "determination": null, "population_time": "+2014-01-01T00:00:00Z", "determinationlabel": null}, {"population": "+1256810", "determination": null, "population_time": "+2005-00-00T00:00:00Z", "determinationlabel": null}, {"population": "+1492510", "determination": null, "population_time": "+2017-00-00T00:00:00Z", "determinationlabel": null}]
+-- [{"population": "+1316", "determination": "Q15911027", "population_time": "+2017-01-01T00:00:00Z", "determinationlabel": "demographic balance"}]
+-- [{"population": "+9244", "determination": "Q39825", "population_time": "+2010-00-00T00:00:00Z", "determinationlabel": "census"}]
+
+CREATE OR REPLACE FUNCTION public.get_wdc_population_list(data jsonb, wdproperty text)
+RETURNS jsonb
+IMMUTABLE
+LANGUAGE sql
+AS $$
+    select  jsonb_agg(pop) 
+    from (
+    
+        select  *,claimorder
+        FROM(
+            SELECT
+           	jsonb_build_object(
+                  'population'  
+                  ,wdp ->'mainsnak'->'datavalue'->'value'->>'amount'
+                  ,'population_time' 
+                  ,wdp ->'qualifiers'->'P585'->0->'datavalue'->'value'->>'time'
+                  ,'determination' 
+                  ,wdp ->'qualifiers'->'P459'->0->'datavalue'->'value'->>'id'
+                  ,'determinationlabel' 
+                  ,get_wdlabeltext( wdp ->'qualifiers'->'P459'->0->'datavalue'->'value'->>'id' )
+                ) as pop
+                ,1 as claimorder
+            FROM jsonb_array_elements( data->'claims'->wdproperty ) as wdp
+            WHERE  wdp->>'rank'='preferred'  -- and  wdp->'mainsnak'->'datavalue'->>'type' = 'globecoordinate'
+          UNION ALL
+            SELECT
+           	jsonb_build_object(
+                  'population'  
+                  ,wdp ->'mainsnak'->'datavalue'->'value'->>'amount'
+                  ,'population_time' 
+                  ,wdp ->'qualifiers'->'P585'->0->'datavalue'->'value'->>'time'
+                  ,'determination' 
+                  ,wdp ->'qualifiers'->'P459'->0->'datavalue'->'value'->>'id'
+                  ,'determinationlabel' 
+                  ,get_wdlabeltext( wdp ->'qualifiers'->'P459'->0->'datavalue'->'value'->>'id' )
+                ) as pop
+                ,2 as claimorder
+            FROM jsonb_array_elements( data->'claims'->wdproperty ) as wdp
+            WHERE wdp->>'rank'='normal'  -- and  wdp->'mainsnak'->'datavalue'->>'type' = 'globecoordinate'
+        ) s
+        order BY claimorder     
+    ) t
+ 
+    ;
+$$;
+
 CREATE OR REPLACE FUNCTION public.get_claims2ajsonb_label(data jsonb, wdproperty text)
 RETURNS jsonb
 IMMUTABLE
@@ -241,6 +291,8 @@ select
     ,get_claims2ajsonb_label(data,'P155')   as p155_follows
     ,get_claims2ajsonb_label(data,'P159')   as p159_headquarters_location
     ,get_claims2ajsonb_label(data,'P238')   as p238_iata_airport
+
+    ,get_wdc_population_list(data, 'P1082') as p1082_population 
 
     ,get_claims2jsonba(data, 'P227')    as p227_gnd_id
     ,get_claims2jsonba(data, 'P300')    as p300_iso3166_2

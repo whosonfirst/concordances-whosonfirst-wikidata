@@ -32,11 +32,3 @@ pgclimb -o ${outputdir}/wof_wikidata_status.xlsx \
 pgclimb -o ${outputdir}/wof_wikidata_status.xlsx \
     -c "SELECT * FROM wof_wd_redirects_sum_report;" \
     xlsx --sheet "wd_redirects_sum"
-
-
-
-
-rm -f ${outputdir}/wd_claims.xlsx
-pgclimb -o ${outputdir}/wd_claims.xlsx \
-    -c "SELECT * FROM wikidata.wd_claims LIMIT 10000" \
-    xlsx --sheet "_top10000_wd_claims"

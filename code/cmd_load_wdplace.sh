@@ -54,15 +54,17 @@ echo """
         ,get_wdc_population(data,'P1082')  as p1082_population 
         ,get_wdc_value(data, 'P300')       as p300_iso3166_2
         ,get_wdc_value(data, 'P901')       as p901_fips10_4
-    FROM wdplace.wd0
+    FROM wdplace.wd${part}
     ORDER BY data->>'id'::text
     ;
 
-    CREATE INDEX wdplace_wd0_x_point      ON wdplace.wd${part}_x  USING GIST(wd_point);
-    CREATE INDEX wdplace_wd0_x_wdid       ON wdplace.wd${part}_x ( wd_id );
-    CREATE INDEX wdplace_wd0_x_nameclean  ON wdplace.wd${part}_x ( wd_name_en_clean );
+    CREATE INDEX wdplace_wd${part}_x_point      ON wdplace.wd${part}_x  USING GIST(wd_point);
+    CREATE INDEX wdplace_wd${part}_x_wdid       ON wdplace.wd${part}_x ( wd_id );
+    CREATE INDEX wdplace_wd${part}_x_nameclean  ON wdplace.wd${part}_x ( wd_name_en_clean );
 
     ANALYSE  wdplace.wd${part}_x ;
+    --
+    
     \d+ wdplace.wd${part}_x 
     
     --

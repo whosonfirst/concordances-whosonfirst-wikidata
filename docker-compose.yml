@@ -8,6 +8,8 @@ services:
       - ../postgres_data:/var/lib/postgresql/data    
     tmpfs:
      - /tmp
+    ports:
+     - 127.0.0.1:225432:5432     
     environment:
      - POSTGRES_DB=whosonfirst
      - POSTGRES_USER=whosonfirst
@@ -35,4 +37,3 @@ services:
      - DB_NAME=whosonfirst
      - DB_PASS=whosonfirst
      - outputdir=/wof/output
-

@@ -1,8 +1,9 @@
 // Filter Wikidata JSON dump  Order of lines is not preserved.
 //
-//       go run ./code/wdplaceparse.go
-//  time go run ./code/wdplaceparse.go > /wof/wikidata_dump/wdplace.json
-//  go run ./code/wdplaceparse.go | split -d --additional-suffix=.json  -n r/4 - /wof/wikidata_dump/wdplace
+//       go run ./code/wdplaceparse.go /wof/code/wikidata_county_district.csv
+//       go run ./code/wdplaceparse.go /wof/code/wikidata_localities.csv
+//  time go run ./code/wdplaceparse.go /wof/code/wikidata_localities.csv > /wof/wikidata_dump/wdplace.json
+//  go run ./code/wdplaceparse.go /wof/code/wikidata_localities.csv | split -d --additional-suffix=.json  -n r/4 - /wof/wikidata_dump/wdplace
 
 package main
 
@@ -21,9 +22,11 @@ import (
 
 func main() {
 
+	csvcode := os.Args[1]
 	wdtype := make(map[string]bool)
 	//content, err := ioutil.ReadFile("/wof/code/wikidata_city_town.csv")
-	content, err := ioutil.ReadFile("/wof/code/wikidata_localities.csv")
+	//content, err := ioutil.ReadFile("/wof/code/wikidata_localities.csv")
+	content, err := ioutil.ReadFile(csvcode)
 	if err != nil {
 		fmt.Print(err)
 	}
@@ -34,8 +37,16 @@ func main() {
 
 		if len(line) >= 2 && line[0] == 'Q' {
 			qcode = strings.Split(line, ",")[0]
-			wdtype[qcode] = true
+
+			// remove spaces
+			qcode = strings.Replace(qcode, " ", "", -1)
+
+			// only add 'Q' codes,
+			if qcode[0] == 'Q' {
+				wdtype[qcode] = true
+			}
 		} else {
+			// not added , maybe a comment
 		}
 
 	}

@@ -249,11 +249,12 @@ AS $$
 $$;
 
 
+
 drop table if exists wikidata.wd_claims CASCADE;
 create table wikidata.wd_claims as
 select
      data->>'id'::text                      as wd_id
-
+    ,is_cebuano(data)                       as wd_is_cebuano
     ,get_wdc_globecoordinate(data,'P625')   as p625_coordinate_location    
 
     ,get_wdc_item_label(data,'P31')    as p31_instance_of

@@ -43,6 +43,10 @@ ls -la /wof/wikidata_dump/wdplace_dependency.json
 ls -la /wof/wikidata_dump/wdplace_region.json 
 ls -la /wof/wikidata_dump/wdplace_county.json 
 
+wc -l /wof/wikidata_dump/wdplace_country.json
+wc -l /wof/wikidata_dump/wdplace_dependency.json
+wc -l /wof/wikidata_dump/wdplace_region.json 
+wc -l /wof/wikidata_dump/wdplace_county.json 
 
 echo """
     --

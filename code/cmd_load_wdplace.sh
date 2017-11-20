@@ -39,6 +39,7 @@ echo """
          data->>'id'::text                      as wd_id
         ,get_wdlabeltext(data->>'id'::text)     as wd_name_en
         ,(regexp_split_to_array( get_wdlabeltext(data->>'id'::text), '[,()]'))[1]   as wd_name_en_clean
+        ,is_cebuano(data)                       as wd_is_cebuano
         ,get_wdc_value(data, 'P1566')           as p1566_geonames    
         ,ST_SetSRID(ST_MakePoint( 
                      cast(get_wdc_globecoordinate(data,'P625')->0->>'longitude' as double precision)
@@ -64,7 +65,7 @@ echo """
 
     ANALYSE  wdplace.wd${part}_x ;
     --
-    
+
     \d+ wdplace.wd${part}_x 
     
     --

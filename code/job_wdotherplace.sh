@@ -26,6 +26,7 @@ date -u
 # install postgis functions;
 wget https://raw.githubusercontent.com/CartoDB/cartodb-postgresql/master/scripts-available/CDB_TransformToWebmercator.sql
 psql -f CDB_TransformToWebmercator.sql
+psql -e  -f /wof/code/sql_functions.sql
 
 
 #rm -rf ${outputdir}/joblog_place00

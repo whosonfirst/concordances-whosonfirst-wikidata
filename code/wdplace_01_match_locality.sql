@@ -11,31 +11,6 @@ create extension if not exists unaccent;
 --  only 1 match!
 
 
-CREATE OR REPLACE FUNCTION public.is_cebuano(data jsonb)
-RETURNS bool
-IMMUTABLE
-LANGUAGE sql
-AS $$
-    with cebu_calc as      
-    (
-        SELECT sum(    
-        case when site in ( 'enwiki','dewiki','ptwiki','eswiki','ruwiki','frwiki','nlwiki')   then 10
-                when site in ( 'svwiki','shwiki' )   then  3
-                when site in ( 'cebwiki')            then -9      
-                                                     else  5
-        end
-        ) site_points
-        FROM jsonb_object_keys(data->'sitelinks') as site
-    )
-    select case when site_points > 0 then false
-                                     else true
-        end 
-    from cebu_calc    
-    ;
-$$;
-
-
-
 -- drop view if exists  wdplace.wd_for_matching CASCADE;
 drop table if exists  wdplace.wd_for_matching CASCADE;
 create table  wdplace.wd_for_matching  as
@@ -54,7 +29,7 @@ with x AS (
     FROM x 
     WHERE wd_id != wd_name_en
       and wd_point is not null 
-      and wd_is_cebuano = false
+      and wd_is_cebuano IS FALSE
     ;
 
 CREATE INDEX CONCURRENTLY wdplace_wd_for_matching_x_point           ON  wdplace.wd_for_matching USING GIST(wd_point);

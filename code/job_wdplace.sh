@@ -27,6 +27,8 @@ date -u
 # install postgis functions;
 wget https://raw.githubusercontent.com/CartoDB/cartodb-postgresql/master/scripts-available/CDB_TransformToWebmercator.sql
 psql -f CDB_TransformToWebmercator.sql
+psql -e  -f /wof/code/sql_functions.sql
+psql -e  -c "create extension if not exists unaccent;"
 
 
 rm -rf ${outputdir}/joblog_place00

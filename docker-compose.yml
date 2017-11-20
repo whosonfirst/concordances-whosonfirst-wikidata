@@ -9,7 +9,7 @@ services:
     tmpfs:
      - /tmp
     ports:
-     - 127.0.0.1:225432:5432     
+     - 127.0.0.1:25432:5432     
     environment:
      - POSTGRES_DB=whosonfirst
      - POSTGRES_USER=whosonfirst

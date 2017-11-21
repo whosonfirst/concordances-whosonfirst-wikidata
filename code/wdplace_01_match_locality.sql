@@ -98,16 +98,14 @@ with wd_agg as
     select id, wof_name, wof_country,wof_wd_id
         ,  array_agg(wd_id     order by _distance) as a_wd_id
         ,  array_agg(_distance order by _distance) as a_wd_id_distance 
-        ,  array_agg(_name_match_type  order by _name_match_type ) as a_wd_name_match_type    
-        ,  p31_instance_of
-        ,  p17_country_id             
+        ,  array_agg(_name_match_type  order by _name_match_type ) as a_wd_name_match_type             
     from wd_wof_match
-    group by id, wof_name, wof_country,wof_wd_id,p31_instance_of,p17_country_id
-    order by id, wof_name, wof_country,wof_wd_id,p31_instance_of,p17_country_id
+    group by id, wof_name, wof_country,wof_wd_id 
+    order by id, wof_name, wof_country,wof_wd_id  
 )
-select wd_agg.*
-      ,get_wdc_item_label(wd.data,'P31') as wof_p31_instance_of
-      ,get_wdc_item_label(wd.data,'P17') as wof_p17_country_id 
+, wd_agg_extended as
+(
+ select wd_agg.*
       ,case 
          when  array_length(a_wd_id,1) =1  then   a_wd_id[1]
            else NULL
@@ -132,8 +130,18 @@ select wd_agg.*
          when  array_length(a_wd_id,1) =1   and  wof_wd_id != a_wd_id[1] and wof_wd_id  ='' then 'suggested for add-'||a_wd_name_match_type[1] 
          else 'multiple_match (please not import this!)'
       end as _matching_category
-from wd_agg
-left join wikidata.wd as wd on wd_agg.wof_wd_id=wd.data->>'id'  
+  from wd_agg
+)
+select wd_agg_extended.* 
+      ,get_wdc_item_label(wd.data,'P31') as old_p31_instance_of
+      ,wdnew.p31_instance_of             as new_p31_instance_of      
+      ,get_wdc_item_label(wd.data,'P17') as old_p17_country_id       
+      ,wdnew.p17_country_id              as new_p17_country_id
+      ,get_wdlabeltext(wd_agg_extended.wof_wd_id)        as old_wd_label
+      ,get_wdlabeltext(wd_agg_extended._suggested_wd_id) as new_wd_label
+from wd_agg_extended
+left join wikidata.wd              as wd     on wd_agg_extended.wof_wd_id=wd.data->>'id'
+left join wdplace.wd_for_matching  as wdnew  on wd_agg_extended._suggested_wd_id=wdnew.wd_id   
 -- order by wd_number_of_matches  desc
 ;
 ANALYSE wd_wof_match_agg ;

@@ -281,6 +281,9 @@ select
     ,get_wdc_population(data, 'P1082') as p1082_population 
 
     ,get_wdc_value(data, 'P227')    as p227_gnd_id
+    ,get_wdc_value(data, 'P297')    as p297_iso3166_1_alpha2
+    ,get_wdc_value(data, 'P298')    as p298_iso3166_1_alpha3    
+    ,get_wdc_value(data, 'P299')    as p299_iso3166_1_numeric
     ,get_wdc_value(data, 'P300')    as p300_iso3166_2
     ,get_wdc_value(data, 'P901')    as p901_fips10_4
     ,get_wdc_value(data, 'P214')    as p214_viaf

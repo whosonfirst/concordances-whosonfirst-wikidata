@@ -78,7 +78,8 @@ echo """
 echo "::4x PG analyze done"
 
 #time parallel  --results ${outputdir}/joblog_place01 -k  < /wof/code/parallel_joblist_place1_load.sh
-#time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_01_match_locality.sql
+
+time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_02_match_country.sql
 
 
 ls ${outputdir}/* -la

@@ -145,15 +145,14 @@ left join wdplace.wd_for_matching  as wdnew  on wd_agg_extended._suggested_wd_id
 ANALYSE wd_mc_wof_match_agg ;
 
 
-drop table if exists  wd_wof_match_agg_summary CASCADE;
-create table  wd_wof_match_agg_summary  as
-    select _matching_category,  wd_number_of_matches, _firstmatch_distance_category, count(*) as N  
-    from wd_wof_match_agg
-    -- where  wof_country='HU'
-    group by  _matching_category, wd_number_of_matches, _firstmatch_distance_category
-    order by  _matching_category, wd_number_of_matches, _firstmatch_distance_category
-;
-ANALYSE wd_wof_match_agg_summary ;
+drop table if exists  wd_mc_wof_match_agg_summary CASCADE;
+create table          wd_mc_wof_match_agg_summary  as
+    select _matching_category,  wd_number_of_matches,  count(*) as N  
+    from wd_mc_wof_match_agg
+    group by  _matching_category, wd_number_of_matches
+    order by  _matching_category, wd_number_of_matches
+    ;
+ANALYSE wd_mc_wof_match_agg_summary ;
 
 -- Q11965730
 

@@ -82,6 +82,17 @@ echo "::4x PG analyze done"
 time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_02_match_country.sql
 
 
+xlsxname=${outputdir}/wd_wof_country_matches.xlsx
+rm -f ${xlsxname}
+pgclimb -o ${xlsxname} \
+    -c "SELECT * FROM wd_mc_wof_match_agg_summary;" \
+    xlsx --sheet "_summary_"
+
+pgclimb -o ${xlsxname} \
+    -c "SELECT * FROM wd_mc_wof_match_agg;" \
+    xlsx --sheet "country_list"
+
+
 ls ${outputdir}/* -la
 
 echo "----------------------------------------------------------"

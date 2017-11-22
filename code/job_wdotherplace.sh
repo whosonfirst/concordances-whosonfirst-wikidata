@@ -70,16 +70,21 @@ echo "::4x importing done"
 echo """
     --
     ANALYZE  wdplace.wd_country ;
+    ANALYZE  wdplace.wd_county ;  
     ANALYZE  wdplace.wd_dependency ;
     ANALYZE  wdplace.wd_region ;
-    ANALYZE  wdplace.wd_county ;  
     --
 """ | psql -e
 echo "::4x PG analyze done"
 
 #time parallel  --results ${outputdir}/joblog_place01 -k  < /wof/code/parallel_joblist_place1_load.sh
 
+
 time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_02_match_country.sql
+
+time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_03_match_county.sql
+time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_04_match_region.sql
+time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_05_match_dependency.sql
 
 
 xlsxname=${outputdir}/wd_wof_country_matches.xlsx
@@ -92,6 +97,9 @@ pgclimb -o ${xlsxname} \
     -c "SELECT * FROM wd_mc_wof_match_agg;" \
     xlsx --sheet "country_list"
 
+/wof/code/cmd_export_matching_sheet.sh  wd_mcounty_wof_match_agg_summary  wd_mcounty_wof_match_agg  wd_wof_county_matches.xlsx 
+/wof/code/cmd_export_matching_sheet.sh  wd_mregion_wof_match_agg_summary  wd_mregion_wof_match_agg  wd_wof_region_matches.xlsx 
+/wof/code/cmd_export_matching_sheet.sh  wd_mdependency_wof_match_agg_summary  wd_mdependency_wof_match_agg  wd_wof_dependency_matches.xlsx 
 
 ls ${outputdir}/* -la
 

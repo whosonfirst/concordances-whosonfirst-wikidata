@@ -5,6 +5,20 @@
 -- on truthyness: https://www.mediawiki.org/wiki/Wikibase/Indexing/RDF_Dump_Format#Truthy_statements
 -- https://github.com/nichtich/wikidata-taxonomy
 
+        
+CREATE OR REPLACE FUNCTION public.get_countrycode(wdid text)
+RETURNS text
+IMMUTABLE
+LANGUAGE sql
+AS $$
+    SELECT wof_country
+    FROM codes.wd2country
+    WHERE wd_id=wdid
+    ;
+$$;
+-- select get_countrycode('Q30');
+
+
 
 CREATE OR REPLACE FUNCTION public.is_cebuano(data jsonb)
 RETURNS bool
@@ -137,6 +151,30 @@ IMMUTABLE
 LANGUAGE sql
 AS $$
     select  jsonb_agg(get_wdlabel(dataitem)) 
+    from (
+        SELECT  *,claimorder
+        FROM(
+            SELECT wdp ->'mainsnak'->'datavalue'->'value'->>'id'  as dataitem
+                   ,1 as claimorder
+            FROM jsonb_array_elements( data->'claims'->wdproperty ) as wdp
+            WHERE wdp->>'rank'='preferred'
+          UNION ALL
+            SELECT wdp ->'mainsnak'->'datavalue'->'value'->>'id'  as dataitem
+                  ,2 as claimorder
+            FROM jsonb_array_elements( data->'claims'->wdproperty ) as wdp
+            WHERE wdp->>'rank'='normal'
+        ) s     
+        ORDER BY claimorder
+    ) t 
+    ;
+$$;
+
+CREATE OR REPLACE FUNCTION public.get_wdc_item(data jsonb, wdproperty text)
+RETURNS jsonb
+IMMUTABLE
+LANGUAGE sql
+AS $$
+    select  jsonb_agg(dataitem) 
     from (
         SELECT  *,claimorder
         FROM(

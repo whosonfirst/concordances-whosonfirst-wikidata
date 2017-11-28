@@ -70,11 +70,20 @@ func main() {
 		p31claims := gjson.GetBytes(b, "claims.P31.#.mainsnak.datavalue.value.id")
 		for _, k := range p31claims.Array() {
 			if ok := wdtype[k.String()]; ok {
-				// replace last coma to space
-				if b[len(b)-2] == 44 {
-					b[len(b)-2] = 32
+
+				// Check has a qualifiers.P582(end time) ?
+				// https://www.wikidata.org/wiki/Property:P582 "indicates the time an item ceases to exist or a statement stops being valid"
+				valueP582 := gjson.GetBytes(b, `claims.P17.#[mainsnak.datavalue.value.id="`+k.String()+`"].qualifiers.P582`)
+
+				// No P582(end time)  - so this is valid claims!
+				if !valueP582.Exists() {
+
+					// replace last coma to space
+					if b[len(b)-2] == 44 {
+						b[len(b)-2] = 32
+					}
+					return b, nil
 				}
-				return b, nil
 			}
 		}
 		return nil, nil

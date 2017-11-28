@@ -172,7 +172,7 @@ def main():
     print("#")
     print("# More customisations ")
     print("#")
-    print("autovacuum=off")
+    print("autovacuum=on")
 
 if __name__ == '__main__':
     main()

@@ -1,6 +1,10 @@
-## /wof/code/21_import_wdplace.sh
+/wof/code/21_import_wdplace.sh
 /wof/code/20_import_wikidata.sh
-/wof/code/23_import_wdlabels.sh 
+/wof/code/23_import_wdlabels.sh
+go run /wof/code/wdplaceparse.go /wof/code/wikidata_country.csv    > /wof/wikidata_dump/wdplace_country.json
+go run /wof/code/wdplaceparse.go /wof/code/wikidata_dependency.csv > /wof/wikidata_dump/wdplace_dependency.json
+go run /wof/code/wdplaceparse.go /wof/code/wikidata_region.csv     > /wof/wikidata_dump/wdplace_region.json
+go run /wof/code/wdplaceparse.go /wof/code/wikidata_county.csv     > /wof/wikidata_dump/wdplace_county.json
 /wof/code/cmd_load_wof.sh      wof_locality        wof-locality-latest.csv
 /wof/code/cmd_load_wof.sh      wof_localadmin      wof-localadmin-latest.csv
 /wof/code/cmd_load_wof.sh      wof_neighbourhood   wof-neighbourhood-latest.csv

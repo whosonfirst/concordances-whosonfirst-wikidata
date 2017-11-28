@@ -154,8 +154,10 @@ create table          wd_mc_wof_match_agg_summary  as
     ;
 ANALYSE wd_mc_wof_match_agg_summary ;
 
-drop table if exists  codes.wd2country CASCADE;
-create table          codes.wd2country  as
+
+
+drop table if exists  codes.wd2country_new CASCADE;
+create table          codes.wd2country_new  as
     select 
          coalesce( _suggested_wd_id, wof_wd_id ) as wd_id
         ,wof_country
@@ -164,8 +166,8 @@ create table          codes.wd2country  as
     order by coalesce( _suggested_wd_id, wof_wd_id )
 ;
 
-CREATE UNIQUE INDEX codes_wd2country_wd_id          ON codes.wd2country (wd_id);
-CREATE UNIQUE INDEX codes_wd2country_wof_country    ON codes.wd2country (wof_country);    
-ANALYSE codes.wd2country;
+CREATE UNIQUE INDEX codes_wd2country_new_wd_id          ON codes.wd2country_new (wd_id);
+CREATE UNIQUE INDEX codes_wd2country_new_wof_country    ON codes.wd2country_new (wof_country);    
+ANALYSE codes.wd2country_new;
 
 

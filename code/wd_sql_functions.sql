@@ -1,11 +1,30 @@
 
+CREATE EXTENSION if not exists unaccent;
+CREATE EXTENSION if not exists postgis;
+CREATE EXTENSION if not exists plpythonu;
+CREATE EXTENSION if not exists cartodb;
 
 
 -- https://github.com/maxlath/wikidata-sdk/blob/master/docs/install.md
 -- on truthyness: https://www.mediawiki.org/wiki/Wikibase/Indexing/RDF_Dump_Format#Truthy_statements
 -- https://github.com/nichtich/wikidata-taxonomy
-
         
+
+drop table if exists  codes.wd2country CASCADE;
+create table          codes.wd2country  as
+select   wof.wd_id
+        ,wof.id
+        ,wof.properties->>'wof:name'                    as wof_name 
+        ,wof.properties->>'wof:country'                 as wof_country
+from wof_country as wof
+where is_superseded=0 and is_deprecated=0
+;
+-- TODO UPDATE
+CREATE UNIQUE INDEX codes_wd2country_wd_id          ON codes.wd2country (wd_id);
+CREATE UNIQUE INDEX codes_wd2country_wof_country    ON codes.wd2country (wof_country);    
+ANALYSE codes.wd2country;
+
+
 CREATE OR REPLACE FUNCTION public.get_countrycode(wdid text)
 RETURNS text
 IMMUTABLE

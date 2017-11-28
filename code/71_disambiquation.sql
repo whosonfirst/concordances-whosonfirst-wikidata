@@ -14,8 +14,9 @@ SELECT
     ,wof.is_deprecated    
     ,wof.properties->>'wof:population'              as wof_population
     ,wof.properties->>'wof:population_rank'         as wof_population_rank 
-from        public.wof                  as wof
-  left join wikidata.wd_disambiguation  as wdd  on  wof.wd_id =  wdd.wikidataid 
+from public.wof                  as wof
+    ,wikidata.wd_disambiguation  as wdd 
+where wof.wd_id =  wdd.wikidataid 
 ;
 
 ANALYSE wof_disambiguation;

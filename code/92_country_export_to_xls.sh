@@ -18,8 +18,6 @@ wdexport wd_sitelinks
 wdexport wd_descriptions
 wdexport wd_aliases
 wdexport wd_labels
-wdexport wd_P227_gnd_id
-wdexport wd_P300_iso3166_2_code
 
 ls -la ${xlsxname}
 echo "========== END OF country export ============== "

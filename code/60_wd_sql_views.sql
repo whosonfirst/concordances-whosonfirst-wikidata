@@ -1,5 +1,6 @@
 
 -- important : it can be duplicated, beacause  "claim.P31" can be more "Q4167410" value ( 1:N )
+DROP VIEW IF EXISTS  wikidata.wd_disambiguation CASCADE;
 create or replace view wikidata.wd_disambiguation
 as
 with p31 as (

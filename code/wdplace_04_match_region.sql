@@ -146,7 +146,7 @@ select wd_agg_extended.*
       ,is_cebuano(wd.data)                               as old_is_cebauno
 from wd_agg_extended
 left join wikidata.wd              as wd     on wd_agg_extended.wof_wd_id=wd.data->>'id'
-left join wdplace.wd_for_matching  as wdnew  on wd_agg_extended._suggested_wd_id=wdnew.wd_id   
+left join wdplace.wd_match_region  as wdnew  on wd_agg_extended._suggested_wd_id=wdnew.wd_id   
 ;
 ANALYSE wd_mregion_wof_match_agg ;
 

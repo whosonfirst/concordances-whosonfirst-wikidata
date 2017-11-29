@@ -5,7 +5,7 @@ create table wikidata.wd_names_preferred as
 with wd_names_iso2 as
  (
  select
-       data->>'id'::text as wd_id
+      data->>'id'::text as wd_id
     , data->'labels'->jsonb_object_keys(data->'labels')->>'language'::text   as wd_lang
     , data->'labels'->jsonb_object_keys(data->'labels')->>'value'            as wof_value
     FROM wikidata.wd
@@ -24,5 +24,7 @@ FROM wd_names_iso2                      as wd
      left join codes.iso_language_codes as langcodes  on wd.wd_lang=langcodes.alpha2
 order by wd_id
 ;
+
+create index on wikidata.wd_names_preferred ( wd_id );
 ANALYZE wikidata.wd_names_preferred;
 

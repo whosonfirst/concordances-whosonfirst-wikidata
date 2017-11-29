@@ -32,9 +32,9 @@ with x AS (
       and wd_is_cebuano IS FALSE
     ;
 
-CREATE INDEX CONCURRENTLY wdplace_wd_for_matching_x_point           ON  wdplace.wd_for_matching USING GIST(wd_point);
-CREATE INDEX CONCURRENTLY wdplace_wd_for_matching_una_name_en_clean ON  wdplace.wd_for_matching (una_wd_name_en_clean);
-CREATE INDEX CONCURRENTLY wdplace_wd_for_matching_name_en_clean     ON  wdplace.wd_for_matching (    wd_name_en_clean);
+CREATE INDEX  wdplace_wd_for_matching_x_point           ON  wdplace.wd_for_matching USING GIST(wd_point);
+CREATE INDEX  wdplace_wd_for_matching_una_name_en_clean ON  wdplace.wd_for_matching (una_wd_name_en_clean);
+CREATE INDEX  wdplace_wd_for_matching_name_en_clean     ON  wdplace.wd_for_matching (    wd_name_en_clean);
 ANALYSE   wdplace.wd_for_matching ;
 
 
@@ -53,9 +53,9 @@ where  wof.is_superseded=0
    and wof.is_deprecated=0
 ;
 
-CREATE INDEX CONCURRENTLY wof_for_matching_x_point        ON  wof_for_matching   USING GIST(wof_geom);
-CREATE INDEX CONCURRENTLY wof_for_matching_una_wof_name   ON  wof_for_matching   (una_wof_name);
-CREATE INDEX CONCURRENTLY wof_for_matching_wof_name       ON  wof_for_matching   (wof_name);
+CREATE INDEX  wof_for_matching_x_point        ON  wof_for_matching   USING GIST(wof_geom);
+CREATE INDEX  wof_for_matching_una_wof_name   ON  wof_for_matching   (una_wof_name);
+CREATE INDEX  wof_for_matching_wof_name       ON  wof_for_matching   (wof_name);
 ANALYSE   wof_for_matching ;
 
 

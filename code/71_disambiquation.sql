@@ -16,9 +16,10 @@ SELECT
     ,wof.properties->>'wof:population_rank'         as wof_population_rank 
 from public.wof                  as wof
     ,wikidata.wd_disambiguation  as wdd 
-where wof.wd_id =  wdd.wikidataid 
+where wof.wd_id =  wdd.wikidataid
+order by wof.id 
 ;
-
+create unique index on wof_disambiguation  ( id );
 ANALYSE wof_disambiguation;
 
 

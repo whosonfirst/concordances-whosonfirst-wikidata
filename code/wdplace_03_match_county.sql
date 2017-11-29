@@ -16,7 +16,6 @@ create table          wdplace.wd_match_county  as
     ,get_wdc_item_label(data,'P17')    as p17_country_id    
 
     ,(get_wdc_value(data, 'P901'))->>0  as fips10_4
-    -- ,(get_wdc_value(data, 'P297'))->>0  as country_iso2
 
     ,get_wdc_value(data, 'P300')    as p300_iso3166_2
     ,get_wdc_value(data, 'P901')    as p901_fips10_4
@@ -34,23 +33,18 @@ create table          wdplace.wd_match_county  as
             )
     , 4326) as wd_point
     
-    from wdplace.wd_county
-    --limit 1000
-    ;
-    
+    from wdplace.wd_county    
 ;
 
-
-CREATE INDEX CONCURRENTLY wdplace_wd_match_county_x_point           ON  wdplace.wd_match_county USING GIST(wd_point);
-CREATE INDEX CONCURRENTLY wdplace_wd_match_county_una_name_en_clean ON  wdplace.wd_match_county (una_wd_name_en_clean);
-CREATE INDEX CONCURRENTLY wdplace_wd_match_county_name_en_clean     ON  wdplace.wd_match_county (    wd_name_en_clean);
-CREATE INDEX CONCURRENTLY wdplace_wd_match_county_wd_id             ON  wdplace.wd_match_county (wd_id);
+CREATE INDEX  wdplace_wd_match_county_x_point           ON  wdplace.wd_match_county USING GIST(wd_point);
+CREATE INDEX  wdplace_wd_match_county_una_name_en_clean ON  wdplace.wd_match_county (una_wd_name_en_clean);
+CREATE INDEX  wdplace_wd_match_county_name_en_clean     ON  wdplace.wd_match_county (    wd_name_en_clean);
+CREATE INDEX  wdplace_wd_match_county_wd_id             ON  wdplace.wd_match_county (wd_id);
 ANALYSE   wdplace.wd_match_county;
 
 
 
 
--- drop view if exists wof_for_matching;
 drop table if exists wof_match_county CASCADE;
 create table         wof_match_county  as
 select
@@ -66,11 +60,11 @@ where  wof.is_superseded=0
 ;
 
 
-CREATE INDEX CONCURRENTLY wof_match_county_x_point        ON  wof_match_county  USING GIST(wof_geom);
-CREATE INDEX CONCURRENTLY wof_match_county_una_wof_name   ON  wof_match_county  (una_wof_name);
-CREATE INDEX CONCURRENTLY wof_match_county_wof_name       ON  wof_match_county  (wof_name);
-ANALYSE  wof_match_county ;
 
+CREATE INDEX  wof_match_county_x_point        ON  wof_match_county  USING GIST(wof_geom);
+CREATE INDEX  wof_match_county_una_wof_name   ON  wof_match_county  (una_wof_name);
+CREATE INDEX  wof_match_county_wof_name       ON  wof_match_county  (wof_name);
+ANALYSE  wof_match_county ;
 
 
 
@@ -93,7 +87,12 @@ create table          wd_mcounty_wof_match  as
     from wdplace.wd_match_county  as wd 
         ,wof_match_county         as wof
     where      wof.wof_country  = wd.wd_country 
-           and wof.una_wof_name = wd.una_wd_name_en_clean
+        and wof.una_wof_name = wd.una_wd_name_en_clean
+        and ST_Distance(
+              CDB_TransformToWebmercator(wd.wd_point)   
+            , CDB_TransformToWebmercator(wof.wof_geom) 
+            )::bigint  <= 120000
+
     --order by wof.id
     --limit 1000;
 ;

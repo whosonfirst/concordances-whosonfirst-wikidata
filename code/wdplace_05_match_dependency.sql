@@ -48,10 +48,10 @@ create table          wdplace.wd_match_dependency  as
 ;
 
 
-CREATE INDEX CONCURRENTLY wdplace_wd_match_dependency_x_point           ON  wdplace.wd_match_dependency USING GIST(wd_point);
-CREATE INDEX CONCURRENTLY wdplace_wd_match_dependency_una_name_en_clean ON  wdplace.wd_match_dependency (una_wd_name_en_clean);
-CREATE INDEX CONCURRENTLY wdplace_wd_match_dependency_name_en_clean     ON  wdplace.wd_match_dependency (    wd_name_en_clean);
-CREATE INDEX CONCURRENTLY wdplace_wd_match_dependency_wd_id             ON  wdplace.wd_match_dependency (wd_id);
+CREATE INDEX  wdplace_wd_match_dependency_x_point           ON  wdplace.wd_match_dependency USING GIST(wd_point);
+CREATE INDEX  wdplace_wd_match_dependency_una_name_en_clean ON  wdplace.wd_match_dependency (una_wd_name_en_clean);
+CREATE INDEX  wdplace_wd_match_dependency_name_en_clean     ON  wdplace.wd_match_dependency (    wd_name_en_clean);
+CREATE INDEX  wdplace_wd_match_dependency_wd_id             ON  wdplace.wd_match_dependency (wd_id);
 ANALYSE   wdplace.wd_match_dependency;
 
 
@@ -73,9 +73,9 @@ where  wof.is_superseded=0
 ;
 
 
-CREATE INDEX CONCURRENTLY wof_match_dependency_x_point        ON  wof_match_dependency  USING GIST(wof_geom);
-CREATE INDEX CONCURRENTLY wof_match_dependency_una_wof_name   ON  wof_match_dependency  (una_wof_name);
-CREATE INDEX CONCURRENTLY wof_match_dependency_wof_name       ON  wof_match_dependency  (wof_name);
+CREATE INDEX  wof_match_dependency_x_point        ON  wof_match_dependency  USING GIST(wof_geom);
+CREATE INDEX  wof_match_dependency_una_wof_name   ON  wof_match_dependency  (una_wof_name);
+CREATE INDEX  wof_match_dependency_wof_name       ON  wof_match_dependency  (wof_name);
 ANALYSE  wof_match_dependency ;
 
 

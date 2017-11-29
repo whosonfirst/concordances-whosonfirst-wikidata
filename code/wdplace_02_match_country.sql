@@ -45,10 +45,10 @@ order by wd_id
 ;
 
 
-CREATE INDEX CONCURRENTLY wdplace_wd_match_country_x_point           ON  wdplace.wd_match_country USING GIST(wd_point);
-CREATE INDEX CONCURRENTLY wdplace_wd_match_country_una_name_en_clean ON  wdplace.wd_match_country (una_wd_name_en_clean);
-CREATE INDEX CONCURRENTLY wdplace_wd_match_country_name_en_clean     ON  wdplace.wd_match_country (    wd_name_en_clean);
-CREATE INDEX CONCURRENTLY wdplace_wd_match_country_wd_id             ON  wdplace.wd_match_country (wd_id);
+CREATE INDEX  wdplace_wd_match_country_x_point           ON  wdplace.wd_match_country USING GIST(wd_point);
+CREATE INDEX  wdplace_wd_match_country_una_name_en_clean ON  wdplace.wd_match_country (una_wd_name_en_clean);
+CREATE INDEX  wdplace_wd_match_country_name_en_clean     ON  wdplace.wd_match_country (    wd_name_en_clean);
+CREATE INDEX  wdplace_wd_match_country_wd_id             ON  wdplace.wd_match_country (wd_id);
 ANALYSE   wdplace.wd_match_country;
 
 
@@ -71,9 +71,9 @@ where  wof.is_superseded=0
 
 ;
 
-CREATE INDEX CONCURRENTLY wof_match_country_x_point        ON  wof_match_country  USING GIST(wof_geom);
-CREATE INDEX CONCURRENTLY wof_match_country_una_wof_name   ON  wof_match_country  (una_wof_name);
-CREATE INDEX CONCURRENTLY wof_match_country_wof_name       ON  wof_match_country   (wof_name);
+CREATE INDEX  wof_match_country_x_point        ON  wof_match_country  USING GIST(wof_geom);
+CREATE INDEX  wof_match_country_una_wof_name   ON  wof_match_country  (una_wof_name);
+CREATE INDEX  wof_match_country_wof_name       ON  wof_match_country   (wof_name);
 ANALYSE  wof_match_country ;
 
 

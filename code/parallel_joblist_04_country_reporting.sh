@@ -10,7 +10,6 @@
 /wof/code/92_country_export_to_xls.sh ${outputdir} AU
 /wof/code/92_country_export_to_xls.sh ${outputdir} NZ
 /wof/code/92_country_export_to_xls.sh ${outputdir} CH
-/wof/code/92_country_export_to_xls.sh ${outputdir} DE 
 /wof/code/92_country_export_to_xls.sh ${outputdir} AT
 /wof/code/92_country_export_to_xls.sh ${outputdir} ES 
 /wof/code/92_country_export_to_xls.sh ${outputdir} PT

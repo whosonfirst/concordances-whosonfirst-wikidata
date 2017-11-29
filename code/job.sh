@@ -64,20 +64,14 @@ echo """
 
 time parallel  --results ${outputdir}/joblog_place01 -k  < /wof/code/parallel_joblist_place1_load.sh
 
-echo """
-    --
-    ANALYZE  wdplace.wd_country ;
-    ANALYZE  wdplace.wd_county ;  
-    ANALYZE  wdplace.wd_dependency ;
-    ANALYZE  wdplace.wd_region ;
-    --
-""" | psql -e
 
-time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_01_match_locality.sql
-time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_02_match_country.sql
-time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_03_match_county.sql
-time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_04_match_region.sql
-time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_05_match_dependency.sql
+# Start parallel processing
+time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_01_match_locality.sql      &
+time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_02_match_country.sql       &
+time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_03_match_county.sql        &
+time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_04_match_region.sql        &
+time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_05_match_dependency.sql    &
+wait
 
 xlsxname=${outputdir}/wd_wof_country_matches.xlsx
 rm -f ${xlsxname}
@@ -89,39 +83,20 @@ pgclimb -o ${xlsxname} \
     -c "SELECT * FROM wd_mc_wof_match_agg;" \
     xlsx --sheet "country_list"
 
-/wof/code/cmd_export_matching_sheet.sh  wd_mcounty_wof_match_agg_summary  wd_mcounty_wof_match_agg  wd_wof_county_matches.xlsx 
-/wof/code/cmd_export_matching_sheet.sh  wd_mregion_wof_match_agg_summary  wd_mregion_wof_match_agg  wd_wof_region_matches.xlsx 
-/wof/code/cmd_export_matching_sheet.sh  wd_mdependency_wof_match_agg_summary  wd_mdependency_wof_match_agg  wd_wof_dependency_matches.xlsx 
 
-
-
-xlsxname=${outputdir}/wd_wof_locality_matches.xlsx
-rm -f ${xlsxname}
-pgclimb -o ${xlsxname} \
-    -c "SELECT * FROM wd_wof_match_agg_summary;" \
-    xlsx --sheet "_summary_"
-
-pgclimb -o ${xlsxname} \
-    -c "SELECT * FROM  wd_wof_match_agg where wd_number_of_matches>1;" \
-    xlsx --sheet "multiple_matches_#not_import"
-
-pgclimb -o ${xlsxname} \
-    -c "SELECT * FROM  wd_wof_match_agg where wd_number_of_matches=1 and wof_wd_id  = a_wd_id[1];" \
-    xlsx --sheet "validated_#not_import"
-
-pgclimb -o ${xlsxname} \
-    -c "SELECT * FROM  wd_wof_match_agg where wd_number_of_matches=1 and  wof_wd_id != a_wd_id[1] and wof_wd_id !='';" \
-    xlsx --sheet "suggested for replace"
-
-pgclimb -o ${xlsxname} \
-    -c "SELECT * FROM  wd_wof_match_agg where wd_number_of_matches=1 and  wof_wd_id != a_wd_id[1] and wof_wd_id ='';" \
-    xlsx --sheet "suggested for add"
+# parallel sheet generating
+/wof/code/cmd_export_matching_sheet.sh  wd_mcounty_wof_match_agg_summary      wd_mcounty_wof_match_agg      wd_wof_county_matches.xlsx      &
+/wof/code/cmd_export_matching_sheet.sh  wd_mregion_wof_match_agg_summary      wd_mregion_wof_match_agg      wd_wof_region_matches.xlsx      &
+/wof/code/cmd_export_matching_sheet.sh  wd_mdependency_wof_match_agg_summary  wd_mdependency_wof_match_agg  wd_wof_dependency_matches.xlsx  &
+/wof/code/cmd_export_matching_sheet.sh  wd_wof_match_agg_summary              wd_wof_match_agg              wd_wof_locality_matches.xlsx    &
+wait
 
 ls ${outputdir}/* -la
 
 echo "----------------------------------------------------------"
 echo "### Directory sizes: "
 du -sh *
+
 
 echo "-----------------------------------------------------------"
 echo "### Finished:"

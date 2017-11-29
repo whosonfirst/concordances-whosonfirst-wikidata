@@ -8,9 +8,10 @@ with p31 as (
    , (jsonb_array_elements( data->'claims'->'P31' )->'mainsnak'->'datavalue'->'value'->>'id')   as wof_P31_value
     FROM wikidata.wd
 )
-select * from P31
+select distinct wikidataid from P31
 --TODO: find (sub-)*subclass of a disambiguation page.
 where wof_P31_value = 'Q4167410'  -- disambiguation page
+order by  wikidataid
 ;
 
 

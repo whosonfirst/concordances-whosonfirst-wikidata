@@ -1,5 +1,6 @@
 
 
+
 drop table if exists wikidata.wd_rank_point;
 create table wikidata.wd_rank_point as
 select
@@ -12,5 +13,7 @@ select
 FROM wikidata.wd
 ORDER BY wd_id
 ;
+
+create unique index on wikidata.wd_rank_point  ( wd_id );
 
 ANALYZE wikidata.wd_rank_point

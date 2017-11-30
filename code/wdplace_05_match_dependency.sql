@@ -1,9 +1,6 @@
 
 
 
-
-
-
 drop table if exists  wdplace.wd_match_dependency CASCADE;
 create table          wdplace.wd_match_dependency  as
     select
@@ -15,25 +12,25 @@ create table          wdplace.wd_match_dependency  as
     ,get_countrycode( (get_wdc_item(data,'P17'))->>0 )   as wd_country 
     ,get_wdc_value(data, 'P297')->>0  as wd_iso31661a2
 
-    ,get_wdc_value(data, 'P297')    as p297_iso3166_1_alpha2
-    ,get_wdc_value(data, 'P298')    as p298_iso3166_1_alpha3    
-    ,get_wdc_value(data, 'P299')    as p299_iso3166_1_numeric
+    --,get_wdc_value(data, 'P297')    as p297_iso3166_1_alpha2
+    --,get_wdc_value(data, 'P298')    as p298_iso3166_1_alpha3    
+    --,get_wdc_value(data, 'P299')    as p299_iso3166_1_numeric
 
     ,get_wdc_item_label(data,'P31')    as p31_instance_of
     ,get_wdc_item_label(data,'P17')    as p17_country_id    
 
-    ,(get_wdc_value(data, 'P901'))->>0  as fips10_4
+    -- ,(get_wdc_value(data, 'P901'))->>0  as fips10_4
     -- ,(get_wdc_value(data, 'P297'))->>0  as country_iso2
 
-    ,get_wdc_value(data, 'P300')    as p300_iso3166_2
-    ,get_wdc_value(data, 'P901')    as p901_fips10_4
-    ,get_wdc_value(data, 'P1566')   as p1566_geonames
+    -- ,get_wdc_value(data, 'P300')    as p300_iso3166_2
+    -- ,get_wdc_value(data, 'P901')    as p901_fips10_4
+    -- ,get_wdc_value(data, 'P1566')   as p1566_geonames
         
-    ,get_wdc_monolingualtext(data, 'P1813')   as p1813_short_name
-    ,get_wdc_monolingualtext(data, 'P1549')   as p1549_demonym
-    ,get_wdc_monolingualtext(data, 'P1448')   as p1448_official_name
-    ,get_wdc_monolingualtext(data, 'P1705')   as p1705_native_label
-    ,get_wdc_monolingualtext(data, 'P1449')   as p1449_nick_name    
+    -- ,get_wdc_monolingualtext(data, 'P1813')   as p1813_short_name
+    -- ,get_wdc_monolingualtext(data, 'P1549')   as p1549_demonym
+    -- ,get_wdc_monolingualtext(data, 'P1448')   as p1448_official_name
+    -- ,get_wdc_monolingualtext(data, 'P1705')   as p1705_native_label
+    -- ,get_wdc_monolingualtext(data, 'P1449')   as p1449_nick_name    
 
     ,ST_SetSRID(ST_MakePoint( 
              cast(get_wdc_globecoordinate(data,'P625')->0->>'longitude' as double precision)
@@ -41,16 +38,17 @@ create table          wdplace.wd_match_dependency  as
             )
     , 4326) as wd_point
     
-    from wdplace.wd_dependency
+    from wdplace.wd_dependency as wd
+    order by  wd.wd_iso31661a2 , wd.una_wd_name_en_clean
     --limit 1000
     ;
     
 ;
 
 
-CREATE INDEX  wdplace_wd_match_dependency_x_point           ON  wdplace.wd_match_dependency USING GIST(wd_point);
+--CREATE INDEX  wdplace_wd_match_dependency_x_point           ON  wdplace.wd_match_dependency USING GIST(wd_point);
 CREATE INDEX  wdplace_wd_match_dependency_una_name_en_clean ON  wdplace.wd_match_dependency (una_wd_name_en_clean);
-CREATE INDEX  wdplace_wd_match_dependency_name_en_clean     ON  wdplace.wd_match_dependency (    wd_name_en_clean);
+--CREATE INDEX  wdplace_wd_match_dependency_name_en_clean     ON  wdplace.wd_match_dependency (    wd_name_en_clean);
 CREATE INDEX  wdplace_wd_match_dependency_wd_id             ON  wdplace.wd_match_dependency (wd_id);
 ANALYSE   wdplace.wd_match_dependency;
 
@@ -68,15 +66,16 @@ select
     ,wof.wd_id                              as wof_wd_id
     ,COALESCE( wof.geom::geometry, wof.centroid::geometry )  as wof_geom
 from wof_dependency as wof
-where  wof.is_superseded=0 
-   and wof.is_deprecated=0
+where  wof.is_superseded=0  and wof.is_deprecated=0
+order by wof.wof_country, wof.una_wof_name
 ;
 
 
-CREATE INDEX  wof_match_dependency_x_point        ON  wof_match_dependency  USING GIST(wof_geom);
+-- CREATE INDEX  wof_match_dependency_x_point        ON  wof_match_dependency  USING GIST(wof_geom);
 CREATE INDEX  wof_match_dependency_una_wof_name   ON  wof_match_dependency  (una_wof_name);
-CREATE INDEX  wof_match_dependency_wof_name       ON  wof_match_dependency  (wof_name);
+-- CREATE INDEX  wof_match_dependency_wof_name       ON  wof_match_dependency  (wof_name);
 ANALYSE  wof_match_dependency ;
+
 
 
 
@@ -100,10 +99,9 @@ create table          wd_mdependency_wof_match  as
         ,wof_match_dependency         as wof
     where      wof.wof_country  = wd.wd_iso31661a2 
            and wof.una_wof_name = wd.una_wd_name_en_clean
-    --order by wof.id
-    --limit 1000;
 ;
 ANALYSE     wd_mdependency_wof_match ;
+
 
 
 
@@ -161,4 +159,18 @@ create table          wd_mdependency_wof_match_agg_summary  as
     ;
 ANALYSE wd_mdependency_wof_match_agg_summary ;
 
+
+
+drop table if exists wd_mdependency_wof_notfound CASCADE;
+create table         wd_mdependency_wof_notfound  as
+select
+     wof.id
+    ,wof.wof_name 
+    ,wof.wof_country
+    ,wof.wof_wd_id
+from wof_match_dependency as wof
+where  wof.id not in ( select distinct id from wd_mdependency_wof_match )  
+order by wof.wof_country, wof.wof_name
+;
+ANALYSE wd_mdependency_wof_notfound;
 

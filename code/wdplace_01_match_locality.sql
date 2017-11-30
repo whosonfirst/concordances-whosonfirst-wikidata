@@ -7,7 +7,7 @@ create extension if not exists unaccent;
 --  Q1018914  | Q1018914   has an english name ( has an english label)
 --  wikidata has a coordinate
 --  TODO: wikidata has any of enwiki, eswiki, dewiki, ptwiki, ruwiki, znwiki page  [  so not a cebuano import ] 
---  distance < 50km
+--  distance < 100km
 --  only 1 match!
 
 
@@ -34,7 +34,8 @@ with x AS (
 
 CREATE INDEX  wdplace_wd_for_matching_x_point           ON  wdplace.wd_for_matching USING GIST(wd_point);
 CREATE INDEX  wdplace_wd_for_matching_una_name_en_clean ON  wdplace.wd_for_matching (una_wd_name_en_clean);
-CREATE INDEX  wdplace_wd_for_matching_name_en_clean     ON  wdplace.wd_for_matching (    wd_name_en_clean);
+-- CREATE INDEX  wdplace_wd_for_matching_name_en_clean     ON  wdplace.wd_for_matching (    wd_name_en_clean);
+CREATE INDEX  ON   wdplace.wd_for_matching (wd_id);
 ANALYSE   wdplace.wd_for_matching ;
 
 
@@ -55,7 +56,7 @@ where  wof.is_superseded=0
 
 CREATE INDEX  wof_for_matching_x_point        ON  wof_for_matching   USING GIST(wof_geom);
 CREATE INDEX  wof_for_matching_una_wof_name   ON  wof_for_matching   (una_wof_name);
-CREATE INDEX  wof_for_matching_wof_name       ON  wof_for_matching   (wof_name);
+-- CREATE INDEX  wof_for_matching_wof_name       ON  wof_for_matching   (wof_name);
 ANALYSE   wof_for_matching ;
 
 
@@ -84,7 +85,7 @@ create table  wd_wof_match  as
         and ST_Distance(
               CDB_TransformToWebmercator(wd.wd_point)   
             , CDB_TransformToWebmercator(wof.wof_geom) 
-            )::bigint  <= 50000
+            )::bigint  <= 100000
     order by wof.id, _distance
 ;
 ANALYSE     wd_wof_match ;
@@ -121,7 +122,12 @@ with wd_agg as
           when a_wd_id_distance[1] <= 35000 then '30-35km'
           when a_wd_id_distance[1] <= 40000 then '35-40km'
           when a_wd_id_distance[1] <= 45000 then '40-45km'
-          when a_wd_id_distance[1] <= 50000 then '45-50km'          
+          when a_wd_id_distance[1] <= 50000 then '45-50km'
+          when a_wd_id_distance[1] <= 60000 then '50-60km'    
+          when a_wd_id_distance[1] <= 70000 then '60-70km'    
+          when a_wd_id_distance[1] <= 80000 then '70-80km'    
+          when a_wd_id_distance[1] <= 90000 then '80-90km'
+          when a_wd_id_distance[1] <=100000 then '90-99km'                                                                
             else     '-checkme-'     
       end as _firstmatch_distance_category    
      ,case 
@@ -143,7 +149,6 @@ select wd_agg_extended.*
 from wd_agg_extended
 left join wikidata.wd              as wd     on wd_agg_extended.wof_wd_id=wd.data->>'id'
 left join wdplace.wd_for_matching  as wdnew  on wd_agg_extended._suggested_wd_id=wdnew.wd_id   
--- order by wd_number_of_matches  desc
 ;
 ANALYSE wd_wof_match_agg ;
 
@@ -152,30 +157,25 @@ drop table if exists  wd_wof_match_agg_summary CASCADE;
 create table  wd_wof_match_agg_summary  as
     select _matching_category,  wd_number_of_matches, _firstmatch_distance_category, count(*) as N  
     from wd_wof_match_agg
-    -- where  wof_country='HU'
     group by  _matching_category, wd_number_of_matches, _firstmatch_distance_category
     order by  _matching_category, wd_number_of_matches, _firstmatch_distance_category
 ;
 ANALYSE wd_wof_match_agg_summary ;
 
 
--- select id,wof_name,wd_id,wof_wd_id from wd_wof_match where wof_country='HU' and wof_wd_id != wd_id   limit 1000;
 
--- select * from wd_wof_match_agg where wof_country='HU'; 
 
-/*
-wd_id
-wd_name_en
-wd_name_en_clean
-p1566_geonames
-wd_point
-p31_instance_of
-p17_country_id
-p36_capital
-p1376_capital_of
-p190_sister_city
-p460_same_as
-p1082_population
-p300_iso3166_2
-p901_fips10_4
-*/
+drop table if exists wd_wof_match_notfound CASCADE;
+create table         wd_wof_match_notfound  as
+select
+     wof.id
+    ,wof.wof_name 
+    ,wof.wof_country
+    ,wof.wof_wd_id
+from wof_for_matching as wof
+where  wof.id not in ( select id from wd_wof_match )  
+order by wof.wof_country, wof.wof_name
+;
+ANALYSE wd_wof_match_notfound;
+
+-- select wof_country, count(*) as n from wd_wof_match_notfound  group by wof_country order by n desc;

@@ -63,7 +63,7 @@ where  wof.is_superseded=0
 
 CREATE INDEX  wof_match_county_x_point        ON  wof_match_county  USING GIST(wof_geom);
 CREATE INDEX  wof_match_county_una_wof_name   ON  wof_match_county  (una_wof_name);
-CREATE INDEX  wof_match_county_wof_name       ON  wof_match_county  (wof_name);
+-- CREATE INDEX  wof_match_county_wof_name       ON  wof_match_county  (wof_name);
 ANALYSE  wof_match_county ;
 
 
@@ -86,15 +86,13 @@ create table          wd_mcounty_wof_match  as
         ,wd.*        
     from wdplace.wd_match_county  as wd 
         ,wof_match_county         as wof
-    where      wof.wof_country  = wd.wd_country 
+    where   wof.wof_country  = wd.wd_country 
         and wof.una_wof_name = wd.una_wd_name_en_clean
         and ST_Distance(
               CDB_TransformToWebmercator(wd.wd_point)   
             , CDB_TransformToWebmercator(wof.wof_geom) 
-            )::bigint  <= 120000
+            )::bigint  <= 200000
 
-    --order by wof.id
-    --limit 1000;
 ;
 ANALYSE     wd_mcounty_wof_match ;
 
@@ -157,9 +155,17 @@ create table          wd_mcounty_wof_match_agg_summary  as
     ;
 ANALYSE wd_mcounty_wof_match_agg_summary ;
 
--- Q11965730
 
--- {Q145,Q230791}
--- {Q184,Q2895}
--- {Q29999,Q55}
--- {Q35,Q756617}
+
+drop table if exists wd_mcounty_wof_notfound CASCADE;
+create table         wd_mcounty_wof_notfound  as
+select
+     wof.id
+    ,wof.wof_name 
+    ,wof.wof_country
+    ,wof.wof_wd_id
+from wof_match_county as wof
+where  wof.id not in ( select distinct id from wd_mcounty_wof_match )  
+order by wof.wof_country, wof.wof_name
+;
+ANALYSE wd_mcounty_wof_notfound;

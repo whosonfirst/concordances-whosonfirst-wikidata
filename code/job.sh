@@ -41,9 +41,8 @@ psql -e -f  /wof/code/50_wof.sql
 time parallel  --results ${outputdir}/joblog02 -k  < /wof/code/parallel_joblist_02_sql_processing.sh
 time parallel  --results ${outputdir}/joblog03 -k  < /wof/code/parallel_joblist_03_reporting.sh
 time psql -e -vreportdir="${outputdir}" -f /wof/code/91_summary.sql
-time parallel  --results ${outputdir}/joblog04 -k  < /wof/code/parallel_joblist_04_country_reporting.sh
-
-
+time parallel  --results ${outputdir}/joblog04 -k  < /wof/code/parallel_joblist_04_create_validated_wd_properties.sh
+time parallel  --results ${outputdir}/joblog04 -k  < /wof/code/parallel_joblist_05_country_reporting.sh
 
 # ----------------------------------------------------------------------------------
 

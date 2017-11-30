@@ -1,9 +1,8 @@
 \timing
 
-DROP MATERIALIZED VIEW IF EXISTS wof_extended CASCADE;
-CREATE MATERIALIZED VIEW wof_extended
+DROP TABLE IF EXISTS wof_extended CASCADE;
+CREATE TABLE         wof_extended
 as
-
 with 
         disamb as (
             select id, 1 as is_disambiguation
@@ -56,13 +55,17 @@ CREATE        INDEX  wof_extended_wof_country   ON wof_extended( wof_country );
 ANALYSE wof_extended;
 
 
--- helper table for country extract  
-create or replace view wof_extended_wd_ok
+
+DROP TABLE IF EXISTS wof_extended_wd_ok CASCADE;
+CREATE TABLE         wof_extended_wd_ok
 as
     select id,metatable,wof_name,wof_country,wd_id
     from  wof_extended
     where _wd_is_problematic=0 and wd_id!=''
+    order by wd_id
 ;
+CREATE INDEX  ON wof_extended_wd_ok( wd_id );
+ANALYSE wof_extended_wd_ok;
 
 
 create or replace view wof_extended_meta_status_country_summary

@@ -70,13 +70,12 @@ select
 from wof_country as wof
 where  wof.is_superseded=0
    and wof.is_deprecated=0
-
-
+order by wof_country
 ;
 
 CREATE INDEX  wof_match_country_x_point        ON  wof_match_country  USING GIST(wof_geom);
 CREATE INDEX  wof_match_country_una_wof_name   ON  wof_match_country  (una_wof_name);
-CREATE INDEX  wof_match_country_wof_name       ON  wof_match_country   (wof_name);
+CREATE INDEX  wof_match_country_wof_name       ON  wof_match_country  (wof_name);
 ANALYSE  wof_match_country ;
 
 
@@ -89,12 +88,11 @@ create table          wd_mc_wof_match  as
         ,wof.wof_name
         ,wof.wof_country
         ,wof.wof_wd_id
-        , wd.*
+        ,wd.*
     from wdplace.wd_match_country  as wd
         ,wof_match_country         as wof
-    where (
-              wof.wof_country = wd.country_iso2
-          )
+    where 
+         wof.wof_country = wd.country_iso2
     order by wof.id
 ;
 ANALYSE     wd_mc_wof_match ;

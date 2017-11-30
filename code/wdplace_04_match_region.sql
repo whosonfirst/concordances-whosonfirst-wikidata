@@ -35,7 +35,7 @@ create table          wdplace.wd_match_region  as
     , 4326) as wd_point
     
     from wdplace.wd_region as wd
-    order by wd.wd_country , wd.una_wd_name_en_clean
+    order by wd_country , una_wd_name_en_clean
     ;
     
 ;
@@ -63,7 +63,7 @@ select
 from wof_region as wof
 where  wof.is_superseded=0 
    and wof.is_deprecated=0
-order by wof.wof_country ,  wof.una_wof_name  
+order by wof_country ,  una_wof_name  
 ;
 
 

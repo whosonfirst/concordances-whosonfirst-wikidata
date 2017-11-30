@@ -3,6 +3,7 @@
 
 drop table if exists  wdplace.wd_match_dependency CASCADE;
 create table          wdplace.wd_match_dependency  as
+
     select
      data->>'id'::text                  as wd_id  
     ,get_wdlabeltext(data->>'id'::text) as wd_name_en
@@ -39,7 +40,7 @@ create table          wdplace.wd_match_dependency  as
     , 4326) as wd_point
     
     from wdplace.wd_dependency as wd
-    order by  wd.wd_iso31661a2 , wd.una_wd_name_en_clean
+    order by  wd_iso31661a2 , una_wd_name_en_clean
     --limit 1000
     ;
     
@@ -67,7 +68,7 @@ select
     ,COALESCE( wof.geom::geometry, wof.centroid::geometry )  as wof_geom
 from wof_dependency as wof
 where  wof.is_superseded=0  and wof.is_deprecated=0
-order by wof.wof_country, wof.una_wof_name
+order by wof_country, una_wof_name
 ;
 
 

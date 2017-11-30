@@ -15,17 +15,17 @@ create table          wdplace.wd_match_county  as
     ,get_wdc_item_label(data,'P31')    as p31_instance_of
     ,get_wdc_item_label(data,'P17')    as p17_country_id    
 
-    ,(get_wdc_value(data, 'P901'))->>0  as fips10_4
+    --,(get_wdc_value(data, 'P901'))->>0  as fips10_4
 
-    ,get_wdc_value(data, 'P300')    as p300_iso3166_2
-    ,get_wdc_value(data, 'P901')    as p901_fips10_4
-    ,get_wdc_value(data, 'P1566')   as p1566_geonames
+    --,get_wdc_value(data, 'P300')    as p300_iso3166_2
+    --,get_wdc_value(data, 'P901')    as p901_fips10_4
+    --,get_wdc_value(data, 'P1566')   as p1566_geonames
         
-    ,get_wdc_monolingualtext(data, 'P1813')   as p1813_short_name
-    ,get_wdc_monolingualtext(data, 'P1549')   as p1549_demonym
-    ,get_wdc_monolingualtext(data, 'P1448')   as p1448_official_name
-    ,get_wdc_monolingualtext(data, 'P1705')   as p1705_native_label
-    ,get_wdc_monolingualtext(data, 'P1449')   as p1449_nick_name    
+    --,get_wdc_monolingualtext(data, 'P1813')   as p1813_short_name
+    --,get_wdc_monolingualtext(data, 'P1549')   as p1549_demonym
+    --,get_wdc_monolingualtext(data, 'P1448')   as p1448_official_name
+    --,get_wdc_monolingualtext(data, 'P1705')   as p1705_native_label
+    --,get_wdc_monolingualtext(data, 'P1449')   as p1449_nick_name    
 
     ,ST_SetSRID(ST_MakePoint( 
              cast(get_wdc_globecoordinate(data,'P625')->0->>'longitude' as double precision)
@@ -33,12 +33,13 @@ create table          wdplace.wd_match_county  as
             )
     , 4326) as wd_point
     
-    from wdplace.wd_county    
+    from wdplace.wd_county
+    order by  wd_country, una_wd_name_en_clean  
 ;
 
 CREATE INDEX  wdplace_wd_match_county_x_point           ON  wdplace.wd_match_county USING GIST(wd_point);
 CREATE INDEX  wdplace_wd_match_county_una_name_en_clean ON  wdplace.wd_match_county (una_wd_name_en_clean);
-CREATE INDEX  wdplace_wd_match_county_name_en_clean     ON  wdplace.wd_match_county (    wd_name_en_clean);
+-- CREATE INDEX  wdplace_wd_match_county_name_en_clean     ON  wdplace.wd_match_county (    wd_name_en_clean);
 CREATE INDEX  wdplace_wd_match_county_wd_id             ON  wdplace.wd_match_county (wd_id);
 ANALYSE   wdplace.wd_match_county;
 
@@ -57,6 +58,7 @@ select
 from wof_county as wof
 where  wof.is_superseded=0 
    and wof.is_deprecated=0
+order by wof_country,  una_wof_name 
 ;
 
 

@@ -39,6 +39,11 @@ echo "======== index & test: ${table} ==========="
 
 echo """
 
+    -- delete superseded or deprecated records;
+    DELETE FROM ${table} 
+       WHERE  is_superseded=1 OR is_deprecated=1 
+    ;
+
     -- index --
     CREATE INDEX ${table}_by_wd_id          ON ${table}(wd_id);
 

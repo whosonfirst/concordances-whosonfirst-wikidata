@@ -1,4 +1,4 @@
-FROM mdillon/postgis:9.6
+FROM mdillon/postgis:10
 
 ENV LANG=C.UTF-8 \
     LC_ALL=C.UTF-8
@@ -6,25 +6,28 @@ ENV LANG=C.UTF-8 \
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
       apt-utils\
+      bison \
       build-essential \
       ca-certificates \
       cmake \
+      flex \
       git \
+      libboost-all-dev \
+      libssl-dev \
       m4 \
+      openssl \
       pgxnclient \
-      postgresql-$PG_MAJOR-plv8 \      
+      postgresql-$PG_MAJOR-plv8 \
       postgresql-plpython-$PG_MAJOR \
       postgresql-server-dev-$PG_MAJOR \
+      wget \
    && rm -rf /var/lib/apt/lists/*
-
-# install madlib
-RUN pgxn install madlib=1.12
 
 # install cartodb-postgresql
 RUN   mkdir -p /cartodb-postgresql \
-   && git clone --depth 1 --branch master https://github.com/CartoDB/cartodb-postgresql.git /cartodb-postgresql \
-   && cd /cartodb-postgresql \
-   && make all install
+    && git clone --depth 1 --branch master https://github.com/CartoDB/cartodb-postgresql.git /cartodb-postgresql \
+    && cd /cartodb-postgresql \
+    && make all install
 
 ADD pgtune.py            /pgtune.py
 ADD pgtune-db.sh         /docker-entrypoint-initdb.d/pgtune-db.sh

@@ -33,7 +33,10 @@ rm -rf ${outputdir}/joblog01
 rm -rf ${outputdir}/joblog02
 rm -rf ${outputdir}/joblog03
 rm -rf ${outputdir}/joblog04
+rm -rf ${outputdir}/joblog05
 rm -rf ${outputdir}/joblog_place01
+
+psql -e -c "CREATE EXTENSION pg_stat_statements;"
 
 time parallel  --results ${outputdir}/joblog01 -k  < /wof/code/parallel_joblist_01_load_tables.sh
 psql -e -f  /wof/code/wd_sql_functions.sql
@@ -42,7 +45,7 @@ time parallel  --results ${outputdir}/joblog02 -k  < /wof/code/parallel_joblist_
 time parallel  --results ${outputdir}/joblog03 -k  < /wof/code/parallel_joblist_03_reporting.sh
 time psql -e -vreportdir="${outputdir}" -f /wof/code/91_summary.sql
 time parallel  --results ${outputdir}/joblog04 -k  < /wof/code/parallel_joblist_04_create_validated_wd_properties.sh
-time parallel  --results ${outputdir}/joblog04 -k  < /wof/code/parallel_joblist_05_country_reporting.sh
+time parallel  --results ${outputdir}/joblog05 -k  < /wof/code/parallel_joblist_05_country_reporting.sh
 
 # ----------------------------------------------------------------------------------
 
@@ -84,10 +87,10 @@ pgclimb -o ${xlsxname} \
 
 
 # parallel sheet generating
-/wof/code/cmd_export_matching_sheet.sh  wd_mcounty_wof_match_agg_summary      wd_mcounty_wof_match_agg      wd_wof_county_matches.xlsx      &
-/wof/code/cmd_export_matching_sheet.sh  wd_mregion_wof_match_agg_summary      wd_mregion_wof_match_agg      wd_wof_region_matches.xlsx      &
-/wof/code/cmd_export_matching_sheet.sh  wd_mdependency_wof_match_agg_summary  wd_mdependency_wof_match_agg  wd_wof_dependency_matches.xlsx  &
-/wof/code/cmd_export_matching_sheet.sh  wd_wof_match_agg_summary              wd_wof_match_agg              wd_wof_locality_matches.xlsx    &
+/wof/code/cmd_export_matching_sheet.sh  wd_mcounty_wof_match_agg_summary      wd_mcounty_wof_match_agg      wd_mcounty_wof_notfound      wd_wof_county_matches.xlsx      &
+/wof/code/cmd_export_matching_sheet.sh  wd_mregion_wof_match_agg_summary      wd_mregion_wof_match_agg      wd_mregion_wof_notfound      wd_wof_region_matches.xlsx      &
+/wof/code/cmd_export_matching_sheet.sh  wd_mdependency_wof_match_agg_summary  wd_mdependency_wof_match_agg  wd_mdependency_wof_notfound  wd_wof_dependency_matches.xlsx  &
+/wof/code/cmd_export_matching_sheet.sh  wd_wof_match_agg_summary              wd_wof_match_agg              wd_wof_match_notfound        wd_wof_locality_matches.xlsx    &
 wait
 
 ls ${outputdir}/* -la

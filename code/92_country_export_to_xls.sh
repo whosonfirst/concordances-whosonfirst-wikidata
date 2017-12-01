@@ -10,14 +10,16 @@ rm -f ${xlsxname}
 function wdexport { 
     wdtable=$1
     pgclimb -o ${xlsxname} \
-        -c "SELECT * FROM wof_extended_wd_ok as wof left join wikidata.${wdtable} as wd on wof.wd_id=wd.wd_id  where wof.wof_country='${wof_country}';" \
+        -c "SELECT * FROM wikidata.${wdtable} where wof_country='${wof_country}'  order by wof_name;" \
         xlsx --sheet "${wdtable}"
 }
-wdexport wd_names_preferred
-wdexport wd_sitelinks
-wdexport wd_descriptions
-wdexport wd_aliases
-wdexport wd_labels
+
+wdexport wd_claims_validated
+wdexport wd_names_preferred_validated
+wdexport wd_sitelinks_validated
+wdexport wd_descriptions_validated
+wdexport wd_aliases_validated
+wdexport wd_labels_validated
 
 ls -la ${xlsxname}
 echo "========== END OF country export ============== "

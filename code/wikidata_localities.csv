@@ -1321,3 +1321,14 @@ Q42723927,bydel
 Q42744322,urban municipality of Germany
 Q42811590,farmyard
 Q42961155,quarter of Milan
+
+
+#-- added via manually debugging ----
+Q19610511,"Township"
+Q1867183, "local government area of Australia"
+Q486972,  human settlement
+Q1906268, municipality of Bulgaria
+Q1639634, local government area of Nigeria
+Q3076994, commune of Cameroon
+Q27676416,city or town - type of local municipality in Quebec (Quebec don’t make the difference between city or town)
+#----------------

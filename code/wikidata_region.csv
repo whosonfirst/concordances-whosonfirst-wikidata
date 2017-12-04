@@ -64,10 +64,7 @@ Q2387050,	district of Mauritius	Mauritius	region	district
 
 
 
-
-
-
-##  from  wd_wof_placetype_match
+##  from  wd_wof_placetype_match  - first division
 ## wd	wdLabel	country	wof_placetype	wof_placetype_local
 Q158683,	province of Afghanistan	Afghanistan	region	province
 Q2748269,	Municipalities of Aland	Aland Islands	region	municipality

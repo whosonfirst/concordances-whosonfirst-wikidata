@@ -80,13 +80,14 @@ echo """
     create table         wof_validated_suggested_list  as
         select * 
         from 
-            (         select id, 'wof_locality'   as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wd_wof_match_agg
-            union all select id, 'wof_county'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wd_mcounty_wof_match_agg
+            (         select id, 'wof_locality'   as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wd_mlocality_wof_match_agg
+            union all select id, 'wof_country'    as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wd_mcountry_wof_match_agg
+            union all select id, 'wof_county'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wd_mcounty_wof_match_agg            
             union all select id, 'wof_region'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wd_mregion_wof_match_agg
             union all select id, 'wof_dependency' as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wd_mdependency_wof_match_agg
             -- todo country 
             ) t  
-        where substr(_matching_category,1,9)   in  ('validated','suggested' ) 
+        where substr(_matching_category,1,2) ='OK'  --   // 'validated' + 'suggested'  
         order by id
     ;
 
@@ -98,24 +99,12 @@ echo """
 """ | psql -e
 
 
-
-
-xlsxname=${outputdir}/wd_wof_country_matches.xlsx
-rm -f ${xlsxname}
-pgclimb -o ${xlsxname} \
-    -c "SELECT * FROM wd_mc_wof_match_agg_summary;" \
-    xlsx --sheet "_summary_"
-
-pgclimb -o ${xlsxname} \
-    -c "SELECT * FROM wd_mc_wof_match_agg;" \
-    xlsx --sheet "country_list"
-
-
 # parallel sheet generating
-/wof/code/cmd_export_matching_sheet.sh  wd_mcounty_wof_match_agg_summary      wd_mcounty_wof_match_agg      wd_mcounty_wof_notfound      wd_wof_county_matches.xlsx      &
-/wof/code/cmd_export_matching_sheet.sh  wd_mregion_wof_match_agg_summary      wd_mregion_wof_match_agg      wd_mregion_wof_notfound      wd_wof_region_matches.xlsx      &
-/wof/code/cmd_export_matching_sheet.sh  wd_mdependency_wof_match_agg_summary  wd_mdependency_wof_match_agg  wd_mdependency_wof_notfound  wd_wof_dependency_matches.xlsx  &
-/wof/code/cmd_export_matching_sheet.sh  wd_wof_match_agg_summary              wd_wof_match_agg              wd_wof_match_notfound        wd_wof_locality_matches.xlsx    &
+/wof/code/cmd_export_matching_sheet.sh  wd_mcountry_wof_match_agg_summary     wd_mcountry_wof_match_agg     wd_mcountry_wof_match_notfound         wd_wof_country_matches.xlsx     &
+/wof/code/cmd_export_matching_sheet.sh  wd_mcounty_wof_match_agg_summary      wd_mcounty_wof_match_agg      wd_mcounty_wof_match_notfound          wd_wof_county_matches.xlsx      &
+/wof/code/cmd_export_matching_sheet.sh  wd_mregion_wof_match_agg_summary      wd_mregion_wof_match_agg      wd_mregion_wof_match_notfound          wd_wof_region_matches.xlsx      &
+/wof/code/cmd_export_matching_sheet.sh  wd_mdependency_wof_match_agg_summary  wd_mdependency_wof_match_agg  wd_mdependency_wof_match_notfound      wd_wof_dependency_matches.xlsx  &
+/wof/code/cmd_export_matching_sheet.sh  wd_mlocality_wof_match_agg_summary    wd_mlocality_wof_match_agg    wd_mlocality_wof_match_notfound  wd_wof_locality_matches.xlsx    &
 wait
 
 

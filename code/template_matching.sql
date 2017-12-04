@@ -50,9 +50,9 @@ with wd_agg as
       ,array_length(a_wd_id,1)                      as wd_number_of_matches
       ,distance_class(a_wd_id_distance[1]::bigint)  as _firstmatch_distance_category    
      ,case 
-        when  array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and wof_wd_id  = a_wd_id[1]                    then 'OKVA:validated-'||a_wd_name_match_type[1]    
-        when  array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and wof_wd_id != a_wd_id[1] and wof_wd_id !='' then 'OKRE:suggested for replace-'||a_wd_name_match_type[1] 
-        when  array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and wof_wd_id != a_wd_id[1] and wof_wd_id  ='' then 'OKAD:suggested for add-'||a_wd_name_match_type[1]
+        when  array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and wof_wd_id  = a_wd_id[1]                    then 'OK-VAL:validated-'||a_wd_name_match_type[1]    
+        when  array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and wof_wd_id != a_wd_id[1] and wof_wd_id !='' then 'OK-REP:suggested for replace-'||a_wd_name_match_type[1] 
+        when  array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and wof_wd_id != a_wd_id[1] and wof_wd_id  ='' then 'OK-ADD:suggested for add-'||a_wd_name_match_type[1]
         when  array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] >  :safedistance then 'WARN:Extreme distance match (> :safedistance m)' 
         when  array_length(a_wd_id,1) >1                                             then 'WARN:Multiple_match (please not import this!)' 
         else 'ER!R:check-me'
@@ -92,7 +92,12 @@ select
     ,wof.wof_name 
     ,wof.wof_country
     ,wof.wof_wd_id
+    ,get_wdc_item_label(wd.data,'P31')    as old_p31_instance_of  
+    ,get_wdc_item_label(wd.data,'P17')    as old_p17_country_id   
+    ,get_wdlabeltext(wof.wof_wd_id)       as old_wd_label
+    ,is_cebuano(wd.data)                  as old_is_cebauno      
 from :wof_input_table as wof
+left join wikidata.wd as wd   on wof.wof_wd_id=wd.data->>'id'
 where  wof.id not in ( select id from :wd_wof_match )  
 order by wof.wof_country, wof.wof_name
 ;

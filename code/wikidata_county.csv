@@ -178,3 +178,89 @@ Q28659240,ku of North Korea
 
 
 Q41806065,district of Portugal
+
+
+
+
+## from the:  wd_wof_placetype_match - second division
+## wd	wdLabel	country	wof_placetype	wof_placetype_local
+Q496825,	district of Afghanistan	Afghanistan	county	district
+Q123266,	district of Albania	Albania	county	district
+Q378508,	municipality of Angola	Angola	county	city council
+Q3243765,	municipality of Argentina	Argentina	county	part,department
+Q667509,	municipality of Austria	Austria	county	district,city
+Q152732,	District of Bangladesh	Bangladesh	county	district
+Q83116,	province of Belgium	Belgium	county	arrondissement
+Q1780506,	commune of Benin	Benin	county	commune
+Q1062593,	province of Bolivia	Bolivia	county	province
+Q852151,	province of Burkina Faso	Burkina Faso	county	province
+Q14846918,	district of Cambodia	Cambodia	county	district
+Q2306813,	department of Cameroon	Cameroon	county	department
+Q1153408,	province of Chile	Chile	county	province
+Q735428,	town in China	China	county	city,league,autonomous prefecture,shixiaqu,sheng
+Q9316670,	prefecture of the People's Republic of China	China	county	prefecture
+Q2555896,	municipality of Colombia	Colombia	county	corregimiento,municipality
+Q5283559,	district of the Democratic Republic of the Congo	Congo	county	district,commune,arrondissement
+Q851830,	region of CÙte d'Ivoire	Cote d'Ivoire	county	region,autonomous district
+Q558330,	municipality of Cuba	Cuba	county	municipio
+Q1724017,	canton of Ecuador	Ecuador	county	canton
+Q867597,	province of Equatorial Guinea	Equatorial Guinea	county	district
+Q219875,	zone of Ethiopia	Ethiopia	county	zone
+Q484170,	commune of France	France	county	commune
+Q655851,	department of Gabon	Gabon	county	department
+Q1504917,	district of the Gambia	Gambia	county	district, city council, municipal council
+Q2655841,	municipality of Georgia	Georgia	county	city,district
+Q262166,	municipality of Germany	Germany	county	federal state,district,group of regions,urban district,district-free city,rural district
+Q1872284,	municipality of Guatemala	Guatemala	county	municipality
+Q7444736,	sector of Guinea-Bissau	Guinea-Bissau	county	sector
+Q3075872,	neighbourhood democratic council of Guyana	Guyana	county	council
+Q2602693,	municipality of Honduras	Honduras	county	municipality
+Q1149652,	district of India	India	county	district
+Q3191695,	regency of Indonesia	Indonesia	county	regency
+Q3199141,	city of Indonesia	Indonesia	county	municipality
+Q137535,	county of Iran	Iran	county	county
+Q494721,	city of Japan	Japan	county	city
+Q850450,	subprefecture of Japan	Japan	county	branch administration,county
+Q2643128,	district of Kazakhstan	Kazakhstan	county	rayon,maslikhat
+Q4389100,	district of Kyrgyzstan	Kyrgyzstan	county	district,town
+Q2693910,	district of Lebanon	Lebanon	county	county
+Q6936383,	municipality of Lebanon	Lebanon	county	province
+Q2421044,	district of Liberia	Liberia	county	district
+Q1363145,	municipality of Lithuania	Lithuania	county	municipality
+Q17166803,	city municipality of Lithuania	Lithuania	county	city municipality
+Q17301072,	district municipality of Lithuania	Lithuania	county	district municipality
+Q3263368,	department of Mauritania	Mauritania	county	department
+Q1952852,	municipality of Mexico	Mexico	county	municipality
+Q20683484,	municipality of the Federated States of Micronesia	Micronesia	county	municipality
+Q1518096,	district of Mongolia	Mongolia	county	soum
+Q15623950,	prefecture of Morocco	Morocco	county	prefecture
+Q15629582,	province of Morocco	Morocco	county	province
+Q2068214,	district of Mozambique	Mozambique	county	district
+Q5283500,	district of Myanmar	Myanmar	county	district
+Q318727,	municipality of Nicaragua	Nicaragua	county	municipality
+Q3250615,	province of Oman	Oman	county	wilayah
+Q917092,	district of Paraguay	Paraguay	county	district
+Q509686,	province of Peru	Peru	county	province
+Q263639,	municipality of Puerto Rico	Puerto Rico	county	Municipio
+Q2198484,	municipal district in Russia	Russia	county	raion,gorsovet,gorod,natsional'nyy rayon
+Q1530824,	metropolitan municipality of South Africa	South Africa	county	metropolitan municipality
+Q1589568,	district municipality of South Africa	South Africa	county	district municipality
+Q1230110,	district of Sri Lanka	Sri Lanka	county	division
+Q505830,	district of Sudan	Sudan	county	county
+Q1539014,	resort of Suriname	Suriname	county	ressort
+Q2915776,	district of Syria	Syria	county	district
+Q2409750,	district of Tanzania	Tanzania	county	district
+Q1184072,	delegation of Tunisia	Tunisia	county	delegation
+Q2716259,	metropolitan municipality in Turkey	Turkey	county	district
+Q1267632,	raion of Ukraine	Ukraine	county	raion
+Q5123999,	city of regional significance of Ukraine	Ukraine	county	city
+Q33101426,	urban council of Ukraine	Ukraine	county	mis'ka rada
+Q47168,	county of the United States	United States	county	County
+Q604886,	charter city of the United States	United States	county	Parish,City,Census Area,Municipality,City and Borough,county,District
+Q4946305,	borough in the United States	United States	county	Borough
+Q3327920,	municipality of Venezuela	Venezuela	county	municipality
+Q1381899,	municipality of Vietnam	Vietnam	county	island,township
+Q2112349,	district-level town of Vietnam	Vietnam	county	district
+Q3249005,	provincial city of Vietnam	Vietnam	county	city
+Q21608359,	urban district of Vietnam	Vietnam	county	urban district
+Q2744064,	district of Zambia	Zambia	county	district

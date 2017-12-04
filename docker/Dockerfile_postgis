@@ -29,6 +29,12 @@ RUN   mkdir -p /cartodb-postgresql \
     && cd /cartodb-postgresql \
     && make all install
 
+RUN   mkdir -p /pg_similarity \
+    && git clone --depth 1 --branch master https://github.com/eulerto/pg_similarity.git  /pg_similarity \
+    && cd /pg_similarity \
+    && USE_PGXS=1 make \
+    && USE_PGXS=1 make install
+
 ADD pgtune.py            /pgtune.py
 ADD pgtune-db.sh         /docker-entrypoint-initdb.d/pgtune-db.sh
 

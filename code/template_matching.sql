@@ -92,9 +92,9 @@ select
     ,wof.wof_name 
     ,wof.wof_country
     ,wof.wof_wd_id
+    ,get_wdlabeltext(wof.wof_wd_id)       as old_wd_label    
     ,get_wdc_item_label(wd.data,'P31')    as old_p31_instance_of  
     ,get_wdc_item_label(wd.data,'P17')    as old_p17_country_id   
-    ,get_wdlabeltext(wof.wof_wd_id)       as old_wd_label
     ,is_cebuano(wd.data)                  as old_is_cebauno      
 from :wof_input_table as wof
 left join wikidata.wd as wd   on wof.wof_wd_id=wd.data->>'id'

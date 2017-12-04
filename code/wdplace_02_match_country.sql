@@ -80,80 +80,20 @@ ANALYSE  wof_match_country ;
 
 
 
+ 
+\set wd_input_table           wdplace.wd_match_country
+\set wof_input_table          wof_match_country
 
-drop table if exists  wd_mc_wof_match CASCADE;
-create table          wd_mc_wof_match  as
-    select
-         wof.id
-        ,wof.wof_name
-        ,wof.wof_country
-        ,wof.wof_wd_id
-        ,wd.*
-    from wdplace.wd_match_country  as wd
-        ,wof_match_country         as wof
-    where 
-         wof.wof_country = wd.country_iso2
-    order by wof.id
-;
-ANALYSE     wd_mc_wof_match ;
+\set wd_wof_match             wd_mcountry_wof_match
+\set wd_wof_match_agg         wd_mcountry_wof_match_agg
+\set wd_wof_match_agg_sum     wd_mcountry_wof_match_agg_summary
+\set wd_wof_match_notfound    wd_mcountry_wof_match_notfound
 
-
-
-
-
-drop table if exists  wd_mc_wof_match_agg CASCADE;
-create table          wd_mc_wof_match_agg  as
-with wd_agg as
-(
-    select id, wof_name, wof_country,wof_wd_id
-        ,  array_agg(wd_id     order by     wd_id) as a_wd_id
-    from wd_mc_wof_match
-    group by id, wof_name, wof_country,wof_wd_id
-    order by id, wof_name, wof_country,wof_wd_id
-)
-, wd_agg_extended as
-(
- select wd_agg.*
-      ,ARRAY[wof_wd_id] &&  a_wd_id as _wd_ok
-
-      ,case
-         when  not (ARRAY[wof_wd_id] &&  a_wd_id)  and  array_length(a_wd_id,1) =1  then   a_wd_id[1]
-           else NULL
-        end as _suggested_wd_id
-      ,array_length(a_wd_id,1) as wd_number_of_matches
-     ,case
-         when  array_length(a_wd_id,1)  =1   and  wof_wd_id  = a_wd_id[1]                    then 'validated'
-         when  array_length(a_wd_id,1) !=1   and (ARRAY[wof_wd_id] &&  a_wd_id)              then 'validated-multiple match'
-         when  array_length(a_wd_id,1) =1   and  wof_wd_id != a_wd_id[1] and wof_wd_id !=''  then 'suggested for replace-'
-         when  array_length(a_wd_id,1) =1   and  wof_wd_id != a_wd_id[1] and wof_wd_id  =''  then 'suggested for add-'
-         else 'multiple_match (please check! )'
-      end as _matching_category
-  from wd_agg
-)
-
-select wd_agg_extended.*
-      ,get_wdc_item_label(wd.data,'P31') as old_p31_instance_of
-      ,wdnew.p31_instance_of             as new_p31_instance_of
-      ,get_wdc_item_label(wd.data,'P17') as old_p17_country_id
-      ,wdnew.p17_country_id              as new_p17_country_id
-      ,get_wdlabeltext(wd_agg_extended.wof_wd_id)        as old_wd_label
-      ,get_wdlabeltext(wd_agg_extended._suggested_wd_id) as new_wd_label
-      ,is_cebuano(wd.data)                               as old_is_cebauno
-from wd_agg_extended
-left join wikidata.wd              as wd     on wd_agg_extended.wof_wd_id=wd.data->>'id'
-left join wdplace.wd_match_country as wdnew  on wd_agg_extended._suggested_wd_id=wdnew.wd_id
-;
-ANALYSE wd_mc_wof_match_agg ;
-
-
-drop table if exists  wd_mc_wof_match_agg_summary CASCADE;
-create table          wd_mc_wof_match_agg_summary  as
-    select _matching_category,  wd_number_of_matches,  count(*) as N
-    from wd_mc_wof_match_agg
-    group by  _matching_category, wd_number_of_matches
-    order by  _matching_category, wd_number_of_matches
-    ;
-ANALYSE wd_mc_wof_match_agg_summary ;
+\set mcond1      ( wof.wof_country = wd.country_iso2 )
+\set mcond2  
+\set mcond3
+\set safedistance 40000
+\ir 'template_matching.sql'
 
 
 
@@ -163,12 +103,12 @@ create table          codes.wd2country_new  as
          coalesce( _suggested_wd_id, wof_wd_id ) as wd_id
         ,wof_country
         ,wof_name
-    from wd_mc_wof_match_agg
+    from :wd_wof_match_agg
     order by coalesce( _suggested_wd_id, wof_wd_id )
 ;
 
-CREATE UNIQUE INDEX codes_wd2country_new_wd_id          ON codes.wd2country_new (wd_id);
-CREATE UNIQUE INDEX codes_wd2country_new_wof_country    ON codes.wd2country_new (wof_country);
+CREATE UNIQUE INDEX ON codes.wd2country_new (wd_id);
+CREATE UNIQUE INDEX ON codes.wd2country_new (wof_country);
 ANALYSE codes.wd2country_new;
 
 

@@ -1,8 +1,5 @@
 
 
-create extension if not exists unaccent;
-
-
 --  TODO: get the latest  P31 status.
 --  Q1018914  | Q1018914   has an english name ( has an english label)
 --  wikidata has a coordinate
@@ -10,10 +7,8 @@ create extension if not exists unaccent;
 --  distance < 100km
 --  only 1 match!
 
-
--- drop view if exists  wdplace.wd_for_matching CASCADE;
-drop table if exists  wdplace.wd_for_matching CASCADE;
-create table  wdplace.wd_for_matching  as
+drop table if exists  wdplace.wd_match_locality CASCADE;
+create table          wdplace.wd_match_locality  as
 with x AS (
                   select * from wdplace.wd0_x         
         union all select * from wdplace.wd1_x  
@@ -32,150 +27,49 @@ with x AS (
       and wd_is_cebuano IS FALSE
     ;
 
-CREATE INDEX  wdplace_wd_for_matching_x_point           ON  wdplace.wd_for_matching USING GIST(wd_point);
-CREATE INDEX  wdplace_wd_for_matching_una_name_en_clean ON  wdplace.wd_for_matching (una_wd_name_en_clean);
--- CREATE INDEX  wdplace_wd_for_matching_name_en_clean     ON  wdplace.wd_for_matching (    wd_name_en_clean);
-CREATE INDEX  ON   wdplace.wd_for_matching (wd_id);
-ANALYSE   wdplace.wd_for_matching ;
+CREATE INDEX  ON  wdplace.wd_match_locality USING GIST(wd_point);
+CREATE INDEX  ON  wdplace.wd_match_locality (una_wd_name_en_clean);
+CREATE INDEX  ON  wdplace.wd_match_locality (wd_id);
+ANALYSE   wdplace.wd_match_locality ;
 
 
--- drop view if exists wof_for_matching;
-drop table if exists wof_for_matching CASCADE;
-create table         wof_for_matching  as
+
+drop table if exists wof_match_locality CASCADE;
+create table         wof_match_locality  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name 
     ,unaccent(wof.properties->>'wof:name')  as una_wof_name 
-    ,wof.properties->>'wof:country' as wof_country
-    ,wof.wd_id                      as wof_wd_id
+    ,wof.properties->>'wof:country'         as wof_country
+    ,wof.wd_id                              as wof_wd_id
     ,COALESCE( wof.geom::geometry, wof.centroid::geometry )  as wof_geom
 from wof_locality as wof
 where  wof.is_superseded=0 
    and wof.is_deprecated=0
 ;
 
-CREATE INDEX  wof_for_matching_x_point        ON  wof_for_matching   USING GIST(wof_geom);
-CREATE INDEX  wof_for_matching_una_wof_name   ON  wof_for_matching   (una_wof_name);
--- CREATE INDEX  wof_for_matching_wof_name       ON  wof_for_matching   (wof_name);
-ANALYSE   wof_for_matching ;
+CREATE INDEX  ON wof_match_locality   USING GIST(wof_geom);
+CREATE INDEX  ON wof_match_locality   (una_wof_name);
+ANALYSE          wof_match_locality ;
 
 
+--
+---------------------------------------------------------------------------------------
+--
 
+\set wd_input_table           wdplace.wd_match_locality
+\set wof_input_table          wof_match_locality
 
-drop table if exists  wd_wof_match CASCADE;
-create table  wd_wof_match  as
-    select
-         wof.* 
-        ,ST_Distance(
-              CDB_TransformToWebmercator(wd.wd_point)   
-            , CDB_TransformToWebmercator(wof.wof_geom) 
-            )::bigint     as _distance
-        , wd.*        
-        , case when  wof.wof_name     = wd.wd_name_en_clean 
-              then 'full-name-match'
-              else 'unaccent-name-match'
-          end as  _name_match_type    
-    from wdplace.wd_for_matching as wd 
-        ,wof_for_matching        as wof
-    where (  
-          --   ( wof.wof_name     = wd.wd_name_en_clean )
-          --   or
-              ( wof.una_wof_name = wd.una_wd_name_en_clean )
-          )  
-        and ST_Distance(
-              CDB_TransformToWebmercator(wd.wd_point)   
-            , CDB_TransformToWebmercator(wof.wof_geom) 
-            )::bigint  <= 100000
-    order by wof.id, _distance
-;
-ANALYSE     wd_wof_match ;
+\set wd_wof_match             wd_mlocality_wof_match
+\set wd_wof_match_agg         wd_mlocality_wof_match_agg
+\set wd_wof_match_agg_sum     wd_mlocality_wof_match_agg_summary
+\set wd_wof_match_notfound    wd_mlocality_wof_match_notfound
 
+\set mcond1      ( wof.una_wof_name = wd.una_wd_name_en_clean )
+\set mcond2  and (ST_Distance(CDB_TransformToWebmercator(wd.wd_point),CDB_TransformToWebmercator(wof.wof_geom) )::bigint  <= 100001 )
+\set mcond3  
 
+\set safedistance 40000
 
-drop table if exists  wd_wof_match_agg CASCADE;
-create table  wd_wof_match_agg  as
-with wd_agg as 
-(
-    select id, wof_name, wof_country,wof_wd_id
-        ,  array_agg(wd_id     order by _distance) as a_wd_id
-        ,  array_agg(_distance order by _distance) as a_wd_id_distance 
-        ,  array_agg(_name_match_type  order by _name_match_type ) as a_wd_name_match_type             
-    from wd_wof_match
-    group by id, wof_name, wof_country,wof_wd_id 
-    order by id, wof_name, wof_country,wof_wd_id  
-)
-, wd_agg_extended as
-(
- select wd_agg.*
-      ,case 
-         when  array_length(a_wd_id,1) =1  then   a_wd_id[1]
-           else NULL
-        end as _suggested_wd_id
-      ,array_length(a_wd_id,1) as wd_number_of_matches
-      ,case 
-          when a_wd_id_distance[1] <=  5000 then '00-05km' 
-          when a_wd_id_distance[1] <= 10000 then '05-10km' 
-          when a_wd_id_distance[1] <= 15000 then '10-15km'
-          when a_wd_id_distance[1] <= 20000 then '15-20km'
-          when a_wd_id_distance[1] <= 25000 then '20-25km'
-          when a_wd_id_distance[1] <= 30000 then '25-30km'
-          when a_wd_id_distance[1] <= 35000 then '30-35km'
-          when a_wd_id_distance[1] <= 40000 then '35-40km'
-          when a_wd_id_distance[1] <= 45000 then '40-45km'
-          when a_wd_id_distance[1] <= 50000 then '45-50km'
-          when a_wd_id_distance[1] <= 60000 then '50-60km'    
-          when a_wd_id_distance[1] <= 70000 then '60-70km'    
-          when a_wd_id_distance[1] <= 80000 then '70-80km'    
-          when a_wd_id_distance[1] <= 90000 then '80-90km'
-          when a_wd_id_distance[1] <=100000 then '90-99km'                                                                
-            else     '-checkme-'     
-      end as _firstmatch_distance_category    
-     ,case 
-         when  array_length(a_wd_id,1) =1   and  wof_wd_id  = a_wd_id[1]                    then 'validated-'||a_wd_name_match_type[1]    
-         when  array_length(a_wd_id,1) =1   and  wof_wd_id != a_wd_id[1] and wof_wd_id !='' then 'suggested for replace-'||a_wd_name_match_type[1] 
-         when  array_length(a_wd_id,1) =1   and  wof_wd_id != a_wd_id[1] and wof_wd_id  ='' then 'suggested for add-'||a_wd_name_match_type[1] 
-         else 'multiple_match (please not import this!)'
-      end as _matching_category
-  from wd_agg
-)
-select wd_agg_extended.* 
-      ,get_wdc_item_label(wd.data,'P31') as old_p31_instance_of
-      ,wdnew.p31_instance_of             as new_p31_instance_of      
-      ,get_wdc_item_label(wd.data,'P17') as old_p17_country_id       
-      ,wdnew.p17_country_id              as new_p17_country_id
-      ,get_wdlabeltext(wd_agg_extended.wof_wd_id)        as old_wd_label
-      ,get_wdlabeltext(wd_agg_extended._suggested_wd_id) as new_wd_label
-      ,is_cebuano(wd.data)                               as old_is_cebauno
-from wd_agg_extended
-left join wikidata.wd              as wd     on wd_agg_extended.wof_wd_id=wd.data->>'id'
-left join wdplace.wd_for_matching  as wdnew  on wd_agg_extended._suggested_wd_id=wdnew.wd_id   
-;
-ANALYSE wd_wof_match_agg ;
+\ir 'template_matching.sql'
 
-
-drop table if exists  wd_wof_match_agg_summary CASCADE;
-create table  wd_wof_match_agg_summary  as
-    select _matching_category,  wd_number_of_matches, _firstmatch_distance_category, count(*) as N  
-    from wd_wof_match_agg
-    group by  _matching_category, wd_number_of_matches, _firstmatch_distance_category
-    order by  _matching_category, wd_number_of_matches, _firstmatch_distance_category
-;
-ANALYSE wd_wof_match_agg_summary ;
-
-
-
-
-drop table if exists wd_wof_match_notfound CASCADE;
-create table         wd_wof_match_notfound  as
-select
-     wof.id
-    ,wof.wof_name 
-    ,wof.wof_country
-    ,wof.wof_wd_id
-from wof_for_matching as wof
-where  wof.id not in ( select id from wd_wof_match )  
-order by wof.wof_country, wof.wof_name
-;
-ANALYSE wd_wof_match_notfound;
-
--- select wof_country, count(*) as n from wd_wof_match_notfound  group by wof_country order by n desc;

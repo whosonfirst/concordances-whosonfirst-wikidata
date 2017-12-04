@@ -39,6 +39,47 @@ $$;
 
 
 
+CREATE OR REPLACE FUNCTION distance_class(_distance bigint)
+RETURNS text
+IMMUTABLE STRICT
+LANGUAGE sql
+AS $$
+    SELECT
+      case 
+          when _distance <=   5000 then '000-005km' 
+          when _distance <=  10000 then '005-010km' 
+          when _distance <=  15000 then '010-015km'
+          when _distance <=  20000 then '015-020km'
+          when _distance <=  25000 then '020-025km'
+          when _distance <=  30000 then '025-030km'
+          when _distance <=  35000 then '030-035km'
+          when _distance <=  40000 then '035-040km'
+          when _distance <=  45000 then '040-045km'
+          when _distance <=  50000 then '045-050km'
+          when _distance <=  60000 then '050-060km'    
+          when _distance <=  70000 then '060-070km'    
+          when _distance <=  80000 then '070-080km'    
+          when _distance <=  90000 then '080-090km'
+          when _distance <= 100000 then '090-099km'
+          when _distance <= 150000 then '100-150km'
+          when _distance <= 200000 then '150-200km'    
+          when _distance <= 250000 then '200-250km'    
+          when _distance <= 300000 then '250-300km'    
+          when _distance <= 400000 then '300-400km'    
+          when _distance <= 500000 then '400-500km'    
+          when _distance <= 600000 then '500-600km'    
+          when _distance <= 700000 then '600-700km'    
+          when _distance <= 800000 then '700-800km'    
+          when _distance <= 900000 then '800-900km'    
+          when _distance <=1000000 then '900-999km'                                                                                                              
+                                   else '..>1000km'     
+      end;
+$$;
+-- select distance_class(24999);
+
+
+
+
 CREATE OR REPLACE FUNCTION public.is_cebuano(data jsonb)
 RETURNS bool
 IMMUTABLE

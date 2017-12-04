@@ -16,7 +16,7 @@ echo """
                 ,wof.wof_name
                 ,wof.wof_country
                 ,wd.* 
-        FROM  wof_extended_wd_ok as wof 
+        FROM  wof_validated_suggested_list as wof 
              ,${source_table}    as wd 
         WHERE wof.wd_id=wd.wd_id
         ORDER BY wof_country, wof_name 

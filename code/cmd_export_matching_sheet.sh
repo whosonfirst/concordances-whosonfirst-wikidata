@@ -10,8 +10,12 @@ xlsxname=${outputdir}/${outputfilename}
 rm -f ${xlsxname}
 
 pgclimb -o ${xlsxname} \
-    -c "SELECT * FROM ${sumtable};" \
+    -c "SELECT * FROM ${sumtable}_pct;" \
     xlsx --sheet "_summary_"
+
+pgclimb -o ${xlsxname} \
+    -c "SELECT * FROM ${sumtable};" \
+    xlsx --sheet "_summary_distance"
 
 pgclimb -o ${xlsxname} \
     -c "SELECT * FROM  ${table} where wd_number_of_matches>1;" \

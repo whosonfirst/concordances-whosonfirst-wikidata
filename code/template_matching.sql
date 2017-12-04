@@ -74,16 +74,6 @@ left join :wd_input_table    as wdnew  on wd_agg_extended._suggested_wd_id=wdnew
 ANALYSE :wd_wof_match_agg ;
 
 
-drop table if exists  :wd_wof_match_agg_sum CASCADE;
-create table  :wd_wof_match_agg_sum  as
-    select _matching_category,  wd_number_of_matches, _firstmatch_distance_category, count(*) as N  
-    from :wd_wof_match_agg
-    group by  _matching_category, wd_number_of_matches, _firstmatch_distance_category
-    order by  _matching_category, wd_number_of_matches, _firstmatch_distance_category
-;
-ANALYSE :wd_wof_match_agg_sum ;
-
-
 
 drop table if exists :wd_wof_match_notfound CASCADE;
 create table         :wd_wof_match_notfound  as
@@ -95,11 +85,66 @@ select
     ,get_wdlabeltext(wof.wof_wd_id)       as old_wd_label    
     ,get_wdc_item_label(wd.data,'P31')    as old_p31_instance_of  
     ,get_wdc_item_label(wd.data,'P17')    as old_p17_country_id   
-    ,is_cebuano(wd.data)                  as old_is_cebauno      
+    ,is_cebuano(wd.data)                  as old_is_cebauno 
+    ,'NOTfound (yet)'                     as _matching_category  
 from :wof_input_table as wof
 left join wikidata.wd as wd   on wof.wof_wd_id=wd.data->>'id'
 where  wof.id not in ( select id from :wd_wof_match )  
 order by wof.wof_country, wof.wof_name
 ;
 ANALYSE :wd_wof_match_notfound;
+
+
+
+
+drop table if exists  :wd_wof_match_agg_sum CASCADE;
+create table  :wd_wof_match_agg_sum  as
+with 
+_matched as (
+    select _matching_category,  wd_number_of_matches, _firstmatch_distance_category, count(*) as N  
+    from :wd_wof_match_agg
+    group by  _matching_category, wd_number_of_matches, _firstmatch_distance_category
+    order by  _matching_category, wd_number_of_matches, _firstmatch_distance_category 
+), 
+_notfound as (
+    select _matching_category, null::int as wd_number_of_matches, null::text as _firstmatch_distance_category, count(*) as N  
+    from :wd_wof_match_notfound
+    group by  _matching_category, wd_number_of_matches, _firstmatch_distance_category
+    order by  _matching_category, wd_number_of_matches, _firstmatch_distance_category
+)
+
+           select * from _matched
+union all  select * from _notfound
+;
+
+ANALYSE :wd_wof_match_agg_sum ;
+
+
+\set _pct _pct
+drop table if exists  :wd_wof_match_agg_sum:_pct CASCADE;
+create table          :wd_wof_match_agg_sum:_pct  as
+with 
+ total AS (  select 
+            '-- total --' as _matching_category 
+           , sum(N) as N
+           , null::numeric(10,5) as pct 
+           from :wd_wof_match_agg_sum ) 
+,msum  as (
+    SELECT _matching_category
+        , sum(N)       as N
+    FROM :wd_wof_match_agg_sum
+    group by _matching_category 
+    order by _matching_category  
+)
+select msum._matching_category 
+      ,msum.N
+      ,((100.0 * msum.N ) /total.N)::numeric(10,5) as pct  
+from msum, total
+union all
+  select    * 
+  from total
+;
+ANALYSE :wd_wof_match_agg_sum:_pct;
+
+select * from :wd_wof_match_agg_sum:_pct;
 

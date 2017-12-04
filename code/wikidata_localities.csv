@@ -1331,4 +1331,7 @@ Q1906268, municipality of Bulgaria
 Q1639634, local government area of Nigeria
 Q3076994, commune of Cameroon
 Q27676416,city or town - type of local municipality in Quebec (Quebec don’t make the difference between city or town)
-#----------------
+
+#---added via manually debugging ----
+Q783930,:"municipalities and cities of Serbia
+Q192287,:"administrative territorial entity of Russia

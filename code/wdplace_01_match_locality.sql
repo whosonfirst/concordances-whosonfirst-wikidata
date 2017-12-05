@@ -21,13 +21,14 @@ with x AS (
     )
     SELECT * 
           , unaccent(wd_name_en_clean) as una_wd_name_en_clean  
+          , CDB_TransformToWebmercator(wd_point) as wd_point_merc
     FROM x 
     WHERE wd_id != wd_name_en
       and wd_point is not null 
       and wd_is_cebuano IS FALSE
     ;
 
-CREATE INDEX  ON  wdplace.wd_match_locality USING GIST(wd_point);
+CREATE INDEX  ON  wdplace.wd_match_locality USING GIST(wd_point_merc);
 CREATE INDEX  ON  wdplace.wd_match_locality (una_wd_name_en_clean);
 CREATE INDEX  ON  wdplace.wd_match_locality (wd_id);
 CREATE INDEX  ON  wdplace.wd_match_locality USING GIN(wd_name_array );
@@ -46,14 +47,13 @@ select
     ,wof.properties->>'wof:country'         as wof_country
     ,wof.wd_id                              as wof_wd_id
     ,get_wof_name_array(wof.properties)     as wof_name_array
-    ,COALESCE( wof.geom::geometry, wof.centroid::geometry )  as wof_geom
+    ,CDB_TransformToWebmercator(COALESCE( wof.geom::geometry, wof.centroid::geometry ))   as wof_geom_merc
 from wof_locality as wof
-where  wof.is_superseded=0 
-   and wof.is_deprecated=0
+where  wof.is_superseded=0  and wof.is_deprecated=0
 ;
 
-CREATE INDEX  ON wof_match_locality  USING GIST(wof_geom);
-CREATE INDEX  ON wof_match_locality   (una_wof_name);
+CREATE INDEX  ON wof_match_locality  USING GIST(wof_geom_merc);
+CREATE INDEX  ON wof_match_locality  (una_wof_name);
 CREATE INDEX  ON wof_match_locality  USING GIN ( wof_name_array);
 ANALYSE          wof_match_locality ;
 
@@ -69,13 +69,14 @@ ANALYSE          wof_match_locality ;
 \set wd_wof_match_agg         wd_mlocality_wof_match_agg
 \set wd_wof_match_agg_sum     wd_mlocality_wof_match_agg_summary
 \set wd_wof_match_notfound    wd_mlocality_wof_match_notfound
+\set safedistance    40000
+\set searchdistance 100003
 
 \set mcond1     (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (  wof_name_array && wd_altname_array ) or (jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.901 ) )
---  \set mcond1     (( wof.una_wof_name = wd.una_wd_name_en_clean ) )
-\set mcond2  and (ST_Distance(CDB_TransformToWebmercator(wd.wd_point),CDB_TransformToWebmercator(wof.wof_geom) )::bigint  <= 100001 )
+\set mcond2  and (ST_DWithin ( wd.wd_point_merc, wof.wof_geom_merc , :searchdistance ))
 \set mcond3  
 
-\set safedistance 40000
+
 
 \ir 'template_matching.sql'
 

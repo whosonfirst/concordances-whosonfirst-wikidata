@@ -30,23 +30,22 @@ create table          wdplace.wd_match_county  as
     ,get_wd_name_array(data)           as wd_name_array 
     ,get_wd_altname_array(data)        as wd_altname_array
 
-    ,ST_SetSRID(ST_MakePoint( 
+    ,CDB_TransformToWebmercator(ST_SetSRID(ST_MakePoint( 
              cast(get_wdc_globecoordinate(data,'P625')->0->>'longitude' as double precision)
             ,cast(get_wdc_globecoordinate(data,'P625')->0->>'latitude'  as double precision)
             )
-    , 4326) as wd_point
+    , 4326)) as wd_point_merc
     
     from wdplace.wd_county
     order by  wd_country, una_wd_name_en_clean  
 ;
 
-CREATE INDEX  wdplace_wd_match_county_x_point           ON  wdplace.wd_match_county USING GIST(wd_point);
-CREATE INDEX  wdplace_wd_match_county_una_name_en_clean ON  wdplace.wd_match_county (una_wd_name_en_clean);
-CREATE INDEX  wdplace_wd_match_county_wd_id             ON  wdplace.wd_match_county (wd_id);
-CREATE INDEX  ON  wdplace.wd_match_locality USING GIN(wd_name_array );
-CREATE INDEX  ON  wdplace.wd_match_locality USING GIN(wd_altname_array );
+CREATE INDEX  ON  wdplace.wd_match_county USING GIST(wd_point_merc);
+CREATE INDEX  ON  wdplace.wd_match_county (una_wd_name_en_clean);
+CREATE INDEX  ON  wdplace.wd_match_county (wd_id);
+CREATE INDEX  ON  wdplace.wd_match_county  USING GIN(wd_name_array );
+CREATE INDEX  ON  wdplace.wd_match_county  USING GIN(wd_altname_array );
 ANALYSE   wdplace.wd_match_county;
-
 
 
 
@@ -59,18 +58,22 @@ select
     ,wof.properties->>'wof:country'         as wof_country
     ,wof.wd_id                              as wof_wd_id
     ,get_wof_name_array(wof.properties)     as wof_name_array
-    ,COALESCE( wof.geom::geometry, wof.centroid::geometry )  as wof_geom
+    ,CDB_TransformToWebmercator(COALESCE( wof.geom::geometry, wof.centroid::geometry ))  as wof_geom_merc
 from wof_county as wof
 where  wof.is_superseded=0 
    and wof.is_deprecated=0
 order by wof_country,  una_wof_name 
 ;
 
-CREATE INDEX  wof_match_county_x_point        ON  wof_match_county  USING GIST(wof_geom);
-CREATE INDEX  wof_match_county_una_wof_name   ON  wof_match_county  (una_wof_name);
+CREATE INDEX ON  wof_match_county  USING GIST(wof_geom_merc);
+CREATE INDEX ON  wof_match_county  (una_wof_name);
 ANALYSE  wof_match_county ;
 
 
+
+
+\set searchdistance 500003
+\set safedistance   100000
 \set wd_input_table           wdplace.wd_match_county
 \set wof_input_table          wof_match_county
 
@@ -79,11 +82,9 @@ ANALYSE  wof_match_county ;
 \set wd_wof_match_agg_sum     wd_mcounty_wof_match_agg_summary
 \set wd_wof_match_notfound    wd_mcounty_wof_match_notfound
 
-\set mcond1      ( wof.wof_country  = wd.wd_country           )
+\set mcond1  ( wof.wof_country  = wd.wd_country )
 \set mcond2  and (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (  wof_name_array && wd_altname_array ) or (jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.901 ) )
-\set mcond3  and (ST_Distance(CDB_TransformToWebmercator(wd.wd_point),CDB_TransformToWebmercator(wof.wof_geom) )::bigint  <= 200001 )
-
-\set safedistance 100000
+\set mcond3  and (ST_DWithin ( wd.wd_point_merc, wof.wof_geom_merc , :searchdistance ))
 
 \ir 'template_matching.sql'
 

@@ -30,11 +30,11 @@ create table          wdplace.wd_match_region  as
     ,get_wd_name_array(data)           as wd_name_array 
     ,get_wd_altname_array(data)        as wd_altname_array
 
-    ,ST_SetSRID(ST_MakePoint( 
+    ,CDB_TransformToWebmercator(ST_SetSRID(ST_MakePoint( 
              cast(get_wdc_globecoordinate(data,'P625')->0->>'longitude' as double precision)
             ,cast(get_wdc_globecoordinate(data,'P625')->0->>'latitude'  as double precision)
             )
-    , 4326) as wd_point
+    , 4326)) as wd_point_merc
     
     from wdplace.wd_region as wd
     order by wd_country , una_wd_name_en_clean
@@ -42,19 +42,15 @@ create table          wdplace.wd_match_region  as
     
 ;
 
-
---CREATE INDEX  wdplace_wd_match_region_x_point           ON  wdplace.wd_match_region USING GIST(wd_point);
-CREATE INDEX  wdplace_wd_match_region_una_name_en_clean ON  wdplace.wd_match_region (una_wd_name_en_clean);
--- CREATE INDEX  wdplace_wd_match_region_name_en_clean     ON  wdplace.wd_match_region (    wd_name_en_clean);
-CREATE INDEX  wdplace_wd_match_region_wd_id             ON  wdplace.wd_match_region (wd_id);
-CREATE INDEX  ON  wdplace.wd_match_locality USING GIN(wd_name_array );
-CREATE INDEX  ON  wdplace.wd_match_locality USING GIN(wd_altname_array );
+CREATE INDEX  ON wdplace.wd_match_region (una_wd_name_en_clean);
+CREATE INDEX  ON wdplace.wd_match_region (wd_id);
+CREATE INDEX  ON wdplace.wd_match_region USING GIN(wd_name_array );
+CREATE INDEX  ON wdplace.wd_match_region USING GIN(wd_altname_array );
 ANALYSE   wdplace.wd_match_region;
 
 
 
 
--- drop view if exists wof_for_matching;
 drop table if exists wof_match_region CASCADE;
 create table         wof_match_region  as
 select
@@ -64,21 +60,21 @@ select
     ,wof.properties->>'wof:country'         as wof_country
     ,wof.wd_id                              as wof_wd_id
     ,get_wof_name_array(wof.properties)     as wof_name_array
-    ,COALESCE( wof.geom::geometry, wof.centroid::geometry )  as wof_geom
+    ,CDB_TransformToWebmercator(COALESCE( wof.geom::geometry, wof.centroid::geometry ))  as wof_geom_merc
 from wof_region as wof
 where  wof.is_superseded=0 
    and wof.is_deprecated=0
 order by wof_country ,  una_wof_name  
 ;
 
-
--- CREATE INDEX  wof_match_region_x_point        ON  wof_match_region  USING GIST(wof_geom);
-CREATE INDEX  wof_match_region_una_wof_name   ON  wof_match_region  (una_wof_name);
--- CREATE INDEX  wof_match_region_wof_name       ON  wof_match_region  (wof_name);
+CREATE INDEX  ON wof_match_region (wof_country);
+CREATE INDEX  ON wof_match_region USING GIN(wof_name_array );
 ANALYSE  wof_match_region ;
 
 
 
+\set searchdistance      .
+\set safedistance   100000
 \set wd_input_table           wdplace.wd_match_region
 \set wof_input_table          wof_match_region
 
@@ -91,7 +87,6 @@ ANALYSE  wof_match_region ;
 \set mcond2  and (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (  wof_name_array && wd_altname_array ) or (jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.901 ) )
 \set mcond3  
 
-\set safedistance 100000
 
 \ir 'template_matching.sql'
 

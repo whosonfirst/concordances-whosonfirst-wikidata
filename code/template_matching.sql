@@ -1,24 +1,25 @@
+
 \set ON_ERROR_STOP 1
 CREATE EXTENSION if not exists pg_similarity;
+\timing
+
+
 
 
 
 drop table if exists  :wd_wof_match  CASCADE;
-create table          :wd_wof_match  as
+EXPLAIN ANALYZE create table          :wd_wof_match  as
     select
          wof.* 
-        ,ST_Distance(
-              CDB_TransformToWebmercator( wd.wd_point)   
-            , CDB_TransformToWebmercator(wof.wof_geom) 
-            )::bigint     as _distance
-        , wd.*        
-        , case when wof.wof_name     = wd.wd_name_en_clean     then 'N1Full-name-match'
+        ,ST_Distance( wd.wd_point_merc, wof.wof_geom_merc)::bigint  as _distance
+        ,wd.*        
+        ,case  when wof.wof_name     = wd.wd_name_en_clean     then 'N1Full-name-match'
                when wof.una_wof_name = wd.una_wd_name_en_clean then 'N3Unaccent-name-match'
                when wof_name_array && wd_name_array            then 'N2Label-name-match'
                when wof_name_array && wd_altname_array         then 'N4Alias-name-match'
                when jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.901   then 'N5JaroWinkler-match'
                                                                else 'Nerr??-checkme-'
-          end as  _name_match_type    
+         end as  _name_match_type    
     from :wd_input_table   as wd 
         ,:wof_input_table  as wof
     where ( :mcond1
@@ -28,7 +29,7 @@ create table          :wd_wof_match  as
         
     order by wof.id, _distance
 ;
-ANALYSE     :wd_wof_match  ;
+-- ANALYSE     :wd_wof_match  ;
 
 
 drop table if exists  :wd_wof_match_agg CASCADE;

@@ -35,11 +35,11 @@ with c as
     ,get_wd_name_array(data)           as wd_name_array 
     ,get_wd_altname_array(data)        as wd_altname_array
 
-    ,ST_SetSRID(ST_MakePoint(
+    ,CDB_TransformToWebmercator( ST_SetSRID(ST_MakePoint(
              cast(get_wdc_globecoordinate(data,'P625')->0->>'longitude' as double precision)
             ,cast(get_wdc_globecoordinate(data,'P625')->0->>'latitude'  as double precision)
             )
-    , 4326) as wd_point
+    , 4326)) as wd_point_merc
 
     from wdplace.wd_country
 )
@@ -51,10 +51,10 @@ order by wd_id
 ;
 
 
-CREATE INDEX  wdplace_wd_match_country_x_point           ON  wdplace.wd_match_country USING GIST(wd_point);
-CREATE INDEX  wdplace_wd_match_country_una_name_en_clean ON  wdplace.wd_match_country (una_wd_name_en_clean);
-CREATE INDEX  wdplace_wd_match_country_name_en_clean     ON  wdplace.wd_match_country (    wd_name_en_clean);
-CREATE INDEX  wdplace_wd_match_country_wd_id             ON  wdplace.wd_match_country (wd_id);
+CREATE INDEX  ON  wdplace.wd_match_country USING GIST(wd_point_merc);
+CREATE INDEX  ON  wdplace.wd_match_country (una_wd_name_en_clean);
+CREATE INDEX  ON  wdplace.wd_match_country (    wd_name_en_clean);
+CREATE INDEX  ON  wdplace.wd_match_country (wd_id);
 ANALYSE   wdplace.wd_match_country;
 
 
@@ -70,21 +70,22 @@ select
     ,wof.properties->>'wof:country'         as wof_country
     ,wof.wd_id                              as wof_wd_id
     ,get_wof_name_array(wof.properties)     as wof_name_array
-    ,COALESCE( wof.geom::geometry, wof.centroid::geometry )  as wof_geom
+    ,CDB_TransformToWebmercator(COALESCE( wof.geom::geometry, wof.centroid::geometry ))  as wof_geom_merc
 from wof_country as wof
 where  wof.is_superseded=0
    and wof.is_deprecated=0
 order by wof_country
 ;
 
-CREATE INDEX  wof_match_country_x_point        ON  wof_match_country  USING GIST(wof_geom);
-CREATE INDEX  wof_match_country_una_wof_name   ON  wof_match_country  (una_wof_name);
-CREATE INDEX  wof_match_country_wof_name       ON  wof_match_country  (wof_name);
+CREATE INDEX ON  wof_match_country  USING GIST(wof_geom_merc);
+CREATE INDEX ON  wof_match_country  (una_wof_name);
+CREATE INDEX ON  wof_match_country  (wof_name);
 ANALYSE  wof_match_country ;
 
 
 
- 
+\set searchdistance      .
+\set safedistance   400000
 \set wd_input_table           wdplace.wd_match_country
 \set wof_input_table          wof_match_country
 
@@ -93,11 +94,12 @@ ANALYSE  wof_match_country ;
 \set wd_wof_match_agg_sum     wd_mcountry_wof_match_agg_summary
 \set wd_wof_match_notfound    wd_mcountry_wof_match_notfound
 
-\set mcond1      ( wof.wof_country = wd.country_iso2 )
+\set mcond1  ( wof.wof_country = wd.country_iso2 )
 \set mcond2  
 \set mcond3
-\set safedistance 40000
 \ir 'template_matching.sql'
+
+
 
 
 

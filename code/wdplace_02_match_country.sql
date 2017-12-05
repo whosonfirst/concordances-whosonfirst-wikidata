@@ -32,6 +32,9 @@ with c as
     ,get_wdc_monolingualtext(data, 'P1705')   as p1705_native_label
     ,get_wdc_monolingualtext(data, 'P1449')   as p1449_nick_name
 
+    ,get_wd_name_array(data)           as wd_name_array 
+    ,get_wd_altname_array(data)        as wd_altname_array
+
     ,ST_SetSRID(ST_MakePoint(
              cast(get_wdc_globecoordinate(data,'P625')->0->>'longitude' as double precision)
             ,cast(get_wdc_globecoordinate(data,'P625')->0->>'latitude'  as double precision)
@@ -66,6 +69,7 @@ select
     ,unaccent(wof.properties->>'wof:name')  as una_wof_name
     ,wof.properties->>'wof:country'         as wof_country
     ,wof.wd_id                              as wof_wd_id
+    ,get_wof_name_array(wof.properties)     as wof_name_array
     ,COALESCE( wof.geom::geometry, wof.centroid::geometry )  as wof_geom
 from wof_country as wof
 where  wof.is_superseded=0

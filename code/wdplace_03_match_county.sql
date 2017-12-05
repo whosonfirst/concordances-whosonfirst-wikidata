@@ -27,6 +27,9 @@ create table          wdplace.wd_match_county  as
     --,get_wdc_monolingualtext(data, 'P1705')   as p1705_native_label
     --,get_wdc_monolingualtext(data, 'P1449')   as p1449_nick_name    
 
+    ,get_wd_name_array(data)           as wd_name_array 
+    ,get_wd_altname_array(data)        as wd_altname_array
+
     ,ST_SetSRID(ST_MakePoint( 
              cast(get_wdc_globecoordinate(data,'P625')->0->>'longitude' as double precision)
             ,cast(get_wdc_globecoordinate(data,'P625')->0->>'latitude'  as double precision)
@@ -40,6 +43,8 @@ create table          wdplace.wd_match_county  as
 CREATE INDEX  wdplace_wd_match_county_x_point           ON  wdplace.wd_match_county USING GIST(wd_point);
 CREATE INDEX  wdplace_wd_match_county_una_name_en_clean ON  wdplace.wd_match_county (una_wd_name_en_clean);
 CREATE INDEX  wdplace_wd_match_county_wd_id             ON  wdplace.wd_match_county (wd_id);
+CREATE INDEX  ON  wdplace.wd_match_locality USING GIN(wd_name_array );
+CREATE INDEX  ON  wdplace.wd_match_locality USING GIN(wd_altname_array );
 ANALYSE   wdplace.wd_match_county;
 
 
@@ -53,6 +58,7 @@ select
     ,unaccent(wof.properties->>'wof:name')  as una_wof_name 
     ,wof.properties->>'wof:country'         as wof_country
     ,wof.wd_id                              as wof_wd_id
+    ,get_wof_name_array(wof.properties)     as wof_name_array
     ,COALESCE( wof.geom::geometry, wof.centroid::geometry )  as wof_geom
 from wof_county as wof
 where  wof.is_superseded=0 
@@ -74,7 +80,7 @@ ANALYSE  wof_match_county ;
 \set wd_wof_match_notfound    wd_mcounty_wof_match_notfound
 
 \set mcond1      ( wof.wof_country  = wd.wd_country           )
-\set mcond2  and ( wof.una_wof_name = wd.una_wd_name_en_clean )
+\set mcond2  and (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (  wof_name_array && wd_altname_array ) or (jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.901 ) )
 \set mcond3  and (ST_Distance(CDB_TransformToWebmercator(wd.wd_point),CDB_TransformToWebmercator(wof.wof_geom) )::bigint  <= 200001 )
 
 \set safedistance 100000

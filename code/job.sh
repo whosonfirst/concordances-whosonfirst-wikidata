@@ -124,5 +124,26 @@ echo "-----------------------------------------------------------"
 echo "### Finished:"
 date -u
 
+
+echo """
+    --
+    \echo Locality
+    select * from wd_mlocality_wof_match_agg_summary_pct;
+
+    \echo Country
+    select * from wd_mcountry_wof_match_agg_summary_pct;
+
+    \echo County
+    select * from wd_mcounty_wof_match_agg_summary_pct;
+
+    \echo Region
+    select * from wd_mregion_wof_match_agg_summary_pct;
+
+    \echo Dependency
+    select * from wd_mdependency_wof_match_agg_summary_pct;
+    --
+""" | psql -e > ${outputdir}/_____________summary__________________.txt
+
+
 date -u > ${outputdir}/_____________finished__________________.txt
 echo "========== END OF job.sh log ============== "

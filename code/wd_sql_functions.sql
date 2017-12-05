@@ -3,7 +3,7 @@ CREATE EXTENSION if not exists unaccent;
 CREATE EXTENSION if not exists postgis;
 CREATE EXTENSION if not exists plpythonu;
 CREATE EXTENSION if not exists cartodb;
-
+CREATE EXTENSION if not exists pg_similarity;
 
 -- https://github.com/maxlath/wikidata-sdk/blob/master/docs/install.md
 -- on truthyness: https://www.mediawiki.org/wiki/Wikibase/Indexing/RDF_Dump_Format#Truthy_statements
@@ -367,4 +367,65 @@ AS $$
         ORDER BY claimorder     
     ) t
     ;
+$$;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE OR REPLACE FUNCTION get_wof_name_array(properties JSONB)
+RETURNS text[]
+IMMUTABLE STRICT
+LANGUAGE sql
+AS $$
+	with xwof_rec as
+	(
+		select 
+		    jsonb_object_keys(properties)              as wof_property
+		   ,properties->jsonb_object_keys(properties)  as wof_jvalue
+		   ,jsonb_typeof( properties->jsonb_object_keys(properties) ) as wof_jtype 
+	)
+	select  
+	    array_agg( DISTINCT  wof_value order by   wof_value)
+	from xwof_rec 
+	    ,jsonb_array_elements_text(wof_jvalue) with ordinality as a(wof_value,wof_arrayorder)
+	where wof_jtype='array' and wof_property like 'name:%preferred'    
+	   ;
+$$;
+--select ( get_wof_name_array(properties)) from wof_country limit 4;
+
+
+CREATE OR REPLACE FUNCTION get_wd_name_array(data JSONB)
+RETURNS text[]
+IMMUTABLE STRICT
+LANGUAGE sql
+AS $$
+   select   array_agg( distinct value->>'value' order by value->>'value' )
+   FROM jsonb_each(data->'labels') as l 
+   ;
+$$;
+-- select get_wd_name_array(data)  from wikidata.wd limit 1;
+
+
+CREATE OR REPLACE FUNCTION get_wd_altname_array(data JSONB)
+RETURNS text[]
+IMMUTABLE STRICT
+LANGUAGE sql
+AS $$
+   select   array_agg( distinct value->>'value' order by value->>'value' )
+   FROM jsonb_each(data->'aliases') as l 
+   ;
 $$;

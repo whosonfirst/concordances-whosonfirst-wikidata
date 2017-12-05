@@ -30,7 +30,10 @@ with x AS (
 CREATE INDEX  ON  wdplace.wd_match_locality USING GIST(wd_point);
 CREATE INDEX  ON  wdplace.wd_match_locality (una_wd_name_en_clean);
 CREATE INDEX  ON  wdplace.wd_match_locality (wd_id);
+CREATE INDEX  ON  wdplace.wd_match_locality USING GIN(wd_name_array );
+CREATE INDEX  ON  wdplace.wd_match_locality USING GIN(wd_altname_array );
 ANALYSE   wdplace.wd_match_locality ;
+
 
 
 
@@ -42,14 +45,16 @@ select
     ,unaccent(wof.properties->>'wof:name')  as una_wof_name 
     ,wof.properties->>'wof:country'         as wof_country
     ,wof.wd_id                              as wof_wd_id
+    ,get_wof_name_array(wof.properties)     as wof_name_array
     ,COALESCE( wof.geom::geometry, wof.centroid::geometry )  as wof_geom
 from wof_locality as wof
 where  wof.is_superseded=0 
    and wof.is_deprecated=0
 ;
 
-CREATE INDEX  ON wof_match_locality   USING GIST(wof_geom);
+CREATE INDEX  ON wof_match_locality  USING GIST(wof_geom);
 CREATE INDEX  ON wof_match_locality   (una_wof_name);
+CREATE INDEX  ON wof_match_locality  USING GIN ( wof_name_array);
 ANALYSE          wof_match_locality ;
 
 
@@ -65,7 +70,8 @@ ANALYSE          wof_match_locality ;
 \set wd_wof_match_agg_sum     wd_mlocality_wof_match_agg_summary
 \set wd_wof_match_notfound    wd_mlocality_wof_match_notfound
 
-\set mcond1      ( wof.una_wof_name = wd.una_wd_name_en_clean )
+\set mcond1     (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (  wof_name_array && wd_altname_array ) or (jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.901 ) )
+--  \set mcond1     (( wof.una_wof_name = wd.una_wd_name_en_clean ) )
 \set mcond2  and (ST_Distance(CDB_TransformToWebmercator(wd.wd_point),CDB_TransformToWebmercator(wof.wof_geom) )::bigint  <= 100001 )
 \set mcond3  
 

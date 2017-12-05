@@ -32,6 +32,9 @@ create table          wdplace.wd_match_dependency  as
     -- ,get_wdc_monolingualtext(data, 'P1448')   as p1448_official_name
     -- ,get_wdc_monolingualtext(data, 'P1705')   as p1705_native_label
     -- ,get_wdc_monolingualtext(data, 'P1449')   as p1449_nick_name    
+    
+    ,get_wd_name_array(data)           as wd_name_array 
+    ,get_wd_altname_array(data)        as wd_altname_array
 
     ,ST_SetSRID(ST_MakePoint( 
              cast(get_wdc_globecoordinate(data,'P625')->0->>'longitude' as double precision)
@@ -51,6 +54,8 @@ create table          wdplace.wd_match_dependency  as
 CREATE INDEX  wdplace_wd_match_dependency_una_name_en_clean ON  wdplace.wd_match_dependency (una_wd_name_en_clean);
 --CREATE INDEX  wdplace_wd_match_dependency_name_en_clean     ON  wdplace.wd_match_dependency (    wd_name_en_clean);
 CREATE INDEX  wdplace_wd_match_dependency_wd_id             ON  wdplace.wd_match_dependency (wd_id);
+CREATE INDEX  ON  wdplace.wd_match_locality USING GIN(wd_name_array );
+CREATE INDEX  ON  wdplace.wd_match_locality USING GIN(wd_altname_array );
 ANALYSE   wdplace.wd_match_dependency;
 
 
@@ -65,6 +70,7 @@ select
     ,unaccent(wof.properties->>'wof:name')  as una_wof_name 
     ,wof.properties->>'wof:country'         as wof_country
     ,wof.wd_id                              as wof_wd_id
+    ,get_wof_name_array(wof.properties)     as wof_name_array
     ,COALESCE( wof.geom::geometry, wof.centroid::geometry )  as wof_geom
 from wof_dependency as wof
 where  wof.is_superseded=0  and wof.is_deprecated=0
@@ -87,7 +93,7 @@ ANALYSE  wof_match_dependency ;
 \set wd_wof_match_notfound    wd_mdependency_wof_match_notfound
 
 \set mcond1      ( wof.wof_country  = wd.wd_iso31661a2        )
-\set mcond2  and ( wof.una_wof_name = wd.una_wd_name_en_clean )
+\set mcond2  and (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (  wof_name_array && wd_altname_array ) or (jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.901 ) )
 \set mcond3  
 
 \set safedistance 500000

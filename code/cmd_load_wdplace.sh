@@ -45,7 +45,9 @@ echo """
                     )
             , 4326) as wd_point
         ,get_wdc_item_label(data,'P31')    as p31_instance_of
-        ,get_wdc_item_label(data,'P17')    as p17_country_id     
+        ,get_wdc_item_label(data,'P17')    as p17_country_id 
+        ,get_wd_name_array(data)           as wd_name_array 
+        ,get_wd_altname_array(data)        as wd_altname_array
     FROM wdplace.wd${part}
     ;
 

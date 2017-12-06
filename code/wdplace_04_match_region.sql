@@ -84,7 +84,7 @@ ANALYSE  wof_match_region ;
 \set wd_wof_match_notfound    wd_mregion_wof_match_notfound
 
 \set mcond1      ( wof.wof_country  = wd.wd_country           )
-\set mcond2  and (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (  wof_name_array && wd_altname_array ) or (jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.901 ) )
+\set mcond2  and (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (  wof_name_array && wd_altname_array ) or (jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.971 ) )
 \set mcond3  
 
 

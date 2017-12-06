@@ -81,18 +81,43 @@ ANALYSE :wd_wof_match_agg ;
 
 drop table if exists :wd_wof_match_notfound CASCADE;
 create table         :wd_wof_match_notfound  as
+with 
+        disamb as (
+            select id, 1 as is_disambiguation
+            from wof_disambiguation_report
+        ),
+        redirected as (
+            select id, 1 as is_redirected
+            from wof_wd_redirects
+        ),        
+        extrdist as (
+            select id, distance_km, 1 as is_extreme_distance
+            from wof_extreme_distance_report
+        )
 select
      wof.id
     ,wof.wof_name 
     ,wof.wof_country
     ,wof.wof_wd_id
     ,get_wdlabeltext(wof.wof_wd_id)       as old_wd_label    
+    ,case when disamb.is_disambiguation=1                                       then 'Notfound:DEL-Disambiguation'
+          when redirected.is_redirected=1                                       then 'Notfound:DEL-Redirected'           
+          when extrdist.is_extreme_distance=1   and  extrdist.distance_km>=1500 then 'Notfound:DEL-Extreme distance 1500-    km'    
+          when extrdist.is_extreme_distance=1   and  extrdist.distance_km>=700  then 'Notfound:DEL-Extreme distance  700-1500km'
+          when extrdist.is_extreme_distance=1   and  extrdist.distance_km>=400  then 'Notfound:DEL-Extreme distance  400- 700km'
+          when extrdist.is_extreme_distance=1   and  extrdist.distance_km>=200  then 'Notfound:DEL-Extreme distance  200- 400km'
+          when extrdist.is_extreme_distance=1   and  extrdist.distance_km>=50   then 'Notfound:DEL-Extreme distance   50- 200km'    
+          when wof.wof_wd_id is not null   then 'Notfound:Maybe?:has a wikidataid'                                     
+                                           else 'Notfound: no wikidaid'
+     end as _matching_category  
     ,get_wdc_item_label(wd.data,'P31')    as old_p31_instance_of  
     ,get_wdc_item_label(wd.data,'P17')    as old_p17_country_id   
-    ,is_cebuano(wd.data)                  as old_is_cebauno 
-    ,'NOTfound (yet)'                     as _matching_category  
+    ,is_cebuano(wd.data)                  as old_is_cebauno      
 from :wof_input_table as wof
-left join wikidata.wd as wd   on wof.wof_wd_id=wd.data->>'id'
+  left join wikidata.wd as wd   on wof.wof_wd_id=wd.data->>'id'
+  left join disamb      on disamb.id    = wof.id
+  left join extrdist    on extrdist.id  = wof.id   
+  left join redirected  on redirected.id = wof.id
 where  wof.id not in ( select id from :wd_wof_match )  
 order by wof.wof_country, wof.wof_name
 ;
@@ -105,16 +130,16 @@ drop table if exists  :wd_wof_match_agg_sum CASCADE;
 create table  :wd_wof_match_agg_sum  as
 with 
 _matched as (
-    select _matching_category,  wd_number_of_matches, _firstmatch_distance_category, count(*) as N  
+    select _matching_category, wof_country, wd_number_of_matches, _firstmatch_distance_category, count(*) as N  
     from :wd_wof_match_agg
-    group by  _matching_category, wd_number_of_matches, _firstmatch_distance_category
-    order by  _matching_category, wd_number_of_matches, _firstmatch_distance_category 
+    group by  _matching_category, wof_country, wd_number_of_matches, _firstmatch_distance_category
+    order by  _matching_category, wof_country, wd_number_of_matches, _firstmatch_distance_category 
 ), 
 _notfound as (
-    select _matching_category, null::int as wd_number_of_matches, null::text as _firstmatch_distance_category, count(*) as N  
+    select _matching_category, wof_country, null::int as wd_number_of_matches, null::text as _firstmatch_distance_category, count(*) as N  
     from :wd_wof_match_notfound
-    group by  _matching_category, wd_number_of_matches, _firstmatch_distance_category
-    order by  _matching_category, wd_number_of_matches, _firstmatch_distance_category
+    group by  _matching_category, wof_country, wd_number_of_matches, _firstmatch_distance_category
+    order by  _matching_category, wof_country, wd_number_of_matches, _firstmatch_distance_category
 )
 
            select * from _matched
@@ -151,4 +176,42 @@ union all
 ANALYSE :wd_wof_match_agg_sum:_pct;
 
 select * from :wd_wof_match_agg_sum:_pct;
+
+
+
+
+\set _country _country
+drop table if exists  :wd_wof_match_agg_sum:_country CASCADE;
+create table          :wd_wof_match_agg_sum:_country  as
+with 
+ total as (  
+        select 
+        '-- total --' as wof_country 
+        ,sum (  case when split_part(_matching_category,':',1)= 'Notfound' then 1 else 0 end ) as n_notfound
+        ,sum (  case when split_part(_matching_category,':',1)= 'OK-VAL'   then 1 else 0 end ) as n_OK_VAL
+        ,sum (  case when split_part(_matching_category,':',1)= 'OK-REP'   then 1 else 0 end ) as n_OK_REP
+        ,sum (  case when split_part(_matching_category,':',1)= 'OK-ADD'   then 1 else 0 end ) as n_OK_ADD
+        ,sum (  case when split_part(_matching_category,':',1)= 'WARN'     then 1 else 0 end ) as n_WARN    
+        from :wd_wof_match_agg_sum ) 
+,msum  as (
+        select
+        wof_country
+        ,sum (  case when split_part(_matching_category,':',1)= 'Notfound' then 1 else 0 end ) as n_notfound
+        ,sum (  case when split_part(_matching_category,':',1)= 'OK-VAL'   then 1 else 0 end ) as n_OK_VAL
+        ,sum (  case when split_part(_matching_category,':',1)= 'OK-REP'   then 1 else 0 end ) as n_OK_REP
+        ,sum (  case when split_part(_matching_category,':',1)= 'OK-ADD'   then 1 else 0 end ) as n_OK_ADD
+        ,sum (  case when split_part(_matching_category,':',1)= 'WARN'     then 1 else 0 end ) as n_WARN    
+        from :wd_wof_match_agg_sum
+        group by  wof_country
+        order by n_notfound desc
+)
+           select * from msum
+union all  select * from total
+;
+ANALYSE :wd_wof_match_agg_sum:_country;
+select * from :wd_wof_match_agg_sum:_country;
+
+
+
+
 

@@ -431,3 +431,59 @@ AS $$
    FROM jsonb_each(data->'aliases') as l 
    ;
 $$;
+
+
+
+CREATE OR REPLACE FUNCTION jsonb_arr2distinct_textarr(jsonb_arr jsonb,prefix text)
+   RETURNS text[]
+LANGUAGE sql IMMUTABLE   AS
+$$
+    SELECT 
+    ARRAY(SELECT DISTINCT prefix||jsonb_array_elements_text(jsonb_arr)  ORDER BY 1 )
+$$
+;
+
+CREATE OR REPLACE FUNCTION get_wd_concordances(data JSONB)
+   RETURNS text[]
+LANGUAGE sql IMMUTABLE   AS
+$$
+
+    select   array_cat( array_cat(  
+          jsonb_arr2distinct_textarr(get_wdc_value(data, 'P1566'),'gn:id:')
+         ,jsonb_arr2distinct_textarr(get_wdc_value(data, 'P882'),'fips:code:')
+    )
+         ,jsonb_arr2distinct_textarr(get_wdc_value(data, 'P901'),'fips:code:') 
+    )
+$$
+;
+
+
+
+CREATE OR REPLACE FUNCTION get_wof_concordances_element(properties JSONB,concordances_id TEXT, prefix TEXT )
+   RETURNS text
+LANGUAGE sql IMMUTABLE   AS
+$$
+
+        select 
+         case when properties->'wof:concordances'->> concordances_id is not null   
+              then prefix||  (properties->'wof:concordances'->> concordances_id ) 
+              else null 
+         end
+$$
+;
+
+
+CREATE OR REPLACE FUNCTION get_wof_concordances(properties JSONB)
+   RETURNS text[]
+LANGUAGE sql IMMUTABLE   AS
+$$
+    select 
+    array_remove(
+    ARRAY[
+          get_wof_concordances_element(properties,'fips:code','fips:code:' )
+        , get_wof_concordances_element(properties,'gn:id'    ,'gn:id:'   )
+        ]
+    ,
+    null)
+$$   
+;

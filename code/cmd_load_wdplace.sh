@@ -48,6 +48,7 @@ echo """
         ,get_wdc_item_label(data,'P17')    as p17_country_id 
         ,get_wd_name_array(data)           as wd_name_array 
         ,get_wd_altname_array(data)        as wd_altname_array
+        ,get_wd_concordances(data)         as wd_concordances_array
     FROM wdplace.wd${part}
     ;
 

@@ -3,28 +3,28 @@
 --  TODO: get the latest  P31 status.
 --  Q1018914  | Q1018914   has an english name ( has an english label)
 --  wikidata has a coordinate
---  TODO: wikidata has any of enwiki, eswiki, dewiki, ptwiki, ruwiki, znwiki page  [  so not a cebuano import ] 
+--  TODO: wikidata has any of enwiki, eswiki, dewiki, ptwiki, ruwiki, znwiki page  [  so not a cebuano import ]
 --  distance < 100km
 --  only 1 match!
 
 drop table if exists  wdplace.wd_match_locality CASCADE;
 create table          wdplace.wd_match_locality  as
 with x AS (
-                  select * from wdplace.wd0_x         
-        union all select * from wdplace.wd1_x  
-        union all select * from wdplace.wd2_x  
+                  select * from wdplace.wd0_x
+        union all select * from wdplace.wd1_x
+        union all select * from wdplace.wd2_x
         union all select * from wdplace.wd3_x
-        union all select * from wdplace.wd4_x  
-        union all select * from wdplace.wd5_x  
+        union all select * from wdplace.wd4_x
+        union all select * from wdplace.wd5_x
         union all select * from wdplace.wd6_x
         union all select * from wdplace.wd7_x
     )
-    SELECT * 
-          , unaccent(wd_name_en_clean) as una_wd_name_en_clean  
+    SELECT *
+          , unaccent(wd_name_en_clean) as una_wd_name_en_clean
           , CDB_TransformToWebmercator(wd_point) as wd_point_merc
-    FROM x 
+    FROM x
     WHERE wd_id != wd_name_en
-      and wd_point is not null 
+      and wd_point is not null
       and wd_is_cebuano IS FALSE
     ;
 
@@ -42,11 +42,12 @@ drop table if exists wof_match_locality CASCADE;
 create table         wof_match_locality  as
 select
      wof.id
-    ,wof.properties->>'wof:name'            as wof_name 
-    ,unaccent(wof.properties->>'wof:name')  as una_wof_name 
+    ,wof.properties->>'wof:name'            as wof_name
+    ,unaccent(wof.properties->>'wof:name')  as una_wof_name
     ,wof.properties->>'wof:country'         as wof_country
     ,wof.wd_id                              as wof_wd_id
     ,get_wof_name_array(wof.properties)     as wof_name_array
+    ,get_wof_concordances(wof.properties)   as wof_concordances_array
     ,CDB_TransformToWebmercator(COALESCE( wof.geom::geometry, wof.centroid::geometry ))   as wof_geom_merc
 from wof_locality as wof
 where  wof.is_superseded=0  and wof.is_deprecated=0
@@ -72,9 +73,9 @@ ANALYSE          wof_match_locality ;
 \set safedistance    40000
 \set searchdistance 100003
 
-\set mcond1     (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (  wof_name_array && wd_altname_array ) or (jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.971 ) )
+\set mcond1     (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (  wof_name_array && wd_altname_array ) or (wd_concordances_array && wof_concordances_array) or (jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.971 ) )
 \set mcond2  and (ST_DWithin ( wd.wd_point_merc, wof.wof_geom_merc , :searchdistance ))
-\set mcond3  
+\set mcond3
 
 
 

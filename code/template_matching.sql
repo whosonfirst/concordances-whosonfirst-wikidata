@@ -83,44 +83,65 @@ ANALYSE :wd_wof_match_agg ;
 drop table if exists :wd_wof_match_notfound CASCADE;
 create table         :wd_wof_match_notfound  as
 with 
-        disamb as (
-            select id, 1 as is_disambiguation
-            from wof_disambiguation_report
-        ),
-        redirected as (
-            select id, 1 as is_redirected
-            from wof_wd_redirects
-        ),        
-        extrdist as (
-            select id, distance_km, 1 as is_extreme_distance
-            from wof_extreme_distance_report
-        )
-select
-     wof.id
-    ,wof.wof_name 
-    ,wof.wof_country
-    ,wof.wof_wd_id
-    ,get_wdlabeltext(wof.wof_wd_id)       as old_wd_label    
-    ,case when disamb.is_disambiguation=1                                       then 'Notfound:DEL-Disambiguation'
-          when redirected.is_redirected=1                                       then 'Notfound:DEL-Redirected'           
-          when extrdist.is_extreme_distance=1   and  extrdist.distance_km>=1500 then 'Notfound:DEL-Extreme distance 1500-    km'    
-          when extrdist.is_extreme_distance=1   and  extrdist.distance_km>=700  then 'Notfound:DEL-Extreme distance  700-1500km'
-          when extrdist.is_extreme_distance=1   and  extrdist.distance_km>=400  then 'Notfound:DEL-Extreme distance  400- 700km'
-          when extrdist.is_extreme_distance=1   and  extrdist.distance_km>=200  then 'Notfound:DEL-Extreme distance  200- 400km'
-          when extrdist.is_extreme_distance=1   and  extrdist.distance_km>=50   then 'Notfound:DEL-Extreme distance   50- 200km'    
-          when wof.wof_wd_id is not null   then 'Notfound:Maybe?:has a wikidataid'                                     
-                                           else 'Notfound: no wikidaid'
-     end as _matching_category  
-    ,get_wdc_item_label(wd.data,'P31')    as old_p31_instance_of  
-    ,get_wdc_item_label(wd.data,'P17')    as old_p17_country_id   
-    ,is_cebuano(wd.data)                  as old_is_cebauno      
-from :wof_input_table as wof
-  left join wikidata.wd as wd   on wof.wof_wd_id=wd.data->>'id'
-  left join disamb      on disamb.id    = wof.id
-  left join extrdist    on extrdist.id  = wof.id   
-  left join redirected  on redirected.id = wof.id
-where  wof.id not in ( select id from :wd_wof_match )  
-order by wof.wof_country, wof.wof_name
+disamb as (
+    select id, 1 as is_disambiguation
+    from wof_disambiguation_report
+),
+redirected as (
+    select id, 1 as is_redirected
+    from wof_wd_redirects
+),        
+extrdist as (
+    select id, distance_km, 1 as is_extreme_distance
+    from wof_extreme_distance_report
+)
+,extended_notfound as
+(   
+    select
+        wof.id
+        ,wof.wof_name 
+        ,wof.wof_country
+        ,wof.wof_wd_id
+        ,get_wdlabeltext(wof.wof_wd_id)       as old_wd_label
+        ,ST_Distance(          
+            CDB_TransformToWebmercator( ST_SetSRID(ST_MakePoint(
+                 cast(get_wdc_globecoordinate(wd.data,'P625')->0->>'longitude' as double precision)
+                ,cast(get_wdc_globecoordinate(wd.data,'P625')->0->>'latitude'  as double precision)
+                )
+                , 4326))   
+            ,wof.wof_geom_merc)::bigint  as _old_distance
+
+        ,get_wdc_item_label(wd.data,'P31')    as old_p31_instance_of  
+        ,get_wdc_item_label(wd.data,'P17')    as old_p17_country_id   
+        ,is_cebuano(wd.data)                  as old_is_cebauno   
+        ,disamb.is_disambiguation             as old_is_disambiguation
+        ,redirected.is_redirected             as old_is_redirected
+        ,extrdist.is_extreme_distance         as old_is_extreme_distance
+        ,extrdist.distance_km                 as old_ext_distance_km   
+    from :wof_input_table as wof
+    left join wikidata.wd as wd   on wof.wof_wd_id=wd.data->>'id'
+    left join disamb      on disamb.id     = wof.id
+    left join extrdist    on extrdist.id   = wof.id   
+    left join redirected  on redirected.id = wof.id
+    where  wof.id not in ( select id from :wd_wof_match )  
+)
+
+select 
+    case    when old_is_disambiguation=1                                     then 'Notfound:DEL-Disambiguation'
+            when old_is_redirected=1                                         then 'Notfound:DEL-Redirected'           
+            when old_is_extreme_distance=1   and  old_ext_distance_km >=1500 then 'Notfound:DEL-Extreme distance 1500-    km'    
+            when old_is_extreme_distance=1   and  old_ext_distance_km >=700  then 'Notfound:DEL-Extreme distance  700-1500km'
+            when old_is_extreme_distance=1   and  old_ext_distance_km >=400  then 'Notfound:DEL-Extreme distance  400- 700km'
+            when old_is_extreme_distance=1   and  old_ext_distance_km >=200  then 'Notfound:DEL-Extreme distance  200- 400km'
+            when old_is_extreme_distance=1   and  old_ext_distance_km >=50   then 'Notfound:DEL-Extreme distance   50- 200km'  
+            when _old_distance is null and  substr(wof_wd_id,1,1) = 'Q'      then 'Notfound:DEL-Current Wikidataid without coordinate'             
+            when _old_distance is not null                                   then 'Notfound:MAYBE-distance <50km'              
+                                    
+                                              else 'Notfound: no wikidaid'
+    end as _matching_category  
+    ,*
+from extended_notfound
+order by wof_country, wof_name
 ;
 ANALYSE :wd_wof_match_notfound;
 

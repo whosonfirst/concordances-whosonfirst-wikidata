@@ -14,6 +14,10 @@ pgclimb -o ${xlsxname} \
     xlsx --sheet "_summary_"
 
 pgclimb -o ${xlsxname} \
+    -c "SELECT * FROM ${sumtable}_country;" \
+    xlsx --sheet "_country_"
+
+pgclimb -o ${xlsxname} \
     -c "SELECT * FROM ${sumtable};" \
     xlsx --sheet "_summary_distance"
 

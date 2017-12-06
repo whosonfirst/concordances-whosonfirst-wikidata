@@ -187,20 +187,25 @@ with
  total as (  
         select 
         '-- total --' as wof_country 
-        ,sum (  case when split_part(_matching_category,':',1)= 'Notfound' then 1 else 0 end ) as n_notfound
-        ,sum (  case when split_part(_matching_category,':',1)= 'OK-VAL'   then 1 else 0 end ) as n_OK_VAL
-        ,sum (  case when split_part(_matching_category,':',1)= 'OK-REP'   then 1 else 0 end ) as n_OK_REP
-        ,sum (  case when split_part(_matching_category,':',1)= 'OK-ADD'   then 1 else 0 end ) as n_OK_ADD
-        ,sum (  case when split_part(_matching_category,':',1)= 'WARN'     then 1 else 0 end ) as n_WARN    
-        from :wd_wof_match_agg_sum ) 
+        ,sum (  case when split_part(_matching_category,':',1)= 'Notfound' then N else 0 end ) as n_notfound
+        ,sum (  case when split_part(_matching_category,':',1)= 'OK-VAL'   then N else 0 end ) as n_OK_VAL
+        ,sum (  case when split_part(_matching_category,':',1)= 'OK-REP'   then N else 0 end ) as n_OK_REP
+        ,sum (  case when split_part(_matching_category,':',1)= 'OK-ADD'   then N else 0 end ) as n_OK_ADD
+        ,sum (  case when split_part(_matching_category,':',1)= 'WARN'     then N else 0 end ) as n_WARN    
+        ,sum (  case when split_part(_matching_category,':',1)= 'ER!R'     then N else 0 end ) as n_ERR_chekme           
+        ,sum(N) as _all_        
+        from :wd_wof_match_agg_sum
+) 
 ,msum  as (
         select
         wof_country
-        ,sum (  case when split_part(_matching_category,':',1)= 'Notfound' then 1 else 0 end ) as n_notfound
-        ,sum (  case when split_part(_matching_category,':',1)= 'OK-VAL'   then 1 else 0 end ) as n_OK_VAL
-        ,sum (  case when split_part(_matching_category,':',1)= 'OK-REP'   then 1 else 0 end ) as n_OK_REP
-        ,sum (  case when split_part(_matching_category,':',1)= 'OK-ADD'   then 1 else 0 end ) as n_OK_ADD
-        ,sum (  case when split_part(_matching_category,':',1)= 'WARN'     then 1 else 0 end ) as n_WARN    
+        ,sum (  case when split_part(_matching_category,':',1)= 'Notfound' then N else 0 end ) as n_notfound
+        ,sum (  case when split_part(_matching_category,':',1)= 'OK-VAL'   then N else 0 end ) as n_OK_VAL
+        ,sum (  case when split_part(_matching_category,':',1)= 'OK-REP'   then N else 0 end ) as n_OK_REP
+        ,sum (  case when split_part(_matching_category,':',1)= 'OK-ADD'   then N else 0 end ) as n_OK_ADD
+        ,sum (  case when split_part(_matching_category,':',1)= 'WARN'     then N else 0 end ) as n_WARN 
+        ,sum (  case when split_part(_matching_category,':',1)= 'ER!R'     then N else 0 end ) as n_ERR_chekme                   
+        ,sum(N) as _all_  
         from :wd_wof_match_agg_sum
         group by  wof_country
         order by n_notfound desc
@@ -214,4 +219,7 @@ select * from :wd_wof_match_agg_sum:_country;
 
 
 
-
+--select old_p31_instance_of, count(*) as N
+--from wd_mlocality_wof_match_notfound
+--group by old_p31_instance_of
+--order by N desc;

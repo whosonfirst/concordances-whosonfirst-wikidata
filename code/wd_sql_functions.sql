@@ -402,10 +402,12 @@ AS $$
 	    array_agg( DISTINCT  wof_value order by   wof_value)
 	from xwof_rec 
 	    ,jsonb_array_elements_text(wof_jvalue) with ordinality as a(wof_value,wof_arrayorder)
-	where wof_jtype='array' and wof_property like 'name:%preferred'    
+	where wof_jtype='array' and  ( wof_property ~ '^name:.*_x_(preferred|variant|colloquial|historical)' )
+    -- like 'name:%preferred'    
 	   ;
 $$;
 --select ( get_wof_name_array(properties)) from wof_country limit 4;
+
 
 
 CREATE OR REPLACE FUNCTION get_wd_name_array(data JSONB)

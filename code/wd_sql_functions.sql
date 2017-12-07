@@ -16,12 +16,12 @@ select   wof.wd_id
         ,wof.id
         ,wof.properties->>'wof:name'                    as wof_name 
         ,wof.properties->>'wof:country'                 as wof_country
-from wof_country as wof
+from wf.wof_country as wof
 where is_superseded=0 and is_deprecated=0
 ;
 -- TODO UPDATE
-CREATE UNIQUE INDEX codes_wd2country_wd_id          ON codes.wd2country (wd_id);
-CREATE UNIQUE INDEX codes_wd2country_wof_country    ON codes.wd2country (wof_country);    
+CREATE UNIQUE INDEX  ON codes.wd2country (wd_id);
+CREATE UNIQUE INDEX  ON codes.wd2country (wof_country);    
 ANALYSE codes.wd2country;
 
 
@@ -406,7 +406,7 @@ AS $$
     -- like 'name:%preferred'    
 	   ;
 $$;
---select ( get_wof_name_array(properties)) from wof_country limit 4;
+--select ( get_wof_name_array(properties)) from wf.wof_country limit 4;
 
 
 

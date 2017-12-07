@@ -48,9 +48,9 @@ from wof
 order by wof.id  
 ;
 
-CREATE UNIQUE INDEX  wof_extended_id            ON wof_extended( id );
-CREATE        INDEX  wof_extended_wd_id         ON wof_extended( wd_id );
-CREATE        INDEX  wof_extended_wof_country   ON wof_extended( wof_country );
+CREATE UNIQUE INDEX   ON wof_extended( id );
+CREATE        INDEX   ON wof_extended( wd_id );
+CREATE        INDEX   ON wof_extended( wof_country );
 
 ANALYSE wof_extended;
 

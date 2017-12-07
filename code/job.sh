@@ -36,7 +36,23 @@ rm -rf ${outputdir}/joblog04
 rm -rf ${outputdir}/joblog05
 rm -rf ${outputdir}/joblog_place01
 
-psql -e -c "CREATE EXTENSION if not exists pg_stat_statements;"
+
+echo """
+    --
+    CREATE EXTENSION if not exists pg_stat_statements;
+    --
+    CREATE SCHEMA IF NOT EXISTS wdplace;
+    CREATE SCHEMA IF NOT EXISTS wd;
+    CREATE SCHEMA IF NOT EXISTS wf;
+    CREATE SCHEMA IF NOT EXISTS ne;
+    CREATE SCHEMA IF NOT EXISTS gn;
+    
+    DROP TABLE IF EXISTS wdplace.wd_country CASCADE;
+    DROP TABLE IF EXISTS wdplace.wd_dependency CASCADE;
+    DROP TABLE IF EXISTS wdplace.wd_region CASCADE;
+    DROP TABLE IF EXISTS wdplace.wd_county CASCADE;    
+    --
+""" | psql -e
 
 time parallel  --results ${outputdir}/joblog01 -k  < /wof/code/parallel_joblist_01_load_tables.sh
 psql -e -f  /wof/code/wd_sql_functions.sql
@@ -55,7 +71,6 @@ wc -l /wof/wikidata_dump/wdplace_county.json
 
 echo """
     --
-    CREATE SCHEMA IF NOT EXISTS wdplace;
     DROP TABLE IF EXISTS wdplace.wd_country CASCADE;
     DROP TABLE IF EXISTS wdplace.wd_dependency CASCADE;
     DROP TABLE IF EXISTS wdplace.wd_region CASCADE;

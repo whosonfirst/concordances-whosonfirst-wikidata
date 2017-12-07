@@ -45,13 +45,14 @@ echo """
     ;
 
     -- index --
-    CREATE INDEX ${table}_by_wd_id          ON ${table}(wd_id);
 
-    -- CREATE INDEX ${table}_by_geom        ON ${table} USING GIST(geom);
-    -- CREATE INDEX ${table}_by_centroid    ON ${table} USING GIST(centroid);
-    -- CREATE INDEX ${table}_by_placetype   ON ${table} (placetype_id);
-    -- CREATE INDEX ${table}_by_properties  ON ${table} USING GIN (properties);
-    -- CREATE INDEX ${table}_by_propertiesp ON ${table} USING GIN (properties jsonb_path_ops);
+    CREATE INDEX   ON ${table}(wd_id);
+
+    -- CREATE INDEX   ON ${table} USING GIST(geom);
+    -- CREATE INDEX   ON ${table} USING GIST(centroid);
+    -- CREATE INDEX   ON ${table} (placetype_id);
+    -- CREATE INDEX   ON ${table} USING GIN (properties);
+    -- CREATE INDEX   ON ${table} USING GIN (properties jsonb_path_ops);
 
     -- analyze --
     analyze ${table};

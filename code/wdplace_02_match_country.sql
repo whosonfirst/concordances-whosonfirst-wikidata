@@ -73,7 +73,7 @@ select
     ,get_wof_name_array(wof.properties)     as wof_name_array
     ,get_wof_concordances(wof.properties)   as wof_concordances_array
     ,CDB_TransformToWebmercator(COALESCE( wof.geom::geometry, wof.centroid::geometry ))  as wof_geom_merc
-from wof_country as wof
+from wf.wof_country as wof
 where  wof.is_superseded=0
    and wof.is_deprecated=0
 order by wof_country

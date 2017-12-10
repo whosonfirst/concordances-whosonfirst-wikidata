@@ -43,13 +43,8 @@ def available_memory():
             s = line.split(': ')
             meminfo[s[0]] = s[1].split()[0].strip()
 
-    # print( meminfo['MemTotal'] )
+
     return int(   meminfo['MemTotal']  ) * 1024
-
-    #meminfo = dict((i.split()[0].rstrip(':'),int(i.split()[1])) for i in open('/proc/meminfo').readlines())
-    #mem_kib = meminfo['MemTotal']
-
-    #return  mem_kib
 
 
 def beautify(n):
@@ -81,13 +76,13 @@ def calculate(total_mem, max_connections, pg_version):
     else:
       # http://www.postgresql.org/docs/current/static/release-9-5.html
       # max_wal_size = (3 * checkpoint_segments) * 16MB
-      pg_conf['min_wal_size'] = '2GB'           
+      pg_conf['min_wal_size'] = '1GB'           
       pg_conf['max_wal_size'] = '4GB'
       # http://www.cybertec.at/2016/06/postgresql-underused-features-wal-compression/
       pg_conf['wal_compression'] = 'on'
     pg_conf['checkpoint_completion_target'] = 0.9
     pg_conf['wal_buffers'] = to_bytes(pg_conf['shared_buffers']*0.03, 16*M)  # 3% of shared_buffers, max of 16MB.
-    pg_conf['default_statistics_target'] = 500
+    pg_conf['default_statistics_target'] = 300
     pg_conf['synchronous_commit'] = 'off'
     pg_conf['vacuum_cost_delay'] = 50
     pg_conf['wal_writer_delay'] = '10s'
@@ -155,14 +150,7 @@ def main():
     if have_ssd:
         print("random_page_cost = 1.5")
 
-    print("#")
-    print("# other goodies")
-    print("#")
-    print("log_line_prefix = '%m <%d %u %a %r> %%'")
-    print("log_temp_files = 0")
-    print("log_min_duration_statement = 20")
-    print("log_checkpoints = on")
-    print("log_lock_waits = on")
+
     print("listen_addresses = '%s'" % (listen_addresses))
 
     if enable_stat:
@@ -177,6 +165,12 @@ def main():
         print("track_activities = 'true'")
         print("track_counts = 'true'")
         print("track_io_timing = 'true'")
+
+        print("log_line_prefix = '%m <%d %u %a %r> %%'")
+        print("log_temp_files = 0")
+        print("log_min_duration_statement = 20")
+        print("log_checkpoints = on")
+        print("log_lock_waits = on")
 
 
     print("#")

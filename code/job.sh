@@ -13,7 +13,10 @@ mkdir -p ${outputdir}
 log_file=${outputdir}/job_${STARTDATE}.log
 rm -f $log_file
 
+echo "$log_file" > /wof/output/lastlog.env
 
+# wait for postgres
+/wof/code/pg_isready.sh
 
 #  backup log from here ...
 exec &> >(tee -a "$log_file")
@@ -39,7 +42,7 @@ rm -rf ${outputdir}/joblog_place01
 
 echo """
     --
-    CREATE EXTENSION if not exists pg_stat_statements;
+    -- CREATE EXTENSION if not exists pg_stat_statements;
     --
     CREATE SCHEMA IF NOT EXISTS wdplace;
     CREATE SCHEMA IF NOT EXISTS wd;
@@ -47,6 +50,8 @@ echo """
     CREATE SCHEMA IF NOT EXISTS ne;
     CREATE SCHEMA IF NOT EXISTS gn;
     
+    CREATE SCHEMA IF NOT EXISTS wfwd;
+
     DROP TABLE IF EXISTS wdplace.wd_country CASCADE;
     DROP TABLE IF EXISTS wdplace.wd_dependency CASCADE;
     DROP TABLE IF EXISTS wdplace.wd_region CASCADE;

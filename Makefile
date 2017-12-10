@@ -1,5 +1,6 @@
 .PHONY: all
 SHELL := /bin/bash
+PWD:=$(shell pwd)
 
 all: init build
 
@@ -41,3 +42,15 @@ test:
 
 listsize:
 	du -sh ../*
+
+cleandb:
+	docker-compose down
+	docker run --rm -it -v $(PWD)/../postgres_data:/var/lib/postgresql/data wof_postgis bash -c "ls -la /var/lib/postgresql/data"
+	docker run --rm -it -v $(PWD)/../postgres_data:/var/lib/postgresql/data wof_postgis bash -c "rm -rf /var/lib/postgresql/data/*"
+
+speedtest:
+	docker-compose down
+	docker run --rm -it -v $(PWD)/../postgres_data:/var/lib/postgresql/data wof_postgis bash -c "ls -la /var/lib/postgresql/data"
+	docker run --rm -it -v $(PWD)/../postgres_data:/var/lib/postgresql/data wof_postgis bash -c "rm -rf /var/lib/postgresql/data/*"
+	docker-compose up  -d
+	time docker-compose run --rm  wof_wiki_dw /wof/code/job.sh

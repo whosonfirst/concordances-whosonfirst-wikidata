@@ -3,10 +3,10 @@
 /wof/code/23_import_wdlabels.sh
 /wof/code/cmd_load_wof.sh      wf.wof_locality        wof-locality-latest.csv
 /wof/code/cmd_load_wof.sh      wf.wof_localadmin      wof-localadmin-latest.csv
-go run /wof/code/wdplaceparse.go /wof/code/wikidata_country.csv    > /wof/wikidata_dump/wdplace_country.json
-go run /wof/code/wdplaceparse.go /wof/code/wikidata_dependency.csv > /wof/wikidata_dump/wdplace_dependency.json
-go run /wof/code/wdplaceparse.go /wof/code/wikidata_region.csv     > /wof/wikidata_dump/wdplace_region.json
-go run /wof/code/wdplaceparse.go /wof/code/wikidata_county.csv     > /wof/wikidata_dump/wdplace_county.json
+/wof/code/cmd_parse_wdplace.sh country
+/wof/code/cmd_parse_wdplace.sh dependency
+/wof/code/cmd_parse_wdplace.sh region
+/wof/code/cmd_parse_wdplace.sh county
 /wof/code/cmd_load_wof.sh      wf.wof_neighbourhood   wof-neighbourhood-latest.csv
 /wof/code/cmd_load_wof.sh      wf.wof_county          wof-county-latest.csv
 /wof/code/cmd_load_wof.sh      wf.wof_campus          wof-campus-latest.csv

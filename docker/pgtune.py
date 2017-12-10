@@ -49,7 +49,7 @@ def available_memory():
     #meminfo = dict((i.split()[0].rstrip(':'),int(i.split()[1])) for i in open('/proc/meminfo').readlines())
     #mem_kib = meminfo['MemTotal']
 
-    #return  mem_kib 
+    #return  mem_kib
 
 
 def beautify(n):
@@ -81,7 +81,7 @@ def calculate(total_mem, max_connections, pg_version):
     else:
       # http://www.postgresql.org/docs/current/static/release-9-5.html
       # max_wal_size = (3 * checkpoint_segments) * 16MB
-      pg_conf['min_wal_size'] = '1GB'           # decreased from 2GB -> 1GB  for small extracts
+      pg_conf['min_wal_size'] = '2GB'           
       pg_conf['max_wal_size'] = '4GB'
       # http://www.cybertec.at/2016/06/postgresql-underused-features-wal-compression/
       pg_conf['wal_compression'] = 'on'
@@ -103,14 +103,14 @@ def usage_and_exit():
     print("  -s        : database located on SSD disks (or fully fit's into memory)")
     print("  -S        : enable tracking of SQL statement execution (require pg >= 9.0)")
     print("  -l <addr> : address(es) on which the server is to listen for incomming connections, default localhost")
-    print("  -v <vers> : PostgreSQL version number. Default: 9.6")
+    print("  -v <vers> : PostgreSQL version number. Default: 10")
     print("  -h        : print this help message")
     sys.exit(1)
 
 
 def main():
     mem = None
-    max_connections = 30
+    max_connections = 20
     have_ssd = True
     enable_stat = False
     listen_addresses = '*'
@@ -164,9 +164,19 @@ def main():
     print("log_checkpoints = on")
     print("log_lock_waits = on")
     print("listen_addresses = '%s'" % (listen_addresses))
+
     if enable_stat:
-        print("shared_preload_libraries = 'pg_stat_statements'")
+        print("shared_preload_libraries = 'pg_stat_statements,auto_explain'")
         print("pg_stat_statements.track = all")
+        print("auto_explain.log_min_duration = '5s'")
+        print("auto_explain.log_verbose = 'true'")
+        print("auto_explain.log_analyze = 'true'")
+        print("auto_explain.log_nested_statements = 'true'")
+
+        print("# pg_stats")
+        print("track_activities = 'true'")
+        print("track_counts = 'true'")
+        print("track_io_timing = 'true'")
 
 
     print("#")

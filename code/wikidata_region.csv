@@ -121,7 +121,7 @@ Q215655,	department of Colombia	Colombia	region	department,capital district
 Q868893,	department of the Republic of the Congo	Congo (Brazzaville)	region	department
 Q1075520,	province of Costa Rica	Costa Rica	region	province
 Q57053,	county of Croatia	Croatia	region	county,city
-Q115291	province of Cuba	Cuba	region	province,special municipality
+Q115291,	province of Cuba	Cuba	region	province,special municipality
 Q59136,	district of Cyprus	Cyprus	region	district
 Q59136,	district of Cyprus	Cyprus	region	district
 Q38911,	region of the Czech Republic	Czech Republic	region	region,city
@@ -210,7 +210,7 @@ Q319796,	district of Nauru	Nauru	region	district
 Q22049119,	List of provinces of Nepal	Nepal	region	province
 Q134390,	province of the Netherlands	Netherlands	region	province
 Q25396,	Bonaire	Netherlands	region	island region
-Q26180	Sint Eustatius	Netherlands	region	island region
+Q26180,	Sint Eustatius	Netherlands	region	island region
 Q25528,	Saba	Netherlands	region	island region
 Q8803814,	Provinces of New Caledonia	New Caledonia	region	province
 Q216712, region of New Zealand	New Zealand	region	regional council,unitary authority,special territorial authority

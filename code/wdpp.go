@@ -11,6 +11,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"regexp"
 	"strings"
 	"sync"
 
@@ -34,18 +35,32 @@ func (c *SafeCounter) Inc() {
 type wdType map[string]bool
 
 var wofdef map[string]wdType
+var qre *regexp.Regexp
 
 func init() {
+	qre = regexp.MustCompile("^Q[0-9]+$")
 
 	wofCsvDefinitions := map[string]string{
 		"country":    "/wof/code/wikidata_country.csv",
 		"county":     "/wof/code/wikidata_county.csv",
-		"region":     "/wof/code/wikidata_region.csv",
 		"dependency": "/wof/code/wikidata_dependency.csv",
 		"locality":   "/wof/code/wikidata_localities.csv",
+		"region":     "/wof/code/wikidata_region.csv",
+
+		"borough":       "/wof/code/wikidata_borough.csv",
+		"campus":        "/wof/code/wikidata_campus.csv",
+		"continent":     "/wof/code/wikidata_continent.csv",
+		"localadmin":    "/wof/code/wikidata_localadmin.csv",
+		"macrocounty":   "/wof/code/wikidata_macrocounty.csv",
+		"marinearea":    "/wof/code/wikidata_marinearea.csv",
+		"neighbourhood": "/wof/code/wikidata_neighbourhood.csv",
+		"ocean":         "/wof/code/wikidata_ocean.csv",
+		"planet":        "/wof/code/wikidata_planet.csv",
+		"timezone":      "/wof/code/wikidata_timezone.csv",
 	}
 
-	wofdef = make(map[string]wdType)
+	wofdef = make(map[string]wdType, len(wofCsvDefinitions))
+
 	for k, csvfile := range wofCsvDefinitions {
 		fmt.Println(k, csvfile)
 		wofdef[k] = readCsvFile(csvfile)
@@ -55,9 +70,7 @@ func init() {
 
 func readCsvFile(csvcode string) wdType {
 	content, err := ioutil.ReadFile(csvcode)
-	if err != nil {
-		fmt.Print(err)
-	}
+	checkErr(err)
 
 	var qcode string
 	mapWdType := make(wdType)
@@ -67,8 +80,10 @@ func readCsvFile(csvcode string) wdType {
 		if len(line) >= 2 && line[0] == 'Q' {
 			qcode = strings.Split(line, ",")[0]
 
-			// remove spaces
-			qcode = strings.Replace(qcode, " ", "", -1)
+			// must be valid Q[0-9]+  code
+			if !qre.MatchString(qcode) {
+				fmt.Println("Error in the csv: ", qcode, " not valid in: ", csvcode)
+			}
 
 			// only add 'Q' codes,
 			if qcode[0] == 'Q' {
@@ -84,57 +99,67 @@ func readCsvFile(csvcode string) wdType {
 }
 
 func main() {
-
-	// PG setup
 	connStr := "sslmode=disable connect_timeout=10"
-	db, err := sql.Open("postgres", connStr)
-	if err != nil {
-		log.Fatal(err)
-	}
-	txn, err := db.Begin()
-	if err != nil {
-		log.Fatal(err)
-	}
 
-	createTableStr := []string{
-		"CREATE SCHEMA IF NOT EXISTS wdx;",
-		"DROP TABLE IF EXISTS wdx.wd CASCADE;",
-		"CREATE TABLE wdx.wd (wd_id TEXT, a_wof_type TEXT[], data JSONB );",
+	//
+	// PG setup  for wd
+	//
+	db_wd, err := sql.Open("postgres", connStr)
+	checkErr(err)
+	defer db_wd.Close()
+	txn_wd, err := db_wd.Begin()
+	checkErr(err)
+	createTableStr_wd := []string{
+		"CREATE SCHEMA IF NOT EXISTS wd;",
+		"DROP TABLE IF EXISTS wd.wdx CASCADE;",
+		"CREATE TABLE wd.wdx (wd_id TEXT, a_wof_type TEXT[], data JSONB );",
 	}
-
-	for _, str := range createTableStr {
+	for _, str := range createTableStr_wd {
 		fmt.Println("executing:", str)
-		_, err := txn.Exec(str)
-		if err != nil {
-			log.Fatal(err)
-		}
+		_, err := txn_wd.Exec(str)
+		checkErr(err)
 	}
+	stmt_wd, err := txn_wd.Prepare(pq.CopyInSchema("wd", "wdx", "wd_id", "a_wof_type", "data"))
+	checkErr(err)
 
-	stmt, err := txn.Prepare(pq.CopyInSchema("wdx", "wd", "wd_id", "a_wof_type", "data"))
-	if err != nil {
-		log.Fatal(err)
+	//
+	// PG setup  for label
+	//
+	db_label, err := sql.Open("postgres", connStr)
+	checkErr(err)
+	defer db_label.Close()
+	txn_label, err := db_label.Begin()
+	checkErr(err)
+	createTableStr_label := []string{
+		"CREATE SCHEMA IF NOT EXISTS wdlabels;",
+		"DROP TABLE IF EXISTS wdlabels.en CASCADE;",
+		"CREATE TABLE wdlabels.en (wd_id TEXT, wd_label TEXT );",
 	}
-
-	//csvcode := os.Args[1]
-
+	for _, str := range createTableStr_label {
+		fmt.Println("executing:", str)
+		_, err := txn_label.Exec(str)
+		checkErr(err)
+	}
+	stmt_label, err := txn_label.Prepare(pq.CopyInSchema("wdlabels", "en", "wd_id", "wd_label"))
+	checkErr(err)
+	//
+	// gz input definition
+	//
 	filename := "/wof/wikidata_dump/latest-all.json.gz"
 	fmt.Println("Start .. reading:", filename)
 	file, err := os.Open(filename)
-	if err != nil {
-		log.Fatal(err)
-	}
+	checkErr(err)
 	gz, err := gzip.NewReader(file)
-	if err != nil {
-		log.Fatal(err)
-	}
+	checkErr(err)
 	defer file.Close()
 	defer gz.Close()
 	gzipreader := bufio.NewReader(gz)
 
 	c := SafeCounter{v: 0}
 
-	// Setup input, output and business logic.
-
+	//
+	// Setup input, output and business logic for parallel processing
+	//
 	wpp := parallel.NewProcessor(gzipreader, os.Stdout, func(b []byte) ([]byte, error) {
 		c.Inc()
 
@@ -150,6 +175,9 @@ func main() {
 		if wdlabel == "" {
 			wdlabel = wdid
 		}
+
+		_, err = stmt_label.Exec(wdid, wdlabel)
+		checkErr(err)
 
 		match := pq.StringArray{}
 
@@ -171,12 +199,35 @@ func main() {
 
 			}
 		}
-		// check geonames ...
 
-		// check
+		// check GeoNames ID ; P1566
+		if gjson.GetBytes(b, "claims.P1566.#[rank!=deprecated]").Exists() {
+			match = append(match, "P1566")
+		}
+		// check ISO 3166-2 code ;  P300
+		if gjson.GetBytes(b, "claims.P300.#[rank!=deprecated]").Exists() {
+			match = append(match, "P300")
+		}
+		// check FIPS 10-4 (countries and regions) :P901
+		if gjson.GetBytes(b, "claims.P901.#[rank!=deprecated]").Exists() {
+			match = append(match, "P901")
+		}
+		// check IATA airport code : P238
+		if gjson.GetBytes(b, "claims.P238.#[rank!=deprecated]").Exists() {
+			match = append(match, "P238")
+		}
+		// check ICAO airport code : P239
+		if gjson.GetBytes(b, "claims.P239.#[rank!=deprecated]").Exists() {
+			match = append(match, "P239")
+		}
+		// check territory claimed by ; P1336
+		if gjson.GetBytes(b, "claims.P1336.#[rank!=deprecated]").Exists() {
+			match = append(match, "P1336")
+		}
 
+		// log
 		if (c.v % 100000) == 0 {
-			fmt.Println("..procesing:", c.v, "   wdid:", wdid, wdlabel)
+			fmt.Println("..processing:", c.v, "   wdid:", wdid, wdlabel)
 		}
 
 		if len(match) > 0 {
@@ -186,47 +237,60 @@ func main() {
 			}
 
 			// write to postgres
-			_, err = stmt.Exec(wdid, match, string(b))
-			if err != nil {
-				log.Fatal(err)
-			}
+			_, err = stmt_wd.Exec(wdid, match, string(b))
+			checkErr(err)
 		}
 		return nil, nil
 	})
 
 	// Start processing with parallel workers.
-	if err := wpp.Run(); err != nil {
-		log.Fatal(err)
-	}
+	err = wpp.Run()
+	checkErr(err)
 
-	// Close PG
-	_, err = stmt.Exec()
-	if err != nil {
-		log.Fatal(err)
+	//
+	// Close WD Copy
+	//
+	_, err = stmt_wd.Exec()
+	checkErr(err)
+	err = stmt_wd.Close()
+	checkErr(err)
+	postprocessingStr_wd := []string{
+		"CREATE UNIQUE INDEX  ON  wd.wdx(wd_id);",
+		"CREATE        INDEX  ON  wd.wdx USING GIN( a_wof_type );",
+		"ANALYSE wd.wdx;",
 	}
-	err = stmt.Close()
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	postprocessingStr := []string{
-		"CREATE UNIQUE INDEX  ON  wdx.wd(wd_id);",
-		"CREATE        INDEX  ON  wdx.wd USING GIN( a_wof_type );",
-		"ANALYSE wdx.wd;",
-	}
-
-	for _, str := range postprocessingStr {
+	for _, str := range postprocessingStr_wd {
 		fmt.Println("executing:", str)
-		_, err := txn.Exec(str)
-		if err != nil {
-			log.Fatal(err)
-		}
+		_, err := txn_wd.Exec(str)
+		checkErr(err)
 	}
+	err = txn_wd.Commit()
+	checkErr(err)
+	//fmt.Println("... wd.wdx  Loaded:", c.v)
 
-	err = txn.Commit()
+	//
+	// Close Label Copy
+	//
+	_, err = stmt_label.Exec()
+	checkErr(err)
+	err = stmt_label.Close()
+	checkErr(err)
+	postprocessingStr_label := []string{
+		"CREATE UNIQUE INDEX wdlabels_en_id ON wdlabels.en(wd_id);",
+		"ANALYSE wdlabels.en;",
+	}
+	for _, str := range postprocessingStr_label {
+		fmt.Println("executing:", str)
+		_, err := txn_label.Exec(str)
+		checkErr(err)
+	}
+	err = txn_label.Commit()
+	checkErr(err)
+	fmt.Println("... wdlabels.en Loaded:", c.v)
+}
+
+func checkErr(err error) {
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	fmt.Println("... wdx.wd  Loaded:", c.v)
 }

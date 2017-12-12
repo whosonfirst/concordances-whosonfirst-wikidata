@@ -1,0 +1,548 @@
+Q123705,   neighborhood 
+
+
+##  subclass of neighborhood 
+Q55116,	quarter of Monaco
+Q75848,	gated community
+Q152018,	ghetto
+Q201759,	slum
+Q202509,	Chinatown
+Q245027,	Temporary Use
+Q252916,	administrative quarter of Paris
+Q271035,	neighborhood unit
+Q272888,	red-light district
+Q490329,	dong
+Q604435,	microdistrict
+Q660088,	garden city movement
+Q676050,	old town
+Q693827,	favela
+Q738570,	central business district
+Q745456,	business cluster
+Q748198,	gay village
+Q788574,	quartiers de Marseille
+Q851110,	district in Budapest
+Q851124,	List of neighborhoods of Budapest
+Q860582,	community area in Chicago
+Q904319,	Koreatown
+Q1014933,	Burgfreiheit
+Q1050303,	downtown
+Q1067867,	Sestiere of Venice
+Q1128906,	medina quarter
+Q1468524,	city center
+Q1544543,	Greektown
+Q1622981,	Hofe
+Q1685371,	residential areas and neighbourhoods in Amsterdam
+Q1739536,	inner city
+Q1761572,	barrio
+Q1797194,	arts district
+Q1807124,	residential areas and neighbourhoods in Heiloo
+Q1810565,	residential areas and neighbourhoods in Maasgouw
+Q1816359,	residential areas and neighbourhoods in Geldrop-Mierlo
+Q1817871,	residential areas and neighbourhoods in Noordwijk
+Q1823630,	residential areas and neighbourhoods in De Ronde Venen
+Q1826462,	residential areas and neighbourhoods in Millingen aan de Rijn
+Q1828280,	residential areas and neighbourhoods in Ommen
+Q1829505,	tuindorp
+Q1835819,	residential areas and neighbourhoods in Nieuwerkerk aan den IJssel
+Q1841572,	residential areas and neighbourhoods in Reeuwijk
+Q1841787,	residential areas and neighbourhoods in Moordrecht
+Q1845995,	residential areas and neighbourhoods in Kerkrade
+Q1846040,	residential areas and neighbourhoods in Gennep
+Q1847650,	residential areas and neighbourhoods in Breda
+Q1854637,	residential areas and neighbourhoods in Slochteren
+Q1861272,	residential areas and neighbourhoods in Lingewaal
+Q1861405,	residential areas and neighbourhoods in Asten
+Q1862498,	residential areas and neighbourhoods in Etten-Leur
+Q1866706,	residential areas and neighbourhoods in Kaag en Braassem
+Q1868177,	residential areas and neighbourhoods in Bergen
+Q1873875,	residential areas and neighbourhoods in Hoogezand-Sappemeer
+Q1888295,	residential areas and neighbourhoods in Tholen
+Q1897683,	residential areas and neighbourhoods in Steenbergen
+Q1902243,	residential areas and neighbourhoods in Laren
+Q1907569,	residential areas and neighbourhoods in Grootegast
+Q1908925,	residential areas and neighbourhoods in Rijswijk
+Q1915727,	residential areas and neighbourhoods in Leiden
+Q1915760,	residential areas and neighbourhoods in Wijdemeren
+Q1932319,	residential areas and neighbourhoods in Goirle
+Q1933380,	residential areas and neighbourhoods in Heerhugowaard
+Q1934557,	residential areas and neighbourhoods in Urk
+Q1936679,	residential areas and neighbourhoods in Krimpen aan den IJssel
+Q1939620,	residential areas and neighbourhoods in Deurne
+Q1940624,	Banlieue
+Q1953976,	residential areas and neighbourhoods in Heusden
+Q1957085,	residential areas and neighbourhoods in Overbetuwe
+Q1960054,	residential areas and neighbourhoods in Haarlem
+Q1960152,	residential areas and neighbourhoods in Tubbergen
+Q1962518,	residential areas and neighbourhoods in Schagen
+Q1969642,	neighborhood of San Francisco
+Q1970803,	residential areas and neighbourhoods in Oudewater
+Q1972304,	residential areas and neighbourhoods in Binnenmaas
+Q1974716,	residential areas and neighbourhoods in Epe
+Q1976621,	residential areas and neighbourhoods in Noordenveld
+Q1976902,	residential areas and neighbourhoods in Bergen op Zoom
+Q1977132,	residential areas and neighbourhoods in Harlingen
+Q1986385,	residential areas and neighbourhoods in Bodegraven
+Q1986706,	residential areas and neighbourhoods in Zundert
+Q1987422,	residential areas and neighbourhoods in Brielle
+Q1990147,	residential areas and neighbourhoods in Haarlemmermeer
+Q1990537,	residential areas and neighbourhoods in Werkendam
+Q1994873,	residential areas and neighbourhoods in Terneuzen
+Q2000606,	residential areas and neighbourhoods in Hoogeveen
+Q2006449,	residential areas and neighbourhoods in Lingewaard
+Q2006624,	residential areas and neighbourhoods in Schouwen-Duiveland
+Q2009716,	residential areas and neighbourhoods in Beemster
+Q2012273,	residential areas and neighbourhoods in Dongen
+Q2012780,	residential areas and neighbourhoods in Vlieland
+Q2013001,	residential areas and neighbourhoods in Alphen-Chaam
+Q2015368,	residential areas and neighbourhoods in Sint Anthonis
+Q2018474,	residential areas and neighbourhoods in Zeist
+Q2020908,	residential areas and neighbourhoods in Best
+Q2026516,	residential areas and neighbourhoods in Olst-Wijhe
+Q2032100,	residential areas and neighbourhoods in Boxmeer
+Q2038292,	residential areas and neighbourhoods in De Wolden
+Q2040144,	residential areas and neighbourhoods in Nuenen, Gerwen en Nederwetten
+Q2042773,	residential areas and neighbourhoods in Meijel
+Q2043026,	residential areas and neighbourhoods in Velsen
+Q2043446,	residential areas and neighbourhoods in Alphen aan den Rijn
+Q2046087,	residential areas and neighbourhoods in Bedum
+Q2049306,	residential areas and neighbourhoods in Bergeijk
+Q2049617,	residential areas and neighbourhoods in Waterland
+Q2050804,	residential areas and neighbourhoods in Menterwolde
+Q2052943,	residential areas and neighbourhoods in Cranendonck
+Q2054841,	residential areas and neighbourhoods in Helden
+Q2056094,	residential areas and neighbourhoods in Hardenberg
+Q2056104,	residential areas and neighbourhoods in Oosterhout
+Q2060029,	residential areas and neighbourhoods in Duiven
+Q2065899,	residential areas and neighbourhoods in Gemert-Bakel
+Q2066618,	residential areas and neighbourhoods in Maarssen
+Q2071279,	residential areas and neighbourhoods in Woerden
+Q2071298,	residential areas and neighbourhoods in Bunnik
+Q2073024,	residential areas and neighbourhoods in Zuidhorn
+Q2073453,	residential areas and neighbourhoods in Lemsterland
+Q2076952,	residential areas and neighbourhoods in Son en Breugel
+Q2077339,	residential areas and neighbourhoods in Schermer
+Q2077535,	residential areas and neighbourhoods in Heemstede
+Q2087799,	residential areas and neighbourhoods in Smallingerland
+Q2090729,	residential areas and neighbourhoods in Ferwerderadeel
+Q2091309,	residential areas and neighbourhoods in Wormerland
+Q2094757,	residential areas and neighbourhoods in Heerde
+Q2095566,	residential areas and neighbourhoods in Hillegom
+Q2096470,	residential areas and neighbourhoods in Groesbeek
+Q2097262,	residential areas and neighbourhoods in Oisterwijk
+Q2100069,	residential areas and neighbourhoods in Eersel
+Q2100875,	residential areas and neighbourhoods in Vianen
+Q2104724,	residential areas and neighbourhoods in Zeewolde
+Q2105147,	residential areas and neighbourhoods in Staphorst
+Q2106419,	residential areas and neighbourhoods in Wonseradeel
+Q2113336,	residential areas and neighbourhoods in Edam-Volendam
+Q2123168,	residential areas and neighbourhoods in Enschede
+Q2124086,	residential areas and neighbourhoods in Valkenburg aan de Geul
+Q2124921,	residential areas and neighbourhoods in Apeldoorn
+Q2125128,	residential areas and neighbourhoods in Ubbergen
+Q2126535,	residential areas and neighbourhoods in Voorst
+Q2135910,	residential areas and neighbourhoods in Texel
+Q2144791,	residential areas and neighbourhoods in Schijndel
+Q2147765,	residential areas and neighbourhoods in Oss
+Q2148622,	residential areas and neighbourhoods in Gaasterland-Sloten
+Q2149275,	residential areas and neighbourhoods in Strijen
+Q2150482,	residential areas and neighbourhoods in Geldermalsen
+Q2156042,	residential areas and neighbourhoods in Zevenaar
+Q2163491,	residential areas and neighbourhoods in Zwolle
+Q2163777,	residential areas and neighbourhoods in Appingedam
+Q2167892,	residential areas and neighbourhoods in De Marne
+Q2168491,	residential areas and neighbourhoods in Skarsterlân
+Q2168734,	residential areas and neighbourhoods in Borger-Odoorn
+Q2170055,	residential areas and neighbourhoods in Houten
+Q2177537,	residential areas and neighbourhoods in Oostzaan
+Q2177823,	residential areas and neighbourhoods in West Maas en Waal
+Q2178484,	residential areas and neighbourhoods in Reusel-De Mierden
+Q2182828,	residential areas and neighbourhoods in Waddinxveen
+Q2185490,	residential areas and neighbourhoods in Bellingwedde
+Q2185783,	residential areas and neighbourhoods in Bronckhorst
+Q2186411,	residential areas and neighbourhoods in Venlo
+Q2187413,	residential areas and neighbourhoods in Zijpe
+Q2187503,	residential areas and neighbourhoods in Veghel
+Q2189749,	residential areas and neighbourhoods in Maastricht
+Q2192881,	residential areas and neighbourhoods in Midden-Delfland
+Q2195476,	residential areas and neighbourhoods in Oud-Beijerland
+Q2197366,	residential areas and neighbourhoods in Borsele
+Q2198860,	residential areas and neighbourhoods in Niedorp
+Q2201535,	residential areas and neighbourhoods in Delft
+Q2202192,	residential areas and neighbourhoods in Dordrecht
+Q2205536,	residential areas and neighbourhoods in Capelle aan den IJssel
+Q2205679,	residential areas and neighbourhoods in Ede
+Q2206163,	residential areas and neighbourhoods in Noord-Beveland
+Q2210336,	residential areas and neighbourhoods in Dalfsen
+Q2212213,	residential areas and neighbourhoods in Rhenen
+Q2213158,	residential areas and neighbourhoods in Laarbeek
+Q2216174,	residential areas and neighbourhoods in Veere
+Q2218443,	residential areas and neighbourhoods in Venray
+Q2218896,	residential areas and neighbourhoods in Ten Boer
+Q2219066,	residential areas and neighbourhoods in Rozendaal
+Q2220151,	residential areas and neighbourhoods in Emmen
+Q2226557,	residential areas and neighbourhoods in Bernisse
+Q2230449,	residential areas and neighbourhoods in Wervershoof
+Q2243627,	residential areas and neighbourhoods in Alblasserdam
+Q2244953,	residential areas and neighbourhoods in Landsmeer
+Q2246960,	residential areas and neighbourhoods in Amersfoort
+Q2246961,	residential areas and neighbourhoods in Medemblik
+Q2249256,	residential areas and neighbourhoods in Loenen
+Q2252601,	residential areas and neighbourhoods in Amstelveen
+Q2253532,	residential areas and neighbourhoods in Oldenzaal
+Q2257782,	residential areas and neighbourhoods in Bergen
+Q2263061,	residential areas and neighbourhoods in Boxtel
+Q2264740,	residential areas and neighbourhoods in Someren
+Q2266007,	residential areas and neighbourhoods in Leiderdorp
+Q2266639,	residential areas and neighbourhoods in Elburg
+Q2269910,	residential areas and neighbourhoods in Veenendaal
+Q2270349,	residential areas and neighbourhoods in Midden-Drenthe
+Q2273660,	residential areas and neighbourhoods in Onderbanken
+Q2274741,	residential areas and neighbourhoods in Baarle-Nassau
+Q2277852,	residential areas and neighbourhoods in Zaltbommel
+Q2280429,	residential areas and neighbourhoods in Tiel
+Q2283589,	residential areas and neighbourhoods in Ooststellingwerf
+Q2283671,	residential areas and neighbourhoods in Stadskanaal
+Q2290968,	residential areas and neighbourhoods in Pekela
+Q2294360,	residential areas and neighbourhoods in Sluis
+Q2294752,	residential areas and neighbourhoods in Lelystad
+Q2295112,	residential areas and neighbourhoods in Gorinchem
+Q2295247,	residential areas and neighbourhoods in Winterswijk
+Q2296013,	residential areas and neighbourhoods in Doetinchem
+Q2296087,	residential areas and neighbourhoods in Tilburg
+Q2297849,	residential areas and neighbourhoods in Nederlek
+Q2303078,	residential areas and neighbourhoods in Beverwijk
+Q2304051,	residential areas and neighbourhoods in Leeuwarden
+Q2309489,	residential areas and neighbourhoods in Deventer
+Q2309649,	residential areas and neighbourhoods in Zederik
+Q2309815,	residential areas and neighbourhoods in Veldhoven
+Q2310578,	residential areas and neighbourhoods in Roosendaal
+Q2313049,	residential areas and neighbourhoods in Zevenhuizen-Moerkapelle
+Q2315694,	residential areas and neighbourhoods in Zeevan
+Q2316640,	residential areas and neighbourhoods in Sevenum
+Q2322303,	residential areas and neighbourhoods in Wierden
+Q2323969,	residential areas and neighbourhoods in Katwijk
+Q2324092,	residential areas and neighbourhoods in Rozenburg
+Q2324277,	residential areas and neighbourhoods in Vlaardingen
+Q2326473,	residential areas and neighbourhoods in Eijsden
+Q2328265,	residential areas and neighbourhoods in Helmond
+Q2328692,	residential areas and neighbourhoods in Mill en Sint Hubert
+Q2330503,	residential areas and neighbourhoods in Coevorden
+Q2332591,	residential areas and neighbourhoods in Meerssen
+Q2335014,	residential areas and neighbourhoods in Waalwijk
+Q2335097,	residential areas and neighbourhoods in Dongeradeel
+Q2337664,	residential areas and neighbourhoods in Aalburg
+Q2341383,	residential areas and neighbourhoods in Cromstrijen
+Q2341567,	residential areas and neighbourhoods in Nieuwegein
+Q2343048,	residential areas and neighbourhoods in Marum
+Q2354866,	residential areas and neighbourhoods in Mook en Middelaar
+Q2358857,	residential areas and neighbourhoods in IJsselstein
+Q2367332,	residential areas and neighbourhoods in Putten
+Q2369468,	residential areas and neighbourhoods in Boskoop
+Q2379723,	residential areas and neighbourhoods in Naarden
+Q2380456,	residential areas and neighbourhoods in Grave
+Q2380616,	residential areas and neighbourhoods in Littenseradeel
+Q2382435,	residential areas and neighbourhoods in Beesel
+Q2383622,	residential areas and neighbourhoods in Vaals
+Q2385064,	residential areas and neighbourhoods in Woensdrecht
+Q2386237,	residential areas and neighbourhoods in Sint-Oedenrode
+Q2388070,	residential areas and neighbourhoods in 's-Hertogenbosch
+Q2389660,	residential areas and neighbourhoods in Rijnwaarden
+Q2394429,	residential areas and neighbourhoods in Weststellingwerf
+Q2397176,	residential areas and neighbourhoods in Noordwijkerhout
+Q2400108,	residential areas and neighbourhoods in Heerlen
+Q2404009,	residential areas and neighbourhoods in Buren
+Q2408353,	residential areas and neighbourhoods in Veendam
+Q2410435,	residential areas and neighbourhoods in Ouder-Amstel
+Q2411624,	residential areas and neighbourhoods in Lopik
+Q2412960,	residential areas and neighbourhoods in Rheden
+Q2426615,	residential areas and neighbourhoods in Leudal
+Q2429471,	residential areas and neighbourhoods in Nieuw-Lekkerland
+Q2429479,	residential areas and neighbourhoods in Barendrecht
+Q2431417,	residential areas and neighbourhoods in Opmeer
+Q2433417,	residential areas and neighbourhoods in Heumen
+Q2436607,	residential areas and neighbourhoods in Breukelen
+Q2441900,	residential areas and neighbourhoods in Teylingen
+Q2453740,	residential areas and neighbourhoods in Franekeradeel
+Q2456502,	residential areas and neighbourhoods in Giessenlanden
+Q2461568,	residential areas and neighbourhoods in Hattem
+Q2463106,	residential areas and neighbourhoods in Echt-Susteren
+Q2468246,	residential areas and neighbourhoods in Purmerend
+Q2469840,	residential areas and neighbourhoods in Tynaarlo
+Q2473630,	residential areas and neighbourhoods in Rijssen-Holten
+Q2479543,	residential areas and neighbourhoods in Aalsmeer
+Q2488029,	residential areas and neighbourhoods in Goes
+Q2489278,	residential areas and neighbourhoods in Uitgeest
+Q2490661,	residential areas and neighbourhoods in Leek
+Q2492021,	residential areas and neighbourhoods in Steenwijkerland
+Q2497811,	residential areas and neighbourhoods in Hellevoetsluis
+Q2497952,	residential areas and neighbourhoods in Wijchen
+Q2501025,	residential areas and neighbourhoods in Hengelo
+Q2503512,	residential areas and neighbourhoods in Heeze-Leende
+Q2506584,	residential areas and neighbourhoods in Abcoude
+Q2511515,	residential areas and neighbourhoods in Uden
+Q2511820,	residential areas and neighbourhoods in Raalte
+Q2513873,	residential areas and neighbourhoods in Westervoort
+Q2515843,	residential areas and neighbourhoods in Wassenaar
+Q2516546,	residential areas and neighbourhoods in Zaanstad
+Q2520727,	residential areas and neighbourhoods in Schinnen
+Q2521518,	residential areas and neighbourhoods in Nijefurd
+Q2524040,	residential areas and neighbourhoods in Bergambacht
+Q2529629,	residential areas and neighbourhoods in Reimerswaal
+Q2531109,	residential areas and neighbourhoods in Almelo
+Q2537631,	residential areas and neighbourhoods in Oude IJsselstreek
+Q2544607,	residential areas and neighbourhoods in Hardinxveld-Giessendam
+Q2545082,	residential areas and neighbourhoods in Dantumadeel
+Q2545731,	residential areas and neighbourhoods in Dinkelland
+Q2549746,	residential areas and neighbourhoods in Aalten
+Q2551227,	residential areas and neighbourhoods in Berkelland
+Q2552952,	residential areas and neighbourhoods in Hendrik-Ido-Ambacht
+Q2553460,	residential areas and neighbourhoods in Landerd
+Q2553814,	residential areas and neighbourhoods in Beuningen
+Q2556348,	residential areas and neighbourhoods in Druten
+Q2565807,	residential areas and neighbourhoods in Twenterand
+Q2567199,	residential areas and neighbourhoods in Stede Broec
+Q2573957,	residential areas and neighbourhoods in Winschoten
+Q2576003,	residential areas and neighbourhoods in Losser
+Q2580104,	residential areas and neighbourhoods in Sint-Michielsgestel
+Q2583015,	ghetto in Nazi-occupied Europe
+Q2584710,	residential areas and neighbourhoods in Rucphen
+Q2593161,	residential areas and neighbourhoods in Uithoorn
+Q2615436,	residential areas and neighbourhoods in Haaksbergen
+Q2617892,	residential areas and neighbourhoods in Woudrichem
+Q2619387,	residential areas and neighbourhoods in Huizen
+Q2619760,	residential areas and neighbourhoods in Bloemendaal
+Q2622404,	residential areas and neighbourhoods in Pijnacker-Nootdorp
+Q2626235,	residential areas and neighbourhoods in Zoeterwoude
+Q2626714,	residential areas and neighbourhoods in Barneveld
+Q2627771,	residential areas and neighbourhoods in Vlist
+Q2632569,	residential areas and neighbourhoods in Menaldumadeel
+Q2633412,	residential areas and neighbourhoods in Schoonhoven
+Q2640310,	residential areas and neighbourhoods in Arnhem
+Q2648768,	residential areas and neighbourhoods in Muiden
+Q2650121,	residential areas and neighbourhoods in Graft-De Rijp
+Q2650652,	residential areas and neighbourhoods in Voorschoten
+Q2656200,	residential areas and neighbourhoods in Wageningen
+Q2661154,	residential areas and neighbourhoods in Neerijnen
+Q2662480,	residential areas and neighbourhoods in Rotterdam
+Q2664351,	residential areas and neighbourhoods in Nunspeet
+Q2664793,	residential areas and neighbourhoods in Renkum
+Q2665191,	residential areas and neighbourhoods in Kollumerland en Nieuwkruisland
+Q2666498,	residential areas and neighbourhoods in Terschelling
+Q2668053,	residential areas and neighbourhoods in Borne
+Q2669984,	residential areas and neighbourhoods in Drechterland
+Q2670415,	residential areas and neighbourhoods in Wymbritseradeel
+Q2671752,	residential areas and neighbourhoods in Rijnwoude
+Q2674315,	residential areas and neighbourhoods in Haarlemmerliede en Spaarnwoude
+Q2674404,	residential areas and neighbourhoods in Scheemda
+Q2675154,	residential areas and neighbourhoods in Gouda
+Q2676304,	residential areas and neighbourhoods in Vlissingen
+Q2676478,	residential areas and neighbourhoods in Baarn
+Q2681922,	residential areas and neighbourhoods in Westland
+Q2682439,	residential areas and neighbourhoods in Harderwijk
+Q2685884,	residential areas and neighbourhoods in Koggenland
+Q2687440,	residential areas and neighbourhoods in Neder-Betuwe
+Q2691547,	residential areas and neighbourhoods in Utrechtse Heuvelrug
+Q2692218,	residential areas and neighbourhoods in Brummen
+Q2692228,	residential areas and neighbourhoods in Boornsterhem
+Q2693194,	residential areas and neighbourhoods in Anna Paulowna
+Q2693807,	residential areas and neighbourhoods in Harenkarspel
+Q2694975,	residential areas and neighbourhoods in Maasdriel
+Q2702299,	residential areas and neighbourhoods in Maassluis
+Q2731314,	residential areas and neighbourhoods in Graafstroom
+Q2734113,	residential areas and neighbourhoods in Schiedam
+Q2735065,	residential areas and neighbourhoods in Wieringen
+Q2736880,	residential areas and neighbourhoods in Oirschot
+Q2738385,	residential areas and neighbourhoods in Liesveld
+Q2744197,	residential areas and neighbourhoods in Enkhuizen
+Q2745828,	residential areas and neighbourhoods in Oldebroek
+Q2750204,	residential areas and neighbourhoods in Simpelveld
+Q2750763,	residential areas and neighbourhoods in Zandvoort
+Q2752590,	residential areas and neighbourhoods in Papendrecht
+Q2754146,	residential areas and neighbourhoods in Zwijndrecht
+Q2755753,	area of London
+Q2758393,	residential areas and neighbourhoods in Kampen
+Q2761217,	residential areas and neighbourhoods in Nuth
+Q2764538,	residential areas and neighbourhoods in Diemen
+Q2767081,	residential areas and neighbourhoods in Korendijk
+Q2770054,	residential areas and neighbourhoods in Ouderkerk
+Q2770088,	residential areas and neighbourhoods in Bernheze
+Q2775202,	residential areas and neighbourhoods in Zwartewaterland
+Q2779941,	residential areas and neighbourhoods in Lansingerland
+Q2781506,	residential areas and neighbourhoods in Bunschoten
+Q2781545,	residential areas and neighbourhoods in Lisse
+Q2781929,	residential areas and neighbourhoods in Nijkerk
+Q2784282,	residential areas and neighbourhoods in Montfoort
+Q2790344,	residential areas and neighbourhoods in Heerenveen
+Q2792027,	residential areas and neighbourhoods in Leidschendam-Voorburg
+Q2795064,	residential areas and neighbourhoods in Nederweert
+Q2795367,	neighborhood in Utrecht
+Q2796292,	residential areas and neighbourhoods in Hilversum
+Q2800055,	residential areas and neighbourhoods in Loon op Zand
+Q2802701,	residential areas and neighbourhoods in Loppersum
+Q2841546,	neighborhood of Utrecht
+Q2855507,	residential areas and neighbourhoods in Nijmegen
+Q2858330,	Neighbourhoods in Riga
+Q2859160,	residential areas and neighbourhoods in Weert
+Q2873154,	residential areas and neighbourhoods in Haren
+Q2878366,	arbeiderswijk
+Q2880370,	residential areas and neighbourhoods in Oostflakkee
+Q2886838,	residential areas and neighbourhoods in Lochem
+Q2916174,	residential areas and neighbourhoods in Montferland
+Q2917049,	Jewish ghetto in Europe
+Q2927477,	residential areas and neighbourhoods in Zutphen
+Q2943502,	Neighborhoods in Miami
+Q2958810,	residential areas and neighbourhoods in Albrandswaard
+Q2962882,	residential areas and neighbourhoods in Dronten
+Q2973021,	residential areas and neighbourhoods in Middelburg
+Q2974620,	cité-jardin à Stockholm
+Q2977131,	residential areas and neighbourhoods in Noordoostpolder
+Q2987675,	residential areas and neighbourhoods in Bolsward
+Q3072242,	residential areas and neighbourhoods in Moerdijk
+Q3076746,	residential areas and neighbourhoods in Kapelle
+Q3096608,	residential areas and neighbourhoods in Oegstgeest
+Q3113614,	residential areas and neighbourhoods in Zuidplas
+Q3139321,	residential areas and neighbourhoods in Doesburg
+Q3173096,	residential areas and neighbourhoods in Bladel
+Q3185871,	residential areas and neighbourhoods in Den Haag
+Q3199861,	residential areas and neighbourhoods in Den Helder
+Q3206546,	residential areas and neighbourhoods in Heemskerk
+Q3215890,	residential areas and neighbourhoods in Hoorn
+Q3241793,	residential areas and neighbourhoods in Hellendoorn
+Q3244097,	residential areas and neighbourhoods in Voerendaal
+Q3255678,	residential areas and neighbourhoods in Eemsmond
+Q3270260,	residential areas and neighbourhoods in Stein
+Q3271395,	residential areas and neighbourhoods in Lith
+Q3293911,	residential areas and neighbourhoods in Reiderland
+Q3325618,	residential areas and neighbourhoods in Gilze en Rijen
+Q3353178,	residential areas and neighbourhoods in Halderberge
+Q3394564,	Quarters of Luxembourg City
+Q3412193,	business cluster in France
+Q3413329,	neighborhoods in Boston
+Q3413345,	neighbourhood of Toulouse
+Q3452088,	residential areas and neighbourhoods in Leeuwarderadeel
+Q3453311,	residential areas and neighbourhoods in Vlagtwedde
+Q3458036,	residential areas and neighbourhoods in Kessel
+Q3477348,	cluster
+Q3483924,	residential areas and neighbourhoods in Andijk
+Q3490667,	residential areas and neighbourhoods in Maasbree
+Q3493631,	residential areas and neighbourhoods in Achtkarspelen
+Q3498739,	residential areas and neighbourhoods in De Bilt
+Q3508921,	residential areas and neighbourhoods in Drimmelen
+Q3535570,	residential areas and neighbourhoods in Winsum
+Q3610510,	ethnic enclave
+Q3710552,	cultural district
+Q3927245,	quarter of Brescia
+Q3927250,	quarter of the city of Lugano
+Q3927259,	quarter of Reggio Calabria
+Q3927261,	quarter of Naples
+Q4029647,	residential areas and neighbourhoods in Soest
+Q4057659,	subdivision of Kiev
+Q4298922,	mixed-use development
+Q4309794,	residential areas and neighbourhoods in Dirksland
+Q4310769,	residential areas and neighbourhoods in Spijkenisse
+Q4315642,	residential areas and neighbourhoods in Roerdalen
+Q4346998,	residential areas and neighbourhoods in Margraten
+Q4358403,	residential areas and neighbourhoods in Valkenswaard
+Q4485471,	residential areas and neighbourhoods in Scherpenzeel
+Q4505360,	residential areas and neighbourhoods in Haaren
+Q4536429,	residential areas and neighbourhoods in Hilvarenbeek
+Q4591079,	residential areas and neighbourhoods in Renswoude
+Q4606467,	residential areas and neighbourhoods in Hulst
+Q4707325,	residential areas and neighbourhoods in Ermelo
+Q4751303,	residential areas and neighbourhoods in Roermond
+Q4801161,	residential areas and neighbourhoods in Oost Gelre
+Q4844639,	residential areas and neighbourhoods in Geertruidenberg
+Q4931392,	residential areas and neighbourhoods in het Bildt
+Q4958877,	residential areas and neighbourhoods in Tytsjerksteradiel
+Q4984583,	residential areas and neighbourhoods in Opsterland
+Q5000599,	residential areas and neighbourhoods in Cuijk
+Q5006044,	residential areas and neighbourhoods in Wijk bij Duurstede
+Q5215511,	residential areas and neighbourhoods in Landgraaf
+Q5280970,	residential areas and neighbourhoods in Westerveld
+Q5360424,	residential areas and neighbourhoods in Westvoorne
+Q5423346,	residential areas and neighbourhoods in Weesp
+Q5496336,	residential areas and neighbourhoods in Brunssum
+Q5556082,	neighbourhood in Tehran
+Q5571369,	quarter of a city in Italy
+Q5604550,	residential areas and neighbourhoods in Leerdam
+Q5659147,	residential areas and neighbourhoods in Arcen en Velden
+Q5726703,	residential areas and neighbourhoods in Langedijk
+Q5781171,	residential areas and neighbourhoods in Zoetermeer
+Q5875137,	Hobohemia
+Q6190055,	Jewish ghetto in German-occupied Poland
+Q6970525,	residential areas and neighbourhoods in Sneek
+Q6988077,	neighborhoods in Providence
+Q7315048,	Research-Intensive Clusters
+Q7366200,	Rookery
+Q7535038,	skid row
+Q7551933,	mahallah
+Q8049262,	courtyard neighborhood
+Q8561193,	Distritos de Valencia
+Q9016264,	Jewish quarter
+Q10267336,	ward of Madrid
+Q11800357,	Osiedle mieszkaniowe
+Q11908565,	Barris de Lleida
+Q12012287,	Grätzl
+Q12063697,	neighbourhood of Washington, D.C.
+Q13572734,	diemen-Noord
+Q13644398,	List of communities and neighborhoods of San Diego
+Q13732359,	Indische buurt
+Q14519145,	residential areas and neighbourhoods in Aa en Hunze
+Q14519162,	residential areas and neighbourhoods in Alkmaar
+Q14519180,	residential areas and neighbourhoods in Ameland
+Q14519198,	residential areas and neighbourhoods in Assen
+Q14519215,	residential areas and neighbourhoods in Beek
+Q14519233,	residential areas and neighbourhoods in Blaricum
+Q14519239,	residential areas and neighbourhoods in Boekel
+Q14519240,	residential areas and neighbourhoods in Castricum
+Q14519241,	residential areas and neighbourhoods in Culemborg
+Q14519242,	residential areas and neighbourhoods in Delfzijl
+Q14519243,	residential areas and neighbourhoods in Eemnes
+Q14519244,	residential areas and neighbourhoods in Goedereede
+Q14519245,	residential areas and neighbourhoods in Hof van Twente
+Q14519246,	residential areas and neighbourhoods in Horst aan de Maas
+Q14519262,	residential areas and neighbourhoods in Meppel
+Q14519280,	residential areas and neighbourhoods in Middelharnis
+Q14519298,	residential areas and neighbourhoods in Nieuwkoop
+Q14519316,	residential areas and neighbourhoods in Schiermonnikoog
+Q14519334,	residential areas and neighbourhoods in Sittard-Geleen
+Q14519353,	residential areas and neighbourhoods in Sliedrecht
+Q14519371,	residential areas and neighbourhoods in Woudenberg
+Q14519389,	residential areas and neighbourhoods in Meerlo-Wanssum
+Q15715406,	neighbourhood of Helsinki
+Q15830667,	quarter of  Hamburg
+Q16837104,	bairro
+Q17015330,	Neighborhoods of Minneapolis
+Q17051044,	mahalle
+Q17135847,	quarter of Genoa
+Q17276937,	ward of Madrid
+Q17278559,	Quarter of Bremen
+Q17279532,	Quarter of Verona
+Q17468479,	district of Oulu
+Q18475442,	list of neighbourhoods in Barra da Tijuca
+Q18600387,	Quarter of Dresden
+Q18608436,	quarter of Florence
+Q19658107,	neighbourhood of Brazil
+Q19832914,	defined community of Minneapolis
+Q19886692,	neighbourhood of São Paulo
+Q19953464,	residential areas and neighbourhoods in Peel en Maas
+Q20683285,	neighbourhood in Rio de Janeiro
+Q20968646,	neighborhood of historical district of Moscow
+Q22575704,	administrative quarter in France
+Q22833408,	quartier administratif de Strasbourg
+Q23541388,	city district of Lappeenranta
+Q24067406,	жылы раён
+Q25391965,	city (German language)
+Q26844382,	district of Tampere
+Q27095194,	bookshop neighbourhood
+Q27554593,	dzielnica administracyjna Lublina
+Q27702623,	academic enclave
+Q28148504,	museum district
+Q28372019,	حي سكني يمني
+Q28373319,	mahallah
+Q28539166,	Basler Quartiere
+Q31271043,	Rīgas apkaimes
+Q32597970,	Stadtteil von Bremerhaven
+Q34982659,	quarter of Bucharest
+Q39947311,	warehouse district
+Q42961155,	quarter of Milan

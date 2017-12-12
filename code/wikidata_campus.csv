@@ -1,0 +1,18 @@
+# wof campus ( airports )
+
+
+Q1248784,  Airport
+
+# -- subclass of airport
+Q644371,	international airport
+Q837800,	domestic airport
+Q1479818,	special airport
+Q2138424,	regional airport
+Q4698971,	Airport of entry
+Q4811588,	airline hub
+Q15733670,	departure airport
+Q15733672,	destination airport
+Q20977786,	commercial airport
+Q20992031,	abandoned airport
+Q21836433,	airport
+Q44665966,	proposed airport

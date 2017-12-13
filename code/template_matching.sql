@@ -1,6 +1,5 @@
 
 \set ON_ERROR_STOP 1
-CREATE EXTENSION if not exists pg_similarity;
 \timing
 
 
@@ -73,7 +72,7 @@ select wd_agg_extended.*
       ,get_wdlabeltext(wd_agg_extended._suggested_wd_id) as new_wd_label
       ,is_cebuano(wd.data)                               as old_is_cebauno
 from wd_agg_extended
-left join wikidata.wd        as wd     on wd_agg_extended.wof_wd_id=wd.data->>'id'
+left join wd.wdx             as wd     on wd_agg_extended.wof_wd_id=wd.wd_id
 left join :wd_input_table    as wdnew  on wd_agg_extended._suggested_wd_id=wdnew.wd_id   
 ;
 ANALYSE :wd_wof_match_agg ;
@@ -85,15 +84,15 @@ create table         :wd_wof_match_notfound  as
 with 
 disamb as (
     select id, 1 as is_disambiguation
-    from wof_disambiguation_report
+    from wfwd.wof_disambiguation_report
 ),
 redirected as (
     select id, 1 as is_redirected
-    from wof_wd_redirects
+    from wfwd.wof_wd_redirects
 ),        
 extrdist as (
     select id, distance_km, 1 as is_extreme_distance
-    from wof_extreme_distance_report
+    from wfwd.wof_extreme_distance_report
 )
 ,extended_notfound as
 (   
@@ -118,8 +117,18 @@ extrdist as (
         ,redirected.is_redirected             as old_is_redirected
         ,extrdist.is_extreme_distance         as old_is_extreme_distance
         ,extrdist.distance_km                 as old_ext_distance_km   
+/*
+        ,case  when wof.wof_name     = wd.wd_name_en_clean     then 'N1Full-name-match'
+               when wof.una_wof_name = wd.una_wd_name_en_clean then 'N3Unaccent-name-match'
+               when wof_name_array && wd_name_array            then 'N2Label-name-match'
+               when wof_name_array && wd_altname_array         then 'N4Alias-name-match'
+               when jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.971   then 'N5JaroWinkler-match'
+               when (wd_concordances_array && wof_concordances_array) then 'N6only-Concordances-match'
+                                                               else 'Nerr??-checkme-'
+         end as  _name_match_type   
+  */       
     from :wof_input_table as wof
-    left join wikidata.wd as wd   on wof.wof_wd_id=wd.data->>'id'
+    left join wd.wdx as wd   on wof.wof_wd_id=wd.wd_id
     left join disamb      on disamb.id     = wof.id
     left join extrdist    on extrdist.id   = wof.id   
     left join redirected  on redirected.id = wof.id

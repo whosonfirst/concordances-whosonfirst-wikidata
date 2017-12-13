@@ -10,7 +10,7 @@ rm -f ${xlsxname}
 function wdexport { 
     wdtable=$1
     pgclimb -o ${xlsxname} \
-        -c "SELECT * FROM wikidata.${wdtable} where wof_country='${wof_country}'  order by wof_name;" \
+        -c "SELECT * FROM wd.${wdtable} where wof_country='${wof_country}'  order by wof_name;" \
         xlsx --sheet "${wdtable}"
 }
 

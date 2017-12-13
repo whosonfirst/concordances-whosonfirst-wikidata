@@ -1,6 +1,6 @@
 
 
-create or replace view wof AS
+create or replace view wf.wof AS
               select 'wof_borough'          as metatable, * from wf.wof_borough         
         union select 'wof_campus'           as metatable, * from wf.wof_campus          
         union select 'wof_continent'        as metatable, * from wf.wof_continent       

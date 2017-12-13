@@ -1,13 +1,13 @@
 
 -- important : it can be duplicated, beacause  "claim.P31" can be more "Q4167410" value ( 1:N )
-DROP VIEW IF EXISTS  wikidata.wd_disambiguation CASCADE;
-create or replace view wikidata.wd_disambiguation
+DROP VIEW IF EXISTS  wd.wd_disambiguation CASCADE;
+create or replace view wd.wd_disambiguation
 as
 with p31 as (
     select
-     data->>'id'::text                                                                          as wikidataid
+     wd_id                                                                                      as wikidataid
    , (jsonb_array_elements( data->'claims'->'P31' )->'mainsnak'->'datavalue'->'value'->>'id')   as wof_P31_value
-    FROM wikidata.wd
+    FROM wd.wdx
 )
 select distinct wikidataid from P31
 --TODO: find (sub-)*subclass of a disambiguation page.
@@ -17,33 +17,33 @@ order by  wikidataid
 
 
 
-create or replace view wikidata.wd_sitelinks as
+create or replace view wd.wd_sitelinks as
  select
-      data->>'id'::text                                                     as wd_id
+      wd_id
     , data->'sitelinks'->jsonb_object_keys(data->'sitelinks')->>'site'      as wd_site
     , data->'sitelinks'->jsonb_object_keys(data->'sitelinks')->>'title'     as wd_title
     , data->'sitelinks'->jsonb_object_keys(data->'sitelinks')->'badges'     as wd_badges
     , jsonb_array_length(data->'sitelinks'->jsonb_object_keys(data->'sitelinks')->'badges')   as wd_badges_number
-    FROM wikidata.wd
+    FROM wd.wdx
 ;
 
 
-create or replace view wikidata.wd_descriptions as
+create or replace view wd.wd_descriptions as
  select
-      data->>'id'::text                                                             as wd_id
+      wd_id
     , data->'descriptions'->jsonb_object_keys(data->'descriptions')->>'language'    as wd_language
     , data->'descriptions'->jsonb_object_keys(data->'descriptions')->>'value'       as wd_description
-    FROM wikidata.wd
+    FROM wd.wdx
 ;
 
 
 --  it can be multiple language values , so wd_id + wd_language is not unique !! ;
-create or replace view wikidata.wd_aliases as
+create or replace view wd.wd_aliases as
 with aliases as ( 
     select
-      data->>'id'::text                                                           as wd_id
+      wd_id
     , jsonb_array_elements( data->'aliases'->jsonb_object_keys(data->'aliases'))  as wd_aliases_object
-    FROM wikidata.wd
+    FROM wd.wdx
 )
 select 
    wd_id
@@ -53,11 +53,11 @@ select
 from aliases;
 
 
-create or replace view wikidata.wd_labels as
+create or replace view wd.wd_labels as
  select
-      data->>'id'::text as wd_id
+      wd_id
     , data->'labels'->jsonb_object_keys(data->'labels')->>'language'   as wd_language
     , data->'labels'->jsonb_object_keys(data->'labels')->>'value'      as wd_label
-    FROM wikidata.wd
+    FROM wd.wdx
 ;
 

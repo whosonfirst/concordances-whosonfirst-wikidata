@@ -1,9 +1,4 @@
 
-CREATE EXTENSION if not exists unaccent;
-CREATE EXTENSION if not exists postgis;
-CREATE EXTENSION if not exists plpythonu;
-CREATE EXTENSION if not exists cartodb;
-CREATE EXTENSION if not exists pg_similarity;
 
 -- https://github.com/maxlath/wikidata-sdk/blob/master/docs/install.md
 -- on truthyness: https://www.mediawiki.org/wiki/Wikibase/Indexing/RDF_Dump_Format#Truthy_statements
@@ -419,7 +414,7 @@ AS $$
    FROM jsonb_each(data->'labels') as l 
    ;
 $$;
--- select get_wd_name_array(data)  from wikidata.wd limit 1;
+-- select get_wd_name_array(data)  from wd.wdx limit 10;
 
 
 CREATE OR REPLACE FUNCTION get_wd_altname_array(data JSONB)

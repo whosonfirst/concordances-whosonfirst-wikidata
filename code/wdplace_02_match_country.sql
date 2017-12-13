@@ -2,12 +2,12 @@
 
 
 
-drop table if exists  wdplace.wd_match_country CASCADE;
-create table          wdplace.wd_match_country  as
+drop table if exists  wfwd.wd_match_country CASCADE;
+create table          wfwd.wd_match_country  as
 with c as
 (
     select
-     data->>'id'::text                  as wd_id
+     wd_id
     ,get_wdlabeltext(data->>'id'::text) as wd_name_en
     ,get_wdlabeltext(data->>'id'::text) as wd_name_en_clean
     ,unaccent(get_wdlabeltext(data->>'id'::text))   as una_wd_name_en_clean
@@ -42,7 +42,8 @@ with c as
             )
     , 4326)) as wd_point_merc
 
-    from wdplace.wd_country
+    from wd.wdx
+    where a_wof_type && ARRAY['country'] 
 )
 select *
 from c
@@ -52,18 +53,17 @@ order by wd_id
 ;
 
 
-CREATE INDEX  ON  wdplace.wd_match_country USING GIST(wd_point_merc);
-CREATE INDEX  ON  wdplace.wd_match_country (una_wd_name_en_clean);
-CREATE INDEX  ON  wdplace.wd_match_country (    wd_name_en_clean);
-CREATE INDEX  ON  wdplace.wd_match_country (wd_id);
-ANALYSE   wdplace.wd_match_country;
+CREATE INDEX  ON  wfwd.wd_match_country USING GIST(wd_point_merc);
+CREATE INDEX  ON  wfwd.wd_match_country (una_wd_name_en_clean);
+CREATE INDEX  ON  wfwd.wd_match_country (    wd_name_en_clean);
+CREATE INDEX  ON  wfwd.wd_match_country (wd_id);
+ANALYSE   wfwd.wd_match_country;
 
 
 
 
--- drop view if exists wof_for_matching;
-drop table if exists wof_match_country CASCADE;
-create table         wof_match_country  as
+drop table if exists wfwd.wof_match_country CASCADE;
+create table         wfwd.wof_match_country  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name
@@ -79,22 +79,22 @@ where  wof.is_superseded=0
 order by wof_country
 ;
 
-CREATE INDEX ON  wof_match_country  USING GIST(wof_geom_merc);
-CREATE INDEX ON  wof_match_country  (una_wof_name);
-CREATE INDEX ON  wof_match_country  (wof_name);
-ANALYSE  wof_match_country ;
+CREATE INDEX ON  wfwd.wof_match_country  USING GIST(wof_geom_merc);
+CREATE INDEX ON  wfwd.wof_match_country  (una_wof_name);
+CREATE INDEX ON  wfwd.wof_match_country  (wof_name);
+ANALYSE  wfwd.wof_match_country ;
 
 
 
 \set searchdistance      .
 \set safedistance   400000
-\set wd_input_table           wdplace.wd_match_country
-\set wof_input_table          wof_match_country
+\set wd_input_table           wfwd.wd_match_country
+\set wof_input_table          wfwd.wof_match_country
 
-\set wd_wof_match             wd_mcountry_wof_match
-\set wd_wof_match_agg         wd_mcountry_wof_match_agg
-\set wd_wof_match_agg_sum     wd_mcountry_wof_match_agg_summary
-\set wd_wof_match_notfound    wd_mcountry_wof_match_notfound
+\set wd_wof_match             wfwd.wd_mcountry_wof_match
+\set wd_wof_match_agg         wfwd.wd_mcountry_wof_match_agg
+\set wd_wof_match_agg_sum     wfwd.wd_mcountry_wof_match_agg_summary
+\set wd_wof_match_notfound    wfwd.wd_mcountry_wof_match_notfound
 
 \set mcond1  ( wof.wof_country = wd.country_iso2 )
 \set mcond2  

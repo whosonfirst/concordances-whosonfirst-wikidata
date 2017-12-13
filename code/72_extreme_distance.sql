@@ -1,8 +1,8 @@
 --
 
 
-drop table if exists wof_extreme_distance CASCADE;
-create table wof_extreme_distance as
+drop table if exists  wfwd.wof_extreme_distance CASCADE;
+create table          wfwd.wof_extreme_distance as
 select
      wof.metatable
     ,wof.id
@@ -21,21 +21,22 @@ select
          CDB_TransformToWebmercator(wdp.wd_point)   --  ST_Transform(wdp.wd_point, 3857 )
         ,CDB_TransformToWebmercator(wof.geom::geometry)  -- ST_Transform(wof.geom::geometry, 3857 )  
         )     as distance_geom        
-from   public.wof                  as wof
-      ,wikidata.wd_rank_point      as wdp 
+from  wf.wof                 as wof
+      ,wd.wd_rank_point      as wdp 
 where  wof.wd_id =  wdp.wd_id
 ;
 
-ANALYSE wof_extreme_distance;
+ANALYSE wfwd.wof_extreme_distance;
 
 
-create or replace view wof_extreme_distance_report
+
+create or replace view wfwd.wof_extreme_distance_report
 AS
 with wof_dview AS (
   select  
     *
     ,coalesce( distance_geom,distance_centroid) as distance
-  from wof_extreme_distance 
+  from wfwd.wof_extreme_distance 
 )
 select
      ( distance /1000)::integer as distance_km
@@ -56,16 +57,17 @@ order by distance desc
 ; 
 
 
-create or replace view wof_extreme_distance_sum_report as
+create or replace view wfwd.wof_extreme_distance_sum_report as
 select
       metatable
     , wof_country
     , count(*) as number_of_distance_problems
-from  wof_extreme_distance_report
+from  wfwd.wof_extreme_distance_report
 group by metatable , wof_country
 order by metatable , wof_country
 ; 
 
 
 \cd :reportdir
-\copy (select * from wof_extreme_distance_report) TO 'wof_extreme_distance_report.csv' CSV;
+\copy (select * from wfwd.wof_extreme_distance_report) TO 'wof_extreme_distance_report.csv' CSV;
+

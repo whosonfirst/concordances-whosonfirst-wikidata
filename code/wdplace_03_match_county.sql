@@ -2,8 +2,8 @@
 
 
 
-drop table if exists  wdplace.wd_match_county CASCADE;
-create table          wdplace.wd_match_county  as
+drop table if exists  wfwd.wd_match_county CASCADE;
+create table          wfwd.wd_match_county  as
     select
      data->>'id'::text                  as wd_id  
     ,get_wdlabeltext(data->>'id'::text) as wd_name_en
@@ -38,21 +38,22 @@ create table          wdplace.wd_match_county  as
             )
     , 4326)) as wd_point_merc
     
-    from wdplace.wd_county
+    from wd.wdx
+    where a_wof_type && ARRAY['county'] 
     order by  wd_country, una_wd_name_en_clean  
 ;
 
-CREATE INDEX  ON  wdplace.wd_match_county USING GIST(wd_point_merc);
-CREATE INDEX  ON  wdplace.wd_match_county (una_wd_name_en_clean);
-CREATE INDEX  ON  wdplace.wd_match_county (wd_id);
-CREATE INDEX  ON  wdplace.wd_match_county  USING GIN(wd_name_array );
-CREATE INDEX  ON  wdplace.wd_match_county  USING GIN(wd_altname_array );
-ANALYSE   wdplace.wd_match_county;
+CREATE INDEX  ON  wfwd.wd_match_county USING GIST(wd_point_merc);
+CREATE INDEX  ON  wfwd.wd_match_county (una_wd_name_en_clean);
+CREATE INDEX  ON  wfwd.wd_match_county (wd_id);
+CREATE INDEX  ON  wfwd.wd_match_county  USING GIN(wd_name_array );
+CREATE INDEX  ON  wfwd.wd_match_county  USING GIN(wd_altname_array );
+ANALYSE   wfwd.wd_match_county;
 
 
 
-drop table if exists wof_match_county CASCADE;
-create table         wof_match_county  as
+drop table if exists wfwd.wof_match_county CASCADE;
+create table         wfwd.wof_match_county  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name 
@@ -68,22 +69,22 @@ where  wof.is_superseded=0
 order by wof_country,  una_wof_name 
 ;
 
-CREATE INDEX ON  wof_match_county  USING GIST(wof_geom_merc);
-CREATE INDEX ON  wof_match_county  (una_wof_name);
-ANALYSE  wof_match_county ;
+CREATE INDEX ON  wfwd.wof_match_county  USING GIST(wof_geom_merc);
+CREATE INDEX ON  wfwd.wof_match_county  (una_wof_name);
+ANALYSE  wfwd.wof_match_county ;
 
 
 
 
 \set searchdistance 500003
 \set safedistance   100000
-\set wd_input_table           wdplace.wd_match_county
-\set wof_input_table          wof_match_county
+\set wd_input_table           wfwd.wd_match_county
+\set wof_input_table          wfwd.wof_match_county
 
-\set wd_wof_match             wd_mcounty_wof_match
-\set wd_wof_match_agg         wd_mcounty_wof_match_agg
-\set wd_wof_match_agg_sum     wd_mcounty_wof_match_agg_summary
-\set wd_wof_match_notfound    wd_mcounty_wof_match_notfound
+\set wd_wof_match             wfwd.wd_mcounty_wof_match
+\set wd_wof_match_agg         wfwd.wd_mcounty_wof_match_agg
+\set wd_wof_match_agg_sum     wfwd.wd_mcounty_wof_match_agg_summary
+\set wd_wof_match_notfound    wfwd.wd_mcounty_wof_match_notfound
 
 \set mcond1  ( wof.wof_country  = wd.wd_country )
 \set mcond2  and (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (wd_concordances_array && wof_concordances_array) or (wof_name_array && wd_altname_array ) or (jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.971 ) )

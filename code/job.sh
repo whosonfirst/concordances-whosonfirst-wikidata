@@ -37,30 +37,31 @@ rm -rf ${outputdir}/joblog02
 rm -rf ${outputdir}/joblog03
 rm -rf ${outputdir}/joblog04
 rm -rf ${outputdir}/joblog05
-rm -rf ${outputdir}/joblog_place01
+
 
 
 echo """
     --
-    -- CREATE EXTENSION if not exists pg_stat_statements;
-    --
-    CREATE SCHEMA IF NOT EXISTS wdplace;
+    CREATE EXTENSION if not exists unaccent;
+    CREATE EXTENSION if not exists plpythonu;
+    CREATE EXTENSION if not exists cartodb;
+    CREATE EXTENSION if not exists pg_similarity;
+
+
     CREATE SCHEMA IF NOT EXISTS wd;
     CREATE SCHEMA IF NOT EXISTS wf;
     CREATE SCHEMA IF NOT EXISTS ne;
     CREATE SCHEMA IF NOT EXISTS gn;
-    
     CREATE SCHEMA IF NOT EXISTS wfwd;
-
-    DROP TABLE IF EXISTS wdplace.wd_country CASCADE;
-    DROP TABLE IF EXISTS wdplace.wd_dependency CASCADE;
-    DROP TABLE IF EXISTS wdplace.wd_region CASCADE;
-    DROP TABLE IF EXISTS wdplace.wd_county CASCADE;    
+    CREATE SCHEMA IF NOT EXISTS wfne;
+    CREATE SCHEMA IF NOT EXISTS wfgn;
     --
 """ | psql -e
 
 time parallel  --results ${outputdir}/joblog01 -k  < /wof/code/parallel_joblist_01_load_tables.sh
 psql -e -f  /wof/code/wd_sql_functions.sql
+
+
 psql -e -f  /wof/code/50_wof.sql
 time parallel  --results ${outputdir}/joblog02 -k  < /wof/code/parallel_joblist_02_sql_processing.sh
 time parallel  --results ${outputdir}/joblog03 -k  < /wof/code/parallel_joblist_03_reporting.sh
@@ -68,22 +69,6 @@ time psql -e -vreportdir="${outputdir}" -f /wof/code/91_summary.sql
 
 
 # ----------------------------------------------------------------------------------
-
-wc -l /wof/wikidata_dump/wdplace_country.json
-wc -l /wof/wikidata_dump/wdplace_dependency.json
-wc -l /wof/wikidata_dump/wdplace_region.json 
-wc -l /wof/wikidata_dump/wdplace_county.json 
-
-echo """
-    --
-    DROP TABLE IF EXISTS wdplace.wd_country CASCADE;
-    DROP TABLE IF EXISTS wdplace.wd_dependency CASCADE;
-    DROP TABLE IF EXISTS wdplace.wd_region CASCADE;
-    DROP TABLE IF EXISTS wdplace.wd_county CASCADE;    
-    --
-""" | psql -e
-
-time parallel  --results ${outputdir}/joblog_place01 -k  < /wof/code/parallel_joblist_place1_load.sh
 
 
 # Start parallel processing
@@ -96,35 +81,35 @@ wait
 
 echo """
     --
-    drop table if exists wof_validated_suggested_list CASCADE;
-    create table         wof_validated_suggested_list  as
+    drop table if exists wfwd.wof_validated_suggested_list CASCADE;
+    create table         wfwd.wof_validated_suggested_list  as
         select * 
         from 
-            (         select id, 'wof_locality'   as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wd_mlocality_wof_match_agg
-            union all select id, 'wof_country'    as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wd_mcountry_wof_match_agg
-            union all select id, 'wof_county'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wd_mcounty_wof_match_agg            
-            union all select id, 'wof_region'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wd_mregion_wof_match_agg
-            union all select id, 'wof_dependency' as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wd_mdependency_wof_match_agg
+            (         select id, 'wof_locality'   as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mlocality_wof_match_agg
+            union all select id, 'wof_country'    as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mcountry_wof_match_agg
+            union all select id, 'wof_county'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mcounty_wof_match_agg            
+            union all select id, 'wof_region'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mregion_wof_match_agg
+            union all select id, 'wof_dependency' as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mdependency_wof_match_agg
             -- todo country 
             ) t  
         where substr(_matching_category,1,2) ='OK'  --   // 'validated' + 'suggested'  
         order by id
     ;
 
-    CREATE INDEX  ON   wof_validated_suggested_list (wd_id);
-    CREATE INDEX  ON   wof_validated_suggested_list (id);
+    CREATE INDEX  ON   wfwd.wof_validated_suggested_list (wd_id);
+    CREATE INDEX  ON   wfwd.wof_validated_suggested_list (id);
 
-    ANALYSE  wof_validated_suggested_list ;
+    ANALYSE  wfwd.wof_validated_suggested_list ;
     --
 """ | psql -e
 
 
 # parallel sheet generating
-/wof/code/cmd_export_matching_sheet.sh  wd_mcountry_wof_match_agg_summary     wd_mcountry_wof_match_agg     wd_mcountry_wof_match_notfound         wd_wof_country_matches.xlsx     &
-/wof/code/cmd_export_matching_sheet.sh  wd_mcounty_wof_match_agg_summary      wd_mcounty_wof_match_agg      wd_mcounty_wof_match_notfound          wd_wof_county_matches.xlsx      &
-/wof/code/cmd_export_matching_sheet.sh  wd_mregion_wof_match_agg_summary      wd_mregion_wof_match_agg      wd_mregion_wof_match_notfound          wd_wof_region_matches.xlsx      &
-/wof/code/cmd_export_matching_sheet.sh  wd_mdependency_wof_match_agg_summary  wd_mdependency_wof_match_agg  wd_mdependency_wof_match_notfound      wd_wof_dependency_matches.xlsx  &
-/wof/code/cmd_export_matching_sheet.sh  wd_mlocality_wof_match_agg_summary    wd_mlocality_wof_match_agg    wd_mlocality_wof_match_notfound  wd_wof_locality_matches.xlsx    &
+/wof/code/cmd_export_matching_sheet.sh  wfwd.wd_mcountry_wof_match_agg_summary     wfwd.wd_mcountry_wof_match_agg     wfwd.wd_mcountry_wof_match_notfound         wd_wof_country_matches.xlsx     &
+/wof/code/cmd_export_matching_sheet.sh  wfwd.wd_mcounty_wof_match_agg_summary      wfwd.wd_mcounty_wof_match_agg      wfwd.wd_mcounty_wof_match_notfound          wd_wof_county_matches.xlsx      &
+/wof/code/cmd_export_matching_sheet.sh  wfwd.wd_mregion_wof_match_agg_summary      wfwd.wd_mregion_wof_match_agg      wfwd.wd_mregion_wof_match_notfound          wd_wof_region_matches.xlsx      &
+/wof/code/cmd_export_matching_sheet.sh  wfwd.wd_mdependency_wof_match_agg_summary  wfwd.wd_mdependency_wof_match_agg  wfwd.wd_mdependency_wof_match_notfound      wd_wof_dependency_matches.xlsx  &
+/wof/code/cmd_export_matching_sheet.sh  wfwd.wd_mlocality_wof_match_agg_summary    wfwd.wd_mlocality_wof_match_agg    wfwd.wd_mlocality_wof_match_notfound        wd_wof_locality_matches.xlsx    &
 wait
 
 
@@ -148,19 +133,19 @@ date -u
 echo """
     --
     \echo Locality
-    select * from wd_mlocality_wof_match_agg_summary_pct;
+    select * from wfwd.wd_mlocality_wof_match_agg_summary_pct;
 
     \echo Country
-    select * from wd_mcountry_wof_match_agg_summary_pct;
+    select * from wfwd.wd_mcountry_wof_match_agg_summary_pct;
 
     \echo County
-    select * from wd_mcounty_wof_match_agg_summary_pct;
+    select * from wfwd.wd_mcounty_wof_match_agg_summary_pct;
 
     \echo Region
-    select * from wd_mregion_wof_match_agg_summary_pct;
+    select * from wfwd.wd_mregion_wof_match_agg_summary_pct;
 
     \echo Dependency
-    select * from wd_mdependency_wof_match_agg_summary_pct;
+    select * from wfwd.wd_mdependency_wof_match_agg_summary_pct;
     --
 """ | psql -e > ${outputdir}/_____________summary__________________.txt
 

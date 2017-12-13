@@ -1,20 +1,20 @@
 \timing
 
-DROP TABLE IF EXISTS wof_extended CASCADE;
-CREATE TABLE         wof_extended
+DROP TABLE IF EXISTS wfwd.wof_extended CASCADE;
+CREATE TABLE         wfwd.wof_extended
 as
 with 
         disamb as (
             select id, 1 as is_disambiguation
-            from wof_disambiguation_report
+            from wfwd.wof_disambiguation_report
         ),
         redirected as (
             select id, 1 as is_redirected
-            from wof_wd_redirects
+            from wfwd.wof_wd_redirects
         ),        
         extrdist as (
             select id, distance_km, 1 as is_extreme_distance
-            from wof_extreme_distance_report
+            from wfwd.wof_extreme_distance_report
         )
 select 
      wof.id
@@ -41,45 +41,45 @@ select
     ,wof.wd_id
     ,wof.properties->>'wof:population'              as wof_population
     ,wof.properties->>'wof:population_rank'         as wof_population_rank     
-from wof
+from wf.wof
   left join disamb      on disamb.id    = wof.id
   left join extrdist    on extrdist.id  = wof.id   
   left join redirected  on redirected.id = wof.id
 order by wof.id  
 ;
 
-CREATE UNIQUE INDEX   ON wof_extended( id );
-CREATE        INDEX   ON wof_extended( wd_id );
-CREATE        INDEX   ON wof_extended( wof_country );
+CREATE UNIQUE INDEX   ON wfwd.wof_extended( id );
+CREATE        INDEX   ON wfwd.wof_extended( wd_id );
+CREATE        INDEX   ON wfwd.wof_extended( wof_country );
 
-ANALYSE wof_extended;
+ANALYSE wfwd.wof_extended;
 
 
 
-DROP TABLE IF EXISTS wof_extended_wd_ok CASCADE;
-CREATE TABLE         wof_extended_wd_ok
+DROP TABLE IF EXISTS wfwd.wof_extended_wd_ok CASCADE;
+CREATE TABLE         wfwd.wof_extended_wd_ok
 as
     select id,metatable,wof_name,wof_country,wd_id
-    from  wof_extended
+    from  wfwd.wof_extended
     where _wd_is_problematic=0 and wd_id!=''
     order by wd_id
 ;
-CREATE INDEX  ON wof_extended_wd_ok( wd_id );
-ANALYSE wof_extended_wd_ok;
+CREATE INDEX  ON wfwd.wof_extended_wd_ok( wd_id );
+ANALYSE wfwd.wof_extended_wd_ok;
 
 
-create or replace view wof_extended_meta_status_country_summary
+create or replace view wfwd.wof_extended_meta_status_country_summary
 as
     select metatable, _status , wof_country, count(*) as N
-    from wof_extended
+    from wfwd.wof_extended
     group by metatable, _status , wof_country
     order by metatable, _status , wof_country
 ;
 
-create or replace view wof_extended_status_summary
+create or replace view wfwd.wof_extended_status_summary
 as
     select  _status , count(*) as N
-    from wof_extended
+    from wfwd.wof_extended
     group by _status
     order by _status
 ;

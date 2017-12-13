@@ -1,7 +1,7 @@
 
 
-drop table if exists wikidata.wd_claims CASCADE;
-create table wikidata.wd_claims as
+drop table if exists wd.wd_claims CASCADE;
+create table wd.wd_claims as
 select
      data->>'id'::text                      as wd_id
     ,is_cebuano(data)                       as wd_is_cebuano
@@ -88,15 +88,15 @@ select
     ,get_wdc_date(data, 'P571')    as p571_incepion_date
     ,get_wdc_date(data, 'P576')    as p576_dissolved_date
 
-FROM wikidata.wd
+FROM wd.wdx
 ORDER BY data->>'id'::text
 ;
 
-create index on wikidata.wd_claims ( wd_id );
-ANALYSE wikidata.wd_claims ;
+create index on wd.wd_claims ( wd_id );
+ANALYSE wd.wd_claims ;
 
 
 -- \cd :reportdir
--- \copy (select * from wikidata.wd_claims) TO 'wikidata_wd_claims.csv' CSV  HEADER;
+-- \copy (select * from wd.wd_claims) TO 'wikidata_wd_claims.csv' CSV  HEADER;
 
 --  Todo:  https://www.wikidata.org/wiki/Q79791 Reconquista (Q79791)  ...

@@ -1,14 +1,14 @@
 
 
-drop table if exists wikidata.wd_names_preferred;
-create table wikidata.wd_names_preferred as
+drop table if exists wd.wd_names_preferred;
+create table wd.wd_names_preferred as
 with wd_names_iso2 as
  (
  select
       data->>'id'::text as wd_id
     , data->'labels'->jsonb_object_keys(data->'labels')->>'language'::text   as wd_lang
     , data->'labels'->jsonb_object_keys(data->'labels')->>'value'            as wof_value
-    FROM wikidata.wd
+    FROM wd.wdx
  )
 select
        wd.wd_id
@@ -25,6 +25,6 @@ FROM wd_names_iso2                      as wd
 order by wd_id
 ;
 
-create index on wikidata.wd_names_preferred ( wd_id );
-ANALYZE wikidata.wd_names_preferred;
+create index on wd.wd_names_preferred ( wd_id );
+--ANALYZE         wd.wd_names_preferred;
 

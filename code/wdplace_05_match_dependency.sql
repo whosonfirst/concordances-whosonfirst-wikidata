@@ -1,8 +1,8 @@
 
 
 
-drop table if exists  wdplace.wd_match_dependency CASCADE;
-create table          wdplace.wd_match_dependency  as
+drop table if exists  wfwd.wd_match_dependency CASCADE;
+create table          wfwd.wd_match_dependency  as
 
     select
      data->>'id'::text                  as wd_id  
@@ -42,25 +42,26 @@ create table          wdplace.wd_match_dependency  as
             )
     , 4326)) as wd_point_merc
     
-    from wdplace.wd_dependency as wd
+    from wd.wdx as wd
+    where a_wof_type && ARRAY['dependency'] 
     order by  wd_iso31661a2 , una_wd_name_en_clean
     
     ;
     
 ;
 
-CREATE INDEX  ON  wdplace.wd_match_dependency (una_wd_name_en_clean);
-CREATE INDEX  ON  wdplace.wd_match_dependency (wd_id);
-CREATE INDEX  ON  wdplace.wd_match_dependency USING GIN(wd_name_array );
-CREATE INDEX  ON  wdplace.wd_match_dependency USING GIN(wd_altname_array );
-ANALYSE   wdplace.wd_match_dependency;
+CREATE INDEX  ON  wfwd.wd_match_dependency (una_wd_name_en_clean);
+CREATE INDEX  ON  wfwd.wd_match_dependency (wd_id);
+CREATE INDEX  ON  wfwd.wd_match_dependency USING GIN(wd_name_array );
+CREATE INDEX  ON  wfwd.wd_match_dependency USING GIN(wd_altname_array );
+ANALYSE   wfwd.wd_match_dependency;
 
 
 
 
 -- drop view if exists wof_for_matching;
-drop table if exists wof_match_dependency CASCADE;
-create table         wof_match_dependency  as
+drop table if exists wfwd.wof_match_dependency CASCADE;
+create table         wfwd.wof_match_dependency  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name 
@@ -76,20 +77,20 @@ order by wof_country, una_wof_name
 ;
 
 
-CREATE INDEX  ON  wof_match_dependency  ( wof_country, una_wof_name);
-ANALYSE  wof_match_dependency ;
+CREATE INDEX  ON  wfwd.wof_match_dependency  ( wof_country, una_wof_name);
+ANALYSE  wfwd.wof_match_dependency ;
 
 
 
 \set searchdistance       .
 \set safedistance    500000
-\set wd_input_table           wdplace.wd_match_dependency
-\set wof_input_table          wof_match_dependency
+\set wd_input_table           wfwd.wd_match_dependency
+\set wof_input_table          wfwd.wof_match_dependency
 
-\set wd_wof_match             wd_mdependency_wof_match
-\set wd_wof_match_agg         wd_mdependency_wof_match_agg
-\set wd_wof_match_agg_sum     wd_mdependency_wof_match_agg_summary
-\set wd_wof_match_notfound    wd_mdependency_wof_match_notfound
+\set wd_wof_match             wfwd.wd_mdependency_wof_match
+\set wd_wof_match_agg         wfwd.wd_mdependency_wof_match_agg
+\set wd_wof_match_agg_sum     wfwd.wd_mdependency_wof_match_agg_summary
+\set wd_wof_match_notfound    wfwd.wd_mdependency_wof_match_notfound
 
 \set mcond1      ( wof.wof_country  = wd.wd_iso31661a2        )
 \set mcond2  and (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (  wof_name_array && wd_altname_array ) or (jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.971 ) )

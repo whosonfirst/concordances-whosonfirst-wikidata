@@ -35,6 +35,10 @@ func (c *SafeCounter) Inc() {
 type wdType map[string]bool
 
 var wofdef map[string]wdType
+
+var wofwd wdType
+var wofredirected wdType
+
 var qre *regexp.Regexp
 
 func init() {
@@ -66,6 +70,8 @@ func init() {
 		wofdef[k] = readCsvFile(csvfile)
 	}
 
+	wofwd = readCsvFile("/wof/whosonfirst-data/wd_extended.csv")
+	wofredirected = readCsvFile("/wof/whosonfirst-data/wd_redirects.csv")
 }
 
 func readCsvFile(csvcode string) wdType {
@@ -200,6 +206,14 @@ func main() {
 			}
 		}
 
+		// check if already wof referenced
+		if ok := wofwd[wdid]; ok {
+			match = append(match, "wof")
+		}
+		// check if already redirected
+		if ok := wofredirected[wdid]; ok {
+			match = append(match, "redirected")
+		}
 		// check GeoNames ID ; P1566
 		if gjson.GetBytes(b, "claims.P1566.#[rank!=deprecated]").Exists() {
 			match = append(match, "P1566")

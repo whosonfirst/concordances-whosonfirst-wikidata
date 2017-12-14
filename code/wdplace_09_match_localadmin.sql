@@ -23,7 +23,7 @@ with x AS (
         where a_wof_type && ARRAY['localadmin']    
     )
     SELECT *
-          , unaccent(wd_name_en_clean) as una_wd_name_en_clean
+          , nameclean(wd_name_en_clean) as una_wd_name_en_clean
           , CDB_TransformToWebmercator(wd_point) as wd_point_merc
     FROM x
     WHERE wd_id != wd_name_en
@@ -46,7 +46,7 @@ create table         wfwd.wof_match_localadmin  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name
-    ,unaccent(wof.properties->>'wof:name')  as una_wof_name
+    ,nameclean(wof.properties->>'wof:name')  as una_wof_name
     ,wof.properties->>'wof:country'         as wof_country
     ,wof.wd_id                              as wof_wd_id
     ,get_wof_name_array(wof.properties)     as wof_name_array

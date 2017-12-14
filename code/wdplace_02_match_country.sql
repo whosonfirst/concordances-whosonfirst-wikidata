@@ -10,7 +10,7 @@ with c as
      wd_id
     ,get_wdlabeltext(data->>'id'::text) as wd_name_en
     ,get_wdlabeltext(data->>'id'::text) as wd_name_en_clean
-    ,unaccent(get_wdlabeltext(data->>'id'::text))   as una_wd_name_en_clean
+    ,nameclean(get_wdlabeltext(data->>'id'::text))   as una_wd_name_en_clean
 
     ,get_wdc_item_label(data,'P31')    as p31_instance_of
     ,get_wdc_item_label(data,'P17')    as p17_country_id
@@ -67,7 +67,7 @@ create table         wfwd.wof_match_country  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name
-    ,unaccent(wof.properties->>'wof:name')  as una_wof_name
+    ,nameclean(wof.properties->>'wof:name')  as una_wof_name
     ,wof.properties->>'wof:country'         as wof_country
     ,wof.wd_id                              as wof_wd_id
     ,get_wof_name_array(wof.properties)     as wof_name_array

@@ -54,12 +54,17 @@ with wd_agg as
       ,array_length(a_wd_id,1)                      as wd_number_of_matches
       ,distance_class(a_wd_id_distance[1]::bigint)  as _firstmatch_distance_category    
      ,case 
+        when  array_length(a_wd_id,1) =1   and  array_length(a_wd_id_distance,1)=0  and wof_wd_id  = a_wd_id[1]                    then 'OK-VAL:validated,nodistance;'||a_wd_name_match_type[1]    
+        when  array_length(a_wd_id,1) =1   and  array_length(a_wd_id_distance,1)=0  and wof_wd_id != a_wd_id[1] and wof_wd_id !='' then 'OK-REP:suggested for replace,nodistance;'||a_wd_name_match_type[1] 
+        when  array_length(a_wd_id,1) =1   and  array_length(a_wd_id_distance,1)=0  and wof_wd_id != a_wd_id[1] and wof_wd_id  ='' then 'OK-ADD:suggested for add,nodistance;'||a_wd_name_match_type[1]
+
         when  array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and wof_wd_id  = a_wd_id[1]                    then 'OK-VAL:validated-'||a_wd_name_match_type[1]    
         when  array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and wof_wd_id != a_wd_id[1] and wof_wd_id !='' then 'OK-REP:suggested for replace-'||a_wd_name_match_type[1] 
         when  array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and wof_wd_id != a_wd_id[1] and wof_wd_id  ='' then 'OK-ADD:suggested for add-'||a_wd_name_match_type[1]
+
         when  array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] >  :safedistance then 'WARN:Extreme distance match (> :safedistance m)' 
         when  array_length(a_wd_id,1) >1                                             then 'WARN:Multiple_match (please not import this!)' 
-        else 'ER!R:check-me'
+         else 'ER!R:check-me'
       end as _matching_category
   from wd_agg
 )
@@ -144,7 +149,7 @@ select
             when old_is_extreme_distance=1   and  old_ext_distance_km >=200  then 'Notfound:DEL-Extreme distance  200- 400km'
             when old_is_extreme_distance=1   and  old_ext_distance_km >=50   then 'Notfound:DEL-Extreme distance   50- 200km'  
             when _old_distance is null and  substr(wof_wd_id,1,1) = 'Q'      then 'Notfound:DEL-Current Wikidataid without coordinate'             
-            when _old_distance is not null                                   then 'Notfound:MAYBE-distance <50km'              
+            when _old_distance is not null                                   then 'MAYBE:Notfound-has wikidata, distance is near'              
                                     
                                               else 'Notfound: no wikidaid'
     end as _matching_category  

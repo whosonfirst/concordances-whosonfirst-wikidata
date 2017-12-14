@@ -443,12 +443,16 @@ CREATE OR REPLACE FUNCTION get_wd_concordances(data JSONB)
 LANGUAGE sql IMMUTABLE   AS
 $$
 
-    select   array_cat( array_cat(  
+    select   array_cat( array_cat(array_cat( array_cat(  
           jsonb_arr2distinct_textarr(get_wdc_value(data, 'P1566'),'gn:id:')
          ,jsonb_arr2distinct_textarr(get_wdc_value(data, 'P882'),'fips:code:')
     )
          ,jsonb_arr2distinct_textarr(get_wdc_value(data, 'P901'),'fips:code:') 
     )
+         ,jsonb_arr2distinct_textarr(get_wdc_value(data, 'P238'),'iata:') 
+    )
+         ,jsonb_arr2distinct_textarr(get_wdc_value(data, 'P239'),'icao:') 
+    )        
 $$
 ;
 
@@ -476,9 +480,30 @@ $$
     array_remove(
     ARRAY[
           get_wof_concordances_element(properties,'fips:code','fips:code:' )
-        , get_wof_concordances_element(properties,'gn:id'    ,'gn:id:'   )
+        , get_wof_concordances_element(properties,'gn:id'    ,'gn:id:'     )
+        , get_wof_concordances_element(properties,'iata'     ,'iata:'      )
+        , get_wof_concordances_element(properties,'icao'     ,'icao:'      )
         ]
     ,
     null)
 $$   
 ;
+
+
+
+CREATE OR REPLACE FUNCTION  nameclean(vname text) 
+    RETURNS text  
+LANGUAGE sql IMMUTABLE   AS
+$$
+select 
+    replace( 
+        replace( 
+            translate( 
+                lower( unaccent ( vname ) ) 
+                ,'-_'
+                ,'  ') 
+        ,'  ',' ')  
+    ,'  ',' ')
+$$
+;
+-- select nameclean('Al-City') =  nameclean('Al - City') ;

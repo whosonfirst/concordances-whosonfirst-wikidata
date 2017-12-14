@@ -1,10 +1,13 @@
 #!/bin/bash
 set -eo pipefail
 
-sumtable=$1
-table=$2
-notfoundtable=$3
-outputfilename=$4
+type=$1
+
+
+sumtable=wfwd.wd_m${type}_wof_match_agg_summary     
+table=wfwd.wd_m${type}_wof_match_agg     
+notfoundtable=wfwd.wd_m${type}_wof_match_notfound         
+outputfilename=wd_wof_${type}_matches.xlsx
 
 xlsxname=${outputdir}/${outputfilename}
 rm -f ${xlsxname}

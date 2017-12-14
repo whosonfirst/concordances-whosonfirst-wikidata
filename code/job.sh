@@ -72,28 +72,42 @@ time psql -e -vreportdir="${outputdir}" -f /wof/code/91_summary.sql
 
 
 # Start parallel processing
-time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_01_match_locality.sql      &
-time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_02_match_country.sql       &
-time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_03_match_county.sql        &
-time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_04_match_region.sql        &
-time psql -e -vreportdir="${outputdir}" -f    /wof/code/wdplace_05_match_dependency.sql    &
-wait
+
+time parallel  --results ${outputdir}/joblog03 -k  < /wof/code/parallel_joblist_03b_match.sh
+
+
 
 echo """
     --
     drop table if exists wfwd.wof_validated_suggested_list CASCADE;
     create table         wfwd.wof_validated_suggested_list  as
-        select * 
-        from 
-            (         select id, 'wof_locality'   as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mlocality_wof_match_agg
-            union all select id, 'wof_country'    as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mcountry_wof_match_agg
-            union all select id, 'wof_county'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mcounty_wof_match_agg            
-            union all select id, 'wof_region'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mregion_wof_match_agg
-            union all select id, 'wof_dependency' as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mdependency_wof_match_agg
-            -- todo country 
-            ) t  
-        where substr(_matching_category,1,2) ='OK'  --   // 'validated' + 'suggested'  
-        order by id
+    select * 
+    from 
+        (         select id, 'wof_locality'   as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mlocality_wof_match_agg
+        union all select id, 'wof_country'    as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mcountry_wof_match_agg
+        union all select id, 'wof_county'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mcounty_wof_match_agg            
+        union all select id, 'wof_region'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mregion_wof_match_agg
+        union all select id, 'wof_dependency' as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mdependency_wof_match_agg
+
+        union all select id, 'wof_disputed'      as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mdisputed_wof_match_agg
+        union all select id, 'wof_macroregion'   as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mmacroregion_wof_match_agg
+        union all select id, 'wof_macrocounty'   as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mmacrocounty_wof_match_agg
+        union all select id, 'wof_localadmin'    as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mlocaladmin_wof_match_agg
+        union all select id, 'wof_campus'        as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mcampus_wof_match_agg                        
+
+        union all select id, 'wof_borough'       as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mborough_wof_match_agg
+        union all select id, 'wof_macrohood'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mmacrohood_wof_match_agg
+        union all select id, 'wof_neighbourhood' as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mneighbourhood_wof_match_agg
+        union all select id, 'wof_microhood'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mmicrohood_wof_match_agg
+        union all select id, 'wof_planet'        as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mplanet_wof_match_agg                        
+
+        union all select id, 'wof_continent'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mcontinent_wof_match_agg
+        union all select id, 'wof_ocean'         as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mocean_wof_match_agg
+        union all select id, 'wof_timezone'      as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mtimezone_wof_match_agg
+        union all select id, 'wof_marinearea'    as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mmarinearea_wof_match_agg          
+        ) t  
+    where substr(_matching_category,1,2) ='OK'  --   // 'validated' + 'suggested'  
+    order by id
     ;
 
     CREATE INDEX  ON   wfwd.wof_validated_suggested_list (wd_id);
@@ -105,14 +119,7 @@ echo """
 
 
 # parallel sheet generating
-/wof/code/cmd_export_matching_sheet.sh  wfwd.wd_mcountry_wof_match_agg_summary     wfwd.wd_mcountry_wof_match_agg     wfwd.wd_mcountry_wof_match_notfound         wd_wof_country_matches.xlsx     &
-/wof/code/cmd_export_matching_sheet.sh  wfwd.wd_mcounty_wof_match_agg_summary      wfwd.wd_mcounty_wof_match_agg      wfwd.wd_mcounty_wof_match_notfound          wd_wof_county_matches.xlsx      &
-/wof/code/cmd_export_matching_sheet.sh  wfwd.wd_mregion_wof_match_agg_summary      wfwd.wd_mregion_wof_match_agg      wfwd.wd_mregion_wof_match_notfound          wd_wof_region_matches.xlsx      &
-/wof/code/cmd_export_matching_sheet.sh  wfwd.wd_mdependency_wof_match_agg_summary  wfwd.wd_mdependency_wof_match_agg  wfwd.wd_mdependency_wof_match_notfound      wd_wof_dependency_matches.xlsx  &
-/wof/code/cmd_export_matching_sheet.sh  wfwd.wd_mlocality_wof_match_agg_summary    wfwd.wd_mlocality_wof_match_agg    wfwd.wd_mlocality_wof_match_notfound        wd_wof_locality_matches.xlsx    &
-wait
-
-
+time parallel  --results ${outputdir}/joblog03 -k  < /wof/code/parallel_joblist_03c_matchreport.sh
 time parallel  --results ${outputdir}/joblog04 -k  < /wof/code/parallel_joblist_04_create_validated_wd_properties.sh
 time parallel  --results ${outputdir}/joblog05 -k  < /wof/code/parallel_joblist_05_country_reporting.sh
 
@@ -134,18 +141,48 @@ echo """
     --
     \echo Locality
     select * from wfwd.wd_mlocality_wof_match_agg_summary_pct;
-
     \echo Country
     select * from wfwd.wd_mcountry_wof_match_agg_summary_pct;
-
     \echo County
     select * from wfwd.wd_mcounty_wof_match_agg_summary_pct;
-
     \echo Region
     select * from wfwd.wd_mregion_wof_match_agg_summary_pct;
-
     \echo Dependency
     select * from wfwd.wd_mdependency_wof_match_agg_summary_pct;
+
+    \echo Disputed
+    select * from wfwd.wd_mdisputed_wof_match_agg_summary_pct;
+    \echo Macroregion
+    select * from wfwd.wd_mmacroregion_wof_match_agg_summary_pct;
+    \echo Macrocounty
+    select * from wfwd.wd_mmacrocounty_wof_match_agg_summary_pct;
+    \echo Localadmin
+    select * from wfwd.wd_mlocaladmin_wof_match_agg_summary_pct;
+    \echo Campus
+    select * from wfwd.wd_mcampus_wof_match_agg_summary_pct;
+
+
+    \echo Borough
+    select * from wfwd.wd_mborough_wof_match_agg_summary_pct;
+    \echo Macrohood
+    select * from wfwd.wd_mmacrohood_wof_match_agg_summary_pct;
+    \echo Neighbourhood
+    select * from wfwd.wd_mneighbourhood_wof_match_agg_summary_pct;
+    \echo Microhood
+    select * from wfwd.wd_mmicrohood_wof_match_agg_summary_pct;
+    \echo Planet
+    select * from wfwd.wd_mplanet_wof_match_agg_summary_pct;
+
+
+    \echo Continent
+    select * from wfwd.wd_mcontinent_wof_match_agg_summary_pct;
+    \echo Ocean
+    select * from wfwd.wd_mocean_wof_match_agg_summary_pct;
+    \echo Timezone
+    select * from wfwd.wd_mtimezone_wof_match_agg_summary_pct;
+    \echo Marinearea
+    select * from wfwd.wd_mmarinearea_wof_match_agg_summary_pct;
+
     --
 """ | psql -e > ${outputdir}/_____________summary__________________.txt
 

@@ -214,10 +214,12 @@ func main() {
 		if ok := wofredirected[wdid]; ok {
 			match = append(match, "redirected")
 		}
+
 		// check GeoNames ID ; P1566
-		if gjson.GetBytes(b, "claims.P1566.#[rank!=deprecated]").Exists() {
-			match = append(match, "P1566")
-		}
+		//if gjson.GetBytes(b, "claims.P1566.#[rank!=deprecated]").Exists() {
+		//	match = append(match, "P1566")
+		//}
+
 		// check ISO 3166-2 code ;  P300
 		if gjson.GetBytes(b, "claims.P300.#[rank!=deprecated]").Exists() {
 			match = append(match, "P300")
@@ -237,6 +239,11 @@ func main() {
 		// check territory claimed by ; P1336
 		if gjson.GetBytes(b, "claims.P1336.#[rank!=deprecated]").Exists() {
 			match = append(match, "P1336")
+		}
+
+		// check territory claimed by ; P1310
+		if gjson.GetBytes(b, "claims.P17.#[rank!=deprecated].qualifiers.P1310").Exists() {
+			match = append(match, "P1310")
 		}
 
 		// log

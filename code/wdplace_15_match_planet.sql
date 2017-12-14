@@ -27,8 +27,8 @@ with x AS (
           , CDB_TransformToWebmercator(wd_point) as wd_point_merc
     FROM x
     WHERE wd_id != wd_name_en
-      and wd_point is not null
-      and wd_is_cebuano IS FALSE
+    --  and wd_point is not null
+    --  and wd_is_cebuano IS FALSE
     ;
 
 CREATE INDEX  ON  wfwd.wd_match_planet USING GIST(wd_point_merc);

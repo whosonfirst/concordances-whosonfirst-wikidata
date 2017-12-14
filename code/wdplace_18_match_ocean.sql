@@ -73,8 +73,8 @@ ANALYSE          wfwd.wof_match_ocean ;
 \set wd_wof_match_agg         wfwd.wd_mocean_wof_match_agg
 \set wd_wof_match_agg_sum     wfwd.wd_mocean_wof_match_agg_summary
 \set wd_wof_match_notfound    wfwd.wd_mocean_wof_match_notfound
-\set safedistance    40000
-\set searchdistance 100003
+\set safedistance   1000000
+\set searchdistance 1000003
 
 \set mcond1     (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (  wof_name_array && wd_altname_array ) or (wd_concordances_array && wof_concordances_array) or (jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.971 ) )
 \set mcond2  and (ST_DWithin ( wd.wd_point_merc, wof.wof_geom_merc , :searchdistance ))

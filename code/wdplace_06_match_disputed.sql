@@ -20,7 +20,7 @@ with x AS (
             ,get_wd_altname_array(data)        as wd_altname_array
             ,get_wd_concordances(data)         as wd_concordances_array
         from wd.wdx 
-        where a_wof_type && ARRAY['disputed']    
+        where a_wof_type && ARRAY['P1310','P1336']    
     )
     SELECT *
           , unaccent(wd_name_en_clean) as una_wd_name_en_clean

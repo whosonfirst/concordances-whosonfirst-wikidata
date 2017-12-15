@@ -61,6 +61,8 @@ func init() {
 		"ocean":         "/wof/code/wikidata_ocean.csv",
 		"planet":        "/wof/code/wikidata_planet.csv",
 		"timezone":      "/wof/code/wikidata_timezone.csv",
+		"disputed":      "/wof/code/wikidata_disputed.csv",
+		"macroregion":   "/wof/code/wikidata_macroregion.csv",
 	}
 
 	wofdef = make(map[string]wdType, len(wofCsvDefinitions))

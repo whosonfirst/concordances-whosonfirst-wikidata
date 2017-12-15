@@ -77,7 +77,7 @@ ANALYSE  wfwd.wof_match_region ;
 
 
 \set searchdistance      .
-\set safedistance   100000
+\set safedistance   1000000
 \set wd_input_table           wfwd.wd_match_region
 \set wof_input_table          wfwd.wof_match_region
 

@@ -1,4 +1,22 @@
 
+-- cleaning macrocounty names for better matching;
+CREATE OR REPLACE FUNCTION  macrocounty_clean(airport_name text) 
+    RETURNS text  
+LANGUAGE sql IMMUTABLE   AS
+$func$
+select  trim(translate( regexp_replace(  nameclean( airport_name ) ,
+ $$[[:<:]](arrondissement of|county|government region)[[:>:]]$$,
+  ' ',
+  'gi'
+),'  ',' '));
+$func$
+;
+--
+--  select  wd_name_en, macrocounty_clean( wd_name_en) from wfwd.wd_match_macrocounty;
+--
+
+
+
 
 drop table if exists  wfwd.wd_match_macrocounty CASCADE;
 create table          wfwd.wd_match_macrocounty  as
@@ -23,7 +41,7 @@ with x AS (
         where a_wof_type && ARRAY['macrocounty']    
     )
     SELECT *
-          , nameclean(wd_name_en_clean) as una_wd_name_en_clean
+          , macrocounty_clean(wd_name_en_clean)  as una_wd_name_en_clean
           , CDB_TransformToWebmercator(wd_point) as wd_point_merc
     FROM x
     WHERE wd_id != wd_name_en
@@ -46,7 +64,7 @@ create table         wfwd.wof_match_macrocounty  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name
-    ,nameclean(wof.properties->>'wof:name')  as una_wof_name
+    ,macrocounty_clean(wof.properties->>'wof:name')  as una_wof_name
     ,wof.properties->>'wof:country'         as wof_country
     ,wof.wd_id                              as wof_wd_id
     ,get_wof_name_array(wof.properties)     as wof_name_array

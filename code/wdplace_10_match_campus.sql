@@ -1,4 +1,32 @@
 
+/*  --- for cleaning names ----
+"Aeropuerto de "
+"Airport"
+"Municipal Airport"
+"International Airport"
+"regional airport"
+"Aérodr. de "
+*/
+
+
+
+
+-- cleaning airport names for better matching;
+CREATE OR REPLACE FUNCTION  airport_clean(airport_name text) 
+    RETURNS text  
+LANGUAGE sql IMMUTABLE   AS
+$func$
+select  translate( regexp_replace(  nameclean( airport_name ) ,
+ $$[[:<:]](regional|municipal|airport|airpark|aeroporto|lufthavn|flugplatz|segelflugplatz|internationale|luchthaven|flygplats|flugsportverein|aerodrome|airfield|international)[[:>:]]$$,
+  ' ',
+  'gi'
+),'  ',' ');
+$func$
+;
+--  select  wof_name, airport_clean( wof_name) from wfwd.wof_match_campus;
+
+
+
 
 drop table if exists  wfwd.wd_match_campus CASCADE;
 create table          wfwd.wd_match_campus  as
@@ -19,11 +47,14 @@ with x AS (
             ,get_wd_name_array(data)           as wd_name_array 
             ,get_wd_altname_array(data)        as wd_altname_array
             ,get_wd_concordances(data)         as wd_concordances_array
+
+            ,get_wdc_item_label(data, 'P931')  as p931_place_served  
+
         from wd.wdx 
         where a_wof_type && ARRAY['campus','P238','P239']    
     )
     SELECT *
-          , nameclean(wd_name_en_clean) as una_wd_name_en_clean
+          , airport_clean(wd_name_en_clean) as una_wd_name_en_clean
           , CDB_TransformToWebmercator(wd_point) as wd_point_merc
     FROM x
     WHERE wd_id != wd_name_en
@@ -46,7 +77,7 @@ create table         wfwd.wof_match_campus  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name
-    ,nameclean(wof.properties->>'wof:name')  as una_wof_name
+    ,airport_clean(wof.properties->>'wof:name')  as una_wof_name
     ,wof.properties->>'wof:country'         as wof_country
     ,wof.wd_id                              as wof_wd_id
     ,get_wof_name_array(wof.properties)     as wof_name_array

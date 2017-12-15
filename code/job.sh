@@ -35,6 +35,8 @@ date -u
 rm -rf ${outputdir}/joblog01
 rm -rf ${outputdir}/joblog02
 rm -rf ${outputdir}/joblog03
+rm -rf ${outputdir}/joblog03b
+rm -rf ${outputdir}/joblog03c
 rm -rf ${outputdir}/joblog04
 rm -rf ${outputdir}/joblog05
 
@@ -73,7 +75,7 @@ time psql -e -vreportdir="${outputdir}" -f /wof/code/91_summary.sql
 
 # Start parallel processing
 
-time parallel  --results ${outputdir}/joblog03 -k  < /wof/code/parallel_joblist_03b_match.sh
+time parallel  --results ${outputdir}/joblog03b -k  < /wof/code/parallel_joblist_03b_match.sh
 
 
 
@@ -118,11 +120,10 @@ echo """
 """ | psql -e
 
 
-# parallel sheet generating
-time parallel  --results ${outputdir}/joblog03 -k  < /wof/code/parallel_joblist_03c_matchreport.sh
-time parallel  --results ${outputdir}/joblog04 -k  < /wof/code/parallel_joblist_04_create_validated_wd_properties.sh
-time parallel  --results ${outputdir}/joblog05 -k  < /wof/code/parallel_joblist_05_country_reporting.sh
-
+# parallel processing  ..
+time parallel  --results ${outputdir}/joblog03c -k < /wof/code/parallel_joblist_03c_matchreport.sh
+time parallel  --results ${outputdir}/joblog04  -k < /wof/code/parallel_joblist_04_create_validated_wd_properties.sh
+time parallel  --results ${outputdir}/joblog05  -k < /wof/code/parallel_joblist_05_country_reporting.sh
 
 
 ls ${outputdir}/* -la

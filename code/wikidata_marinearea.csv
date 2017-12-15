@@ -7,6 +7,9 @@ Q1322134,gulf
 Q4022,river 
 
 
+
+
+
 #  subclass of ...  river
 Q100649,	blackwater river
 Q159675,	tributary
@@ -65,3 +68,16 @@ Q1322134,	gulf
 Q1973404,	inland sea
 Q2578218,	inland sea
 Q12714656,	visserijzone van Jan Mayen
+
+
+
+# add extra...
+Q1210950, channel
+Q11292, coral reef
+Q9019918,endorheic lake
+Q188025,salt lake
+Q45776,fjord
+Q1172599,inlet
+Q47053,estuary
+Q23397,lake
+

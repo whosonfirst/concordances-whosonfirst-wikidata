@@ -16,11 +16,11 @@ CREATE OR REPLACE FUNCTION  airport_clean(airport_name text)
     RETURNS text  
 LANGUAGE sql IMMUTABLE   AS
 $func$
-select  translate( regexp_replace(  nameclean( airport_name ) ,
+select trim( translate( regexp_replace(  nameclean( airport_name ) ,
  $$[[:<:]](regional|municipal|airport|airpark|aeroporto|lufthavn|flugplatz|segelflugplatz|internationale|luchthaven|flygplats|flugsportverein|aerodrome|airfield|international)[[:>:]]$$,
   ' ',
   'gi'
-),'  ',' ');
+),'  ',' ') );
 $func$
 ;
 --  select  wof_name, airport_clean( wof_name) from wfwd.wof_match_campus;

@@ -17,7 +17,7 @@ CREATE OR REPLACE FUNCTION  airport_clean(airport_name text)
 LANGUAGE sql IMMUTABLE   AS
 $func$
 select trim( translate( regexp_replace(  nameclean( airport_name ) ,
- $$[[:<:]](regional|municipal|airport|airpark|aeroporto|lufthavn|flugplatz|segelflugplatz|internationale|luchthaven|flygplats|flugsportverein|aerodrome|airfield|international)[[:>:]]$$,
+ $$[[:<:]](de|da|di|domestic|regional|municipal|airport|airpark|aeroporto|lufthavn|flugplatz|segelflugplatz|internacional|internationale|luchthaven|flygplats|flugsportverein|aerodrome|airfield|international)[[:>:]]$$,
   ' ',
   'gi'
 ),'  ',' ') );
@@ -48,7 +48,9 @@ with x AS (
             ,get_wd_altname_array(data)        as wd_altname_array
             ,get_wd_concordances(data)         as wd_concordances_array
 
-            ,get_wdc_item_label(data, 'P931')  as p931_place_served  
+            ,get_wdc_item_label(data, 'P931')  as p931_place_served 
+            
+            ,get_wdc_item_label(data, 'P131')  as p131_located_in   
 
         from wd.wdx 
         where a_wof_type && ARRAY['campus','P238','P239']    

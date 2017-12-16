@@ -1,12 +1,12 @@
 
 
 drop table if exists  wfwd.wd_match_localadmin CASCADE;
-create table          wfwd.wd_match_localadmin  as
+CREATE UNLOGGED TABLE          wfwd.wd_match_localadmin  as
 with x AS (
         select
             wd_id
-            ,get_wdlabeltext(data->>'id'::text)     as wd_name_en
-            ,(regexp_split_to_array( get_wdlabeltext(data->>'id'::text), '[,()]'))[1]   as wd_name_en_clean
+            ,get_wdlabeltext(wd_id)     as wd_name_en
+            ,(regexp_split_to_array( get_wdlabeltext(wd_id), '[,()]'))[1]   as wd_name_en_clean
             ,is_cebuano(data)                       as wd_is_cebuano
             ,get_wdc_value(data, 'P1566')           as p1566_geonames    
             ,ST_SetSRID(ST_MakePoint( 
@@ -32,17 +32,17 @@ with x AS (
     ;
 
 CREATE INDEX  ON  wfwd.wd_match_localadmin USING GIST(wd_point_merc);
-CREATE INDEX  ON  wfwd.wd_match_localadmin (una_wd_name_en_clean);
-CREATE INDEX  ON  wfwd.wd_match_localadmin (wd_id);
-CREATE INDEX  ON  wfwd.wd_match_localadmin USING GIN(wd_name_array );
-CREATE INDEX  ON  wfwd.wd_match_localadmin USING GIN(wd_altname_array );
-ANALYSE   wfwd.wd_match_localadmin ;
+--CREATE INDEX  ON  wfwd.wd_match_localadmin (una_wd_name_en_clean);
+--CREATE INDEX  ON  wfwd.wd_match_localadmin (wd_id);
+--CREATE INDEX  ON  wfwd.wd_match_localadmin USING GIN(wd_name_array );
+--CREATE INDEX  ON  wfwd.wd_match_localadmin USING GIN(wd_altname_array );
+--ANALYSE   wfwd.wd_match_localadmin ;
 
 
 
 
 drop table if exists wfwd.wof_match_localadmin CASCADE;
-create table         wfwd.wof_match_localadmin  as
+CREATE UNLOGGED TABLE         wfwd.wof_match_localadmin  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name
@@ -57,9 +57,9 @@ where  wof.is_superseded=0  and wof.is_deprecated=0
 ;
 
 CREATE INDEX  ON wfwd.wof_match_localadmin  USING GIST(wof_geom_merc);
-CREATE INDEX  ON wfwd.wof_match_localadmin  (una_wof_name);
-CREATE INDEX  ON wfwd.wof_match_localadmin  USING GIN ( wof_name_array);
-ANALYSE          wfwd.wof_match_localadmin ;
+--CREATE INDEX  ON wfwd.wof_match_localadmin  (una_wof_name);
+--CREATE INDEX  ON wfwd.wof_match_localadmin  USING GIN ( wof_name_array);
+--ANALYSE          wfwd.wof_match_localadmin ;
 
 
 --

@@ -1,7 +1,7 @@
 
 
 drop table if exists    wfwd.wof_wd_redirects CASCADE;
-create table            wfwd.wof_wd_redirects as
+CREATE UNLOGGED TABLE            wfwd.wof_wd_redirects as
 select 
      wof.id
     ,wof.metatable
@@ -47,4 +47,4 @@ order by metatable , wof_country
 
 
 \cd :reportdir
-\copy (select * from wfwd.wof_wd_redirects_report) TO 'wof_wd_redirects_report.csv' CSV;
+\copy (select * from wfwd.wof_wd_redirects_report) TO 'wof_wd_redirects_report.csv' DELIMITER ',' CSV HEADER ESCAPE '"';

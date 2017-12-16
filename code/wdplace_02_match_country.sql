@@ -3,14 +3,14 @@
 
 
 drop table if exists  wfwd.wd_match_country CASCADE;
-create table          wfwd.wd_match_country  as
+CREATE UNLOGGED TABLE          wfwd.wd_match_country  as
 with c as
 (
     select
      wd_id
-    ,get_wdlabeltext(data->>'id'::text) as wd_name_en
-    ,get_wdlabeltext(data->>'id'::text) as wd_name_en_clean
-    ,nameclean(get_wdlabeltext(data->>'id'::text))   as una_wd_name_en_clean
+    ,get_wdlabeltext(wd_id) as wd_name_en
+    ,get_wdlabeltext(wd_id) as wd_name_en_clean
+    ,nameclean(get_wdlabeltext(wd_id))   as una_wd_name_en_clean
 
     ,get_wdc_item_label(data,'P31')    as p31_instance_of
     ,get_wdc_item_label(data,'P17')    as p17_country_id
@@ -63,7 +63,7 @@ ANALYSE   wfwd.wd_match_country;
 
 
 drop table if exists wfwd.wof_match_country CASCADE;
-create table         wfwd.wof_match_country  as
+CREATE UNLOGGED TABLE         wfwd.wof_match_country  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name
@@ -106,7 +106,7 @@ ANALYSE  wfwd.wof_match_country ;
 
 
 drop table if exists  codes.wd2country_new CASCADE;
-create table          codes.wd2country_new  as
+CREATE UNLOGGED TABLE          codes.wd2country_new  as
     select
          coalesce( _suggested_wd_id, wof_wd_id ) as wd_id
         ,wof_country

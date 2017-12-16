@@ -1,7 +1,7 @@
 \timing
 
 DROP TABLE IF EXISTS wfwd.wof_extended CASCADE;
-CREATE TABLE         wfwd.wof_extended
+CREATE UNLOGGED TABLE         wfwd.wof_extended
 as
 with 
         disamb as (
@@ -48,23 +48,23 @@ from wf.wof
 order by wof.id  
 ;
 
-CREATE UNIQUE INDEX   ON wfwd.wof_extended( id );
-CREATE        INDEX   ON wfwd.wof_extended( wd_id );
-CREATE        INDEX   ON wfwd.wof_extended( wof_country );
+CREATE UNIQUE INDEX   ON wfwd.wof_extended( id )            WITH (fillfactor = 100);
+CREATE        INDEX   ON wfwd.wof_extended( wd_id )         WITH (fillfactor = 100);
+CREATE        INDEX   ON wfwd.wof_extended( wof_country )   WITH (fillfactor = 100);
 
 ANALYSE wfwd.wof_extended;
 
 
 
 DROP TABLE IF EXISTS wfwd.wof_extended_wd_ok CASCADE;
-CREATE TABLE         wfwd.wof_extended_wd_ok
+CREATE UNLOGGED TABLE         wfwd.wof_extended_wd_ok
 as
     select id,metatable,wof_name,wof_country,wd_id
     from  wfwd.wof_extended
     where _wd_is_problematic=0 and wd_id!=''
     order by wd_id
 ;
-CREATE INDEX  ON wfwd.wof_extended_wd_ok( wd_id );
+CREATE INDEX  ON wfwd.wof_extended_wd_ok( wd_id )   WITH (fillfactor = 100);
 ANALYSE wfwd.wof_extended_wd_ok;
 
 

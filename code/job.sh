@@ -82,7 +82,7 @@ time parallel  --results ${outputdir}/joblog03b -k  < /wof/code/parallel_joblist
 echo """
     --
     drop table if exists wfwd.wof_validated_suggested_list CASCADE;
-    create table         wfwd.wof_validated_suggested_list  as
+    CREATE UNLOGGED TABLE         wfwd.wof_validated_suggested_list  as
     select * 
     from 
         (         select id, 'wof_locality'   as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category from wfwd.wd_mlocality_wof_match_agg
@@ -112,8 +112,8 @@ echo """
     order by id
     ;
 
-    CREATE INDEX  ON   wfwd.wof_validated_suggested_list (wd_id);
-    CREATE INDEX  ON   wfwd.wof_validated_suggested_list (id);
+    CREATE INDEX  ON   wfwd.wof_validated_suggested_list (wd_id)    WITH (fillfactor = 100);
+    CREATE INDEX  ON   wfwd.wof_validated_suggested_list (id)       WITH (fillfactor = 100);
 
     ANALYSE  wfwd.wof_validated_suggested_list ;
     --

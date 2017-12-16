@@ -1,13 +1,6 @@
 
-\set ON_ERROR_STOP 1
-\timing
-
-
-
-
-
 drop table if exists  :wd_wof_match  CASCADE;
-EXPLAIN ANALYZE create table          :wd_wof_match  as
+EXPLAIN ANALYZE CREATE UNLOGGED TABLE          :wd_wof_match  as
     select
          wof.* 
         ,ST_Distance( wd.wd_point_merc, wof.wof_geom_merc)::bigint  as _distance
@@ -33,7 +26,7 @@ EXPLAIN ANALYZE create table          :wd_wof_match  as
 
 
 drop table if exists  :wd_wof_match_agg CASCADE;
-create table  :wd_wof_match_agg  as
+CREATE UNLOGGED TABLE  :wd_wof_match_agg  as
 with wd_agg as 
 (
     select id, wof_name, wof_country, wof_wd_id
@@ -85,7 +78,7 @@ ANALYSE :wd_wof_match_agg ;
 
 
 drop table if exists :wd_wof_match_notfound CASCADE;
-create table         :wd_wof_match_notfound  as
+CREATE UNLOGGED TABLE         :wd_wof_match_notfound  as
 with 
 disamb as (
     select id, 1 as is_disambiguation
@@ -163,7 +156,7 @@ ANALYSE :wd_wof_match_notfound;
 
 
 drop table if exists  :wd_wof_match_agg_sum CASCADE;
-create table  :wd_wof_match_agg_sum  as
+CREATE UNLOGGED TABLE  :wd_wof_match_agg_sum  as
 with 
 _matched as (
     select _matching_category, wof_country, wd_number_of_matches, _firstmatch_distance_category, count(*) as N  
@@ -187,7 +180,7 @@ ANALYSE :wd_wof_match_agg_sum ;
 
 \set _pct _pct
 drop table if exists  :wd_wof_match_agg_sum:_pct CASCADE;
-create table          :wd_wof_match_agg_sum:_pct  as
+CREATE UNLOGGED TABLE          :wd_wof_match_agg_sum:_pct  as
 with 
  total AS (  select 
             '-- total --' as _matching_category 
@@ -218,7 +211,7 @@ select * from :wd_wof_match_agg_sum:_pct;
 
 \set _country _country
 drop table if exists  :wd_wof_match_agg_sum:_country CASCADE;
-create table          :wd_wof_match_agg_sum:_country  as
+CREATE UNLOGGED TABLE          :wd_wof_match_agg_sum:_country  as
 with 
  total as (  
         select 

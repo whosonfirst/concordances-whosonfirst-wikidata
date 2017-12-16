@@ -3,7 +3,7 @@
 
 
 drop table if exists wfwd.wof_disambiguation CASCADE;
-create table wfwd.wof_disambiguation as
+CREATE UNLOGGED TABLE wfwd.wof_disambiguation as
 SELECT
      wof.metatable
     ,wof.id
@@ -19,7 +19,7 @@ from wf.wof                as wof
 where wof.wd_id =  wdd.wikidataid
 order by wof.id 
 ;
-create unique index on wfwd.wof_disambiguation  ( id );
+create unique index on wfwd.wof_disambiguation  ( id )  WITH (fillfactor = 100);
 ANALYSE wfwd.wof_disambiguation;
 
 
@@ -65,5 +65,5 @@ ORDER BY N DESC
 ;
 
 \cd :reportdir
-\copy (select * from wfwd.wof_disambiguation_report) TO 'wof_disambiguation_report.csv' CSV;
+\copy (select * from wfwd.wof_disambiguation_report) TO 'wof_disambiguation_report.csv' DELIMITER ',' CSV HEADER ESCAPE '"';
 

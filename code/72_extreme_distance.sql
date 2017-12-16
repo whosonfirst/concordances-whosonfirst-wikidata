@@ -2,7 +2,7 @@
 
 
 drop table if exists  wfwd.wof_extreme_distance CASCADE;
-create table          wfwd.wof_extreme_distance as
+CREATE UNLOGGED TABLE          wfwd.wof_extreme_distance as
 select
      wof.metatable
     ,wof.id
@@ -69,5 +69,5 @@ order by metatable , wof_country
 
 
 \cd :reportdir
-\copy (select * from wfwd.wof_extreme_distance_report) TO 'wof_extreme_distance_report.csv' CSV;
+\copy (select * from wfwd.wof_extreme_distance_report) TO 'wof_extreme_distance_report.csv' DELIMITER ',' CSV HEADER ESCAPE '"';
 

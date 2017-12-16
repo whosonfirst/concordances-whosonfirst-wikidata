@@ -1,6 +1,6 @@
 
 drop table if exists wf.wof_rec;
-create table wf.wof_rec as
+create  UNLOGGED table wf.wof_rec as
 select 
     id
    ,properties->>'wof:name'                    as wof_name 
@@ -10,16 +10,16 @@ select
    ,jsonb_typeof( properties->jsonb_object_keys(properties) ) as wof_jtype 
 from wf.wof;
 
-create index on wf.wof_rec  ( id );
-create index on wf.wof_rec  ( wd_id );
-create index on wf.wof_rec  ( wof_property );
+create index on wf.wof_rec  ( id )              WITH (fillfactor = 100);
+create index on wf.wof_rec  ( wd_id )           WITH (fillfactor = 100);
+create index on wf.wof_rec  ( wof_property )    WITH (fillfactor = 100);
 
 analyze wf.wof_rec;
 
 
 
 drop table if exists wf.wof_pname;
-create table wf.wof_pname as
+create  UNLOGGED table wf.wof_pname as
 select  
       id
     , wof_name
@@ -34,8 +34,8 @@ where wof_jtype='array' and substr(wof_property,1,5)='name:'
 order by id, wof_property, wof_arrayorder
 ;
 
-create index on wf.wof_pname  ( id );
-create index on wf.wof_pname  ( wd_id );
-create index on wf.wof_pname  ( wof_property );
+create index on wf.wof_pname  ( id )            WITH (fillfactor = 100);
+create index on wf.wof_pname  ( wd_id )         WITH (fillfactor = 100);
+create index on wf.wof_pname  ( wof_property )  WITH (fillfactor = 100);
 
 analyze wf.wof_pname;

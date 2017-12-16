@@ -1,9 +1,7 @@
 
-
-drop table if exists wd.wd_claims CASCADE;
-create table wd.wd_claims as
+create or replace view   wd.wd_claims as
 select
-     data->>'id'::text                      as wd_id
+     wd_id
     ,is_cebuano(data)                       as wd_is_cebuano
     ,get_wdc_globecoordinate(data,'P625')   as p625_coordinate_location    
 
@@ -89,14 +87,7 @@ select
     ,get_wdc_date(data, 'P576')    as p576_dissolved_date
 
 FROM wd.wdx
-ORDER BY data->>'id'::text
+
 ;
-
-create index on wd.wd_claims ( wd_id );
-ANALYSE wd.wd_claims ;
-
-
--- \cd :reportdir
--- \copy (select * from wd.wd_claims) TO 'wikidata_wd_claims.csv' CSV  HEADER;
 
 --  Todo:  https://www.wikidata.org/wiki/Q79791 Reconquista (Q79791)  ...

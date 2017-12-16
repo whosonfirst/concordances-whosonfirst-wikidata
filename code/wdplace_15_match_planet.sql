@@ -1,12 +1,12 @@
 
 
 drop table if exists  wfwd.wd_match_planet CASCADE;
-create table          wfwd.wd_match_planet  as
+CREATE UNLOGGED TABLE          wfwd.wd_match_planet  as
 with x AS (
         select
             wd_id
-            ,get_wdlabeltext(data->>'id'::text)     as wd_name_en
-            ,(regexp_split_to_array( get_wdlabeltext(data->>'id'::text), '[,()]'))[1]   as wd_name_en_clean
+            ,get_wdlabeltext(wd_id)     as wd_name_en
+            ,(regexp_split_to_array( get_wdlabeltext(wd_id), '[,()]'))[1]   as wd_name_en_clean
             ,is_cebuano(data)                       as wd_is_cebuano
             ,get_wdc_value(data, 'P1566')           as p1566_geonames    
             ,ST_SetSRID(ST_MakePoint( 
@@ -42,7 +42,7 @@ ANALYSE   wfwd.wd_match_planet ;
 
 
 drop table if exists wfwd.wof_match_planet CASCADE;
-create table         wfwd.wof_match_planet  as
+CREATE UNLOGGED TABLE         wfwd.wof_match_planet  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name

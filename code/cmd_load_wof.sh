@@ -10,7 +10,7 @@ csv=$2
 
 echo """
     DROP TABLE IF EXISTS ${table} CASCADE ;
-    CREATE TABLE ${table} (
+    CREATE UNLOGGED TABLE ${table} (
          id             BIGINT PRIMARY KEY
         ,parent_id      BIGINT
         ,placetype_id   BIGINT
@@ -46,7 +46,7 @@ echo """
 
     -- index --
 
-    CREATE INDEX   ON ${table}(wd_id);
+    CREATE INDEX   ON ${table}(wd_id)   WITH (fillfactor = 100);
 
     -- CREATE INDEX   ON ${table} USING GIST(geom);
     -- CREATE INDEX   ON ${table} USING GIST(centroid);

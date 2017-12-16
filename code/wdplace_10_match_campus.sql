@@ -14,7 +14,7 @@
 -- cleaning airport names for better matching;
 CREATE OR REPLACE FUNCTION  airport_clean(airport_name text) 
     RETURNS text  
-LANGUAGE sql IMMUTABLE   AS
+LANGUAGE sql IMMUTABLE STRICT PARALLEL SAFE   AS
 $func$
 select trim( translate( regexp_replace(  nameclean( airport_name ) ,
  $$[[:<:]](de|da|di|domestic|regional|municipal|airport|airpark|aeroporto|lufthavn|flugplatz|segelflugplatz|internacional|internationale|luchthaven|flygplats|flugsportverein|aerodrome|airfield|international)[[:>:]]$$,
@@ -29,12 +29,12 @@ $func$
 
 
 drop table if exists  wfwd.wd_match_campus CASCADE;
-create table          wfwd.wd_match_campus  as
+CREATE UNLOGGED TABLE          wfwd.wd_match_campus  as
 with x AS (
         select
             wd_id
-            ,get_wdlabeltext(data->>'id'::text)     as wd_name_en
-            ,(regexp_split_to_array( get_wdlabeltext(data->>'id'::text), '[,()]'))[1]   as wd_name_en_clean
+            ,get_wdlabeltext(wd_id)     as wd_name_en
+            ,(regexp_split_to_array( get_wdlabeltext(wd_id), '[,()]'))[1]   as wd_name_en_clean
             ,is_cebuano(data)                       as wd_is_cebuano
             ,get_wdc_value(data, 'P1566')           as p1566_geonames    
             ,ST_SetSRID(ST_MakePoint( 
@@ -65,17 +65,17 @@ with x AS (
     ;
 
 CREATE INDEX  ON  wfwd.wd_match_campus USING GIST(wd_point_merc);
-CREATE INDEX  ON  wfwd.wd_match_campus (una_wd_name_en_clean);
-CREATE INDEX  ON  wfwd.wd_match_campus (wd_id);
-CREATE INDEX  ON  wfwd.wd_match_campus USING GIN(wd_name_array );
-CREATE INDEX  ON  wfwd.wd_match_campus USING GIN(wd_altname_array );
-ANALYSE   wfwd.wd_match_campus ;
+--CREATE INDEX  ON  wfwd.wd_match_campus (una_wd_name_en_clean);
+--CREATE INDEX  ON  wfwd.wd_match_campus (wd_id);
+--CREATE INDEX  ON  wfwd.wd_match_campus USING GIN(wd_name_array );
+--CREATE INDEX  ON  wfwd.wd_match_campus USING GIN(wd_altname_array );
+--ANALYSE   wfwd.wd_match_campus ;
 
 
 
 
 drop table if exists wfwd.wof_match_campus CASCADE;
-create table         wfwd.wof_match_campus  as
+CREATE UNLOGGED TABLE         wfwd.wof_match_campus  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name
@@ -90,9 +90,9 @@ where  wof.is_superseded=0  and wof.is_deprecated=0
 ;
 
 CREATE INDEX  ON wfwd.wof_match_campus  USING GIST(wof_geom_merc);
-CREATE INDEX  ON wfwd.wof_match_campus  (una_wof_name);
-CREATE INDEX  ON wfwd.wof_match_campus  USING GIN ( wof_name_array);
-ANALYSE          wfwd.wof_match_campus ;
+--CREATE INDEX  ON wfwd.wof_match_campus  (una_wof_name);
+--CREATE INDEX  ON wfwd.wof_match_campus  USING GIN ( wof_name_array);
+--ANALYSE          wfwd.wof_match_campus ;
 
 
 --
@@ -106,8 +106,8 @@ ANALYSE          wfwd.wof_match_campus ;
 \set wd_wof_match_agg         wfwd.wd_mcampus_wof_match_agg
 \set wd_wof_match_agg_sum     wfwd.wd_mcampus_wof_match_agg_summary
 \set wd_wof_match_notfound    wfwd.wd_mcampus_wof_match_notfound
-\set safedistance    40000
-\set searchdistance 100003
+\set safedistance    80000
+\set searchdistance 200003
 
 \set mcond1     (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (  wof_name_array && wd_altname_array ) or (wd_concordances_array && wof_concordances_array) or (jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.971 ) )
 \set mcond2  and (ST_DWithin ( wd.wd_point_merc, wof.wof_geom_merc , :searchdistance ))

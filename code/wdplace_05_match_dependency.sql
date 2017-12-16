@@ -2,13 +2,13 @@
 
 
 drop table if exists  wfwd.wd_match_dependency CASCADE;
-create table          wfwd.wd_match_dependency  as
+CREATE UNLOGGED TABLE          wfwd.wd_match_dependency  as
 
     select
-     data->>'id'::text                  as wd_id  
-    ,get_wdlabeltext(data->>'id'::text) as wd_name_en
-    ,get_wdlabeltext(data->>'id'::text) as wd_name_en_clean
-    ,nameclean(get_wdlabeltext(data->>'id'::text))   as una_wd_name_en_clean
+     wd_id                  as wd_id  
+    ,get_wdlabeltext(wd_id) as wd_name_en
+    ,get_wdlabeltext(wd_id) as wd_name_en_clean
+    ,nameclean(get_wdlabeltext(wd_id))   as una_wd_name_en_clean
 
     ,get_countrycode( (get_wdc_item(data,'P17'))->>0 )   as wd_country 
     ,get_wdc_value(data, 'P297')->>0  as wd_iso31661a2
@@ -61,7 +61,7 @@ ANALYSE   wfwd.wd_match_dependency;
 
 -- drop view if exists wof_for_matching;
 drop table if exists wfwd.wof_match_dependency CASCADE;
-create table         wfwd.wof_match_dependency  as
+CREATE UNLOGGED TABLE         wfwd.wof_match_dependency  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name 

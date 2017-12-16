@@ -6,7 +6,7 @@
         
 
 drop table if exists  codes.wd2country CASCADE;
-create table          codes.wd2country  as
+CREATE UNLOGGED TABLE          codes.wd2country  as
 select   wof.wd_id
         ,wof.id
         ,wof.properties->>'wof:name'                    as wof_name 
@@ -15,14 +15,14 @@ from wf.wof_country as wof
 where is_superseded=0 and is_deprecated=0
 ;
 -- TODO UPDATE
-CREATE UNIQUE INDEX  ON codes.wd2country (wd_id);
-CREATE UNIQUE INDEX  ON codes.wd2country (wof_country);    
+CREATE UNIQUE INDEX  ON codes.wd2country (wd_id)        WITH (fillfactor = 100);
+CREATE UNIQUE INDEX  ON codes.wd2country (wof_country)  WITH (fillfactor = 100);    
 ANALYSE codes.wd2country;
 
 
 CREATE OR REPLACE FUNCTION public.get_countrycode(wdid text)
 RETURNS text
-IMMUTABLE
+IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
     SELECT wof_country
@@ -36,7 +36,7 @@ $$;
 
 CREATE OR REPLACE FUNCTION distance_class(_distance bigint)
 RETURNS text
-IMMUTABLE STRICT
+IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
     SELECT
@@ -77,7 +77,7 @@ $$;
 
 CREATE OR REPLACE FUNCTION public.is_cebuano(data jsonb)
 RETURNS bool
-IMMUTABLE
+IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
     with cebu_calc as      
@@ -102,7 +102,7 @@ $$;
 -- https://www.wikidata.org/wiki/Help:Dates
 CREATE OR REPLACE FUNCTION public.get_wdc_date(data jsonb, wdproperty text)
 RETURNS jsonb
-IMMUTABLE
+IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
     select  jsonb_agg( split_part(timevalue,'T',1)) 
@@ -127,7 +127,7 @@ $$;
 
 CREATE OR REPLACE FUNCTION public.get_wdlabel(wdid text)
 RETURNS jsonb
-IMMUTABLE
+IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
     SELECT jsonb_build_object(wd_id, wd_label)          
@@ -138,7 +138,7 @@ $$;
 
 CREATE OR REPLACE FUNCTION public.get_wdlabeltext(wdid text)
 RETURNS text
-IMMUTABLE
+IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
     SELECT wd_label          
@@ -154,7 +154,7 @@ $$;
 
 CREATE OR REPLACE FUNCTION public.get_wdc_population(data jsonb, wdproperty text)
 RETURNS jsonb
-IMMUTABLE
+IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
     select  jsonb_agg(pop) 
@@ -202,7 +202,7 @@ $$;
 
 CREATE OR REPLACE FUNCTION public.get_wdc_item_label(data jsonb, wdproperty text)
 RETURNS jsonb
-IMMUTABLE
+IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
     select  jsonb_agg(get_wdlabel(dataitem)) 
@@ -226,7 +226,7 @@ $$;
 
 CREATE OR REPLACE FUNCTION public.get_wdc_item(data jsonb, wdproperty text)
 RETURNS jsonb
-IMMUTABLE
+IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
     select  jsonb_agg(dataitem) 
@@ -251,7 +251,7 @@ $$;
 
 CREATE OR REPLACE FUNCTION public.get_wdc_value(data jsonb, wdproperty text)
 RETURNS jsonb
-IMMUTABLE
+IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
     select  jsonb_agg(datavalue) 
@@ -276,7 +276,7 @@ $$;
 
 CREATE OR REPLACE FUNCTION public.get_wdc_monolingualtext(data jsonb, wdproperty text)
 RETURNS jsonb
-IMMUTABLE
+IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
    select  jsonb_agg( lang ) 
@@ -306,7 +306,7 @@ $$;
 
 CREATE OR REPLACE FUNCTION public.get_claims_amount(data jsonb, wdproperty text)
 RETURNS jsonb
-IMMUTABLE
+IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
     select  jsonb_agg( amountvalue ) 
@@ -336,7 +336,7 @@ $$;
 
 CREATE OR REPLACE FUNCTION public.get_wdc_globecoordinate(data jsonb, wdproperty text)
 RETURNS jsonb
-IMMUTABLE
+IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
     SELECT  jsonb_agg(coord) 
@@ -383,7 +383,7 @@ $$;
 
 CREATE OR REPLACE FUNCTION get_wof_name_array(properties JSONB)
 RETURNS text[]
-IMMUTABLE STRICT
+IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
 	with xwof_rec as
@@ -407,7 +407,7 @@ $$;
 
 CREATE OR REPLACE FUNCTION get_wd_name_array(data JSONB)
 RETURNS text[]
-IMMUTABLE STRICT
+IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
    select   array_agg( distinct value->>'value' order by value->>'value' )
@@ -419,7 +419,7 @@ $$;
 
 CREATE OR REPLACE FUNCTION get_wd_altname_array(data JSONB)
 RETURNS text[]
-IMMUTABLE STRICT
+IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
    select   array_agg( distinct value->>'value' order by value->>'value' )
@@ -431,7 +431,7 @@ $$;
 
 CREATE OR REPLACE FUNCTION jsonb_arr2distinct_textarr(jsonb_arr jsonb,prefix text)
    RETURNS text[]
-LANGUAGE sql IMMUTABLE   AS
+LANGUAGE sql IMMUTABLE STRICT PARALLEL SAFE  AS
 $$
     SELECT 
     ARRAY(SELECT DISTINCT prefix||jsonb_array_elements_text(jsonb_arr)  ORDER BY 1 )
@@ -440,7 +440,7 @@ $$
 
 CREATE OR REPLACE FUNCTION get_wd_concordances(data JSONB)
    RETURNS text[]
-LANGUAGE sql IMMUTABLE   AS
+LANGUAGE sql IMMUTABLE STRICT PARALLEL SAFE  AS
 $$
 
     select   array_cat( array_cat(array_cat( array_cat(  
@@ -460,7 +460,7 @@ $$
 
 CREATE OR REPLACE FUNCTION get_wof_concordances_element(properties JSONB,concordances_id TEXT, prefix TEXT )
    RETURNS text
-LANGUAGE sql IMMUTABLE   AS
+LANGUAGE sql IMMUTABLE STRICT PARALLEL SAFE  AS
 $$
 
         select 
@@ -474,7 +474,7 @@ $$
 
 CREATE OR REPLACE FUNCTION get_wof_concordances(properties JSONB)
    RETURNS text[]
-LANGUAGE sql IMMUTABLE   AS
+LANGUAGE sql IMMUTABLE STRICT PARALLEL SAFE AS
 $$
     select 
     array_remove(
@@ -493,7 +493,7 @@ $$
 
 CREATE OR REPLACE FUNCTION  nameclean(vname text) 
     RETURNS text  
-LANGUAGE sql IMMUTABLE   AS
+LANGUAGE sql IMMUTABLE STRICT PARALLEL SAFE   AS
 $$
 select 
     replace( 

@@ -7,13 +7,13 @@
 --  distance < 100km
 --  only 1 match!
 
-drop table if exists  wfwd.wd_match_locality CASCADE;
-create table          wfwd.wd_match_locality  as
+drop table if exists    wfwd.wd_match_locality CASCADE;
+create  UNLOGGED table  wfwd.wd_match_locality  as
 with x AS (
         select
             wd_id
-            ,get_wdlabeltext(data->>'id'::text)     as wd_name_en
-            ,(regexp_split_to_array( get_wdlabeltext(data->>'id'::text), '[,()]'))[1]   as wd_name_en_clean
+            ,get_wdlabeltext(wd_id)     as wd_name_en
+            ,(regexp_split_to_array( get_wdlabeltext(wd_id), '[,()]'))[1]   as wd_name_en_clean
             ,is_cebuano(data)                       as wd_is_cebuano
             ,get_wdc_value(data, 'P1566')           as p1566_geonames    
             ,ST_SetSRID(ST_MakePoint( 
@@ -27,7 +27,7 @@ with x AS (
             ,get_wd_altname_array(data)        as wd_altname_array
             ,get_wd_concordances(data)         as wd_concordances_array
         from wd.wdx 
-        where a_wof_type && ARRAY['locality']    
+        where a_wof_type && ARRAY['locality']  and a_wof_type && ARRAY['hasP625']    
     )
     SELECT *
           , nameclean(wd_name_en_clean) as una_wd_name_en_clean
@@ -38,18 +38,18 @@ with x AS (
       and wd_is_cebuano IS FALSE
     ;
 
-CREATE INDEX  ON  wfwd.wd_match_locality USING GIST(wd_point_merc);
-CREATE INDEX  ON  wfwd.wd_match_locality (una_wd_name_en_clean);
-CREATE INDEX  ON  wfwd.wd_match_locality (wd_id);
-CREATE INDEX  ON  wfwd.wd_match_locality USING GIN(wd_name_array );
-CREATE INDEX  ON  wfwd.wd_match_locality USING GIN(wd_altname_array );
-ANALYSE   wfwd.wd_match_locality ;
+CREATE INDEX  ON  wfwd.wd_match_locality USING GIST(wd_point_merc)  ;
+--CREATE INDEX  ON  wfwd.wd_match_locality (una_wd_name_en_clean);
+--CREATE INDEX  ON  wfwd.wd_match_locality (wd_id);
+--CREATE INDEX  ON  wfwd.wd_match_locality USING GIN(wd_name_array );
+--CREATE INDEX  ON  wfwd.wd_match_locality USING GIN(wd_altname_array );
+--ANALYSE   wfwd.wd_match_locality ;
 
 
 
 
-drop table if exists wfwd.wof_match_locality CASCADE;
-create table         wfwd.wof_match_locality  as
+drop table if exists    wfwd.wof_match_locality CASCADE;
+create UNLOGGED table   wfwd.wof_match_locality  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name
@@ -63,10 +63,10 @@ from wf.wof_locality as wof
 where  wof.is_superseded=0  and wof.is_deprecated=0
 ;
 
-CREATE INDEX  ON wfwd.wof_match_locality  USING GIST(wof_geom_merc);
-CREATE INDEX  ON wfwd.wof_match_locality  (una_wof_name);
-CREATE INDEX  ON wfwd.wof_match_locality  USING GIN ( wof_name_array);
-ANALYSE          wfwd.wof_match_locality ;
+CREATE INDEX  ON wfwd.wof_match_locality  USING GIST(wof_geom_merc) ;
+--CREATE INDEX  ON wfwd.wof_match_locality  (una_wof_name);
+--CREATE INDEX  ON wfwd.wof_match_locality  USING GIN ( wof_name_array);
+--ANALYSE          wfwd.wof_match_locality ;
 
 
 --
@@ -80,7 +80,7 @@ ANALYSE          wfwd.wof_match_locality ;
 \set wd_wof_match_agg         wfwd.wd_mlocality_wof_match_agg
 \set wd_wof_match_agg_sum     wfwd.wd_mlocality_wof_match_agg_summary
 \set wd_wof_match_notfound    wfwd.wd_mlocality_wof_match_notfound
-\set safedistance    40000
+\set safedistance    50000
 \set searchdistance 100003
 
 \set mcond1     (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (  wof_name_array && wd_altname_array ) or (wd_concordances_array && wof_concordances_array) or (jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.971 ) )

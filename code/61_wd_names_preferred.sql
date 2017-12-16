@@ -1,11 +1,11 @@
 
 
 drop table if exists wd.wd_names_preferred;
-create table wd.wd_names_preferred as
+CREATE UNLOGGED TABLE wd.wd_names_preferred as
 with wd_names_iso2 as
  (
  select
-      data->>'id'::text as wd_id
+      wd_id
     , data->'labels'->jsonb_object_keys(data->'labels')->>'language'::text   as wd_lang
     , data->'labels'->jsonb_object_keys(data->'labels')->>'value'            as wof_value
     FROM wd.wdx
@@ -25,6 +25,6 @@ FROM wd_names_iso2                      as wd
 order by wd_id
 ;
 
-create index on wd.wd_names_preferred ( wd_id );
+create index on wd.wd_names_preferred ( wd_id ) WITH (fillfactor = 100);
 --ANALYZE         wd.wd_names_preferred;
 

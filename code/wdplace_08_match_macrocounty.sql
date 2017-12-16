@@ -2,7 +2,7 @@
 -- cleaning macrocounty names for better matching;
 CREATE OR REPLACE FUNCTION  macrocounty_clean(airport_name text) 
     RETURNS text  
-LANGUAGE sql IMMUTABLE   AS
+LANGUAGE sql IMMUTABLE STRICT PARALLEL SAFE   AS
 $func$
 select  trim(translate( regexp_replace(  nameclean( airport_name ) ,
  $$[[:<:]](arrondissement of|county|government region)[[:>:]]$$,
@@ -19,12 +19,12 @@ $func$
 
 
 drop table if exists  wfwd.wd_match_macrocounty CASCADE;
-create table          wfwd.wd_match_macrocounty  as
+CREATE UNLOGGED TABLE          wfwd.wd_match_macrocounty  as
 with x AS (
         select
             wd_id
-            ,get_wdlabeltext(data->>'id'::text)     as wd_name_en
-            ,(regexp_split_to_array( get_wdlabeltext(data->>'id'::text), '[,()]'))[1]   as wd_name_en_clean
+            ,get_wdlabeltext(wd_id)     as wd_name_en
+            ,(regexp_split_to_array( get_wdlabeltext(wd_id), '[,()]'))[1]   as wd_name_en_clean
             ,is_cebuano(data)                       as wd_is_cebuano
             ,get_wdc_value(data, 'P1566')           as p1566_geonames    
             ,ST_SetSRID(ST_MakePoint( 
@@ -60,7 +60,7 @@ ANALYSE   wfwd.wd_match_macrocounty ;
 
 
 drop table if exists wfwd.wof_match_macrocounty CASCADE;
-create table         wfwd.wof_match_macrocounty  as
+CREATE UNLOGGED TABLE         wfwd.wof_match_macrocounty  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name

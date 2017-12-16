@@ -19,8 +19,8 @@ echo """
     -- import 
     CREATE SCHEMA IF NOT EXISTS wd;
     DROP TABLE IF EXISTS wd.wd_redirects CASCADE;
-    CREATE TABLE wd.wd_redirects (wd_from text , wd_to text );
-    \copy wd.wd_redirects (wd_from,wd_to)  FROM '/wof/wikidata_dump/wikidata_redirects_filtered.csv' DELIMITER ',' CSV
+    CREATE UNLOGGED TABLE wd.wd_redirects (wd_from text , wd_to text );
+    \copy wd.wd_redirects (wd_from,wd_to)  FROM '/wof/wikidata_dump/wikidata_redirects_filtered.csv' DELIMITER ',' CSV HEADER ESCAPE '\"'
     --
 """ | psql -e
 
@@ -35,10 +35,16 @@ echo "======== parse end: wikidata_dump/latest-all.json.gz ==========="
 
 echo """
     --
-    SELECT a_wof_type, count(*) as N FROM wd.wdx GROUP BY a_wof_type;
+	CREATE UNIQUE INDEX  ON  wd.wdx(wd_id) 	WITH (fillfactor = 100);                    --&
+	CREATE        INDEX  ON  wd.wdx USING GIN( a_wof_type ) ;                           --&
+	ANALYSE wd.wdx;                                                                     --&
+	CREATE UNIQUE INDEX wdlabels_en_id ON wdlabels.en(wd_id) WITH (fillfactor = 100);   --&
+	ANALYSE wdlabels.en;                                                                --&
+    --
+    SELECT a_wof_type, count(*) as N FROM wd.wdx GROUP BY a_wof_type;                   --&
     --
     \d+ wd.wdx  
-""" | psql -e
+""" | par_psql -e
 
 
 

@@ -3,12 +3,12 @@
 
 
 drop table if exists  wfwd.wd_match_county CASCADE;
-create table          wfwd.wd_match_county  as
+CREATE UNLOGGED TABLE          wfwd.wd_match_county  as
     select
-     data->>'id'::text                  as wd_id  
-    ,get_wdlabeltext(data->>'id'::text) as wd_name_en
-    ,get_wdlabeltext(data->>'id'::text) as wd_name_en_clean
-    ,nameclean(get_wdlabeltext(data->>'id'::text))   as una_wd_name_en_clean
+     wd_id                  as wd_id  
+    ,get_wdlabeltext(wd_id) as wd_name_en
+    ,get_wdlabeltext(wd_id) as wd_name_en_clean
+    ,nameclean(get_wdlabeltext(wd_id))   as una_wd_name_en_clean
 
     ,get_countrycode( (get_wdc_item(data,'P17'))->>0 )   as wd_country 
 
@@ -44,16 +44,16 @@ create table          wfwd.wd_match_county  as
 ;
 
 CREATE INDEX  ON  wfwd.wd_match_county USING GIST(wd_point_merc);
-CREATE INDEX  ON  wfwd.wd_match_county (una_wd_name_en_clean);
-CREATE INDEX  ON  wfwd.wd_match_county (wd_id);
-CREATE INDEX  ON  wfwd.wd_match_county  USING GIN(wd_name_array );
-CREATE INDEX  ON  wfwd.wd_match_county  USING GIN(wd_altname_array );
-ANALYSE   wfwd.wd_match_county;
+--CREATE INDEX  ON  wfwd.wd_match_county (una_wd_name_en_clean);
+--CREATE INDEX  ON  wfwd.wd_match_county (wd_id);
+--CREATE INDEX  ON  wfwd.wd_match_county  USING GIN(wd_name_array );
+--CREATE INDEX  ON  wfwd.wd_match_county  USING GIN(wd_altname_array );
+--ANALYSE   wfwd.wd_match_county;
 
 
 
 drop table if exists wfwd.wof_match_county CASCADE;
-create table         wfwd.wof_match_county  as
+CREATE UNLOGGED TABLE         wfwd.wof_match_county  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name 
@@ -70,8 +70,8 @@ order by wof_country,  una_wof_name
 ;
 
 CREATE INDEX ON  wfwd.wof_match_county  USING GIST(wof_geom_merc);
-CREATE INDEX ON  wfwd.wof_match_county  (una_wof_name);
-ANALYSE  wfwd.wof_match_county ;
+--CREATE INDEX ON  wfwd.wof_match_county  (una_wof_name);
+--ANALYSE  wfwd.wof_match_county ;
 
 
 

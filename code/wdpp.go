@@ -120,7 +120,7 @@ func main() {
 	createTableStr_wd := []string{
 		"CREATE SCHEMA IF NOT EXISTS wd;",
 		"DROP TABLE IF EXISTS wd.wdx CASCADE;",
-		"CREATE TABLE wd.wdx (wd_id TEXT, a_wof_type TEXT[], data JSONB );",
+		"CREATE UNLOGGED TABLE wd.wdx (wd_id TEXT, a_wof_type TEXT[], data JSONB );",
 	}
 	for _, str := range createTableStr_wd {
 		fmt.Println("executing:", str)
@@ -141,7 +141,7 @@ func main() {
 	createTableStr_label := []string{
 		"CREATE SCHEMA IF NOT EXISTS wdlabels;",
 		"DROP TABLE IF EXISTS wdlabels.en CASCADE;",
-		"CREATE TABLE wdlabels.en (wd_id TEXT, wd_label TEXT );",
+		"CREATE UNLOGGED TABLE wdlabels.en (wd_id TEXT, wd_label TEXT );",
 	}
 	for _, str := range createTableStr_label {
 		fmt.Println("executing:", str)
@@ -259,6 +259,11 @@ func main() {
 				b[len(b)-2] = 32
 			}
 
+			// check territory claimed by ; P625
+			if gjson.GetBytes(b, "claims.P625.#[rank!=deprecated]").Exists() {
+				match = append(match, "hasP625")
+			}
+
 			// write to postgres
 			_, err = stmt_wd.Exec(wdid, match, string(b))
 			checkErr(err)
@@ -277,16 +282,19 @@ func main() {
 	checkErr(err)
 	err = stmt_wd.Close()
 	checkErr(err)
-	postprocessingStr_wd := []string{
-		"CREATE UNIQUE INDEX  ON  wd.wdx(wd_id);",
-		"CREATE        INDEX  ON  wd.wdx USING GIN( a_wof_type );",
-		"ANALYSE wd.wdx;",
-	}
-	for _, str := range postprocessingStr_wd {
-		fmt.Println("executing:", str)
-		_, err := txn_wd.Exec(str)
-		checkErr(err)
-	}
+
+	/*
+		postprocessingStr_wd := []string{
+			"CREATE UNIQUE INDEX  ON  wd.wdx(wd_id) 	WITH (fillfactor = 100);",
+			"CREATE        INDEX  ON  wd.wdx USING GIN( a_wof_type ) ;",
+			"ANALYSE wd.wdx;",
+		}
+		for _, str := range postprocessingStr_wd {
+			fmt.Println("executing:", str)
+			_, err := txn_wd.Exec(str)
+			checkErr(err)
+		}
+	*/
 	err = txn_wd.Commit()
 	checkErr(err)
 	//fmt.Println("... wd.wdx  Loaded:", c.v)
@@ -298,15 +306,18 @@ func main() {
 	checkErr(err)
 	err = stmt_label.Close()
 	checkErr(err)
-	postprocessingStr_label := []string{
-		"CREATE UNIQUE INDEX wdlabels_en_id ON wdlabels.en(wd_id);",
-		"ANALYSE wdlabels.en;",
-	}
-	for _, str := range postprocessingStr_label {
-		fmt.Println("executing:", str)
-		_, err := txn_label.Exec(str)
-		checkErr(err)
-	}
+
+	/*
+		postprocessingStr_label := []string{
+			"CREATE UNIQUE INDEX wdlabels_en_id ON wdlabels.en(wd_id) WITH (fillfactor = 100);",
+			"ANALYSE wdlabels.en;",
+		}
+		for _, str := range postprocessingStr_label {
+			fmt.Println("executing:", str)
+			_, err := txn_label.Exec(str)
+			checkErr(err)
+		}
+	*/
 	err = txn_label.Commit()
 	checkErr(err)
 	fmt.Println("... wdlabels.en Loaded:", c.v)

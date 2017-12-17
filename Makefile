@@ -35,10 +35,8 @@ update_wof:
 	time docker-compose run --rm  wof_wiki_dw /wof/code/job_update_wof.sh
 
 run:
-	time docker-compose run --rm  wof_wiki_dw /wof/code/job.sh
+	time docker-compose run --rm -d wof_wiki_dw /wof/code/job.sh
 
-test:
-	time docker-compose run --rm  wof_wiki_dw /wof/code/rjob.sh
 
 listsize:
 	du -sh ../*
@@ -53,4 +51,4 @@ speedtest:
 	docker run --rm -it -v $(PWD)/../postgres_data:/var/lib/postgresql/data wof_postgis bash -c "ls -la /var/lib/postgresql/data"
 	docker run --rm -it -v $(PWD)/../postgres_data:/var/lib/postgresql/data wof_postgis bash -c "rm -rf /var/lib/postgresql/data/*"
 	docker-compose up  -d
-	time docker-compose run --rm  wof_wiki_dw /wof/code/job.sh
+	time docker-compose run --rm -d wof_wiki_dw /wof/code/job.sh

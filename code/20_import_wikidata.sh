@@ -33,19 +33,20 @@ time go run /wof/code/wdpp.go
 echo "======== parse end: wikidata_dump/latest-all.json.gz ==========="
 
 
+psql -c	"CREATE UNIQUE INDEX  ON  wd.wdx(wd_id) 	                        WITH (fillfactor = 100) ; " &
+psql -c	"CREATE        INDEX  ON  wd.wdx             USING GIN( a_wof_type )                        ; " &                      
+psql -c	"CREATE UNIQUE INDEX  ON  wdlabels.en(wd_id)                        WITH (fillfactor = 100) ; " &
+wait 
+
+
+# psql -c	"ANALYSE wdlabels.en;"                                                              
+# psql -c	"ANALYSE wd.wdx;"          
+
 echo """
-    --
-	CREATE UNIQUE INDEX  ON  wd.wdx(wd_id) 	WITH (fillfactor = 100);                    --&
-	CREATE        INDEX  ON  wd.wdx USING GIN( a_wof_type ) ;                           --&
-	ANALYSE wd.wdx;                                                                     --&
-	CREATE UNIQUE INDEX wdlabels_en_id ON wdlabels.en(wd_id) WITH (fillfactor = 100);   --&
-	ANALYSE wdlabels.en;                                                                --&
     --
     SELECT a_wof_type, count(*) as N FROM wd.wdx GROUP BY a_wof_type;                   --&
     --
     \d+ wd.wdx  
-""" | par_psql -e
+""" | psql -e
 
-
-
-
+echo "-- end --"

@@ -118,6 +118,17 @@ echo """
     CREATE INDEX  ON   wfwd.wof_validated_suggested_list (id)       WITH (fillfactor = 100);
 
     ANALYSE  wfwd.wof_validated_suggested_list ;
+
+
+    --  check multiple matching across tables.
+    drop table if exists          wfwd.wof_validated_suggested_list_problems CASCADE;
+    CREATE UNLOGGED TABLE         wfwd.wof_validated_suggested_list_problems  as
+    with dups as
+    (select wd_id, count(*) as N from  wfwd.wof_validated_suggested_list  group by wd_id  having count(*)>1 order by N desc)
+    select wd_id,id, metatable,wof_name,wof_country,_matching_category from wfwd.wof_validated_suggested_list
+    where wd_id in ( select wd_id from dups)
+    order by wd_id,id; 
+    ANALYSE  wfwd.wof_validated_suggested_list_problems ;
     --
 """ | psql -e
 
@@ -189,6 +200,13 @@ echo """
     --
 """ | psql -e > ${outputdir}/_____________summary__________________.txt
 
+
+
+xlsxname=${outputdir}/wof_validated_suggested_list_problems.xlsx
+rm -f ${xlsxname}
+pgclimb -o ${xlsxname} \
+    -c "SELECT * FROM  wfwd.wof_validated_suggested_list_problems;" \
+    xlsx --sheet "multiple_matches"
 
 date -u > ${outputdir}/_____________finished__________________.txt
 echo "========== END OF job.sh log ============== "

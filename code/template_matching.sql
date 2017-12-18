@@ -62,13 +62,14 @@ with wd_agg as
   from wd_agg
 )
 select wd_agg_extended.* 
-      ,get_wdc_item_label(wd.data,'P31')                 as old_p31_instance_of
-      ,wdnew.p31_instance_of                             as new_p31_instance_of      
-      ,get_wdc_item_label(wd.data,'P17')                 as old_p17_country_id       
-      ,wdnew.p17_country_id                              as new_p17_country_id
-      ,get_wdlabeltext(wd_agg_extended.wof_wd_id)        as old_wd_label
-      ,get_wdlabeltext(wd_agg_extended._suggested_wd_id) as new_wd_label
-      ,is_cebuano(wd.data)                               as old_is_cebauno
+    ,wd.a_wof_type
+    ,get_wdc_item_label(wd.data,'P31')                 as old_p31_instance_of
+    ,wdnew.p31_instance_of                             as new_p31_instance_of      
+    ,get_wdc_item_label(wd.data,'P17')                 as old_p17_country_id       
+    ,wdnew.p17_country_id                              as new_p17_country_id
+    ,get_wdlabeltext(wd_agg_extended.wof_wd_id)        as old_wd_label
+    ,get_wdlabeltext(wd_agg_extended._suggested_wd_id) as new_wd_label
+    ,is_cebuano(wd.data)                               as old_is_cebauno
 from wd_agg_extended
 left join wd.wdx             as wd     on wd_agg_extended.wof_wd_id=wd.wd_id
 left join :wd_input_table    as wdnew  on wd_agg_extended._suggested_wd_id=wdnew.wd_id   
@@ -107,7 +108,7 @@ extrdist as (
                 )
                 , 4326))   
             ,wof.wof_geom_merc)::bigint  as _old_distance
-
+        ,wd.a_wof_type
         ,get_wdc_item_label(wd.data,'P31')    as old_p31_instance_of  
         ,get_wdc_item_label(wd.data,'P17')    as old_p17_country_id   
         ,is_cebuano(wd.data)                  as old_is_cebauno   

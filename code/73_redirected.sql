@@ -1,7 +1,7 @@
 
 
 drop table if exists    wfwd.wof_wd_redirects CASCADE;
-CREATE UNLOGGED TABLE            wfwd.wof_wd_redirects as
+CREATE UNLOGGED TABLE   wfwd.wof_wd_redirects as
 select 
      wof.id
     ,wof.metatable

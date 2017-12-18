@@ -23,6 +23,7 @@ RUN \
         pbzip2 \
         postgresql-client-10 \
         python-pip \
+        sqlite3 \
         sudo \
         wget \
     && rm -rf /var/lib/apt/lists/* /tmp/* 
@@ -122,14 +123,8 @@ RUN    git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst
     && cd go-whosonfirst-bundles \
     && make bin
 
-RUN    apt-get update \
-    && apt-get install -y \
-        sqlite3 \
-    && rm -rf /var/lib/apt/lists/* /tmp/* 
-
 RUN     echo '\\timing'                  >       ~/.psqlrc \
     &&  echo '\\set ON_ERROR_STOP 1'     >>      ~/.psqlrc \
-    &&  echo '---------\\set VERBOSITY verbose'   >>      ~/.psqlrc  \
     &&  cat  ~/.psqlrc
 
 RUN    git clone --quiet --depth 1 https://github.com/gbb/par_psql.git  \

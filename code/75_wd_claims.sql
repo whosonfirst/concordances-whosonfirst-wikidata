@@ -2,6 +2,9 @@
 create or replace view   wd.wd_claims as
 select
      wd_id
+     
+    ,a_wof_type
+
     ,is_cebuano(data)                       as wd_is_cebuano
     ,get_wdc_globecoordinate(data,'P625')   as p625_coordinate_location    
 

@@ -19,7 +19,7 @@ echo """
                 ,wof._matching_category
                 ,wd.* 
         FROM  wfwd.wof_validated_suggested_list as wof 
-             ,${source_table}    as wd 
+             ,${source_table}                   as wd 
         WHERE wof.wd_id=wd.wd_id
         ORDER BY wof_country, wof_name 
     ;

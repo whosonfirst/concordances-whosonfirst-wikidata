@@ -82,8 +82,7 @@ Q431289, "brand"
 Q43229, "organization"
 Q476028, "association football team"
 Q482994, "album"
-Q4830453, "business enterprise"
-Q4830453,business enterprise
+
 Q483247, "phenomenon"
 Q4936952, "anatomical structure"
 Q49773, "social movement"
@@ -107,3 +106,7 @@ Q9415, "emotion"
 Q95074, "fictional character"
 Q951964, "food product"
 Q979507, "Hindu deity"
+
+
+# --- comments:
+# Q4830453, "business enterprise"     :::  Some Airports is tagged with  "business enterprise" 

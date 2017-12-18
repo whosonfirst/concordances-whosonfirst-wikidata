@@ -8,16 +8,19 @@ Table for exporting wikidata claims to WOF
 Filenames | expected size | description |
 --------------------------| -----|  --- |
 `wd.wd_claims_validated.csv`	| 	199M	| csv export |
-`wd.wd_claims_validated.db`	  |	214M	  | csv export - imported to sqlite3 |
+`wd.wd_claims_validated.db`	  |	214M	  | sqlite3 format (csv export - imported to sqlite3) |
 `wd.wd_claims_validated.dbstruct.txt`	|	2.3K | struct of the `wd.wd_claims_validated.db` |
 
 ### name convention
 
 
 variables:   [WikidataPropertyId] + short abbreviation
+
 examples
-* p17_country_id  =  [https://www.wikidata.org/wiki/Property:P17](https://www.wikidata.org/wiki/Property:P17)  ( country ; sovereign state of this item)
-* p1566_geonames = [https://www.wikidata.org/wiki/Property:1566](https://www.wikidata.org/wiki/Property:1566)  ( GeoNames ID ; identifier in the GeoNames geographical database  )
+* p17_country_id  = P17-> [https://www.wikidata.org/wiki/Property:P17](https://www.wikidata.org/wiki/Property:P17)  
+   * country ; sovereign state of this item
+* p1566_geonames = P1566-> [https://www.wikidata.org/wiki/Property:P1566](https://www.wikidata.org/wiki/Property:P1566)  
+   * GeoNames ID ; identifier in the GeoNames geographical database
 
 
 ### program code
@@ -25,15 +28,44 @@ examples
 * [https://github.com/ImreSamu/wof-wiki-dw/blob/master/code/75_wd_claims.sql](https://github.com/ImreSamu/wof-wiki-dw/blob/master/code/75_wd_claims.sql)
 
 
-Mapping types - for special wikidata types:
-* get_wdc_globecoordinate()
-* get_wdc_item_label()
-* get_wdc_population()
-* get_wdc_value()
-* get_claims_amount()
-* get_wdc_monolingualtext()
-* get_wdc_date()
+Mapping types - used in the `75_wd_claims.sql` - for wikidata types:
 
+* get_wdc_globecoordinate() 
+    * `[{"latitude": "49.096666666667", "longitude": "2.0408333333333"}, {"latitude": "49.096628", "longitude": "2.040722"}]`
+    * `[{"latitude": "22.375833", "longitude": "31.611667"}]`
+
+* get_wdc_item_label()
+    * `[{"Q515": "city"}, {"Q2264924": "port city"}, {"Q1202812": "region of Djibouti"}]`
+    * `[{"Q5119": "capital"}, {"Q515": "city"}, {"Q868893": "department of the Republic of the Congo"}]`
+    * `[{"Q515": "city"}]`
+    * `[{"Q9676": "Isle of Man"}, {"Q145": "United Kingdom"}]` 
+    * `[{"Q2001266": "Tlyarata, Tlyaratinsky District, Republic of Dagestan"}]`
+    * `[{"Q101418": "Lobamba"}, {"Q3904": "Mbabane"}]`
+
+* get_wdc_population() - json array of 
+    * `[{"population": "+993", "determination": "Q855531", "population_time": "+2011-00-00T00:00:00Z", "determinationlabel": "United Kingdom Census 2011"}]`
+    * `[{"population": "+123867", "determination": "Q855531", "population_time": "+2011-00-00T00:00:00Z", "determinationlabel": "United Kingdom Census 2011"}, {"population": "+108863", "determination": "Q609443", "population_time": "+2001-00-00T00:00:00Z", "determinationlabel": "United Kingdom Census 2001"}, {"population": "+107496", "determination": "Q7887926", "population_time": "+1991-00-00T00:00:00Z", "determinationlabel": "United Kingdom Census 1991"}, {"population": "+87209", "determination": "Q21274970", "population_time": "+1981-00-00T00:00:00Z", "determinationlabel": "United Kingdom Census 1981"}, {"population": "+99168", "determination": "Q21274971", "population_time": "+1971-00-00T00:00:00Z", "determinationlabel": "United Kingdom Census 1971"}][{"population": "+123867", "determination": "Q855531", "population_time": "+2011-00-00T00:00:00Z", "determinationlabel": "United Kingdom Census 2011"}, {"population": "+108863", "determination": "Q609443", "population_time": "+2001-00-00T00:00:00Z", "determinationlabel": "United Kingdom Census 2001"}, {"population": "+107496", "determination": "Q7887926", "population_time": "+1991-00-00T00:00:00Z", "determinationlabel": "United Kingdom Census 1991"}, {"population": "+87209", "determination": "Q21274970", "population_time": "+1981-00-00T00:00:00Z", "determinationlabel": "United Kingdom Census 1981"}, {"population": "+99168", "determination": "Q21274971", "population_time": "+1971-00-00T00:00:00Z", "determinationlabel": "United Kingdom Census 1971"}]`
+
+* get_wdc_value()   - array of text
+    * `["GB-CHE"]`
+    * `["4117851-8"]`
+    * `["3220833", "2895992", "6556096"]`
+
+* get_claims_amount()  - array 
+    * `["+426"]`    -- elevation
+    * `["+3220", "+3230"]`
+    * `["+374", "+376"]`
+
+* get_wdc_monolingualtext()
+    * `[{"de": "Großhöflein (Burgenland)"}]`
+    * `[{"en": "Butuan Airport"}, {"en": "Paliparan ng Butuan"}]`     <-- 2 english name! 
+    * `[{"fr": "Aéroport de Bâle-Mulhouse-Fribourg"}, {"de": "Flughafen Basel-Mülhausen-Freiburg"}]`
+    * `[{"hi": "अलीगढ़"}, {"ur": "علی گڑھ"}, {"en": "Aligarh"}]`    
+
+* get_wdc_date()   -- array of dates
+    * `["+1639-00-00"]`
+    * `["+2005-00-00"]`
+    * `["+2008-00-00", "+2006-00-00"]`
 
 
 ###  current  csv/sqlite3  structure 

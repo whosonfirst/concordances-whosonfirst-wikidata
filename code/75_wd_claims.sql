@@ -26,7 +26,7 @@ select
     ,get_wdc_item_label(data,'P30')    as p30_continent
     ,get_wdc_item_label(data,'P155')   as p155_follows
     ,get_wdc_item_label(data,'P159')   as p159_headquarters_location
-    ,get_wdc_item_label(data,'P238')   as p238_iata_airport
+    ,get_wdc_value(data,'P238')   as p238_iata_airport
     ,get_wdc_item_label(data,'P2959')  as p2959_permanent_dupl
 
     ,get_wdc_population(data, 'P1082') as p1082_population 
@@ -88,6 +88,10 @@ select
     ,get_wdc_date(data, 'P582')    as p582_end_time
     ,get_wdc_date(data, 'P571')    as p571_incepion_date
     ,get_wdc_date(data, 'P576')    as p576_dissolved_date
+
+    -- for airpots / campus
+    ,get_wdc_value(data,'P239')         as p239_icao_airport
+    ,get_wdc_item_label(data,'P931')    as p931_place_served
 
 FROM wd.wdx
 

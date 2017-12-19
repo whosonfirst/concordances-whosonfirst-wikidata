@@ -83,8 +83,8 @@ AS $$
     with cebu_calc as      
     (
         SELECT sum(    
-        case when site in ( 'enwiki','dewiki','ptwiki','eswiki','ruwiki','frwiki','nlwiki')   then 10
-                when site in ( 'svwiki','shwiki' )   then  3
+        case when site in ( 'enwiki','dewiki','ptwiki','eswiki','ruwiki','frwiki','nlwiki','rowiki')   then 10
+                when site in ( 'svwiki','shwiki' )   then  4
                 when site in ( 'cebwiki')            then -9      
                                                      else  5
         end
@@ -398,7 +398,7 @@ AS $$
 	from xwof_rec 
 	    ,jsonb_array_elements_text(wof_jvalue) with ordinality as a(wof_value,wof_arrayorder)
 	where wof_jtype='array' and  ( wof_property ~ '^name:.*_x_(preferred|variant|colloquial|historical)' )
-    -- like 'name:%preferred'    
+                            and  ( wof_property not like 'name:ceb_%')
 	   ;
 $$;
 --select ( get_wof_name_array(properties)) from wf.wof_country limit 4;
@@ -412,6 +412,7 @@ LANGUAGE sql
 AS $$
    select   array_agg( distinct value->>'value' order by value->>'value' )
    FROM jsonb_each(data->'labels') as l 
+   WHERE l.value->>'language' != 'ceb'
    ;
 $$;
 -- select get_wd_name_array(data)  from wd.wdx limit 10;
@@ -424,6 +425,7 @@ LANGUAGE sql
 AS $$
    select   array_agg( distinct value->>'value' order by value->>'value' )
    FROM jsonb_each(data->'aliases') as l 
+   WHERE l.value->>'language' != 'ceb'
    ;
 $$;
 

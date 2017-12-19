@@ -5,11 +5,11 @@ Table for exporting wikidata claims to WOF
 
 ### filenames
 
-Filenames | expected size | description |
+Filenames |type | description |
 --------------------------| -----|  --- |
-`wd.wd_claims_validated.csv`	| 	199M	| csv export |
-`wd.wd_claims_validated.db`	  |	214M	  | sqlite3 format (csv export - imported to sqlite3) |
-`wd.wd_claims_validated.dbstruct.txt`	|	2.3K | struct of the `wd.wd_claims_validated.db` |
+`wd.wd_claims_validated.csv.gz`	| 	gzip | csv export |
+`wd.wd_claims_validated.db.gz`	  |	gzip	  | sqlite3 format (csv export - imported to sqlite3) |
+`wd.wd_claims_validated.dbstruct.txt`	|	normal txt | struct of the `wd.wd_claims_validated.db` |
 
 ### name convention
 

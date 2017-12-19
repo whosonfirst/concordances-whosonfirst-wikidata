@@ -11,11 +11,11 @@ Table for exporting wikidata labels as a (wof) "name:???_x_preferred"
 
 ### filenames
 
-Filenames | expected size | description |
+Filenames | type | description |
 --------------------------| -----|  --- |
-`wd.wd_names_preferred_validated.csv` | 923M| csv export |
-`wd.wd_names_preferred_validated.db`  |	1.0G| sqlite3 format (csv export - imported to sqlite3) |
-`wd.wd_names_preferred_validated.dbstruct.txt` |219| struct of the `wd.wd_names_preferred_validated.db` |
+`wd.wd_names_preferred_validated.csv.gz` | gzip | csv export |
+`wd.wd_names_preferred_validated.db.gz`  |	gzip | sqlite3 format (csv export - imported to sqlite3) |
+`wd.wd_names_preferred_validated.dbstruct.txt` |normal txt| struct of the `wd.wd_names_preferred_validated.db` |
 
 
 

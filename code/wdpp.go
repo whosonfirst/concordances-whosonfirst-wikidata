@@ -417,6 +417,12 @@ func WikidataJsonClean(content []byte) []byte {
 		newProperties := []Property{}
 		for _, v := range aProperty {
 			keep := true
+			if v.Mainsnak.Snaktype == "novalue" {
+				// some claims has "no value"  - so we don't import them.
+				// example:  https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q36823    P16   snaktype": "novalue"  ( No de jure Capital)
+				keep = false
+			}
+
 			for _, qv := range v.Qualifiers {
 				for _, qvi := range qv {
 					//  If has "P582 - end time" - we don't keep and don't load to Postgres

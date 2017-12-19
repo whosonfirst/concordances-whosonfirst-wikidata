@@ -190,6 +190,13 @@ time parallel  --results ${outputdir}/joblog04  -k < /wof/code/parallel_joblist_
 time parallel  --results ${outputdir}/joblog05  -k < /wof/code/parallel_joblist_05_country_reporting.sh
 
 
+echo "-----------------------------------------------------------"
+echo "### Gzip other big files:"
+gzip wof_disambiguation_report.csv
+gzip wof_extreme_distance_report.csv
+gzip wof_wd_redirects_report.csv
+
+
 ls ${outputdir}/* -la
 
 echo "----------------------------------------------------------"

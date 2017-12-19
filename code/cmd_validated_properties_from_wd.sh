@@ -55,3 +55,6 @@ EOF
 ls -la  ${outputdir}/${target_table}.db
 
 sqlite3  ${outputdir}/${target_table}.db  "PRAGMA table_info( ${target_sqlite3_table})" > ${outputdir}/${target_table}.dbstruct.txt
+
+gzip ${outputdir}/${target_table}.csv
+gzip ${outputdir}/${target_table}.db

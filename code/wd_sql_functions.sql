@@ -14,7 +14,10 @@ select   wof.wd_id
 from wf.wof_country as wof
 where is_superseded=0 and is_deprecated=0
 ;
--- TODO UPDATE
+-- quick fix :  Update Norway - now: Q11965730  -> should be 'Q20' ;  
+update codes.wd2country set wd_id='Q20' WHERE wof_country='NO' ;
+
+---
 CREATE UNIQUE INDEX  ON codes.wd2country (wd_id)        WITH (fillfactor = 100);
 CREATE UNIQUE INDEX  ON codes.wd2country (wof_country)  WITH (fillfactor = 100);    
 ANALYSE codes.wd2country;

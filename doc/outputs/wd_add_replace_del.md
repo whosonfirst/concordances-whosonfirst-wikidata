@@ -9,14 +9,14 @@ Result tables for suggesting wikidata ids.
 ### filenames
 
 Filenames |  description |
---------------------------| -----|  --- |
+--------------------------| ----  |
 `wfwd.wof_notfound_list_del.csv.gz`     | wof id + old wikidataid  :  ` where _matching_category like 'Notfound:DEL%'` |
 `wfwd.wof_notfound_list_del.db.gz`      |	csv - converted to sqlite3 |
 `wfwd.wof_notfound_list_del.dbstruct.txt` |  columns |
-`wfwd.wof_validated_suggested_list_ok_add.csv.gz`  | wof id + new wikidataid  : `where _matching_category like 'OK-ADD:%' `  
+`wfwd.wof_validated_suggested_list_ok_add.csv.gz`  | wof id + new wikidataid  : `where _matching_category like 'OK-ADD:%' `  |
 `wfwd.wof_validated_suggested_list_ok_add.db.gz` | csv - converted to sqlite3  |
 `wfwd.wof_validated_suggested_list_ok_add.dbstruct.txt` | columns|
-`wfwd.wof_validated_suggested_list_ok_rep.csv.gz` | wof id + new wikidataid  : `where  _matching_category like 'OK-REP:%' `
+`wfwd.wof_validated_suggested_list_ok_rep.csv.gz` | wof id + new wikidataid  : `where  _matching_category like 'OK-REP:%' `|
 `wfwd.wof_validated_suggested_list_ok_rep.db.gz` | csv - converted to sqlite3  |
 `wfwd.wof_validated_suggested_list_ok_rep.dbstruct.txt` | columns|
 

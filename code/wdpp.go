@@ -419,7 +419,7 @@ func WikidataJsonClean(content []byte) []byte {
 			keep := true
 			if v.Mainsnak.Snaktype == "novalue" {
 				// some claims has "no value"  - so we don't import them.
-				// example:  https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q36823    P16   snaktype": "novalue"  ( No de jure Capital)
+				// example:  https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q36823    P36   snaktype": "novalue"  ( No de jure Capital)
 				keep = false
 			}
 

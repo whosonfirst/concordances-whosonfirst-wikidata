@@ -114,8 +114,8 @@ echo """
     order by id
     ;
 
-    CREATE INDEX  ON   wfwd.wof_validated_suggested_list (wd_id)    WITH (fillfactor = 100);
-    CREATE INDEX  ON   wfwd.wof_validated_suggested_list (id)       WITH (fillfactor = 100);
+    CREATE          INDEX  ON   wfwd.wof_validated_suggested_list (wd_id)    WITH (fillfactor = 100);
+    CREATE UNIQUE   INDEX  ON   wfwd.wof_validated_suggested_list (id)       WITH (fillfactor = 100);
 
     ANALYSE  wfwd.wof_validated_suggested_list ;
 
@@ -129,8 +129,59 @@ echo """
     where wd_id in ( select wd_id from dups)
     order by wd_id,id; 
     ANALYSE  wfwd.wof_validated_suggested_list_problems ;
+
+
+    create or replace view    wfwd.wof_validated_suggested_list_ok_add
+    as select * from wfwd.wof_validated_suggested_list where  _matching_category like 'OK-ADD:%'  order by id ;
+
+    create or replace view    wfwd.wof_validated_suggested_list_ok_rep
+    as select * from wfwd.wof_validated_suggested_list where  _matching_category like 'OK-REP:%'  order by id;
+
     --
 """ | psql -e
+
+
+/wof/code/cmd_export_tables.sh  wfwd.wof_validated_suggested_list_ok_add
+/wof/code/cmd_export_tables.sh  wfwd.wof_validated_suggested_list_ok_rep
+
+echo """
+    --
+    drop table if exists    wfwd.wof_notfound_list_del CASCADE;
+    CREATE UNLOGGED TABLE   wfwd.wof_notfound_list_del  as
+    select * 
+    from 
+        (         select id, 'wof_locality'   as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mlocality_wof_match_notfound
+        union all select id, 'wof_country'    as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mcountry_wof_match_notfound
+        union all select id, 'wof_county'     as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mcounty_wof_match_notfound            
+        union all select id, 'wof_region'     as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mregion_wof_match_notfound
+        union all select id, 'wof_dependency' as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mdependency_wof_match_notfound
+
+        union all select id, 'wof_disputed'      as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mdisputed_wof_match_notfound
+        union all select id, 'wof_macroregion'   as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mmacroregion_wof_match_notfound
+        union all select id, 'wof_macrocounty'   as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mmacrocounty_wof_match_notfound
+        union all select id, 'wof_localadmin'    as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mlocaladmin_wof_match_notfound
+        union all select id, 'wof_campus'        as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mcampus_wof_match_notfound                        
+
+        union all select id, 'wof_borough'       as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mborough_wof_match_notfound
+        union all select id, 'wof_macrohood'     as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mmacrohood_wof_match_notfound
+        union all select id, 'wof_neighbourhood' as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mneighbourhood_wof_match_notfound
+        union all select id, 'wof_microhood'     as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mmicrohood_wof_match_notfound
+        union all select id, 'wof_planet'        as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mplanet_wof_match_notfound                        
+
+        union all select id, 'wof_continent'     as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mcontinent_wof_match_notfound
+        union all select id, 'wof_ocean'         as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mocean_wof_match_notfound
+        union all select id, 'wof_timezone'      as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mtimezone_wof_match_notfound
+        union all select id, 'wof_marinearea'    as metatable, wof_name,wof_country, wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mmarinearea_wof_match_notfound          
+        ) t  
+    where _matching_category like 'Notfound:DEL%'  -- Starting with 
+    order by id
+    ;
+    CREATE UNIQUE INDEX  ON   wfwd.wof_notfound_list_del (id)       WITH (fillfactor = 100);
+    ANALYSE  wfwd.wof_notfound_list_del ;
+
+""" | psql -e
+
+/wof/code/cmd_export_tables.sh   wfwd.wof_notfound_list_del
 
 
 # parallel processing  ..

@@ -8,6 +8,7 @@ with x AS (
             ,get_wdlabeltext(wd_id)     as wd_name_en
             ,(regexp_split_to_array( get_wdlabeltext(wd_id), '[,()]'))[1]   as wd_name_en_clean
             ,is_cebuano(data)                       as wd_is_cebuano
+            ,check_number(get_wdlabeltext(wd_id)) as wd_name_has_num
             ,get_wdc_value(data, 'P1566')           as p1566_geonames    
             ,ST_SetSRID(ST_MakePoint( 
                         cast(get_wdc_globecoordinate(data,'P625')->0->>'longitude' as double precision)
@@ -46,6 +47,7 @@ CREATE UNLOGGED TABLE         wfwd.wof_match_disputed  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name
+    ,check_number(wof.properties->>'wof:name')  as wof_name_has_num
     ,nameclean(wof.properties->>'wof:name')  as una_wof_name
     ,wof.properties->>'wof:country'         as wof_country
     ,wof.wd_id                              as wof_wd_id

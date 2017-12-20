@@ -10,6 +10,7 @@ with c as
      wd_id
     ,get_wdlabeltext(wd_id) as wd_name_en
     ,get_wdlabeltext(wd_id) as wd_name_en_clean
+    ,check_number(get_wdlabeltext(wd_id)) as wd_name_has_num
     ,nameclean(get_wdlabeltext(wd_id))   as una_wd_name_en_clean
 
     ,get_wdc_item_label(data,'P31')    as p31_instance_of
@@ -67,6 +68,7 @@ CREATE UNLOGGED TABLE         wfwd.wof_match_country  as
 select
      wof.id
     ,wof.properties->>'wof:name'            as wof_name
+    ,check_number(wof.properties->>'wof:name')  as wof_name_has_num
     ,nameclean(wof.properties->>'wof:name')  as una_wof_name
     ,wof.properties->>'wof:country'         as wof_country
     ,wof.wd_id                              as wof_wd_id

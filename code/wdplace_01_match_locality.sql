@@ -30,8 +30,9 @@ with x AS (
         where a_wof_type && ARRAY['locality']  and a_wof_type && ARRAY['hasP625']    
     )
     SELECT *
-          , nameclean(wd_name_en_clean) as una_wd_name_en_clean
+          , nameclean(wd_name_en_clean)          as una_wd_name_en_clean
           , CDB_TransformToWebmercator(wd_point) as wd_point_merc
+          , check_number(wd_name_en)             as wd_name_has_num
     FROM x
     WHERE wd_id != wd_name_en
       and wd_point is not null
@@ -52,8 +53,9 @@ drop table if exists    wfwd.wof_match_locality CASCADE;
 create UNLOGGED table   wfwd.wof_match_locality  as
 select
      wof.id
-    ,wof.properties->>'wof:name'            as wof_name
-    ,nameclean(wof.properties->>'wof:name')  as una_wof_name
+    ,wof.properties->>'wof:name'                as wof_name
+    ,nameclean(wof.properties->>'wof:name')     as una_wof_name
+    ,check_number(wof.properties->>'wof:name')  as wof_name_has_num
     ,wof.properties->>'wof:country'         as wof_country
     ,wof.wd_id                              as wof_wd_id
     ,get_wof_name_array(wof.properties)     as wof_name_array
@@ -83,7 +85,7 @@ CREATE INDEX  ON wfwd.wof_match_locality  USING GIST(wof_geom_merc) ;
 \set safedistance    50000
 \set searchdistance 100003
 
-\set mcond1     (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (  wof_name_array && wd_altname_array ) or (wd_concordances_array && wof_concordances_array) or (jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.971 ) )
+\set mcond1  (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (  wof_name_array && wd_altname_array ) or (wd_concordances_array && wof_concordances_array) or (xxjarowinkler(wof.wof_name_has_num,wd.wd_name_has_num, wof.una_wof_name, wd.una_wd_name_en_clean)>.971 ) )
 \set mcond2  and (ST_DWithin ( wd.wd_point_merc, wof.wof_geom_merc , :searchdistance ))
 \set mcond3
 

@@ -512,3 +512,30 @@ select
 $$
 ;
 -- select nameclean('Al-City') =  nameclean('Al - City') ;
+
+
+
+CREATE OR REPLACE FUNCTION check_number(mytext text)
+-- check roman numbers to (1-32)  or any arab number  
+RETURNS BOOLEAN
+IMMUTABLE STRICT PARALLEL SAFE
+LANGUAGE sql
+AS $$
+    SELECT ( mytext ~ '[0-9]' )
+         or (mytext ~ '\y(I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX|XXI|XXII|XXIII|XXIV|XXV|XXVI|XXVII|XXVIII|XXIX|XXX|XXXI|XXXII)\y' )
+;
+$$;
+
+
+CREATE OR REPLACE FUNCTION xxjarowinkler( text1_has_num BOOLEAN,text2_has_num BOOLEAN, simpl_text1 text, simpl_text2 text)
+-- only check jarowinkler if not contains any number ...
+RETURNS float8
+IMMUTABLE STRICT PARALLEL SAFE
+LANGUAGE sql
+AS $$
+    SELECT
+    case  when (not text1_has_num) and (not text2_has_num ) 
+                then jarowinkler(simpl_text1,simpl_text2)
+                else 0
+    end
+$$;

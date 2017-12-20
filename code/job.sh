@@ -87,28 +87,28 @@ echo """
     CREATE UNLOGGED TABLE         wfwd.wof_validated_suggested_list  as
     select * 
     from 
-        (         select id, 'wof_locality'   as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mlocality_wof_match_agg
-        union all select id, 'wof_country'    as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mcountry_wof_match_agg
-        union all select id, 'wof_county'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mcounty_wof_match_agg            
-        union all select id, 'wof_region'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mregion_wof_match_agg
-        union all select id, 'wof_dependency' as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mdependency_wof_match_agg
+        (         select id, 'wof_locality'   as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mlocality_wof_match_agg
+        union all select id, 'wof_country'    as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mcountry_wof_match_agg
+        union all select id, 'wof_county'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mcounty_wof_match_agg            
+        union all select id, 'wof_region'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mregion_wof_match_agg
+        union all select id, 'wof_dependency' as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mdependency_wof_match_agg
 
-        union all select id, 'wof_disputed'      as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mdisputed_wof_match_agg
-        union all select id, 'wof_macroregion'   as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mmacroregion_wof_match_agg
-        union all select id, 'wof_macrocounty'   as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mmacrocounty_wof_match_agg
-        union all select id, 'wof_localadmin'    as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mlocaladmin_wof_match_agg
-        union all select id, 'wof_campus'        as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mcampus_wof_match_agg                        
+        union all select id, 'wof_disputed'      as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mdisputed_wof_match_agg
+        union all select id, 'wof_macroregion'   as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mmacroregion_wof_match_agg
+        union all select id, 'wof_macrocounty'   as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mmacrocounty_wof_match_agg
+        union all select id, 'wof_localadmin'    as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mlocaladmin_wof_match_agg
+        union all select id, 'wof_campus'        as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mcampus_wof_match_agg                        
 
-        union all select id, 'wof_borough'       as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mborough_wof_match_agg
-        union all select id, 'wof_macrohood'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mmacrohood_wof_match_agg
-        union all select id, 'wof_neighbourhood' as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mneighbourhood_wof_match_agg
-        union all select id, 'wof_microhood'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mmicrohood_wof_match_agg
-        union all select id, 'wof_planet'        as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mplanet_wof_match_agg                        
+        union all select id, 'wof_borough'       as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mborough_wof_match_agg
+        union all select id, 'wof_macrohood'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mmacrohood_wof_match_agg
+        union all select id, 'wof_neighbourhood' as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mneighbourhood_wof_match_agg
+        union all select id, 'wof_microhood'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mmicrohood_wof_match_agg
+        union all select id, 'wof_planet'        as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mplanet_wof_match_agg                        
 
-        union all select id, 'wof_continent'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mcontinent_wof_match_agg
-        union all select id, 'wof_ocean'         as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mocean_wof_match_agg
-        union all select id, 'wof_timezone'      as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mtimezone_wof_match_agg
-        union all select id, 'wof_marinearea'    as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id, _matching_category,a_wof_type from wfwd.wd_mmarinearea_wof_match_agg          
+        union all select id, 'wof_continent'     as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mcontinent_wof_match_agg
+        union all select id, 'wof_ocean'         as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mocean_wof_match_agg
+        union all select id, 'wof_timezone'      as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mtimezone_wof_match_agg
+        union all select id, 'wof_marinearea'    as metatable, wof_name,wof_country, coalesce(_suggested_wd_id,wof_wd_id) as wd_id,wof_wd_id, _matching_category,a_wof_type from wfwd.wd_mmarinearea_wof_match_agg          
         ) t  
     where substr(_matching_category,1,2) ='OK'  --   // 'validated' + 'suggested'  
     order by id

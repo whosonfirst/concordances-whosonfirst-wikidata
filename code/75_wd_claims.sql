@@ -92,6 +92,7 @@ select
     -- for airpots / campus
     ,get_wdc_value(data,'P239')         as p239_icao_airport
     ,get_wdc_item_label(data,'P931')    as p931_place_served
+    ,get_wdc_value(data,'P240')         as p240_faa_airport
 
 FROM wd.wdx
 

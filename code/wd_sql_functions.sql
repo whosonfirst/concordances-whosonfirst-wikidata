@@ -454,9 +454,9 @@ $$
     )
          ,jsonb_arr2distinct_textarr(get_wdc_value(data, 'P901'),'fips:code:') 
     )
-         ,jsonb_arr2distinct_textarr(get_wdc_value(data, 'P238'),'iata:') 
+         ,jsonb_arr2distinct_textarr(get_wdc_value(data, 'P238'),'iata:code') 
     )
-         ,jsonb_arr2distinct_textarr(get_wdc_value(data, 'P239'),'icao:') 
+         ,jsonb_arr2distinct_textarr(get_wdc_value(data, 'P239'),'icao:code') 
     )        
 $$
 ;
@@ -484,10 +484,10 @@ $$
     select 
     array_remove(
     ARRAY[
-          get_wof_concordances_element(properties,'fips:code','fips:code:' )
-        , get_wof_concordances_element(properties,'gn:id'    ,'gn:id:'     )
-        , get_wof_concordances_element(properties,'iata'     ,'iata:'      )
-        , get_wof_concordances_element(properties,'icao'     ,'icao:'      )
+          get_wof_concordances_element(properties,'fips:code','fips:code:')
+        , get_wof_concordances_element(properties,'gn:id'     ,'gn:id:'   )
+        , get_wof_concordances_element(properties,'iata:code' ,'iata:code'    )
+        , get_wof_concordances_element(properties,'icao:code' ,'icao:code'    )
         ]
     ,
     null)

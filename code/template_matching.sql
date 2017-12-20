@@ -9,7 +9,7 @@ EXPLAIN ANALYZE CREATE UNLOGGED TABLE          :wd_wof_match  as
                when wof.una_wof_name = wd.una_wd_name_en_clean then 'N3Unaccent-name-match'
                when wof_name_array && wd_name_array            then 'N2Label-name-match'
                when wof_name_array && wd_altname_array         then 'N4Alias-name-match'
-               when jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.971   then 'N5JaroWinkler-match'
+               when xxjarowinkler(wof.wof_name_has_num,wd.wd_name_has_num, wof.una_wof_name, wd.una_wd_name_en_clean)>.971   then 'N5JaroWinkler-match'
                when (wd_concordances_array && wof_concordances_array) then 'N6only-Concordances-match'
                                                                else 'Nerr??-checkme-'
          end as  _name_match_type    
@@ -121,7 +121,7 @@ extrdist as (
                when wof.una_wof_name = wd.una_wd_name_en_clean then 'N3Unaccent-name-match'
                when wof_name_array && wd_name_array            then 'N2Label-name-match'
                when wof_name_array && wd_altname_array         then 'N4Alias-name-match'
-               when jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.971   then 'N5JaroWinkler-match'
+               when xxjarowinkler(wof.wof_name_has_num,wd.wd_name_has_num, wof.una_wof_name, wd.una_wd_name_en_clean)>.971   then 'N5JaroWinkler-match'
                when (wd_concordances_array && wof_concordances_array) then 'N6only-Concordances-match'
                                                                else 'Nerr??-checkme-'
          end as  _name_match_type   

@@ -88,7 +88,7 @@ CREATE INDEX ON  wfwd.wof_match_county  USING GIST(wof_geom_merc);
 \set wd_wof_match_notfound    wfwd.wd_mcounty_wof_match_notfound
 
 \set mcond1  ( wof.wof_country  = wd.wd_country )
-\set mcond2  and (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (wd_concordances_array && wof_concordances_array) or (wof_name_array && wd_altname_array ) or (jarowinkler(wof.una_wof_name, wd.una_wd_name_en_clean)>.971 ) )
+\set mcond2  and (( wof.una_wof_name = wd.una_wd_name_en_clean ) or (wof_name_array && wd_name_array ) or (wd_concordances_array && wof_concordances_array) or (wof_name_array && wd_altname_array ) or (xxjarowinkler(wof.wof_name_has_num,wd.wd_name_has_num, wof.una_wof_name, wd.una_wd_name_en_clean)>.971 ) )
 \set mcond3  and (ST_DWithin ( wd.wd_point_merc, wof.wof_geom_merc , :searchdistance ))
 
 \ir 'template_matching.sql'

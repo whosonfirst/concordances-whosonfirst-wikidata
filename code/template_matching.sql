@@ -136,13 +136,13 @@ extrdist as (
 
 select 
     case    when old_is_disambiguation=1                                     then 'Notfound:DEL-Disambiguation'
-            when old_is_redirected=1                                         then 'Notfound:DEL-Redirected'           
+            when old_is_redirected=1                                         then 'MAYBE:Notfound:Redirected'           
             when old_is_extreme_distance=1   and  old_ext_distance_km >=1500 then 'Notfound:DEL-Extreme distance 1500-    km'    
             when old_is_extreme_distance=1   and  old_ext_distance_km >=700  then 'Notfound:DEL-Extreme distance  700-1500km'
             when old_is_extreme_distance=1   and  old_ext_distance_km >=400  then 'Notfound:DEL-Extreme distance  400- 700km'
             when old_is_extreme_distance=1   and  old_ext_distance_km >=200  then 'Notfound:DEL-Extreme distance  200- 400km'
-            when old_is_extreme_distance=1   and  old_ext_distance_km >=50   then 'Notfound:DEL-Extreme distance   50- 200km'  
-            when _old_distance is null and  substr(wof_wd_id,1,1) = 'Q'      then 'Notfound:DEL-Current Wikidataid without coordinate'             
+            when old_is_extreme_distance=1   and  old_ext_distance_km >=50   then 'MAYBE:Notfound:Extreme distance 50- 200km'  
+            when _old_distance is null and  substr(wof_wd_id,1,1) = 'Q'      then 'MAYBE:Notfound:Current Wikidataid without coordinate'             
             when _old_distance is not null                                   then 'MAYBE:Notfound-has wikidata, distance is near'              
                                     
                                               else 'Notfound: no wikidaid'

@@ -16,7 +16,7 @@ echo "======== parse wikidataid_redirects ==========="
 
 cat /wof/wikidata_dump/wikidata_redirects.csv | go run ./code/wdredirect_wofparse.go             > /wof/wikidata_dump/wikidata_redirects_filtered.csv
 echo """
-    -- import 
+    -- import
     CREATE SCHEMA IF NOT EXISTS wd;
     DROP TABLE IF EXISTS wd.wd_redirects CASCADE;
     CREATE UNLOGGED TABLE wd.wd_redirects (wd_from text , wd_to text );
@@ -29,24 +29,36 @@ cat /wof/whosonfirst-data/wd.txt                                        | sed 's
 
 
 echo "======== parse start: wikidata_dump/latest-all.json.gz ==========="
-time go run /wof/code/wdpp.go 
+time go run /wof/code/wdpp.go /wof/wikidata_dump/testx-all.json.gz
 echo "======== parse end: wikidata_dump/latest-all.json.gz ==========="
 
+psql -c	"CREATE UNIQUE INDEX wd_wdx_wd_id       ON  wd.wdx(wd_id) 	   WITH (fillfactor = 100) ; " &
+psql -c	"CREATE UNIQUE INDEX wdlabels_en_wd_id  ON  wdlabels.en(wd_id) WITH (fillfactor = 100) ; " &
+wait
 
-psql -c	"CREATE UNIQUE INDEX  ON  wd.wdx(wd_id) 	                        WITH (fillfactor = 100) ; " &
-psql -c	"CREATE        INDEX  ON  wd.wdx             USING GIN( a_wof_type )                        ; " &                      
-psql -c	"CREATE UNIQUE INDEX  ON  wdlabels.en(wd_id)                        WITH (fillfactor = 100) ; " &
+psql -c	"CLUSTER   wdlabels.en  USING  wdlabels_en_wd_id ; " &
+psql -c	"CLUSTER   wd.wdx       USING  wd_wdx_wd_id      ; " &
+wait
+
+psql -c	"CREATE INDEX ON  wd.wdx USING GIN( a_wof_type ) ; " &
+psql -c	"CREATE INDEX ON  wd.wdx USING GIST( geom )      ; " &
+wait 
+
+psql -c	"ALTER TABLE  wdlabels.en  SET LOGGED  ; " &
+psql -c	"ALTER TABLE  wd.wdx       SET LOGGED  ; " &
+wait
+
+psql -c	"ANALYSE wdlabels.en;" &
+psql -c	"ANALYSE wd.wdx     ;" &
 wait 
 
 
-# psql -c	"ANALYSE wdlabels.en;"                                                              
-# psql -c	"ANALYSE wd.wdx;"          
 
 echo """
     --
-    SELECT a_wof_type, count(*) as N FROM wd.wdx GROUP BY a_wof_type;                   --&
+    SELECT a_wof_type, count(*) as N FROM wd.wdx GROUP BY a_wof_type;
     --
-    \d+ wd.wdx  
+    \d+ wd.wdx
 """ | psql -e
 
 echo "-- end --"

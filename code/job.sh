@@ -56,6 +56,7 @@ echo """
     CREATE SCHEMA IF NOT EXISTS wf;
     CREATE SCHEMA IF NOT EXISTS ne;
     CREATE SCHEMA IF NOT EXISTS gn;
+    CREATE SCHEMA IF NOT EXISTS newd;
     CREATE SCHEMA IF NOT EXISTS wfwd;
     CREATE SCHEMA IF NOT EXISTS wfne;
     CREATE SCHEMA IF NOT EXISTS wfgn;
@@ -256,9 +257,7 @@ echo """
     select * from wfwd.wd_mmarinearea_wof_match_agg_summary_pct;
 
     --
-""" | psql -e > ${outputdir}/_____________summary__________________.txt
-
-
+""" | psql -e > ${outputdir}/_________wof_summary__________________.txt
 
 xlsxname=${outputdir}/wof_validated_suggested_list_problems.xlsx
 rm -f ${xlsxname}
@@ -266,5 +265,55 @@ pgclimb -o ${xlsxname} \
     -c "SELECT * FROM  wfwd.wof_validated_suggested_list_problems;" \
     xlsx --sheet "multiple_matches"
 
-date -u > ${outputdir}/_____________finished__________________.txt
+date -u >       ${outputdir}/_________wof_finished__________________.txt
+
+psql -e -f /wof/code/ne_01_match_lake.sql
+psql -e -f /wof/code/ne_02_match_river.sql
+psql -e -f /wof/code/ne_03_match_geography_marine_polys.sql
+psql -e -f /wof/code/ne_04_match_geography_regions_polys.sql
+psql -e -f /wof/code/ne_05_match_geography_regions_points.sql
+psql -e -f /wof/code/ne_06_match_geography_regions_elevation_points.sql
+psql -e -f /wof/code/ne_07_match_geographic_lines.sql
+psql -e -f /wof/code/ne_08_match_admin_1_states_provinces.sql
+psql -e -f /wof/code/ne_09_match_admin_0_map_subunits.sql
+psql -e -f /wof/code/ne_10_match_admin_0_disputed_areas.sql
+
+/wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_lake_match_agg
+/wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_lake_europe_match_agg
+/wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_lake_north_america_match_agg
+/wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_lake_historic_match_agg
+/wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_river_europe_match_agg
+/wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_river_north_america_match_agg
+/wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_river_lake_centerlines_match_agg
+/wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_geography_marine_polys_match_agg
+/wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_geography_regions_polys_match_agg
+/wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_geography_regions_points_match_agg
+/wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_geography_regions_elevation_points_match_agg
+/wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_geographic_lines_match_agg
+/wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_admin_1_states_provinces_match_agg
+/wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_admin_0_map_subunits_match_agg
+/wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_admin_0_disputed_areas_match_agg
+
+echo """
+    --
+select * from        newd.ne_wd_match_lake_match_agg_sum_pct  ;
+select * from        newd.ne_wd_match_lake_europe_match_agg_sum_pct  ;
+select * from        newd.ne_wd_match_lake_north_america_match_agg_sum_pct  ;
+select * from        newd.ne_wd_match_lake_historic_match_agg_sum_pct  ;
+select * from        newd.ne_wd_match_river_europe_match_agg_sum_pct  ;
+select * from        newd.ne_wd_match_river_north_america_match_agg_sum_pct  ;
+select * from        newd.ne_wd_match_river_lake_centerlines_match_agg_sum_pct  ;
+select * from        newd.ne_wd_match_geography_marine_polys_match_agg_sum_pct  ;
+select * from        newd.ne_wd_match_geography_regions_polys_match_agg_sum_pct  ;
+select * from        newd.ne_wd_match_geography_regions_points_match_agg_sum_pct  ;
+select * from        newd.ne_wd_match_geography_regions_elevation_points_match_agg_sum_pct  ;
+select * from        newd.ne_wd_match_geographic_lines_match_agg_sum_pct  ;
+select * from        newd.ne_wd_match_admin_1_states_provinces_match_agg_sum_pct  ;
+select * from        newd.ne_wd_match_admin_0_map_subunits_match_agg_sum_pct  ;
+select * from        newd.ne_wd_match_admin_0_disputed_areas_match_agg_sum_pct  ;
+    --
+""" | psql -e > ${outputdir}/_________ne_summary__________________.txt
+
 echo "========== END OF job.sh log ============== "
+
+

@@ -8,6 +8,7 @@ package main
 import (
 	"bufio"
 	"database/sql"
+	"database/sql/driver"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -22,6 +23,25 @@ import (
 	"github.com/miku/parallel"
 	"github.com/tidwall/gjson"
 )
+
+const pgoutput = true
+
+type GisPoint struct {
+	Lng  float64
+	Lat  float64
+	Null bool
+}
+
+func (p *GisPoint) String() string {
+	return fmt.Sprintf("SRID=4326;POINT(%v %v)", p.Lng, p.Lat)
+}
+func (p GisPoint) Value() (driver.Value, error) {
+	if !p.Null {
+		return p.String(), nil
+	} else {
+		return nil, nil
+	}
+}
 
 type SafeCounter struct {
 	v   uint64
@@ -45,6 +65,7 @@ var blacklist wdType
 var qre *regexp.Regexp
 
 func init() {
+
 	qre = regexp.MustCompile("^Q[0-9]+$")
 
 	wofCsvDefinitions := map[string]string{
@@ -66,6 +87,19 @@ func init() {
 		"timezone":      "/wof/code/wikidata_timezone.csv",
 		"disputed":      "/wof/code/wikidata_disputed.csv",
 		"macroregion":   "/wof/code/wikidata_macroregion.csv",
+
+		// for Natural Earth
+		"mountain":  "/wof/code/wikidata_mountain.csv",
+		"island":    "/wof/code/wikidata_island.csv",
+		"desert":    "/wof/code/wikidata_desert.csv",
+		"basin":     "/wof/code/wikidata_basin.csv",
+		"cape":      "/wof/code/wikidata_cape.csv",
+		"lake":      "/wof/code/wikidata_lake.csv",
+		"river":     "/wof/code/wikidata_river.csv",
+		"dam":       "/wof/code/wikidata_dam.csv",
+		"waterfall": "/wof/code/wikidata_waterfall.csv",
+		"pole":      "/wof/code/wikidata_pole.csv",
+		"circle":    "/wof/code/wikidata_circle.csv",
 	}
 
 	wofdef = make(map[string]wdType, len(wofCsvDefinitions))
@@ -124,14 +158,14 @@ func main() {
 	createTableStr_wd := []string{
 		"CREATE SCHEMA IF NOT EXISTS wd;",
 		"DROP TABLE IF EXISTS wd.wdx CASCADE;",
-		"CREATE UNLOGGED TABLE wd.wdx (wd_id TEXT, a_wof_type TEXT[], data JSONB );",
+		"CREATE UNLOGGED TABLE wd.wdx (wd_id TEXT , wd_label TEXT NOT NULL, a_wof_type TEXT[] NOT NULL, geom geometry(Point, 4326) NULL, data JSONB NOT NULL );",
 	}
 	for _, str := range createTableStr_wd {
 		fmt.Println("executing:", str)
 		_, err := txn_wd.Exec(str)
 		checkErr(err)
 	}
-	stmt_wd, err := txn_wd.Prepare(pq.CopyInSchema("wd", "wdx", "wd_id", "a_wof_type", "data"))
+	stmt_wd, err := txn_wd.Prepare(pq.CopyInSchema("wd", "wdx", "wd_id", "wd_label", "a_wof_type", "geom", "data"))
 	checkErr(err)
 
 	//
@@ -145,7 +179,7 @@ func main() {
 	createTableStr_label := []string{
 		"CREATE SCHEMA IF NOT EXISTS wdlabels;",
 		"DROP TABLE IF EXISTS wdlabels.en CASCADE;",
-		"CREATE UNLOGGED TABLE wdlabels.en (wd_id TEXT, wd_label TEXT );",
+		"CREATE UNLOGGED TABLE wdlabels.en (wd_id TEXT NOT NULL, wd_label TEXT );",
 	}
 	for _, str := range createTableStr_label {
 		fmt.Println("executing:", str)
@@ -157,7 +191,11 @@ func main() {
 	//
 	// gz input definition
 	//
-	filename := "/wof/wikidata_dump/latest-all.json.gz"
+	filename := "/wof/wikidata_dump/latest-all.json.gz" // default filename
+	if len(os.Args) > 1 {
+		filename = os.Args[1]
+	}
+
 	fmt.Println("Start .. reading:", filename)
 	file, err := os.Open(filename)
 	checkErr(err)
@@ -188,8 +226,10 @@ func main() {
 			wdlabel = wdid
 		}
 
-		_, err = stmt_label.Exec(wdid, wdlabel)
-		checkErr(err)
+		if pgoutput {
+			_, err = stmt_label.Exec(wdid, wdlabel)
+			checkErr(err)
+		}
 
 		match := pq.StringArray{}
 
@@ -242,14 +282,16 @@ func main() {
 			match = append(match, "P1336")
 		}
 
-		// check territory claimed by ; P1310
+		// check statement disputed by ; P1310
 		if gjson.GetBytes(b, "claims.P17.#[rank!=deprecated].qualifiers.P1310").Exists() {
 			match = append(match, "P1310")
 		}
 
-		// log
-		if (c.v % 100000) == 0 {
-			fmt.Println("..processing:", c.v, "   wdid:", wdid, wdlabel)
+		if pgoutput {
+			// log
+			if (c.v % 100000) == 0 {
+				fmt.Println("..processing:", c.v, "   wdid:", wdid, wdlabel)
+			}
 		}
 
 		if len(match) > 0 {
@@ -278,12 +320,51 @@ func main() {
 				match = append(match, "hasP1566")
 			}
 
-			// check territory claimed by ; P625
-			if gjson.GetBytes(b, "claims.P625.#[rank!=deprecated]").Exists() {
+			// check coordinate location ; P625
+			p625 := gjson.Get(string(b), "claims.P625.#[rank!=deprecated]#").
+				Get("#[mainsnak.datavalue.type==globecoordinate]#").
+				Get("#[mainsnak.datavalue.value.globe==http://www.wikidata.org/entity/Q2]#").
+				Get("#[mainsnak.snaktype==value]#")
+
+			//p := wkb.Point{geom.NewPoint(geom.XY).MustSetCoords(geom.Coord{0.1275, 51.50722})}
+
+			//2/26 00:48:47 sql: converting argument $3 type: unsupported type geom.Point, a struct
+			//p := geom.NewPoint(geom.XY).MustSetCoords(geom.Coord{-122.082506, 37.4249518})
+			//loc := geom.NewPoint(geom.XY).MustSetCoords(geom.Coord{0.1275, 51.50722})
+			//fmt.Println("loc:::", loc)
+
+			gp := new(GisPoint)
+			gp.Null = true
+
+			if p625.Exists() {
 				match = append(match, "hasP625")
-				// write to postgres
-				_, err = stmt_wd.Exec(wdid, match, string(WikidataJsonClean(b)))
-				checkErr(err)
+				//fmt.Println(wdid, `p625`, p625.String())
+
+				p625latitude := p625.Get(`#[rank==preferred].mainsnak.datavalue.value.latitude`)
+
+				if p625latitude.Exists() {
+					p625longitude := p625.Get(`#[rank==preferred].mainsnak.datavalue.value.longitude`)
+
+					gp = &GisPoint{Lng: p625longitude.Float(), Lat: p625latitude.Float(), Null: false}
+					//fmt.Println(wdid, `rank=preferred`, p625latitude, p625longitude)
+
+				} else {
+					p625latitude := p625.Get(`#[rank==normal].mainsnak.datavalue.value.latitude`)
+
+					if p625latitude.Exists() {
+						p625longitude := p625.Get(`#[rank==normal].mainsnak.datavalue.value.longitude`)
+						gp = &GisPoint{Lng: p625longitude.Float(), Lat: p625latitude.Float(), Null: false}
+						//fmt.Println(wdid, `rank=normal`, p625latitude, p625longitude)
+					}
+				}
+
+				if pgoutput {
+					// write to postgres
+					_, err = stmt_wd.Exec(wdid, wdlabel, match, gp, string(WikidataJsonClean(b)))
+					checkErr(err)
+				} else {
+					return append(WikidataJsonClean(b), '\n'), nil
+				}
 			} else {
 				if len(match) == 1 && (match[0] == "locality" || match[0] == "marinearea" || match[0] == "county") {
 					// skip - lot of items without coordinate.
@@ -292,9 +373,13 @@ func main() {
 					// {marinearea} without coordinate 		= 282329
 					// {county}	without coordinate 			=  12335
 				} else {
-					// write to postgres
-					_, err = stmt_wd.Exec(wdid, match, string(WikidataJsonClean(b)))
-					checkErr(err)
+					if pgoutput {
+						// write to postgres
+						_, err = stmt_wd.Exec(wdid, wdlabel, match, gp, string(WikidataJsonClean(b)))
+						checkErr(err)
+					} else {
+						return append(WikidataJsonClean(b), '\n'), nil
+					}
 				}
 			}
 

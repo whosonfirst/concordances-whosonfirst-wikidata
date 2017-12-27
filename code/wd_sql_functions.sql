@@ -426,10 +426,9 @@ RETURNS text[]
 IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
-   select   array_agg( distinct value->>'value' order by value->>'value' )
-   FROM jsonb_each(data->'aliases') as l 
-   WHERE l.value->>'language' != 'ceb'
-   ;
+    select array_agg( distinct  v.value->>'value'  )
+    from jsonb_each(data->'aliases') as a,  jsonb_array_elements(a.value) as v
+    where key!= 'ceb';
 $$;
 
 

@@ -29,7 +29,7 @@ cat /wof/whosonfirst-data/wd.txt                                        | sed 's
 
 
 echo "======== parse start: wikidata_dump/latest-all.json.gz ==========="
-time go run /wof/code/wdpp.go /wof/wikidata_dump/testx-all.json.gz
+time go run /wof/code/wdpp.go /wof/wikidata_dump/latest-all.json.gz
 echo "======== parse end: wikidata_dump/latest-all.json.gz ==========="
 
 psql -c	"CREATE UNIQUE INDEX wd_wdx_wd_id       ON  wd.wdx(wd_id) 	   WITH (fillfactor = 100) ; " &

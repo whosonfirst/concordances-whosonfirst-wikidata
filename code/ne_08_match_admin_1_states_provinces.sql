@@ -19,28 +19,22 @@ $func$
 
 drop table if exists                    newd.wd_match_admin_1_states_provinces CASCADE;
 EXPLAIN ANALYSE CREATE UNLOGGED TABLE   newd.wd_match_admin_1_states_provinces  as
-with x as
-(
-    select
-         wd_id
-        ,wd_label               as wd_name_en
-        ,check_number(wd_label) as wd_name_has_num
-        ,          (regexp_split_to_array( wd_label , '[,()]'))[1]  as wd_name_en_clean
-        ,adm1prov_clean((regexp_split_to_array( wd_label , '[,()]'))[1]) as una_wd_name_en_clean
-        ,is_cebuano(data)                  as wd_is_cebuano
-      --  ,get_wdc_value(data, 'P1566')      as p1566_geonames    
-        ,get_wdc_item_label(data,'P31')    as p31_instance_of
-        ,get_wdc_item_label(data,'P17')    as p17_country_id 
-        ,get_wd_name_array(data)           as wd_name_array 
-        ,get_wd_altname_array(data)        as wd_altname_array
-        ,get_wd_concordances(data)         as wd_concordances_array
-        ,cartodb.CDB_TransformToWebmercator(geom::geometry)  as wd_point_merc
-    from wd.wdx 
-    where (a_wof_type  @> ARRAY['P300','hasP625'] ) 
-)
-select * 
-from x
-where (not wd_is_cebuano )
+select
+     wd_id
+    ,wd_label               as wd_name_en
+    ,check_number(wd_label) as wd_name_has_num
+    ,          (regexp_split_to_array( wd_label , '[,()]'))[1]  as wd_name_en_clean
+    ,adm1prov_clean((regexp_split_to_array( wd_label , '[,()]'))[1]) as una_wd_name_en_clean
+    ,iscebuano                  as wd_is_cebuano
+    --  ,get_wdc_value(data, 'P1566')      as p1566_geonames    
+    ,get_wdc_item_label(data,'P31')    as p31_instance_of
+    ,get_wdc_item_label(data,'P17')    as p17_country_id 
+    ,get_wd_name_array(data)           as wd_name_array 
+    ,get_wd_altname_array(data)        as wd_altname_array
+    ,get_wd_concordances(data)         as wd_concordances_array
+    ,cartodb.CDB_TransformToWebmercator(geom::geometry)  as wd_point_merc
+from wd.wdx 
+where (a_wof_type  @> ARRAY['P300','hasP625'] )     and  not iscebuano
 ;
 
 CREATE INDEX  ON  newd.wd_match_admin_1_states_provinces USING GIST(wd_point_merc);

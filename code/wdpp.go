@@ -100,6 +100,7 @@ func init() {
 		"waterfall": "/wof/code/wikidata_waterfall.csv",
 		"pole":      "/wof/code/wikidata_pole.csv",
 		"circle":    "/wof/code/wikidata_circle.csv",
+		"playa":     "/wof/code/wikidata_playa.csv",
 	}
 
 	wofdef = make(map[string]wdType, len(wofCsvDefinitions))
@@ -158,14 +159,40 @@ func main() {
 	createTableStr_wd := []string{
 		"CREATE SCHEMA IF NOT EXISTS wd;",
 		"DROP TABLE IF EXISTS wd.wdx CASCADE;",
-		"CREATE UNLOGGED TABLE wd.wdx (wd_id TEXT , wd_label TEXT NOT NULL, a_wof_type TEXT[] NOT NULL, geom geometry(Point, 4326) NULL, data JSONB NOT NULL );",
+		`CREATE UNLOGGED TABLE wd.wdx ( 
+			 wd_id         	TEXT NOT NULL
+			,wd_label      	TEXT NOT NULL
+			,a_wof_type    	TEXT[] NOT NULL
+			,nclaims       	Smallint
+			,nlabels       	Smallint
+			,ndescriptions 	Smallint
+			,naliases      	Smallint
+			,nsitelinks   	Smallint
+			,ncebsitelinks  Smallint
+			,iscebuano  	Bool
+			,geom 			Geometry(Point, 4326) NULL
+			,data 			JSONB NOT NULL );`,
 	}
+
 	for _, str := range createTableStr_wd {
 		fmt.Println("executing:", str)
 		_, err := txn_wd.Exec(str)
 		checkErr(err)
 	}
-	stmt_wd, err := txn_wd.Prepare(pq.CopyInSchema("wd", "wdx", "wd_id", "wd_label", "a_wof_type", "geom", "data"))
+	stmt_wd, err := txn_wd.Prepare(pq.CopyInSchema("wd", "wdx",
+		"wd_id",
+		"wd_label",
+		"a_wof_type",
+		"nclaims",
+		"nlabels",
+		"ndescriptions",
+		"naliases",
+		"nsitelinks",
+		"ncebsitelinks",
+		"iscebuano",
+		"geom",
+		"data",
+	))
 	checkErr(err)
 
 	//
@@ -300,6 +327,8 @@ func main() {
 				b[len(b)-2] = 32
 			}
 
+			wd := WikidataJsonClean(b)
+
 			// check "blacklist"  ?
 			for _, k := range p31claims.Array() {
 				if ok := blacklist[k.String()]; ok {
@@ -325,13 +354,6 @@ func main() {
 				Get("#[mainsnak.datavalue.type==globecoordinate]#").
 				Get("#[mainsnak.datavalue.value.globe==http://www.wikidata.org/entity/Q2]#").
 				Get("#[mainsnak.snaktype==value]#")
-
-			//p := wkb.Point{geom.NewPoint(geom.XY).MustSetCoords(geom.Coord{0.1275, 51.50722})}
-
-			//2/26 00:48:47 sql: converting argument $3 type: unsupported type geom.Point, a struct
-			//p := geom.NewPoint(geom.XY).MustSetCoords(geom.Coord{-122.082506, 37.4249518})
-			//loc := geom.NewPoint(geom.XY).MustSetCoords(geom.Coord{0.1275, 51.50722})
-			//fmt.Println("loc:::", loc)
 
 			gp := new(GisPoint)
 			gp.Null = true
@@ -360,10 +382,22 @@ func main() {
 
 				if pgoutput {
 					// write to postgres
-					_, err = stmt_wd.Exec(wdid, wdlabel, match, gp, string(WikidataJsonClean(b)))
+					_, err = stmt_wd.Exec(
+						wdid,
+						wdlabel,
+						match,
+						wd.nClaims,
+						wd.nLabels,
+						wd.nDescriptions,
+						wd.nAliases,
+						wd.nSitelinks,
+						wd.nCebSitelinks,
+						wd.IsCebuano,
+						gp,
+						string(wd.WikiJson))
 					checkErr(err)
 				} else {
-					return append(WikidataJsonClean(b), '\n'), nil
+					return append(wd.WikiJson, '\n'), nil
 				}
 			} else {
 				if len(match) == 1 && (match[0] == "locality" || match[0] == "marinearea" || match[0] == "county") {
@@ -375,10 +409,22 @@ func main() {
 				} else {
 					if pgoutput {
 						// write to postgres
-						_, err = stmt_wd.Exec(wdid, wdlabel, match, gp, string(WikidataJsonClean(b)))
+						_, err = stmt_wd.Exec(
+							wdid,
+							wdlabel,
+							match,
+							wd.nClaims,
+							wd.nLabels,
+							wd.nDescriptions,
+							wd.nAliases,
+							wd.nSitelinks,
+							wd.nCebSitelinks,
+							wd.IsCebuano,
+							gp,
+							string(wd.WikiJson))
 						checkErr(err)
 					} else {
-						return append(WikidataJsonClean(b), '\n'), nil
+						return append(wd.WikiJson, '\n'), nil
 					}
 				}
 			}
@@ -484,13 +530,28 @@ type Property struct {
 
 type Claim []Property
 
+type WikiData struct {
+	ID        string
+	WikiItems WikiItems
+	WikiJson  []byte
+
+	nClaims       int
+	nLabels       int
+	nDescriptions int
+	nAliases      int
+	nSitelinks    int
+
+	nCebSitelinks int
+	IsCebuano     bool
+}
+
 // -------------------
 // Cleaning WikidataJSON
 // Removing :  References, QualifiersOrder, ID , Hash
 // Removing :  rank=deprecated
 // Removing :  Claims  with P582(End time)  -   except P1082:population info
 // --------------------
-func WikidataJsonClean(content []byte) []byte {
+func WikidataJsonClean(content []byte) *WikiData {
 
 	m := WikiItems{}
 	err := json.Unmarshal(content, &m)
@@ -543,5 +604,26 @@ func WikidataJsonClean(content []byte) []byte {
 	mj, err := json.Marshal(newWikiitem)
 	checkErr(err)
 
-	return mj
+	wd := WikiData{
+		ID:            m.ID,
+		WikiItems:     newWikiitem,
+		WikiJson:      mj,
+		nClaims:       len(newClaims),
+		nLabels:       len(m.Labels),
+		nDescriptions: len(m.Descriptions),
+		nAliases:      len(m.Aliases),
+		nSitelinks:    len(m.Sitelinks),
+		nCebSitelinks: 0,
+		IsCebuano:     false,
+	}
+
+	// set cebuano values
+	if _, ok := m.Sitelinks["cebwiki"]; ok {
+		wd.nCebSitelinks = 1
+		if wd.nSitelinks == 1 {
+			wd.IsCebuano = true
+		}
+	}
+
+	return &wd
 }

@@ -1,36 +1,139 @@
-Q4022,river 
+Q355304,watercourse
 
-
+## subclass of "watercourse"
+Q474,aqueduct
+Q4022,river
+Q12284,canal
+Q27250,tidal creek
+Q47521,stream
+Q68530,flume
+Q83471,geyser
+Q88480,moat
 Q100649,blackwater river
+Q124714,spring
 Q159675,tributary
+Q177380,hot spring
+Q177734,Artesian aquifer
+Q180537,meander
 Q187971,wadi
+Q232826,Zweigkanal
+Q332716,overflow spring
+Q348675,Scheitelhaltung
+Q373315,arroyo
+Q459297,qanat
+Q523166,gracht
+Q572211,Antecedent drainage stream
+Q573344,main stream
+Q590992,karst spring
 Q591942,distributary
+Q607657,Levada
 Q653247,Arheisch
+Q661702,Anabranch
+Q695793,rapid
+Q708457,wetering
+Q736691,mill race
 Q794428,Entrenched river
+Q832230,Maar
+Q911608,Fiumara
+Q949819,ship canal
+Q992837,Brunnenstube
+Q1016714,burn
+Q1021342,Bürgermeisterkanal
+Q1030403,navigable aqueduct
+Q1033779,Cantharus
 Q1074069,tidal river
 Q1140845,subterranean river
 Q1299258,Ehe
+Q1365924,mineral spring
+Q1385463,acequia
+Q1425792,Log flume
+Q1427694,Fleet
+Q1427700,canal pound
+Q1430419,Floßgraben
+Q1437299,torrent stream
 Q1531228,glacier river
+Q1740654,khlong
+Q1792401,Kunstgraben
+Q1844833,whitewater
+Q1878752,hoofdwatergang
 Q1986504,rain river
+Q2047311,anti-tank trench
+Q2048319,ditch
 Q2048585,rak
+Q2057158,singel
+Q2154083,ringvaart
+Q2220686,Sandgeprägter Tieflandbach
+Q2238314,Mudpot
+Q2431801,deep
+Q2478493,meander cutoff
+Q2478921,streamflow
+Q2570370,mountain stream
+Q2621619,spreng
+Q2670081,grachtengordel
+Q2855957,spiraalstroom
+Q2874701,nevengeul
+Q2890064,ditch
+Q2915361,opvaart
+Q2935978,irrigation canal
+Q2936105,Summit level canal
+Q3001363,cours d'eau de deuxième catégorie
+Q3001367,cours d'eau de première catégorie
 Q3058945,estey
 Q3073652,coastal river
+Q3097686,wijk
+Q3100831,Rui
 Q3196604,kill
+Q3400208,pouhon
+Q3433950,rivières aurifères en France
+Q3474226,saumoduc
 Q3529419,small river
+Q3678339,citro
+Q3965085,Vauclusian spring
 Q4176368,Yérik
 Q4366834,transboundary river
 Q4733366,Alluvial river
 Q4879406,bedrock river
+Q5031069,canal ring
+Q5031071,canal tunnel
+Q5068817,chalk stream
+Q7167858,perennial stream
+Q7236487,power canal
+Q7279041,raceway
 Q7580767,spring creek
 Q8026426,winterbourne
+Q8078936,Ölkelda
+Q8261440,canal for transporting water
+Q9346811,Struga
+Q10607894,sacrificial spring
 Q10670417,Skogsälv
+Q10701694,Trefaldighetskälla
+Q11922557,fonts de Guixers
+Q11922558,fonts de Camprodon
+Q12309892,Elv
+Q13218676,Roman aqueduct
+Q14164550,priel
+Q14556915,leat
+Q15517598,brine spring
+Q18021627,Kalktuffquelle
+Q18691143,canals in Finland
+Q18870689,aqueduct
 Q20529834,Rivers of Greek underworld
+Q21029914,культавая крыніца
 Q21079327,intermittent river
 Q21504956,subterranean waterfall
 Q27067659,former river
+Q27966643,hot lake
+Q28109789,drainage canal
+Q28109822,sewerage aqueduct
+Q30158320,kreek
 Q30235135,Río Smorodinovka
 Q30235414,Río Borovlianka (inferior, Vagái)
 Q30238443,Río Lama
 Q30238445,Río Borovlianka
 Q30238456,Río Solonovka
+Q34338776,thermal spring
+Q41535570,zijldiep
 Q42122394,rivers of Newfoundland and Labrador
+Q42293497,Zandvang
+Q43554495,silmaallikas
+Q44665457,proposed canal

@@ -47,6 +47,7 @@ drop table if exists          newd.ne_match_playas CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_playas as
 select
      ogc_fid
+    ,featurecla     
     ,name                as ne_name
     ,playa_clean(name)   as ne_una_name        
     ,check_number(name)  as ne_name_has_num

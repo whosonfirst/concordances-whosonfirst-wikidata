@@ -41,4 +41,6 @@ echo """
     -- select *  from ne.${tablename} limit 2;
     
     --
+    select featurecla, count(*) as N from ne.${tablename} group by featurecla order by N desc;
+    --
 """ | psql -e

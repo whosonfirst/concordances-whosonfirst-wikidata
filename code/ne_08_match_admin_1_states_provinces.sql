@@ -50,6 +50,7 @@ drop table if exists          newd.ne_match_admin_1_states_provinces CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_admin_1_states_provinces  as
 select
      ogc_fid
+    ,featurecla   
     ,name                as ne_name
     ,adm1prov_clean(name)    as ne_una_name        
     ,check_number(name)  as ne_name_has_num

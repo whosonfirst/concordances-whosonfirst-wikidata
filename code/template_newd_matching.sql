@@ -35,13 +35,13 @@ drop table if exists  :ne_wd_match_agg CASCADE;
 CREATE UNLOGGED TABLE :ne_wd_match_agg  as
 with wd_agg as 
 (
-    select ogc_fid, ne_name, ne_wd_id
+    select ogc_fid,featurecla,ne_name, ne_wd_id
         ,  array_agg( wd_id     order by _distance) as a_wd_id
         ,  array_agg(_distance  order by _distance) as a_wd_id_distance 
         ,  array_agg(_name_match_type  order by _name_match_type ) as a_wd_name_match_type             
     from :ne_wd_match 
-    group by ogc_fid, ne_name ,ne_wd_id
-    order by ogc_fid, ne_name ,ne_wd_id
+    group by ogc_fid,featurecla, ne_name ,ne_wd_id
+    order by ogc_fid,featurecla, ne_name ,ne_wd_id
 )
 , wd_agg_extended as
 (
@@ -91,6 +91,7 @@ extended_notfound as
 (   
     select
          ne.ogc_fid
+        ,ne.featurecla
         ,ne.ne_name 
         ,ne.ne_wd_id
         ,get_wdlabeltext(ne.ne_wd_id)       as old_wd_label
@@ -135,16 +136,16 @@ drop table if exists  :ne_wd_match_agg_sum CASCADE;
 CREATE UNLOGGED TABLE  :ne_wd_match_agg_sum  as
 with 
 _matched as (
-    select _matching_category,  wd_number_of_matches, _firstmatch_distance_category, count(*) as N  
+    select _matching_category,featurecla,  wd_number_of_matches, _firstmatch_distance_category, count(*) as N  
     from :ne_wd_match_agg
-    group by  _matching_category, wd_number_of_matches, _firstmatch_distance_category
-    order by  _matching_category, wd_number_of_matches, _firstmatch_distance_category 
+    group by  _matching_category,featurecla, wd_number_of_matches, _firstmatch_distance_category
+    order by  _matching_category,featurecla, wd_number_of_matches, _firstmatch_distance_category 
 ), 
 _notfound as (
-    select _matching_category,  null::int as wd_number_of_matches, null::text as _firstmatch_distance_category, count(*) as N  
+    select _matching_category,featurecla,  null::int as wd_number_of_matches, null::text as _firstmatch_distance_category, count(*) as N  
     from :ne_wd_match_notfound
-    group by  _matching_category,  wd_number_of_matches, _firstmatch_distance_category
-    order by  _matching_category,  wd_number_of_matches, _firstmatch_distance_category
+    group by  _matching_category,featurecla,  wd_number_of_matches, _firstmatch_distance_category
+    order by  _matching_category,featurecla,  wd_number_of_matches, _firstmatch_distance_category
 )
 
            select * from _matched

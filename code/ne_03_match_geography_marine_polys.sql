@@ -48,6 +48,7 @@ drop table if exists          newd.ne_match_geography_marine_polys CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_geography_marine_polys as
 select
      ogc_fid
+    ,featurecla      
     ,name                as ne_name
     ,geo_clean(name)     as ne_una_name        
     ,check_number(name)  as ne_name_has_num

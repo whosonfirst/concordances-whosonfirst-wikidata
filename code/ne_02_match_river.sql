@@ -5,7 +5,7 @@ CREATE OR REPLACE FUNCTION  river_clean(river_name text)
 LANGUAGE sql IMMUTABLE STRICT PARALLEL SAFE   AS
 $func$
 select trim( translate( regexp_replace(  nameclean( river_name ) ,
- $$[[:<:]](river)[[:>:]]$$,
+ $$[[:<:]](river|rio|le|de|)[[:>:]]$$,
   ' ',
   'gi'
 ),'  ',' ') );
@@ -13,8 +13,24 @@ $func$
 ;
 
 
+CREATE OR REPLACE FUNCTION  river_array_clean(arr1 text[],arr2 text[]) 
+    RETURNS text[]  
+LANGUAGE sql IMMUTABLE STRICT PARALLEL SAFE   AS
+$func$
+    select array_agg( distinct aname )  from 
+    (
+                 ( select  river_clean( arr1name ) as aname from unnest(arr1) as arr1name )
+      union all  ( select  river_clean( arr2name ) as aname from unnest(arr1) as arr2name )
+    ) t
+$func$
+;
+
+
+
 drop table if exists                    newd.wd_match_river CASCADE;
 EXPLAIN ANALYSE CREATE UNLOGGED TABLE   newd.wd_match_river  as
+with x as
+(
 select
      wd_id
     ,wd_label               as wd_name_en
@@ -31,7 +47,12 @@ select
     ,cartodb.CDB_TransformToWebmercator(geom::geometry)  as wd_point_merc
 from wd.wdx 
 where (a_wof_type  @> ARRAY['river','hasP625'] )    and  not iscebuano
+)
+select *
+      ,river_array_clean(wd_name_array,wd_altname_array) as wd_all_name_array
+from x      
 ;
+
 
 CREATE INDEX  ON  newd.wd_match_river USING GIST(wd_point_merc);
 CREATE INDEX  ON  newd.wd_match_river (wd_id);
@@ -46,6 +67,7 @@ drop table if exists          newd.ne_match_river_europe CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_river_europe  as
 select
      ogc_fid
+    ,featurecla
     ,name                as ne_name
     ,river_clean(name)    as ne_una_name        
     ,check_number(name)  as ne_name_has_num
@@ -65,10 +87,10 @@ ANALYSE          newd.ne_match_river_europe;
 \set ne_wd_match_agg           newd.ne_wd_match_river_europe_match_agg
 \set ne_wd_match_agg_sum       newd.ne_wd_match_river_europe_match_agg_sum
 \set ne_wd_match_notfound      newd.ne_wd_match_river_europe_match_notfound
-\set safedistance   100000
-\set searchdistance 400003
+\set safedistance   400000
+\set searchdistance 800003
 
-\set mcond1     (( ne.ne_una_name = wd.una_wd_name_en_clean ) or (  wd_name_array && ne_name_array ) or (  ne_name_array && wd_altname_array )  or (jarowinkler( ne.ne_una_name, wd.una_wd_name_en_clean)>.971 ) )
+\set mcond1     (( ne.ne_una_name = wd.una_wd_name_en_clean ) or (  wd_name_array && ne_name_array ) or (  ne_name_array && wd_all_name_array ) or (  ne_name_array && wd_altname_array )  or (jarowinkler( ne.ne_una_name, wd.una_wd_name_en_clean)>.971 ) )
 \set mcond2 and (ST_DWithin ( wd.wd_point_merc, ne.ne_geom_merc , :searchdistance ))
 \set mcond3
 
@@ -89,6 +111,7 @@ drop table if exists          newd.ne_match_river_north_america CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_river_north_america  as
 select
      ogc_fid
+    ,featurecla
     ,name                 as ne_name
     ,river_clean(name)    as ne_una_name        
     ,check_number(name)   as ne_name_has_num
@@ -108,10 +131,10 @@ ANALYSE          newd.ne_match_river_north_america;
 \set ne_wd_match_agg           newd.ne_wd_match_river_north_america_match_agg
 \set ne_wd_match_agg_sum       newd.ne_wd_match_river_north_america_match_agg_sum
 \set ne_wd_match_notfound      newd.ne_wd_match_river_north_america_match_notfound
-\set safedistance   100000
-\set searchdistance 400003
+\set safedistance   400000
+\set searchdistance 800003
 
-\set mcond1     (( ne.ne_una_name = wd.una_wd_name_en_clean ) or (  wd_name_array && ne_name_array ) or (  ne_name_array && wd_altname_array )  or (jarowinkler( ne.ne_una_name, wd.una_wd_name_en_clean)>.971 ) )
+\set mcond1     (( ne.ne_una_name = wd.una_wd_name_en_clean ) or (  wd_name_array && ne_name_array ) or (  ne_name_array && wd_all_name_array )  or (  ne_name_array && wd_altname_array )  or (jarowinkler( ne.ne_una_name, wd.una_wd_name_en_clean)>.971 ) )
 \set mcond2 and (ST_DWithin ( wd.wd_point_merc, ne.ne_geom_merc , :searchdistance ))
 \set mcond3
 
@@ -125,6 +148,7 @@ drop table if exists          newd.ne_match_river_lake_centerlines CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_river_lake_centerlines  as
 select
      ogc_fid
+    ,featurecla 
     ,name                as ne_name
     ,river_clean(name)   as ne_una_name        
     ,check_number(name)  as ne_name_has_num
@@ -144,10 +168,10 @@ ANALYSE          newd.ne_match_river_lake_centerlines;
 \set ne_wd_match_agg           newd.ne_wd_match_river_lake_centerlines_match_agg
 \set ne_wd_match_agg_sum       newd.ne_wd_match_river_lake_centerlines_match_agg_sum
 \set ne_wd_match_notfound      newd.ne_wd_match_river_lake_centerlines_match_notfound
-\set safedistance   100000
-\set searchdistance 400003
+\set safedistance   400000
+\set searchdistance 800003
 
-\set mcond1     (( ne.ne_una_name = wd.una_wd_name_en_clean ) or (  wd_name_array && ne_name_array ) or (  ne_name_array && wd_altname_array )  or (jarowinkler( ne.ne_una_name, wd.una_wd_name_en_clean)>.971 ) )
+\set mcond1     (( ne.ne_una_name = wd.una_wd_name_en_clean ) or (  wd_name_array && ne_name_array ) or (  ne_name_array && wd_all_name_array )  or (  ne_name_array && wd_altname_array )  or (jarowinkler( ne.ne_una_name, wd.una_wd_name_en_clean)>.971 ) )
 \set mcond2 and (ST_DWithin ( wd.wd_point_merc, ne.ne_geom_merc , :searchdistance ))
 \set mcond3
 

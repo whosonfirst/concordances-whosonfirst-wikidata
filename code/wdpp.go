@@ -98,10 +98,12 @@ func init() {
 		"island":        "/wof/code/wikidata_island.csv",
 		"lake":          "/wof/code/wikidata_lake.csv",
 		"mountain":      "/wof/code/wikidata_mountain.csv",
+		"pass":          "/wof/code/wikidata_pass.csv",
 		"playa":         "/wof/code/wikidata_playa.csv",
 		"pole":          "/wof/code/wikidata_pole.csv",
 		"port":          "/wof/code/wikidata_port.csv",
 		"protectedarea": "/wof/code/wikidata_protectedarea.csv",
+		"research":      "/wof/code/wikidata_research.csv",
 		"river":         "/wof/code/wikidata_river.csv",
 		"waterfall":     "/wof/code/wikidata_waterfall.csv",
 	}

@@ -5,7 +5,7 @@ CREATE OR REPLACE FUNCTION  lake_clean(lake_name text)
 LANGUAGE sql IMMUTABLE STRICT PARALLEL SAFE   AS
 $func$
 select trim( translate( regexp_replace(  nameclean( lake_name ) ,
- $$[[:<:]](lake|lac|lagune|laguna|de|lago|di|ozero|reservoir|represa|presa|river|historic|ezers)[[:>:]]$$,
+ $$[[:<:]](lake|lac|lagune|laguna|de|lago|lough|limni|see|di|ozero|reservoir|represa|presa|river|historic|ezers)[[:>:]]$$,
   ' ',
   'gi'
 ),'  ',' ') );
@@ -39,6 +39,7 @@ select
     ,           (regexp_split_to_array( wd_label , '[,()]'))[1]  as wd_name_en_clean
     ,lake_clean((regexp_split_to_array( wd_label , '[,()]'))[1]) as una_wd_name_en_clean
     ,iscebuano                  as wd_is_cebuano
+    ,nSitelinks
     --  ,get_wdc_value(data, 'P1566')      as p1566_geonames    
     ,get_wdc_item_label(data,'P31')    as p31_instance_of
     ,get_wdc_item_label(data,'P17')    as p17_country_id 

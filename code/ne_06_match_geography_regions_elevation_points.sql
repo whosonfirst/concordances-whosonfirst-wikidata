@@ -13,8 +13,8 @@ $func$
 ;
 
 
-drop table if exists                    newd.wd_match_geography_regions_elevation_points CASCADE;
-EXPLAIN ANALYSE CREATE UNLOGGED TABLE   newd.wd_match_geography_regions_elevation_points  as
+drop table if exists                    newd.wd_match_geography_regions_elepoints CASCADE;
+EXPLAIN ANALYSE CREATE UNLOGGED TABLE   newd.wd_match_geography_regions_elepoints  as
 select
      wd_id
     ,wd_label               as wd_name_en
@@ -32,21 +32,22 @@ select
     ,cartodb.CDB_TransformToWebmercator(geom::geometry)  as wd_point_merc
     ,a_wof_type 
 from wd.wdx 
-where   (a_wof_type  @>  ARRAY['mountain','hasP625'] ) 
-    and  not iscebuano
+where   (a_wof_type  &&  ARRAY['mountain','pass','desert','research','cape'] ) 
+    and (a_wof_type  @>  ARRAY['hasP625'] ) 
+    and not iscebuano
 ;
 
-CREATE INDEX  ON  newd.wd_match_geography_regions_elevation_points USING GIST(wd_point_merc);
-CREATE INDEX  ON  newd.wd_match_geography_regions_elevation_points (wd_id);
-ANALYSE           newd.wd_match_geography_regions_elevation_points ;
+CREATE INDEX  ON  newd.wd_match_geography_regions_elepoints USING GIST(wd_point_merc);
+CREATE INDEX  ON  newd.wd_match_geography_regions_elepoints (wd_id);
+ANALYSE           newd.wd_match_geography_regions_elepoints ;
 
 
 --
 ---------------------------------------------------------------------------------------
 --
 
-drop table if exists          newd.ne_match_geography_regions_elevation_points CASCADE;
-CREATE UNLOGGED TABLE         newd.ne_match_geography_regions_elevation_points as
+drop table if exists          newd.ne_match_geography_regions_elepoints CASCADE;
+CREATE UNLOGGED TABLE         newd.ne_match_geography_regions_elepoints as
 select
      ogc_fid
     ,featurecla      
@@ -59,18 +60,19 @@ select
 from ne.ne_10m_geography_regions_elevation_points
 ;
 
-CREATE INDEX  ON newd.ne_match_geography_regions_elevation_points  USING GIST(ne_geom_merc);
-ANALYSE          newd.ne_match_geography_regions_elevation_points;
+CREATE INDEX  ON newd.ne_match_geography_regions_elepoints  USING GIST(ne_geom_merc);
+ANALYSE          newd.ne_match_geography_regions_elepoints;
 
-\set wd_input_table           newd.wd_match_geography_regions_elevation_points
-\set ne_input_table           newd.ne_match_geography_regions_elevation_points
+\set wd_input_table           newd.wd_match_geography_regions_elepoints
+\set ne_input_table           newd.ne_match_geography_regions_elepoints
 
-\set ne_wd_match               newd.ne_wd_match_geography_regions_elevation_points_match
-\set ne_wd_match_agg           newd.ne_wd_match_geography_regions_elevation_points_match_agg
-\set ne_wd_match_agg_sum       newd.ne_wd_match_geography_regions_elevation_points_match_agg_sum
-\set ne_wd_match_notfound      newd.ne_wd_match_geography_regions_elevation_points_match_notfound
+\set ne_wd_match               newd.ne_wd_match_geography_regions_elepoints_match
+\set ne_wd_match_agg           newd.ne_wd_match_geography_regions_elepoints_match_agg
+\set ne_wd_match_agg_sum       newd.ne_wd_match_geography_regions_elepoints_match_agg_sum
+\set ne_wd_match_notfound      newd.ne_wd_match_geography_regions_elepoints_match_notfound
 \set safedistance   100000
 \set searchdistance 400003
+\set suggestiondistance  80000
 
 \set mcond1     (( ne.ne_una_name = wd.una_wd_name_en_clean ) or (  wd_name_array && ne_name_array ) or (  ne_name_array && wd_altname_array )  or (jarowinkler( ne.ne_una_name, wd.una_wd_name_en_clean)>.971 ) )
 \set mcond2 and (ST_DWithin ( wd.wd_point_merc, ne.ne_geom_merc , :searchdistance ))

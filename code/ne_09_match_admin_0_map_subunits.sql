@@ -77,6 +77,7 @@ ANALYSE          newd.ne_match_admin_0_map_subunits;
 \set ne_wd_match_notfound      newd.ne_wd_match_admin_0_map_subunits_match_notfound
 \set safedistance   400000
 \set searchdistance 800003
+\set suggestiondistance  80000
 
 \set mcond1     (( ne.ne_una_name = wd.una_wd_name_en_clean ) or (  wd_name_array && ne_name_array ) or (  ne_name_array && wd_altname_array )  or (jarowinkler( ne.ne_una_name, wd.una_wd_name_en_clean)>.971 ) )
 \set mcond2  and (ST_DWithin ( wd.wd_point_merc, ne.ne_geom_merc , :searchdistance )) 

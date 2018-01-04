@@ -69,8 +69,10 @@ ANALYSE          newd.ne_match_geography_marine_polys;
 \set ne_wd_match_agg           newd.ne_wd_match_geography_marine_polys_match_agg
 \set ne_wd_match_agg_sum       newd.ne_wd_match_geography_marine_polys_match_agg_sum
 \set ne_wd_match_notfound      newd.ne_wd_match_geography_marine_polys_match_notfound
+
 \set safedistance   100000
 \set searchdistance 400003
+\set suggestiondistance  80000
 
 \set mcond1     (( ne.ne_una_name = wd.una_wd_name_en_clean ) or (  wd_name_array && ne_name_array ) or (  ne_name_array && wd_altname_array )  or (jarowinkler( ne.ne_una_name, wd.una_wd_name_en_clean)>.971 ) )
 \set mcond2 and (ST_DWithin ( wd.wd_point_merc, ne.ne_geom_merc , :searchdistance ))

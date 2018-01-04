@@ -88,8 +88,10 @@ ANALYSE          newd.ne_match_river_europe;
 \set ne_wd_match_agg           newd.ne_wd_match_river_europe_match_agg
 \set ne_wd_match_agg_sum       newd.ne_wd_match_river_europe_match_agg_sum
 \set ne_wd_match_notfound      newd.ne_wd_match_river_europe_match_notfound
+
 \set safedistance   400000
 \set searchdistance 800003
+\set suggestiondistance  80000
 
 \set mcond1     (( ne.ne_una_name = wd.una_wd_name_en_clean ) or (  wd_name_array && ne_name_array ) or (  ne_name_array && wd_all_name_array ) or (  ne_name_array && wd_altname_array )  or (jarowinkler( ne.ne_una_name, wd.una_wd_name_en_clean)>.971 ) )
 \set mcond2 and (ST_DWithin ( wd.wd_point_merc, ne.ne_geom_merc , :searchdistance ))
@@ -132,8 +134,10 @@ ANALYSE          newd.ne_match_river_north_america;
 \set ne_wd_match_agg           newd.ne_wd_match_river_north_america_match_agg
 \set ne_wd_match_agg_sum       newd.ne_wd_match_river_north_america_match_agg_sum
 \set ne_wd_match_notfound      newd.ne_wd_match_river_north_america_match_notfound
+
 \set safedistance   400000
 \set searchdistance 800003
+\set suggestiondistance  80000
 
 \set mcond1     (( ne.ne_una_name = wd.una_wd_name_en_clean ) or (  wd_name_array && ne_name_array ) or (  ne_name_array && wd_all_name_array )  or (  ne_name_array && wd_altname_array )  or (jarowinkler( ne.ne_una_name, wd.una_wd_name_en_clean)>.971 ) )
 \set mcond2 and (ST_DWithin ( wd.wd_point_merc, ne.ne_geom_merc , :searchdistance ))
@@ -169,8 +173,10 @@ ANALYSE          newd.ne_match_river_lake_centerlines;
 \set ne_wd_match_agg           newd.ne_wd_match_river_lake_centerlines_match_agg
 \set ne_wd_match_agg_sum       newd.ne_wd_match_river_lake_centerlines_match_agg_sum
 \set ne_wd_match_notfound      newd.ne_wd_match_river_lake_centerlines_match_notfound
+
 \set safedistance   400000
 \set searchdistance 800003
+\set suggestiondistance  80000
 
 \set mcond1     (( ne.ne_una_name = wd.una_wd_name_en_clean ) or (  wd_name_array && ne_name_array ) or (  ne_name_array && wd_all_name_array )  or (  ne_name_array && wd_altname_array )  or (jarowinkler( ne.ne_una_name, wd.una_wd_name_en_clean)>.971 ) )
 \set mcond2 and (ST_DWithin ( wd.wd_point_merc, ne.ne_geom_merc , :searchdistance ))

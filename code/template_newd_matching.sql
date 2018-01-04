@@ -94,6 +94,10 @@ extended_notfound as
         ,ne.featurecla
         ,ne.ne_name 
         ,ne.ne_wd_id
+        ,ne.ne_una_name
+        ,ne.ne_name_has_num
+        ,ne.ne_name_array
+        ,ne.ne_geom_merc
         ,get_wdlabeltext(ne.ne_wd_id)       as old_wd_label
         ,ST_Distance(          
             CDB_TransformToWebmercator( wd.geom)   
@@ -186,4 +190,94 @@ select * from :ne_wd_match_agg_sum:_pct;
 
 
 
+\set _suggestions _s
+drop table if exists    :ne_wd_match_notfound:_suggestions CASCADE;
+CREATE UNLOGGED TABLE   :ne_wd_match_notfound:_suggestions  as   
+with x as
+(
+select    
+         ne.ogc_fid   as _ogc_fid
+        ,ST_Distance( wd.wd_point_merc, ne.ne_geom_merc)::bigint  as _distance
+        ,jarowinkler(ne.ne_una_name, wd.una_wd_name_en_clean)     as _jarowinkler         
+        ,wd.*   
+        ,ne.ogc_fid
+        ,ne.featurecla
+        ,ne.ne_name 
+        ,ne.ne_wd_id
+        ,ne.ne_una_name
+        ,ne.ne_name_has_num
+        ,ne.ne_name_array
+        ,ne.ne_geom_merc
+        --,xxjarowinkler(ne.ne_name_has_num,wd.wd_name_has_num, ne.ne_una_name, wd.una_wd_name_en_clean)  as _xxjarowinkler
+    from :wd_input_table        as wd 
+        ,:ne_wd_match_notfound  as ne    
+    where ( (ST_DWithin ( wd.wd_point_merc, ne.ne_geom_merc , :suggestiondistance ))
+          )    
+    order by _ogc_fid, _distance, _jarowinkler desc
+)    
+,x_score as (
+select
+  case 
+    when _distance=0 and (_jarowinkler is not null) then (nsitelinks/40) + 150 + (_jarowinkler*100)
+    when _distance=0 and (_jarowinkler is null    ) then (nsitelinks/40) + 150 + 40
+    when _distance>0 and (_jarowinkler is not null) then (nsitelinks/40) + 100 - (ln(_distance)*10) + (_jarowinkler*100)
+    when _distance>0 and (_jarowinkler is null    ) then (nsitelinks/40) + 100 - (ln(_distance)*10) + 40    
+  end  
+  as _score
+ ,*
+ from x
+ order by _ogc_fid, _score desc
+)
+,x_top3 as (
+select  _ogc_fid,wd_id,_score,_distance,nsitelinks
+from     
+( select *, row_number() over (partition by _ogc_fid order by _score desc) as row_id  
+  from x_score 
+) as t 
+where   row_id <4 
+order by _score desc, _ogc_fid
+)
+,x_top3_agg as (
+select  _ogc_fid as top3_ogc_fid
+     ,array_agg(wd_id      order by _score desc)  as top3_wd_id
+     ,array_agg(_score     order by _score desc)  as top3_score
+     ,array_agg(_distance  order by _score desc)  as top3_distance
+     ,array_agg(nsitelinks order by _score desc)  as top3_nsitelinks
+from x_top3    
+group by top3_ogc_fid
+order by top3_ogc_fid
+)
+select t._ogc_fid as x_ogc_fid,t.wd_id as x_wd_id, t._score as x_score
+   ,case 
+        when array_length(top3_score,1)=1 and t3a.top3_score[1]>140  then 'AOK:TOP_ONLY_ONE-'
+        when array_length(top3_score,1)=1 and t3a.top3_score[1]>80   then 'MAYBE:TOP_ONLY_ONE'
+        when array_length(top3_score,1)=1                            then 'XLOW:TOP_ONLY_ONE'
 
+        when array_length(top3_score,1)>1 and ((t3a.top3_score[1]-t3a.top3_score[2]) / t3a.top3_score[1])>0.25 and t3a.top3_score[1]>140 then 'AOK:CLEARWIN'
+        when array_length(top3_score,1)>1 and ((t3a.top3_score[1]-t3a.top3_score[2]) / t3a.top3_score[1])>0.25 and t3a.top3_score[1]>80  then 'MAYBE:CLEARWIN'
+        when array_length(top3_score,1)>1 and ((t3a.top3_score[1]-t3a.top3_score[2]) / t3a.top3_score[1])>0.25                           then 'XLOW:CLEARWIN'                
+
+        when t3a.top3_score[1]>140 then 'MULTIWIN:AOK'    
+        when t3a.top3_score[1]>80  then 'MULTIWIN:MAYBE'             
+                                   else 'MULTIWIN:XLOW'
+    end as _rank
+   ,case 
+     when ne_name is NULL  then 'no-ne-name'
+                           else 'has-name  '
+    end as _namegrp                              
+   ,* 
+from 
+( select *, row_number() over (partition by _ogc_fid order by _score desc) as row_id  
+  from x_score 
+) as t
+left join x_top3_agg as t3a  on t._ogc_fid=t3a.top3_ogc_fid
+where row_id <2 
+order by t._ogc_fid
+;
+
+
+select _namegrp,_rank, count(*) as N 
+from :ne_wd_match_notfound:_suggestions
+group by _namegrp,_rank
+order by _namegrp,_rank
+;

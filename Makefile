@@ -37,6 +37,8 @@ update_wof:
 run:
 	nohup docker-compose run --rm -T wof_wiki_dw /wof/code/job.sh &
 
+run_ne:
+	nohup docker-compose run --rm -T wof_wiki_dw /wof/code/job_ne_wd.sh &
 
 listsize:
 	du -sh ../*
@@ -51,4 +53,5 @@ speedtest:
 	docker run --rm -it -v $(PWD)/../postgres_data:/var/lib/postgresql/data wof_postgis bash -c "ls -la /var/lib/postgresql/data"
 	docker run --rm -it -v $(PWD)/../postgres_data:/var/lib/postgresql/data wof_postgis bash -c "rm -rf /var/lib/postgresql/data/*"
 	docker-compose up  -d
-	nohup docker-compose run --rm -T wof_wiki_dw /wof/code/job.sh &
+	nohup docker-compose run --rm -T wof_wiki_dw /wof/code/job_ne_wd.sh &
+	

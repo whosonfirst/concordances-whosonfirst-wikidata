@@ -579,3 +579,14 @@ AS $$
     ;
 $$;
 
+
+
+CREATE OR REPLACE FUNCTION public.count_wdproperty(data jsonb, wdproperty text)
+RETURNS bigint
+IMMUTABLE STRICT PARALLEL SAFE
+LANGUAGE sql
+AS $$
+    select count(*) as N
+    FROM jsonb_array_elements( data->'claims'->wdproperty ) AS wdp
+;
+$$;

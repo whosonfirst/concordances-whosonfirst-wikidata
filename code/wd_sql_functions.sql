@@ -538,3 +538,44 @@ AS $$
                 else 0
     end
 $$;
+
+
+
+
+CREATE OR REPLACE FUNCTION public.get_wdqual_globecoordinate(data jsonb, wdproperty text,wdqualifiers text, wdqvalue text)
+RETURNS geometry
+IMMUTABLE STRICT PARALLEL SAFE
+LANGUAGE sql
+AS $$
+    SELECT  ST_SetSRID(coord,4326)
+    FROM (
+        SELECT  *,claimorder
+        FROM(
+            select 
+            	St_MakePoint( cast (wdp ->'mainsnak'->'datavalue'->'value'->>'latitude' as double precision)
+                            , cast (wdp ->'mainsnak'->'datavalue'->'value'->>'longitude' as double precision) 
+                ) AS coord
+                ,1 AS claimorder
+            FROM jsonb_array_elements( data->'claims'->wdproperty ) AS wdp
+            WHERE  wdp->>'rank'='preferred'  
+                   and  wdp->'mainsnak'->'datavalue'->>'type' = 'globecoordinate'
+                   and  wdp->'qualifiers'-> wdqualifiers->0->'datavalue'->'value'->>'id' = wdqvalue
+
+          UNION ALL
+            SELECT
+            	St_MakePoint( cast (wdp ->'mainsnak'->'datavalue'->'value'->>'latitude' as double precision)
+                            , cast (wdp ->'mainsnak'->'datavalue'->'value'->>'longitude' as double precision) 
+                ) AS coord
+                ,2 AS claimorder
+            FROM jsonb_array_elements( data->'claims'->wdproperty ) AS wdp
+            WHERE wdp->>'rank'='normal'  
+                  and  wdp->'mainsnak'->'datavalue'->>'type' = 'globecoordinate'
+                  and  wdp->'qualifiers'-> wdqualifiers->0->'datavalue'->'value'->>'id' = wdqvalue
+
+        ) s
+        ORDER BY claimorder     
+    ) t
+    limit 1
+    ;
+$$;
+

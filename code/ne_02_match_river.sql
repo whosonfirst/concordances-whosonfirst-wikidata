@@ -26,9 +26,10 @@ $func$
 ;
 
 
-
-drop table if exists                    newd.wd_match_river CASCADE;
-EXPLAIN ANALYSE CREATE UNLOGGED TABLE   newd.wd_match_river  as
+\echo ....XXX0...
+drop table if exists    newd.wd_match_river CASCADE;
+\echo ....XXX1...
+CREATE UNLOGGED TABLE   newd.wd_match_river  as
 with x as
 (
 select
@@ -45,15 +46,32 @@ select
     ,get_wd_name_array(data)           as wd_name_array 
     ,get_wd_altname_array(data)        as wd_altname_array
     --  ,get_wd_concordances(data)         as wd_concordances_array
-    ,cartodb.CDB_TransformToWebmercator(geom::geometry)  as wd_point_merc
+    -- ,cartodb.CDB_TransformToWebmercator(geom::geometry)  as wd_point_merc
+    ,get_wdqual_globecoordinate(data,'P625','P518','Q1233637') as river_mouth
+    ,get_wdqual_globecoordinate(data,'P625','P518','Q7376362') as river_source   
+    ,geom   
 from wd.wdx 
 where (a_wof_type  @> ARRAY['river','hasP625'] )    and  not iscebuano
 )
 select *
-      ,river_array_clean(wd_name_array,wd_altname_array) as wd_all_name_array
+    ,river_array_clean(wd_name_array,wd_altname_array) as wd_all_name_array  
+    ,case 
+            when river_mouth is not null and river_source is not null  then cartodb.CDB_TransformToWebmercator( ST_MakePolygon(
+                            ST_MakeLine(
+                                ARRAY[  geom
+                                    , river_mouth 
+                                    , river_source
+                                    , geom
+                                    ]
+                                )
+                            ))
+            when river_mouth is null     and river_source is not null   then  cartodb.CDB_TransformToWebmercator( ST_MakeLine( geom , river_source ) )
+            when river_mouth is not null and river_source is null       then  cartodb.CDB_TransformToWebmercator( ST_MakeLine( geom , river_mouth )  )
+                                                                        else  cartodb.CDB_TransformToWebmercator( geom::geometry)  
+    end  as  wd_point_merc        
 from x      
 ;
-
+\echo ....XXX2...
 
 CREATE INDEX  ON  newd.wd_match_river USING GIST(wd_point_merc);
 CREATE INDEX  ON  newd.wd_match_river (wd_id);

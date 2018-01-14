@@ -1,4 +1,4 @@
- FROM mdillon/postgis:10
+FROM mdillon/postgis:10
 
 ENV LANG=C.UTF-8 \
     LC_ALL=C.UTF-8

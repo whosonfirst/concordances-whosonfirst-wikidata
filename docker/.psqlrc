@@ -1,0 +1,7 @@
+\timing
+\pset border 2
+\set ON_ERROR_STOP 1
+\set dba '\\i /wof/tools/postgres_dba/start.psql'
+
+\set x '\\setenv PAGER less'
+\set xx '\\setenv PAGER \'pspg -bX --no-mouse\''

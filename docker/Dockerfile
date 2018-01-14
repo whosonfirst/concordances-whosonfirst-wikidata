@@ -22,6 +22,7 @@ RUN \
         parallel \
         pbzip2 \
         postgresql-client-10 \
+        pspg \
         python-pip \
         sqlite3 \
         sudo \
@@ -123,12 +124,12 @@ RUN    git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst
     && cd go-whosonfirst-bundles \
     && make bin
 
-RUN     echo '\\timing'                  >       ~/.psqlrc \
-    &&  echo '\\set ON_ERROR_STOP 1'     >>      ~/.psqlrc \
-    &&  cat  ~/.psqlrc
-
 RUN    git clone --quiet --depth 1 https://github.com/gbb/par_psql.git  \
     && cd par_psql \
     && ./install.sh
+
+RUN  git clone  --quiet --depth 1 https://github.com/NikolayS/postgres_dba.git
+
+ADD  .psqlrc /root/.psqlrc
 
 WORKDIR /wof/

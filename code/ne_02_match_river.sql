@@ -25,11 +25,8 @@ $func$
 $func$
 ;
 
-
-\echo ....XXX0...
 drop table if exists    newd.wd_match_river CASCADE;
-\echo ....XXX1...
-CREATE UNLOGGED TABLE   newd.wd_match_river  as
+CREATE TABLE   newd.wd_match_river  as
 with x as
 (
 select
@@ -71,7 +68,6 @@ select *
     end  as  wd_point_merc        
 from x      
 ;
-\echo ....XXX2...
 
 CREATE INDEX  ON  newd.wd_match_river USING GIST(wd_point_merc);
 CREATE INDEX  ON  newd.wd_match_river (wd_id);
@@ -82,8 +78,8 @@ ANALYSE           newd.wd_match_river ;
 ---------------------------------------------------------------------------------------
 --
 
-drop table if exists          newd.ne_match_river_europe CASCADE;
-CREATE UNLOGGED TABLE         newd.ne_match_river_europe  as
+drop table if exists newd.ne_match_river_europe CASCADE;
+CREATE TABLE         newd.ne_match_river_europe  as
 select
      ogc_fid
     ,featurecla
@@ -128,8 +124,8 @@ ANALYSE          newd.ne_match_river_europe;
 ---------------------------------------------------------------------------------------
 --
 
-drop table if exists          newd.ne_match_river_north_america CASCADE;
-CREATE UNLOGGED TABLE         newd.ne_match_river_north_america  as
+drop table if exists newd.ne_match_river_north_america CASCADE;
+CREATE TABLE         newd.ne_match_river_north_america  as
 select
      ogc_fid
     ,featurecla
@@ -167,8 +163,8 @@ ANALYSE          newd.ne_match_river_north_america;
 
 
 
-drop table if exists          newd.ne_match_river_lake_centerlines CASCADE;
-CREATE UNLOGGED TABLE         newd.ne_match_river_lake_centerlines  as
+drop table if exists    newd.ne_match_river_lake_centerlines CASCADE;
+CREATE TABLE            newd.ne_match_river_lake_centerlines  as
 select
      ogc_fid
     ,featurecla 

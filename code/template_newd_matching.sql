@@ -1,6 +1,8 @@
 
 drop table if exists                      :ne_wd_match  CASCADE;
 EXPLAIN ANALYZE CREATE UNLOGGED TABLE     :ne_wd_match  as
+with m AS
+(
     select
          ST_Distance( wd.wd_point_merc, ne.ne_geom_merc)::bigint  as _distance
         ,wd.*
@@ -23,8 +25,19 @@ EXPLAIN ANALYZE CREATE UNLOGGED TABLE     :ne_wd_match  as
             :mcond2
             :mcond3
           )
+)
+select  
+        case
+            when _distance=0 and (_jarowinkler is not null) then (nsitelinks/40) + 150 + (_jarowinkler*100)
+            when _distance=0 and (_jarowinkler is null    ) then (nsitelinks/40) + 150 + 40
+            when _distance>0 and (_jarowinkler is not null) then (nsitelinks/40) + 100 - (ln(_distance)*10) + (_jarowinkler*100)
+            when _distance>0 and (_jarowinkler is null    ) then (nsitelinks/40) + 100 - (ln(_distance)*10) + 40
+        end
+        as _score
+        ,*
+ from m       
+ order by ogc_fid, _score, _distance
 
-    order by ne.ogc_fid, _distance
 ;
 -- ANALYSE     :ne_wd_match  ;
 
@@ -36,8 +49,9 @@ CREATE UNLOGGED TABLE :ne_wd_match_agg  as
 with wd_agg as
 (
     select ogc_fid,featurecla,ne_name, ne_wd_id
-        ,  array_agg( wd_id     order by _distance) as a_wd_id
-        ,  array_agg(_distance  order by _distance) as a_wd_id_distance
+        ,  array_agg( wd_id     order by _score desc) as a_wd_id
+        ,  array_agg(_score     order by _score desc)  as a_wd_id_score       
+        ,  array_agg(_distance  order by _score desc) as a_wd_id_distance
         ,  array_agg(_name_match_type  order by _name_match_type ) as a_wd_name_match_type
     from :ne_wd_match
     group by ogc_fid,featurecla, ne_name ,ne_wd_id
@@ -46,10 +60,11 @@ with wd_agg as
 , wd_agg_extended as
 (
  select wd_agg.*
-      ,case
-         when  array_length(a_wd_id,1) =1  then   a_wd_id[1]
-           else NULL
-        end as _suggested_wd_id
+     -- ,case
+     --    when  array_length(a_wd_id,1) =1  then   a_wd_id[1]
+     --      else NULL
+     --   end as _suggested_wd_id
+      ,a_wd_id[1]  as   _suggested_wd_id
       ,array_length(a_wd_id,1)                      as wd_number_of_matches
       ,distance_class(a_wd_id_distance[1]::bigint)  as _firstmatch_distance_category
      ,case

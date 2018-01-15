@@ -1,5 +1,6 @@
 \timing
 \pset border 2
+\pset pager off
 \set ON_ERROR_STOP 1
 \set dba '\\i /wof/tools/postgres_dba/start.psql'
 

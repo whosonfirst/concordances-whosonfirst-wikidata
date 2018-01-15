@@ -552,8 +552,8 @@ AS $$
         SELECT  *,claimorder
         FROM(
             select 
-            	St_MakePoint( cast (wdp ->'mainsnak'->'datavalue'->'value'->>'latitude' as double precision)
-                            , cast (wdp ->'mainsnak'->'datavalue'->'value'->>'longitude' as double precision) 
+            	St_MakePoint( cast (wdp ->'mainsnak'->'datavalue'->'value'->>'longitude' as double precision)
+                            , cast (wdp ->'mainsnak'->'datavalue'->'value'->>'latitude'  as double precision) 
                 ) AS coord
                 ,1 AS claimorder
             FROM jsonb_array_elements( data->'claims'->wdproperty ) AS wdp
@@ -563,8 +563,8 @@ AS $$
 
           UNION ALL
             SELECT
-            	St_MakePoint( cast (wdp ->'mainsnak'->'datavalue'->'value'->>'latitude' as double precision)
-                            , cast (wdp ->'mainsnak'->'datavalue'->'value'->>'longitude' as double precision) 
+            	St_MakePoint( cast (wdp ->'mainsnak'->'datavalue'->'value'->>'longitude' as double precision)
+                            , cast (wdp ->'mainsnak'->'datavalue'->'value'->>'latitude'  as double precision) 
                 ) AS coord
                 ,2 AS claimorder
             FROM jsonb_array_elements( data->'claims'->wdproperty ) AS wdp

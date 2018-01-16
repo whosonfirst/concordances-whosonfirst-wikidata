@@ -590,3 +590,14 @@ AS $$
     FROM jsonb_array_elements( data->'claims'->wdproperty ) AS wdp
 ;
 $$;
+
+
+CREATE OR REPLACE FUNCTION public.clean_wdlabel( wd_label text)
+RETURNS text
+IMMUTABLE STRICT PARALLEL SAFE
+LANGUAGE sql
+AS $$
+    select (regexp_split_to_array( wd_label , '[,()]'))[1]::text
+;
+$$;
+

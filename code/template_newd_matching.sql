@@ -83,27 +83,27 @@ with wd_agg as
   from wd_agg
 )
 select wd_agg_extended.*
-    ,wdl.data->'labels'->'ar'->>'value' as  name_ar
-    ,wdl.data->'labels'->'bn'->>'value' as  name_bn
-    ,wdl.data->'labels'->'de'->>'value' as  name_de
-    ,wdl.data->'labels'->'en'->>'value' as  name_en
-    ,wdl.data->'labels'->'es'->>'value' as  name_es
-    ,wdl.data->'labels'->'fr'->>'value' as  name_fr
-    ,wdl.data->'labels'->'el'->>'value' as  name_el
-    ,wdl.data->'labels'->'hi'->>'value' as  name_hi
-    ,wdl.data->'labels'->'hu'->>'value' as  name_hu
-    ,wdl.data->'labels'->'id'->>'value' as  name_id
-    ,wdl.data->'labels'->'it'->>'value' as  name_it
-    ,wdl.data->'labels'->'ja'->>'value' as  name_ja
-    ,wdl.data->'labels'->'ko'->>'value' as  name_ko
-    ,wdl.data->'labels'->'nl'->>'value' as  name_nl
-    ,wdl.data->'labels'->'pl'->>'value' as  name_pl
-    ,wdl.data->'labels'->'pt'->>'value' as  name_pt
-    ,wdl.data->'labels'->'ru'->>'value' as  name_ru
-    ,wdl.data->'labels'->'sv'->>'value' as  name_sv
-    ,wdl.data->'labels'->'tr'->>'value' as  name_tr
-    ,wdl.data->'labels'->'vi'->>'value' as  name_vi
-    ,wdl.data->'labels'->'zh'->>'value' as  name_zh
+    ,clean_wdlabel( wdl.data->'labels'->'ar'->>'value') as  name_ar
+    ,clean_wdlabel( wdl.data->'labels'->'bn'->>'value') as  name_bn
+    ,clean_wdlabel( wdl.data->'labels'->'de'->>'value') as  name_de
+    ,clean_wdlabel( wdl.data->'labels'->'en'->>'value') as  name_en
+    ,clean_wdlabel( wdl.data->'labels'->'es'->>'value') as  name_es
+    ,clean_wdlabel( wdl.data->'labels'->'fr'->>'value') as  name_fr
+    ,clean_wdlabel( wdl.data->'labels'->'el'->>'value') as  name_el
+    ,clean_wdlabel( wdl.data->'labels'->'hi'->>'value') as  name_hi
+    ,clean_wdlabel( wdl.data->'labels'->'hu'->>'value') as  name_hu
+    ,clean_wdlabel( wdl.data->'labels'->'id'->>'value') as  name_id
+    ,clean_wdlabel( wdl.data->'labels'->'it'->>'value') as  name_it
+    ,clean_wdlabel( wdl.data->'labels'->'ja'->>'value') as  name_ja
+    ,clean_wdlabel( wdl.data->'labels'->'ko'->>'value') as  name_ko
+    ,clean_wdlabel( wdl.data->'labels'->'nl'->>'value') as  name_nl
+    ,clean_wdlabel( wdl.data->'labels'->'pl'->>'value') as  name_pl
+    ,clean_wdlabel( wdl.data->'labels'->'pt'->>'value') as  name_pt
+    ,clean_wdlabel( wdl.data->'labels'->'ru'->>'value') as  name_ru
+    ,clean_wdlabel( wdl.data->'labels'->'sv'->>'value') as  name_sv
+    ,clean_wdlabel( wdl.data->'labels'->'tr'->>'value') as  name_tr
+    ,clean_wdlabel( wdl.data->'labels'->'vi'->>'value') as  name_vi
+    ,clean_wdlabel( wdl.data->'labels'->'zh'->>'value') as  name_zh
     ,wdl.a_wof_type
     ,get_wdc_item_label (wd.data,'P31')                as old_p31_instance_of
     ,get_wdc_item_label(wdl.data,'P31')                as new_p31_instance_of

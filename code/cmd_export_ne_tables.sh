@@ -13,7 +13,7 @@ mkdir -p ${outputdir}/ne
 echo """
     -- export --
     \cd :reportdir 
-    \copy (SELECT * FROM ${source_table} where substr(_matching_category,1,2) ='OK'  ORDER BY ogc_fid  ) TO '${target_table}.csv' DELIMITER ',' CSV HEADER ESCAPE '\"';
+    \copy (SELECT * FROM ${source_table} where substr(_matching_category,1,2) in ('OK','WA')  ORDER BY ogc_fid  ) TO '${target_table}.csv' DELIMITER ',' CSV HEADER ESCAPE '\"';
 
 """ | psql -e -vreportdir="${outputdir}/ne"
 

@@ -15,6 +15,7 @@ import (
 	"log"
 	"os"
 	"regexp"
+	"sort"
 	"strings"
 	"sync"
 
@@ -283,6 +284,9 @@ func main() {
 
 			}
 		}
+
+		// Sort
+		sort.Strings(match)
 
 		// check if already wof referenced
 		if ok := wofwd[wdid]; ok {

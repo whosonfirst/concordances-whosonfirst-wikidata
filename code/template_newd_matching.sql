@@ -166,7 +166,7 @@ select
             when _old_distance is not null                                   then 'MAYBE:Notfound-has wikidata, distance is near'
 
             when ne_name is null then 'Notfound:ne_name is NULL'
-                                 else 'Notfound:has name - plase debug'
+                                 else 'Notfound:has name - please debug'
     end as _matching_category
     ,*
 from extended_notfound

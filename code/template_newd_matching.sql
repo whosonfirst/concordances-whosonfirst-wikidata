@@ -9,7 +9,7 @@ with m AS
         ,ne.*
         ,xxjarowinkler(ne.ne_name_has_num,wd.wd_name_has_num, ne.ne_una_name, wd.una_wd_name_en_clean)  as _xxjarowinkler
         ,  jarowinkler(ne.ne_una_name, wd.una_wd_name_en_clean)  as _jarowinkler
-
+        ,ST_TRANSFORM(ST_PointOnSurface(ne.ne_geom_merc),4326)   as ne_point
         ,case  when ne.ne_name      = wd.wd_name_en_clean      then 'N1Full-name-match'
                when ne.ne_una_name  = wd.una_wd_name_en_clean  then 'N3Unaccent-name-match'
                when ne_name_array && wd_name_array             then 'N2Label-name-match'
@@ -48,14 +48,14 @@ drop table if exists  :ne_wd_match_agg CASCADE;
 CREATE UNLOGGED TABLE :ne_wd_match_agg  as
 with wd_agg as
 (
-    select ogc_fid,featurecla,ne_name, ne_wd_id
+    select ogc_fid,featurecla,ne_name, ne_wd_id, ne_point
         ,  array_agg( wd_id     order by _score desc) as a_wd_id
         ,  array_agg(_score     order by _score desc)  as a_wd_id_score       
         ,  array_agg(_distance  order by _score desc) as a_wd_id_distance
         ,  array_agg(_name_match_type  order by _name_match_type ) as a_wd_name_match_type
     from :ne_wd_match
-    group by ogc_fid,featurecla, ne_name ,ne_wd_id
-    order by ogc_fid,featurecla, ne_name ,ne_wd_id
+    group by ogc_fid,featurecla, ne_name ,ne_wd_id,ne_point
+    order by ogc_fid,featurecla, ne_name ,ne_wd_id,ne_point
 )
 , wd_agg_extended as
 (
@@ -104,6 +104,10 @@ select wd_agg_extended.*
     ,clean_wdlabel( wdl.data->'labels'->'tr'->>'value') as  name_tr
     ,clean_wdlabel( wdl.data->'labels'->'vi'->>'value') as  name_vi
     ,clean_wdlabel( wdl.data->'labels'->'zh'->>'value') as  name_zh
+    ,ST_X(wdl.geom) as wd_long 
+    ,ST_Y(wdl.geom) as wd_lat     
+    ,ST_X(ne_point) as ne_long 
+    ,ST_Y(ne_point) as ne_lat         
     ,wdl.a_wof_type
     ,get_wdc_item_label (wd.data,'P31')                as old_p31_instance_of
     ,get_wdc_item_label(wdl.data,'P31')                as new_p31_instance_of

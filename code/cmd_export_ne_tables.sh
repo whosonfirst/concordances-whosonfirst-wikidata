@@ -32,7 +32,7 @@ ls -la  ${outputdir}/ne/${target_table}.db
 sqlite3  ${outputdir}/ne/${target_table}.db  "PRAGMA table_info( ${target_sqlite3_table})" > ${outputdir}/ne/${target_table}.dbstruct.txt
 
 
-gzip ${outputdir}/ne/${target_table}.db
-gzip ${outputdir}/ne/${target_table}.csv
+#gzip ${outputdir}/ne/${target_table}.db
+#gzip ${outputdir}/ne/${target_table}.csv
 
 ls -la  ${outputdir}/ne/${target_table}.*

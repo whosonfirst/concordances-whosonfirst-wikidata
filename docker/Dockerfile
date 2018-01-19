@@ -140,4 +140,16 @@ RUN \
 
 RUN git clone  --quiet --depth 1 https://github.com/jfcoz/postgresqltuner.git 
 RUN chmod +x /wof/tools/postgresqltuner/postgresqltuner.pl
+
+
+RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
+RUN \
+       apt-get update \
+    && apt-get install -y \
+        nodejs \
+    && rm -rf /var/lib/apt/lists/* /tmp/*
+
+RUN npm install -g wikidata-taxonomy
+RUN npm install -g wikidata-cli
+
 WORKDIR /wof/

@@ -132,4 +132,12 @@ RUN  git clone  --quiet --depth 1 https://github.com/NikolayS/postgres_dba.git
 
 ADD  .psqlrc /root/.psqlrc
 
+RUN \
+       apt-get update \
+    && apt-get install -y \
+        libdbd-pg-perl \
+    && rm -rf /var/lib/apt/lists/* /tmp/* 
+
+RUN git clone  --quiet --depth 1 https://github.com/jfcoz/postgresqltuner.git 
+RUN chmod +x /wof/tools/postgresqltuner/postgresqltuner.pl
 WORKDIR /wof/

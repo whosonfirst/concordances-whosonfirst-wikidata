@@ -71,6 +71,7 @@ drop table if exists          newd.ne_match_lake CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_lake  as
 select
      ogc_fid
+    ,min_zoom     
     ,featurecla 
     ,name                as ne_name
     ,lake_clean(name)    as ne_una_name        
@@ -116,6 +117,7 @@ drop table if exists          newd.ne_match_lake_europe CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_lake_europe  as
 select
      ogc_fid
+    ,min_zoom     
     ,featurecla 
     ,name                as ne_name
     ,lake_clean(name)    as ne_una_name        
@@ -159,6 +161,7 @@ drop table if exists          newd.ne_match_lake_north_america CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_lake_north_america  as
 select
      ogc_fid
+    ,min_zoom     
     ,featurecla 
     ,name                as ne_name
     ,lake_clean(name)    as ne_una_name        
@@ -203,6 +206,7 @@ drop table if exists          newd.ne_match_lake_historic CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_lake_historic  as
 select
      ogc_fid
+    ,min_zoom
     ,featurecla     
     ,name                as ne_name
     ,lake_clean(name)    as ne_una_name        

@@ -50,6 +50,7 @@ drop table if exists          newd.ne_match_geography_regions_points CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_geography_regions_points as
 select
      ogc_fid
+    ,min_zoom     
     ,featurecla 
     ,name                as ne_name
     ,geo_clean(name)     as ne_una_name        

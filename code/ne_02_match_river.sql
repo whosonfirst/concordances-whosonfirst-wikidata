@@ -82,6 +82,7 @@ drop table if exists newd.ne_match_river_europe CASCADE;
 CREATE TABLE         newd.ne_match_river_europe  as
 select
      ogc_fid
+    ,min_zoom     
     ,featurecla
     ,name                as ne_name
     ,river_clean(name)    as ne_una_name        
@@ -129,6 +130,7 @@ drop table if exists newd.ne_match_river_north_america CASCADE;
 CREATE TABLE         newd.ne_match_river_north_america  as
 select
      ogc_fid
+    ,min_zoom     
     ,featurecla
     ,name                 as ne_name
     ,river_clean(name)    as ne_una_name        
@@ -169,6 +171,7 @@ drop table if exists    newd.ne_match_river_lake_centerlines CASCADE;
 CREATE TABLE            newd.ne_match_river_lake_centerlines  as
 select
      ogc_fid
+    ,min_zoom     
     ,featurecla 
     ,name                as ne_name
     ,river_clean(name)   as ne_una_name        

@@ -72,7 +72,7 @@ drop table if exists  :ne_wd_match_agg CASCADE;
 CREATE UNLOGGED TABLE :ne_wd_match_agg  as
 with wd_agg as
 (
-    select ogc_fid,featurecla,ne_name, ne_wd_id, ne_point
+    select ogc_fid,min_zoom,featurecla,ne_name, ne_wd_id, ne_point
         ,  array_agg( wd_id             order by _score desc) as a_wd_id
         ,  array_agg(_score             order by _score desc) as a_wd_id_score
         ,  array_agg(_distance          order by _score desc) as a_wd_id_distance
@@ -81,8 +81,8 @@ with wd_agg as
         ,  array_agg( wd_name_en        order by _score desc) as a_wd_name_en
         ,  array_agg(_step              order by _score desc) as a_step        
     from :ne_wd_match
-    group by ogc_fid,featurecla, ne_name ,ne_wd_id,ne_point
-    order by ogc_fid,featurecla, ne_name ,ne_wd_id,ne_point
+    group by ogc_fid,min_zoom,featurecla, ne_name ,ne_wd_id,ne_point
+    order by ogc_fid,min_zoom,featurecla, ne_name ,ne_wd_id,ne_point
 )
 , wd_agg_extended as
 (

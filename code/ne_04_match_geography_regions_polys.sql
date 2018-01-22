@@ -58,7 +58,8 @@ select
     ,geo_clean(name)     as ne_una_name        
     ,check_number(name)  as ne_name_has_num
     ,ARRAY[name::text,geo_clean(name)::text,geo_clean(namealt)::text,unaccent(name)::text,unaccent(namealt)::text]     as ne_name_array
-    ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
+    ,cartodb.CDB_TransformToWebmercator(ST_Safe_Repair(geometry))   as ne_geom_merc
+    ,ST_PointOnSurface(geometry)  as ne_point
     ,'' as ne_wd_id
 from ne.ne_10m_geography_regions_polys
 ;

@@ -54,6 +54,7 @@ select
     ,check_number(name)  as ne_name_has_num
     ,ARRAY[name::text,playa_clean(name)::text,playa_clean(name_long)::text,unaccent(name)::text,unaccent(name_long)::text]     as ne_name_array
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
+    ,ST_PointOnSurface(geometry)  as ne_point   
     ,'' as ne_wd_id
 from ne.ne_10m_playas
 ;

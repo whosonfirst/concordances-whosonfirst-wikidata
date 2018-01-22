@@ -9,7 +9,7 @@ with m1 AS
         ,ne.*
         ,xxjarowinkler(ne.ne_name_has_num,wd.wd_name_has_num, ne.ne_una_name, wd.una_wd_name_en_clean)  as _xxjarowinkler
         ,  jarowinkler(ne.ne_una_name, wd.una_wd_name_en_clean)  as _jarowinkler
-        ,ST_TRANSFORM(ST_PointOnSurface(ne.ne_geom_merc),4326)   as ne_point
+       -- ,ST_TRANSFORM(ST_PointOnSurface(ne.ne_geom_merc),4326)   as ne_point
         ,case  when ne.ne_name      = wd.wd_name_en_clean      then 'N1Full-name-match'
                when ne.ne_una_name  = wd.una_wd_name_en_clean  then 'N3Unaccent-name-match'
                when ne_name_array && wd_name_array             then 'N2Label-name-match'
@@ -34,7 +34,7 @@ with m1 AS
         ,ne.*
         ,xxjarowinkler(ne.ne_name_has_num,wd.wd_name_has_num, ne.ne_una_name, wd.una_wd_name_en_clean)  as _xxjarowinkler
         ,  jarowinkler(ne.ne_una_name, wd.una_wd_name_en_clean)  as _jarowinkler
-        ,ST_TRANSFORM(ST_PointOnSurface(ne.ne_geom_merc),4326)   as ne_point
+        --,ST_TRANSFORM(ST_PointOnSurface(ne.ne_geom_merc),4326)   as ne_point
         ,case  when ne.ne_name  is null or ne.ne_name = ''  then 'S1_name_missing_but has_a_candidate'
                when ne.ne_name  != ''                       then 'S2JaroWinkler-match~'||  to_char( jarowinkler(ne.ne_una_name, wd.una_wd_name_en_clean) ,'99D9')
                                                             else 'SX-checkme'
@@ -44,11 +44,11 @@ with m1 AS
         ,:ne_input_table  as ne
     where ( (ST_DWithin ( wd.wd_point_merc, ne.ne_geom_merc , :suggestiondistance ))
           )
-          and 
+          and
           ne.ogc_fid not in ( select distinct ogc_fid from m1 order by ogc_fid )
 )
 
-select  
+select
         case
             when _distance=0 and (_jarowinkler is not null) then (nsitelinks/40) + 150 + (_jarowinkler*100)
             when _distance=0 and (_jarowinkler is null    ) then (nsitelinks/40) + 150 + 40
@@ -57,9 +57,9 @@ select
         end
         as _score
         ,*
- from  
-  (          select * from m1 
-   union all select * from m2 )  as m12     
+ from
+  (          select * from m1
+   union all select * from m2 )  as m12
  order by ogc_fid, _score, _distance
 
 ;
@@ -74,10 +74,11 @@ with wd_agg as
 (
     select ogc_fid,featurecla,ne_name, ne_wd_id, ne_point
         ,  array_agg( wd_id             order by _score desc) as a_wd_id
-        ,  array_agg(_score             order by _score desc) as a_wd_id_score       
+        ,  array_agg(_score             order by _score desc) as a_wd_id_score
         ,  array_agg(_distance          order by _score desc) as a_wd_id_distance
-        ,  array_agg(_jarowinkler       order by _score desc) as a_wd_id_jarowinkler        
+        ,  array_agg(_jarowinkler       order by _score desc) as a_wd_id_jarowinkler
         ,  array_agg(_name_match_type   order by _score desc) as a_wd_name_match_type
+        ,  array_agg( wd_name_en        order by _score desc) as a_wd_name_en
     from :ne_wd_match
     group by ogc_fid,featurecla, ne_name ,ne_wd_id,ne_point
     order by ogc_fid,featurecla, ne_name ,ne_wd_id,ne_point
@@ -101,10 +102,11 @@ with wd_agg as
         when  array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and ne_wd_id != a_wd_id[1] and ne_wd_id !='' then 'OK-REP:suggested for replace-'||a_wd_name_match_type[1]
         when  array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and ne_wd_id != a_wd_id[1] and ne_wd_id  ='' then 'OK-ADD:suggested for add-'||a_wd_name_match_type[1]
 
-        when  array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] >  :safedistance then 'WARN:Extreme distance match (> :safedistance m)'
-        when  array_length(a_wd_id,1) >1   and  ((a_wd_id_score[1]-a_wd_id_score[2])/a_wd_id_score[1] ) >0.2                      then 'OK-Multiple-TOP-good'
-        when  array_length(a_wd_id,1) >1   and  ((a_wd_id_score[1]-a_wd_id_score[2])/a_wd_id_score[1] ) >0.1                      then 'MAYBE-Check-Multiple-score'
-         else 'ER!R:check-me'
+        when  a_wd_id_distance[1] >  :safedistance then 'WARN:Extreme distance match (> :safedistance m)'
+        
+        when  array_length(a_wd_id,1) >1   and  ((a_wd_id_score[1]-a_wd_id_score[2])/a_wd_id_score[1] ) >0.25                     then 'OK-Multiple-TOP-good'
+        when  array_length(a_wd_id,1) >1                                                                                          then 'MAYBE-Check-Multiple-score,distance,name'
+         else '?'||a_wd_name_match_type[1]
       end as _matching_category
   from wd_agg
 )
@@ -130,10 +132,10 @@ select wd_agg_extended.*
     ,clean_wdlabel( wdl.data->'labels'->'tr'->>'value') as  name_tr
     ,clean_wdlabel( wdl.data->'labels'->'vi'->>'value') as  name_vi
     ,clean_wdlabel( wdl.data->'labels'->'zh'->>'value') as  name_zh
-    ,ST_X(wdl.geom) as wd_long 
-    ,ST_Y(wdl.geom) as wd_lat     
-    ,ST_X(ne_point) as ne_long 
-    ,ST_Y(ne_point) as ne_lat         
+    ,ST_X(wdl.geom) as wd_long
+    ,ST_Y(wdl.geom) as wd_lat
+    ,ST_X(ne_point) as ne_long
+    ,ST_Y(ne_point) as ne_lat
     ,wdl.a_wof_type
     ,get_wdc_item_label (wd.data,'P31')                as old_p31_instance_of
     ,get_wdc_item_label(wdl.data,'P31')                as new_p31_instance_of

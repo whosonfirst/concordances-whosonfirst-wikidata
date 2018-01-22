@@ -88,6 +88,7 @@ select
     ,check_number(name)  as ne_name_has_num
     ,ARRAY[name::text,river_clean(name)::text,river_clean(name_alt)::text,unaccent(name)::text,unaccent(name_alt)::text]     as ne_name_array
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
+    ,ST_PointOnSurface(geometry)  as ne_point    
     ,'' as ne_wd_id
 from ne.ne_10m_rivers_europe
 ;
@@ -134,6 +135,7 @@ select
     ,check_number(name)   as ne_name_has_num
     ,ARRAY[name::text,river_clean(name)::text,river_clean(name_alt)::text,unaccent(name)::text,unaccent(name_alt)::text]     as ne_name_array
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
+    ,ST_PointOnSurface(geometry)  as ne_point    
     ,'' as ne_wd_id
 from ne.ne_10m_rivers_north_america
 ;
@@ -173,6 +175,7 @@ select
     ,check_number(name)  as ne_name_has_num
     ,ARRAY[name::text,river_clean(name)::text,river_clean(name_alt)::text,unaccent(name)::text,unaccent(name_alt)::text]     as ne_name_array
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
+    ,ST_PointOnSurface(geometry)  as ne_point    
     ,'' as ne_wd_id
 from ne.ne_10m_rivers_lake_centerlines
 ;

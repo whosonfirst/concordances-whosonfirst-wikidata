@@ -61,6 +61,7 @@ select
     ,check_number(brk_name)          as ne_name_has_num
     ,ARRAY[brk_name::text,adm0disputed_clean(brk_name)::text,adm0disputed_clean(name_alt)::text,unaccent(brk_name)::text,unaccent(name_alt)::text,unaccent(name_sort)::text,name_sort::text]     as ne_name_array
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
+    ,ST_PointOnSurface(geometry)  as ne_point    
     ,'' as ne_wd_id
 from ne.ne_10m_admin_0_disputed_areas
 ;

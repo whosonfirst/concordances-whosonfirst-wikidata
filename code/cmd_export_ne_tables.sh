@@ -10,10 +10,12 @@ target_sqlite3_table=$(echo "${target_table}" | cut -d'.' -f2)
 
 mkdir -p ${outputdir}/ne
 
+
+##  where substr(_matching_category,1,2) in ('OK','WA') 
 echo """
     -- export --
     \cd :reportdir 
-    \copy (SELECT * FROM ${source_table} where substr(_matching_category,1,2) in ('OK','WA')  ORDER BY ogc_fid  ) TO '${target_table}.csv' DELIMITER ',' CSV HEADER ESCAPE '\"';
+    \copy (SELECT * FROM ${source_table}  ORDER BY ogc_fid  ) TO '${target_table}.csv' DELIMITER ',' CSV HEADER ESCAPE '\"';
 
 """ | psql -e -vreportdir="${outputdir}/ne"
 

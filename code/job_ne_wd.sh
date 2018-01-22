@@ -50,6 +50,7 @@ echo """
     CREATE EXTENSION if not exists plpythonu;
     CREATE EXTENSION if not exists cartodb;
     CREATE EXTENSION if not exists pg_similarity;
+    create extension if not exists lostgis;
 
 
     CREATE SCHEMA IF NOT EXISTS wd;

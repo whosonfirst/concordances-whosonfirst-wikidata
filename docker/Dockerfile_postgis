@@ -40,3 +40,5 @@ ADD pgtune-db.sh         /docker-entrypoint-initdb.d/pgtune-db.sh
 
 RUN pgxn install madlib
 ADD pgxn-load.sh  /docker-entrypoint-initdb.d/pgxn-load.sh
+
+RUN pgxn install lostgis

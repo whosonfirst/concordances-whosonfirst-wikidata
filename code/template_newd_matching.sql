@@ -18,7 +18,7 @@ with m1 AS
          --    when (wd_concordances_array && ne_concordances_array) then 'N6only-Concordances-match'
                                                                else 'Nerr??-checkme-'
          end as  _name_match_type
-
+        ,'1' as _step
     from :wd_input_table  as wd
         ,:ne_input_table  as ne
     where ( :mcond1
@@ -39,7 +39,7 @@ with m1 AS
                when ne.ne_name  != ''                       then 'S2JaroWinkler-match~'||  to_char( jarowinkler(ne.ne_una_name, wd.una_wd_name_en_clean) ,'99D9')
                                                             else 'SX-checkme'
          end as  _name_match_type
-
+        ,'2' as _step
     from :wd_input_table  as wd
         ,:ne_input_table  as ne
     where ( (ST_DWithin ( wd.wd_point_merc, ne.ne_geom_merc , :suggestiondistance ))
@@ -79,6 +79,7 @@ with wd_agg as
         ,  array_agg(_jarowinkler       order by _score desc) as a_wd_id_jarowinkler
         ,  array_agg(_name_match_type   order by _score desc) as a_wd_name_match_type
         ,  array_agg( wd_name_en        order by _score desc) as a_wd_name_en
+        ,  array_agg(_step              order by _score desc) as a_step        
     from :ne_wd_match
     group by ogc_fid,featurecla, ne_name ,ne_wd_id,ne_point
     order by ogc_fid,featurecla, ne_name ,ne_wd_id,ne_point
@@ -86,27 +87,35 @@ with wd_agg as
 , wd_agg_extended as
 (
  select wd_agg.*
-     -- ,case
-     --    when  array_length(a_wd_id,1) =1  then   a_wd_id[1]
-     --      else NULL
-     --   end as _suggested_wd_id
       ,a_wd_id[1]                                   as _suggested_wd_id
       ,array_length(a_wd_id,1)                      as wd_number_of_matches
       ,distance_class(a_wd_id_distance[1]::bigint)  as _firstmatch_distance_category
      ,case
-        when  array_length(a_wd_id,1) =1   and  array_length(a_wd_id_distance,1)=0  and ne_wd_id  = a_wd_id[1]                   then 'OK-VAL:validated,nodistance;'||a_wd_name_match_type[1]
-        when  array_length(a_wd_id,1) =1   and  array_length(a_wd_id_distance,1)=0  and ne_wd_id != a_wd_id[1] and ne_wd_id !='' then 'OK-REP:suggested for replace,nodistance;'||a_wd_name_match_type[1]
-        when  array_length(a_wd_id,1) =1   and  array_length(a_wd_id_distance,1)=0  and ne_wd_id != a_wd_id[1] and ne_wd_id  ='' then 'OK-ADD:suggested for add,nodistance;'||a_wd_name_match_type[1]
+        when a_step[1]='1' and array_length(a_wd_id,1) =1   and  array_length(a_wd_id_distance,1)=0  and ne_wd_id  = a_wd_id[1]                   then 'OK-VAL:validated,nodistance;'||a_wd_name_match_type[1]
+        when a_step[1]='1' and array_length(a_wd_id,1) =1   and  array_length(a_wd_id_distance,1)=0  and ne_wd_id != a_wd_id[1] and ne_wd_id !='' then 'OK-REP:suggested for replace,nodistance;'||a_wd_name_match_type[1]
+        when a_step[1]='1' and array_length(a_wd_id,1) =1   and  array_length(a_wd_id_distance,1)=0  and ne_wd_id != a_wd_id[1] and ne_wd_id  ='' then 'OK-ADD:suggested for add,nodistance;'||a_wd_name_match_type[1]
 
-        when  array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and ne_wd_id  = a_wd_id[1]                   then 'OK-VAL:validated-'||a_wd_name_match_type[1]
-        when  array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and ne_wd_id != a_wd_id[1] and ne_wd_id !='' then 'OK-REP:suggested for replace-'||a_wd_name_match_type[1]
-        when  array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and ne_wd_id != a_wd_id[1] and ne_wd_id  ='' then 'OK-ADD:suggested for add-'||a_wd_name_match_type[1]
+        when a_step[1]='1' and array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and ne_wd_id  = a_wd_id[1]                   then 'OK-VAL:validated-'||a_wd_name_match_type[1]
+        when a_step[1]='1' and array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and ne_wd_id != a_wd_id[1] and ne_wd_id !='' then 'OK-REP:suggested for replace-'||a_wd_name_match_type[1]
+        when a_step[1]='1' and array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and ne_wd_id != a_wd_id[1] and ne_wd_id  ='' then 'OK-ADD:suggested for add-'||a_wd_name_match_type[1]
 
-        when  a_wd_id_distance[1] >  :safedistance then 'WARN:Extreme distance match (> :safedistance m)'
+        when a_step[1]='1' and a_wd_id_distance[1] >  :safedistance then 'MAYBE1:Extreme distance match (> :safedistance m)'
         
-        when  array_length(a_wd_id,1) >1   and  ((a_wd_id_score[1]-a_wd_id_score[2])/a_wd_id_score[1] ) >0.25                     then 'OK-Multiple-TOP-good'
-        when  array_length(a_wd_id,1) >1                                                                                          then 'MAYBE-Check-Multiple-score,distance,name'
-         else '?'||a_wd_name_match_type[1]
+        when a_step[1]='1' and array_length(a_wd_id,1) >1   and  ((a_wd_id_score[1]-a_wd_id_score[2])/a_wd_id_score[1] ) >0.25                     then 'OK-Multiple-match-TOP-good'
+        when a_step[1]='1' and array_length(a_wd_id,1) >1                                                                                          then 'MAYBE0-Check-Multiple-score,distance,name'
+
+        when a_step[1]='2' and ne_name is not null and a_wd_id_score[1] > 170  then 'SUGGESTION10:Super-score,   check distance,name'
+        when a_step[1]='2' and ne_name is not null and a_wd_id_score[1] > 120  then 'SUGGESTION11:High-score,    check distance,name'
+        when a_step[1]='2' and ne_name is not null and a_wd_id_score[1] >  70  then 'SUGGESTION12:Medium-score,  check distance,name'
+        when a_step[1]='2' and ne_name is not null                             then 'SUGGESTION13:Low-score,     check distance,name'
+
+        when a_step[1]='2' and ne_name is null and a_wd_id_score[1] > 170  then 'SUGGESTION20:ne_name_empty:Super-score,   check distance,name'
+        when a_step[1]='2' and ne_name is null and a_wd_id_score[1] > 120  then 'SUGGESTION21:ne_name empty:High-score,    check distance,name'
+        when a_step[1]='2' and ne_name is null and a_wd_id_score[1] >  70  then 'SUGGESTION22:ne_name empty:Medium-score,  check distance,name'
+        when a_step[1]='2' and ne_name is null                             then 'SUGGESTION23:ne_name empty:Low-score,     check distance,name'
+
+        else '?'||a_wd_name_match_type[1]
+
       end as _matching_category
   from wd_agg
 )
@@ -147,7 +156,6 @@ select wd_agg_extended.*
 from wd_agg_extended
 left join wd.wdx             as wd     on wd_agg_extended.ne_wd_id=wd.wd_id
 left join wd.wdx             as wdl    on wd_agg_extended._suggested_wd_id=wdl.wd_id
--- left join :wd_input_table    as wdnew  on wd_agg_extended._suggested_wd_id=wdnew.wd_id
 ;
 ANALYSE :ne_wd_match_agg ;
 
@@ -185,16 +193,16 @@ extended_notfound as
 
 select
     case
-            when _old_distance_km >=1500 then 'Notfound:DEL-Extreme distance 1500-    km'
-            when _old_distance_km >=700  then 'Notfound:DEL-Extreme distance  700-1500km'
-            when _old_distance_km >=400  then 'Notfound:DEL-Extreme distance  400- 700km'
-            when _old_distance_km >=200  then 'Notfound:DEL-Extreme distance  200- 400km'
-            when _old_distance_km >=50   then 'MAYBE:Notfound:Extreme distance 50- 200km'
-            when _old_distance is null and  substr(ne_wd_id,1,1) = 'Q'       then 'MAYBE:Notfound:Current Wikidataid without coordinate'
-            when _old_distance is not null                                   then 'MAYBE:Notfound-has wikidata, distance is near'
+            when _old_distance_km >=1500 then 'Notfound2:DEL-Extreme distance 1500-    km'
+            when _old_distance_km >=700  then 'Notfound3:DEL-Extreme distance  700-1500km'
+            when _old_distance_km >=400  then 'Notfound4:DEL-Extreme distance  400- 700km'
+            when _old_distance_km >=200  then 'Notfound5:DEL-Extreme distance  200- 400km'
+            when _old_distance_km >=50   then 'XMAYBE:Notfound:Extreme distance 50- 200km'
+            when _old_distance is null and  substr(ne_wd_id,1,1) = 'Q'       then 'XMAYBE:Notfound:Current Wikidataid without coordinate'
+            when _old_distance is not null                                   then 'XMAYBE:Notfound-has wikidata, distance is near'
 
-            when ne_name is null then 'Notfound:ne_name is NULL'
-                                 else 'Notfound:has name - please debug'
+            when ne_name is null then 'Notfound0:ne_name is NULL'
+                                 else 'Notfound1:has name - please debug'
     end as _matching_category
     ,*
 from extended_notfound
@@ -257,96 +265,3 @@ ANALYSE :ne_wd_match_agg_sum:_pct;
 select * from :ne_wd_match_agg_sum:_pct;
 
 
-
-
-\set _suggestions _s
-drop table if exists    :ne_wd_match_notfound:_suggestions CASCADE;
-CREATE UNLOGGED TABLE   :ne_wd_match_notfound:_suggestions  as
-with x as
-(
-select
-         ne.ogc_fid   as _ogc_fid
-        ,ST_Distance( wd.wd_point_merc, ne.ne_geom_merc)::bigint  as _distance
-        ,jarowinkler(ne.ne_una_name, wd.una_wd_name_en_clean)     as _jarowinkler
-        ,wd.*
-        ,ne.ogc_fid
-        ,ne.featurecla
-        ,ne.ne_name
-        ,ne.ne_wd_id
-        ,ne.ne_una_name
-        ,ne.ne_name_has_num
-        ,ne.ne_name_array
-        ,ne.ne_geom_merc
-        --,xxjarowinkler(ne.ne_name_has_num,wd.wd_name_has_num, ne.ne_una_name, wd.una_wd_name_en_clean)  as _xxjarowinkler
-    from :wd_input_table        as wd
-        ,:ne_wd_match_notfound  as ne
-    where ( (ST_DWithin ( wd.wd_point_merc, ne.ne_geom_merc , :suggestiondistance ))
-          )
-    order by _ogc_fid, _distance, _jarowinkler desc
-)
-,x_score as (
-select
-  case
-    when _distance=0 and (_jarowinkler is not null) then (nsitelinks/40) + 150 + (_jarowinkler*100)
-    when _distance=0 and (_jarowinkler is null    ) then (nsitelinks/40) + 150 + 40
-    when _distance>0 and (_jarowinkler is not null) then (nsitelinks/40) + 100 - (ln(_distance)*10) + (_jarowinkler*100)
-    when _distance>0 and (_jarowinkler is null    ) then (nsitelinks/40) + 100 - (ln(_distance)*10) + 40
-  end
-  as _score
- ,*
- from x
- order by _ogc_fid, _score desc
-)
-,x_top3 as (
-select  _ogc_fid,wd_id,_score,_distance,nsitelinks
-from
-( select *, row_number() over (partition by _ogc_fid order by _score desc) as row_id
-  from x_score
-) as t
-where   row_id <4
-order by _score desc, _ogc_fid
-)
-,x_top3_agg as (
-select  _ogc_fid as top3_ogc_fid
-     ,array_agg(wd_id      order by _score desc)  as top3_wd_id
-     ,array_agg(_score     order by _score desc)  as top3_score
-     ,array_agg(_distance  order by _score desc)  as top3_distance
-     ,array_agg(nsitelinks order by _score desc)  as top3_nsitelinks
-from x_top3
-group by top3_ogc_fid
-order by top3_ogc_fid
-)
-select t._ogc_fid as x_ogc_fid,t.wd_id as x_wd_id, t._score as x_score
-   ,case
-        when array_length(top3_score,1)=1 and t3a.top3_score[1]>140  then 'AOK:TOP_ONLY_ONE-'
-        when array_length(top3_score,1)=1 and t3a.top3_score[1]>80   then 'MAYBE:TOP_ONLY_ONE'
-        when array_length(top3_score,1)=1                            then 'XLOW:TOP_ONLY_ONE'
-
-        when array_length(top3_score,1)>1 and ((t3a.top3_score[1]-t3a.top3_score[2]) / t3a.top3_score[1])>0.25 and t3a.top3_score[1]>140 then 'AOK:CLEARWIN'
-        when array_length(top3_score,1)>1 and ((t3a.top3_score[1]-t3a.top3_score[2]) / t3a.top3_score[1])>0.25 and t3a.top3_score[1]>80  then 'MAYBE:CLEARWIN'
-        when array_length(top3_score,1)>1 and ((t3a.top3_score[1]-t3a.top3_score[2]) / t3a.top3_score[1])>0.25                           then 'XLOW:CLEARWIN'
-
-        when t3a.top3_score[1]>140 then 'MULTIWIN:AOK'
-        when t3a.top3_score[1]>80  then 'MULTIWIN:MAYBE'
-                                   else 'MULTIWIN:XLOW'
-    end as _rank
-   ,case
-     when ne_name is NULL  then 'no-ne-name'
-                           else 'has-name  '
-    end as _namegrp
-   ,*
-from
-( select *, row_number() over (partition by _ogc_fid order by _score desc) as row_id
-  from x_score
-) as t
-left join x_top3_agg as t3a  on t._ogc_fid=t3a.top3_ogc_fid
-where row_id <2
-order by t._ogc_fid
-;
-
-
-select _namegrp,_rank, count(*) as N
-from :ne_wd_match_notfound:_suggestions
-group by _namegrp,_rank
-order by _namegrp,_rank
-;

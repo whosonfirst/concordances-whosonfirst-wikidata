@@ -49,7 +49,7 @@ drop table if exists          newd.ne_match_geography_marine_polys CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_geography_marine_polys as
 select
      ogc_fid
-    ,'0' as min_zoom    --  missing min_zoom      
+    ,0::double precision as min_zoom    --  missing min_zoom      
     ,featurecla      
     ,name                as ne_name
     ,geo_clean(name)     as ne_una_name        

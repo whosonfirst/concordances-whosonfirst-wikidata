@@ -49,6 +49,15 @@ select
     ,cartodb.CDB_TransformToWebmercator(geom::geometry)  as wd_point_merc
 from wd.wdx 
 where (a_wof_type  @> ARRAY['lake','hasP625'] ) and  not iscebuano
+     or 
+     ( wd_id in  -- exceptions   
+        (
+         'Q940488' -- St. Marys River
+        ,'Q1497','Q2887546','Q1503538' --Mississippi River
+        ,'Q267246' -- Powell River CA
+        ,'Q206710' -- Powell River (Q206710), river in the United States of America
+        )
+     )         
 )
 select *
       ,lake_array_clean(wd_name_array,wd_altname_array) as wd_all_name_array

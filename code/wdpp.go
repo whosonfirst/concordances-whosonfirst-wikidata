@@ -104,6 +104,7 @@ func init() {
 		"island":        "/wof/code/wikidata_island.csv",
 		"isthmus":       "/wof/code/wikidata_isthmus.csv",
 		"lake":          "/wof/code/wikidata_lake.csv",
+		"lakegrp":       "/wof/code/wikidata_lakegrp.csv",
 		"mountain":      "/wof/code/wikidata_mountain.csv",
 		"pass":          "/wof/code/wikidata_pass.csv",
 		"peninsula":     "/wof/code/wikidata_peninsula.csv",

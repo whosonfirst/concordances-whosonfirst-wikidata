@@ -120,6 +120,7 @@ func init() {
 		"tundra":        "/wof/code/wikidata_tundra.csv",
 		"valley":        "/wof/code/wikidata_valley.csv",
 		"waterfall":     "/wof/code/wikidata_waterfall.csv",
+		"wetland":       "/wof/code/wikidata_wetland.csv",
 	}
 
 	wofdef = make(map[string]wdType, len(wofCsvDefinitions))

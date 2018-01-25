@@ -1,53 +1,68 @@
 
-drop table if exists                      :ne_wd_match  CASCADE;
-EXPLAIN ANALYZE CREATE UNLOGGED TABLE     :ne_wd_match  as
-with m1 AS
-(
-    select
-         ST_Distance( wd.wd_point_merc, ne.ne_geom_merc)::bigint  as _distance
-        ,wd.*
-        ,ne.*
-        ,xxjarowinkler(ne.ne_name_has_num,wd.wd_name_has_num, ne.ne_una_name, wd.una_wd_name_en_clean)  as _xxjarowinkler
-        ,  jarowinkler(ne.ne_una_name, wd.una_wd_name_en_clean)  as _jarowinkler
-       -- ,ST_TRANSFORM(ST_PointOnSurface(ne.ne_geom_merc),4326)   as ne_point
-        ,case  when ne.ne_name      = wd.wd_name_en_clean      then 'N1Full-name-match'
-               when ne.ne_una_name  = wd.una_wd_name_en_clean  then 'N3Unaccent-name-match'
-               when ne_name_array && wd_name_array             then 'N2Label-name-match'
-               when ne_name_array && wd_altname_array          then 'N4Alias-name-match'
-               when jarowinkler(ne.ne_una_name, wd.una_wd_name_en_clean)>.971   then 'N5JaroWinkler-match'
-         --    when (wd_concordances_array && ne_concordances_array) then 'N6only-Concordances-match'
-                                                               else 'Nerr??-checkme-'
-         end as  _name_match_type
-        ,'1' as _step
-    from :wd_input_table  as wd
-        ,:ne_input_table  as ne
-    where ( :mcond1
-            :mcond2
-            :mcond3
-          )
-)
-,m2 AS
-(
-    select
-         ST_Distance( wd.wd_point_merc, ne.ne_geom_merc)::bigint  as _distance
-        ,wd.*
-        ,ne.*
-        ,xxjarowinkler(ne.ne_name_has_num,wd.wd_name_has_num, ne.ne_una_name, wd.una_wd_name_en_clean)  as _xxjarowinkler
-        ,  jarowinkler(ne.ne_una_name, wd.una_wd_name_en_clean)  as _jarowinkler
-        --,ST_TRANSFORM(ST_PointOnSurface(ne.ne_geom_merc),4326)   as ne_point
-        ,case  when ne.ne_name  is null or ne.ne_name = ''  then 'S1_name_missing_but has_a_candidate'
-               when ne.ne_name  != ''                       then 'S2JaroWinkler-match~'||  to_char( jarowinkler(ne.ne_una_name, wd.una_wd_name_en_clean) ,'99D9')
-                                                            else 'SX-checkme'
-         end as  _name_match_type
-        ,'2' as _step
-    from :wd_input_table  as wd
-        ,:ne_input_table  as ne
-    where ( (ST_DWithin ( wd.wd_point_merc, ne.ne_geom_merc , :suggestiondistance ))
-          )
-          and
-          ne.ogc_fid not in ( select distinct ogc_fid from m1 order by ogc_fid )
-)
 
+
+\set _m1 _m1
+\set _m2 _m2
+
+drop table if exists                      :ne_wd_match:_m1  CASCADE;
+EXPLAIN ANALYZE CREATE UNLOGGED TABLE     :ne_wd_match:_m1  as
+select
+    ST_Distance( wd.wd_point_merc, ne.ne_geom_merc)::bigint  as _distance
+    ,wd.*
+    ,ne.*
+    ,xxjarowinkler(ne.ne_name_has_num,wd.wd_name_has_num, ne.ne_una_name, wd.una_wd_name_en_clean)  as _xxjarowinkler
+    ,  jarowinkler(ne.ne_una_name, wd.una_wd_name_en_clean)  as _jarowinkler
+    -- ,ST_TRANSFORM(ST_PointOnSurface(ne.ne_geom_merc),4326)   as ne_point
+    ,case  when ne.ne_name      = wd.wd_name_en_clean      then 'N1Full-name-match'
+            when ne.ne_una_name  = wd.una_wd_name_en_clean  then 'N3Unaccent-name-match'
+            when ne_name_array && wd_name_array             then 'N2Label-name-match'
+            when ne_name_array && wd_altname_array          then 'N4Alias-name-match'
+            when jarowinkler(ne.ne_una_name, wd.una_wd_name_en_clean)>.971   then 'N5JaroWinkler-match'
+        --    when (wd_concordances_array && ne_concordances_array) then 'N6only-Concordances-match'
+                                                            else 'Nerr??-checkme-'
+        end as  _name_match_type
+    ,'1' as _step
+from :wd_input_table  as wd
+    ,:ne_input_table  as ne
+where ( :mcond1
+        :mcond2
+        :mcond3
+        )
+order by ogc_fid
+;
+
+drop table if exists                      :ne_input_table:_m2  CASCADE;
+EXPLAIN ANALYZE CREATE UNLOGGED TABLE     :ne_input_table:_m2  as
+select * from :ne_input_table
+where  ogc_fid not in ( select distinct ogc_fid from :ne_wd_match:_m1 order by ogc_fid )
+;
+CREATE INDEX  ON :ne_input_table:_m2  USING GIST(ne_geom_merc);
+
+
+
+drop table if exists                      :ne_wd_match:_m2  CASCADE;
+EXPLAIN ANALYZE CREATE UNLOGGED TABLE     :ne_wd_match:_m2  as
+select
+    ST_Distance( wd.wd_point_merc, ne.ne_geom_merc)::bigint  as _distance
+    ,wd.*
+    ,ne.*
+    ,xxjarowinkler(ne.ne_name_has_num,wd.wd_name_has_num, ne.ne_una_name, wd.una_wd_name_en_clean)  as _xxjarowinkler
+    ,  jarowinkler(ne.ne_una_name, wd.una_wd_name_en_clean)  as _jarowinkler
+    --,ST_TRANSFORM(ST_PointOnSurface(ne.ne_geom_merc),4326)   as ne_point
+    ,case  when ne.ne_name  is null or ne.ne_name = ''  then 'S1_name_missing_but has_a_candidate'
+           when ne.ne_name  != ''                       then 'S2JaroWinkler-match~'||  to_char( jarowinkler(ne.ne_una_name, wd.una_wd_name_en_clean) ,'99D9')
+                                                        else 'SX-checkme'
+        end as  _name_match_type
+    ,'2' as _step
+from :wd_input_table        as wd
+    ,:ne_input_table:_m2    as ne
+where ( (ST_DWithin ( wd.wd_point_merc, ne.ne_geom_merc , :suggestiondistance )))
+order by ogc_fid        
+;
+
+
+drop table if exists                      :ne_wd_match CASCADE;
+EXPLAIN ANALYZE CREATE UNLOGGED TABLE     :ne_wd_match  as
 select
         case
             when _distance=0 and (_jarowinkler is not null) then (nsitelinks/40) + 150 + (_jarowinkler*100)
@@ -58,10 +73,9 @@ select
         as _score
         ,*
  from
-  (          select * from m1
-   union all select * from m2 )  as m12
+  (          select * from :ne_wd_match:_m1
+   union all select * from :ne_wd_match:_m2 )  as m12
  order by ogc_fid, _score, _distance
-
 ;
 -- ANALYSE     :ne_wd_match  ;
 

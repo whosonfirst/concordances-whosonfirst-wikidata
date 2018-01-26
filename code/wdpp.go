@@ -106,6 +106,7 @@ func init() {
 		"isthmus":       "/wof/code/wikidata_isthmus.csv",
 		"lake":          "/wof/code/wikidata_lake.csv",
 		"lakegrp":       "/wof/code/wikidata_lakegrp.csv",
+		"landform":      "/wof/code/wikidata_landform.csv",
 		"mountain":      "/wof/code/wikidata_mountain.csv",
 		"pass":          "/wof/code/wikidata_pass.csv",
 		"peninsula":     "/wof/code/wikidata_peninsula.csv",
@@ -179,7 +180,7 @@ func main() {
 	createTableStr_wd := []string{
 		"CREATE SCHEMA IF NOT EXISTS wd;",
 		"DROP TABLE IF EXISTS wd.wdx CASCADE;",
-		`CREATE UNLOGGED TABLE wd.wdx ( 
+		`CREATE UNLOGGED TABLE wd.wdx (
 			 wd_id         	TEXT NOT NULL
 			,wd_label      	TEXT NOT NULL
 			,a_wof_type    	TEXT[] NOT NULL

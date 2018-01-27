@@ -169,16 +169,17 @@ func readCsvFile(csvcode string) wdType {
 func main() {
 	rexpl := regexp.MustCompile(`[,()]`)
 	preferredLangSlice := [...]string{
-		"en", "es", "pt",
-		"de", "fr", "it", "nl",
+		"en", "es", "pt", "de", "fr", "it",
+		"nl",
 		"cs", "sk", "pl",
 		"hu", "lv", "lt", "et", "hr",
 		"fi", "da", "el",
-		"ca", "sv", "no",
+		"ca", "sv", "no", "nb",
 		"ru", "bg", "uk", "be",
 		"ja", "zh", "ko",
 		"ar", "fy", "he",
-		"ta"}
+		"ta",
+		"*"}
 
 	connStr := "sslmode=disable connect_timeout=10"
 
@@ -240,14 +241,14 @@ func main() {
 	createTableStr_label := []string{
 		"CREATE SCHEMA IF NOT EXISTS wdlabels;",
 		"DROP TABLE IF EXISTS wdlabels.en CASCADE;",
-		"CREATE UNLOGGED TABLE wdlabels.en (wd_id TEXT NOT NULL, wd_label TEXT, wd_qlabel TEXT  );",
+		"CREATE UNLOGGED TABLE wdlabels.en (wd_id TEXT NOT NULL, wd_label TEXT, wd_qlabel TEXT ,wd_qlang TEXT );",
 	}
 	for _, str := range createTableStr_label {
 		fmt.Println("executing:", str)
 		_, err := txn_label.Exec(str)
 		checkErr(err)
 	}
-	stmt_label, err := txn_label.Prepare(pq.CopyInSchema("wdlabels", "en", "wd_id", "wd_label", "wd_qlabel"))
+	stmt_label, err := txn_label.Prepare(pq.CopyInSchema("wdlabels", "en", "wd_id", "wd_label", "wd_qlabel", "wd_qlang"))
 	checkErr(err)
 	//
 	// gz input definition
@@ -284,6 +285,8 @@ func main() {
 
 		wdlabel := gjson.GetBytes(b, "labels.en.value").String()
 		wdqlabel := ""
+		wdqlang := ""
+
 		var gjson_wdqlabel gjson.Result
 
 		if wdlabel == "" {
@@ -294,12 +297,14 @@ func main() {
 				gjson_wdqlabel = gjson.GetBytes(b, "labels."+pLang+".value")
 				if gjson_wdqlabel.Exists() {
 					wdqlabel = gjson_wdqlabel.String()
+					wdqlang = gjson.GetBytes(b, "labels."+pLang+".language").String()
 					break
 				}
 			}
 
 		} else {
 			wdqlabel = wdlabel
+			wdqlang = "en"
 		}
 
 		if wdqlabel == "" {
@@ -312,7 +317,7 @@ func main() {
 		}
 
 		if pgoutput {
-			_, err = stmt_label.Exec(wdid, wdlabel, wdqlabel)
+			_, err = stmt_label.Exec(wdid, wdlabel, wdqlabel, wdqlang)
 			checkErr(err)
 		}
 

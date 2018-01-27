@@ -168,15 +168,15 @@ func readCsvFile(csvcode string) wdType {
 
 func main() {
 	rexpl := regexp.MustCompile(`[,()]`)
+
+	//  latin letters preferred
 	preferredLangSlice := [...]string{
 		"en", "es", "pt", "de", "fr", "it",
-		"nl",
-		"cs", "sk", "pl",
-		"hu", "lv", "lt", "et", "hr",
-		"fi", "da", "el",
-		"ca", "sv", "no", "nb",
-		"ru", "bg", "uk", "be",
-		"ja", "zh", "ko",
+		"nl", "da", "cs", "sk", "pl",
+		"lv", "lt", "et", "hr", "sl", "fi",
+		"ca", "sv", "no", "nb", "hu", "ro", "is", "el", "tr", "az", "sq",
+		"sr", "ru", "bg", "uk", "be",
+		"hi", "ja", "zh", "ko", "vi", "th",
 		"ar", "fy", "he",
 		"ta",
 		"*"}

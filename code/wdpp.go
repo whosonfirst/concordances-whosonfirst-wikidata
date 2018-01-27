@@ -167,6 +167,7 @@ func readCsvFile(csvcode string) wdType {
 }
 
 func main() {
+	rexpl := regexp.MustCompile(`[,()]`)
 	preferredLangSlice := [...]string{
 		"en", "es", "pt",
 		"de", "fr", "it", "nl",
@@ -299,6 +300,15 @@ func main() {
 
 		} else {
 			wdqlabel = wdlabel
+		}
+
+		if wdqlabel == "" {
+			wdqlabel = wdid
+		} else {
+			// clean wikidata label : split by ',('
+			// 'Eutenhofen (Dietfurt an der Altmühl)'	-> 'Eutenhofen'
+			// 'Sussex Corner, New Brunswick' 			-> 'Sussex Corner'
+			wdqlabel = strings.TrimSpace(rexpl.Split(wdqlabel, -1)[0])
 		}
 
 		if pgoutput {

@@ -167,6 +167,18 @@ func readCsvFile(csvcode string) wdType {
 }
 
 func main() {
+	preferredLangSlice := [...]string{
+		"en", "es", "pt",
+		"de", "fr", "it", "nl",
+		"cs", "sk", "pl",
+		"hu", "lv", "lt", "et", "hr",
+		"fi", "da", "el",
+		"ca", "sv", "no",
+		"ru", "bg", "uk", "be",
+		"ja", "zh", "ko",
+		"ar", "fy", "he",
+		"ta"}
+
 	connStr := "sslmode=disable connect_timeout=10"
 
 	//
@@ -227,14 +239,14 @@ func main() {
 	createTableStr_label := []string{
 		"CREATE SCHEMA IF NOT EXISTS wdlabels;",
 		"DROP TABLE IF EXISTS wdlabels.en CASCADE;",
-		"CREATE UNLOGGED TABLE wdlabels.en (wd_id TEXT NOT NULL, wd_label TEXT );",
+		"CREATE UNLOGGED TABLE wdlabels.en (wd_id TEXT NOT NULL, wd_label TEXT, wd_qlabel TEXT  );",
 	}
 	for _, str := range createTableStr_label {
 		fmt.Println("executing:", str)
 		_, err := txn_label.Exec(str)
 		checkErr(err)
 	}
-	stmt_label, err := txn_label.Prepare(pq.CopyInSchema("wdlabels", "en", "wd_id", "wd_label"))
+	stmt_label, err := txn_label.Prepare(pq.CopyInSchema("wdlabels", "en", "wd_id", "wd_label", "wd_qlabel"))
 	checkErr(err)
 	//
 	// gz input definition
@@ -270,12 +282,27 @@ func main() {
 		}
 
 		wdlabel := gjson.GetBytes(b, "labels.en.value").String()
+		wdqlabel := ""
+		var gjson_wdqlabel gjson.Result
+
 		if wdlabel == "" {
 			wdlabel = wdid
+
+			// find first preferred wd Label
+			for _, pLang := range preferredLangSlice {
+				gjson_wdqlabel = gjson.GetBytes(b, "labels."+pLang+".value")
+				if gjson_wdqlabel.Exists() {
+					wdqlabel = gjson_wdqlabel.String()
+					break
+				}
+			}
+
+		} else {
+			wdqlabel = wdlabel
 		}
 
 		if pgoutput {
-			_, err = stmt_label.Exec(wdid, wdlabel)
+			_, err = stmt_label.Exec(wdid, wdlabel, wdqlabel)
 			checkErr(err)
 		}
 

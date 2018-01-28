@@ -251,7 +251,7 @@ func main() {
 		_, err := txn_label.Exec(str)
 		checkErr(err)
 	}
-	stmt_label, err := txn_label.Prepare(pq.CopyInSchema("wdlabels", "en", "wd_id", "wd_label", "wd_qlabel", "wd_qlang"))
+	stmt_label, err := txn_label.Prepare(pq.CopyInSchema("wdlabels", "qlabel", "wd_id", "wd_label", "wd_qlabel", "wd_qlang"))
 	checkErr(err)
 	//
 	// gz input definition

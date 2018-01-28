@@ -17,6 +17,7 @@
 \ir 'ne_0411_match_georegp_pencape.sql'
 \ir 'ne_0412_match_georegp_coast.sql'
 \ir 'ne_0413_match_georegp_mountain.sql'
+\ir 'ne_0414_match_georegp_fictional.sql'
 
 
 
@@ -40,6 +41,7 @@ union all select * from newd.ne_wd_georegp_basin_match_agg
 union all select * from newd.ne_wd_georegp_pencape_match_agg
 union all select * from newd.ne_wd_georegp_coast_match_agg
 union all select * from newd.ne_wd_georegp_mountain_match_agg
+union all select * from newd.ne_wd_georegp_fictional_match_agg
 ;
 
 
@@ -64,6 +66,7 @@ union all select * from newd.ne_wd_georegp_basin_match_notfound
 union all select * from newd.ne_wd_georegp_pencape_match_notfound
 union all select * from newd.ne_wd_georegp_coast_match_notfound
 union all select * from newd.ne_wd_georegp_mountain_match_notfound
+union all select * from newd.ne_wd_georegp_fictional_match_notfound
 ;
  --
 

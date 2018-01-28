@@ -48,7 +48,11 @@ select
     --  ,get_wd_concordances(data)         as wd_concordances_array
     ,cartodb.CDB_TransformToWebmercator(geom::geometry)  as wd_point_merc
 from wd.wdx 
-where (a_wof_type  @> ARRAY['lake','hasP625'] ) and  not iscebuano
+where ( 
+            (a_wof_type  &&  ARRAY['lake','lakegrp'] ) 
+        and (a_wof_type  @>  ARRAY['hasP625'] ) 
+        and  not iscebuano
+       )
      or 
      ( wd_id in  -- exceptions   
         (

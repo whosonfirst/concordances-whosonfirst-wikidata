@@ -133,8 +133,8 @@ RETURNS jsonb
 IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
-    SELECT jsonb_build_object(wd_id, wd_label)          
-    FROM wdlabels.en
+    SELECT jsonb_build_object(wd_id, wd_qlabel)          
+    FROM wdlabels.qlabel
     WHERE wd_id=wdid
     ;
 $$;
@@ -144,8 +144,8 @@ RETURNS text
 IMMUTABLE STRICT PARALLEL SAFE
 LANGUAGE sql
 AS $$
-    SELECT wd_label          
-    FROM wdlabels.en
+    SELECT wd_qlabel          
+    FROM wdlabels.qlabel
     WHERE wd_id=wdid
     ;
 $$;

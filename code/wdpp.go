@@ -196,7 +196,8 @@ func main() {
 		"DROP TABLE IF EXISTS wd.wdx CASCADE;",
 		`CREATE UNLOGGED TABLE wd.wdx (
 			 wd_id         	TEXT NOT NULL
-			,wd_label      	TEXT NOT NULL
+			,wd_label       TEXT NOT NULL
+			,wd_lang        TEXT NOT NULL
 			,a_wof_type    	TEXT[] NOT NULL
 			,nclaims       	Smallint
 			,nlabels       	Smallint
@@ -217,6 +218,7 @@ func main() {
 	stmt_wd, err := txn_wd.Prepare(pq.CopyInSchema("wd", "wdx",
 		"wd_id",
 		"wd_label",
+		"wd_lang",
 		"a_wof_type",
 		"nclaims",
 		"nlabels",
@@ -240,8 +242,8 @@ func main() {
 	checkErr(err)
 	createTableStr_label := []string{
 		"CREATE SCHEMA IF NOT EXISTS wdlabels;",
-		"DROP TABLE IF EXISTS wdlabels.en CASCADE;",
-		"CREATE UNLOGGED TABLE wdlabels.en (wd_id TEXT NOT NULL, wd_label TEXT, wd_qlabel TEXT ,wd_qlang TEXT );",
+		"DROP TABLE IF EXISTS wdlabels.qlabel CASCADE;",
+		"CREATE UNLOGGED TABLE wdlabels.qlabel (wd_id TEXT NOT NULL, wd_label TEXT, wd_qlabel TEXT ,wd_qlang TEXT );",
 	}
 	for _, str := range createTableStr_label {
 		fmt.Println("executing:", str)
@@ -450,7 +452,8 @@ func main() {
 					// write to postgres
 					_, err = stmt_wd.Exec(
 						wdid,
-						wdlabel,
+						wdqlabel,
+						wdqlang,
 						match,
 						wd.nClaims,
 						wd.nLabels,
@@ -477,7 +480,8 @@ func main() {
 						// write to postgres
 						_, err = stmt_wd.Exec(
 							wdid,
-							wdlabel,
+							wdqlabel,
+							wdqlang,
 							match,
 							wd.nClaims,
 							wd.nLabels,
@@ -525,7 +529,7 @@ func main() {
 	err = txn_label.Commit()
 	checkErr(err)
 
-	fmt.Println("...  wd.wdx  + wdlabels.en Loaded:", c.v)
+	fmt.Println("...  wd.wdx  + wdlabels.qlabel Loaded:", c.v)
 }
 
 func checkErr(err error) {

@@ -33,22 +33,23 @@ time go run /wof/code/wdpp.go /wof/wikidata_dump/latest-all.json.gz
 echo "======== parse end: wikidata_dump/latest-all.json.gz ==========="
 
 psql -c	"CREATE UNIQUE INDEX wd_wdx_wd_id       ON  wd.wdx(wd_id) 	   WITH (fillfactor = 100) ; " &
-psql -c	"CREATE UNIQUE INDEX wdlabels_en_wd_id  ON  wdlabels.en(wd_id) WITH (fillfactor = 100) ; " &
+psql -c	"CREATE UNIQUE INDEX wdlabels_en_wd_id  ON  wdlabels.qlabel(wd_id) WITH (fillfactor = 100) ; " &
 wait
 
-psql -c	"CLUSTER   wdlabels.en  USING  wdlabels_en_wd_id ; " &
+psql -c	"CLUSTER   wdlabels.qlabel  USING  wdlabels_en_wd_id ; " &
 psql -c	"CLUSTER   wd.wdx       USING  wd_wdx_wd_id      ; " &
 wait
 
 psql -c	"CREATE INDEX ON  wd.wdx USING GIN( a_wof_type ) ; " &
 psql -c	"CREATE INDEX ON  wd.wdx USING GIST( geom )      ; " &
+psql -c	"CREATE INDEX ON  wd.wdx(wd_id)  WITH (fillfactor = 100) ; " &
 wait 
 
-psql -c	"ALTER TABLE  wdlabels.en  SET LOGGED  ; " &
+psql -c	"ALTER TABLE  wdlabels.qlabel  SET LOGGED  ; " &
 psql -c	"ALTER TABLE  wd.wdx       SET LOGGED  ; " &
 wait
 
-psql -c	"ANALYSE wdlabels.en;" &
+psql -c	"ANALYSE wdlabels.qlabel;" &
 psql -c	"ANALYSE wd.wdx     ;" &
 wait 
 
@@ -58,6 +59,10 @@ echo """
     --
     SELECT a_wof_type, count(*) as N FROM wd.wdx GROUP BY a_wof_type;
     --
+    SELECT count(*) as N_all FROM wd.wdx;
+    --
+    SELECT count(*) as N_no_geom FROM wd.wdx WHERE geom is null;
+    --    
     \d+ wd.wdx
 """ | psql -e
 

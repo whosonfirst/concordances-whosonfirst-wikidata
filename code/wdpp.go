@@ -101,6 +101,7 @@ func init() {
 		"delta":         "/wof/code/wikidata_delta.csv",
 		"depression":    "/wof/code/wikidata_depression.csv",
 		"desert":        "/wof/code/wikidata_desert.csv",
+		"fictional":     "/wof/code/wikidata_fictional.csv",
 		"graben":        "/wof/code/wikidata_graben.csv",
 		"island":        "/wof/code/wikidata_island.csv",
 		"isthmus":       "/wof/code/wikidata_isthmus.csv",

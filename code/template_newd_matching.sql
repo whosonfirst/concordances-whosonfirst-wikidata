@@ -182,6 +182,7 @@ extended_notfound as
 (
     select
          ne.ogc_fid
+        ,ne.min_zoom
         ,ne.featurecla
         ,ne.ne_name
         ,ne.ne_wd_id

@@ -90,3 +90,5 @@ neexport ${outputdir}/ne     "where 1=1"
 
 neexport ${outputdir}/ne_ok   "where substr(_matching_category,1,2) in ('OK','MA')"
 
+neexport ${outputdir}/ne_ok_s1   "where substr(_matching_category,1,2) in ('OK','MA') or (_matching_category like 'SUGGESTION10%') or (_matching_category like 'SUGGESTION11%')  or (_matching_category like 'SUGGESTION12%') "
+

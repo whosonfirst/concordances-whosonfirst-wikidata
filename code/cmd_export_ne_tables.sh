@@ -25,6 +25,7 @@ echo """
         ,ne_wd_id
         ,new_wd_label       
         ,_suggested_wd_id
+        ,_firstmatch_distance_category        
         ,_matching_category
         ,name_ar
         ,name_bn
@@ -59,7 +60,6 @@ echo """
         ,a_wd_name_en
         ,a_step
         ,wd_number_of_matches
-        ,_firstmatch_distance_category
         ,a_wof_type
         ,old_p31_instance_of
         ,new_p31_instance_of

@@ -82,7 +82,7 @@ psql -e -f /wof/code/ne_07_match_geographic_lines.sql
 psql -e -f /wof/code/ne_08_match_admin_1_states_provinces.sql
 psql -e -f /wof/code/ne_09_match_admin_0_map_subunits.sql
 psql -e -f /wof/code/ne_10_match_admin_0_disputed_areas.sql
-#psql -e -f /wof/code/ne_11_match_playas.sql
+psql -e -f /wof/code/ne_11_match_playas.sql
 psql -e -f /wof/code/ne_12_match_admin_0_countries.sql
 
 /wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_lake_match_agg
@@ -101,6 +101,7 @@ psql -e -f /wof/code/ne_12_match_admin_0_countries.sql
 /wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_admin_0_map_subunits_match_agg
 /wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_admin_0_disputed_areas_match_agg
 /wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_admin_0_countries_match_agg
+/wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_playas_match_agg
 
 echo """
     --

@@ -32,7 +32,9 @@ select
     ,cartodb.CDB_TransformToWebmercator(geom::geometry)  as wd_point_merc
     ,a_wof_type
 from wd.wdx
-where (a_wof_type  @> ARRAY['playas','hasP625'] )     and  not iscebuano
+where (a_wof_type  && ARRAY['playa','lake','depression'])
+    and (a_wof_type  @>  ARRAY['hasP625'] )
+    and not iscebuano
 ;
 
 CREATE INDEX  ON  newd.wd_match_playas USING GIST(wd_point_merc);
@@ -53,7 +55,7 @@ select
     ,name                as ne_name
     ,playa_clean(name)   as ne_una_name
     ,check_number(name)  as ne_name_has_num
-    ,ARRAY[name::text,playa_clean(name)::text,playa_clean(name_long)::text,unaccent(name)::text,unaccent(name_long)::text]     as ne_name_array
+    ,ARRAY[name::text,playa_clean(name)::text,playa_clean(name_alt)::text,unaccent(name)::text,unaccent(name_alt)::text]     as ne_name_array
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point
     ,'' as ne_wd_id
@@ -72,7 +74,7 @@ ANALYSE          newd.ne_match_playas;
 \set ne_wd_match_notfound      newd.ne_wd_match_playas_match_notfound
 \set safedistance   100000000
 \set searchdistance 400000003
-\set suggestiondistance  80000
+\set suggestiondistance  200000
 
 \set mcond1     (( ne.ne_una_name = wd.una_wd_name_en_clean ) or (  wd_name_array && ne_name_array ) or (  ne_name_array && wd_altname_array )  or (jarowinkler( ne.ne_una_name, wd.una_wd_name_en_clean)>.971 ) )
 \set mcond2

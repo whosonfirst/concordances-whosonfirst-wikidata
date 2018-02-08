@@ -1,6 +1,6 @@
 Q8502, Mountain
-
-
+Q1245089,promontory - prominent mass of land that overlooks lower-lying land or a body of water
+Q8072,volcano 
 
 
 Q23228,interfluve
@@ -40,6 +40,38 @@ Q28026737,tunturi
 Q28792430,Q28792430
 Q34987520,unspoiled summit
 Q35691748,highest mountain
+
+
+Q1245089,"promontory"
+Q185113,"cape"
+Q3925637,""
+Q191992,"headland"
+Q24529780,"point"
+
+Q8072,"volcano"
+Q169358,"stratovolcano"
+Q190869,"central volcano"
+Q212057,"shield volcano"
+Q723802,"lunar dome"
+Q332614,"Supervolcano"
+Q367004,"Tuya"
+Q478788,"Cryovolcano"
+Q526644,"pancake dome"
+Q674775,"submarine volcano"
+Q771409,"subglacial volcano"
+Q1197120,"extinct volcano"
+Q1200524,"complex volcano"
+Q1325302,"dormant volcano"
+Q1330974,"Active volcano"
+Q1491559,"somma volcano"
+Q1806785,"cinder cone"
+Q2143039,"fissure vent"
+Q3562720,""
+Q3562724,""
+Q21002266,"active volcano"
+Q20743938,"eruptive center"
+Q21009867,"dome volcano"
+Q37499745,"plug dome volcano"
 
 
 #================================================

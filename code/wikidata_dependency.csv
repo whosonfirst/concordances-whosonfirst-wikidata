@@ -1,5 +1,8 @@
 Q161243,dependent territory
 
+
+
+
 Q1094394,Colonies in antiquity
 Q1138279, associated state
 Q133156,colony
@@ -30,3 +33,7 @@ Q2533461,autonomous administrative territorial entity
 
 ##  -- added for Guam
 Q1048835,  political territorial entity 
+
+
+## --- added for Guantanamo Bay Naval Base
+Q1192403, Concession 

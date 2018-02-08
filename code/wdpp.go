@@ -22,10 +22,45 @@ import (
 	gzip "github.com/klauspost/pgzip"
 	"github.com/lib/pq"
 	"github.com/miku/parallel"
+	"github.com/mmcloughlin/geohash"
 	"github.com/tidwall/gjson"
 )
 
 const pgoutput = true
+
+type WikiData struct {
+	ID string
+
+	wdqlabel string // wikidata preferred label
+	wdqlang  string // wikidata preferred label language
+	wdelabel string // wikidata english label
+
+	match pq.StringArray //array of categories
+
+	WikiItems WikiItems
+	WikiJson  []byte
+
+	nClaims       int
+	nLabels       int
+	nDescriptions int
+	nAliases      int
+	nSitelinks    int
+
+	nCebSitelinks int
+	IsCebuano     bool
+
+	// Geometries
+	p625          GisPoint
+	p625latitude  string
+	p625longitude string
+
+	gphash string
+	gp     GisPoint
+	p1332  GisPoint
+	p1333  GisPoint
+	p1334  GisPoint
+	p1335  GisPoint
+}
 
 type GisPoint struct {
 	Lng  float64
@@ -98,6 +133,7 @@ func init() {
 		"circle":        "/wof/code/wikidata_circle.csv",
 		"coast":         "/wof/code/wikidata_coast.csv",
 		"dam":           "/wof/code/wikidata_dam.csv",
+		"dmz":           "/wof/code/wikidata_dmz.csv",
 		"delta":         "/wof/code/wikidata_delta.csv",
 		"depression":    "/wof/code/wikidata_depression.csv",
 		"desert":        "/wof/code/wikidata_desert.csv",
@@ -195,6 +231,7 @@ func main() {
 	createTableStr_wd := []string{
 		"CREATE SCHEMA IF NOT EXISTS wd;",
 		"DROP TABLE IF EXISTS wd.wdx CASCADE;",
+		"DROP TABLE IF EXISTS wd.wdxceb CASCADE;",
 		`CREATE UNLOGGED TABLE wd.wdx (
 			 wd_id         	TEXT NOT NULL
 			,wd_label       TEXT NOT NULL
@@ -207,6 +244,7 @@ func main() {
 			,nsitelinks   	Smallint
 			,ncebsitelinks  Smallint
 			,iscebuano  	Bool
+			,geomhash       TEXT NOT NULL
 			,geom 			Geometry(Point, 4326) NULL
 			,data 			JSONB NOT NULL );`,
 	}
@@ -216,6 +254,7 @@ func main() {
 		_, err := txn_wd.Exec(str)
 		checkErr(err)
 	}
+
 	stmt_wd, err := txn_wd.Prepare(pq.CopyInSchema("wd", "wdx",
 		"wd_id",
 		"wd_label",
@@ -228,6 +267,7 @@ func main() {
 		"nsitelinks",
 		"ncebsitelinks",
 		"iscebuano",
+		"geomhash",
 		"geom",
 		"data",
 	))
@@ -278,229 +318,177 @@ func main() {
 	wpp := parallel.NewProcessor(gzipreader, os.Stdout, func(b []byte) ([]byte, error) {
 		c.Inc()
 
-		wdid := gjson.GetBytes(b, "id").String()
-		if len(wdid) <= 1 {
+		var wikidata WikiData
+
+		wikidata.ID = gjson.GetBytes(b, "id").String()
+
+		if len(wikidata.ID) <= 1 {
 			return nil, nil
 		}
-		if wdid[0] != 'Q' {
+		if wikidata.ID[0] != 'Q' {
 			return nil, nil
 		}
 
-		wdlabel := gjson.GetBytes(b, "labels.en.value").String()
-		wdqlabel := ""
-		wdqlang := ""
+		// replace last coma to space
+		if b[len(b)-2] == 44 {
+			b[len(b)-2] = 32
+		}
+
+		wikidata.AddWikidataJsonClean(b)
+
+		wikidata.wdelabel = gjson.GetBytes(wikidata.WikiJson, "labels.en.value").String()
+		wikidata.wdqlabel = ""
+		wikidata.wdqlang = ""
 
 		var gjson_wdqlabel gjson.Result
 
-		if wdlabel == "" {
-			wdlabel = wdid
+		if wikidata.wdelabel == "" {
+			wikidata.wdelabel = wikidata.ID
 
 			// find first preferred wd Label
 			for _, pLang := range preferredLangSlice {
-				gjson_wdqlabel = gjson.GetBytes(b, "labels."+pLang+".value")
+				gjson_wdqlabel = gjson.GetBytes(wikidata.WikiJson, "labels."+pLang+".value")
 				if gjson_wdqlabel.Exists() {
-					wdqlabel = gjson_wdqlabel.String()
-					wdqlang = gjson.GetBytes(b, "labels."+pLang+".language").String()
+					wikidata.wdqlabel = gjson_wdqlabel.String()
+					wikidata.wdqlang = gjson.GetBytes(wikidata.WikiJson, "labels."+pLang+".language").String()
 					break
 				}
 			}
 
 		} else {
-			wdqlabel = wdlabel
-			wdqlang = "en"
+			wikidata.wdqlabel = wikidata.wdelabel
+			wikidata.wdqlang = "en"
 		}
 
-		if wdqlabel == "" {
-			wdqlabel = wdid
+		if wikidata.wdqlabel == "" {
+			wikidata.wdqlabel = wikidata.ID
 		} else {
 			// clean wikidata label : split by ',('
 			// 'Eutenhofen (Dietfurt an der Altmühl)'	-> 'Eutenhofen'
 			// 'Sussex Corner, New Brunswick' 			-> 'Sussex Corner'
-			wdqlabel = strings.TrimSpace(rexpl.Split(wdqlabel, -1)[0])
+			wikidata.wdqlabel = strings.TrimSpace(rexpl.Split(wikidata.wdqlabel, -1)[0])
 		}
 
 		if pgoutput {
-			_, err = stmt_label.Exec(wdid, wdlabel, wdqlabel, wdqlang)
+			_, err = stmt_label.Exec(wikidata.ID, wikidata.wdelabel, wikidata.wdqlabel, wikidata.wdqlang)
 			checkErr(err)
 		}
 
-		match := pq.StringArray{}
+		// Drop  P576: dissolved, demolished
+		if gjson.GetBytes(wikidata.WikiJson, "claims.P576").Exists() {
+			return nil, nil
+		}
 
 		// check P31claims ...
-		p31claims := gjson.GetBytes(b, "claims.P31.#[rank!=deprecated]#.mainsnak.datavalue.value.id")
+		p31claims := gjson.GetBytes(wikidata.WikiJson, "claims.P31.#.mainsnak.datavalue.value.id")
 		for wofk := range wofdef {
 			for _, k := range p31claims.Array() {
 				if ok := wofdef[wofk][k.String()]; ok {
-					// Check has a qualifiers.P582(end time) ?
-					// https://www.wikidata.org/wiki/Property:P582 "indicates the time an item ceases to exist or a statement stops being valid"
-					valueP582 := gjson.GetBytes(b, `claims.P17.#[mainsnak.datavalue.value.id="`+k.String()+`"].qualifiers.P582`)
-					// No P582(end time)  - so this is valid claims!
-					if !valueP582.Exists() {
-						match = append(match, wofk)
-						break
-					}
-
+					wikidata.match = append(wikidata.match, wofk)
+					break
 				}
 
 			}
 		}
 
 		// Sort
-		sort.Strings(match)
+		sort.Strings(wikidata.match)
 
 		// check if already wof referenced
-		if ok := wofwd[wdid]; ok {
-			match = append(match, "wof")
+		if ok := wofwd[wikidata.ID]; ok {
+			wikidata.match = append(wikidata.match, "wof")
 		}
 		// check if already redirected
-		if ok := wofredirected[wdid]; ok {
-			match = append(match, "redirected")
+		if ok := wofredirected[wikidata.ID]; ok {
+			wikidata.match = append(wikidata.match, "redirected")
 		}
 
 		// check ISO 3166-2 code ;  P300
-		if gjson.GetBytes(b, "claims.P300.#[rank!=deprecated]").Exists() {
-			match = append(match, "P300")
+		if gjson.GetBytes(wikidata.WikiJson, "claims.P300").Exists() {
+			wikidata.match = append(wikidata.match, "P300")
 		}
 		// check FIPS 10-4 (countries and regions) :P901
-		if gjson.GetBytes(b, "claims.P901.#[rank!=deprecated]").Exists() {
-			match = append(match, "P901")
+		if gjson.GetBytes(wikidata.WikiJson, "claims.P901").Exists() {
+			wikidata.match = append(wikidata.match, "P901")
 		}
 		// check IATA airport code : P238
-		if gjson.GetBytes(b, "claims.P238.#[rank!=deprecated]").Exists() {
-			match = append(match, "P238")
+		if gjson.GetBytes(wikidata.WikiJson, "claims.P238").Exists() {
+			wikidata.match = append(wikidata.match, "P238")
 		}
 		// check ICAO airport code : P239
-		if gjson.GetBytes(b, "claims.P239.#[rank!=deprecated]").Exists() {
-			match = append(match, "P239")
+		if gjson.GetBytes(wikidata.WikiJson, "claims.P239").Exists() {
+			wikidata.match = append(wikidata.match, "P239")
 		}
 		// check territory claimed by ; P1336
-		if gjson.GetBytes(b, "claims.P1336.#[rank!=deprecated]").Exists() {
-			match = append(match, "P1336")
+		if gjson.GetBytes(wikidata.WikiJson, "claims.P1336").Exists() {
+			wikidata.match = append(wikidata.match, "P1336")
 		}
 
 		// check statement disputed by ; P1310
-		if gjson.GetBytes(b, "claims.P17.#[rank!=deprecated].qualifiers.P1310").Exists() {
-			match = append(match, "P1310")
+		if gjson.GetBytes(wikidata.WikiJson, "claims.P17.qualifiers.P1310").Exists() {
+			wikidata.match = append(wikidata.match, "P1310")
 		}
 
 		if pgoutput {
 			// log
 			if (c.v % 100000) == 0 {
-				fmt.Println("..processing:", c.v, "   wdid:", wdid, wdlabel)
+				fmt.Println("..processing:", c.v, "   wikidata.ID:", wikidata.ID, wikidata.wdqlabel, wikidata.match)
 			}
 		}
 
-		if len(match) > 0 {
-			// replace last coma to space
-			if b[len(b)-2] == 44 {
-				b[len(b)-2] = 32
+		if len(wikidata.match) == 0 {
+			return nil, nil
+		}
+
+		wikidata.setCoordinates()
+		wikidata.setCebuano()
+
+		// check "blacklist"  ?
+		for _, k := range p31claims.Array() {
+			if ok := blacklist[k.String()]; ok {
+				wikidata.match = append(wikidata.match, "blacklist")
+				break
 			}
+		}
 
-			wd := WikidataJsonClean(b)
+		// check GeoNames ID ; P1566
+		if gjson.GetBytes(wikidata.WikiJson, "claims.P1566").Exists() {
+			wikidata.match = append(wikidata.match, "hasP1566")
+		}
 
-			// check "blacklist"  ?
-			for _, k := range p31claims.Array() {
-				if ok := blacklist[k.String()]; ok {
-					// Check has a qualifiers.P582(end time) ?
-					// https://www.wikidata.org/wiki/Property:P582 "indicates the time an item ceases to exist or a statement stops being valid"
-					valueP582 := gjson.GetBytes(b, `claims.P17.#[mainsnak.datavalue.value.id="`+k.String()+`"].qualifiers.P582`)
-					// No P582(end time)  - so this is valid claims!
-					if !valueP582.Exists() {
-						match = append(match, "blacklist")
-						break
-					}
-
-				}
+		if !wikidata.p625.Null {
+			if pgoutput {
+				// write to postgres
+				//if !wikidata.IsCebuano {
+				wikidata.writePG_wd(stmt_wd)
+				//}
+			} else {
+				return append(wikidata.WikiJson, '\n'), nil
 			}
-
-			// check GeoNames ID ; P1566
-			if gjson.GetBytes(b, "claims.P1566.#[rank!=deprecated]").Exists() {
-				match = append(match, "hasP1566")
-			}
-
-			// check coordinate location ; P625
-			p625 := gjson.Get(string(b), "claims.P625.#[rank!=deprecated]#").
-				Get("#[mainsnak.datavalue.type==globecoordinate]#").
-				Get("#[mainsnak.datavalue.value.globe==http://www.wikidata.org/entity/Q2]#").
-				Get("#[mainsnak.snaktype==value]#")
-
-			gp := new(GisPoint)
-			gp.Null = true
-
-			if p625.Exists() {
-				match = append(match, "hasP625")
-				//fmt.Println(wdid, `p625`, p625.String())
-
-				p625latitude := p625.Get(`#[rank==preferred].mainsnak.datavalue.value.latitude`)
-
-				if p625latitude.Exists() {
-					p625longitude := p625.Get(`#[rank==preferred].mainsnak.datavalue.value.longitude`)
-
-					gp = &GisPoint{Lng: p625longitude.Float(), Lat: p625latitude.Float(), Null: false}
-					//fmt.Println(wdid, `rank=preferred`, p625latitude, p625longitude)
-
-				} else {
-					p625latitude := p625.Get(`#[rank==normal].mainsnak.datavalue.value.latitude`)
-
-					if p625latitude.Exists() {
-						p625longitude := p625.Get(`#[rank==normal].mainsnak.datavalue.value.longitude`)
-						gp = &GisPoint{Lng: p625longitude.Float(), Lat: p625latitude.Float(), Null: false}
-						//fmt.Println(wdid, `rank=normal`, p625latitude, p625longitude)
-					}
-				}
-
+		} else {
+			if len(wikidata.match) == 1 &&
+				(wikidata.match[0] == "locality" ||
+					wikidata.match[0] == "marinearea" ||
+					wikidata.match[0] == "river" ||
+					wikidata.match[0] == "landform" ||
+					wikidata.match[0] == "county") {
+				// skip - lot of items without coordinate.
+				// -------------------------------------------------
+				// {locality} without coordinate 		=1049335
+				// {marinearea} without coordinate 		= 282329
+				// {county}	without coordinate 			=  12335
+			} else {
 				if pgoutput {
 					// write to postgres
-					_, err = stmt_wd.Exec(
-						wdid,
-						wdqlabel,
-						wdqlang,
-						match,
-						wd.nClaims,
-						wd.nLabels,
-						wd.nDescriptions,
-						wd.nAliases,
-						wd.nSitelinks,
-						wd.nCebSitelinks,
-						wd.IsCebuano,
-						gp,
-						string(wd.WikiJson))
-					checkErr(err)
+					//if !wikidata.IsCebuano {
+					wikidata.writePG_wd(stmt_wd)
+					//}
 				} else {
-					return append(wd.WikiJson, '\n'), nil
-				}
-			} else {
-				if len(match) == 1 && (match[0] == "locality" || match[0] == "marinearea" || match[0] == "county") {
-					// skip - lot of items without coordinate.
-					// -------------------------------------------------
-					// {locality} without coordinate 		=1049335
-					// {marinearea} without coordinate 		= 282329
-					// {county}	without coordinate 			=  12335
-				} else {
-					if pgoutput {
-						// write to postgres
-						_, err = stmt_wd.Exec(
-							wdid,
-							wdqlabel,
-							wdqlang,
-							match,
-							wd.nClaims,
-							wd.nLabels,
-							wd.nDescriptions,
-							wd.nAliases,
-							wd.nSitelinks,
-							wd.nCebSitelinks,
-							wd.IsCebuano,
-							gp,
-							string(wd.WikiJson))
-						checkErr(err)
-					} else {
-						return append(wd.WikiJson, '\n'), nil
-					}
+					return append(wikidata.WikiJson, '\n'), nil
 				}
 			}
-
 		}
+
 		return nil, nil
 	})
 
@@ -601,28 +589,13 @@ type Property struct {
 
 type Claim []Property
 
-type WikiData struct {
-	ID        string
-	WikiItems WikiItems
-	WikiJson  []byte
-
-	nClaims       int
-	nLabels       int
-	nDescriptions int
-	nAliases      int
-	nSitelinks    int
-
-	nCebSitelinks int
-	IsCebuano     bool
-}
-
 // -------------------
 // Cleaning WikidataJSON
 // Removing :  References, QualifiersOrder, ID , Hash
 // Removing :  rank=deprecated
 // Removing :  Claims  with P582(End time)  -   except P1082:population info
 // --------------------
-func WikidataJsonClean(content []byte) *WikiData {
+func (wikidata *WikiData) AddWikidataJsonClean(content []byte) {
 
 	m := WikiItems{}
 	err := json.Unmarshal(content, &m)
@@ -642,7 +615,8 @@ func WikidataJsonClean(content []byte) *WikiData {
 
 			for _, qv := range v.Qualifiers {
 				for _, qvi := range qv {
-					//  If has "P582 - end time" - we don't keep and don't load to Postgres
+					// If has "P582 - end time" - we don't keep and don't load to Postgres
+					// https://www.wikidata.org/wiki/Property:P582 "indicates the time an item ceases to exist or a statement stops being valid"
 					if qvi.Property == "P582" {
 						keep = false
 						break
@@ -663,7 +637,7 @@ func WikidataJsonClean(content []byte) *WikiData {
 		}
 	}
 
-	newWikiitem := WikiItems{
+	wikidata.WikiItems = WikiItems{
 		ID:           m.ID,
 		Claims:       newClaims,
 		Labels:       m.Labels,
@@ -672,29 +646,128 @@ func WikidataJsonClean(content []byte) *WikiData {
 		Sitelinks:    m.Sitelinks,
 	}
 
-	mj, err := json.Marshal(newWikiitem)
+	mj, err := json.Marshal(wikidata.WikiItems)
 	checkErr(err)
+	wikidata.WikiJson = mj
 
-	wd := WikiData{
-		ID:            m.ID,
-		WikiItems:     newWikiitem,
-		WikiJson:      mj,
-		nClaims:       len(newClaims),
-		nLabels:       len(m.Labels),
-		nDescriptions: len(m.Descriptions),
-		nAliases:      len(m.Aliases),
-		nSitelinks:    len(m.Sitelinks),
-		nCebSitelinks: 0,
-		IsCebuano:     false,
+	//fmt.Println(string(mj))
+
+	wikidata.nClaims = len(newClaims)
+	wikidata.nLabels = len(m.Labels)
+	wikidata.nDescriptions = len(m.Descriptions)
+	wikidata.nAliases = len(m.Aliases)
+	wikidata.nSitelinks = len(m.Sitelinks)
+	wikidata.nCebSitelinks = 0
+	wikidata.IsCebuano = false
+
+}
+
+func (wikidata *WikiData) setCebuano() {
+	// Strict Cebuano settings
+	_, cebExists := wikidata.WikiItems.Sitelinks["cebwiki"]
+	_, svExists := wikidata.WikiItems.Sitelinks["svwiki"]
+	_, iaExists := wikidata.WikiItems.Sitelinks["iawiki"]
+	// set cebuano values
+	if cebExists {
+		wikidata.nCebSitelinks = 1
 	}
 
-	// set cebuano values
-	if _, ok := m.Sitelinks["cebwiki"]; ok {
-		wd.nCebSitelinks = 1
-		if wd.nSitelinks == 1 {
-			wd.IsCebuano = true
+	switch wikidata.nSitelinks {
+	case 0: // No Site  -- probably imported
+		wikidata.IsCebuano = true
+	case 1:
+		if cebExists { // only 1 cebuano
+			wikidata.IsCebuano = true
+		} else if iaExists { // only 1  interlingua language  https://en.wikipedia.org/wiki/Interlingua
+			wikidata.IsCebuano = true
+		}
+	case 2:
+		if cebExists && svExists && (!wikidata.p625.Null) { // cebuano + svedish + has Coordinate
+
+			// check geohash - and if it is not svedish - then it is problematic
+			switch wikidata.gphash[0:2] {
+			default:
+				wikidata.IsCebuano = true
+			case "u3":
+			case "u4":
+			case "u6":
+			case "u7":
+			case "ue":
+			case "uk":
+			case "us":
+			case "x3":
+			}
+
 		}
 	}
+}
 
-	return &wd
+func (wikidata *WikiData) setCoordinates() {
+
+	wikidata.gphash = ""
+	wikidata.gp.Null = true
+	wikidata.p625.Null = true
+
+	cp625, p625Exist := wikidata.WikiItems.Claims["P625"]
+	if p625Exist {
+		var lat, lng float64
+		null := true
+		for _, v := range cp625 {
+			if v.Mainsnak.Snaktype == "value" &&
+				v.Mainsnak.DataValue.Type == "globecoordinate" &&
+				gjson.GetBytes(v.Mainsnak.DataValue.Value, "globe").String() == "http://www.wikidata.org/entity/Q2" {
+				// some claims has "no value"  - so we don't import them.
+				// example:  https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q36823    P36   snaktype": "novalue"  ( No de jure Capital)
+
+				if v.Rank == "preferred" {
+					wikidata.p625.Lat = gjson.GetBytes(v.Mainsnak.DataValue.Value, "latitude").Float()
+					wikidata.p625.Lng = gjson.GetBytes(v.Mainsnak.DataValue.Value, "longitude").Float()
+					wikidata.p625.Null = false
+					wikidata.gp = wikidata.p625
+					wikidata.gphash = geohash.Encode(wikidata.p625.Lat, wikidata.p625.Lng)
+					wikidata.match = append(wikidata.match, "hasP625")
+					return
+				} else if v.Rank == "normal" {
+					if null {
+						lat = gjson.GetBytes(v.Mainsnak.DataValue.Value, "latitude").Float()
+						lng = gjson.GetBytes(v.Mainsnak.DataValue.Value, "longitude").Float()
+						null = false
+					}
+				} else {
+					panic("Extreeme-Rank-value")
+				}
+			}
+		}
+		if !null {
+			wikidata.p625.Lat = lat
+			wikidata.p625.Lng = lng
+			wikidata.p625.Null = null
+
+			wikidata.gp = wikidata.p625
+			wikidata.gphash = geohash.Encode(wikidata.p625.Lat, wikidata.p625.Lng)
+			wikidata.match = append(wikidata.match, "hasP625")
+		}
+
+	}
+}
+
+func (wikidata *WikiData) writePG_wd(stmt_wd *sql.Stmt) {
+	// write to postgres
+
+	_, err := stmt_wd.Exec(
+		wikidata.ID,
+		wikidata.wdqlabel,
+		wikidata.wdqlang,
+		wikidata.match,
+		wikidata.nClaims,
+		wikidata.nLabels,
+		wikidata.nDescriptions,
+		wikidata.nAliases,
+		wikidata.nSitelinks,
+		wikidata.nCebSitelinks,
+		wikidata.IsCebuano,
+		wikidata.gphash,
+		wikidata.gp,
+		string(wikidata.WikiJson))
+	checkErr(err)
 }

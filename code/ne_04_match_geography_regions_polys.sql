@@ -21,6 +21,7 @@
 
 
 
+
 drop table if exists newd.ne_wd_match_geography_regions_polys_match_agg CASCADE;
 create table         newd.ne_wd_match_geography_regions_polys_match_agg as
           select * from newd.ne_wd_georegp_continent_match_agg

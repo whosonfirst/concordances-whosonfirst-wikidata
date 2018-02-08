@@ -17,7 +17,7 @@
 \set wd_input_table     newd.wd_:mgrpid
 \set ne_input_table     newd.ne_:mgrpid
 
-\set words2clean        mountain
+\set words2clean        mountain|mountains|gora|mt.|mtn.|mts.|vulkan|volcano|mount|mont|monte|peak|pk.|pico|gunung|cerro|range|ra.
 
 \set safedistance        800000
 \set searchdistance     3900003

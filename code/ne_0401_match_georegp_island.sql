@@ -15,7 +15,7 @@
 \set wd_input_table     newd.wd_:mgrpid
 \set ne_input_table     newd.ne_:mgrpid
 
-\set words2clean        island|archipelago
+\set words2clean        island|is.|i.|archipelago
 
 \set safedistance       100000
 \set searchdistance     400003

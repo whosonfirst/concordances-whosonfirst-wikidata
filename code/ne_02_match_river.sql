@@ -5,7 +5,7 @@ CREATE OR REPLACE FUNCTION  river_clean(river_name text)
 LANGUAGE sql IMMUTABLE STRICT PARALLEL SAFE   AS
 $func$
 select trim( translate( regexp_replace(  nameclean( river_name ) ,
- $$[[:<:]](river|rio|le|de|)[[:>:]]$$,
+ $$[[:<:]](river|rivire|rio|le|de|saint|st.|creek|cr.|fork|fk.)[[:>:]]$$,
   ' ',
   'gi'
 ),'  ',' ') );

@@ -32,7 +32,7 @@ select
     ,cartodb.CDB_TransformToWebmercator(geom::geometry)  as wd_point_merc
     ,a_wof_type 
 from wd.wdx 
-where   (a_wof_type  &&  ARRAY['island','cape','waterfall','pole'] ) 
+where   (a_wof_type  &&  ARRAY['island','archipelago','cape','waterfall','pole'] ) 
     and (a_wof_type  @>  ARRAY['hasP625'] ) 
     and  not iscebuano
 ;

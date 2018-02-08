@@ -16,7 +16,7 @@
 \set wd_input_table     newd.wd_:mgrpid
 \set ne_input_table     newd.ne_:mgrpid
 
-\set words2clean        peninsula
+\set words2clean        peninsula|pen.
 
 \set safedistance       400000
 \set searchdistance     900003

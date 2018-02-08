@@ -9,7 +9,7 @@ CREATE OR REPLACE FUNCTION  adm1prov_clean(name text)
 LANGUAGE sql IMMUTABLE STRICT PARALLEL SAFE   AS
 $func$
 select trim( translate( regexp_replace(  nameclean( name ) ,
- $$[[:<:]](province)[[:>:]]$$,
+ $$[[:<:]](province|county|prefecture|region|district|governorate|canton|department|municipality)[[:>:]]$$,
   ' ',
   'gi'
 ),'  ',' ') );

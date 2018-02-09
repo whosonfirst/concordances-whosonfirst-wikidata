@@ -121,6 +121,7 @@ select * from        newd.ne_wd_match_admin_1_states_provinces_match_agg_sum_pct
 select * from        newd.ne_wd_match_admin_0_map_subunits_match_agg_sum_pct  ;
 select * from        newd.ne_wd_match_admin_0_disputed_areas_match_agg_sum_pct  ;
 select * from        newd.ne_wd_match_admin_0_countries_match_agg_sum_pct  ;
+select * from        newd.ne_wd_match_playas_match_agg_sum_pct  ;
     --
 """ | psql -e > ${outputdir}/_________ne_summary__________________.txt
 

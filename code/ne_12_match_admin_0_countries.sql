@@ -36,7 +36,10 @@ from wd.wdx
 where  ( (a_wof_type  &&  ARRAY['country','P901','dmz'] )
     and (a_wof_type  @>  ARRAY['hasP625'] )
     and not iscebuano
-    and wd_id not in ('Q46879','Q25359','Q59146') -- Baker island
+    and wd_id not in ('Q46879'  -- Baker Island 
+                     ,'Q25359'  -- Navassa Island 
+                     ,'Q59146'  -- Kyrenia District 
+                     ) 
 )
     or wd_id  in (
          'Q1257783'    -- Bajo Nuevo Bank 
@@ -49,6 +52,7 @@ where  ( (a_wof_type  &&  ARRAY['country','P901','dmz'] )
         ,'Q762570'     -- Guantanamo Bay Naval Base
         ,'Q16645'      -- United States Minor Outlying Islands
         ,'Q116970'     -- United Nations Buffer Zone in Cyprus 
+        ,'Q4824275'    -- Australian Indian Ocean Territories
     )
 
 ;
@@ -87,7 +91,7 @@ ANALYSE          newd.ne_match_admin_0_countries;
 
 \set ne_wd_match               newd.ne_wd_match_admin_0_countries_match
 \set ne_wd_match_agg           newd.ne_wd_match_admin_0_countries_match_agg
-\set ne_wd_match_agg_sum       newd.ne_wd_match_admin_0_countries_agg_sum
+\set ne_wd_match_agg_sum       newd.ne_wd_match_admin_0_countries_match_agg_sum
 \set ne_wd_match_notfound      newd.ne_wd_match_admin_0_countries_match_notfound
 \set safedistance    800000
 \set searchdistance 1500003

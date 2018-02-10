@@ -99,7 +99,7 @@ ANALYSE          newd.ne_match_admin_0_countries;
 
 \set mcond1     (( ne.ne_una_name = wd.una_wd_name_en_clean ) or (  wd_name_array && ne_name_array ) or (  ne_name_array && wd_altname_array )  or (jarowinkler( ne.ne_una_name, wd.una_wd_name_en_clean)>.971 ) )
 \set mcond2  and (ST_DWithin ( wd.wd_point_merc, ne.ne_geom_merc , :searchdistance ))
-\set mcond3  or ( (wd.wd_id='''Q51''') and (ne.ogc_fid=12) ) or ( (wd.wd_id='''Q16645''') and (ne.ogc_fid=237) ) or ( (wd.wd_id='''Q51''') and (ne.ogc_fid=12) ) or ( (wd.wd_id='''Q116970''') and (ne.ogc_fid=47) )
+\set mcond3  or ( (wd.wd_id='''Q4824275''') and (ne.ogc_fid=106) )or ( (wd.wd_id='''Q51''') and (ne.ogc_fid=12) ) or ( (wd.wd_id='''Q16645''') and (ne.ogc_fid=237) ) or ( (wd.wd_id='''Q51''') and (ne.ogc_fid=12) ) or ( (wd.wd_id='''Q116970''') and (ne.ogc_fid=47) )
 
 \ir 'template_newd_matching.sql'
 

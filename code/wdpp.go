@@ -92,7 +92,10 @@ func (c *SafeCounter) Inc() {
 
 type wdType map[string]bool
 
+type wiki2Group map[string]pq.StringArray
+
 var wofdef map[string]wdType
+var wiki2grp wiki2Group
 
 var wofwd wdType
 var wofredirected wdType
@@ -162,11 +165,25 @@ func init() {
 	}
 
 	wofdef = make(map[string]wdType, len(wofCsvDefinitions))
+	wiki2grp = make(wiki2Group, 0)
 
 	for k, csvfile := range wofCsvDefinitions {
 		fmt.Println(k, csvfile)
 		wofdef[k] = readCsvFile(csvfile)
 	}
+
+	for k, qwdtype := range wofdef {
+		for qkey, _ := range qwdtype {
+			if _, qkeyExist := wiki2grp[qkey]; qkeyExist {
+				wiki2grp[qkey] = append(wiki2grp[qkey], k)
+			} else {
+				wiki2grp[qkey] = pq.StringArray{k}
+			}
+		}
+	}
+
+	//fmt.Println(wiki2grp)
+	//os.Exit(0)
 
 	wofwd = readCsvFile("/wof/whosonfirst-data/wd_extended.csv")
 	wofredirected = readCsvFile("/wof/whosonfirst-data/wd_redirects.csv")
@@ -215,8 +232,7 @@ func main() {
 		"sr", "ru", "bg", "uk", "be",
 		"hi", "ja", "zh", "ko", "vi", "th",
 		"ar", "fy", "he",
-		"ta",
-		"*"}
+		"ta"}
 
 	connStr := "sslmode=disable connect_timeout=10"
 
@@ -336,28 +352,35 @@ func main() {
 
 		wikidata.AddWikidataJsonClean(b)
 
-		wikidata.wdelabel = gjson.GetBytes(wikidata.WikiJson, "labels.en.value").String()
-		wikidata.wdqlabel = ""
-		wikidata.wdqlang = ""
-
-		var gjson_wdqlabel gjson.Result
-
-		if wikidata.wdelabel == "" {
+		if _, ok := wikidata.WikiItems.Labels["en"]; ok {
+			wikidata.wdelabel = wikidata.WikiItems.Labels["en"].Value
+			wikidata.wdqlabel = wikidata.WikiItems.Labels["en"].Value
+			wikidata.wdqlang = "en"
+		} else {
 			wikidata.wdelabel = wikidata.ID
 
+			wikidata.wdqlabel = ""
+			wikidata.wdqlang = ""
+
 			// find first preferred wd Label
+			wdqLangFound := false
 			for _, pLang := range preferredLangSlice {
-				gjson_wdqlabel = gjson.GetBytes(wikidata.WikiJson, "labels."+pLang+".value")
-				if gjson_wdqlabel.Exists() {
-					wikidata.wdqlabel = gjson_wdqlabel.String()
-					wikidata.wdqlang = gjson.GetBytes(wikidata.WikiJson, "labels."+pLang+".language").String()
+				if _, ok := wikidata.WikiItems.Labels[pLang]; ok {
+					wikidata.wdqlabel = wikidata.WikiItems.Labels[pLang].Value
+					wikidata.wdqlang = wikidata.WikiItems.Labels[pLang].Language
+					wdqLangFound = true
+					break
+				}
+			}
+			// If not found any label is OK
+			if !wdqLangFound && len(wikidata.WikiItems.Labels) > 0 {
+				for _, label := range wikidata.WikiItems.Labels {
+					wikidata.wdqlabel = label.Value
+					wikidata.wdqlang = label.Language
 					break
 				}
 			}
 
-		} else {
-			wikidata.wdqlabel = wikidata.wdelabel
-			wikidata.wdqlang = "en"
 		}
 
 		if wikidata.wdqlabel == "" {
@@ -375,24 +398,25 @@ func main() {
 		}
 
 		// Drop  P576: dissolved, demolished
-		if gjson.GetBytes(wikidata.WikiJson, "claims.P576").Exists() {
+		if _, p576Exist := wikidata.WikiItems.Claims["P576"]; p576Exist {
 			return nil, nil
 		}
 
-		// check P31claims ...
-		p31claims := gjson.GetBytes(wikidata.WikiJson, "claims.P31.#.mainsnak.datavalue.value.id")
-		for wofk := range wofdef {
-			for _, k := range p31claims.Array() {
-				if ok := wofdef[wofk][k.String()]; ok {
-					wikidata.match = append(wikidata.match, wofk)
-					break
+		p31claimIds := []string{}
+		if p31claim, p31Exist := wikidata.WikiItems.Claims["P31"]; p31Exist {
+
+			// check P31claims ...
+			for _, dvobject := range p31claim {
+				k := gjson.GetBytes(dvobject.Mainsnak.DataValue.Value, "id").String()
+				p31claimIds = append(p31claimIds, k)
+				if wgrp, ok := wiki2grp[k]; ok {
+					wikidata.match = append(wikidata.match, wgrp...)
 				}
-
 			}
-		}
 
-		// Sort
-		sort.Strings(wikidata.match)
+			// Sort
+			sort.Strings(wikidata.match)
+		}
 
 		// check if already wof referenced
 		if ok := wofwd[wikidata.ID]; ok {
@@ -403,29 +427,14 @@ func main() {
 			wikidata.match = append(wikidata.match, "redirected")
 		}
 
-		// check ISO 3166-2 code ;  P300
-		if gjson.GetBytes(wikidata.WikiJson, "claims.P300").Exists() {
-			wikidata.match = append(wikidata.match, "P300")
-		}
-		// check FIPS 10-4 (countries and regions) :P901
-		if gjson.GetBytes(wikidata.WikiJson, "claims.P901").Exists() {
-			wikidata.match = append(wikidata.match, "P901")
-		}
-		// check IATA airport code : P238
-		if gjson.GetBytes(wikidata.WikiJson, "claims.P238").Exists() {
-			wikidata.match = append(wikidata.match, "P238")
-		}
-		// check ICAO airport code : P239
-		if gjson.GetBytes(wikidata.WikiJson, "claims.P239").Exists() {
-			wikidata.match = append(wikidata.match, "P239")
-		}
-		// check territory claimed by ; P1336
-		if gjson.GetBytes(wikidata.WikiJson, "claims.P1336").Exists() {
-			wikidata.match = append(wikidata.match, "P1336")
-		}
+		wikidata.checkClaims("P300", "P300")   // check ISO 3166-2 code ;  P300
+		wikidata.checkClaims("P901", "P901")   // check FIPS 10-4 (countries and regions) :P901
+		wikidata.checkClaims("P238", "P238")   // check IATA airport code : P238
+		wikidata.checkClaims("P239", "P239")   // check ICAO airport code : P239
+		wikidata.checkClaims("P1336", "P1336") // check territory claimed by ; P1336
 
 		// check statement disputed by ; P1310
-		if gjson.GetBytes(wikidata.WikiJson, "claims.P17.qualifiers.P1310").Exists() {
+		if gjson.GetBytes(wikidata.WikiJson, "claims.P17.#.qualifiers.P1310").Exists() {
 			wikidata.match = append(wikidata.match, "P1310")
 		}
 
@@ -444,17 +453,14 @@ func main() {
 		wikidata.setCebuano()
 
 		// check "blacklist"  ?
-		for _, k := range p31claims.Array() {
-			if ok := blacklist[k.String()]; ok {
+		for _, k := range p31claimIds {
+			if ok := blacklist[k]; ok {
 				wikidata.match = append(wikidata.match, "blacklist")
 				break
 			}
 		}
 
-		// check GeoNames ID ; P1566
-		if gjson.GetBytes(wikidata.WikiJson, "claims.P1566").Exists() {
-			wikidata.match = append(wikidata.match, "hasP1566")
-		}
+		wikidata.checkClaims("P1566", "hasP1566") // check GeoNames ID ; P1566
 
 		if !wikidata.p625.Null {
 			if pgoutput {
@@ -493,6 +499,7 @@ func main() {
 	})
 
 	// Start processing with parallel workers.
+	wpp.NumWorkers = 1
 	err = wpp.Run()
 	checkErr(err)
 
@@ -770,4 +777,10 @@ func (wikidata *WikiData) writePG_wd(stmt_wd *sql.Stmt) {
 		wikidata.gp,
 		string(wikidata.WikiJson))
 	checkErr(err)
+}
+
+func (wikidata *WikiData) checkClaims(claimid string, claimgrp string) {
+	if _, pExist := wikidata.WikiItems.Claims[claimid]; pExist {
+		wikidata.match = append(wikidata.match, claimgrp)
+	}
 }

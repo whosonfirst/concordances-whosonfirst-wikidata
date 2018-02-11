@@ -405,13 +405,25 @@ func main() {
 		p31claimIds := []string{}
 		if p31claim, p31Exist := wikidata.WikiItems.Claims["P31"]; p31Exist {
 
+			p31claimgrp := wdType{}
 			// check P31claims ...
 			for _, dvobject := range p31claim {
 				k := gjson.GetBytes(dvobject.Mainsnak.DataValue.Value, "id").String()
 				p31claimIds = append(p31claimIds, k)
 				if wgrp, ok := wiki2grp[k]; ok {
-					wikidata.match = append(wikidata.match, wgrp...)
+					for _, grp := range wgrp {
+						if _, ok := p31claimgrp[grp]; ok {
+							// Do nothing
+						} else {
+							p31claimgrp[grp] = true
+						}
+
+					}
 				}
+			}
+
+			for grpkey, _ := range p31claimgrp {
+				wikidata.match = append(wikidata.match, grpkey)
 			}
 
 			// Sort
@@ -499,7 +511,7 @@ func main() {
 	})
 
 	// Start processing with parallel workers.
-	wpp.NumWorkers = 1
+	// wpp.NumWorkers = 1
 	err = wpp.Run()
 	checkErr(err)
 

@@ -84,6 +84,7 @@ psql -e -f /wof/code/ne_09_match_admin_0_map_subunits.sql
 psql -e -f /wof/code/ne_10_match_admin_0_disputed_areas.sql
 psql -e -f /wof/code/ne_11_match_playas.sql
 psql -e -f /wof/code/ne_12_match_admin_0_countries.sql
+psql -e -f /wof/code/ne_13_match_populated_places.sql
 
 /wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_lake_match_agg
 /wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_lake_europe_match_agg
@@ -102,6 +103,7 @@ psql -e -f /wof/code/ne_12_match_admin_0_countries.sql
 /wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_admin_0_disputed_areas_match_agg
 /wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_admin_0_countries_match_agg
 /wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_playas_match_agg
+/wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_populated_places_match_agg
 
 echo """
     --
@@ -122,6 +124,7 @@ select * from        newd.ne_wd_match_admin_0_map_subunits_match_agg_sum_pct  ;
 select * from        newd.ne_wd_match_admin_0_disputed_areas_match_agg_sum_pct  ;
 select * from        newd.ne_wd_match_admin_0_countries_match_agg_sum_pct  ;
 select * from        newd.ne_wd_match_playas_match_agg_sum_pct  ;
+select * from        newd.ne_wd_match_populated_places_match_agg_sum_pct  ;
     --
 """ | psql -e > ${outputdir}/_________ne_summary__________________.txt
 

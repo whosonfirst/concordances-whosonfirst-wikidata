@@ -63,8 +63,13 @@ order by ogc_fid
 
 drop table if exists                      :ne_wd_match CASCADE;
 EXPLAIN ANALYZE CREATE UNLOGGED TABLE     :ne_wd_match  as
-select
-        case
+select  case
+           when  ne_wd_id = wd_id then 'VAL'
+           when  ne_wd_id =''     then 'ADD'
+                                  else 'REP'
+        end
+        as _wdstatus                
+        ,case
             when _distance=0 and (_jarowinkler is not null) then (nsitelinks/40) + 150 + (_jarowinkler*100)
             when _distance=0 and (_jarowinkler is null    ) then (nsitelinks/40) + 150 + 40
             when _distance>0 and (_jarowinkler is not null) then (nsitelinks/40) + 100 - (ln(_distance)*10) + (_jarowinkler*100)
@@ -88,6 +93,7 @@ with wd_agg as
 (
     select ogc_fid,min_zoom,featurecla,ne_name, ne_wd_id, ne_point
         ,  array_agg( wd_id             order by _score desc) as a_wd_id
+        ,  array_agg(_wdstatus          order by _score desc) as a_wdstatus          
         ,  array_agg(_score             order by _score desc) as a_wd_id_score
         ,  array_agg(_distance          order by _score desc) as a_wd_id_distance
         ,  array_agg(_jarowinkler       order by _score desc) as a_wd_id_jarowinkler
@@ -102,6 +108,7 @@ with wd_agg as
 (
  select wd_agg.*
       ,a_wd_id[1]                                   as _suggested_wd_id
+      ,a_wdstatus[1]                                as _suggested_wdstatus
       ,array_length(a_wd_id,1)                      as wd_number_of_matches
       ,distance_class(a_wd_id_distance[1]::bigint)  as _firstmatch_distance_category
      ,case
@@ -113,22 +120,22 @@ with wd_agg as
         when a_step[1]='1' and array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and ne_wd_id != a_wd_id[1] and ne_wd_id !='' then 'OK-REP:suggested for replace-'||a_wd_name_match_type[1]
         when a_step[1]='1' and array_length(a_wd_id,1) =1   and  a_wd_id_distance[1] <= :safedistance and ne_wd_id != a_wd_id[1] and ne_wd_id  ='' then 'OK-ADD:suggested for add-'||a_wd_name_match_type[1]
 
-        when a_step[1]='1' and a_wd_id_distance[1] >  :safedistance then 'MAYBE1:Extreme distance match (> :safedistance m)'
-        
-        when a_step[1]='1' and array_length(a_wd_id,1) >1   and  ((a_wd_id_score[1]-a_wd_id_score[2])/a_wd_id_score[1] ) >0.25                     then 'OK-Multiple-match-TOP-good'
-        when a_step[1]='1' and array_length(a_wd_id,1) >1                                                                                          then 'MAYBE0-Check-Multiple-score,distance,name'
+        when a_step[1]='1' and (a_wd_id_distance[1] >  :safedistance)    then 'MAYBE1-'||a_wdstatus[1]||':Extreme distance match (> :safedistance m)'
 
-        when a_step[1]='2' and ne_name is not null and a_wd_id_score[1] > 170  then 'SUGGESTION10:Super-score,   check distance,name'
-        when a_step[1]='2' and ne_name is not null and a_wd_id_score[1] > 120  then 'SUGGESTION11:High-score,    check distance,name'
-        when a_step[1]='2' and ne_name is not null and a_wd_id_score[1] >  70  then 'SUGGESTION12:Medium-score,  check distance,name'
-        when a_step[1]='2' and ne_name is not null                             then 'SUGGESTION13:Low-score,     check distance,name'
+        when a_step[1]='1' and array_length(a_wd_id,1) >1   and  ((a_wd_id_score[1]-a_wd_id_score[2])/a_wd_id_score[1] ) >0.25                     then 'OK-MultipleMathch-'||a_wdstatus[1]
+        when a_step[1]='1' and array_length(a_wd_id,1) >1                                                                                          then 'MAYBE0-'||a_wdstatus[1]||':Check-Multiple-score,distance,name'
 
-        when a_step[1]='2' and ne_name is null and a_wd_id_score[1] > 170  then 'SUGGESTION20:ne_name_empty:Super-score,   check distance,name'
-        when a_step[1]='2' and ne_name is null and a_wd_id_score[1] > 120  then 'SUGGESTION21:ne_name empty:High-score,    check distance,name'
-        when a_step[1]='2' and ne_name is null and a_wd_id_score[1] >  70  then 'SUGGESTION22:ne_name empty:Medium-score,  check distance,name'
-        when a_step[1]='2' and ne_name is null                             then 'SUGGESTION23:ne_name empty:Low-score,     check distance,name'
+        when a_step[1]='2' and ne_name is not null and a_wd_id_score[1] > 170  then 'SUGGESTION10-'||a_wdstatus[1]||':Super-score,   check distance,name'
+        when a_step[1]='2' and ne_name is not null and a_wd_id_score[1] > 120  then 'SUGGESTION11-'||a_wdstatus[1]||':High-score,    check distance,name'
+        when a_step[1]='2' and ne_name is not null and a_wd_id_score[1] >  70  then 'SUGGESTION12-'||a_wdstatus[1]||':Medium-score,  check distance,name'
+        when a_step[1]='2' and ne_name is not null                             then 'SUGGESTION13-'||a_wdstatus[1]||':Low-score,     check distance,name'
 
-        else '?'||a_wd_name_match_type[1]
+        when a_step[1]='2' and ne_name is null and a_wd_id_score[1] > 170  then 'SUGGESTION20-'||a_wdstatus[1]||':ne_name_empty:Super-score,   check distance,name'
+        when a_step[1]='2' and ne_name is null and a_wd_id_score[1] > 120  then 'SUGGESTION21-'||a_wdstatus[1]||':ne_name empty:High-score,    check distance,name'
+        when a_step[1]='2' and ne_name is null and a_wd_id_score[1] >  70  then 'SUGGESTION22-'||a_wdstatus[1]||':ne_name empty:Medium-score,  check distance,name'
+        when a_step[1]='2' and ne_name is null                             then 'SUGGESTION23-'||a_wdstatus[1]||':ne_name empty:Low-score,     check distance,name'
+
+        else '?-'||a_wdstatus[1]||':'||a_wd_name_match_type[1]
 
       end as _matching_category
   from wd_agg

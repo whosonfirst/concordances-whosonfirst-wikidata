@@ -683,8 +683,18 @@ func (wikidata *WikiData) AddWikidataJsonClean(content []byte) {
 
 func (wikidata *WikiData) setCebuano() {
 	// Strict Cebuano settings
+
+	//{shwiki,srwiki}	49858
+	//{shwiki,srwiki,svwiki,cebwiki}	21374
+	//{cebwiki}	18888
+	//{svwiki,cebwiki}	15741
+	//{shwiki}	5033
+	//{shwiki,svwiki,cebwiki}	3269
+
 	_, cebExists := wikidata.WikiItems.Sitelinks["cebwiki"]
 	_, svExists := wikidata.WikiItems.Sitelinks["svwiki"]
+	_, srExists := wikidata.WikiItems.Sitelinks["srwiki"]
+	_, shExists := wikidata.WikiItems.Sitelinks["shwiki"]
 	_, iaExists := wikidata.WikiItems.Sitelinks["iawiki"]
 	// set cebuano values
 	if cebExists {
@@ -692,17 +702,33 @@ func (wikidata *WikiData) setCebuano() {
 	}
 
 	switch wikidata.nSitelinks {
+
 	case 0: // No Site  -- probably imported
 		wikidata.IsCebuano = true
+
 	case 1:
 		if cebExists { // only 1 cebuano
 			wikidata.IsCebuano = true
 		} else if iaExists { // only 1  interlingua language  https://en.wikipedia.org/wiki/Interlingua
 			wikidata.IsCebuano = true
+		} else if shExists { //
+			wikidata.IsCebuano = true
 		}
-	case 2:
-		if cebExists && svExists && (!wikidata.p625.Null) { // cebuano + svedish + has Coordinate
 
+	case 2:
+		if shExists && srExists && (!wikidata.p625.Null) {
+			// check geohash - and if it is not serbia - then it is problematic
+			switch wikidata.gphash[0:2] {
+			default:
+				wikidata.IsCebuano = true
+			case "sr":
+			case "sx":
+			case "u2":
+			case "u8":
+			case "g8":
+			case "ex":
+			}
+		} else if cebExists && svExists && (!wikidata.p625.Null) { // cebuano + svedish + has Coordinate
 			// check geohash - and if it is not svedish - then it is problematic
 			switch wikidata.gphash[0:2] {
 			default:
@@ -717,6 +743,40 @@ func (wikidata *WikiData) setCebuano() {
 			case "x3":
 			}
 
+		}
+
+	case 3:
+		if shExists && svExists && cebExists && (!wikidata.p625.Null) {
+			// check geohash - and if it is not svedish - then it is problematic
+			switch wikidata.gphash[0:2] {
+			default:
+				wikidata.IsCebuano = true
+			case "u3":
+			case "u4":
+			case "u6":
+			case "u7":
+			case "ue":
+			case "uk":
+			case "us":
+			case "x3":
+			}
+		}
+
+	case 4:
+		if shExists && svExists && srExists && cebExists && (!wikidata.p625.Null) {
+			// check geohash - and if it is not svedish - then it is problematic
+			switch wikidata.gphash[0:2] {
+			default:
+				wikidata.IsCebuano = true
+			case "u3":
+			case "u4":
+			case "u6":
+			case "u7":
+			case "ue":
+			case "uk":
+			case "us":
+			case "x3":
+			}
 		}
 	}
 }

@@ -102,6 +102,7 @@ var wofredirected wdType
 var blacklist wdType
 
 var qre *regexp.Regexp
+var reWikivoyage *regexp.Regexp
 
 func init() {
 
@@ -222,6 +223,7 @@ func readCsvFile(csvcode string) wdType {
 
 func main() {
 	rexpl := regexp.MustCompile(`[,()]`)
+	reWikivoyage = regexp.MustCompile("wikivoyage")
 
 	//  latin letters preferred
 	preferredLangSlice := [...]string{
@@ -464,6 +466,11 @@ func main() {
 		wikidata.setCoordinates()
 		wikidata.setCebuano()
 
+		if wikidata.IsCebuano {
+			// Don' load cebuano to the database
+			return nil, nil
+		}
+
 		// check "blacklist"  ?
 		for _, k := range p31claimIds {
 			if ok := blacklist[k]; ok {
@@ -682,6 +689,11 @@ func (wikidata *WikiData) AddWikidataJsonClean(content []byte) {
 }
 
 func (wikidata *WikiData) setCebuano() {
+
+	if wikidata.nSitelinks > 4 {
+		return
+	}
+
 	// Strict Cebuano settings
 
 	//{shwiki,srwiki}	49858
@@ -696,6 +708,9 @@ func (wikidata *WikiData) setCebuano() {
 	_, srExists := wikidata.WikiItems.Sitelinks["srwiki"]
 	_, shExists := wikidata.WikiItems.Sitelinks["shwiki"]
 	_, iaExists := wikidata.WikiItems.Sitelinks["iawiki"]
+	_, simpleExists := wikidata.WikiItems.Sitelinks["simplewiki"]
+	_, commonsExists := wikidata.WikiItems.Sitelinks["commonswiki"]
+
 	// set cebuano values
 	if cebExists {
 		wikidata.nCebSitelinks = 1
@@ -713,6 +728,17 @@ func (wikidata *WikiData) setCebuano() {
 			wikidata.IsCebuano = true
 		} else if shExists { //
 			wikidata.IsCebuano = true
+		} else if commonsExists {
+			wikidata.IsCebuano = true
+		} else if simpleExists {
+			wikidata.IsCebuano = true
+		} else {
+			for k := range wikidata.WikiItems.Sitelinks {
+				if reWikivoyage.MatchString(k) == true {
+					wikidata.IsCebuano = true
+				}
+				break
+			}
 		}
 
 	case 2:

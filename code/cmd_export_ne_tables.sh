@@ -25,6 +25,10 @@ echo """
         ,ne_wd_id
         ,new_wd_label       
         ,_suggested_wd_id
+        ,case when ne_name=unaccent(new_wd_label) and new_wd_label!=ne_name 
+               then new_wd_label
+               else ''
+          end as _update_name  
         ,_firstmatch_distance_category        
         ,_matching_category
         ,name_ar

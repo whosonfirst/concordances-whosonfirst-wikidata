@@ -1,22 +1,38 @@
 # wof campus ( airports )
 
-
-Q1248784,  Airport
-
-# -- subclass of airport
-Q644371,	international airport
-Q837800,	domestic airport
-Q1479818,	special airport
-Q2138424,	regional airport
-Q4698971,	Airport of entry
-Q4811588,	airline hub
-Q15733670,	departure airport
-Q15733672,	destination airport
-Q20977786,	commercial airport
-Q20992031,	abandoned airport
-Q21836433,	airport
-Q44665966,	proposed airport
-
-
-# -- added via debugging
 Q62447, aerodrome 
+Q194188, spaceport   facility for launching (or receiving) spacecraft
+
+# ---
+Q1933026,"rocket launch site"
+
+# ---
+Q62447,"aerodrome"
+Q502074,"heliport"
+Q695850,"military airbase"
+Q1428515,""
+Q6981985,"naval air station"
+Q21601954,"naval air auxiliary station"
+Q10426742,"Airbase 90"
+Q10426743,"Airbase 60"
+Q782667,"highway strip"
+Q1104354,"United States Coast Guard Air Stations"
+Q1248784,"airport"
+Q644371,"international airport"
+Q837800,"domestic airport"
+Q1479818,"special airport"
+Q2138424,"regional airport"
+Q4698971,"Airport of entry"
+Q4811588,"airline hub"
+Q15733670,"departure airport"
+Q15733672,"destination airport"
+Q20977786,"commercial airport"
+Q20992031,"abandoned airport"
+Q21836433,"airport"
+Q44665966,"proposed airport"
+Q1497053,"mountain landing site"
+Q2265915,"glider airfield"
+Q2301048,"special airfield"
+Q2516330,"commercial airfield"
+Q3143713,"seaplane base"
+Q3631092,"airstrip"

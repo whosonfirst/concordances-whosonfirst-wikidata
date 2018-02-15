@@ -64,9 +64,9 @@ order by ogc_fid
 drop table if exists                      :ne_wd_match CASCADE;
 EXPLAIN ANALYZE CREATE UNLOGGED TABLE     :ne_wd_match  as
 select  case
-           when  ne_wd_id = wd_id then 'VAL'
-           when  ne_wd_id =''     then 'ADD'
-                                  else 'REP'
+           when   ne_wd_id = wd_id                       then 'VAL'
+           when  (ne_wd_id ='')  or (ne_wd_id is null)   then 'ADD'
+                                                         else 'REP'
         end
         as _wdstatus                
         ,case

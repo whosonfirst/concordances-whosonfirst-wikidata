@@ -92,14 +92,14 @@ CREATE UNLOGGED TABLE :ne_wd_match_agg  as
 with wd_agg as
 (
     select ogc_fid,min_zoom,featurecla,ne_name, ne_wd_id, ne_point
-        ,  array_agg( wd_id             order by _score desc) as a_wd_id
-        ,  array_agg(_wdstatus          order by _score desc) as a_wdstatus          
-        ,  array_agg(_score             order by _score desc) as a_wd_id_score
-        ,  array_agg(_distance          order by _score desc) as a_wd_id_distance
-        ,  array_agg(_jarowinkler       order by _score desc) as a_wd_id_jarowinkler
-        ,  array_agg(_name_match_type   order by _score desc) as a_wd_name_match_type
-        ,  array_agg( wd_name_en        order by _score desc) as a_wd_name_en
-        ,  array_agg(_step              order by _score desc) as a_step        
+        ,  (array_agg( wd_id             order by _score desc))[1:120] as a_wd_id
+        ,  (array_agg(_wdstatus          order by _score desc))[1:120] as a_wdstatus          
+        ,  (array_agg(_score             order by _score desc))[1:120] as a_wd_id_score
+        ,  (array_agg(_distance          order by _score desc))[1:120] as a_wd_id_distance
+        ,  (array_agg(_jarowinkler       order by _score desc))[1:120] as a_wd_id_jarowinkler
+        ,  (array_agg(_name_match_type   order by _score desc))[1:120] as a_wd_name_match_type
+        ,  (array_agg( wd_name_en        order by _score desc))[1:120] as a_wd_name_en
+        ,  (array_agg(_step              order by _score desc))[1:120] as a_step        
     from :ne_wd_match
     group by ogc_fid,min_zoom,featurecla, ne_name ,ne_wd_id,ne_point
     order by ogc_fid,min_zoom,featurecla, ne_name ,ne_wd_id,ne_point

@@ -221,9 +221,22 @@ func readCsvFile(csvcode string) wdType {
 	return mapWdType
 }
 
+var areaBoxHu geohash.Box
+var areaBoxSr geohash.Box
+var areaBoxSv geohash.Box
+var areaBoxMs geohash.Box
+var areaBoxPl geohash.Box
+var areaBoxRo geohash.Box
+
 func main() {
 	rexpl := regexp.MustCompile(`[,()]`)
 	reWikivoyage = regexp.MustCompile("wikivoyage")
+	areaBoxHu = CreateAreaBox(13.232, 41.522, 30.041, 50.070)
+	areaBoxSr = CreateAreaBox(15.961, 39.555, 23.651, 46.210)
+	areaBoxSv = CreateAreaBox(10.37, 54.69, 25.07, 69.38)
+	areaBoxMs = CreateAreaBox(93.04, -12.28, 155.60, 8.56)
+	areaBoxPl = CreateAreaBox(13.896, 48.853, 24.583, 55.033)
+	areaBoxRo = CreateAreaBox(20.083, 43.485, 30.331, 48.586)
 
 	//  latin letters preferred
 	preferredLangSlice := [...]string{
@@ -466,10 +479,10 @@ func main() {
 		wikidata.setCoordinates()
 		wikidata.setCebuano()
 
-		if wikidata.IsCebuano {
-			// Don' load cebuano to the database
-			return nil, nil
-		}
+		//if wikidata.IsCebuano {
+		// Don' load cebuano to the database
+		//	return nil, nil
+		//}
 
 		// check "blacklist"  ?
 		for _, k := range p31claimIds {
@@ -704,10 +717,15 @@ func (wikidata *WikiData) setCebuano() {
 	//{shwiki,svwiki,cebwiki}	3269
 
 	_, cebExists := wikidata.WikiItems.Sitelinks["cebwiki"]
+	_, ladExists := wikidata.WikiItems.Sitelinks["ladwiki"]
 	_, svExists := wikidata.WikiItems.Sitelinks["svwiki"]
 	_, srExists := wikidata.WikiItems.Sitelinks["srwiki"]
 	_, shExists := wikidata.WikiItems.Sitelinks["shwiki"]
 	_, iaExists := wikidata.WikiItems.Sitelinks["iawiki"]
+	_, msExists := wikidata.WikiItems.Sitelinks["mswiki"]
+	_, huExists := wikidata.WikiItems.Sitelinks["huwiki"]
+	_, plExists := wikidata.WikiItems.Sitelinks["plwiki"]
+	_, roExists := wikidata.WikiItems.Sitelinks["rowiki"]
 	_, simpleExists := wikidata.WikiItems.Sitelinks["simplewiki"]
 	_, commonsExists := wikidata.WikiItems.Sitelinks["commonswiki"]
 
@@ -724,15 +742,30 @@ func (wikidata *WikiData) setCebuano() {
 	case 1:
 		if cebExists { // only 1 cebuano
 			wikidata.IsCebuano = true
-		} else if iaExists { // only 1  interlingua language  https://en.wikipedia.org/wiki/Interlingua
+		} else if iaExists { //  interlingua language  https://en.wikipedia.org/wiki/Interlingua
 			wikidata.IsCebuano = true
 		} else if shExists { //
+			wikidata.IsCebuano = true
+		} else if ladExists { //
+			wikidata.IsCebuano = true
+		} else if msExists && !areaBoxMs.Contains(wikidata.p625.Lat, wikidata.p625.Lng) { //
+			wikidata.IsCebuano = true
+		} else if huExists && !areaBoxHu.Contains(wikidata.p625.Lat, wikidata.p625.Lng) { //
+			wikidata.IsCebuano = true
+		} else if roExists && !areaBoxRo.Contains(wikidata.p625.Lat, wikidata.p625.Lng) { //
+			wikidata.IsCebuano = true
+		} else if plExists && !areaBoxPl.Contains(wikidata.p625.Lat, wikidata.p625.Lng) { //
+			wikidata.IsCebuano = true
+		} else if svExists && !areaBoxSv.Contains(wikidata.p625.Lat, wikidata.p625.Lng) { //
+			wikidata.IsCebuano = true
+		} else if srExists && !areaBoxSr.Contains(wikidata.p625.Lat, wikidata.p625.Lng) { //
 			wikidata.IsCebuano = true
 		} else if commonsExists {
 			wikidata.IsCebuano = true
 		} else if simpleExists {
 			wikidata.IsCebuano = true
 		} else {
+			// only  wikivoyage ->  cebuano
 			for k := range wikidata.WikiItems.Sitelinks {
 				if reWikivoyage.MatchString(k) == true {
 					wikidata.IsCebuano = true
@@ -744,65 +777,38 @@ func (wikidata *WikiData) setCebuano() {
 	case 2:
 		if shExists && srExists && (!wikidata.p625.Null) {
 			// check geohash - and if it is not serbia - then it is problematic
-			switch wikidata.gphash[0:2] {
-			default:
+
+			if !areaBoxSr.Contains(wikidata.p625.Lat, wikidata.p625.Lng) {
 				wikidata.IsCebuano = true
-			case "sr":
-			case "sx":
-			case "u2":
-			case "u8":
-			case "g8":
-			case "ex":
 			}
+
 		} else if cebExists && svExists && (!wikidata.p625.Null) { // cebuano + svedish + has Coordinate
-			// check geohash - and if it is not svedish - then it is problematic
-			switch wikidata.gphash[0:2] {
-			default:
+			// check geohash - and if it is not svedish - then it is problemati
+
+			if !areaBoxSv.Contains(wikidata.p625.Lat, wikidata.p625.Lng) {
 				wikidata.IsCebuano = true
-			case "u3":
-			case "u4":
-			case "u6":
-			case "u7":
-			case "ue":
-			case "uk":
-			case "us":
-			case "x3":
 			}
 
 		}
 
 	case 3:
 		if shExists && svExists && cebExists && (!wikidata.p625.Null) {
-			// check geohash - and if it is not svedish - then it is problematic
-			switch wikidata.gphash[0:2] {
-			default:
+			//  not svedish  and not serbian - then it is problematic
+			if (!areaBoxSr.Contains(wikidata.p625.Lat, wikidata.p625.Lng)) &&
+				(!areaBoxSv.Contains(wikidata.p625.Lat, wikidata.p625.Lng)) {
 				wikidata.IsCebuano = true
-			case "u3":
-			case "u4":
-			case "u6":
-			case "u7":
-			case "ue":
-			case "uk":
-			case "us":
-			case "x3":
 			}
 		}
 
 	case 4:
 		if shExists && svExists && srExists && cebExists && (!wikidata.p625.Null) {
 			// check geohash - and if it is not svedish - then it is problematic
-			switch wikidata.gphash[0:2] {
-			default:
+			//  not svedish  and not serbian - then it is problematic
+			if (!areaBoxSr.Contains(wikidata.p625.Lat, wikidata.p625.Lng)) &&
+				(!areaBoxSv.Contains(wikidata.p625.Lat, wikidata.p625.Lng)) {
 				wikidata.IsCebuano = true
-			case "u3":
-			case "u4":
-			case "u6":
-			case "u7":
-			case "ue":
-			case "uk":
-			case "us":
-			case "x3":
 			}
+
 		}
 	}
 }
@@ -880,5 +886,14 @@ func (wikidata *WikiData) writePG_wd(stmt_wd *sql.Stmt) {
 func (wikidata *WikiData) checkClaims(claimid string, claimgrp string) {
 	if _, pExist := wikidata.WikiItems.Claims[claimid]; pExist {
 		wikidata.match = append(wikidata.match, claimgrp)
+	}
+}
+
+func CreateAreaBox(pMinLng float64, pMinLat float64, pMaxLng float64, pMaxLat float64) geohash.Box {
+	return geohash.Box{
+		MinLat: pMinLat,
+		MaxLat: pMaxLat,
+		MinLng: pMinLng,
+		MaxLng: pMaxLng,
 	}
 }

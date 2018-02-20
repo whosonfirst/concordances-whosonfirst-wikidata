@@ -226,6 +226,7 @@ var areaBoxSr geohash.Box
 var areaBoxSv geohash.Box
 var areaBoxMs geohash.Box
 var areaBoxPl geohash.Box
+var areaBoxCsSk geohash.Box
 var areaBoxRo geohash.Box
 
 func main() {
@@ -236,6 +237,7 @@ func main() {
 	areaBoxSv = CreateAreaBox(10.37, 54.69, 25.07, 69.38)
 	areaBoxMs = CreateAreaBox(93.04, -12.28, 155.60, 8.56)
 	areaBoxPl = CreateAreaBox(13.896, 48.853, 24.583, 55.033)
+	areaBoxCsSk = CreateAreaBox(11.971, 47.725, 23.005, 51.099)
 	areaBoxRo = CreateAreaBox(20.083, 43.485, 30.331, 48.586)
 
 	//  latin letters preferred
@@ -725,6 +727,8 @@ func (wikidata *WikiData) setCebuano() {
 	_, msExists := wikidata.WikiItems.Sitelinks["mswiki"]
 	_, huExists := wikidata.WikiItems.Sitelinks["huwiki"]
 	_, plExists := wikidata.WikiItems.Sitelinks["plwiki"]
+	_, csExists := wikidata.WikiItems.Sitelinks["cswiki"]
+	_, skExists := wikidata.WikiItems.Sitelinks["skwiki"]
 	_, roExists := wikidata.WikiItems.Sitelinks["rowiki"]
 	_, simpleExists := wikidata.WikiItems.Sitelinks["simplewiki"]
 	_, commonsExists := wikidata.WikiItems.Sitelinks["commonswiki"]
@@ -756,6 +760,10 @@ func (wikidata *WikiData) setCebuano() {
 			wikidata.IsCebuano = true
 		} else if plExists && !areaBoxPl.Contains(wikidata.p625.Lat, wikidata.p625.Lng) { //
 			wikidata.IsCebuano = true
+		} else if csExists && !areaBoxCsSk.Contains(wikidata.p625.Lat, wikidata.p625.Lng) { //
+			wikidata.IsCebuano = true
+		} else if skExists && !areaBoxCsSk.Contains(wikidata.p625.Lat, wikidata.p625.Lng) { //
+			wikidata.IsCebuano = true
 		} else if svExists && !areaBoxSv.Contains(wikidata.p625.Lat, wikidata.p625.Lng) { //
 			wikidata.IsCebuano = true
 		} else if srExists && !areaBoxSr.Contains(wikidata.p625.Lat, wikidata.p625.Lng) { //
@@ -768,6 +776,14 @@ func (wikidata *WikiData) setCebuano() {
 			// only  wikivoyage ->  cebuano
 			for k := range wikidata.WikiItems.Sitelinks {
 				if reWikivoyage.MatchString(k) == true {
+					wikidata.IsCebuano = true
+				} else if len(k) > 7 {
+					wikidata.IsCebuano = true
+				} else if k == "cywiki" { // Welsh
+					wikidata.IsCebuano = true
+				} else if k == "eowiki" { // Esperanto
+					wikidata.IsCebuano = true
+				} else if k == "euwiki" { // Basque
 					wikidata.IsCebuano = true
 				}
 				break

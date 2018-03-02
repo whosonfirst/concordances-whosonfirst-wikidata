@@ -92,7 +92,7 @@ select
     ,ARRAY[name::text,lake_clean(name)::text,lake_clean(name_alt)::text,unaccent(name)::text,unaccent(name_alt)::text]     as ne_name_array
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point
-    ,'' as ne_wd_id
+    ,wikidataid as ne_wd_id
 from ne.ne_10m_lakes
 ;
 
@@ -138,7 +138,7 @@ select
     ,ARRAY[name::text,lake_clean(name)::text,unaccent(name)::text]     as ne_name_array
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point
-    ,'' as ne_wd_id
+    ,wikidataid as ne_wd_id
 from ne.ne_10m_lakes_europe
 ;
 CREATE INDEX  ON newd.ne_match_lake_europe  USING GIST(ne_geom_merc);
@@ -182,7 +182,7 @@ select
     ,ARRAY[name::text,lake_clean(name)::text,lake_clean(name_alt)::text,unaccent(name)::text,unaccent(name_alt)::text]     as ne_name_array
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point    
-    ,'' as ne_wd_id
+    ,wikidataid as ne_wd_id
 from ne.ne_10m_lakes_north_america
 ;
 CREATE INDEX  ON newd.ne_match_lake_north_america  USING GIST(ne_geom_merc);
@@ -227,7 +227,7 @@ select
     ,ARRAY[name::text,lake_clean(name)::text,lake_clean(name_alt)::text,unaccent(name)::text,unaccent(name_alt)::text]     as ne_name_array
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point    
-    ,'' as ne_wd_id
+    ,wikidataid as ne_wd_id
 from ne.ne_10m_lakes_historic
 ;
 CREATE INDEX  ON newd.ne_match_lake_historic  USING GIST(ne_geom_merc);

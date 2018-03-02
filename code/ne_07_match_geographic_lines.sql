@@ -56,7 +56,7 @@ select
     ,ARRAY[name::text,geo_clean(name)::text,geo_clean(name_long)::text,unaccent(name)::text,unaccent(name_long)::text]     as ne_name_array
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point    
-    ,'' as ne_wd_id
+    ,wikidataid as ne_wd_id
 from ne.ne_10m_geographic_lines
 ;
 

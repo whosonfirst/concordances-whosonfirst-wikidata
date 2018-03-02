@@ -58,7 +58,7 @@ select
     ,ARRAY[name::text,geo_clean(name)::text,geo_clean(name_alt)::text,unaccent(name)::text,unaccent(name_alt)::text]     as ne_name_array
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point 
-    ,'' as ne_wd_id
+    ,wikidataid as ne_wd_id
 from ne.ne_10m_geography_regions_elevation_points
 ;
 

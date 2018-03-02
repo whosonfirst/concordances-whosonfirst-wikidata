@@ -49,7 +49,7 @@ select
     ,cartodb.CDB_TransformToWebmercator(geom::geometry)  as wd_point_merc
 from wd.wdx 
 where ( 
-            (a_wof_type  &&  ARRAY['lake','lakegrp'] ) 
+            (a_wof_type  &&  ARRAY['bay','lake','lakegrp'] ) 
         and (a_wof_type  @>  ARRAY['hasP625'] ) 
         and  not iscebuano
        )

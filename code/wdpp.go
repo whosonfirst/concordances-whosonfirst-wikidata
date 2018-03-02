@@ -131,6 +131,7 @@ func init() {
 
 		// for Natural Earth
 		"archipelago":   "/wof/code/wikidata_archipelago.csv",
+		"bay":           "/wof/code/wikidata_bay.csv",
 		"basin":         "/wof/code/wikidata_basin.csv",
 		"canyon":        "/wof/code/wikidata_canyon.csv",
 		"cape":          "/wof/code/wikidata_cape.csv",
@@ -161,6 +162,7 @@ func init() {
 		"river":         "/wof/code/wikidata_river.csv",
 		"tundra":        "/wof/code/wikidata_tundra.csv",
 		"valley":        "/wof/code/wikidata_valley.csv",
+		"waterbody":     "/wof/code/wikidata_waterbody.csv",
 		"waterfall":     "/wof/code/wikidata_waterfall.csv",
 		"wetland":       "/wof/code/wikidata_wetland.csv",
 	}

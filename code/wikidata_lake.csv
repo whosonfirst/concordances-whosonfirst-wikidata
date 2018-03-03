@@ -1,5 +1,49 @@
 Q23397,lake 
 
+
+Q1172903, Loch
+Q2551525, water reservoir
+Q3253281, pond
+
+
+# ---------------------------
+# subclass of pond
+# --------------------------
+Q3253281,"pond"
+Q1265665,"fish pond"
+Q1734333,""
+Q2205480,""
+Q10857326,""
+Q1409124,""
+Q1712253,"mill pond"
+Q1734333,""
+Q4120828,"Stabilization pond"
+Q4994812,"fire pond"
+Q6813731,"Melt pond"
+Q7398874,"sag pond"
+Q7836913,"Treatment pond"
+Q10633012,""
+Q11166712,""
+Q19844170,""
+Q41746281,"village pond"
+
+
+# ---------------------------
+# subclass of water reservoir
+# --------------------------
+Q2551525,"water reservoir"
+Q131681,"reservoir"
+Q4114181,""
+Q11017814,""
+Q274153,"water tower"
+Q18434910,""
+Q21086297,"castellum aquae"
+Q838858,"cistern"
+Q303874,"ab anbar"
+Q2302541,""
+Q3282339,""
+Q16069438,"berkad"
+
 # ---------------------------
 # subclass of lake
 # --------------------------

@@ -62,7 +62,7 @@ select
     ,ARRAY[name::text,airports_clean(name)::text,airports_clean( replace( replace(wikipedia,'http://en.wikipedia.org/wiki/',''),'_',' '))::text,unaccent(name)::text,unaccent(replace( replace(wikipedia,'http://en.wikipedia.org/wiki/',''),'_',' '))::text]     as ne_name_array
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point    
-    ,'' as ne_wd_id
+    ,wikidataid as ne_wd_id
     ,iata_code
 from ne.ne_10m_airports
 --where geometry &&  ST_MakeEnvelope(-112.280,15.547,-92.549,25.721 ,4326)

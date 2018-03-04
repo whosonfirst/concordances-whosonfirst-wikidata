@@ -463,7 +463,7 @@ func main() {
 		wikidata.checkClaims("P238", "P238")   // check IATA airport code : P238
 		wikidata.checkClaims("P239", "P239")   // check ICAO airport code : P239
 		wikidata.checkClaims("P1336", "P1336") // check territory claimed by ; P1336
-
+		wikidata.checkClaims("P1624", "P1624") // check MarineTraffic Port ID  ; P1624
 		// check statement disputed by ; P1310
 		if gjson.GetBytes(wikidata.WikiJson, "claims.P17.#.qualifiers.P1310").Exists() {
 			wikidata.match = append(wikidata.match, "P1310")

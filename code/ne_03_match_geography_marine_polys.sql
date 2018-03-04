@@ -44,6 +44,7 @@ ANALYSE           newd.wd_match_geography_marine_polys ;
 --
 ---------------------------------------------------------------------------------------
 --
+\set neextrafields   ,namealt, changed ,  scalerank,  note,  label,min_label,max_label, wdid_score
 
 drop table if exists          newd.ne_match_geography_marine_polys CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_geography_marine_polys as
@@ -58,6 +59,7 @@ select
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point    
     ,wikidataid  as ne_wd_id
+    :neextrafields
 from ne.ne_10m_geography_marine_polys
 ;
 

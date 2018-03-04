@@ -45,6 +45,7 @@ ANALYSE           newd.wd_match_geography_regions_points ;
 --
 ---------------------------------------------------------------------------------------
 --
+\set neextrafields   ,name_alt,region,subregion, scalerank, label, wdid_score
 
 drop table if exists          newd.ne_match_geography_regions_points CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_geography_regions_points as
@@ -59,6 +60,7 @@ select
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point    
     ,wikidataid as ne_wd_id
+    :neextrafields
 from ne.ne_10m_geography_regions_points
 ;
 

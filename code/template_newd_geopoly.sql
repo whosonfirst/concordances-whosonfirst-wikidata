@@ -56,6 +56,7 @@ select
     ,cartodb.CDB_TransformToWebmercator(ST_Safe_Repair(geometry))   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point
     ,wikidataid as ne_wd_id
+    :neextrafields
 from ne.ne_10m_geography_regions_polys
 where :ne_filter
 ;

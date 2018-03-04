@@ -79,6 +79,7 @@ ANALYSE   newd.wd_match_lake ;
 --
 ---------------------------------------------------------------------------------------
 --
+\set neextrafields   ,min_label,name_abb,name_alt,delta,dam_name,year,wdid_score
 
 drop table if exists          newd.ne_match_lake CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_lake  as
@@ -93,6 +94,7 @@ select
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point
     ,wikidataid as ne_wd_id
+    :neextrafields
 from ne.ne_10m_lakes
 ;
 
@@ -126,6 +128,8 @@ ANALYSE          newd.ne_match_lake ;
 ---------------------------------------------------------------------------------------
 --
 --   no 'name_alt' column
+\set neextrafields   ,min_label,lge_id, pfafstette,lke_type,funkyname,wdid_score
+
 drop table if exists          newd.ne_match_lake_europe CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_lake_europe  as
 select
@@ -139,6 +143,7 @@ select
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point
     ,wikidataid as ne_wd_id
+    :neextrafields
 from ne.ne_10m_lakes_europe
 ;
 CREATE INDEX  ON newd.ne_match_lake_europe  USING GIST(ne_geom_merc);
@@ -169,6 +174,7 @@ ANALYSE          newd.ne_match_lake_europe ;
 --
 ---------------------------------------------------------------------------------------
 --
+\set neextrafields   ,min_label,name_alt,uident,wdid_score
 
 drop table if exists          newd.ne_match_lake_north_america CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_lake_north_america  as
@@ -183,6 +189,7 @@ select
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point    
     ,wikidataid as ne_wd_id
+    :neextrafields
 from ne.ne_10m_lakes_north_america
 ;
 CREATE INDEX  ON newd.ne_match_lake_north_america  USING GIST(ne_geom_merc);
@@ -214,6 +221,7 @@ ANALYSE          newd.ne_match_lake_north_america ;
 --
 ---------------------------------------------------------------------------------------
 --
+\set neextrafields   ,name_alt,date,label,wdid_score
 
 drop table if exists          newd.ne_match_lake_historic CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_lake_historic  as
@@ -228,6 +236,7 @@ select
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point    
     ,wikidataid as ne_wd_id
+    :neextrafields
 from ne.ne_10m_lakes_historic
 ;
 CREATE INDEX  ON newd.ne_match_lake_historic  USING GIST(ne_geom_merc);

@@ -1,4 +1,8 @@
 
+
+
+\set neextrafields   ,namealt,region,subregion,min_label,max_label, scalerank, label, wdid_score
+
 \ir 'ne_0401_match_georegp_continent.sql'
 \ir 'ne_0401_match_georegp_delta.sql'
 \ir 'ne_0401_match_georegp_island.sql'

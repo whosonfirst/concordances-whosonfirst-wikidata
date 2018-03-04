@@ -77,6 +77,7 @@ ANALYSE           newd.wd_match_river ;
 --
 ---------------------------------------------------------------------------------------
 --
+\set neextrafields   ,name_alt, wso_id, id, label,min_label, wdid_score
 
 drop table if exists newd.ne_match_river_europe CASCADE;
 CREATE TABLE         newd.ne_match_river_europe  as
@@ -91,6 +92,7 @@ select
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point    
     ,wikidataid as ne_wd_id
+    :neextrafields
 from ne.ne_10m_rivers_europe
 ;
 
@@ -125,6 +127,7 @@ ANALYSE          newd.ne_match_river_europe;
 --
 ---------------------------------------------------------------------------------------
 --
+\set neextrafields   ,name_alt, name_full, scalerank, rivernum,dissolve , strokeweig , note,  label,min_label, wdid_score
 
 drop table if exists newd.ne_match_river_north_america CASCADE;
 CREATE TABLE         newd.ne_match_river_north_america  as
@@ -139,6 +142,7 @@ select
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point    
     ,wikidataid as ne_wd_id
+    :neextrafields
 from ne.ne_10m_rivers_north_america
 ;
 
@@ -165,7 +169,7 @@ ANALYSE          newd.ne_match_river_north_america;
 
 
 
-
+\set neextrafields   ,name_alt,scalerank, rivernum, note,  label,min_label, wdid_score
 
 drop table if exists    newd.ne_match_river_lake_centerlines CASCADE;
 CREATE TABLE            newd.ne_match_river_lake_centerlines  as
@@ -180,6 +184,7 @@ select
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point    
     ,wikidataid as ne_wd_id
+    :neextrafields
 from ne.ne_10m_rivers_lake_centerlines
 ;
 

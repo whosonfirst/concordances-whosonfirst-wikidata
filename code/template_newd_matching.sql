@@ -164,8 +164,8 @@ select wd_agg_extended.*
     ,clean_wdlabel( wdl.data->'labels'->'zh'->>'value') as  name_zh
     ,ST_X(wdl.geom) as wd_long
     ,ST_Y(wdl.geom) as wd_lat
-    ,ST_X(ne_point) as ne_long
-    ,ST_Y(ne_point) as ne_lat
+    ,ST_X(wd_agg_extended.ne_point) as ne_long
+    ,ST_Y(wd_agg_extended.ne_point) as ne_lat
     ,wdl.a_wof_type
     ,get_wdc_item_label (wd.data,'P31')                as old_p31_instance_of
     ,get_wdc_item_label(wdl.data,'P31')                as new_p31_instance_of
@@ -174,9 +174,12 @@ select wd_agg_extended.*
     ,get_wdlabeltext(wd_agg_extended.ne_wd_id)         as old_wd_label
     ,get_wdlabeltext(wd_agg_extended._suggested_wd_id) as new_wd_label
     ,is_cebuano(wd.data)                               as old_is_cebauno
+    :neextrafields
 from wd_agg_extended
 left join wd.wdx             as wd     on wd_agg_extended.ne_wd_id=wd.wd_id
 left join wd.wdx             as wdl    on wd_agg_extended._suggested_wd_id=wdl.wd_id
+left join :ne_input_table    as ne     on wd_agg_extended.ogc_fid = ne.ogc_fid   
+
 ;
 ANALYSE :ne_wd_match_agg ;
 
@@ -208,6 +211,7 @@ extended_notfound as
         ,get_wdc_item_label(wd.data,'P31')    as old_p31_instance_of
         ,get_wdc_item_label(wd.data,'P17')    as old_p17_country_id
         ,is_cebuano(wd.data)                  as old_is_cebauno
+        :neextrafields
     from :ne_input_table as ne
     left join wd.wdx as wd   on ne.ne_wd_id=wd.wd_id
     where  ne.ogc_fid not in ( select ogc_fid from :ne_wd_match )

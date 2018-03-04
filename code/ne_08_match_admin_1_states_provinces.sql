@@ -46,6 +46,7 @@ ANALYSE           newd.wd_match_admin_1_states_provinces ;
 --
 ---------------------------------------------------------------------------------------
 --
+\set neextrafields   ,adm1_code,iso_3166_2,wikipedia, iso_a2 , name_alt,name_local,type,type_en,code_local,code_hasc,region,region_cod
 
 drop table if exists          newd.ne_match_admin_1_states_provinces CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_admin_1_states_provinces  as
@@ -60,6 +61,7 @@ select
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point    
     ,'' as ne_wd_id
+    :neextrafields
 from ne.ne_10m_admin_1_states_provinces
 ;
 

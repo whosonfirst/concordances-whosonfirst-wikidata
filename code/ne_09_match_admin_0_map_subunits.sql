@@ -50,6 +50,7 @@ ANALYSE           newd.wd_match_admin_0_map_subunits ;
 --
 ---------------------------------------------------------------------------------------
 --
+\set neextrafields   ,sovereignt, sov_a3,admin,adm0_a3, geounit, name_long, formal_en,formal_fr, fips_10_ ,iso_a2,iso_a3,un_a3
 
 drop table if exists          newd.ne_match_admin_0_map_subunits CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_admin_0_map_subunits  as
@@ -64,6 +65,7 @@ select
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point
     ,'' as ne_wd_id
+    :neextrafields
 from ne.ne_10m_admin_0_map_subunits
 ;
 

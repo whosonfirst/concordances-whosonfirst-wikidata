@@ -45,6 +45,8 @@ ANALYSE           newd.wd_match_playas ;
 --
 ---------------------------------------------------------------------------------------
 --
+\set neextrafields   ,name_abb,name_alt,wdid_score
+
 
 drop table if exists          newd.ne_match_playas CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_playas as
@@ -59,6 +61,7 @@ select
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point
     ,wikidataid as ne_wd_id
+    :neextrafields 
 from ne.ne_10m_playas
 ;
 

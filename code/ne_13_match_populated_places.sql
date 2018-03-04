@@ -47,6 +47,7 @@ ANALYSE           newd.wd_match_populated_places ;
 --
 ---------------------------------------------------------------------------------------
 --
+\set neextrafields   ,namepar,namealt,nameascii,adm0cap, sov0name , sov_a3 , adm0_a3, iso_a2  , wdid_score  
 
 drop table if exists          newd.ne_match_populated_places CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_populated_places  as
@@ -61,6 +62,7 @@ select
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point    
     ,wikidataid as ne_wd_id
+    :neextrafields
 from ne.ne_10m_populated_places
 --where geometry &&  ST_MakeEnvelope(-112.280,15.547,-92.549,25.721 ,4326)
 ;

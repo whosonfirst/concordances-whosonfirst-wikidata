@@ -49,6 +49,7 @@ ANALYSE           newd.wd_match_airports ;
 --
 ---------------------------------------------------------------------------------------
 --
+\set neextrafields   ,abbrev,location,iata_code,wikipedia,natlscale 
 
 drop table if exists          newd.ne_match_airports CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_airports  as
@@ -63,7 +64,7 @@ select
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point    
     ,wikidataid as ne_wd_id
-    ,iata_code
+    :neextrafields
 from ne.ne_10m_airports
 --where geometry &&  ST_MakeEnvelope(-112.280,15.547,-92.549,25.721 ,4326)
 ;

@@ -26,7 +26,7 @@ import (
 	"github.com/tidwall/gjson"
 )
 
-const pgoutput = true
+const pgoutput = false
 
 type WikiData struct {
 	ID string
@@ -110,7 +110,11 @@ func init() {
 
 	wofCsvDefinitions := map[string]string{
 
-		// for wof
+		// for wof -manual edit
+		"locality": "/wof/code/wikidata_man_localities.csv",
+		"region":   "/wof/code/wikidata_man_region.csv",
+
+		// wof - automatic
 		"borough":       "/wof/code/wikidata_borough.csv",
 		"campus":        "/wof/code/wikidata_campus.csv",
 		"continent":     "/wof/code/wikidata_continent.csv",
@@ -119,14 +123,12 @@ func init() {
 		"dependency":    "/wof/code/wikidata_dependency.csv",
 		"disputed":      "/wof/code/wikidata_disputed.csv",
 		"localadmin":    "/wof/code/wikidata_localadmin.csv",
-		"locality":      "/wof/code/wikidata_localities.csv",
 		"macrocounty":   "/wof/code/wikidata_macrocounty.csv",
 		"macroregion":   "/wof/code/wikidata_macroregion.csv",
 		"marinearea":    "/wof/code/wikidata_marinearea.csv",
 		"neighbourhood": "/wof/code/wikidata_neighbourhood.csv",
 		"ocean":         "/wof/code/wikidata_ocean.csv",
 		"planet":        "/wof/code/wikidata_planet.csv",
-		"region":        "/wof/code/wikidata_region.csv",
 		"timezone":      "/wof/code/wikidata_timezone.csv",
 
 		// for Natural Earth

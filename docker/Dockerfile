@@ -57,7 +57,7 @@ RUN \
     && go get github.com/tidwall/gjson
 
 RUN    go get github.com/omniscale/imposm3 \
-    && go install github.com/omniscale/imposm3/cmd/imposm3
+    && go install github.com/omniscale/imposm3/cmd/imposm
 
 RUN pip install csvkit
 

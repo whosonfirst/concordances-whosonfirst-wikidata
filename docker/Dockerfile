@@ -101,9 +101,8 @@ RUN   git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-
     && make deps \
     && make bin
 
-RUN   git clone --quiet https://github.com/whosonfirst/go-whosonfirst-meta.git \
+RUN   git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-meta.git \
     && cd go-whosonfirst-meta \
-    && git checkout 08661604947679f614330e849e62c47bfa240bbb \
     && make bin
 
 RUN   git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-inspector.git \
@@ -130,6 +129,7 @@ RUN chmod +x /wof/tools/postgresqltuner/postgresqltuner.pl
 
 RUN npm install -g wikidata-taxonomy
 RUN npm install -g wikidata-cli
+RUN npm install    mermaid.cli      && /wof/tools/node_modules/.bin/mmdc -h
 
 ADD  .psqlrc /root/.psqlrc
 

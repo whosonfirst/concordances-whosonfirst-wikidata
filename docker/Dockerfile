@@ -2,18 +2,21 @@ FROM golang:latest
 
 WORKDIR /wof/tools
 
-# PostgreSQL  
-RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-# Git-fs 
-RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash 
-# Node
-RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
+ENV PG_MAJOR 11
 
+# https://github.com/docker-library/postgres/issues/484 (clang-6.0 required, only available in stretch-backports)
+RUN sh -c 'echo "deb http://deb.debian.org/debian stretch-backports main" > /etc/apt/sources.list.d/pgdg.list;'
+# PostgreSQL
+RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main $PG_MAJOR" >> /etc/apt/sources.list.d/pgdg.list'
+RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+# Git-fs
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+# Node
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 
 RUN \
        apt-get update \
-    && apt-get install -y \
+    && apt-get install -y --no-install-recommends \
         autoconf \
         bison \
         build-essential \
@@ -34,7 +37,7 @@ RUN \
         osmium-tool \
         parallel \
         pbzip2 \
-        postgresql-client-10 \
+        postgresql-client-${PG_MAJOR} \
         pspg \
         python-pip \
         sqlite3 \
@@ -59,8 +62,10 @@ RUN \
 RUN    go get github.com/omniscale/imposm3 \
     && go install github.com/omniscale/imposm3/cmd/imposm
 
-RUN pip install csvkit
-
+RUN sudo -H pip install pip --upgrade
+RUN sudo -H pip install setuptools wheel --upgrade
+RUN sudo -H pip install csvkit
+RUN sudo -H pip install xlsx2csv
 
 RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-utils.git \
     && cd go-whosonfirst-utils \
@@ -123,14 +128,36 @@ RUN    git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst
     && cd go-whosonfirst-bundles \
     && make bin
 
+RUN git clone  --quiet --depth 1 https://github.com/whosonfirst/whosonfirst-cookbook.git
 RUN git clone  --quiet --depth 1 https://github.com/NikolayS/postgres_dba.git
 RUN git clone  --quiet --depth 1 https://github.com/jfcoz/postgresqltuner.git
 RUN chmod +x /wof/tools/postgresqltuner/postgresqltuner.pl
 
-RUN npm install -g wikidata-taxonomy
-RUN npm install -g wikidata-cli
-RUN npm install    mermaid.cli      && /wof/tools/node_modules/.bin/mmdc -h
+RUN sudo -H npm install --unsafe-perm -g wikidata-taxonomy
 
 ADD  .psqlrc /root/.psqlrc
 
+ENV JULIA_MAJOR=1.0
+ENV JULIA_VERSION=1.0.1
+ENV JULIA_SHA256=9ffbcf7f4a111e13415954caccdd1ce90b5c835cee9f62d6ac708f5b752c87dd
+
+ENV JULIA_DIR=/usr/local/julia
+ENV JULIA_PATH=${JULIA_DIR}
+
+RUN mkdir ${JULIA_DIR} && \
+    cd /tmp && \
+    wget -q https://julialang-s3.julialang.org/bin/linux/x64/${JULIA_MAJOR}/julia-${JULIA_VERSION}-linux-x86_64.tar.gz && \
+    echo "$JULIA_SHA256 julia-${JULIA_VERSION}-linux-x86_64.tar.gz" | sha256sum -c - && \
+    tar xzf julia-${JULIA_VERSION}-linux-x86_64.tar.gz -C ${JULIA_DIR} --strip-components=1 && \
+    rm /tmp/julia-${JULIA_VERSION}-linux-x86_64.tar.gz
+RUN ln -fs ${JULIA_DIR}/bin/julia /usr/local/bin/julia
+
 WORKDIR /wof/
+
+RUN julia -O3 -e 'using Pkg; Pkg.REPLMode.pkgstr("add CSV        ; precompile"); using CSV'
+RUN julia -O3 -e 'using Pkg; Pkg.REPLMode.pkgstr("add DataFrames ; precompile"); using DataFrames'
+RUN julia -O3 -e 'using Pkg; Pkg.REPLMode.pkgstr("add DataStreams; precompile"); using DataStreams'
+RUN julia -O3 -e 'using Pkg; Pkg.REPLMode.pkgstr("add JSON       ; precompile"); using JSON'
+RUN julia -O3 -e 'using Pkg; Pkg.REPLMode.pkgstr("add LibPQ      ; precompile"); using LibPQ'
+RUN julia -O3 -e 'using Pkg; Pkg.REPLMode.pkgstr("add SQLite     ; precompile"); using SQLite'
+RUN julia -O3 -e 'using Pkg; Pkg.REPLMode.pkgstr("add XLSX       ; precompile"); using XLSX'

@@ -9,8 +9,6 @@
 */
 
 
-
-
 -- cleaning airport names for better matching;
 CREATE OR REPLACE FUNCTION  airport_clean(airport_name text) 
     RETURNS text  
@@ -37,12 +35,13 @@ with x AS (
             ,check_number(get_wdlabeltext(wd_id)) as wd_name_has_num
             ,(regexp_split_to_array( get_wdlabeltext(wd_id), '[,()]'))[1]   as wd_name_en_clean
             ,is_cebuano(data)                       as wd_is_cebuano
-            ,get_wdc_value(data, 'P1566')           as p1566_geonames    
-            ,ST_SetSRID(ST_MakePoint( 
-                        cast(get_wdc_globecoordinate(data,'P625')->0->>'longitude' as double precision)
-                        ,cast(get_wdc_globecoordinate(data,'P625')->0->>'latitude'  as double precision)
-                        )
-                , 4326) as wd_point
+            ,get_wdc_value(data, 'P1566')           as p1566_geonames
+            ,geom   as wd_point  
+           -- ,ST_SetSRID(ST_MakePoint( 
+           --              cast(get_wdc_globecoordinate(data,'P625')->0->>'longitude' as double precision)
+           --             ,cast(get_wdc_globecoordinate(data,'P625')->0->>'latitude'  as double precision)
+           --             )
+           --     , 4326) as wd_point
             ,get_wdc_item_label(data,'P31')    as p31_instance_of
             ,get_wdc_item_label(data,'P17')    as p17_country_id 
             ,get_wd_name_array(data)           as wd_name_array 
@@ -50,11 +49,13 @@ with x AS (
             ,get_wd_concordances(data)         as wd_concordances_array
 
             ,get_wdc_item_label(data, 'P931')  as p931_place_served 
-            
             ,get_wdc_item_label(data, 'P131')  as p131_located_in   
 
-        from wd.wdx 
-        where a_wof_type && ARRAY['campus','P238','P239']    
+        from (           select * from wd.wdx
+               union all select * from wd.wd_messy) as t
+        where  (a_wof_type  && ARRAY['campus','P238','P239','P240']) 
+                    and (a_wof_type  @> ARRAY['hasP625'] )
+                  --  and not iscebuano
     )
     SELECT *
           , airport_clean(wd_name_en_clean) as una_wd_name_en_clean
@@ -62,7 +63,7 @@ with x AS (
     FROM x
     WHERE wd_id != wd_name_en
       and wd_point is not null
-      and wd_is_cebuano IS FALSE
+      -- and wd_is_cebuano IS FALSE
     ;
 
 CREATE INDEX  ON  wfwd.wd_match_campus USING GIST(wd_point_merc);
@@ -71,8 +72,6 @@ CREATE INDEX  ON  wfwd.wd_match_campus USING GIST(wd_point_merc);
 --CREATE INDEX  ON  wfwd.wd_match_campus USING GIN(wd_name_array );
 --CREATE INDEX  ON  wfwd.wd_match_campus USING GIN(wd_altname_array );
 --ANALYSE   wfwd.wd_match_campus ;
-
-
 
 
 drop table if exists wfwd.wof_match_campus CASCADE;
@@ -86,9 +85,12 @@ select
     ,wof.wd_id                              as wof_wd_id
     ,get_wof_name_array(wof.properties)     as wof_name_array
     ,get_wof_concordances(wof.properties)   as wof_concordances_array
-    ,CDB_TransformToWebmercator(COALESCE( wof.geom::geometry, wof.centroid::geometry ))   as wof_geom_merc
-from wf.wof_campus as wof
+    ,CDB_TransformToWebmercator(COALESCE( /*wof.geom::geometry, wof.centroid::geometry , */ geom.geom::geometry ))   as wof_geom_merc
+from      wf.wof_campus   as wof
+left join wf.geom as geom on get_wof_smallesthier(wof.properties)::int8 = geom.id 
 where  wof.is_superseded=0  and wof.is_deprecated=0
+   and St_astext( COALESCE( wof.geom::geometry, wof.centroid::geometry ) ) = 'POINT(0 0)'
+   limit 1000
 ;
 
 CREATE INDEX  ON wfwd.wof_match_campus  USING GIST(wof_geom_merc);

@@ -1,62 +1,138 @@
-
-
+### Q6256, country : _wdadd_ 
 Q6256,country
-Q3624078,sovereign state
-Q15634554, state with limited recognition
-
 Q112099,island nation
+Q1434887,Small Island Developing States
+Q13107770,archipelagic state
 Q123480,landlocked country
 Q132453,developed country
-Q15634554,state with limited recognition
-Q160016,member state of the United Nations
-Q1763527,constituent country
-Q19202067,global empire
-Q202686,Commonwealth realm
-Q21512251,self-proclamed state
-Q28864179,proposed country
-Q3336843,country of the United Kingdom
+Q160381,Western world
+Q177323,developing country
+Q1434887,Small Island Developing States
+Q188800,personal union
+Q204920,Crown of Aragón
+Q1102202,dynastic union
+Q3325907,Polysynodal regime
+Q2308303,Polysynody
+Q59104206,monarquía polisinodial
+Q331644,Khanate
+Q1093720,real union
+Q1151616,stateless nation
+Q1323642,transcontinental country
+Q1211369,Empire on which the sun never sets
+Q1501897,Generality Lands
+Q1538989,megadiverse countries
+Q1641089,Multinational state
+Q1763527,constituent state
+Q131541,state or territory of India
+Q467745,union territory of India
+Q4808085,proposed state or territory of India
+Q13390680,state of India
+Q236036,republic of the Soviet Union
+Q3336843,constituent part of the United Kingdom
+Q12959600,Constituent republics and provinces of Yugoslavia
+Q15304003,country of the Kingdom of the Netherlands
+Q56219758,constituent republic within Czechoslovakia
+Q66383092,constitutional oligarchy
+Q66724388,autonomous country within the Kingdom of Denmark
+Q2281140,safe country of origin
+Q2639564,low-wage country
+Q3024240,historical country
 Q48349,empire
-
-
-# not need .. but related to "country"
-#Q1010624,Boer Republics
-#Q1191549,Danish Realm
-#Q1211369,the empire on which the sun never sets
-#Q1309121,Hermit kingdom
-#Q1311832,Zeta
-#Q1323642,transcontinental country
-#Q13446615,bureaucratic empire
-#Q1366407,hydraulic empire
-#Q1501897,Generality Lands
-#Q15304003,country of the Kingdom of the Netherlands
-#Q1538989,megadiverse countries
-#Q160381,western world
-#Q1625987,bantustan of South West Africa
-#Q1679711,Modellstaat
-#Q177323,developing country
-#Q1790360,colonial empire
-#Q179671,nation state
-#Q18669740,South African bantustan
-#Q190354,bantustan
-#Q2495771,nomadic empire
-#Q30148434,country of spy
-#Q30148472,country of scout
-#Q3024240,former country
-#Q3181749,Arab Caliphate
-#Q331644,khanate
-#Q3373662,Pays francophone
-#Q42090655,host country
-#Q43185013,maritime republic
-#Q4818345,historical unrecognized state
-#Q5367717,shinkoku
-#Q6688521,permanent member of the United Nations Security Council
-#Q836688,ancient Chinese state
-#Q887803,Bruneian Empire
-
-
-# ---- candidates - for the "special" countries 
-# Q734818, condominium   -- Need for Antartica
-# Q779415, province-level autonomous subdivision in the People's Republic of China  , --  for Hong Kong
-# Q133442, city-state ,  independent or autonomous entity whose territory consists of a city  -
-# Q245065, intergovernmental organization , for United
-# Q15634554, state with limited recognition
+Q83311,Persian Empire
+Q1366407,hydraulic empire
+Q1790360,colonial empire
+Q1211369,Empire on which the sun never sets
+Q2067184,Bulgarian Empire
+Q2495771,nomadic empire
+Q3181749,Arab Caliphate
+Q12060881,Chinese Empire
+Q13446615,bureaucratic empire
+Q19202067,global empire
+Q1211369,Empire on which the sun never sets
+Q190354,bantustan
+Q1625987,bantustan of South West Africa
+Q18669740,South African bantustan
+Q190967,Crusader states
+Q331644,Khanate
+Q506593,Outremer
+Q836688,ancient Chinese state
+Q846025,Mahajanapada
+Q1679711,Modellstaat
+Q11545907,武家政権
+Q1074150,shogunate
+Q11876947,Egyptian dynasty
+Q12060881,Chinese Empire
+Q12857432,Chinese dynasty
+Q12060881,Chinese Empire
+Q26272081,Pre-modern Korea
+Q39847223,former proto-state
+Q43185013,maritime republic
+Q50068795,historical Chinese state
+Q89101318,Pre-modern Hungary
+Q3373662,French-speaking Country
+Q3500085,periphery countries
+Q3624078,sovereign state
+Q48349,empire
+Q160016,member states of the United Nations
+Q6688521,permanent member of the United Nations Security Council
+Q179671,nation state
+Q202686,Commonwealth realm
+Q217177,taifa
+Q965692,taifa (first period)
+Q244381,microstate
+Q1377650,European microstates
+Q1434887,Small Island Developing States
+Q1309121,Hermit kingdom
+Q1641089,Multinational state
+Q20181813,colonial power
+Q25449457,país continental
+Q63791824,countries bordering the Baltic Sea
+Q5170193,core countries
+Q5367717,shinkoku
+Q6726158,Independent country
+Q7449317,semi-periphery countries
+Q11396118,divided country
+Q11495981,戦勝国
+Q15634554,state with limited recognition
+Q190354,bantustan
+Q3456497,Italian Partisan Republics
+Q21512251,self-proclaimed state
+Q25449457,país continental
+Q28864179,proposed country
+Q51576574,Mediterranean country
+Q66903706,banana producing countries
+### Q3624078, sovereign state : _wdadd_ 
+Q3624078,sovereign state
+Q48349,empire
+Q83311,Persian Empire
+Q1366407,hydraulic empire
+Q1790360,colonial empire
+Q1211369,Empire on which the sun never sets
+Q2067184,Bulgarian Empire
+Q2495771,nomadic empire
+Q3181749,Arab Caliphate
+Q12060881,Chinese Empire
+Q13446615,bureaucratic empire
+Q19202067,global empire
+Q1211369,Empire on which the sun never sets
+Q160016,member states of the United Nations
+Q6688521,permanent member of the United Nations Security Council
+Q179671,nation state
+Q202686,Commonwealth realm
+Q217177,taifa
+Q965692,taifa (first period)
+Q244381,microstate
+Q1377650,European microstates
+Q1434887,Small Island Developing States
+Q1309121,Hermit kingdom
+Q1641089,Multinational state
+Q20181813,colonial power
+Q25449457,país continental
+Q63791824,countries bordering the Baltic Sea
+### Q15634554, state with limited recognition : _wdadd_ 
+Q15634554,state with limited recognition
+Q190354,bantustan
+Q1625987,bantustan of South West Africa
+Q18669740,South African bantustan
+Q3456497,Italian Partisan Republics
+Q21512251,self-proclaimed state

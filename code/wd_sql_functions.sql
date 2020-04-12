@@ -5,6 +5,45 @@
 -- https://github.com/nichtich/wikidata-taxonomy
         
 
+drop table if exists  wf.geom CASCADE;
+CREATE TABLE          wf.geom WITH (fillfactor = 100)  as
+select   
+         wof.id
+        ,coalesce( wof.geom, wof.centroid)  as geom
+        ,wof.properties->'wof:country'      as wof_country
+        ,wof.properties->'iso:country'      as iso_country
+from wf.wof as wof
+-- where is_superseded=0 and is_deprecated=0
+order by wof.id
+;
+CREATE UNIQUE INDEX  ON wf.geom (id)        WITH (fillfactor = 100);
+ANALYSE wf.geom;
+
+---
+
+
+-- Get the HIERARCHY - smallest members id 
+CREATE OR REPLACE FUNCTION get_wof_smallesthier(properties JSONB)
+RETURNS text
+IMMUTABLE STRICT PARALLEL SAFE
+LANGUAGE sql
+AS $$
+select 
+ coalesce(
+     nullif( (properties->'wof:hierarchy')->0->>'neighbourhood_id'  , '-1' )        
+    ,nullif( (properties->'wof:hierarchy')->0->>'locality_id'       , '-1' )
+    ,nullif( (properties->'wof:hierarchy')->0->>'localadmin_id'     , '-1' )    
+    ,nullif( (properties->'wof:hierarchy')->0->>'county_id'         , '-1' )  
+    ,nullif( (properties->'wof:hierarchy')->0->>'region_id'         , '-1' )      
+    ,nullif( (properties->'wof:hierarchy')->0->>'county_id'         , '-1' )    
+    ,nullif( (properties->'wof:hierarchy')->0->>'country_id'        , '-1' )   
+  )  
+  ;
+$$;
+
+
+
+
 drop table if exists  codes.wd2country CASCADE;
 CREATE UNLOGGED TABLE          codes.wd2country  as
 select   wof.wd_id

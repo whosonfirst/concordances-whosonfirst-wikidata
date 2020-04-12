@@ -101,13 +101,14 @@ extrdist as (
         ,wof.wof_country
         ,wof.wof_wd_id
         ,get_wdlabeltext(wof.wof_wd_id)       as old_wd_label
-        ,ST_Distance(          
-            CDB_TransformToWebmercator( ST_SetSRID(ST_MakePoint(
-                 cast(get_wdc_globecoordinate(wd.data,'P625')->0->>'longitude' as double precision)
-                ,cast(get_wdc_globecoordinate(wd.data,'P625')->0->>'latitude'  as double precision)
-                )
-                , 4326))   
+
+        ,ST_Distance(
+            CDB_TransformToWebmercator( wd.geom)
             ,wof.wof_geom_merc)::bigint  as _old_distance
+        ,((ST_Distance(
+            CDB_TransformToWebmercator( wd.geom)
+            ,wof.wof_geom_merc))/1000)::bigint  as _old_distance_km
+                
         ,wd.a_wof_type
         ,get_wdc_item_label(wd.data,'P31')    as old_p31_instance_of  
         ,get_wdc_item_label(wd.data,'P17')    as old_p17_country_id   

@@ -3,7 +3,7 @@ set -o errexit
 
 
 nproc=$(nproc)
-db_connection=$(( $nproc + 8))
+db_connection=$(( $nproc + 30))
 
 python ./pgtune.py  -c ${db_connection}  > $PGDATA/postgresql.conf
 

@@ -15,15 +15,24 @@ init:
 	docker-compose -v
 
 build:
-	cd ./docker && docker build -t wof_wiki_dw -f Dockerfile         . && cd ..
-	cd ./docker && docker build -t wof_postgis -f Dockerfile_postgis . && cd ..
+	cd ./docker && docker build -t wof_wiki_dw -f Dockerfile            . && cd ..
+	cd ./docker && docker build -t wof_postgis -f Dockerfile_postgis    . && cd ..
+#	cd ./docker && docker build -t wof_jupyter -f Dockerfile_jupyter    . && cd ..
 	docker images | grep  wof_
 
 dev:
 	docker-compose run --rm  wof_wiki_dw /bin/bash
 
 down:
-	docker-compose down
+	docker-compose exec db gosu postgres bash -c "pg_ctl --mode=fast --wait stop || :" || :
+	docker-compose down --timeout 60
+
+dbtest:
+	docker-compose exec db pg_test_fsync
+	docker-compose exec db pg_test_timing
+
+dbstatus:
+	docker-compose exec db gosu postgres pg_ctl status
 
 up:
 	docker-compose up  -d
@@ -54,4 +63,3 @@ speedtest:
 	docker run --rm -it -v $(PWD)/../postgres_data:/var/lib/postgresql/data wof_postgis bash -c "rm -rf /var/lib/postgresql/data/*"
 	docker-compose up  -d
 	nohup docker-compose run --rm -T wof_wiki_dw /wof/code/job_ne_wd.sh &
-	

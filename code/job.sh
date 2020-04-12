@@ -68,8 +68,8 @@ psql -e -f  /wof/code/wd_sql_functions.sql
 
 
 psql -e -f  /wof/code/50_wof.sql
-time parallel  --results ${outputdir}/joblog02 -k  < /wof/code/parallel_joblist_02_sql_processing.sh
-time parallel  --results ${outputdir}/joblog03 -k  < /wof/code/parallel_joblist_03_reporting.sh
+time parallel --jobs 1 --results ${outputdir}/joblog02 -k  < /wof/code/parallel_joblist_02_sql_processing.sh
+time parallel --jobs 1 --results ${outputdir}/joblog03 -k  < /wof/code/parallel_joblist_03_reporting.sh
 time psql -e -vreportdir="${outputdir}" -f /wof/code/91_summary.sql
 
 
@@ -78,7 +78,7 @@ time psql -e -vreportdir="${outputdir}" -f /wof/code/91_summary.sql
 
 # Start parallel processing
 
-time parallel  --results ${outputdir}/joblog03b -k  < /wof/code/parallel_joblist_03b_match.sh
+time parallel --jobs 1 --results ${outputdir}/joblog03b -k  < /wof/code/parallel_joblist_03b_match.sh
 
 
 

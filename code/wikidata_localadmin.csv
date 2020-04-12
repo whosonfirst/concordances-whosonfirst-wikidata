@@ -1,10 +1,11 @@
-Q188509,  Suburb
-
-#  subclass of suburb
-
-Q687312,	Vorort
-Q1940624,	Banlieue
-Q6028003,	Industrial suburb
-Q6035676,	inner suburb
-Q7632428,	suburb of Canberra
-Q23010647,	suburb of Perth
+### Q188509, Suburb : _wdadd_ 
+Q188509,suburb
+Q687312,Vorort
+Q828359,commuter town
+Q1940624,Banlieue
+Q6028003,Industrial suburb
+Q6035676,inner suburb
+Q7632428,suburb of Canberra
+Q23010647,suburb of Perth
+Q26086501,rabat
+Q79119281,Orten

@@ -1,39 +1,83 @@
 
-version: '2'
+version: '2.4'
 
 services:
   db:
     image: wof_postgis
     volumes:
-      - ../postgres_data:/var/lib/postgresql/data    
+      - ../postgres_data:/var/lib/postgresql/data
+      - ../postgres_data_wf:/tablespace/data_wf
+      - ../postgres_data_wd:/tablespace/data_wd
+      - ../postgres_data_work:/tablespace/data_work
     tmpfs:
      - /tmp
     ports:
-     - 127.0.0.1:25432:5432     
+     - 127.0.0.1:25433:5432
+    shm_size: "2g"
     environment:
      - POSTGRES_DB=whosonfirst
      - POSTGRES_USER=whosonfirst
-     - POSTGRES_PASSWORD=whosonfirst 
+     - POSTGRES_PASSWORD=whosonfirst
+     - PGDATABASE=whosonfirst
+     - PGUSER=whosonfirst
+     - PGPASSWORD=whosonfirst
+    stop_signal: SIGINT                 # Fast Shutdown mode
+    stop_grace_period: 120s
+
+#    restart: unless-stopped
+#    labels:
+#      - "traefik.enable=false"
+#    healthcheck:
+#      test: ["CMD", "pg_isready", "-q", "-U", "postgres", "-h", "db"]
+#      interval: 2s
+#      timeout: 3s
+#      retries: 3
+#    stop_grace_period: 5s
+#    stop_signal: SIGINT
 
 
   wof_wiki_dw:
     image: wof_wiki_dw
     volumes:
+     - ../eu:/wof/eu
      - ../whosonfirst-data:/wof/whosonfirst-data
      - ../wikidata_dump:/wof/wikidata_dump
      - ../natural-earth-vector:/wof/natural-earth-vector
      - ../geonames:/wof/geonames
      - ./code:/wof/code
-     - /var/www/html/wof-wiki-dw/output:/wof/output     
+     - ./wdtaxonomy:/wof/wdtaxonomy
+     - /var/www/html/wof-wiki-dw/output:/wof/output
     links:
      - db:db
     environment:
-     - PGHOST=db         
+     - PGHOST=db
      - PGUSER=whosonfirst
      - PGDATABASE=whosonfirst
      - PGPASSWORD=whosonfirst
-     - DB_HOST=db         
+     - DB_HOST=db
      - DB_USER=whosonfirst
      - DB_NAME=whosonfirst
      - DB_PASS=whosonfirst
      - outputdir=/wof/output
+
+  notebook:
+    image: wof_jupyter
+    volumes:
+     - "../notebook_work:/home/jovyan/work"
+    ports:
+      - 127.0.0.1:28888:8888
+    links:
+     - db:db
+    environment:
+     - USE_HTTPS=yes
+     - PASSWORD=whosonfirst
+     - PGHOST=db
+     - PGUSER=whosonfirst
+     - PGDATABASE=whosonfirst
+     - PGPASSWORD=whosonfirst
+     - DB_HOST=db
+     - DB_USER=whosonfirst
+     - DB_NAME=whosonfirst
+     - DB_PASS=whosonfirst
+     - DATABASE_URL=postgresql://whosonfirst@db
+

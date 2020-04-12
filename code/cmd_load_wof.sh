@@ -10,7 +10,7 @@ csv=$2
 
 echo """
     DROP TABLE IF EXISTS ${table} CASCADE ;
-    CREATE UNLOGGED TABLE ${table} (
+    CREATE TABLE ${table} (
          id             BIGINT PRIMARY KEY
         ,parent_id      BIGINT
         ,placetype_id   BIGINT

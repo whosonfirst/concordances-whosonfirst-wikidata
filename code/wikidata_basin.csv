@@ -1,12 +1,17 @@
-Q10438410,basin
+### Q813672, basin : _wdadd_ 
+Q813672,basin
+Q15843493,Rückhaltebecken
+### Q749565, basin : _wdadd_ 
 Q749565,structural basin
-
+Q229981,Zungenbecken
 Q1069932,oceanic basin
 Q7259386,pull apart basin
-
-
-
-Q166620,"drainage basin"
-Q132017,"river basin district"
-Q25344201,"River Basin District Sub-unit"
-Q194502,"endorheic basin"
+### Q166620, basin : _wdadd_ 
+Q166620,drainage basin
+Q194502,endorheic basin
+Q2908753,Class A river
+Q7974430,Watersheds of North America
+Q11253501,river system of Norway
+Q12079191,artesian basin
+Q65209597,Conques intercomunitàries
+Q82700259,sea basin

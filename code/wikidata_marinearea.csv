@@ -1,83 +1,238 @@
-#   Marinearea
-
-Q165, sea
-Q39594,bay
-Q37901,strait
+### Q165, sea : _wdadd_ 
+Q165,sea
+Q204894,marginal sea
 Q1322134,gulf
-Q4022,river 
-
-
-
-
-
-#  subclass of ...  river
-Q100649,	blackwater river
-Q159675,	tributary
-Q187971,	wadi
-Q591942,	distributary
-Q653247,	Arheisch
-Q794428,	Entrenched river
-Q1074069,	tidal river
-Q1140845,	subterranean river
-Q1299258,	Ehe
-Q1531228,	glacier river
-Q1986504,	rain river
-Q2048585,	rak
-Q3058945,	estey
-Q3073652,	coastal river
-Q3196604,	kill
-Q3529419,	small river
-Q4176368,	Yérik
-Q4366834,	transboundary river
-Q4733366,	Alluvial river
-Q4879406,	bedrock river
-Q7580767,	spring creek
-Q8026426,	winterbourne
-Q10670417,	Skogsälv
-Q20529834,	Rivers of Greek underworld
-Q21079327,	intermittent river
-Q21504956,	subterranean waterfall
-Q27067659,	former river
-Q30235135,	Río Smorodinovka
-Q30235414,	Río Borovlianka (inferior, Vagái)
-Q30238443,	Río Lama
-Q30238445,	Río Borovlianka
-Q30238456,	Río Solonovka
-Q42122394,	rivers of Newfoundland and Labrador
-
-#  subclass of ...  Straits
-Q491713,	sound
-Q558116,	firth
-Q816210,	Danish straits
-Q1051401,	Turkish Straits
-Q2264838,	Gat
-Q2923911,	empoldered inlet
-Q5456507,	Fjords and channels of Chile
-
-#  subclass of ...  Bay
-Q31615,	cove
-Q319714,	fjard
-Q558116,	firth
-Q1322134,	gulf
-Q15942175,	香港已消失海灣
-
-#  subclass of ...  Sea
-Q204894,	marginal sea
-Q986177,	mediterranean sea
-Q1322134,	gulf
-Q1973404,	inland sea
-Q2578218,	inland sea
-Q12714656,	visserijzone van Jan Mayen
-
-
-
-# add extra...
-Q1210950, channel
-Q11292, coral reef
-Q9019918,endorheic lake
-Q188025,salt lake
-Q45776,fjord
-Q1172599,inlet
-Q47053,estuary
+Q1973404,inland sea
+Q986177,mediterranean sea
+Q2578218,inland sea
+Q12714656,visserijzone van Jan Mayen
+### Q39594, bay : _wdadd_ 
+Q39594,bay
+Q31615,cove
+Q21573839,saco
+Q187223,lagoon
+Q431064,barachois
+Q3705882,estuarine lagoon
+Q6401073,khawr of the Salalah Coast Reserve
+Q12027742,sludge lagoon
+Q283202,harbor
+Q828909,wharf
+Q2327160,kwelkade
+Q3543043,quay
+Q7398566,safeguarded wharf
+Q1525891,typhoon shelter
+Q6034850,inland harbor
+Q10512405,guest harbor
+Q64210934,natural harbor
+Q558116,firth
+Q1322134,gulf
+Q4990444,lagoon
+Q11859723,Flada
+Q15942175,former bay of Hong Kong
+Q55863112,voe
+### Q37901, strait : _wdadd_ 
+Q37901,strait
+Q491713,sound
+Q2923911,empoldered inlet
+Q558116,firth
+Q1051401,Turkish Straits
+Q2264838,Gat
+Q5456507,Fjords and channels of Chile
+Q11422504,国際海峡
+### Q1322134, gulf : _wdadd_ 
+Q1322134,gulf
+### Q4022, river : _wdadd_ 
+Q4022,river
+Q100649,blackwater river
+Q159675,tributary
+Q591942,distributary
+Q12048869,Rameno delty
+Q653247,Arheisch
+Q794428,Entrenched river
+Q1074069,tidal river
+Q3058945,estey
+Q1140845,subterranean river
+Q21504956,subterranean waterfall
+Q1299258,Ehe
+Q1460693,Clearwater river (river type)
+Q1531228,glacier river
+Q1720683,Kiesgeprägter Tieflandbach
+Q1746748,Kleines Niederungsfließgewässer in Fluss- und Stromtälern
+Q1986504,rain river
+Q2048585,rak
+Q2230783,Grote rivieren
+Q2375084,karstrivier
+Q2557367,whitewater river
+Q3073652,coastal river
+Q3196604,kill
+Q4176368,Yérik
+Q4366834,transboundary river
+Q4392849,Реки Донецкой области
+Q4392856,Реки Крыма
+Q4733366,Alluvial river
+Q4879406,bedrock river
+Q7580767,spring creek
+Q8026426,winterbourne
+Q10670417,Skogsälv
+Q10875106,中央管河川
+Q11553102,沢
+Q12099220,mountain river
+Q12149663,равнинная река
+Q12309892,Elv
+Q16465938,seasonal river
+Q16638716,Gaudre
+Q18915937,Říční koryto
+Q20529834,Rivers of Greek underworld
+Q21079327,intermittent river
+Q21573828,Río alóctono
+Q27067659,former river
+Q42122394,rivers of Newfoundland and Labrador
+Q51205815,source river
+Q60061427,Mixed river
+Q60823417,Igarapé
+Q71184245,Patrimonio natural de Alcalá de Henares
+### Q23397, lake : _wdadd_ 
 Q23397,lake
-
+Q188025,salt lake
+Q2449038,saliña
+Q2912558,hypersaline lake
+Q23647058,солёное озеро
+Q55470156,intermittent salt lake
+Q204294,turlough
+Q204324,volcanic crater lake
+Q209333,oxbow lake
+Q803749,billabong
+Q1494514,Umflut
+Q8963323,galacho
+Q55470128,intermittent oxbow lake
+Q211302,glacial lake
+Q1851937,tarn
+Q2430594,moraine-dammed lake
+Q2623499,ribbon lake
+Q7144568,paternoster lake
+Q11795801,Oczko polodowcowe
+Q13426151,Jeziora tatrzańskie
+Q26884214,finger lake
+Q28208708,periglacial lake
+Q61790038,Petit Estany Blau
+Q317995,Landslide dam
+Q339230,kolk
+Q444677,bathing lake
+Q458063,ancient lake
+Q551346,Acidic lakes
+Q612779,Jezioro ałasowe
+Q637600,sabkha
+Q933091,Steppe lake
+Q940023,Ibón
+Q1048337,underground lake
+Q1140477,subglacial lake
+Q1165822,meromictic lake
+Q1234707,heathland pond
+Q1270793,Schlatt
+Q1320719,proglacial lake
+Q1335003,chott
+Q1521583,ground water lake
+Q358976,excavation lake
+Q198732,Ziegelteich
+Q15806772,water-pressure lake
+Q1898470,marine lake
+Q1996446,Noor
+Q2091807,tar pit
+Q2216149,Salzlacke
+Q2420381,supraglacial lake
+Q2557840,valput
+Q2915867,Rift Valley lake
+Q3215290,artificial lake
+Q131681,reservoir
+Q2534469,Forebay (reservoir)
+Q4114181,stuwmeren op de Krim
+Q7078908,Off-stream reservoir
+Q7230299,Porosity Storage Reservoir
+Q11017814,Stauseen in der Ukraine
+Q55470036,intermittent reservoir
+Q65659694,Snowmaking reservoir
+Q244326,salt evaporation pond
+Q301869,inundation
+Q358976,excavation lake
+Q3632569,settling basin
+Q4994812,fire-fighting pond
+Q12049172,recultivated lake
+Q12172437,artificial bodies of water of Kherson Oblast
+Q3267675,holomictic lake
+Q3738260,dimictic lake
+Q4862338,monomictic lake
+Q4862348,polymictic lake
+Q3293106,mesotrophic lake
+Q3488975,eutrophic lake
+Q35785773,hypereutrophic lake
+Q3496214,Dystrophic lake
+Q3505788,Jezioro słodkie
+Q11688146,Lago oligotrófico
+Q3511952,tectonic lake
+Q3916261,meerstal
+Q4735538,alpine lake
+Q4746146,amictic lake
+Q4904826,bifurcation lake
+Q6341928,rift lake
+Q7238039,prairie lake
+Q7269229,quarry lake
+Q9019918,endorheic lake
+Q7205721,pluvial lake
+Q9255054,estanyol
+Q10313934,intermittent lake
+Q10671833,floodplain lake
+Q11054716,Jezioro wydmowe
+Q11157301,shoreline lake
+Q11253318,Organogenní jezero
+Q11349558,soda lake
+Q11726974,epishelf lake
+Q11726978,bitter lake
+Q11726982,Jezioro krasowe
+Q11726985,Jezioro limanowe
+Q11726987,Lobeliesø
+Q11726988,impact crater lake
+Q11727001,Jezioro przepływowe
+Q11891262,Rotkojärvi
+Q11990985,natural lake
+Q13586859,mere
+Q16710063,oligotrophic lake
+Q1234707,heathland pond
+Q18088596,sacred lake
+Q18208386,unnamed lake
+Q19965424,Upper Eider lakes
+Q27966643,hot lake
+Q47486890,former lake
+Q55965244,paleolake
+Q1320719,proglacial lake
+Q7205721,pluvial lake
+Q56170341,lähdejärvi
+Q57498386,quiet inlet
+Q58236221,Endmoränensee
+Q79860017,Auensee (Joditz)
+Q87193797,tjern / tjärn
+### Q1210950, channel : _wdadd_ 
+Q1210950,channel
+Q1837011,stream channel
+Q7112064,Outflow channels
+Q2153116,rill
+Q3074486,flumen
+Q41982239,navigation channel
+Q55465414,lake channel
+Q55465477,marine channel
+Q81219064,NodeTube channel
+Q83287935,back channel
+Q84048354,lade
+### Q11292, coral reef : _wdadd_ 
+Q11292,coral reef
+Q2920849,low island
+### Q45776, fjord : _wdadd_ 
+Q45776,fjord
+Q11066204,Poll
+### Q1172599, inlet : _wdadd_ 
+Q1172599,inlet
+Q554394,ria
+Q5533935,Geo
+Q63253162,ide
+### Q47053, estuary : _wdadd_ 
+Q47053,estuary
+Q3059073,Estuaire picard

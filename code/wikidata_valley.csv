@@ -1,35 +1,47 @@
+### Q39816, valley : _wdadd_ 
 Q39816,valley
-
-
-#========================================
-Q150784,"canyon"
-Q963729,"submarine canyon"
-Q1068071,"chasma"
-Q1744266,"narrow canyon"
-Q2294430,"slot canyon"
-Q187971,"wadi"
-Q611796,"tunnel valley"
-Q649266,"U-shaped valley"
-Q929061,"Urstromtal"
-Q1266922,"water gap"
-Q1410408,"side valley"
-Q1006357,""
-Q1474839,"furrow"
-Q1672567,"dry valley"
-Q1739217,"Kerbtal"
-Q1879248,"longitudinal valley"
-Q1976531,"glen"
-Q2042028,"ravine"
-Q2197893,"chine"
-Q2248883,"dry valley"
-Q2249285,"vallis"
-Q2366717,"rift valley"
-Q2985026,"Combe"
-Q5176129,"coulee"
-Q5210320,"Dale"
-Q5254105,"dell"
-Q5617310,"gulch"
-Q5972304,"wind gap"
-Q20919624,""
-Q25424443,"hanging valley"
-Q34207295,"wadi"
+Q150784,canyon
+Q963729,submarine canyon
+Q1068071,chasma
+Q1163673,Pongo
+Q1744266,narrow canyon
+Q2294430,slot canyon
+Q4951581,Box canyon
+Q187971,wadi
+Q611796,tunnel valley
+Q649266,U-shaped valley
+Q929061,Urstromtal
+Q1266922,water gap
+Q1410408,side valley
+Q1006357,hanging valley
+Q1474839,furrow
+Q1523096,Valleuse
+Q1672567,dry valley
+Q1739217,Kerbtal
+Q1758298,polonyna
+Q1879248,longitudinal valley
+Q1976531,glen
+Q2197893,chine
+Q2248883,dry valley
+Q2249285,vallis
+Q2306627,Spalttal
+Q2366717,rift valley
+Q2490191,rivierdal
+Q2985026,Combe
+Q3573216,Nava
+Q5176129,coulee
+Q5178915,cove
+Q5210320,Dale
+Q5254105,dell
+Q5617310,gulch
+Q5972304,wind gap
+Q6562281,valleys of Afghanistan
+Q10531318,river valley
+Q12206386,جو
+Q12751598,epigenetic valley
+Q25515536,асимметричная долина
+Q55436365,undersea valley
+Q55462851,gorge
+Q58235860,Asymmetrisches Tal
+Q58237146,Schmelzwassertal
+Q58237178,Sohlental

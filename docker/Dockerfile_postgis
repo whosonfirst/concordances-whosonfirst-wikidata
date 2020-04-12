@@ -1,4 +1,4 @@
-FROM mdillon/postgis:10
+FROM postgis/postgis:12-3.0
 
 ENV LANG=C.UTF-8 \
     LC_ALL=C.UTF-8
@@ -13,15 +13,26 @@ RUN apt-get update && \
       flex \
       git \
       libboost-all-dev \
+      libpq-dev \
+      libsqlite3-dev \
       libssl-dev \
       m4 \
       openssl \
+      pg-cloudconfig \
       pgxnclient \
-      postgresql-$PG_MAJOR-plv8 \
-      postgresql-plpython-$PG_MAJOR \
+      postgresql-$PG_MAJOR-toastinfo \
+      postgresql-plpython3-$PG_MAJOR \
       postgresql-server-dev-$PG_MAJOR \
+      sqlite3 \
       wget \
    && rm -rf /var/lib/apt/lists/*
+
+ENV CFLAGS="-march=native -g -O3 -fstack-protector -Wl,-z -Wl,now -Wl,-z -Wl,relro  -Wl,-z,max-page-size=0x100" \
+    CXXFLAGS="${CFLAGS}"
+
+RUN pgxn install icu_ext
+RUN pgxn install lostgis
+RUN pgxn install madlib
 
 # install cartodb-postgresql
 RUN   mkdir -p /cartodb-postgresql \
@@ -35,10 +46,32 @@ RUN   mkdir -p /pg_similarity \
     && USE_PGXS=0 make \
     && USE_PGXS=0 make install
 
+RUN    mkdir -p /sql/sqlite_fdw \
+    && git clone --depth 1 --branch master https://github.com/pgspider/sqlite_fdw.git  /sql/sqlite_fdw  \
+    && cd /sql/sqlite_fdw \
+    && make USE_PGXS=1 \
+    && make install USE_PGXS=1
+
+# install mapnik-german-l10n
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+      curl \
+      libcunit1-dev \
+      libicu-dev \
+      libkakasi2-dev \
+      libutf8proc-dev \
+      pandoc \
+   && rm -rf /var/lib/apt/lists/*
+
+RUN    mkdir -p /mapnik-german-l10n \
+    && git clone --depth 1 --branch master https://github.com/giggls/mapnik-german-l10n.git /mapnik-german-l10n \
+    && cd /mapnik-german-l10n \
+    && make all \
+    && make install \
+    && make clean
+
 ADD pgtune.py            /pgtune.py
 ADD pgtune-db.sh         /docker-entrypoint-initdb.d/pgtune-db.sh
 
-RUN pgxn install madlib
-ADD pgxn-load.sh  /docker-entrypoint-initdb.d/pgxn-load.sh
 
-RUN pgxn install lostgis
+#ADD pgxn-load.sh  /docker-entrypoint-initdb.d/pgxn-load.sh

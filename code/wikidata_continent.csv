@@ -1,5 +1,6 @@
-Q5107,  Continent
-
-# --- subclass of "Continent"  ----
+### Q5107, Continent : _wdadd_ 
+Q5107,continent
+Q55833,supercontinent
 Q1650870,submerged continent
+Q2094611,continental fragment
 Q2284298,paleocontinent

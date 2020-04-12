@@ -1,8 +1,14 @@
-Q75520,"plateau"
-
-
-Q456555,"Amba"
-Q1144345,"volcanic plateau"
-Q1584293,"dissected plateau"
-Q3593580,"îlet"
-Q22442633,"ice dome"
+### Q75520, plateau : _wdadd_ 
+Q75520,plateau
+Q456555,Amba
+Q1144345,volcanic plateau
+Q1271224,oceanic plateau
+Q1584293,dissected plateau
+Q2042028,ravine
+Q18691276,kuru
+Q19710837,uuro
+Q3437428,vidde / vidd
+Q3593580,îlet
+Q9035629,muela
+Q22442633,ice dome
+Q41978262,high plateau

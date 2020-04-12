@@ -1,20 +1,54 @@
-Q8502, Mountain
-Q1245089,promontory - prominent mass of land that overlooks lower-lying land or a body of water
-Q8072,volcano 
-
-
-Q23228,interfluve
-Q151957,guyot
-Q190250,Zentralberg
-Q207326,summit
+### Q8502, Mountain : _wdadd_ 
+Q8502,mountain
+Q8072,volcano
+Q169358,stratovolcano
+Q190869,central volcano
+Q193457,mud volcano
+Q212057,shield volcano
+Q723802,lunar dome
+Q995054,pyroclastic shield
+Q332614,supervolcano
+Q367004,tuya
+Q478788,cryovolcano
+Q526644,pancake dome
+Q674775,submarine volcano
+Q771409,subglacial volcano
+Q943137,Subglacial mound
+Q842928,sand volcano
+Q1197120,extinct volcano
+Q1200524,complex volcano
+Q1325302,dormant volcano
+Q1330974,active volcano
+Q20743938,eruptive center
+Q1491559,somma volcano
+Q1806785,cinder cone
+Q2143039,fissure vent
+Q2291100,active volcano
+Q2398326,subaerial volcano
+Q3562720,volcan gris
+Q3562724,volcan rouge
+Q6151660,tuff ring
+Q7630766,subaqueous volcano
+Q21001649,potentially active volcano
+Q21009867,dome volcano
+Q37499745,plug dome volcano
+Q169358,stratovolcano
+Q190250,central uplift
 Q285562,Marilyn
 Q429088,mons
-Q502899,inliers and outliers
 Q503269,seamount
+Q151957,guyot
+Q15262147,Newfoundland Seamounts
+Q47781032,group of seamounts
 Q623319,mesa
-Q820144,back of a mountain
 Q828329,tepui
+Q820144,back of a mountain
+Q23228,interfluve
 Q1139493,monadnock
+Q502899,inliers and outliers
+Q14545690,Kopje
+Q21011841,kekoer
+Q1297565,Puy
 Q1320721,Munro
 Q1540003,Sydväxtberg
 Q1595289,sacred mountain
@@ -23,75 +57,77 @@ Q2739123,crag and tail
 Q3116906,Ultra prominent peak
 Q3538399,trekking peak
 Q5421955,fell
+Q28026737,tunturi
 Q5656540,Hardy
-Q13222531,parent peak
-Q14545690,Kopje
-Q15262147,Newfoundland Seamounts
-Q17189807,baou
-Q19856996,Q19856996
+Q6022321,Monte (geomorfología)
+Q11277298,ふるさと兵庫50山
+Q11505921,日本の山
+Q11972429,Graham
+Q17142232,Traprock mountain
+Q19856996,ગુરૂનો ભોખરો
 Q20523098,Lendva-hegy
-Q21011841,kekoer
-Q22569536,Murdo
 Q26709969,Graham
-Q26711849,Munro Top
 Q26711856,Furth
 Q27882366,Giri
 Q28026737,tunturi
-Q28792430,Q28792430
-Q34987520,unspoiled summit
+Q28792430,hrib
 Q35691748,highest mountain
-
-
-Q1245089,"promontory"
-Q185113,"cape"
-Q3925637,""
-Q191992,"headland"
-Q24529780,"point"
-
-Q8072,"volcano"
-Q169358,"stratovolcano"
-Q190869,"central volcano"
-Q212057,"shield volcano"
-Q723802,"lunar dome"
-Q332614,"Supervolcano"
-Q367004,"Tuya"
-Q478788,"Cryovolcano"
-Q526644,"pancake dome"
-Q674775,"submarine volcano"
-Q771409,"subglacial volcano"
-Q1197120,"extinct volcano"
-Q1200524,"complex volcano"
-Q1325302,"dormant volcano"
-Q1330974,"Active volcano"
-Q1491559,"somma volcano"
-Q1806785,"cinder cone"
-Q2143039,"fissure vent"
-Q3562720,""
-Q3562724,""
-Q21002266,"active volcano"
-Q20743938,"eruptive center"
-Q21009867,"dome volcano"
-Q37499745,"plug dome volcano"
-
-
-#================================================
-Q1437459,"non-geologically related mountain range"
-Q15766,"high mountains"
-Q46831,"mountain range"
-Q104698,"mid-ocean ridge"
-Q390395,""
-Q740445,"ridge"
-Q1070057,"Chenier"
-Q2532557,"beach ridge"
-Q878223,"highland"
-Q1354045,"foothills"
-Q2624046,"Sierra mountains"
-Q2690652,"Alatau"
-Q2751984,"cordillera"
-Q5165313,"Continental Ranges"
-Q83384,"fold mountain"
-Q674541,"Mittelgebirge"
-Q852013,"shield"
-Q1706978,""
-Q2175685,"Truncated upland"
-Q22911774,"mountain chain"
+Q56284739,Aichkogel (Grazer Bergland)
+Q56408346,puig
+Q58235914,Buckelwiese
+Q61710631,Oindo
+Q62082016,Hewitt
+Q62082048,Nuttall
+Q62082171,Wainwright Outlying Fell
+### Q1245089, promontory : _wdadd_ 
+Q1245089,promontory
+Q191992,headland
+Q185113,cape
+Q3925637,punta
+Q12005172,tange
+Q24529780,point
+### Q8072, volcano : _wdadd_ 
+Q8072,volcano
+Q169358,stratovolcano
+Q190869,central volcano
+Q193457,mud volcano
+Q212057,shield volcano
+Q723802,lunar dome
+Q995054,pyroclastic shield
+Q332614,supervolcano
+Q367004,tuya
+Q478788,cryovolcano
+Q526644,pancake dome
+Q674775,submarine volcano
+Q771409,subglacial volcano
+Q943137,Subglacial mound
+Q842928,sand volcano
+Q1197120,extinct volcano
+Q1200524,complex volcano
+Q1325302,dormant volcano
+Q1330974,active volcano
+Q20743938,eruptive center
+Q1491559,somma volcano
+Q1806785,cinder cone
+Q2143039,fissure vent
+Q2291100,active volcano
+Q2398326,subaerial volcano
+Q3562720,volcan gris
+Q3562724,volcan rouge
+Q6151660,tuff ring
+Q7630766,subaqueous volcano
+Q21001649,potentially active volcano
+Q21009867,dome volcano
+Q37499745,plug dome volcano
+### Q1437459, non-geologically related mountain range : _wdadd_ 
+Q1437459,non-geologically related mountain range
+Q15766,high mountains
+Q83384,fold mountain
+Q674541,Mittelgebirge
+Q852013,shield
+Q1706978,Kammgebirge
+Q2175685,Truncated upland
+Q22911774,mountain chain
+Q1354045,foothills
+Q2751984,cordillera
+Q31792598,Klimek

@@ -1,13 +1,52 @@
+### Q12323, dam : _wdadd_ 
 Q12323,dam
-
-Q350495,barrage
-Q357679,arch-gravity dam
 Q890545,arch dam
+Q357679,arch-gravity dam
+Q56631985,dome dam
+Q1052083,check dam
 Q1244922,embankment dam
+Q11285593,earth-fill dam
+Q11350418,rock-fill dam
+Q20180822,concrete-face rock-fill dam
+Q1355334,buttress dam
+Q53725705,flat slab dam
+Q53726064,solid head buttress dam
+Q53726656,multiple arch dam
+Q1816121,Leitdamm
 Q3497167,gravity dam
+Q357679,arch-gravity dam
 Q3571153,diversion dam
+Q350495,barrage
+Q5308641,Drought refuge
+Q6783805,masonry dam
+Q6980653,natural barrier
+Q262798,ice congestion
+Q1797874,log jam
+Q4878217,beaver dam
 Q7800783,tidal barrage
 Q11505642,dam in Japan
+Q12008130,Tømmerkistedam
+Q12215584,سد ثادق
 Q14416029,stuwdam
+Q16904906,steel dam
 Q19566950,Klavže (dam)
-Q20180822,Concrete-face rock-fill dam
+Q25183373,Dam
+Q56697283,hydroelectric dam
+Q57241224,Hochwasserschutzdamm
+Q62009185,dam with height less than 10 meters
+Q62010925,dam with more than 10 meters and less than 15 meters high
+Q62011006,dam with more than 15 meters and less than 30 meters high
+Q62011055,dam with more than 30 meters and less than 70 meters high
+Q62011072,dam with more than 70 meters and less than 100 meters high
+Q62011101,dam with height more than 100 meters
+Q62011240,dam with volume capacity of less than 3 hm³
+Q62011272,dam with volume capacity of less than 200 hm³
+Q62011308,dam with volume capacity of more than 3 hm³ and less than 75 hm³
+Q62011335,dam with volume capacity of more than 75 hm³ and less than 200 hm³
+Q62011444,potential low damage dam
+Q62011445,potential medium damage dam
+Q62011446,potential high damage dam
+Q62011447,low risk dam
+Q62011448,medium risk dam
+Q62011449,high risk dam
+Q63385969,flood control dam

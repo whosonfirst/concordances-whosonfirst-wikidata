@@ -1,82 +1,75 @@
+#  regions -  manual ...
 
-#  regions ...  
+Q3455647,  Regions of Argentina 
+Q1052743,  "region of Ghana"
+Q1054403,  "region of Guinea-Bissau"
+Q1057504,  "region of Ethiopia"
+Q12014176, "region of Turkmenistan"
+Q1202812,  "region of Djibouti"
+Q1267939,  "statistical region of Serbia"
+Q139228,   "region of Togo"
+Q15059108, "region of Somalia"
+Q15072454, "region of Burma"
+Q15646510, "region of the Gambia"
+Q17316289, "region of Swaziland"
+Q193512,   "region of Finland"
+Q20732239, "regional corporation of Trinidad and Tobago"
+Q2087773,  "region of Guyana"
+Q209325,   "region of Belarus"
+Q2138167,  "Scottish region"
+Q216712,   "region of New Zealand"
+Q23759625, "former region of Namibia"
+Q24698,    "region of the Philippines"
+Q25906572, "region of Somaliland"
+Q26561,    "development region of Nepal"
+Q3455524,  "administrative region"
+Q36784,    "region of France"
+Q5007997,  "special region of Indonesia"
+Q514860,   "region of Armenia"
+Q57362,    "autonomous region of the People's Republic of China"
+Q13396669, province-level division , People's Republic of China government subdivision level
 
-Q3455647,Regions of Argentina 
-Q1052743,"region of Ghana"
-Q1054403,"region of Guinea-Bissau"
-Q1057504,"region of Ethiopia"
-Q12014176,"region of Turkmenistan"
-Q1202812,"region of Djibouti"
-Q1267939,"statistical region of Serbia"
-Q139228,"region of Togo"
-Q15059108,"region of Somalia"
-Q15072454,"region of Burma"
-Q15646510,"region of the Gambia"
-Q17316289,"region of Swaziland"
-Q193512,"region of Finland"
-Q20732239,"regional corporation of Trinidad and Tobago"
-Q2087773,"region of Guyana"
-Q209325,"region of Belarus"
-Q2138167,"Scottish region"
-Q216712,"region of New Zealand"
-Q23759625,"former region of Namibia"
-Q24698,"region of the Philippines"
-Q25906572,"region of Somaliland"
-Q26561,"development region of Nepal"
-Q3455524,"administrative region"
-Q36784,"region of France"
-Q5007997,"special region of Indonesia"
-Q514860,"region of Armenia"
-Q57362,"autonomous region of the People's Republic of China"
-Q13396669,province-level division , People's Republic of China government subdivision level
+Q608843,    "region of Namibia"
+Q640262,    "region of Chad"
+Q693039,    "region of Kyrgyzstan"
+Q743074,    "region of Mali"
+Q779415,    "special administrative region"
+Q82794,     "geographic region"
+Q836672,    "region of Kazakhstan"
+Q842420,    "region of Uzbekistan"
+Q845643,    "region of Morocco"
+Q845820,    "region of Tanzania"
+Q846327,    "region of Mauritania"
+Q847667,    "region of Senegal"
+Q851830,    "region of Côte d'Ivoire"
+Q859869,    "region of Niger"
+Q861184,    "region of Peru"
+Q869042,    "region of Cameroon"
+Q874223,    "region of Eritrea"
+Q971831,    "region of Madagascar"
 
-Q608843,"region of Namibia"
-Q640262,"region of Chad"
-Q693039,"region of Kyrgyzstan"
-Q743074,"region of Mali"
-Q779415,"special administrative region"
-Q82794,"geographic region"
-Q836672,"region of Kazakhstan"
-Q842420,"region of Uzbekistan"
-Q845643,"region of Morocco"
-Q845820,"region of Tanzania"
-Q846327,"region of Mauritania"
-Q847667,"region of Senegal"
-Q851830,"region of Côte d'Ivoire"
-Q859869,"region of Niger"
-Q861184,"region of Peru"
-Q869042,"region of Cameroon"
-Q874223,"region of Eritrea"
-Q971831,"region of Madagascar"
-
-Q2914565,autonomous region of Portugal 
-
-
-Q11687019,external territory of Australia
-
+Q2914565,   autonomous region of Portugal 
+Q11687019,  external territory of Australia
 
 ##   from the wd_wof_placetype_match sheets
 Q17134625,	municipality of Bermuda	Bermuda	region	municipality
-Q6465,	department of France	France	region	department
-Q50256,	district of Hong Kong	Hong Kong	region	urban district, rural district
+Q6465,	    department of France	France	region	department
+Q50256,	    district of Hong Kong	Hong Kong	region	urban district, rural district
 Q1139753,	district or dependency of Mauritius	Mauritius	region	dependency
 Q2387050,	district of Mauritius	Mauritius	region	district
 
-
-
 ##  from  wd_wof_placetype_match  - first division
-## wd	wdLabel	country	wof_placetype	wof_placetype_local
 Q158683,	province of Afghanistan	Afghanistan	region	province
 Q2748269,	Municipalities of Aland	Aland Islands	region	municipality
 Q104251,	county of Albania	Albania	region	county
 Q240601,	province of Algeria	Algeria	region	province
 Q2710679,	administrative territorial entity of American Samoa	American Samoa	region	district
 Q2710679,	administrative territorial entity of American Samoa	American Samoa	region	unorganized territory
-Q24279,	parish of Andorra	Andorra	region	parish
+Q24279,	    parish of Andorra	Andorra	region	parish
 Q329028,	province of Angola	Angola	region	province
 Q18455918,	district of Anguilla	Anguilla	region	district
 Q1647142,	parish of Antigua and Barbuda	Antigua and Barbuda	region	parish
-Q44753,	province of Argentina	Argentina	region	province,federal district
+Q44753,	    province of Argentina	Argentina	region	province,federal district
 Q514860,	region of Armenia	Armenia	region	province,state
 Q5852411,	state of Australia	Australia	region	state
 Q14192199,	territory of Australia	Australia	region	territory
@@ -87,17 +80,17 @@ Q867606,	governorate of Bahrain	Bahrain	region	governorate
 Q878040,	division of Bangladesh	Bangladesh	region	division
 Q1631888,	parish of Barbados	Barbados	region	parish
 Q209325,	region of Belarus	Belarus	region	region,municipality
-Q83057,	region of Belgium	Belgium	region	province,capital region
+Q83057,	    region of Belgium	Belgium	region	province,capital region
 Q765865,	district of Belize	Belize	region	district
 Q792929,	department of Benin	Benin	region	department
 Q41806250,	parish of Bermuda	Bermuda	region	parish
 Q1229776,	district of Bhutan	Bhutan	region	district
 Q250050,	department of Bolivia	Bolivia	region	department
-Q18279,	canton of the Federation of Bosnia and Herzegovina	Bosnia and Herzegovina	region	district
-Q57368,	district of Botswana	Botswana	region	district,city,town
+Q18279,	    canton of the Federation of Bosnia and Herzegovina	Bosnia and Herzegovina	region	district
+Q57368,	    district of Botswana	Botswana	region	district,city,town
 Q485258,	state of Brazil	Brazil	region	state
 Q119158,	Federal District	Brazil	region	federal district
-Q50427,	district of Brunei	Brunei Darussalam	region	district
+Q50427,	    district of Brunei	Brunei Darussalam	region	district
 Q209824,	province of Bulgaria	Bulgaria	region	region
 Q867094,	region of Burkina Faso	Burkina Faso	region	region
 Q15072454,	region of Burma	Burma	region	state,region
@@ -109,24 +102,24 @@ Q869042,	region of Cameroon	Cameroon	region	region
 Q9357527,	territory of Canada	Canada	region	territory
 Q11828004,	province of Canada	Canada	region	province
 Q910919,	administrative territorial entity of Cape Verde	Cape Verde	region	county
-Q3832,	Bangui	Central African Republic	region	autonomous commune
+Q3832,	    Bangui	Central African Republic	region	autonomous commune
 Q843886,	prefecture of the Central African Republic	Central African Republic	region	prefecture
 Q20732250,	economic prefecture of the Central African Republic	Central African Republic	region	economic prefecture
-Q640262, regions of chad	Chad	region	region
+Q640262,    regions of chad	Chad	region	region
 Q590080,	region of Chile	Chile	region	region
-Q57362,	autonomous region of the People's Republic of China	China	region	autonomous region
+Q57362,	    autonomous region of the People's Republic of China	China	region	autonomous region
 Q1615742,	province of China	China	region	province
 Q1208802,	direct-controlled municipality	China	region	municipality
 Q215655,	department of Colombia	Colombia	region	department,capital district
 Q868893,	department of the Republic of the Congo	Congo (Brazzaville)	region	department
 Q1075520,	province of Costa Rica	Costa Rica	region	province
-Q57053,	county of Croatia	Croatia	region	county,city
+Q57053,	    county of Croatia	Croatia	region	county,city
 Q115291,	province of Cuba	Cuba	region	province,special municipality
-Q59136,	district of Cyprus	Cyprus	region	district
-Q59136,	district of Cyprus	Cyprus	region	district
-Q38911,	region of the Czech Republic	Czech Republic	region	region,city
+Q59136,	    district of Cyprus	Cyprus	region	district
+Q59136,	    district of Cyprus	Cyprus	region	district
+Q38911,	    region of the Czech Republic	Czech Republic	region	region,city
 Q654140,	province of the Democratic Republic of the Congo	Democratic Republic of the Congo	region	province
-Q62326,	region of Denmark	Denmark	region	region
+Q62326,	    region of Denmark	Denmark	region	region
 Q1202812,	region of Djibouti	Djibouti	region	region,city
 Q1405085,	parish of Dominica	Dominica	region	parish
 Q913337,	province of the Dominican Republic	Dominican Republic	region	province,district
@@ -135,7 +128,7 @@ Q719987,	province of Ecuador	Ecuador	region	province
 Q204910,	governorate of Egypt	Egypt	region	governorate
 Q475214,	department of El Salvador	El Salvador	region	department
 Q22696381,	region of Equatorial Guinea	Equatorial Guinea	region	province
-Q874223, region of Eritrea	Eritrea	region	region
+Q874223,    region of Eritrea	Eritrea	region	region
 Q189672,	county of Estonia	Estonia	region	county,region
 Q1057504,	region of Ethiopia	Ethiopia	region	state,administration
 Q15646524,	division of Fiji	Fiji	region	division
@@ -152,26 +145,26 @@ Q309276,	Northeast Greenland National Park	Greenland	region	unorganized territor
 Q743544,	administrative territorial entity of Greenland	Greenland	region	commune
 Q531645,	parish of Grenada	Grenada	region	parish
 Q3044818,	dependency of Grendada	Grenada	region	dependency
-Q27448,	department of Guatemala	Guatemala	region	department
+Q27448,	    department of Guatemala	Guatemala	region	department
 Q1394653,	prefecture of Guinea	Guinea	region	prefecture
 Q1054403,	region of Guinea-Bissau	Guinea-Bissau	region	region
-Q3739,	capital city of Guinea-Bissau	Guinea-Bissau	region	autonomous sector
+Q3739,	    capital city of Guinea-Bissau	Guinea-Bissau	region	autonomous sector
 Q2087773,	region of Guyana	Guyana	region	administrative region
-Q62127,	department of Haiti	Haiti	region	department
+Q62127,	    department of Haiti	Haiti	region	department
 Q728145,	department of Honduras	Honduras	region	department
 Q188604,	county of Hungary	Hungary	region	county,capital city
 Q842100,	region of Iceland	Iceland	region	region
 Q467745,	union territory of India	India	region	union territory
 Q13390680,	state of India	India	region	state
-Q5098,	province of Indonesia	Indonesia	region	province,autonomous province,special district
+Q5098,	    province of Indonesia	Indonesia	region	province,autonomous province,special district
 Q5007997,	special region of Indonesia	Indonesia	region	special region
 Q1344695,	province of Iran	Iran	region	province
 Q179872,	county of Ireland	Ireland	region	county
 Q193560,	district of Israel	Israel	region	district
-Q15089,	province of Italy	Italy	region	metropolitan city,province,region
+Q15089,	    province of Italy	Italy	region	metropolitan city,province,region
 Q20717263,	district of Ivory Coast	Ivory Coast	region	district,autonomous district
 Q936955,	parish of Jamaica	Jamaica	region	parish
-Q50337,	prefecture of Japan	Japan	region	prefecture,territory,urban prefecture,metropolis
+Q50337,	    prefecture of Japan	Japan	region	prefecture,territory,urban prefecture,metropolis
 Q867567,	governorate of Jordan	Jordan	region	province
 Q836672,	region of Kazakhstan	Kazakhstan	region	region,city with regional status
 Q2915243,	district of Kosovo	Kosovo	region	district
@@ -183,7 +176,7 @@ Q750277,	administrative territorial entity of Latvia	Latvia	region	amalgamated m
 Q15127838,	city under state jurisdiction in Latvia	Latvia	region	republican city
 Q844531,	district of Lesotho	Lesotho	region	district
 Q874821,	county of Liberia	Liberia	region	county
-Q48242,	district of Libya	Libya	region	district
+Q48242,	    district of Libya	Libya	region	district
 Q273789,	county of Lithuania	Lithuania	region	county
 Q25047610,	Q25047610	Macao	region	district
 Q646793,	municipality of the Republic of Macedonia	Macedonia	region	municipality
@@ -191,7 +184,7 @@ Q864133,	province of Madagascar	Madagascar	region	region
 Q1008803,	federal territory of Malaysia	Malaysia	region	federal territory
 Q15063586,	state of Malaysia	Malaysia	region	state
 Q11774746,	atoll of the Maldives	Maldives	region	atoll
-Q9347,	Malé, capital of the Maldives	Maldives	region	city
+Q9347,	    Malé, capital of the Maldives	Maldives	region	city
 Q4681407,	Addu City, city in Maldives	Maldives	region	city
 Q743074,	region of Mali	Mali	region	region,district
 Q846327,	region of Mauritania	Mauritania	region	region
@@ -201,33 +194,33 @@ Q15149663,	state of Mexico	Mexico	region	state,federal district
 Q15618452,	state of the Federated States of Micronesia	Micronesia	region	state
 Q542797,	administrative territorial entity of Moldova	Moldova	region	autonomous territory,city,territorial unit
 Q15068450,	district of Moldova	Moldova	region	district
-Q55116,	quarter of Monaco	Monaco	region	commune
-Q50399,	province of Mongolia	Mongolia	region	municipality,province
+Q55116,	    quarter of Monaco	Monaco	region	commune
+Q50399,	    province of Mongolia	Mongolia	region	municipality,province
 Q838549,	municipality of Montenegro	Montenegro	region	commune,county
 Q695469,	province of Mozambique	Mozambique	region	city,province
 Q608843,	region of Namibia	Namibia	region	region
 Q319796,	district of Nauru	Nauru	region	district
 Q22049119,	List of provinces of Nepal	Nepal	region	province
 Q134390,	province of the Netherlands	Netherlands	region	province
-Q25396,	Bonaire	Netherlands	region	island region
-Q26180,	Sint Eustatius	Netherlands	region	island region
-Q25528,	Saba	Netherlands	region	island region
+Q25396,	    Bonaire	Netherlands	region	island region
+Q26180,	    Sint Eustatius	Netherlands	region	island region
+Q25528,	    Saba	Netherlands	region	island region
 Q8803814,	Provinces of New Caledonia	New Caledonia	region	province
-Q216712, region of New Zealand	New Zealand	region	regional council,unitary authority,special territorial authority
+Q216712,    region of New Zealand	New Zealand	region	regional council,unitary authority,special territorial authority
 Q822715,	department of Nicaragua	Nicaragua	region	autonomous region,department
 Q859869,	region of Niger	Niger	region	region
-Q3674,	Niamey	Niger	region	capital district
+Q3674,	    Niamey	Niger	region	capital district
 Q465842,	state of Nigeria	Nigeria	region	state
-Q3787,	Abuja	Nigeria	region	capital territory
+Q3787,	    Abuja	Nigeria	region	capital territory
 Q7574798,	special city of North Korea	North Korea	region	special city
 Q15620174,	province of North Korea	North Korea	region	province
 Q192299,	county of Norway	Norway	region	county
-Q14056,	Jan Mayen	Norway	region	territory
-Q25231,	Svalbard	Norway	region	territory
+Q14056,	    Jan Mayen	Norway	region	territory
+Q25231,	    Svalbard	Norway	region	territory
 Q641078,	governorate of Oman	Oman	region	governorate
 Q15058985,	province of Pakistan	Pakistan	region	province,centrally administered area,capital territory,territory
 Q1044181,	state of Palau	Palau	region	state
-Q50495,	governorate of the Palestinian National Authority	Palestinian National Authority	region	district
+Q50495,	    governorate of the Palestinian National Authority	Palestinian National Authority	region	district
 Q1382893,	province of Panama	Panama	region	province
 Q41789894,	comarca of Panama	Panama	region	comarca
 Q1053630,	province of Papua New Guinea	Papua New Guinea	region	province
@@ -236,14 +229,14 @@ Q815068,	department of Paraguay	Paraguay	region	department,capital district
 Q861184,	region of Peru	Peru	region	region
 Q579240,	Lima Province	Peru	region	province
 Q105037,	Calao	Peru	region	province
-Q24746,	province of the Philippines	Philippines	region	province,region
+Q24746,	    province of the Philippines	Philippines	region	province,region
 Q150093,	voivodeship of Poland	Poland	region	voivodship
 Q150093,	voivodeship of Poland	Poland	region	voivodship
 Q2914565,	autonomous region of Portugal	Portugal	region	autonomous region
 Q41806065,	district of Portugal	Portugal	region	district
 Q685320,	municipality of Qatar	Qatar	region	municipality
 Q6453413,	county of Romania	Romania	region	county, city
-Q41162,	republic of Russia	Russia	region	republic
+Q41162,	    republic of Russia	Russia	region	republic
 Q183342,	federal city of Russia	Russia	region	federal city
 Q184122,	autonomous okrug of Russia	Russia	region	autonomous region
 Q309166,	autonomous oblast of Russia	Russia	region	autonomous region
@@ -254,7 +247,7 @@ Q1870831,	parish of Saint Vincent and the Grenadines	Saint Vincent and the Grena
 Q1070167,	district of Samoa	Samoa	region	district
 Q14292916,	municipality of San Marino	San Marino	region	municipality
 Q1051411,	province of S„o TomÈ and PrÌncipe	Sao Tome and Principe	region	municipality
-Q74063,	region of Saudi Arabia	Saudi Arabia	region	region
+Q74063,	    region of Saudi Arabia	Saudi Arabia	region	region
 Q847667,	region of Senegal	Senegal	region	region
 Q648681,	district of Serbia	Serbia	region	district
 Q15629146,	autonomous province of Serbia	Serbia	region	city
@@ -270,25 +263,25 @@ Q7574799,	special city of South Korea	South Korea	region	capital metropolitan ci
 Q11279677,	Special Self-governing Province of South Korea	South Korea	region	special autonomous province
 Q16181672,	special autonomous city in South Korea	South Korea	region	special autonomous city
 Q496539,	state of South Sudan	South Sudan	region	state
-Q10742,	autonomous community of Spain	Spain	region	municipality,autonomous community
+Q10742,	    autonomous community of Spain	Spain	region	municipality,autonomous community
 Q1230110,	district of Sri Lanka	Sri Lanka	region	district
 Q746290,	state of Sudan	Sudan	region	state
 Q1649296,	district of Suriname	Suriname	region	district
 Q1069042,	district of Swaziland	Swaziland	region	region
 Q200547,	county of Sweden	Sweden	region	county
-Q23058,	canton of Switzerland	Switzerland	region	canton
+Q23058,	    canton of Switzerland	Switzerland	region	canton
 Q517351,	governorate of Syria	Syria	region	province
 Q2225003,	special municipality	Taiwan	region	special municipality
 Q713146,	county-controlled city	Taiwan	region	county
 Q706740,	List of administrative divisions of Taiwan	Taiwan	region	municipality
 Q867545,	province of Tajikistan	Tajikistan	region	independent city,region,autonomous region
 Q845820,	region of Tanzania	Tanzania	region	region
-Q50198,	province of Thailand	Thailand	region	municipality,province
+Q50198,	    province of Thailand	Thailand	region	municipality,province
 Q139228,	region of Togo	Togo	region	region
 Q20740204,	division of Tonga	Tonga	region	division
 Q1996198,	regional corporation or municipality of Trinidad and Tobago	Trinidad and Tobago	region	region
 Q690084,	governorate of Tunisia	Tunisia	region	governorate
-Q48336,	province of Turkey	Turkey	region	province
+Q48336,	    province of Turkey	Turkey	region	province
 Q12014176,	region of Turkmenistan	Turkmenistan	region	province
 Q128913,	List of islands of Tuvalu	Tuvalu	region	island council
 Q128913,	List of islands of Tuvalu	Tuvalu	region	town council
@@ -307,13 +300,13 @@ Q211690,	London borough	United Kingdom	region
 Q1049540,	administrative territorial entity of Northern Ireland	United Kingdom	region	
 Q969045,	local government in Scotland	United Kingdom	region	
 Q683738,	administrative subdivision of Wales	United Kingdom	region	
-Q35657,	state of the United States	United States	region	state
-Q61,	Washington, D.C.	United States	region	federal district
-Q56059,	department of Uruguay	Uruguay	region	department
-Q16645,	United States Minor Outlying Islands	US Minor Outlying Islands	region	unincorporated territory, incorporated territory
+Q35657,	    state of the United States	United States	region	state
+Q61,	    Washington, D.C.	United States	region	federal district
+Q56059,	    department of Uruguay	Uruguay	region	department
+Q16645,	    United States Minor Outlying Islands	US Minor Outlying Islands	region	unincorporated territory, incorporated territory
 Q842420,	region of Uzbekistan	Uzbekistan	region	region,autonomous republic,independent city
 Q847299,	province of Vanuatu	Vanuatu	region	province
-Q237,	Vatican City	Vatican	region	country
+Q237,	    Vatican City	Vatican	region	country
 Q501094,	state of Venezuela	Venezuela	region	state,capital district,federal dependencies
 Q1381899,	municipality of Vietnam	Vietnam	region	municipality
 Q2824648,	province of Vietnam	Vietnam	region	province
@@ -321,3 +314,4 @@ Q32041059,	Wallis and Futuna Islands	Wallis and Futuna Islands	region	kingdom
 Q331130,	governorate of Yemen	Yemen	region	governorate,municipality
 Q15313730,	province of Zambia	Zambia	region	province
 Q492042,	province of Zimbabwe	Zimbabwe	region	province,city with provincial status
+

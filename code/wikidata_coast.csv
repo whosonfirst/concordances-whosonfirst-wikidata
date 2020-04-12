@@ -1,57 +1,76 @@
-Q19817101,"coastal landform"
-
-
-Q31796,"mudflat"
-Q40080,"beach"
-Q567998,"public beach"
-Q847935,"nude beach"
-Q1059407,"shingle beach"
-Q5655097,"hard"
-Q6881911,"separate beach"
-Q7493708,"shell beach"
-Q7900097,"urban beach"
-Q12353867,""
-Q18751767,"sand beach"
-Q3390872,"black sand beach"
-Q28060923,"white sand beach"
-Q28060956,"golden sand beach"
-Q24633899,"rock beach"
-Q35101126,""
-Q35800652,"state beach"
-Q38051384,"California state beach"
-Q93352,"coast"
-Q217101,"spit"
-Q468756,"bank"
-Q40080,"beach"
-Q421069,"intertidal zone"
-Q506894,"littoral zone"
-Q28527,"Machair"
-Q1851368,"waterfront"
-Q2191733,""
-Q2390561,"Wal"
-Q2897058,"bank"
-Q110543,"Gestade"
-Q3706062,"stream bank"
-Q3118353,""
-Q27834806,"left bank"
-Q27834918,"right bank"
-Q4119003,"rocky shore"
-Q3840711,"pier"
-Q10505824,"embankment"
-Q778857,"graded shoreline"
-Q1466699,""
-Q747957,"stack"
-Q885499,"Blowhole"
-Q17018380,"bight"
-Q28550993,"reclaimed land"
-Q13691,"artificial island"
-Q91759,"Crannog"
-Q1870237,""
-Q35116038,"shoreline indentation"
-Q45776,"fjord"
-Q11066204,"Poll"
-Q1172599,"inlet"
-Q554394,"ria"
-Q35114306,""
-
-
+### Q19817101, coastal landform : _wdadd_ 
+Q19817101,coastal landform
+Q31796,mudflat
+Q2382399,Süßwasserwatt
+Q2584107,windwatt
+Q40080,beach
+Q567998,public beach
+Q573367,pocket beach
+Q1059407,shingle beach
+Q5655097,hard
+Q6881911,separate beach
+Q7493708,shell beach
+Q7900097,urban beach
+Q20059264,Saúde Beach
+Q9089165,sea turtles in Mexico
+Q11959973,bathing beach
+Q847935,nude beach
+Q12353867,plaĝo
+Q15849385,Lido
+Q17155155,raised beach
+Q18751767,sand beach
+Q3390872,black sand beach
+Q28060923,white sand beach
+Q28060956,golden sand beach
+Q53800413,plage de sable fin
+Q24633899,rock beach
+Q35101126,Hundestrand
+Q35800652,state beach
+Q38051384,California state beach
+Q217101,spit
+Q12323045,krumodde
+Q747957,stack
+Q885499,blowhole
+Q3518589,Marine terrace
+Q4875776,Beach cusps
+Q17018380,bight
+Q2519239,overbanked turn
+Q18390604,road curve
+Q1130302,hairpin turn
+Q2731902,kombocht
+Q3560558,bend
+Q28550993,reclaimed land
+Q13691,artificial island
+Q91759,crannog
+Q1870237,Arbeitsinsel
+Q35116038,shoreline indentation
+Q39594,bay
+Q31615,cove
+Q21573839,saco
+Q187223,lagoon
+Q431064,barachois
+Q3705882,estuarine lagoon
+Q6401073,khawr of the Salalah Coast Reserve
+Q12027742,sludge lagoon
+Q283202,harbor
+Q828909,wharf
+Q2327160,kwelkade
+Q3543043,quay
+Q7398566,safeguarded wharf
+Q1525891,typhoon shelter
+Q6034850,inland harbor
+Q10512405,guest harbor
+Q64210934,natural harbor
+Q558116,firth
+Q1322134,gulf
+Q4990444,lagoon
+Q11859723,Flada
+Q15942175,former bay of Hong Kong
+Q55863112,voe
+Q45776,fjord
+Q11066204,Poll
+Q1172599,inlet
+Q554394,ria
+Q5533935,Geo
+Q63253162,ide
+Q66980635,marine area

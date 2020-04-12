@@ -1,36 +1,86 @@
-Q170321,"wetland"
-Q30198,"marsh"
-Q31455,"freshwater marsh"
-Q4953717,"brackish marsh"
-Q5598492,"grazing marsh"
-Q13360421,"tidal marsh"
-Q166735,"swamp"
-Q2653463,""
-Q7809986,"Titi swamp"
-Q688784,"pocosin"
-Q910817,"carr"
-Q26269133,""
-Q1681353,"bog"
-Q72178,""
-Q514050,"fen"
-Q127314,"Coniferous swamp"
-Q1250939,""
-Q2593832,""
-Q2779792,""
-Q3401036,""
-Q7553432,"sods"
-Q13359600,"raised bog"
-Q12300827,""
-Q12335783,""
-Q28605450,""
-Q28530509,""
-Q3240227,""
-Q3515225,""
-Q7541461,"slough"
-Q10671833,"floodplain lake"
-Q11177275,"riparian forest"
-Q1311024,"tugay"
-Q20905436,"Ramsar site"
-Q28861769,"Ramsar site in Moldova"
-Q34891928,"Wetland Management District"
-Q36449705,"peatland"
+### Q170321, wetland : _wdadd_ 
+Q170321,wetland
+Q30198,marsh
+Q31455,freshwater marsh
+Q4953717,brackish marsh
+Q5598492,grazing marsh
+Q20106372,closa
+Q62562206,tidal marsh
+Q29925,salt marsh
+Q68487771,Meers
+Q166735,swamp
+Q2474940,flow through marsh
+Q2653463,flood marsh
+Q3199193,String bog
+Q5200372,Cypress dome
+Q7809986,Titi swamp
+Q28129994,mangrove swamp
+Q63316629,manigua
+Q688784,pocosin
+Q910817,carr
+Q2092855,mesotrophic regularly flooded alder carr and birch wooded mires
+Q1470551,Éger- és kőrislápok
+Q26269133,bog forest
+Q61749170,Fennoscandian deciduous swamp woods
+Q1681353,bog
+Q72178,Tallmyr
+Q514050,fen
+Q127314,Coniferous swamp
+Q688784,pocosin
+Q3696707,Cratoneurion
+Q14405085,rich fen
+Q61748363,Fennoscandian mineral-rich springs and springfens
+Q61748371,Kalkreiche Niedermoore mit Cladium mariscus und Arten von Caricion davallianae
+Q61748391,Alkaline fen
+Q61748401,Alpine pioneer formations of the Caricion bicoloris-atrofuscae
+Q66764728,Calcareous fens with Cladium mariscus and species of the Caricion davallianae
+Q844114,Opfermoor
+Q1250939,Dose
+Q1294726,floating mat
+Q1632562,Kondenswassermoor
+Q2411633,Poor fen
+Q2593832,zwartveen
+Q2234542,tuinturf
+Q2779792,opgevaren grond
+Q3401036,Pozzine
+Q4925171,Blanket bog
+Q7553432,sods
+Q10430947,blandmyr
+Q10431214,blekeområde
+Q11879994,Lähteikkö
+Q13359600,raised bog
+Q12300827,aktiv højmose
+Q12335783,Skovbevokset tørvemose
+Q61748280,Active raised bog
+Q61748291,Degraded raised bog still capable of natural regeneration
+Q26269133,bog forest
+Q28530509,Hangmoor
+Q60102117,Kesselmoor
+Q61748349,Depressions on peat substrates of the Rhynchosporion
+Q61748421,Aapa mire
+Q61748425,Palsa mire
+Q3240227,湿原
+Q3515225,tanne
+Q3575234,Marjal
+Q6046150,interdunal wetland
+Q7541461,slough
+Q9311910,Rojst
+Q10671833,floodplain lake
+Q11177275,riparian forest
+Q1311024,tugay
+Q1587173,Bottomland hardwood forest
+Q61749484,Ulmenion minoris
+Q61606952,Riverine ash-alder woodland
+Q11786447,Mszar
+Q16523447,Turjánvidék
+Q17249182,bažina
+Q19683138,Ramsar site
+Q28861769,Ramsar site in Moldova
+Q61457040,Ramsar site in Australia
+Q34891928,Wetland Management District
+Q36449705,peatland
+Q55463449,intermittent wetland
+Q61298831,Important Wetlands in Australia
+Q62562206,tidal marsh
+Q64502858,bonal
+Q75304241,coastal wetland

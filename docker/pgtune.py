@@ -76,16 +76,37 @@ def calculate(total_mem, max_connections, pg_version):
     else:
       # http://www.postgresql.org/docs/current/static/release-9-5.html
       # max_wal_size = (3 * checkpoint_segments) * 16MB
-      pg_conf['min_wal_size'] = '1GB'           
+      pg_conf['min_wal_size'] = '256MB'           
       pg_conf['max_wal_size'] = '4GB'
       # http://www.cybertec.at/2016/06/postgresql-underused-features-wal-compression/
       pg_conf['wal_compression'] = 'on'
-    pg_conf['checkpoint_completion_target'] = 0.9
+    pg_conf['checkpoint_completion_target'] = 0.8
+    pg_conf['checkpoint_timeout'] = '15min'
+    pg_conf['autovacuum_max_workers'] = 2
     pg_conf['wal_buffers'] = to_bytes(pg_conf['shared_buffers']*0.03, 16*M)  # 3% of shared_buffers, max of 16MB.
     pg_conf['default_statistics_target'] = 300
     pg_conf['synchronous_commit'] = 'off'
     pg_conf['vacuum_cost_delay'] = 50
+    pg_conf['vacuum_cost_limit'] = 200
     pg_conf['wal_writer_delay'] = '10s'
+
+    # https://www.postgresql.org/docs/11/static/populate.html
+    # https://www.postgresql.org/docs/11/static/non-durability.html
+    pg_conf['wal_level']='minimal'
+    pg_conf['archive_mode']='off'
+    pg_conf['max_wal_senders']= 0
+    pg_conf['full_page_writes']='off'
+    pg_conf['fsync']='off'
+    pg_conf['bgwriter_lru_maxpages']= 0
+
+   # pg_conf['max_stack_depth']='7680kB'
+   # pg_conf['data_checksums']='on'
+   # pg_conf['client_encoding']='UTF8'
+   # pg_conf['server_encoding']='UTF8'
+   
+    pg_conf['timezone']='UTC'
+    pg_conf['datestyle']= "'iso, ymd'"
+
     return pg_conf
 
 
@@ -105,11 +126,11 @@ def usage_and_exit():
 
 def main():
     mem = None
-    max_connections = 20
+    max_connections = 40
     have_ssd = True
     enable_stat = False
     listen_addresses = '*'
-    pg_version = '10'
+    pg_version = '12'
 
     try:
         opts, args = getopt.getopt(sys.argv[1:], 'l:m:c:sSv:h')
@@ -176,7 +197,7 @@ def main():
     print("#")
     print("# More customisations ")
     print("#")
-    print("autovacuum=off")
+    print("autovacuum=on")
 
 if __name__ == '__main__':
     main()

@@ -2,7 +2,16 @@
 // Filter and Load Wikidata JSON dump  to PostgreSQL
 //
 
+// testdata:
+//   const pgoutput = false
+//   time go run /wof/code/wdpp.go /wof/wikidata_dump/full-latest-all.json.gz  | grep ^{ | gzip -c > /wof/wikidata_dump/latest-all.json.gz
+
 // TODO:  add https://github.com/mc2soft/pq-types  add PostGISPoint
+
+// Todo:  Demolished test:  https://www.wikidata.org/wiki/Q689409  Weißenstein
+// test: https://www.wikidata.org/wiki/Q1088727
+//       https://www.wikidata.org/wiki/Q42846054
+
 package main
 
 import (
@@ -26,7 +35,8 @@ import (
 	"github.com/tidwall/gjson"
 )
 
-const pgoutput = false
+const pgoutput = true
+const sample = false
 
 type WikiData struct {
 	ID string
@@ -100,19 +110,33 @@ var wiki2grp wiki2Group
 var wofwd wdType
 var wofredirected wdType
 var blacklist wdType
+var businesslist wdType
+var wikimedialist wdType
+var duplicatedlist wdType
+var disambiguationlist wdType
+
+var adminCodelist wdType
 
 var qre *regexp.Regexp
 var reWikivoyage *regexp.Regexp
+var err error
+
+var stmt_label *sql.Stmt
+var txn_label *sql.Tx
+var wdtables []string
 
 func init() {
-
-	qre = regexp.MustCompile("^Q[0-9]+$")
+	wdtables = []string{"wd_nogeom_grp1", "wd_nogeom_grp2", "wd_messy", "wd_ok", "wd_demolished"}
+	qre = regexp.MustCompile("^[QP][0-9]+$")
 
 	wofCsvDefinitions := map[string]string{
 
+		// uncategorized - but important !
+		"uncategorized": "/wof/code/wikidata_uncategorized.csv",
+
 		// for wof -manual edit
-		"locality": "/wof/code/wikidata_man_localities.csv",
-		"region":   "/wof/code/wikidata_man_region.csv",
+		"locality": "/wof/code/wikidata_localities.csv",
+		"region":   "/wof/code/wikidata_region.csv",
 
 		// wof - automatic
 		"borough":       "/wof/code/wikidata_borough.csv",
@@ -174,7 +198,7 @@ func init() {
 
 	for k, csvfile := range wofCsvDefinitions {
 		fmt.Println(k, csvfile)
-		wofdef[k] = readCsvFile(csvfile)
+		wofdef[k] = readCsvFile(csvfile, 'Q')
 	}
 
 	for k, qwdtype := range wofdef {
@@ -190,12 +214,24 @@ func init() {
 	//fmt.Println(wiki2grp)
 	//os.Exit(0)
 
-	wofwd = readCsvFile("/wof/whosonfirst-data/wd_extended.csv")
-	wofredirected = readCsvFile("/wof/whosonfirst-data/wd_redirects.csv")
-	blacklist = readCsvFile("/wof/code/wikidata_blacklist.csv")
+	wofwd = readCsvFile("/wof/whosonfirst-data/wd_extended.csv", 'Q')
+	wofredirected = readCsvFile("/wof/whosonfirst-data/wd_redirects.csv", 'Q')
+	blacklist = readCsvFile("/wof/code/wikidata_blacklist.csv", 'Q')
+	businesslist = readCsvFile("/wof/code/wikidata_business.csv", 'Q')
+	wikimedialist = readCsvFile("/wof/code/wikidata_wikimedia.csv", 'Q')
+	duplicatedlist = readCsvFile("/wof/code/wikidata_duplicated.csv", 'Q')
+	disambiguationlist = readCsvFile("/wof/code/wikidata_disambiguation.csv", 'Q')
+
+	adminCodelist = readCsvFile("/wof/code/wikidata_admincode.csv", 'P')
+
+	for blacklistkey, _ := range blacklist {
+		if _, qkeyExist := wiki2grp[blacklistkey]; qkeyExist {
+			fmt.Println("WARN: blacklist dups in", blacklistkey, wiki2grp[blacklistkey])
+		}
+	}
 }
 
-func readCsvFile(csvcode string) wdType {
+func readCsvFile(csvcode string, wdFirstChar byte) wdType {
 	content, err := ioutil.ReadFile(csvcode)
 	checkErr(err)
 
@@ -204,16 +240,16 @@ func readCsvFile(csvcode string) wdType {
 	for _, line := range strings.Split(string(content), "\n") {
 		line = strings.TrimSpace(line)
 
-		if len(line) >= 2 && line[0] == 'Q' {
+		if len(line) >= 2 && line[0] == wdFirstChar /* 'Q'/'P' */ {
 			qcode = strings.Split(line, ",")[0]
 
-			// must be valid Q[0-9]+  code
+			// must be valid [QP][0-9]+  code
 			if !qre.MatchString(qcode) {
 				fmt.Println("Error in the csv: ", qcode, " not valid in: ", csvcode)
 			}
 
-			// only add 'Q' codes,
-			if qcode[0] == 'Q' {
+			// only add 'Q'/'P' codes,
+			if qcode[0] == wdFirstChar {
 				mapWdType[qcode] = true
 			}
 		} else {
@@ -221,7 +257,10 @@ func readCsvFile(csvcode string) wdType {
 		}
 
 	}
-	fmt.Println("csvread:", len(mapWdType))
+	fmt.Println("csvread:", csvcode, "     records:", len(mapWdType))
+	if len(mapWdType) == 0 {
+		panic("Empty csv ???")
+	}
 	return mapWdType
 }
 
@@ -233,9 +272,14 @@ var areaBoxPl geohash.Box
 var areaBoxCsSk geohash.Box
 var areaBoxRo geohash.Box
 
+var wdStmt map[string]*sql.Stmt
+var wdDB map[string]*sql.DB
+var wdTX map[string]*sql.Tx
+
 func main() {
 	rexpl := regexp.MustCompile(`[,()]`)
 	reWikivoyage = regexp.MustCompile("wikivoyage")
+
 	areaBoxHu = CreateAreaBox(13.232, 41.522, 30.041, 50.070)
 	areaBoxSr = CreateAreaBox(15.961, 39.555, 23.651, 46.210)
 	areaBoxSv = CreateAreaBox(10.37, 54.69, 25.07, 69.38)
@@ -255,21 +299,15 @@ func main() {
 		"ar", "fy", "he",
 		"ta"}
 
-	connStr := "sslmode=disable connect_timeout=10"
-
-	//
-	// PG setup  for wd
-	//
-	db_wd, err := sql.Open("postgres", connStr)
-	checkErr(err)
-	defer db_wd.Close()
-	txn_wd, err := db_wd.Begin()
-	checkErr(err)
-	createTableStr_wd := []string{
-		"CREATE SCHEMA IF NOT EXISTS wd;",
-		"DROP TABLE IF EXISTS wd.wdx CASCADE;",
-		"DROP TABLE IF EXISTS wd.wdxceb CASCADE;",
-		`CREATE UNLOGGED TABLE wd.wdx (
+	if pgoutput {
+		//
+		// PG setup  for wd
+		//
+		connStr := "sslmode=disable connect_timeout=10"
+		createTableStr := `
+		CREATE SCHEMA IF NOT EXISTS wd;
+		 DROP TABLE IF EXISTS wd.{{.tablename}} CASCADE;
+		 CREATE UNLOGGED TABLE wd.{{.tablename}} (
 			 wd_id         	TEXT NOT NULL
 			,wd_label       TEXT NOT NULL
 			,wd_lang        TEXT NOT NULL
@@ -282,54 +320,70 @@ func main() {
 			,ncebsitelinks  Smallint
 			,iscebuano  	Bool
 			,geomhash       TEXT NOT NULL
-			,geom 			Geometry(Point, 4326) NULL
-			,data 			JSONB NOT NULL );`,
-	}
+			,geom           Geometry(Point, 4326) NULL
+			,data           JSONB NOT NULL );
+			`
 
-	for _, str := range createTableStr_wd {
-		fmt.Println("executing:", str)
-		_, err := txn_wd.Exec(str)
+		wdStmt = make(map[string]*sql.Stmt)
+		wdDB = make(map[string]*sql.DB)
+		wdTX = make(map[string]*sql.Tx)
+		for _, table := range wdtables {
+			wdDB[table], err = sql.Open("postgres", connStr)
+			checkErr(err)
+			defer wdDB[table].Close()
+			wdTX[table], err = wdDB[table].Begin()
+			checkErr(err)
+		}
+		for _, table := range wdtables {
+			str := strings.Replace(createTableStr, "{{.tablename}}", table, -1)
+			fmt.Println("executing:", str)
+			_, err := wdTX[table].Exec(str)
+			checkErr(err)
+		}
+		for _, table := range wdtables {
+			wdStmt[table], err = wdTX[table].Prepare(pq.CopyInSchema("wd", table,
+				"wd_id",
+				"wd_label",
+				"wd_lang",
+				"a_wof_type",
+				"nclaims",
+				"nlabels",
+				"ndescriptions",
+				"naliases",
+				"nsitelinks",
+				"ncebsitelinks",
+				"iscebuano",
+				"geomhash",
+				"geom",
+				"data",
+			))
+			checkErr(err)
+		}
+
+		//
+		// PG setup  for label
+		//
+
+		db_label, err := sql.Open("postgres", connStr)
 		checkErr(err)
-	}
-
-	stmt_wd, err := txn_wd.Prepare(pq.CopyInSchema("wd", "wdx",
-		"wd_id",
-		"wd_label",
-		"wd_lang",
-		"a_wof_type",
-		"nclaims",
-		"nlabels",
-		"ndescriptions",
-		"naliases",
-		"nsitelinks",
-		"ncebsitelinks",
-		"iscebuano",
-		"geomhash",
-		"geom",
-		"data",
-	))
-	checkErr(err)
-
-	//
-	// PG setup  for label
-	//
-	db_label, err := sql.Open("postgres", connStr)
-	checkErr(err)
-	defer db_label.Close()
-	txn_label, err := db_label.Begin()
-	checkErr(err)
-	createTableStr_label := []string{
-		"CREATE SCHEMA IF NOT EXISTS wdlabels;",
-		"DROP TABLE IF EXISTS wdlabels.qlabel CASCADE;",
-		"CREATE UNLOGGED TABLE wdlabels.qlabel (wd_id TEXT NOT NULL, wd_label TEXT, wd_qlabel TEXT ,wd_qlang TEXT );",
-	}
-	for _, str := range createTableStr_label {
-		fmt.Println("executing:", str)
-		_, err := txn_label.Exec(str)
+		defer db_label.Close()
+		txn_label, err = db_label.Begin()
 		checkErr(err)
+		createTableStr_label := []string{
+			"CREATE SCHEMA IF NOT EXISTS wdlabels;",
+			"DROP TABLE IF EXISTS wdlabels.qlabel CASCADE;",
+			"CREATE UNLOGGED TABLE wdlabels.qlabel (wd_id TEXT NOT NULL, wd_label TEXT, wd_qlabel TEXT ,wd_qlang TEXT );",
+		}
+		for _, str := range createTableStr_label {
+			fmt.Println("executing:", str)
+			_, err := txn_label.Exec(str)
+			checkErr(err)
+		}
+		stmt_label, err = txn_label.Prepare(pq.CopyInSchema("wdlabels", "qlabel", "wd_id", "wd_label", "wd_qlabel", "wd_qlang"))
+		checkErr(err)
+
 	}
-	stmt_label, err := txn_label.Prepare(pq.CopyInSchema("wdlabels", "qlabel", "wd_id", "wd_label", "wd_qlabel", "wd_qlang"))
-	checkErr(err)
+
 	//
 	// gz input definition
 	//
@@ -363,6 +417,18 @@ func main() {
 			return nil, nil
 		}
 		if wikidata.ID[0] != 'Q' {
+			return nil, nil
+		}
+
+		// debug
+		//if wikidata.ID != "Q27" {
+		//	return nil, nil
+		//} else {
+		//	fmt.Println(wikidata.ID)
+		//}
+		// debug
+
+		if sample && len(wikidata.ID) > 5 {
 			return nil, nil
 		}
 
@@ -419,9 +485,9 @@ func main() {
 		}
 
 		// Drop  P576: dissolved, demolished
-		if _, p576Exist := wikidata.WikiItems.Claims["P576"]; p576Exist {
-			return nil, nil
-		}
+		//if _, p576Exist := wikidata.WikiItems.Claims["P576"]; p576Exist {
+		//	return nil, nil
+		//}
 
 		p31claimIds := []string{}
 		if p31claim, p31Exist := wikidata.WikiItems.Claims["P31"]; p31Exist {
@@ -460,24 +526,44 @@ func main() {
 			wikidata.match = append(wikidata.match, "redirected")
 		}
 
-		wikidata.checkClaims("P300", "P300")   // check ISO 3166-2 code ;  P300
-		wikidata.checkClaims("P901", "P901")   // check FIPS 10-4 (countries and regions) :P901
-		wikidata.checkClaims("P238", "P238")   // check IATA airport code : P238
-		wikidata.checkClaims("P239", "P239")   // check ICAO airport code : P239
-		wikidata.checkClaims("P1336", "P1336") // check territory claimed by ; P1336
-		wikidata.checkClaims("P1624", "P1624") // check MarineTraffic Port ID  ; P1624
+		// Any "admimcode" exist?  ::
+		//    ?? has any "Wikidata property for authority control for administrative subdivisions"
+		for k := range wikidata.WikiItems.Claims {
+			if ok := adminCodelist[k]; ok {
+				wikidata.match = append(wikidata.match, "admincode")
+				break
+			}
+		}
+
+		
+
+		wikidata.checkClaims("P1566", "hasP1566") // check GeoNames ID ; P1566
+		wikidata.checkClaims("P300", "P300")      // check ISO 3166-2 code ;  P300
+		wikidata.checkClaims("P901", "P901")      // check FIPS 10-4 (countries and regions) :P901
+		wikidata.checkClaims("P238", "P238")      // check IATA airport code : P238
+		wikidata.checkClaims("P239", "P239")      // check ICAO airport code : P239
+		wikidata.checkClaims("P240", "P240")      // check FAA airport code : P240
+		wikidata.checkClaims("P1336", "P1336")    // check territory claimed by ; P1336
+		wikidata.checkClaims("P1624", "P1624")    // check MarineTraffic Port ID  ; P1624
+
+		wikidata.checkClaims("P6766", "P6766")    // check Who's on First ID (P6766)
+
 		// check statement disputed by ; P1310
-		if gjson.GetBytes(wikidata.WikiJson, "claims.P17.#.qualifiers.P1310").Exists() {
+		p1310v := gjson.GetBytes(wikidata.WikiJson, "claims.P17.#.qualifiers.P1310")
+		if len(p1310v.Array()) > 0 {
 			wikidata.match = append(wikidata.match, "P1310")
 		}
 
+		//fmt.Println(wikidata.ID, wikidata.wdqlabel, wikidata.match)
+
 		if pgoutput {
 			// log
-			if (c.v % 100000) == 0 {
+			if pgoutput && ((c.v % 100000) == 0) {
 				fmt.Println("..processing:", c.v, "   wikidata.ID:", wikidata.ID, wikidata.wdqlabel, wikidata.match)
 			}
 		}
 
+		// if no any match - we will drop!
 		if len(wikidata.match) == 0 {
 			return nil, nil
 		}
@@ -485,54 +571,115 @@ func main() {
 		wikidata.setCoordinates()
 		wikidata.setCebuano()
 
-		//if wikidata.IsCebuano {
-		// Don' load cebuano to the database
-		//	return nil, nil
-		//}
-
-		// check "blacklist"  ?
-		for _, k := range p31claimIds {
-			if ok := blacklist[k]; ok {
-				wikidata.match = append(wikidata.match, "blacklist")
-				break
-			}
-		}
-
-		wikidata.checkClaims("P1566", "hasP1566") // check GeoNames ID ; P1566
-
-		if !wikidata.p625.Null {
-			if pgoutput {
-				// write to postgres
-				//if !wikidata.IsCebuano {
-				wikidata.writePG_wd(stmt_wd)
-				//}
-			} else {
-				return append(wikidata.WikiJson, '\n'), nil
-			}
+		// ------------------- business --------------------------------------
+		// check wikidata.ID  in "business" ?
+		if ok := businesslist[wikidata.ID]; ok {
+			wikidata.match = append(wikidata.match, "business")
 		} else {
-			if len(wikidata.match) == 1 &&
-				(wikidata.match[0] == "locality" ||
-					wikidata.match[0] == "marinearea" ||
-					wikidata.match[0] == "river" ||
-					wikidata.match[0] == "landform" ||
-					wikidata.match[0] == "county") {
-				// skip - lot of items without coordinate.
-				// -------------------------------------------------
-				// {locality} without coordinate 		=1049335
-				// {marinearea} without coordinate 		= 282329
-				// {county}	without coordinate 			=  12335
-			} else {
-				if pgoutput {
-					// write to postgres
-					//if !wikidata.IsCebuano {
-					wikidata.writePG_wd(stmt_wd)
-					//}
-				} else {
-					return append(wikidata.WikiJson, '\n'), nil
+			// check P31(instance of) "business"  ?
+			for _, k := range p31claimIds {
+				if ok := businesslist[k]; ok {
+					wikidata.match = append(wikidata.match, "business")
+					break
 				}
 			}
 		}
 
+		// ------------------- wikimedia --------------------------------------
+		// check wikidata.ID  in "wikimedia" ?
+		if ok := wikimedialist[wikidata.ID]; ok {
+			wikidata.match = append(wikidata.match, "wikimedia")
+		} else {
+			// check P31(instance of) "wikimedia"  ?
+			for _, k := range p31claimIds {
+				if ok := wikimedialist[k]; ok {
+					wikidata.match = append(wikidata.match, "wikimedia")
+					break
+				}
+			}
+		}
+
+		// -------------------- duplicated ------------------------------------
+		// check wikidata.ID  in duplicated ?
+		if ok := duplicatedlist[wikidata.ID]; ok {
+			wikidata.match = append(wikidata.match, "duplicated")
+		} else {
+			// check P31(instance of) "duplicated"  ?
+			for _, k := range p31claimIds {
+				if ok := duplicatedlist[k]; ok {
+					wikidata.match = append(wikidata.match, "duplicated")
+					break
+				}
+			}
+		}
+
+		// -------------------- disambiguation ------------------------------------
+		// check wikidata.ID  in disambiguation ?
+		if ok := disambiguationlist[wikidata.ID]; ok {
+			wikidata.match = append(wikidata.match, "disambiguation")
+		} else {
+			// check P31(instance of) "disambiguation"  ?
+			for _, k := range p31claimIds {
+				if ok := disambiguationlist[k]; ok {
+					wikidata.match = append(wikidata.match, "disambiguation")
+					break
+				}
+			}
+		}
+
+		// -------------------- blacklist ------------------------------------
+		// check wikidata.ID  in blacklist ?
+		if ok := blacklist[wikidata.ID]; ok {
+			wikidata.match = append(wikidata.match, "blacklist")
+		} else {
+			// check P31(instance of) "blacklist"  ?
+			for _, k := range p31claimIds {
+				if ok := blacklist[k]; ok {
+					wikidata.match = append(wikidata.match, "blacklist")
+					break
+				}
+			}
+		}
+
+		// ---------------------- metalist ------------------------------------
+		// check wikidata.ID  in metalist for mathcing ?
+		if _, ok := wiki2grp[wikidata.ID]; ok {
+			wikidata.match = append(wikidata.match, "metalist")
+		}
+
+		// check demolished
+		wikidata.checkClaims("P576", "demolished") // check dissolved, demolished ;  P576
+		// check P279subclass of
+		wikidata.checkClaims("P279", "hasP279") // check "Subclass of" ; P279
+
+		if !pgoutput {
+			// Write to text output
+			return append(wikidata.WikiJson, '\n'), nil
+		} else {
+			// Write to Postgres
+			if contains(wikidata.match, "demolished") &&
+				(!contains(wikidata.match, "admincode")) && (!contains(wikidata.match, "hasP1566")) {
+				wikidata.writePG_wd(wdStmt["wd_demolished"])
+			} else if !wikidata.p625.Null {
+				if wikidata.IsCebuano {
+					wikidata.writePG_wd(wdStmt["wd_messy"])
+				} else {
+					wikidata.writePG_wd(wdStmt["wd_ok"])
+				}
+			} else {
+				if len(wikidata.match) == 1 &&
+					(wikidata.match[0] == "locality" ||
+						wikidata.match[0] == "marinearea" ||
+						wikidata.match[0] == "river" ||
+						wikidata.match[0] == "landform" ||
+						wikidata.match[0] == "county") {
+
+					wikidata.writePG_wd(wdStmt["wd_nogeom_grp1"])
+				} else {
+					wikidata.writePG_wd(wdStmt["wd_nogeom_grp2"])
+				}
+			}
+		}
 		return nil, nil
 	})
 
@@ -541,29 +688,34 @@ func main() {
 	err = wpp.Run()
 	checkErr(err)
 
-	//
-	// Close WD Copy
-	//
-	_, err = stmt_wd.Exec()
-	checkErr(err)
-	err = stmt_wd.Close()
-	checkErr(err)
+	if pgoutput {
 
-	err = txn_wd.Commit()
-	checkErr(err)
+		//
+		// Close WD Copy
+		//
+		for _, table := range wdtables {
+			_, err = wdStmt[table].Exec()
+			checkErr(err)
+			err = wdStmt[table].Close()
+			checkErr(err)
+			err = wdTX[table].Commit()
+			checkErr(err)
+		}
 
-	//
-	// Close Label Copy
-	//
-	_, err = stmt_label.Exec()
-	checkErr(err)
-	err = stmt_label.Close()
-	checkErr(err)
+		//
+		// Close Label Copy
+		//
+		_, err = stmt_label.Exec()
+		checkErr(err)
+		err = stmt_label.Close()
+		checkErr(err)
 
-	err = txn_label.Commit()
-	checkErr(err)
+		err = txn_label.Commit()
+		checkErr(err)
 
-	fmt.Println("...  wd.wdx  + wdlabels.qlabel Loaded:", c.v)
+		fmt.Println("...  wd.wd_*  + wdlabels.qlabel Loaded:", c.v)
+
+	}
 }
 
 func checkErr(err error) {
@@ -803,7 +955,7 @@ func (wikidata *WikiData) setCebuano() {
 			}
 
 		} else if cebExists && svExists && (!wikidata.p625.Null) { // cebuano + svedish + has Coordinate
-			// check geohash - and if it is not svedish - then it is problemati
+			// check geohash - and if it is not svedish - then it is problematic
 
 			if !areaBoxSv.Contains(wikidata.p625.Lat, wikidata.p625.Lng) {
 				wikidata.IsCebuano = true
@@ -916,4 +1068,13 @@ func CreateAreaBox(pMinLng float64, pMinLat float64, pMaxLng float64, pMaxLat fl
 		MinLng: pMinLng,
 		MaxLng: pMaxLng,
 	}
+}
+
+func contains(arr []string, str string) bool {
+	for _, a := range arr {
+		if a == str {
+			return true
+		}
+	}
+	return false
 }

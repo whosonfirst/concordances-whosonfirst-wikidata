@@ -1,11 +1,12 @@
-Q194203,  arrondissement of France
-Q22721, Regierungsbezirk 
-Q706447, county of Taiwan
-
-
-## subclass of  Regierungsbezirk 
-Q829277,	government region of North Rhine-Westphalia
-Q1850612,	government region of Prussia
-Q17266843,	directorate district of Saxony
-Q42612577,	government region of Baden-Württemberg
-Q42613239,	government region of Lower Saxony
+### Q194203, arrondissement of France : _wdadd_ 
+Q194203,arrondissement of France
+### Q22721, Regierungsbezirk : _wdadd_ 
+Q22721,Regierungsbezirk
+Q829277,government region of North Rhine-Westphalia
+Q1850612,government region of Prussia
+Q17266843,directorate district of Saxony
+Q42612577,government region of Baden-Württemberg
+Q42613239,government region of Lower Saxony
+Q66004516,ehemaliger Regierungsbezirk
+### Q706447, county of Taiwan : _wdadd_ 
+Q706447,county of Taiwan

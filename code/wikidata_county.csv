@@ -1,106 +1,20 @@
+### Q28575, county : _wdadd_ 
 Q28575,county
-Q13360155,county or county-equivalent 
-Q3301053,consolidated city-county  
-Q713146,county-controlled city"
-Q17143371,county of South Korea      
-Q149621,districts     https://en.wikipedia.org/wiki/District
-    
-
-Q27002,selsoviet
 Q47168,county of the United States
-Q57053,county of Croatia
-Q59136,district of Cyprus
-Q106658,rural district of Germany
-Q137535,county of Iran
-Q171809,county of England
-Q180673,ceremonial county of England
-Q193560,district of Israel
-Q211690,London borough
-Q216888,district of Luxembourg
-Q247073,county of Poland
-Q319796,district of Nauru
-Q349084,district of England
-## Q398141,school district
-Q475061,amphoe
-Q505830,district of Sudan
-Q545769,district of Ghana
-Q585444,administrative district of Prague
-Q628993,district of the canton of Valais
-Q662914,district in Switzerland
-Q690840,district of Ethiopia
-Q692561,district of the canton of St. Gallen
-Q765865,district of Belize
-Q925381,city with powiat rights
-Q1002812,metropolitan borough
-Q1045593,county-controlled district
-Q1065118,District of China
-##Q1138494,historic county of England
-Q1147395,district of Turkey
-Q1187580,non-metropolitan district
-Q1188782,county-equivalent
-Q1229776,district of Bhutan
-Q1230110,district of Sri Lanka
-Q1317848,county of Northern Ireland
-Q1649296,district of Suriname
-Q1754946,"rural district of England, Wales, and Ireland"
-Q1840504,national raion
-Q1964165,province district in Belgium
-Q1994931,district of Malaysia
-Q2179958,district of Peru
-Q2264478,district of Slovakia
-Q2292572,district of Costa Rica
-Q2301018,special district
-Q2324047,County of Apulia
-Q2379075,district of Pakistan
-Q2537537,district of Nepal
-Q2631599,district of Uzbekistan
-Q2679943,Gewest
-Q2749147,Castellany
-Q2864107,administrative district of the canton of Bern
-Q2864207,constituency of the canton of Lucerne
-Q2991489,County palatine
-Q3032103,district of Colombia
-Q3032116,district of the canton of Aargau
-Q3032119,district of the canton of Basel-Land
-Q3032122,district of the canton of Fribourg
-Q3032123,district of the canton of Lucerne
-Q3032124,district of the canton of Schwyz
-Q3032126,district of the canton of Neuchâtel
-Q3032131,district of the canton of Solothurn
-Q3032137,district of the canton of Ticino
-Q3032139,district of the canton of Jura
-Q3091916,district of the canton of Graubünden
 Q3301053,consolidated city-county
-Q3533482,SS-Oberabschnitte
-Q3539870,district of Uganda
-Q3556789,district of Madagascar
-Q3624938,district of Brazil
-Q3710488,district of Panama
-Q3777387,former district of the canton of Bern
-Q4259749,Forestry District
-Q4314954,ethnic district
-Q4414033,rural council of Ukraine
-Q5034569,urban district
-Q5283531,district of Prussia
-Q5283559,district of the Democratic Republic of the Congo
-Q5811429,distrito de Managua
-Q6617100,district of Yemen
-Q7438320,scout district
-Q7884983,unified school district
-Q9046617,metropolitan borough of the County of London
-Q10355978,Quatinga
+Q13218382,charter city and county
 Q11774062,county of Arkansas
 Q11774097,county of Texas
 Q11774149,county of Iowa
 Q11812346,county of Illinois
 Q12037308,county of South Dakota
-Q12121054,Small rural settlements Ukraine
 Q12178655,county of North Dakota
 Q12178928,county of Wisconsin
+Q44555359,WOW counties
 Q12262532,county of Minnesota
 Q13212489,county of California
-Q13217186,county of Arizona
 Q13218382,charter city and county
+Q13217186,county of Arizona
 Q13410400,county of Alabama
 Q13410403,county of Colorado
 Q13410411,county of Delaware
@@ -117,8 +31,6 @@ Q13410485,county of Massachusetts
 Q13410496,county of Michigan
 Q13410508,county of Mississippi
 Q13410520,county of Missouri
-Q13410522,borough of Alaska
-Q13410524,parish of Louisiana
 Q13414354,county of Connecticut
 Q13414358,county of Montana
 Q13414361,county of Nebraska
@@ -141,126 +53,463 @@ Q13415368,county of Virginia
 Q13415369,county of Washington
 Q13415370,county of West Virginia
 Q13415371,county of Wyoming
-Q13626398,urban okrug in Russia
-Q15071808,selsaviet of Belarus
-Q15618465,district of American Samoa
-Q15630906,rural district
-Q15633191,distrito
-Q15634846,district of Seoul
-Q15642599,urban district
-Q15644465,district of the canton of Zürich
-Q15726209,school district in the United States
-Q15726214,school district of Canada
-Q15901936,district of South Korea
+Q57053,county of Croatia
+Q137535,county of Iran
+Q171809,county of England
+Q1138494,historic county of England
+Q21272231,county council area
+Q180673,ceremonial county of England
+Q630638,preserved county of Wales
+Q1317848,county of Northern Ireland
+Q2991484,county of Canada
+Q603715,county of New Brunswick
+Q2991491,historic county of Quebec
+Q3248567,county of Prince Edward Island
+Q11774771,county of Nova Scotia
+Q14763041,county of Ontario
+Q2991489,County palatine
+Q5177120,county of Tasmania
+Q7234043,Postal counties of the United Kingdom
 Q15979307,principal area of Wales
-Q15982377,selsoviet of Russia
-## Q16997861,joint technological education district
+Q16822724,county of New Zealand
+Q18224884,Condado del Sacro Romano Imperio
+Q18603529,condado (Portugal)
+Q20974973,county of Australia
+Q5177126,county of Victoria
+Q15643559,county of Western Australia
+Q15643578,county of New South Wales
+Q17000640,Nineteen Counties
+Q15643599,county of Queensland
+Q15643615,county of South Australia
+Q15643694,county of the Northern Territory
+Q28739697,ancient county of China
+Q55030674,county of American Samoa
+Q58001476,condado (Spain)
+Q67770276,historic county
+Q2991491,historic county of Quebec
+Q67376938,historic county of the United Kingdom
+Q1138494,historic county of England
+Q1317848,county of Northern Ireland
+Q1350181,shire of Scotland
+Q7309443,registration county
+Q85625936,county of Jamaica
+Q85625936,county of Jamaica
+Q85637361,local government county in Ireland
+### Q13360155, county or county-equivalent : _wdadd_ 
+Q13360155,county or county-equivalent
+Q47168,county of the United States
+Q3301053,consolidated city-county
+Q13218382,charter city and county
+Q11774062,county of Arkansas
+Q11774097,county of Texas
+Q11774149,county of Iowa
+Q11812346,county of Illinois
+Q12037308,county of South Dakota
+Q12178655,county of North Dakota
+Q12178928,county of Wisconsin
+Q44555359,WOW counties
+Q12262532,county of Minnesota
+Q13212489,county of California
+Q13218382,charter city and county
+Q13217186,county of Arizona
+Q13410400,county of Alabama
+Q13410403,county of Colorado
+Q13410411,county of Delaware
+Q13410422,county of Florida
+Q13410428,county of Georgia
+Q13410431,county of Hawaii
+Q13410433,county of Idaho
+Q13410438,county of Indiana
+Q13410444,county of Kansas
+Q13410447,county of Kentucky
+Q13410454,county of Maine
+Q13410464,county of Maryland
+Q13410485,county of Massachusetts
+Q13410496,county of Michigan
+Q13410508,county of Mississippi
+Q13410520,county of Missouri
+Q13414354,county of Connecticut
+Q13414358,county of Montana
+Q13414361,county of Nebraska
+Q13414369,county of Nevada
+Q13414753,county of New Hampshire
+Q13414754,county of New Jersey
+Q13414755,county of New Mexico
+Q13414757,county of New York
+Q13414758,county of North Carolina
+Q13414759,county of Ohio
+Q13414760,county of Oklahoma
+Q13414761,county of Oregon
+Q13414763,county of Pennsylvania
+Q13414764,county of Rhode Island
+Q13414765,county of South Carolina
+Q13415365,county of Utah
+Q13415366,county of Tennessee
+Q13415367,county of Vermont
+Q13415368,county of Virginia
+Q13415369,county of Washington
+Q13415370,county of West Virginia
+Q13415371,county of Wyoming
+Q1188782,county-equivalent
+Q263639,municipality of Puerto Rico
+Q1266818,independent city
+Q13410522,borough of Alaska
+Q13410524,parish of Louisiana
+Q56064719,census area of Alaska
+### Q3301053, consolidated city-county : _wdadd_ 
+Q3301053,consolidated city-county
+Q13218382,charter city and county
+### Q713146, county-controlled city : _wdadd_ 
+Q713146,County-administered city
+### Q17143371, county of South Korea : _wdadd_ 
+Q17143371,county of South Korea
+### Q149621, county of North Korea : _wdadd_ 
+Q149621,district
+Q50256,district of Hong Kong
+Q59136,district of Cyprus
+Q193560,district of Israel
+Q216888,district of Luxembourg
+Q319796,district of Nauru
+Q398141,school district
+Q1669809,Schulsprengel
+Q2986739,commission scolaire au Québec
+Q4664382,Abbott district
+Q7048928,Non-high school district
+Q7432250,"School Districts of Huron County
+Q7884983,unified school district
+Q7886773,union school district
+Q10771871,independent school district
+Q15726209,school district in the United States
+Q42577368,intermediate school district of Michigan
+Q64636958,school district of Oregon
+Q15726214,school district of Canada
+Q16997861,joint technological education district
+Q63040043,school district of the U.S. Department of Defense
+Q81268680,vocational school district
+Q81268491,joint vocational school district
+Q81269968,city school district
+Q81270527,exempted village school district
+Q81271307,local school district
+Q475061,amphoe
+Q505830,district of Sudan
+Q545769,district of Ghana
+Q585444,administrative district of Prague
+Q74728036,administratief district van Praag
+Q75338598,městská část Prahy
+Q75339006,Praags territoriaal district
+Q662914,district in Switzerland
+Q628993,district of the canton of Valais
+Q2864107,administrative district of the canton of Bern
+Q2864207,constituency of the canton of Lucerne
+Q3032116,district of the canton of Aargau
+Q3032119,district of the canton of Basel-Land
+Q3032122,district of the canton of Fribourg
+Q3032124,district of the canton of Schwyz
+Q3032126,district of the canton of Neuchâtel
+Q3032131,district of the canton of Solothurn
+Q3032132,district of the canton of Vaud
+Q3032133,district of Canton Thurgau
+Q3032137,district of the canton of Ticino
+Q3032139,district of the canton of Jura
+Q3091916,district of the canton of Graubünden
+Q15644465,district of the canton of Zürich
 Q17276572,constituency of the canton of St. Gallen
+Q17278014,former district of Switzerland
+Q692561,district of the canton of St. Gallen
+Q3032123,district of the canton of Lucerne
+Q3777387,former district of the canton of Bern
 Q17277366,former district of the canton of Vaud
 Q17277998,district of the canton of Schaffhausen
-Q17278014,former district of Switzerland
-Q17302772,district of Saxony-Anhalt
 Q17312348,former subdistrict of the canton of Ticino
+Q23013985,region of Graubünden
+Q60299921,administrative district in the canton of Graubünden
+Q690840,district of Ethiopia
+Q3569918,special district of Ethiopia
+Q705296,district of Taiwan
+Q569614,Qingshui District
+Q706308,Beimen District
+Q765865,district of Belize
+Q831889,dzongkhag
+Q854138,Bezirksamt
+Q917092,district of Paraguay
+Q1058387,district of Malawi
+Q1065118,district of China
+Q1045593,county-controlled district
+Q2301018,special district
+Q4259749,Forestry District
+Q4314954,ethnic district
+Q5034569,urban district
 Q17361228,forestry district
-Q17364572,district of Northern Ireland
-Q17377631,district of Mexico
-Q17601336,district of the United Kingdom
-Q18455918,district of Anguilla
+Q1122846,district of Japan
+Q46426234,former district of Japan
+Q1147395,district of Turkey
+Q1230110,district of Sri Lanka
+Q1230132,district of the Bahamas
+Q1243603,14 regions of Augustan Rome
+Q1649296,district of Suriname
+Q1964165,province district in Belgium
+Q1994931,district of Malaysia
+Q2264478,district of Slovakia
+Q13442503,Mestský okres (Slovensko)
+Q2379075,district of Pakistan
+Q2537537,district of Nepal
+Q2631599,district of Uzbekistan
+Q2655841,Municipality of Georgia
+Q2679943,Gewest
+Q2699727,stemdistrict
+Q2702177,Nielsendistrict
+Q2749147,Castellany
+Q2755753,area of London
+Q2935973,phytogeographic district
+Q13232238,phytogeographic region of the Czech Republic
+Q3533482,SS-Oberabschnitte
+Q3539870,district of Uganda
+Q3556789,district of Madagascar
+Q3710483,district of Fiji
+Q4057728,District of Yerevan
+Q5283558,district of Zimbabwe
+Q5283559,district of the Democratic Republic of the Congo
+Q6617100,district of Yemen
+Q7438320,scout district
+Q10267322,state district of Brazil
+Q12645496,Districts of Zagreb
+Q12806962,District of Ljubljana
+Q14942893,district of Papua New Guinea
+Q15207445,fur-trading district
+Q15618465,district of American Samoa
+Q15630906,rural district
+Q27002,selsoviet
+Q1840504,national raion
+Q4414033,rural council of Ukraine
+Q15071808,selsaviet of Belarus
+Q15982377,selsoviet of Russia
+Q106658,rural district of Germany
+Q17302772,rural district of Saxony-Anhalt
 Q20738676,rural district of Baden-Württemberg
-Q20738811,district of North Rhine-Westphalia
-Q20738945,district of Thuringia
-Q21272231,county council area
+Q20738811,rural district of North Rhine-Westphalia
+Q20738945,rural district of Thuringia
+Q61708063,rural district of Saxony
+Q61793460,rural district of Brandenburg
+Q61818979,rural district of Saarland
+Q61856889,rural district of Schleswig-Holstein
+Q61980413,rural district of Hesse
+Q85332736,rural district of Lower Saxony
+Q85482556,rural district of Bavaria
+Q85483234,rural district of Mecklenburg-Vorpommern
+Q85493040,rural district of Rhineland-Palatinate
+Q247073,powiat of Poland
+Q925381,city with powiat rights
+Q1631226,settlement council
+Q21683299,settlement council  in Ukraine
+Q1754946,"rural district of England
+Q5283531,district of Prussia
+Q12121054,Small rural settlements Ukraine
+Q15633191,distrito
+Q2179958,district of Peru
+Q2292572,district of Costa Rica
+Q3032103,districts of Colombia
+Q3710488,district of Panama
+Q5811429,distrito in Managua
+Q17377631,district of Mexico
+Q15642599,urban district
+Q13626398,urban okrug in Russia
+Q17309849,city district of Turkmenistan
+Q15901936,district of South Korea
+Q15634846,district of Seoul
+Q18545121,district of Busan
+Q18545295,district of Incheon
+Q16678127,administrative territorial entity of Anguilla
+Q17364572,district of Northern Ireland
+Q17601336,district of the United Kingdom
+Q349084,district of England
+Q211690,London borough
+Q1002812,metropolitan borough
+Q9046617,metropolitan borough of the County of London
+Q1187580,non-metropolitan district
+Q1136601,unitary authority of England
+Q2249932,District of Wales
 Q22671115,district of Tonga
+Q22833408,"District of the city of Strasbourg
 Q23925379,Prefecture of Arrondissement
 Q26907711,district of the Australian Capital Territory
-Q28659240,ku of North Korea
-## Q28739697,ancient counties of China
-
-
-Q41806065,district of Portugal
-
-
-
-
-## from the:  wd_wof_placetype_match - second division
-## wd	wdLabel	country	wof_placetype	wof_placetype_local
-Q496825,	district of Afghanistan	Afghanistan	county	district
-Q123266,	district of Albania	Albania	county	district
-Q378508,	municipality of Angola	Angola	county	city council
-Q3243765,	municipality of Argentina	Argentina	county	part,department
-Q667509,	municipality of Austria	Austria	county	district,city
-Q152732,	District of Bangladesh	Bangladesh	county	district
-Q83116,	province of Belgium	Belgium	county	arrondissement
-Q1780506,	commune of Benin	Benin	county	commune
-Q1062593,	province of Bolivia	Bolivia	county	province
-Q852151,	province of Burkina Faso	Burkina Faso	county	province
-Q14846918,	district of Cambodia	Cambodia	county	district
-Q2306813,	department of Cameroon	Cameroon	county	department
-Q1153408,	province of Chile	Chile	county	province
-Q735428,	town in China	China	county	city,league,autonomous prefecture,shixiaqu,sheng
-Q9316670,	prefecture of the People's Republic of China	China	county	prefecture
-Q2555896,	municipality of Colombia	Colombia	county	corregimiento,municipality
-Q5283559,	district of the Democratic Republic of the Congo	Congo	county	district,commune,arrondissement
-Q851830,	region of CÙte d'Ivoire	Cote d'Ivoire	county	region,autonomous district
-Q558330,	municipality of Cuba	Cuba	county	municipio
-Q1724017,	canton of Ecuador	Ecuador	county	canton
-Q867597,	province of Equatorial Guinea	Equatorial Guinea	county	district
-Q219875,	zone of Ethiopia	Ethiopia	county	zone
-Q484170,	commune of France	France	county	commune
-Q655851,	department of Gabon	Gabon	county	department
-Q1504917,	district of the Gambia	Gambia	county	district, city council, municipal council
-Q2655841,	municipality of Georgia	Georgia	county	city,district
-Q262166,	municipality of Germany	Germany	county	federal state,district,group of regions,urban district,district-free city,rural district
-Q1872284,	municipality of Guatemala	Guatemala	county	municipality
-Q7444736,	sector of Guinea-Bissau	Guinea-Bissau	county	sector
-Q3075872,	neighbourhood democratic council of Guyana	Guyana	county	council
-Q2602693,	municipality of Honduras	Honduras	county	municipality
-Q1149652,	district of India	India	county	district
-Q3191695,	regency of Indonesia	Indonesia	county	regency
-Q3199141,	city of Indonesia	Indonesia	county	municipality
-Q137535,	county of Iran	Iran	county	county
-Q494721,	city of Japan	Japan	county	city
-Q850450,	subprefecture of Japan	Japan	county	branch administration,county
-Q2643128,	district of Kazakhstan	Kazakhstan	county	rayon,maslikhat
-Q4389100,	district of Kyrgyzstan	Kyrgyzstan	county	district,town
-Q2693910,	district of Lebanon	Lebanon	county	county
-Q6936383,	municipality of Lebanon	Lebanon	county	province
-Q2421044,	district of Liberia	Liberia	county	district
-Q1363145,	municipality of Lithuania	Lithuania	county	municipality
-Q17166803,	city municipality of Lithuania	Lithuania	county	city municipality
-Q17301072,	district municipality of Lithuania	Lithuania	county	district municipality
-Q3263368,	department of Mauritania	Mauritania	county	department
-Q1952852,	municipality of Mexico	Mexico	county	municipality
-Q20683484,	municipality of the Federated States of Micronesia	Micronesia	county	municipality
-Q1518096,	district of Mongolia	Mongolia	county	soum
-Q15623950,	prefecture of Morocco	Morocco	county	prefecture
-Q15629582,	province of Morocco	Morocco	county	province
-Q2068214,	district of Mozambique	Mozambique	county	district
-Q5283500,	district of Myanmar	Myanmar	county	district
-Q318727,	municipality of Nicaragua	Nicaragua	county	municipality
-Q3250615,	province of Oman	Oman	county	wilayah
-Q917092,	district of Paraguay	Paraguay	county	district
-Q509686,	province of Peru	Peru	county	province
-Q263639,	municipality of Puerto Rico	Puerto Rico	county	Municipio
-Q2198484,	municipal district in Russia	Russia	county	raion,gorsovet,gorod,natsional'nyy rayon
-Q1530824,	metropolitan municipality of South Africa	South Africa	county	metropolitan municipality
-Q1589568,	district municipality of South Africa	South Africa	county	district municipality
-Q1230110,	district of Sri Lanka	Sri Lanka	county	division
-Q505830,	district of Sudan	Sudan	county	county
-Q1539014,	resort of Suriname	Suriname	county	ressort
-Q2915776,	district of Syria	Syria	county	district
-Q2409750,	district of Tanzania	Tanzania	county	district
-Q1184072,	delegation of Tunisia	Tunisia	county	delegation
-Q2716259,	metropolitan municipality in Turkey	Turkey	county	district
-Q1267632,	raion of Ukraine	Ukraine	county	raion
-Q5123999,	city of regional significance of Ukraine	Ukraine	county	city
-Q33101426,	urban council of Ukraine	Ukraine	county	mis'ka rada
-Q47168,	county of the United States	United States	county	County
-Q604886,	charter city of the United States	United States	county	Parish,City,Census Area,Municipality,City and Borough,county,District
-Q4946305,	borough in the United States	United States	county	Borough
-Q3327920,	municipality of Venezuela	Venezuela	county	municipality
-Q1381899,	municipality of Vietnam	Vietnam	county	island,township
-Q2112349,	district-level town of Vietnam	Vietnam	county	district
-Q3249005,	provincial city of Vietnam	Vietnam	county	city
-Q21608359,	urban district of Vietnam	Vietnam	county	urban district
-Q2744064,	district of Zambia	Zambia	county	district
+Q55791821,district of Somaliland
+Q56205755,district of Rotuma
+Q56850218,district of Hawaii County
+Q62005833,distrito de Chile
+Q63342446,District of El Salvador
+### Q149621, districts : _wdadd_ 
+Q149621,district
+Q50256,district of Hong Kong
+Q59136,district of Cyprus
+Q193560,district of Israel
+Q216888,district of Luxembourg
+Q319796,district of Nauru
+Q398141,school district
+Q1669809,Schulsprengel
+Q2986739,commission scolaire au Québec
+Q4664382,Abbott district
+Q7048928,Non-high school district
+Q7432250,"School Districts of Huron County
+Q7884983,unified school district
+Q7886773,union school district
+Q10771871,independent school district
+Q15726209,school district in the United States
+Q42577368,intermediate school district of Michigan
+Q64636958,school district of Oregon
+Q15726214,school district of Canada
+Q16997861,joint technological education district
+Q63040043,school district of the U.S. Department of Defense
+Q81268680,vocational school district
+Q81268491,joint vocational school district
+Q81269968,city school district
+Q81270527,exempted village school district
+Q81271307,local school district
+Q475061,amphoe
+Q505830,district of Sudan
+Q545769,district of Ghana
+Q585444,administrative district of Prague
+Q74728036,administratief district van Praag
+Q75338598,městská část Prahy
+Q75339006,Praags territoriaal district
+Q662914,district in Switzerland
+Q628993,district of the canton of Valais
+Q2864107,administrative district of the canton of Bern
+Q2864207,constituency of the canton of Lucerne
+Q3032116,district of the canton of Aargau
+Q3032119,district of the canton of Basel-Land
+Q3032122,district of the canton of Fribourg
+Q3032124,district of the canton of Schwyz
+Q3032126,district of the canton of Neuchâtel
+Q3032131,district of the canton of Solothurn
+Q3032132,district of the canton of Vaud
+Q3032133,district of Canton Thurgau
+Q3032137,district of the canton of Ticino
+Q3032139,district of the canton of Jura
+Q3091916,district of the canton of Graubünden
+Q15644465,district of the canton of Zürich
+Q17276572,constituency of the canton of St. Gallen
+Q17278014,former district of Switzerland
+Q692561,district of the canton of St. Gallen
+Q3032123,district of the canton of Lucerne
+Q3777387,former district of the canton of Bern
+Q17277366,former district of the canton of Vaud
+Q17277998,district of the canton of Schaffhausen
+Q17312348,former subdistrict of the canton of Ticino
+Q23013985,region of Graubünden
+Q60299921,administrative district in the canton of Graubünden
+Q690840,district of Ethiopia
+Q3569918,special district of Ethiopia
+Q705296,district of Taiwan
+Q569614,Qingshui District
+Q706308,Beimen District
+Q765865,district of Belize
+Q831889,dzongkhag
+Q854138,Bezirksamt
+Q917092,district of Paraguay
+Q1058387,district of Malawi
+Q1065118,district of China
+Q1045593,county-controlled district
+Q2301018,special district
+Q4259749,Forestry District
+Q4314954,ethnic district
+Q5034569,urban district
+Q17361228,forestry district
+Q1122846,district of Japan
+Q46426234,former district of Japan
+Q1147395,district of Turkey
+Q1230110,district of Sri Lanka
+Q1230132,district of the Bahamas
+Q1243603,14 regions of Augustan Rome
+Q1649296,district of Suriname
+Q1964165,province district in Belgium
+Q1994931,district of Malaysia
+Q2264478,district of Slovakia
+Q13442503,Mestský okres (Slovensko)
+Q2379075,district of Pakistan
+Q2537537,district of Nepal
+Q2631599,district of Uzbekistan
+Q2655841,Municipality of Georgia
+Q2679943,Gewest
+Q2699727,stemdistrict
+Q2702177,Nielsendistrict
+Q2749147,Castellany
+Q2755753,area of London
+Q2935973,phytogeographic district
+Q13232238,phytogeographic region of the Czech Republic
+Q3533482,SS-Oberabschnitte
+Q3539870,district of Uganda
+Q3556789,district of Madagascar
+Q3710483,district of Fiji
+Q4057728,District of Yerevan
+Q5283558,district of Zimbabwe
+Q5283559,district of the Democratic Republic of the Congo
+Q6617100,district of Yemen
+Q7438320,scout district
+Q10267322,state district of Brazil
+Q12645496,Districts of Zagreb
+Q12806962,District of Ljubljana
+Q14942893,district of Papua New Guinea
+Q15207445,fur-trading district
+Q15618465,district of American Samoa
+Q15630906,rural district
+Q27002,selsoviet
+Q1840504,national raion
+Q4414033,rural council of Ukraine
+Q15071808,selsaviet of Belarus
+Q15982377,selsoviet of Russia
+Q106658,rural district of Germany
+Q17302772,rural district of Saxony-Anhalt
+Q20738676,rural district of Baden-Württemberg
+Q20738811,rural district of North Rhine-Westphalia
+Q20738945,rural district of Thuringia
+Q61708063,rural district of Saxony
+Q61793460,rural district of Brandenburg
+Q61818979,rural district of Saarland
+Q61856889,rural district of Schleswig-Holstein
+Q61980413,rural district of Hesse
+Q85332736,rural district of Lower Saxony
+Q85482556,rural district of Bavaria
+Q85483234,rural district of Mecklenburg-Vorpommern
+Q85493040,rural district of Rhineland-Palatinate
+Q247073,powiat of Poland
+Q925381,city with powiat rights
+Q1631226,settlement council
+Q21683299,settlement council  in Ukraine
+Q1754946,"rural district of England
+Q5283531,district of Prussia
+Q12121054,Small rural settlements Ukraine
+Q15633191,distrito
+Q2179958,district of Peru
+Q2292572,district of Costa Rica
+Q3032103,districts of Colombia
+Q3710488,district of Panama
+Q5811429,distrito in Managua
+Q17377631,district of Mexico
+Q15642599,urban district
+Q13626398,urban okrug in Russia
+Q17309849,city district of Turkmenistan
+Q15901936,district of South Korea
+Q15634846,district of Seoul
+Q18545121,district of Busan
+Q18545295,district of Incheon
+Q16678127,administrative territorial entity of Anguilla
+Q17364572,district of Northern Ireland
+Q17601336,district of the United Kingdom
+Q349084,district of England
+Q211690,London borough
+Q1002812,metropolitan borough
+Q9046617,metropolitan borough of the County of London
+Q1187580,non-metropolitan district
+Q1136601,unitary authority of England
+Q2249932,District of Wales
+Q22671115,district of Tonga
+Q22833408,"District of the city of Strasbourg
+Q23925379,Prefecture of Arrondissement
+Q26907711,district of the Australian Capital Territory
+Q55791821,district of Somaliland
+Q56205755,district of Rotuma
+Q56850218,district of Hawaii County
+Q62005833,distrito de Chile
+Q63342446,District of El Salvador
+### Q475061, amphoe - Thailand  : _wdadd_ 
+Q475061,amphoe

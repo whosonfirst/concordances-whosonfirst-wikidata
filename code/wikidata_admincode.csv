@@ -1,0 +1,87 @@
+P300,ISO 3166-2 code
+P374,INSEE municipality code
+P382,CBS municipality code
+P429,dantai code
+P439,German municipality key
+P440,German district key
+P442,China administrative division code
+P507,Swedish county code
+P525,Swedish municipality code
+P605,NUTS code
+P635,ISTAT ID
+P721,OKATO ID
+P764,OKTMO ID
+P771,Swiss municipality code
+P772,INE municipality code
+P773,ISO 3166-3
+P774,FIPS 55-3 (locations in the US)
+P775,Swedish urban area code
+P776,Swedish minor urban area code
+P777,Swedish civil parish code/ATA code
+P782,LAU
+P806,Italian cadastre code
+P843,SIRUTA code
+P882,FIPS 6-4 (US counties)
+P901,FIPS 10-4 (countries and regions)
+P939,KSH code
+P964,Austrian municipality key
+P988,Philippine Standard Geographic Code
+P1067,Thailand central administrative unit code
+P1077,KOATUU identifier
+P1115,ATVK ID
+P1116,ELSTAT geographical code
+P1140,EHAK id
+P1168,municipality code (Denmark)
+P1172,Geokod
+P1203,Finnish municipality number
+P1370,IHSI ID
+P1388,German regional key
+P1567,NIS/INS code
+P1585,Brazilian municipality code
+P1588,village code of Indonesia
+P1653,TERYT municipality code
+P1841,Swedish district code
+P1894,Danish urban area code
+P1976,INEGI locality ID
+P2082,M.49 code
+P2123,YerelNet village ID
+P2290,Danish parish code
+P2504,Norwegian municipality number
+P2506,INSEE canton code
+P2585,INSEE region code
+P2586,INSEE department code
+P2588,administrative code of Indonesia
+P2672,SOATO ID
+P2788,Czech neighbourhood ID code
+P2898,Swedish county letter
+P3012,Statistics Canada Geographic code
+P3213,Indian census area code (2001)
+P3419,Basic Unit of Settlement code (Czech)
+P3423,INSEE arrondissement code
+P3615,Vision of Britain unit ID
+P3639,KEPN ID
+P3727,Serbia municipality ID
+P3731,Serbia cadastral municipality ID
+P3809,YerelNET district ID
+P3856,Quebec municipalities geographical code
+P3990,BG EKATTE place ID
+P4014,Australian Statistical Geography 2011 ID
+P4046,SIMC place ID
+P4093,Australian Statistical Geography 2016 ID
+P4094,Australian Standard Geographic Classification 2006 ID
+P4119,NLS Geographic Names Place ID
+P4274,Tunisian geographic code
+P4334,Heritage Conservation District of Ontario ID
+P4335,IDESCAT territorial code in Catalonia
+P4530,Bangladesh administrative division code (pre-2017)
+P4812,Statistical Service of Cyprus Geocode
+P4838,CATO ID
+P5020,Code of Household Registration and Conscription Information System (Taiwan)
+P5086,FIPS 5-2 alpha code (US states)
+P5578,Indian census area code (2011)
+P6335,MDWS place ID
+P6425,LGD local body code
+P6434,Amsterdam code
+P6471,Den Digitale Byport ID
+P6832,IndicePA ID
+P6895,Bangladesh administrative division code (2017-)

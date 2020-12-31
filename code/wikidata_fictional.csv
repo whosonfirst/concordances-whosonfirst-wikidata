@@ -1,14 +1,34 @@
 ### Q3895768, fictional location : _wdadd_ 
 Q3895768,fictional location
+Q450,mind
+Q9165,soul
+Q123178,Souls in Purgatory
+Q360536,Ka (pharaoh)
+Q1129404,Ba
+Q4764979,animal soul
+Q5284175,divine soul
+Q6435744,Kra
+Q7577931,spirit body
+Q12341716,Yooka
+Q12793650,Kian
+Q1339824,mindset
+Q1340474,systems thinking
+Q5186773,Critical systems thinking
+Q2333152,stubbornness
+Q7509786,siege mentality
+Q27629831,growth mindset
+Q16000098,Geist
+Q962010,Volksgeist
+Q617332,setting
 Q559618,fictional universe
 Q2819123,expanded universe
 Q3275581,shared universe
 Q4418079,campaign setting
+Q30897124,модуль
 Q3857040,Microverse
 Q4418079,campaign setting
 Q4739380,amalgamation
 Q16798524,fantasy world
-Q17199338,fictional continent
 Q27687433,mythological cosmology
 Q2998321,religious cosmology
 Q5174339,cosmology in medieval Islam
@@ -25,12 +45,19 @@ Q16189716,medieval cosmology
 Q34623140,Fifth World
 Q39916781,fictional multiverse
 Q47306921,fictional parallel universe
+Q92343145,DC Multiverse world
+Q2472893,uchronia
+Q4418079,campaign setting
+Q12404340,biblical place
+Q19502208,geographic setting of film
+Q69827715,dungeon
 Q785120,Weyr
 Q1046315,level
 Q3275989,bonus stage
 Q48893930,Secret level
 Q65068857,tutorial
 Q87906572,custom level
+Q98034294,stage
 Q1964689,fictional city
 Q3559146,ville mythique
 Q17004377,fictional lost city
@@ -41,12 +68,13 @@ Q63040328,fictional ghost town
 Q65630486,fictional city-state
 Q80196698,fictional underground city
 Q82551957,fictional village
+Q91338528,fictional planned capital city
+Q96146366,fictional capital
 Q2991487,Earldoms of Gwynedd
 Q6619693,fictional island
 Q1615655,Hesperiden (mythologischer Ort)
-Q33513999,mythological island
-Q129264,phantom island
-Q62019215,fictional artificial island
+Q5459920,floating island
+Q96279672,fictional artificial island
 Q69913277,Pelgo
 Q7180622,phantom settlement
 Q12275535,Lieux du Seigneur des anneaux
@@ -67,12 +95,14 @@ Q15831598,fictional astronomical object
 Q838008,Halo
 Q1659605,fictional asteroid
 Q2775969,fictional planet
+Q5327160,Earth in science fiction
 Q5446575,fictional planets of the Solar System
 Q17480830,fictional gas giant
 Q73755998,Teenage Mutant Ninja Turtles planet
 Q74010215,fictional group of planets
 Q74016895,Battlestar Galactica planet
-Q3972970,stars and planetary system in fiction
+Q98807723,fictive ocean planet
+Q3972970,star and-or planetary system described fictionally
 Q4922345,black holes in fiction
 Q17413155,fictional astronomical object in the Serenityverse
 Q17424291,fictional star
@@ -80,6 +110,8 @@ Q3972967,Sterne
 Q17424312,fictional planetary system
 Q17480821,fictional brown dwarf
 Q17480853,fictional moon
+Q782683,Moon in fiction
+Q98807723,fictive ocean planet
 Q17480908,fictional asteroid belt
 Q18011146,fictional constellation
 Q19595266,fictional galaxy
@@ -99,6 +131,11 @@ Q66459485,class G planet
 Q66459490,class I Planet
 Q66459495,class N Planet
 Q66459499,class E planet
+Q98852659,fictional dwarf planet
+Q98930549,fictional star system
+Q99976066,fictional comet
+Q100136952,fictional black hole
+Q100169092,fictional minor planet
 Q16363493,fictional forest
 Q5375389,enchanted forest
 Q16500104,fictional body of water
@@ -109,11 +146,12 @@ Q24336031,mythical river
 Q16363579,fictional sea or ocean
 Q16515166,fictional spring
 Q16705798,fictional bridge
-Q4235016,Orbital ring
+Q4235016,orbital ring
 Q17199338,fictional continent
 Q18948595,fictional thoroughfare
 Q1506107,trap street
 Q7132715,paper street
+Q1506107,trap street
 Q81812682,fictional avenue
 Q19595246,fictional empire
 Q653007,galactic empire
@@ -129,22 +167,28 @@ Q58191240,fictional swamp
 Q58193749,fictional grassland
 Q58325316,fictional mountain range
 Q63228558,fictional valley
+Q96151284,district of Panem
+Q96270074,fictional suburb
 Q27055917,fictional archipelago
 Q27913316,fictional island group
 Q29587254,fictional room
+Q98524595,fictional throne room
 Q30106090,fictional drinking establishment
+Q97425340,fictional strip club
 Q30322563,fictional field
 Q32860792,Pokémon fictional locations
 Q15830,Pokémon region
 Q25991640,Pokémon route
+Q97051215,Pokémon world
 Q47463161,fictional region of space
 Q48900561,fictional military facility
+Q96280131,fictional  missile launch facility
 Q49668759,fictional neutral zone
 Q52446438,fictional amusement park
 Q66503022,fictional theme park
+Q100742467,fictional travelling carnival
 Q52446633,fictional oasis
 Q52446673,fictional desert
-Q52447028,Area 52
 Q57662985,country in a fiction work
 Q1145276,fictional country
 Q3352887,Eleven Kingdoms
@@ -160,13 +204,22 @@ Q51335648,Haven City
 Q51335716,Spargus
 Q65630486,fictional city-state
 Q82519323,fictional communist state
+Q96196475,fictional kingdom
 Q57663042,real country in a fictional universe
 Q57662949,Canada
 Q60227743,fictional bazaar
 Q60227748,fictional metro
 Q60521881,camp romain de fiction
 Q60875352,fictional residence
+Q20751022,fictional house
+Q60875287,fictional residential building
+Q63341869,fictional farmhouse
+Q63960235,fictional mansion
+Q82551938,fictional apartment
+Q96240572,hounted house in a work of fiction
 Q60875534,fictional retirement home
+Q62020160,fictional resort
+Q99739751,fictional winter sports resort
 Q62020185,fictional science park
 Q62662717,fictional place of worship
 Q58825140,fictional church
@@ -183,7 +236,6 @@ Q678418,smial
 Q2360507,domed city
 Q5762088,Command Center
 Q6032338,flet
-Q6150892,Towers of the Teeth
 Q15690029,fictional educational institution
 Q52085914,fictional magic school
 Q2043034,wizard school in Harry Potter universe
@@ -197,29 +249,27 @@ Q89375085,fictional college
 Q89375087,fictional university
 Q89375434,fictional primary school
 Q89375447,fictional school
+Q98086092,fictional institute
 Q15709963,fictional hospital
 Q18058299,fictional castle
 Q19826142,fictional shop
 Q19826161,shop in the Harry Potter universe
+Q100324329,fictional supermarket
 Q20751022,fictional house
-Q60875287,fictional residential building
-Q60874248,fictional orphanage
-Q63341869,fictional farmhouse
-Q63960235,fictional mansion
-Q82551938,fictional apartment
 Q56577151,fictional library
 Q58207797,fictional gate
 Q58344872,fictional monastery
 Q58825140,fictional church
 Q59537080,fictional asylum
 Q59618854,fictional mall
-Q60181453,fictional court
+Q60181453,fictional law court
 Q60227678,fictional embassy
 Q60227735,fictional oil refinery
 Q60227738,fictional air base
 Q60227755,fictional port
 Q62939323,fictional naval base
 Q60466874,fictional museum
+Q60874248,fictional orphanage
 Q60875287,fictional residential building
 Q61032653,fictional community center
 Q62665598,fictional gas station
@@ -232,15 +282,17 @@ Q60875460,fictional diner
 Q70579726,fictional fast food restaurant
 Q70587343,fictional fast food restaurant chain
 Q81813239,fictional café chain
+Q99761203,fictional pizzeria
 Q21597574,fictional hotel
-Q62020160,fictional resort
 Q62939158,fictional motel
 Q60875215,fictional café
 Q84271071,fictional brothel
+Q102110917,fictional inn
 Q63038093,fictional stadium
 Q63959432,fictional bank
 Q63959567,fictional government building
 Q17682891,fictional prison
+Q47002409,Tartarus
 Q63959562,fictional police station
 Q65922683,fictional lighthouse
 Q71448716,fictional sphinx
@@ -248,11 +300,19 @@ Q77643435,Pokémon gym
 Q79606380,fictional storage facility
 Q84270791,fictional border checkpoint
 Q88675052,fictional palace
+Q96279636,fictional tavern
+Q99763662,fictional skyscraper
+Q99764786,fictional retirement home
+Q99772994,fictional spaceport
+Q100324189,fictional airport
 Q63038093,fictional stadium
 Q63038129,fictional amusement ride
 Q63959446,fictional tower
+Q6150892,Towers of the Teeth
 Q63959569,fictional emergency service station
 Q63959562,fictional police station
+Q96240515,fictional garden
+Q96252564,fictional theatre
 Q64034456,fictional administrative territorial entity
 Q64034451,fictional state of the United States
 Q65922689,fictional district
@@ -263,3 +323,18 @@ Q69827715,dungeon
 Q70130710,fictional farm
 Q81812950,fictional airport terminal
 Q87655476,fictional bay
+Q96244031,fictional ford
+Q96270118,fictional waterfall
+Q96343424,fictional laboratory
+Q98141606,fictional chasma
+Q98582086,fictional moon base
+Q98582173,fictional archaeological site
+Q99281788,Star Trek location
+Q57083319,astronomical object from the Star Trek multiverse
+Q100256453,fictional cinema
+Q100268886,fictional power station
+Q100272880,fictional amusement arcade
+Q100352641,fictional shopping mall
+Q100706037,fictional dimension
+Q100741893,fictional campsite
+Q101497842,fictional municipality

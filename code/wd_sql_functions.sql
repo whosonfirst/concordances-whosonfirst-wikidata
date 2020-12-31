@@ -5,19 +5,19 @@
 -- https://github.com/nichtich/wikidata-taxonomy
         
 
-drop table if exists  wf.geom CASCADE;
-CREATE TABLE          wf.geom WITH (fillfactor = 100)  as
-select   
-         wof.id
-        ,coalesce( wof.geom, wof.centroid)  as geom
-        ,wof.properties->'wof:country'      as wof_country
-        ,wof.properties->'iso:country'      as iso_country
-from wf.wof as wof
--- where is_superseded=0 and is_deprecated=0
-order by wof.id
-;
-CREATE UNIQUE INDEX  ON wf.geom (id)        WITH (fillfactor = 100);
-ANALYSE wf.geom;
+-- drop table if exists  wf.geom CASCADE;
+-- CREATE TABLE          wf.geom WITH (fillfactor = 100)  as
+-- select   
+--          wof.id
+--         ,coalesce( wof.geom, wof.centroid)  as geom
+--         ,wof.properties->'wof:country'      as wof_country
+--         ,wof.properties->'iso:country'      as iso_country
+-- from wf.wof as wof
+-- -- where is_superseded=0 and is_deprecated=0
+-- order by wof.id
+-- ;
+-- CREATE UNIQUE INDEX  ON wf.geom (id)        WITH (fillfactor = 100);
+-- ANALYSE wf.geom;
 
 ---
 
@@ -44,22 +44,22 @@ $$;
 
 
 
-drop table if exists  codes.wd2country CASCADE;
-CREATE UNLOGGED TABLE          codes.wd2country  as
+drop table if exists codes.wd2country CASCADE;
+CREATE         TABLE codes.wd2country  as
 select   wof.wd_id
         ,wof.id
         ,wof.properties->>'wof:name'                    as wof_name 
         ,wof.properties->>'wof:country'                 as wof_country
-from wf.wof_country as wof
-where is_superseded=0 and is_deprecated=0
-;
--- quick fix :  Update Norway - now: Q11965730  -> should be 'Q20' ;  
-update codes.wd2country set wd_id='Q20' WHERE wof_country='NO' ;
-
----
+from wofadmin.wofdata wof 
+where placetype='country' 
+order by 1;
+-- SELECT 211   ???
 CREATE UNIQUE INDEX  ON codes.wd2country (wd_id)        WITH (fillfactor = 100);
 CREATE UNIQUE INDEX  ON codes.wd2country (wof_country)  WITH (fillfactor = 100);    
 ANALYSE codes.wd2country;
+
+
+
 
 
 CREATE OR REPLACE FUNCTION public.get_countrycode(wdid text)

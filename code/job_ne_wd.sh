@@ -69,24 +69,24 @@ time /wof/code/01_load_iso_language_codes.sh
 time /wof/code/22_import_natural_earth.sh
 
 # ----------------------------------------------------------------------------------
-/wof/code/cmd_load_wof.sh      wf.wof_country         wof-country-latest.csv
-psql -e -f  /wof/code/wd_sql_functions.sql
+#/wof/code/cmd_load_wof.sh      wf.wof_country         wof-country-latest.csv
+psql -e -v ON_ERROR_STOP=1 -f  /wof/code/wd_sql_functions.sql
 
-psql -e -f /wof/code/ne_01_match_lake.sql
-psql -e -f /wof/code/ne_02_match_river.sql
-psql -e -f /wof/code/ne_03_match_geography_marine_polys.sql
-psql -e -f /wof/code/ne_04_match_geography_regions_polys.sql
-psql -e -f /wof/code/ne_05_match_geography_regions_points.sql
-psql -e -f /wof/code/ne_06_match_geography_regions_elevation_points.sql
-psql -e -f /wof/code/ne_07_match_geographic_lines.sql
-psql -e -f /wof/code/ne_08_match_admin_1_states_provinces.sql
-psql -e -f /wof/code/ne_09_match_admin_0_map_subunits.sql
-psql -e -f /wof/code/ne_10_match_admin_0_disputed_areas.sql
-psql -e -f /wof/code/ne_11_match_playas.sql
-psql -e -f /wof/code/ne_12_match_admin_0_countries.sql
-psql -e -f /wof/code/ne_13_match_populated_places.sql
-psql -e -f /wof/code/ne_14_match_airports.sql
-psql -e -f /wof/code/ne_15_match_ports.sql
+time psql -e -v ON_ERROR_STOP=1 -f  /wof/code/ne_01_match_lake.sql
+time psql -e -v ON_ERROR_STOP=1 -f  /wof/code/ne_02_match_river.sql
+time psql -e -v ON_ERROR_STOP=1 -f  /wof/code/ne_03_match_geography_marine_polys.sql
+time psql -e -v ON_ERROR_STOP=1 -f  /wof/code/ne_04_match_geography_regions_polys.sql
+time psql -e -v ON_ERROR_STOP=1 -f  /wof/code/ne_05_match_geography_regions_points.sql
+time psql -e -v ON_ERROR_STOP=1 -f  /wof/code/ne_06_match_geography_regions_elevation_points.sql
+time psql -e -v ON_ERROR_STOP=1 -f  /wof/code/ne_07_match_geographic_lines.sql
+time psql -e -v ON_ERROR_STOP=1 -f  /wof/code/ne_08_match_admin_1_states_provinces.sql
+time psql -e -v ON_ERROR_STOP=1 -f  /wof/code/ne_09_match_admin_0_map_subunits.sql
+time psql -e -v ON_ERROR_STOP=1 -f  /wof/code/ne_10_match_admin_0_disputed_areas.sql
+time psql -e -v ON_ERROR_STOP=1 -f  /wof/code/ne_11_match_playas.sql
+time psql -e -v ON_ERROR_STOP=1 -f  /wof/code/ne_12_match_admin_0_countries.sql
+time psql -e -v ON_ERROR_STOP=1 -f  /wof/code/ne_13_match_populated_places.sql
+time psql -e -v ON_ERROR_STOP=1 -f  /wof/code/ne_14_match_airports.sql
+time psql -e -v ON_ERROR_STOP=1 -f  /wof/code/ne_15_match_ports.sql
 
 /wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_lake_match_agg
 /wof/code/cmd_export_ne_tables.sh              newd.ne_wd_match_lake_europe_match_agg

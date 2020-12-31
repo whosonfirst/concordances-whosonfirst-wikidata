@@ -1,29 +1,13 @@
 ### Q486972, human settlement : _wdadd_ 
 Q486972,human settlement
 Q515,city
-Q5119,capital
-Q257391,federal capital
-Q377283,temporary capital
-Q1557068,Ndumba
-Q2324785,Amsterdam as a gay capital
-Q3147563,regency seat
-Q4442912,capital of Russia
-Q11271835,state capital
-Q14784328,state capital in Germany
-Q21507383,provincial or territorial capital city in Canada
-Q21518270,state or insular area capital in the United States
-Q12031379,capital of region
-Q14770218,cantonal capital of Switzerland
-Q15840617,Planned Capital
-Q16321430,auxiliary capital
-Q65589340,capital of a prefecture of Japan
 Q18702,Royal free city
 Q22865,independent city of Germany
 Q2327515,city district of Baden-Württemberg
 Q61708053,independent city of Saxony-Anhalt
 Q61708099,urban district in Saxony
 Q61747322,urban district of Thuringia
-Q61793478,urban district of Brandenburg
+Q61793478,district independent city of Brandenburg
 Q61856863,urban district in Schleswig-Holstein
 Q61980648,urban district of Hesse
 Q85631896,urban district of Bavaria
@@ -32,20 +16,20 @@ Q85635301,urban district of Mecklenburg-Vorpommern
 Q85635630,urban district of North Rhine-Westphalia
 Q85635638,urban district of Bremen
 Q85635929,urban district of Lower Saxony
-Q85636059,urban district of Berlin
-Q85636199,urban district of Lower Hamburg
-Q57318,Free imperial city
+Q85636199,urban district of Hamburg
+Q57318,free imperial city
 Q83020,provincial city
 Q104157,city of the Philippines
 Q29946056,highly urbanized city
 Q133442,city-state
 Q148837,polis
-Q733149,Socii
+Q618846,apoikia
 Q742313,Sardinian Judicati
 Q914425,Signoria
 Q1319414,Mueang
 Q2479824,altepetl
 Q2561694,city-kingdom of Cyprus
+Q4858354,barangay
 Q43185013,maritime republic
 Q200209,cities of Ukraine
 Q5124045,city with special status
@@ -66,6 +50,8 @@ Q1749269,city designated by government ordinance
 Q537250,federal city
 Q652360,sustainable city
 Q677678,fortified town
+Q88034,burh
+Q5770438,Citânia
 Q16537979,castelliere
 Q63390901,ville close
 Q707813,Hanseatic city
@@ -86,7 +72,7 @@ Q3301053,consolidated city-county
 Q13218382,charter city and county
 Q13218357,city of California
 Q13218391,charter city
-Q15063611,city
+Q15063611,city in the state of New York
 Q15221256,city of Wisconsin
 Q15221304,first-class city
 Q15221310,second-class city
@@ -97,7 +83,7 @@ Q21518270,state or insular area capital in the United States
 Q55612423,General Law City
 Q63440326,city of Oregon
 Q1094397,autonomous city
-Q17352050,autonomous city of Spain
+Q16532593,autonomous city of Spain
 Q1131233,Monotown
 Q15259749,plaatsvormende onderneming
 Q1175519,megyei város
@@ -116,10 +102,11 @@ Q6024226,metropolitan municipality
 Q1530824,metropolitan municipality of South Africa
 Q2716259,metropolitan municipality in Turkey
 Q10329259,metropoli nacional
-Q71144301,metropoli regional
+Q71144301,metropolitan region
 Q1656724,ideal city
-Q1662118,Industriestadt
 Q1835354,Garnizoensstad
+Q1867820,City status in the United Kingdom
+Q27104997,civil parish with city status
 Q2073573,IJsselsteden
 Q2138558,regiopolis
 Q2235075,centre city
@@ -129,8 +116,8 @@ Q2367508,township of Taiwan
 Q12039044,urban township of Taiwan
 Q12039539,rural township of Taiwan
 Q708418,Ren'ai Township
-Q708650,Shuili Township
 Q2616791,urban municipality of Poland
+Q2844893,cidade
 Q3249005,provincial city
 Q3559093,sanctuary city
 Q3559100,ville aux cent clochers
@@ -141,6 +128,7 @@ Q4826725,automotive city
 Q4875694,Beach Cities
 Q4943467,Boomburb
 Q5107861,medieval commune
+Q5124027,city proper
 Q5770918,city of Argentina
 Q6609673,list of cities in British Columbia
 Q7574798,special city of North Korea
@@ -148,32 +136,20 @@ Q7819319,Czech municipality with expanded powers
 Q8452914,district town
 Q9696256,capital regional
 Q9730870,centro de zona
-Q11480697,市街地
-Q65241205,ニュータウン
-Q65274067,町場
-Q2827758,Ai no shuku
+Q11422603,国際観光文化都市
+Q11503672,新産業都市
+Q11521076,札仙広福
 Q11643523,都城
-Q11939023,population nucleus (Spain)
-Q2989421,concejo de Navarra
-Q11912920,casal
-Q16557344,diseminado
-Q17624511,caserío
-Q13526752,lugar
-Q20541692,"settlement in Galicia
-Q15725677,pedanía
-Q6350957,"district of Cartagena
-Q11940652,Valencian pedania
-Q64911820,populated area of the city of Alicante
 Q12015578,Urban municipality
 Q12102963,city specifically designated in the state plan
 Q12131624,city in Ukraine
 Q5123999,city of regional significance of Ukraine
 Q12159392,Seven Cities of Delhi
-Q13028920,Окольный город
 Q13218690,town in Hungary
 Q681277,city with county rights
 Q779426,urban district of Hungary
 Q13416557,Royal city
+Q13455645,administrative city in the Republic of Ireland
 Q13539802,place with town rights and privileges
 Q262882,statutory city of Austria
 Q42744322,urban municipality of Germany
@@ -187,6 +163,7 @@ Q15063600,home rule city of Michigan
 Q15092400,independent city
 Q257978,statutory city
 Q1266818,independent city
+Q1381899,municipality of Vietnam
 Q15127838,city under state jurisdiction in Latvia
 Q15141632,Thesaban Nakhon
 Q15260353,host city
@@ -198,14 +175,16 @@ Q16133394,ville fortifiée de l'époque de Joshua Bin Nun
 Q16181672,special autonomous city in South Korea
 Q16825568,Caravan city
 Q16858213,town in Romania
-Q16933701,Principal city
-Q18477590,list of Brazilian cities that have a second round of municipal elections
+Q16933701,principal city
 Q18485046,centro sub-regional
 Q19974058,groeistad
 Q20107855,Ciutat estipendiària
 Q21012165,internationaal gedeelde stad
 Q21550633,garden city
 Q21857891,Swedish city
+Q23640644,Levitical city
+Q752596,Cities of Refuge
+Q6373489,Kartah
 Q24700892,post town
 Q25377665,gambling city
 Q25412763,city in Chile
@@ -221,7 +200,6 @@ Q42744322,urban municipality of Germany
 Q44551483,city
 Q54935504,city of Switzerland
 Q55440238,city in Alberta
-Q56557504,city of Iran
 Q58339717,city of India
 Q60458065,city
 Q63208468,city in Ecuador
@@ -230,6 +208,11 @@ Q63209072,city in Colombia
 Q63441182,Sponge city
 Q71145903,centro local
 Q84140257,Královské město
+Q85875185,Morería (city)
+Q97460874,Hali
+Q101500124,medieval city
+Q102104752,city of Bosnia and Herzegovina
+Q104414508,100 percent corner
 Q532,village
 Q45263,Hidden village
 Q89691,ksar
@@ -256,10 +239,11 @@ Q55237813,village of New York
 Q771444,aul
 Q1134686,frazione
 Q1163745,Majsamiklósvár
+Q1272305,University village (Leipzig)
 Q1317251,fishing village
-Q1493533,Pfarrdorf
+Q1493533,parish village
 Q1512068,sołectwo
-Q1529096,village
+Q1529096,village in Turkey
 Q1662017,Industriedorf
 Q1683373,Edo-period village
 Q1743100,church town of Sweden
@@ -269,16 +253,18 @@ Q2092943,ontginningsdorp
 Q2098891,Platzdorf
 Q2176016,Rundangerdorf
 Q2225692,fourth-level administrative division in Indonesia
+Q882149,nagari
 Q4285979,gampong
 Q12488911,kampung
 Q12488913,kampung of Papua
 Q19944049,pekon
 Q23308490,dusun
 Q26211545,desa
+Q97202782,negeri
 Q2225945,satellite village
 Q2340158,Zaścianek
 Q2393615,schildersdorp
-Q2473740,Kerkdorp
+Q2473740,kerkdorp
 Q2590631,municipality of Hungary
 Q1214945,nagyközség
 Q1214947,nagyközség
@@ -286,6 +272,7 @@ Q1214953,large village of Hungary
 Q72264395,Jakusfölde
 Q2633055,twin village
 Q2781990,free village of Liège
+Q2888533,Gesher HaZiv
 Q2974142,circulade
 Q3327752,clachan
 Q3558965,Cree village
@@ -319,8 +306,6 @@ Q12082132,rural village
 Q12082384,urban village
 Q7963019,Walled villages of Hong Kong
 Q9017117,kampong
-Q11939023,population nucleus (Spain)
-Q12029956,komunikační vesnice
 Q12767238,huštáky
 Q13010665,శ్రీనివాసౌదాసిపురం
 Q13100073,village-level division in China
@@ -334,7 +319,6 @@ Q16346815,వెదుళ్లచెరువు
 Q16351639,aprūpes ciems
 Q16352482,scattered village
 Q16355778,vidējciems
-Q16362394,lielciems
 Q16363214,mazciems
 Q16832602,Kommuniondorf
 Q16918164,estate village
@@ -346,6 +330,28 @@ Q19547677,இராணுவக் கிராமங்கள்
 Q20538317,village in Saskatchewan
 Q20645909,locality with the main parish church
 Q21130185,an existing village of a former municipality in Finland
+Q21507948,former village
+Q350895,abandoned village
+Q4205192,исчезнувшие сёла Белогорского района Крыма
+Q4205193,исчезнувшие сёла
+Q4205194,исчезнувшие сёла Кировского района Крыма
+Q4205195,исчезнувшие сёла Красногвардейского района Крыма
+Q4205196,исчезнувшие сёла Красноперекопского района Крыма
+Q4205197,исчезнувшие сёла Ленинского района Крыма
+Q4205198,исчезнувшие сёла
+Q4205199,исчезнувшие сёла Первомайского района Крыма
+Q4205200,исчезнувшие сёла
+Q4205201,исчезнувшие сёла Сакского района Крыма
+Q4205202,исчезнувшие сёла Симферопольского района Крыма
+Q4205203,исчезнувшие сёла
+Q4205204,исчезнувшие сёла Черноморского района Крыма
+Q17599845,Creu (Matamala)
+Q18408637,исчезнувшие сёла
+Q21751582,deserted medieval village
+Q27654220,abandoned hamlet
+Q50066265,verbrand dorp
+Q100268926,iberian settlement
+Q21751582,deserted medieval village
 Q21672098,village of Ukraine
 Q23012917,village of Burkina Faso
 Q23827464,markaz in Saudi Arabia
@@ -388,8 +394,11 @@ Q64648301,Yawkasakrom
 Q67927652,village in Malaysia
 Q68028199,raabizační vesnice
 Q78816625,Medieval villages in France
+Q90133396,Borokalia Nashkara
+Q102240431,Chinese village
 Q3957,town
 Q317548,resort town
+Q735428,town in China
 Q1059478,town of Japan
 Q1269749,town with fewer than 5000 inhabitants
 Q1357964,county town
@@ -399,8 +408,11 @@ Q5762461,Hill town
 Q5764144,Hilltowns in Italy
 Q6643740,town in Manitoba
 Q10270157,new town
+Q11418825,問屋街
+Q11549307,water town
 Q12047276,provincial town
 Q12057022,medieval town
+Q5764144,Hilltowns in Italy
 Q66765132,Medieval hilltop towns in Italy
 Q12336912,Railway towns in Denmark
 Q13025342,Thesaban Mueang
@@ -411,6 +423,7 @@ Q2154459,New England town
 Q15411479,town of Connecticut
 Q7829892,town of New Jersey
 Q15411644,town of Virginia
+Q98938901,town of Vermont
 Q18511725,market town
 Q10571400,köping
 Q19833170,town of Portugal
@@ -419,8 +432,29 @@ Q28067896,Kurort
 Q52132873,town
 Q55430416,town in Alberta
 Q58339518,town in India
-Q67259991,Hinterland towns of the Sunshine Coast
+Q67259991,Hinterland communities of  South East Queensland
 Q78764992,port town
+Q90881611,castle town
+Q98556505,Railway towns in Australia
+Q100503226,town of the United Kingdom
+Q100961648,historic town
+Q104434365,country town
+Q5119,capital
+Q257391,federal capital
+Q377283,temporary capital
+Q1557068,Ndumba
+Q2324785,Amsterdam as a gay capital
+Q3147563,regency seat
+Q4442912,capital of Russia
+Q11271835,state capital
+Q14784328,state capital in Germany
+Q21507383,provincial or territorial capital city in Canada
+Q21518270,state or insular area capital in the United States
+Q12031379,capital of region
+Q14770218,cantonal capital of Switzerland
+Q15840617,planned capital city
+Q34843301,capital of county in Romania
+Q65589340,capital of a prefecture of Japan
 Q15284,municipality
 Q15334,municipality of Poland
 Q2616791,urban municipality of Poland
@@ -443,6 +477,7 @@ Q13430105,Gemeinde im Landkreis Main-Spessart
 Q15974307,Einheitsgemeinde of Germany
 Q41778911,Ortsgemeinde of Rhineland-Palatinate
 Q42744322,urban municipality of Germany
+Q100341898,market municipality of Germany
 Q348884,Municipalsamhälle
 Q13420058,Municipalsamhälle in Sweden
 Q378508,municipality of Angola
@@ -451,7 +486,7 @@ Q2989454,commune nouvelle
 Q20899166,regional capital (France)
 Q22927548,commune in merger-association
 Q22927616,commune of France with specific status
-Q84599126,commune de Saint-Pierre-et-Miquelon
+Q84598477,commune of French Polynesia
 Q493522,municipality of Belgium
 Q737681,municipalities with language facilities
 Q4314343,language border municipality
@@ -459,7 +494,7 @@ Q15273785,Belgian municipality with city privileges
 Q499073,direct-controlled municipality
 Q515483,baladiyah
 Q685320,municipality of Qatar
-Q2989398,municipality of Algeria
+Q2989398,commune of Algeria
 Q6629667,list of municipalities in Turkey
 Q6936383,municipality of Lebanon
 Q15650103,municipality of Libya
@@ -468,26 +503,29 @@ Q3374262,market town
 Q609042,shtetl
 Q16858213,town in Romania
 Q16915447,Handelspladser i Danmark
+Q100341898,market municipality of Germany
 Q640364,municipiu of Romania
 Q667509,municipality of Austria
 Q262882,statutory city of Austria
 Q1802801,rural municipality of Austria
 Q19347965,former municipality of Austria
 Q692680,Ortsgemeinde
+Q41778911,Ortsgemeinde of Rhineland-Palatinate
 Q719592,local council of Malta
 Q747074,comune of Italy
 Q954172,Comune sparso
-Q1134686,frazione
 Q3685476,abolished municipality in Italy
 Q755707,municipality of Norway
 Q11983070,rural municipality of Norway
 Q18646840,divorce municipality
 Q18663579,former municipality of Norway
+Q99691499,kommune
 Q856076,municipality of Finland
 Q11722303,rural municipality of Sweden and Finland
 Q11891850,skärgårdskommun
 Q17468533,former municipality of Finland
 Q856079,municipality of the Faroe Islands
+Q96948740,former municipality of the Faroe Islands
 Q955655,municipality of Iceland
 Q1054813,municipality of Japan
 Q494721,city of Japan
@@ -495,7 +533,6 @@ Q1059478,town of Japan
 Q4174776,village of Japan
 Q5327704,special ward of Japan
 Q18663566,dissolved municipality of Japan
-Q66752884,字
 Q1155688,Thesaban
 Q13025342,Thesaban Mueang
 Q15141625,subdistrict municipality
@@ -515,7 +552,6 @@ Q13217644,municipality of Portugal
 Q10423826,Azorernas kommuner
 Q1758856,commune of Mali
 Q1763214,municipio
-Q215655,department of Colombia
 Q263639,municipality of Puerto Rico
 Q318727,municipality of Nicaragua
 Q558330,municipality of Cuba
@@ -529,6 +565,7 @@ Q2074737,municipality of Spain
 Q2276925,municipality of Galicia
 Q3284867,cendea of Navarre
 Q5055981,Conceyu d'Asturies
+Q20103881,Municipis de les Illes Balears amb la senyera
 Q33146843,municipality of Catalonia
 Q55863584,former municipality of Spain
 Q61763947,municipality of Aragon
@@ -564,13 +601,17 @@ Q54935504,city of Switzerland
 Q206824,Zivilgemeinde
 Q1019292,Bäuert
 Q1021096,civic community
+Q1307779,integrated municipality
 Q1440591,Fraktionsgemeinde
 Q1500394,Gemeindedualismus
 Q1501116,Gemischte Gemeinde
 Q1751950,Korporationsgemeinde
-Q2148181,Rhode (Schweiz)
+Q2148181,Rhode
 Q2251202,Schulgemeinde
 Q55118936,Kirchgemeinde
+Q56293109,Civic community
+Q74303884,Munizipalgemeinde
+Q98651954,Viertelsgemeinde
 Q2183520,obec
 Q5153359,municipality of the Czech Republic
 Q7819319,Czech municipality with expanded powers
@@ -633,14 +674,13 @@ Q603715,county of New Brunswick
 Q2371398,Regional Service Commission
 Q2989369,rural community of New Brunswick
 Q3032041,local service district
-Q16466688,Local Service District
 Q3252927,parish in New Brunswick
 Q6609748,city of New Brunswick
 Q6644759,village of New Brunswick
 Q52132873,town
 Q3327873,local municipality of Quebec
 Q3558965,Cree village
-Q3559003,municipalité de village nordique
+Q3559003,northern village
 Q17290932,Cree reserved land
 Q27676414,city
 Q27676416,city or town
@@ -651,6 +691,7 @@ Q27676428,municipality
 Q27676431,naskapi village municipality
 Q27676524,parish municipality
 Q27824520,Inuit reserved land
+Q29386689,terres réservées aux Naskapis
 Q3327874,rural municipality of Canada
 Q3327899,municipality of Ontario
 Q14762300,single-tier municipality
@@ -662,19 +703,20 @@ Q14763041,county of Ontario
 Q55774719,township municipality in Ontario
 Q11774771,county of Nova Scotia
 Q15068900,town in Prince Edward Island
+Q20538317,village in Saskatchewan
 Q44529188,town
 Q44551483,city
 Q59341087,town in Nova Scotia
 Q60458065,city
 Q6024226,metropolitan municipality
 Q6784672,municipality of Slovakia
-Q6936404,municipality
+Q6936383,municipality of Lebanon
+Q6936404,Municipalities of the State of Palestine
 Q7268568,former grietenij
 Q10401396,administrativ tätort
 Q10433151,civic municipality
-Q12160747,Regional municipality
-Q30330519,amalgamated hromada
 Q13539802,place with town rights and privileges
+Q13997861,partido of Buenos Aires
 Q14502790,settlement of Hungary
 Q2590631,municipality of Hungary
 Q13218690,town in Hungary
@@ -685,6 +727,7 @@ Q587089,city with municipal rights
 Q1070990,county-level city
 Q1093829,city of the United States
 Q2215397,"English-language word ""city""
+Q102104752,city of Bosnia and Herzegovina
 Q16511251,municipality of Greenland
 Q16739079,municipalities of Cyprus Republic
 Q17134625,municipality of Bermuda
@@ -705,7 +748,7 @@ Q23036513,former municipality of Denmark
 Q26742250,former municipality of Estonia
 Q55863584,former municipality of Spain
 Q57416832,former municipality of Greenland
-Q20538317,village in Saskatchewan
+Q96948740,former municipality of the Faroe Islands
 Q20826840,municipality
 Q24945773,Human Rights City
 Q28916128,local government district
@@ -718,6 +761,7 @@ Q29390837,Δημοτικό διαμέρισμα Ψωφίδος Αχαΐας
 Q29473586,Δημοτικό διαμέρισμα Γλάστρας Αχαΐας
 Q29473607,Δημοτικό διαμέρισμα Δρυμού Αχαΐας
 Q30060572,rural municipality of Canada
+Q30330519,Amalgamated hromada
 Q31835971,Munizipalität
 Q33101426,urban council of Ukraine
 Q41067667,municipality of Tunisia
@@ -728,7 +772,6 @@ Q7829892,town of New Jersey
 Q7830213,township of New Jersey
 Q7930612,village of New Jersey
 Q55313685,municipality of Macau
-Q61768983,Gemeinde des Libanon
 Q63440326,city of Oregon
 Q64515521,Municipality of South Vietnam
 Q68889614,rural municipality
@@ -739,394 +782,27 @@ Q71111443,politische Israelitengemeinde
 Q74293993,rural municipality
 Q76514543,municipality of Georgia
 Q89031988,provincial municipality of Turkey
+Q96857311,Village of Guam
+Q98058553,Municipal worker
+Q100503226,town of the United Kingdom
 Q39463,trading post
 Q218739,Entrepôt
 Q258913,kontor
+Q69391739,Greek colony
+Q618846,apoikia
+Q655593,emporia
 Q62049,county seat
 Q123601,cities and towns in Lebanon
-Q123705,neighborhood
-Q55116,quarter of Monaco
-Q75848,gated community
-Q152018,ghetto
-Q519630,South African township
-Q2583015,ghetto in Nazi-occupied Europe
-Q6190055,Jewish ghetto in German-occupied Poland
-Q51573395,Гетто в Долгиново (Вилейский район)
-Q51588808,Гетто в Илье (Минская область)
-Q2917049,Jewish ghetto in Europe
-Q163301,Ortsbezirk of Germany
-Q180928,Paris districts
-Q201759,slum
-Q693827,favela
-Q8960966,favela in Rio de Janeiro
-Q10280357,favela in São Paulo
-Q7366200,Rookery
-Q7535038,skid row
-Q253019,Ortsteil
-Q1852178,locality of Düsseldorf
-Q15632166,city part of Cologne
-Q35034452,locality of Berlin
-Q62394014,Quarters of Aachen
-Q79337953,Stadtteil von Kiel
-Q271035,neighborhood unit
-Q272888,red-light district
-Q1060846,yūkaku
-Q28683527,yūkaku in Shimonoseki
-Q4700325,Akasen
-Q11662690,aosen
-Q287414,neighborhood in New York City
-Q61297932,"neighborhood in Manhattan
-Q61298024,"neighborhood in Queens
-Q61298104,"neighborhood in Bronx
-Q61298209,"neighborhood in Staten Island
-Q61298320,"neighborhood in Brooklyn
-Q449111,subdivision
-Q2632264,rationele verkaveling
-Q490329,dong
-Q627253,working class quarter
-Q652541,poblacion
-Q674950,residential area
-Q2801464,woonschool
-Q3558972,airpark
-Q5215430,Danchi
-Q5916199,housing development
-Q826553,Falowiec
-Q2140144,Tract housing
-Q7315416,residence park
-Q10715540,Residential Zone
-Q11503991,新興住宅地
-Q11505677,日本のニュータウン
-Q18587469,residential community
-Q864288,bioenergy village
-Q985488,residential community of the People's Republic of China
-Q17361402,community of the People's Republic of China
-Q1074523,planned community
-Q1656724,ideal city
-Q1762524,planned community in France
-Q6888356,model village
-Q15840617,Planned Capital
-Q16014774,대한민국의 계획도시
-Q41560536,Innovation City
-Q41560536,Innovation City
-Q56152103,Greenbelt town
-Q2373919,intentional community
-Q161387,kibbutz
-Q1567101,Hakhshara
-Q16132253,גן הנוף הקיבוצי
-Q295472,ecovillage
-Q517760,commune
-Q992194,Hutterite colony
-Q4693952,Agricultural commune
-Q4797182,art commune
-Q917146,moshav
-Q992194,Hutterite colony
-Q1107167,cohousing
-Q7549943,Sober living house
-Q1762221,Neotribalism
-Q1780633,Kommunität
-Q2148684,co-operative living arrangements
-Q442993,group home
-Q2002507,Notschlafstelle
-Q2207993,Tehuis voor werkenden
-Q3060146,tehuis voor niet-werkenden
-Q2907285,youth village
-Q2945522,nudist community
-Q22907229,Christian Communities
-Q20818846,Molukse wijk
-Q30493986,villaområde
-Q42402287,cité
-Q738570,central business district
-Q1050303,downtown
-Q1468524,city center
-Q66364404,繁華街
-Q748198,gay village
-Q801738,Bahnhofsviertel
-Q851110,district of Budapest
-Q851124,List of neighborhoods of Budapest
-Q860582,community area in Chicago
-Q1014933,Burgfreiheit
-Q1067867,Sestiere of Venice
-Q1128906,medina quarter
-Q1462091,várnegyed
-Q1468524,city center
-Q1622981,Hofe
-Q1739536,inner city
-Q1761572,barrio
-Q17276937,ward of Madrid
-Q10267336,neighborhood of Madrid
-Q48784221,collación
-Q64913082,neighborhood of Alicante
-Q68979886,ward of Girona
-Q68981550,Nord
-Q75880277,barrio of El Salvador
-Q1829505,tuindorp
-Q1851368,waterfront
-Q1940624,Banlieue
-Q1969642,neighborhood of San Francisco
-Q2170377,cauliflower neighborhhod
-Q2191560,Skid row
-Q2282602,housing estate
-Q1563681,HICOG-Siedlung
-Q12104567,housing estate
-Q604435,microdistrict
-Q1406988,grand ensemble
-Q7246209,private housing estate in Hong Kong
-Q14454091,Public Rental Housing
-Q19754218,Home Ownership Scheme housing estate
-Q14178148,proveniershuis
-Q19760240,Eisenbahnersiedlung
-Q2441638,volksbuurt
-Q2640310,residential areas and neighbourhoods in Arnhem
-Q2648768,residential areas and neighbourhoods in Muiden
-Q2650121,residential areas and neighbourhoods in Graft-De Rijp
-Q2795367,neighborhood in Utrecht
-Q2841546,neighborhood of Utrecht
-Q3067318,Faubourgs of Montreal
-Q3394564,Quarter of Luxembourg City
-Q3413329,neighborhood in Boston
-Q3413345,neighbourhood of Toulouse
-Q3480610,Sestiere di Milano
-Q3558430,villa
-Q3578796,Ecodistrict
-Q3610510,ethnic enclave
-Q202509,Chinatown
-Q3674986,Chinatowns in Europe
-Q5100179,Chinatowns in Africa
-Q5100181,Chinatowns in Asia
-Q5100185,Chinatowns in the Middle East
-Q904319,Koreatown
-Q907231,Japantown
-Q1544543,Greektown
-Q6158221,Japanese Immigrant Villages in Taiwan
-Q6650409,Little India
-Q6650818,Little Manila
-Q9016264,Jewish quarter
-Q2583015,ghetto in Nazi-occupied Europe
-Q2917049,Jewish ghetto in Europe
-Q61729985,Little Italy
-Q3689003,contrada
-Q1231729,contrada of Siena
-Q3689087,suppressed Contrada of Siena
-Q3710552,cultural district
-Q1797194,arts district
-Q3055075,entertainment district
-Q272888,red-light district
-Q1574228,hanamachi
-Q1060846,yūkaku
-Q11374182,Kagai of Kyoto
-Q11439934,hanamachi in Osaka
-Q11502785,hanamachi in Niigata
-Q11524038,hanamachi in Tokyo
-Q11589724,hanamachi in Kobe
-Q11647353,hanamachi in Kanazawa
-Q3551273,Universal CityWalk
-Q28148504,museum district
-Q3927250,quarter of the city of Lugano
-Q3927262,Stadtteil von Salzburg
-Q4057659,subdivision of Kiev
-Q4286337,city district
-Q137773,ward of Japan
-Q5327704,special ward of Japan
-Q65281628,行政区
-Q205549,Zipserei
-Q627253,working class quarter
-Q702842,municipal arrondissement
-Q679388,municipal arrondissement of Paris
-Q2845944,former arrondissement of Paris
-Q702869,municipal arrondissement of Lyon
-Q702875,municipal arrondissement of Marseille
-Q2845944,former arrondissement of Paris
-Q1434401,dzielnica
-Q1808877,deelgemeente
-Q1852119,district of Graz
-Q1985797,municipal unit of Greece
-Q2740635,Stadtbezirk
-Q253270,borough of Munich
-Q278976,borough of Hamburg
-Q317669,district of Düsseldorf
-Q821435,borough of Berlin
-Q13415859,Stadtbezirk in Wuppertal
-Q15632133,city district of Cologne
-Q15727673,city district of Hanover
-Q17278423,district of Bremen
-Q18600372,borough of Dresden
-Q28050899,Stadtgebiet (Frankfurt (Oder))
-Q31458588,Stadtbezirk von Bremerhaven
-Q62269194,Stadtbezirke Aachens
-Q2779745,urban district of the Netherlands
-Q15079751,submunicipality of Amsterdam
-Q2989468,Communes d'arrondissement of Senegal
-Q3032114,district of Madrid
-Q3565075,Raions of cities in Ukraine
-Q3624938,district of Brazil
-Q5283507,district of Davao City
-Q7553685,municipal district of Bulgaria
-Q8561193,district of Valencia
-Q13582281,circoscrizione di decentramento comunale in Italy
-Q610625,Municipi of Milan
-Q1410029,list of the municipi of Genoa
-Q1584957,Borough of Palermo
-Q3677930,quarter of Messina
-Q3867179,municipalità of Naples
-Q3867183,municipalità of Venice
-Q3927244,boroughs of Bologna
-Q3927247,borough of Florence
-Q16751551,borough of Brescia
-Q16751788,circoscrizione of Vicenza
-Q16761595,circoscrizione of Treviso
-Q17137839,circoscrizione of Verona
-Q15195406,city district in Russia
-Q4389092,district of Moscow
-Q14242187,city district of Nizhny Novgorod
-Q15634883,district of Manila
-Q15921300,sector of Bucharest
-Q17496379,City district in Austria
-Q261023,district of Vienna
-Q18559008,district of São Paulo
-Q21682724,municipal district of Finland
-Q3926693,district of Turku
-Q5283513,district of Espoo
-Q5283515,district of Jyväskylä
-Q11864758,district of Imatra
-Q15715406,neighbourhood of Helsinki
-Q17468479,district of Oulu
-Q18691318,registerby
-Q23541388,city district of Lappeenranta
-Q26844382,district of Tampere
-Q28480345,district of Vantaa
-Q28480407,district of Kuopio
-Q30020391,district of Joensuu
-Q56577270,district of Hämeenlinna
-Q21851888,district of the city
-Q75338598,městská část Prahy
-Q30339232,sector of Chișinău
-Q40256562,intracity district of Belarus
-Q75135425,district de Barcelone
-Q4298922,mixed-use development
-Q24887340,Temporary use
-Q47012103,mixed-use building
-Q63452621,one-plus-five
-Q5333096,eco-municipality
-Q5377740,مناطق شهری تهران
-Q5556082,neighbourhood in Tehran
-Q5571369,quarter of a city in Italy
-Q3927245,quarter of Brescia
-Q3927259,quarter of Reggio Calabria
-Q3927261,quarter of Naples
-Q17135847,quarter of Genoa
-Q17279532,Quarter of Verona
-Q18608436,quarter of Florence
-Q42961155,quarter of Milan
-Q5875137,Hobohemia
-Q6988049,Neighborhood planning unit
-Q6988077,neighborhoods in Providence
-Q6988097,neighborhood of Jacksonville
-Q6988184,neighbourhood of Delhi
-Q7551933,mahallah
-Q8049262,courtyard neighborhood
-Q10267336,neighborhood of Madrid
-Q11361229,下町
-Q11679959,Outskirt (Al-Andalus)
-Q11908565,Barris de Lleida
-Q12012287,Grätzl
-Q12054099,neighborhood of Jerusalem
-Q12411695,שכונות חרדיות בירושלים
-Q12063697,"neighborhood of Washington
-Q12104567,housing estate
-Q12179166,أحياء الخرطوم بحري
-Q76824780,الدروشاب
-Q13645388,luxury real estate
-Q13732359,Indische buurt
-Q15715406,neighbourhood of Helsinki
-Q15830667,quarter of Hamburg
-Q15849827,Szeneviertel
-Q16837104,bairro
-Q18475442,list of neighbourhoods in Barra da Tijuca
-Q19658107,neighborhood of Brazil
-Q19886692,neighbourhood of São Paulo
-Q20683285,neighbourhood in Rio de Janeiro
-Q66626479,Pátio
-Q17015330,Neighborhoods of Minneapolis
-Q17233249,Stadtteil von Stettin
-Q17278559,quarter of Bremen
-Q17468479,district of Oulu
-Q19832914,defined community of Minneapolis
-Q17015330,Neighborhoods of Minneapolis
-Q20968646,neighborhood of historical district of Moscow
-Q22248247,cité d'urgence
-Q22833408,"District of the city of Strasbourg
-Q23541388,city district of Lappeenranta
-Q24067406,жылы раён
-Q25391965,city (German language)
-Q26844382,district of Tampere
-Q27095194,bookshop neighbourhood
-Q27554593,stadsdeel in Lublin
-Q27702623,academic enclave
-Q28052515,Subdivision
-Q28372019,neighborhood of Yemen
-Q28539166,"quarter of the city of Basel
-Q29463880,Quarter of Limassol Municipality
-Q31271043,Rīgas apkaimes
-Q32597970,Bremerhaven district
-Q34982659,quarter of Bucharest
-Q39947311,warehouse district
-Q40553563,restaurant district
-Q47320699,Parish of Nicosia Municipality
-Q47320766,Parish of  Ayios Dhometios Municipality
-Q47320775,Parish of Strovolos Municipality
-Q47320785,Parish of Lakatamia Municipality
-Q47320794,Parish of Latsia Municipality
-Q47320804,Parish of Dali Municipality
-Q47320814,Parish of Kythrea Municipality
-Q47320908,Parish of  Morphou Municipality
-Q47320925,Parish of Prastio Nicosia
-Q47320938,Parish of Spilia
-Q47320952,Parish of Karavostasi
-Q47320964,Parish of  Xerovounos
-Q47325026,Parish of Keryneia Municipality
-Q47325112,Parish of Karavas Municipality
-Q47325202,Parish of Lapithos Municipality
-Q47325770,Parish of Paphos Municipality
-Q47325870,Parish of Yeroskipou Municipality
-Q47325959,Parish of Polis Chrysochous Municipality
-Q47326153,Quarter of Larnaca Municipality
-Q47326217,Quarter of Aradippou Municipality
-Q47326257,Quarter of Dromolaxia-Meneou Municipality
-Q47328627,Parish of Famagusta Municipality
-Q47328699,Parish of Aigialousa
-Q47328702,Parish of Rizokarpaso
-Q48098186,Neighborhoods in Zaragoza
-Q54809707,Quarter of Kato Polemidia Municipality
-Q54864872,Quarter of Mesa Geitonia Municipality
-Q54865711,Quarter of Yermasoyia Municipality
-Q54867049,Quarter of Ayios Athanasios Municipality
-Q61089180,part of municipality in the Czech Republic
-Q585444,administrative district of Prague
-Q74728036,administratief district van Praag
-Q75338598,městská část Prahy
-Q75339006,Praags territoriaal district
-Q56398194,core municipal part of the same name as the municipality
-Q63497359,Quartier canonial
-Q65246805,Westend
-Q66458650,sociological neighborhood
-Q202509,Chinatown
-Q61729985,Little Italy
-Q66467322,ancien quartier
-Q75021917,neighborhood in Amman
-Q75883519,colonia
-Q5148198,colonia
-Q75884168,colonia of El Salvador
-Q75884168,colonia of El Salvador
-Q79413632,Stadtteil von Innsbruck
-Q79414634,Stadtteil von Linz
-Q79416466,Stadtteil von Frankfurt am Main
-Q79423884,Stadtteil von Leipzig
-Q79423998,Stadtteil von Görlitz
-Q79424059,Ortsteil von Chemnitz
-Q130360,lugar
+Q130360,
 Q158490,Gaeltacht
+Q13414965,Gaeltacht Iorrais agus Acaill
 Q159350,Rundling
 Q161387,kibbutz
+Q1567101,Hakhshara
+Q2888533,Gesher HaZiv
+Q7886462,Moshav shitufi
+Q7900128,Urban kibbutz
+Q16132253,גן הנוף הקיבוצי
 Q188509,suburb
 Q687312,Vorort
 Q828359,commuter town
@@ -1140,19 +816,27 @@ Q79119281,Orten
 Q192601,oppidum
 Q211450,closed city
 Q253019,Ortsteil
+Q1852178,locality of Düsseldorf
+Q15632166,city part of Cologne
+Q35034452,locality of Berlin
+Q62394014,Quarters of Aachen
+Q79337953,Stadtteil von Kiel
 Q269528,unincorporated area
 Q5586091,gore
+Q6622000,hamlet in Saskatchewan
+Q7209617,Police village
 Q7885245,unincorporated urban community of Canada
 Q15974311,unincorporated area in Germany
-Q17343829,unincorporated community
+Q17343829,unincorporated community in the United States
 Q442799,faubourg
 Q498162,census-designated place
+Q5645450,hamlet of Clackamas County in Oregon
 Q7885248,"unincorporated communities in Eau Claire County
 Q7885250,unincorporated town in Nevada
 Q17366755,hamlet in Alberta
 Q28924735,"unincorporated area of Victoria
 Q52994899,unincorporated area of Greenland
-Q56885310,Compact rural community in Canada
+Q56885310,compact rural community
 Q56885635,Dispersed rural community in Canada
 Q88397339,Railway point in Canada
 Q329245,basic unit of settlement in Czechia
@@ -1169,6 +853,7 @@ Q505963,artificial dwelling hill
 Q14947481,wierde
 Q509028,ranch
 Q1748732,movie ranch
+Q2679045,rancho of California
 Q5615133,guest ranch
 Q581830,carfree city
 Q582706,Israeli settlement
@@ -1187,7 +872,62 @@ Q17507358,Syrian refugee camps
 Q627236,company town
 Q4012861,mill town
 Q18696097,Textile Company Town in Catalonia
+Q99945381,Farmers' company town
 Q674950,residential area
+Q2801464,woonschool
+Q3558972,airpark
+Q5215430,danchi
+Q5916199,housing development
+Q826553,Falowiec
+Q2140144,tract housing
+Q7315416,residence park
+Q10715540,Residential Zone
+Q11503991,新興住宅地
+Q11505677,日本のニュータウン
+Q18587469,residential community
+Q864288,bioenergy village
+Q985488,residential community of the People's Republic of China
+Q17361402,community of the People's Republic of China
+Q1074523,planned community
+Q1656724,ideal city
+Q1762524,planned community in France
+Q6888356,model village
+Q15840617,planned capital city
+Q16014774,大韓民国の計画都市
+Q41560536,Innovation City
+Q41560536,Innovation City
+Q56152103,Greenbelt town
+Q65241205,ニュータウン
+Q2373919,intentional community
+Q161387,kibbutz
+Q295472,ecovillage
+Q517760,commune
+Q992194,Hutterite colony
+Q1296717,Egalitarian community
+Q4693952,Agricultural commune
+Q4797182,art commune
+Q917146,moshav
+Q7886462,Moshav shitufi
+Q992194,Hutterite colony
+Q1107167,cohousing
+Q7549943,sober living house
+Q1762221,Neotribalism
+Q1780633,religious intentional community
+Q2148684,co-operative living arrangements
+Q442993,group home
+Q2002507,Notschlafstelle
+Q2207993,Tehuis voor werkenden
+Q3060146,tehuis voor niet-werkenden
+Q2907285,youth village
+Q2945522,nudist community
+Q22907229,Christian Communities
+Q4691828,age-restricted community
+Q1269448,retirement community
+Q6980841,Naturally occurring retirement community
+Q4677538,active adult housing
+Q20818846,Molukse wijk
+Q30493986,villa area
+Q42402287,cité
 Q702492,urban area
 Q515,city
 Q3957,town
@@ -1206,11 +946,10 @@ Q1419251,Quebec City–Windsor Corridor
 Q1479822,urban unit
 Q1750414,Asty
 Q2989457,urban-type settlement
-Q2599457,urban-type settlement in Belarus
 Q4374398,urban-type settlement in Uzbekistan
 Q4436080,"city with a population of more than 10
 Q7216840,urban-type settlement in Ukraine
-Q15008703,Daba
+Q15008703,daba
 Q15078955,urban-type settlement in Russia
 Q20019082,work settlement of Russia
 Q27517161,курортный посёлок в России
@@ -1218,20 +957,31 @@ Q27587491,городской посёлок
 Q19507642,курортный посёлок
 Q27517161,курортный посёлок в России
 Q6566301,urban area in Nordic countries
-Q12304704,urban area in Danmark
+Q12304704,urban area in Denmark
 Q12813115,urban area in Sweden
 Q15092344,urban settlement defined by Statistics Norway
-Q61492541,urban areas in Finland
+Q61492541,urban area in Finland
+Q7900093,urban area of New Zealand
 Q10499251,vacation area
+Q11480697,市街地
+Q17174727,中心市街地
+Q65241205,ニュータウン
+Q65274067,町場
+Q2827758,Ai no shuku
 Q12003595,strandsted
 Q12813115,urban area in Sweden
+Q13028920,окольный город
 Q14839548,minor locality in Sweden
 Q17457202,population centre
 Q20738855,urban area with a population of 150-199
 Q28502371,supermanzana
-Q61492541,urban areas in Finland
+Q61492541,urban area in Finland
 Q66626342,urban ensemble
 Q3317612,historic grouping
+Q91730648,urban-type settlement in Belarus
+Q91733160,urban settlement in Belarus
+Q91733598,resort settlement in Belarus
+Q91733790,worker settlement in Belarus
 Q748198,gay village
 Q748331,stanitsa
 Q4437001,stanitsa in Russia
@@ -1263,13 +1013,18 @@ Q1175522,ciudad del condado
 Q1198413,military camp
 Q88205,castrum
 Q89477,castellum
+Q1568283,milecastle
+Q21086297,castellum aquae
+Q81324829,temporary camp associated with the Antonine Wall
 Q1264690,transit camp
 Q14520137,winter camp
 Q18088164,Zomerkamp
-Q1234236,pā
+Q1234236,Pā
 Q1288520,local council in Israel
 Q1294703,shanty town
 Q693827,favela
+Q8960966,favela in Rio de Janeiro
+Q10280357,favela in São Paulo
 Q1516519,Hooverville
 Q4804181,asentamiento
 Q1321241,outpost
@@ -1282,9 +1037,8 @@ Q523342,Emslandlager
 Q678820,Jugendkonzentrationslager
 Q15644358,Arbeitslager
 Q15806875,Durchgangslager
-Q55118208,Internment Camp for Romani people
+Q55118208,internment Camp for Romani people
 Q83854831,family camp
-Q83856124,gypsy camp
 Q83857655,hostage camp
 Q83859074,women's camp
 Q83861849,tent camp
@@ -1301,26 +1055,35 @@ Q56507866,camp of the Gulag
 Q4338251,MVD special camp
 Q19602272,Kolymské gulagy
 Q12060108,tábor nucené práce
+Q101416522,tábory nucené práce při československých uranových dolech
 Q15644358,Arbeitslager
+Q101406037,trestanecké pracovní tábory při československých uranových dolech
+Q1719244,subcamp
 Q2935245,concentration camp in France
 Q4922356,black jail
 Q8343784,clandestine center of detention and torture
 Q728934,black site
-Q2944950,Clandestine detention centre
+Q2944950,clandestine detention centre
 Q67184399,centro de detención política y tortura en Chile
-Q14916829,Ilag
+Q14916829,internment camp
+Q2432369,Japanese internment camps in the Dutch East Indies
 Q15876732,internment camp on the Isle of Man
 Q37501518,Japanese Americans relocation camp
 Q55137114,British concentration camps
+Q55506436,Xinjiang re-education camps
 Q58854609,centro de detención y tortura
 Q60723709,re-education camp
 Q4896947,re-education camp
-Q810227,Base Camp
+Q91088676,Campi di internamento dell'Abruzzo
+Q810227,base camp
 Q1495733,Grenzdurchgangslager
-Q1719244,Subcamp
+Q1719244,subcamp
 Q1348006,city block
 Q877290,Gemeindebau
 Q12816129,béguinage
+Q28228887,insula
+Q26960982,insula
+Q101475956,superblock
 Q1372205,dispersed settlement
 Q56885635,Dispersed rural community in Canada
 Q1391818,military dependents' village
@@ -1346,15 +1109,16 @@ Q1415423,Quilombo
 Q1426493,trailer park
 Q1501046,community settlement
 Q1507736,torp
-Q3700328,soldattorp
+Q3700328,military croft
 Q54959403,dragon torp
-Q1529096,village
+Q1529096,village in Turkey
 Q1568229,hay
 Q1623243,Hofschaft
 Q1652571,hut village
 Q1669338,Ortslage
 Q1758254,Moorkolonisierung
 Q1807977,Veenkoloniën
+Q1770306,Südtiroler-Siedlung
 Q1782540,railway town
 Q1891566,vaardorp
 Q1907114,metropolitan area
@@ -1365,14 +1129,17 @@ Q687312,Vorort
 Q1132300,metropolitan region in Germany
 Q1768043,Metropolitan Statistical Area
 Q2342385,urban area
+Q3333855,Métropole
 Q3685462,commune of Haiti
 Q3931970,metropolitan region in Brazil
 Q5124028,City region
 Q6024226,metropolitan municipality
 Q6174014,Área metropolitana de Palma de Mallorca
 Q7899896,Urban Employment Area
+Q10865718,三大都市圏
 Q11962746,metropolitan region of Norway
 Q22675614,pentapolis
+Q48845950,union métropolitaine
 Q1928746,moshava
 Q1962175,Nahal settlement
 Q1963395,crossroad village
@@ -1383,6 +1150,7 @@ Q2180609,deltametropool
 Q2191999,Pogost
 Q2196159,curtis
 Q2197079,dubbelstad
+Q2276760,longtang
 Q2294779,voorstraatdorp
 Q2334604,transmigratiedorp
 Q2392703,essenzwermdorp
@@ -1391,24 +1159,28 @@ Q1957554,ecoboot
 Q5459907,floating city
 Q2519150,Displaced city
 Q2523643,kransakkerdorp
+Q2560332,Werkbundsiedlung
 Q2564609,Westend
 Q2605228,keuternederzetting
 Q2752520,geestnederzetting
+Q2755753,area of London
 Q2774769,cité
 Q2907285,youth village
 Q2989457,urban-type settlement
 Q3172900,kolonie
-Q618846,apoikia
 Q3257686,locality
+Q228385,Zugewandter Ort
 Q1350536,naukograd
-Q1529096,village
+Q1529096,village in Turkey
 Q1759006,Oberhof
 Q2191560,Skid row
 Q3055118,single entity of population
 Q5670577,alquería
 Q5756064,casería
 Q11912920,casal
-Q11939023,population nucleus (Spain)
+Q15793693,caserío
+Q16557344,diseminado
+Q17624511,caserío
 Q11954567,veïnat
 Q16557344,diseminado
 Q3446093,Saltpeter works
@@ -1426,9 +1198,9 @@ Q692581,holy city
 Q12057402,holy city of Islam
 Q902814,border town
 Q67123843,town divided by border
+Q1549591,big city
 Q3199141,city of Indonesia
 Q11881845,town
-Q12131624,city in Ukraine
 Q15253706,like a city
 Q15584664,city under municipality jurisdiction in Latvia
 Q15978299,municipality with town privileges in the Czech Republic
@@ -1444,31 +1216,35 @@ Q7830079,town of district significance in Russia
 Q20724701,city or town in Armenia
 Q50330360,second largest city
 Q51929311,largest city
+Q56557504,city of Iran
 Q56557664,şəhər
-Q79323854,city of voblasć subordinance
-Q79324274,city of rajon surbodinance
+Q79323854,city of oblast subordinance
+Q79324274,city of raion surbodinance
 Q89487741,city of Bulgaria
 Q11696869,Organización territorial de las Islas Pitiusas
-Q11939023,population nucleus (Spain)
 Q16557344,diseminado
 Q16652878,заимка
 Q20202352,locality of Mexico
+Q20541692,"settlement in Galicia
 Q30114493,bounded rural locality
 Q39881836,nicht amtlicher Ortsname
 Q52154375,district or neighborhood of Los Angeles
-Q3390714,place forte
+Q3332809,Megastructures
+Q3390714,plaza fuerte
 Q3477348,urban sector
 Q660088,garden city
 Q2974620,cité-jardin à Stockholm
 Q745456,business cluster
 Q3412193,business cluster in France
+Q800188,Île-de-France Clusters
 Q7315048,Research-Intensive Clusters
 Q13734172,Italian industrial district
 Q3711763,tourist district
 Q3497366,whaling station
 Q3505887,city council
-Q3519572,Thankful Villages
+Q3519572,Thankful Village
 Q3559019,urban village
+Q3575763,permanent autonomous zone
 Q3835961,località
 Q4012861,mill town
 Q4313794,populated place in Georgia
@@ -1480,20 +1256,37 @@ Q1021360,place of origin
 Q1852859,populated place in the Netherlands
 Q89266677,résidence aristocratique
 Q4668360,Aboriginal community in Western Australia
+Q4688498,aerotropolis
+Q5068175,Chak
+Q5148433,Colonias of Mexico City
 Q5158311,Concentrated poverty
+Q5195043,borough
+Q211690,London borough
+Q1006876,borough in the United Kingdom
+Q518343,municipal borough
+Q1002812,metropolitan borough
+Q4272761,administrative city of Indonesia
+Q4946305,borough in the United States
+Q4946361,Boroughs of Canada
+Q13410522,borough of Alaska
+Q19905455,borough
+Q578521,borough of Montreal
+Q23953065,local urban district
 Q5327369,chōchō
+Q11381457,tenmachō
+Q28754498,丁目
 Q5327509,koaza
-Q5446765,Mahala
+Q5446765,mahala
 Q60220838,Колиби
 Q5476644,Fox Cities
 Q5500414,Freedmen's town
-Q6344036,neighborhood in Almería
+Q5708091,Asentamientos prehispánicos en Santiago de Chile
 Q6636519,resort village in Saskatchewan
 Q7005232,New Age communities
 Q7112842,outpost
 Q2502365,Little America
 Q12721325,human outpost
-Q7180622,phantom settlement
+Q7209617,Police village
 Q7557352,Soldier settlement
 Q7830214,crofting township
 Q7930989,city/town
@@ -1501,6 +1294,7 @@ Q9093938,Walled villa
 Q10354598,rural settlement
 Q532,village
 Q5084,hamlet
+Q638626,Banjar (Sociology of Bali)
 Q1484611,buurtschap
 Q2012289,herdgang
 Q25616677,waterbuurtschap
@@ -1509,20 +1303,27 @@ Q1713951,Juridiken in Warschau
 Q63531558,Jurydyki Potockich herbu Pilawa
 Q3327752,clachan
 Q7551933,mahallah
-Q11939023,population nucleus (Spain)
 Q12015918,Siedlung
+Q12763958,chatová osada
+Q13028711,Беларуская вёска
 Q16557344,diseminado
 Q19939940,ban
 Q23925393,douar
 Q25412758,aldea de Chile
+Q25421146,llogaret
 Q27654220,abandoned hamlet
-Q30559599,taloryhmä
+Q30559599,group of houses
 Q65661087,village in Belarus
+Q97410416,derevnya
 Q131596,farm
 Q25691,crocodile farm
 Q132213,Haubarg
 Q188913,plantation
 Q22715,vineyard
+Q155511,plant nursery
+Q5396348,Tree breeding
+Q12372955,tree nursery
+Q28541343,forest tree nursery
 Q236371,orchard
 Q3350685,olive grove
 Q3555847,Verger conservatoire
@@ -1531,14 +1332,19 @@ Q1399147,Fazenda
 Q1847458,engenho
 Q10272959,engenho de erva-mate
 Q10280443,Fazenda São Marcos
+Q2051209,Koffieplantage
 Q2465988,houtgrond
 Q2948675,champignonnière
+Q3555852,seed orchard
+Q10499752,fröplantager i Sverige
 Q7201627,plantations in the American South
 Q14419427,sugarcane plantation
+Q1847458,engenho
 Q16514244,Klitplantage
-Q16668702,palm grove
+Q16668702,Palm grove
 Q21598521,prutník
 Q70780172,tea plantation
+Q97122090,Plantages in Suriname
 Q243882,Zwerchhof
 Q273615,sovkhoz
 Q477195,Meierhof
@@ -1549,23 +1355,36 @@ Q1311819,Heimet
 Q1416696,finca
 Q2110788,posessió
 Q5769220,cigarral
+Q8196150,almunia (edificio)
+Q12161100,cortijo
+Q15501937,alqueria
 Q25339974,quinta
 Q1635663,folwark
 Q1788752,kongsgård
+Q1974855,Dehkan farm
 Q2116450,manor estate
+Q1887569,shōen
+Q11352443,一円荘園
+Q11396522,shoki-shōen
+Q11420479,国免荘
+Q11452119,kanshōfu-shō
+Q11455719,kishinchi-kei-shōen
+Q11488831,mikuriya
+Q11659397,雑役免系荘園
 Q2066754,manor
 Q13455211,Beigut
 Q2164984,Plaas
 Q2288876,farm with camp site
 Q2523674,Vierseithof
 Q2650083,museum farm
-Q2786687,Steinhaus
+Q2786687,Steenhuis
 Q2843044,tree farm
 Q2979655,closerie
 Q3068961,city farm
 Q3333432,métairie
 Q3354019,seat farm
 Q3631457,azienda agricola
+Q3632873,Bailey
 Q3661417,casale
 Q4134849,hemman
 Q4353657,Kronohemman
@@ -1577,6 +1396,7 @@ Q5844636,model farm
 Q5874958,Hobby farm
 Q7199986,Pizza farm
 Q7245779,prison farm
+Q9286736,Hato
 Q11697931,Farm
 Q12317354,hovedgård
 Q3354019,seat farm
@@ -1590,6 +1410,7 @@ Q108696,horse stud farm
 Q1729821,Schweizer Nationalgestüt
 Q15463116,wild horse stud farm
 Q17319854,Haras Nationaux
+Q94140445,Royal Herd of Aranjuez
 Q19393982,urgård
 Q21051254,Einhof
 Q22958233,farm of Norway
@@ -1603,7 +1424,13 @@ Q65057939,lampuotitila
 Q66493917,proprietærgård
 Q67462766,lenní statek
 Q72030539,farmstead
-Q79633016,statek broumovského typu
+Q79633016,Broumov farmhouses
+Q96096605,Farmhouses in Hälsingland
+Q97441319,worm farm
+Q98141352,Hofmauer
+Q98398975,Zweiseithof
+Q98446431,Ökonomiehof
+Q104376770,pick-your-own farm
 Q634099,rural settlement of Russia
 Q780287,Aussenwacht
 Q1471114,chacra
@@ -1611,11 +1438,11 @@ Q2023000,khutor
 Q11997521,rekketun
 Q65660829,chutar
 Q2514025,posyolok
-Q5175541,Коттеджный посёлок
-Q65665664,посёлок в Белоруссии
+Q5175541,Cottage country
+Q65665664,pasiolak
 Q2940766,Casa colonica
 Q3661417,casale
-Q4129217,выселок
+Q4129217,vyselok
 Q4232779,кордон
 Q4379239,przysiółek
 Q5268974,Dhani and villages
@@ -1627,32 +1454,12 @@ Q23870569,ranchería of California
 Q7963016,Walled village
 Q11912920,casal
 Q12225020,uzlah
-Q15793693,Caserío
+Q15793693,caserío
 Q16652878,заимка
 Q17318027,rural commune of Morocco
-Q18729324,разъезд
+Q18729324,razyezd
 Q19884342,village of North Macedonia
 Q21507948,former village
-Q350895,abandoned village
-Q4205192,исчезнувшие сёла Белогорского района Крыма
-Q4205193,исчезнувшие сёла
-Q4205194,исчезнувшие сёла Кировского района Крыма
-Q4205195,исчезнувшие сёла Красногвардейского района Крыма
-Q4205196,исчезнувшие сёла Красноперекопского района Крыма
-Q4205197,исчезнувшие сёла Ленинского района Крыма
-Q4205198,исчезнувшие сёла
-Q4205199,исчезнувшие сёла Первомайского района Крыма
-Q4205200,исчезнувшие сёла
-Q4205201,исчезнувшие сёла Сакского района Крыма
-Q4205202,исчезнувшие сёла Симферопольского района Крыма
-Q4205203,исчезнувшие сёла
-Q4205204,исчезнувшие сёла Черноморского района Крыма
-Q4413844,селище
-Q17599845,Creu (Matamala)
-Q18408637,исчезнувшие сёла
-Q21751582,deserted medieval village
-Q27654220,abandoned hamlet
-Q50066265,verbrand dorp
 Q21856567,agro-town
 Q1989945,agrotown
 Q24026248,участок
@@ -1670,7 +1477,7 @@ Q25412785,parcela de agrado
 Q27254663,assentament ferroviari
 Q27254666,urban-type settlement by the railway station
 Q27295972,посёлок железнодорожной платформы
-Q27517483,железнодорожный разъезд
+Q27517483,railroad crossing
 Q27517998,маяк
 Q27518087,казарма
 Q27518260,монтёрский пункт
@@ -1693,12 +1500,14 @@ Q56312482,Сельцо
 Q57976957,historic hamlet
 Q74293993,rural municipality
 Q74403295,Village Haji Ali Muhammad Rahu
+Q10425988,bandyfäste
 Q10564515,monzenmachi
 Q10840661,urban area of Vietnam
 Q1070942,commune-level town of Vietnam
 Q10840669,Class V town
 Q2112349,district-level town of Vietnam
 Q11183787,Ortschaft
+Q11302190,kotan
 Q11423996,zaigōmachi
 Q11457718,jinaimachi
 Q11658180,jin'yamachi
@@ -1706,28 +1515,40 @@ Q11723820,jednostka osadnicza
 Q11732217,Flecken
 Q11836709,dvorec
 Q11939023,population nucleus (Spain)
+Q2989421,concejo de Navarra
+Q3055118,single entity of population
+Q11912920,casal
+Q13526752,lugar
+Q20541692,"settlement in Galicia
+Q15725677,pedanía
+Q6350957,"district of Cartagena
+Q11940652,Valencian pedania
+Q64911820,populated area of the city of Alicante
 Q12038856,mošav ovdim
 Q12051488,populated place in Ukraine
 Q21672098,village of Ukraine
-Q12075102,Історичне населене місце
+Q12075102,історичне населене місце
 Q12116124,Kutan
 Q12134916,center of oblast
 Q12336407,sommerhusområde
-Q12404888,Blok izraelských osad
-Q12409133,מנהלה מקומית
+Q1406318,Holiday Village
 Q12551453,nomadic camp
+Q13099270,Setring
 Q13134576,ambonezenkamp
 Q13410464,county of Maryland
 Q13583718,Chora
 Q14601169,human fortified settlement
 Q14829592,Haufendorf
-Q15008703,Daba
+Q15008703,daba
 Q15142636,pirate haven
+Q15303838,municipality seat
+Q8254378,cabecera municipal
 Q15725677,pedanía
-Q15793693,Caserío
+Q15793693,caserío
 Q15881338,Rivierdalnederzetting
 Q15921247,constituent locality
 Q15975450,smallholding
+Q97145897,Kanalgehöft
 Q16155707,Městys
 Q16451291,Geležinkelio stoties gyvenvietė
 Q16480895,
@@ -1743,7 +1564,7 @@ Q17011863,Shaker community
 Q17050310,Vorstadt
 Q17051044,mahalle
 Q17305746,northern settlement of Saskatchewan
-Q17540983,Freilandstation
+Q17540983,Open air sites in Austria
 Q17634997,balneario
 Q18009853,stedelijk gebied
 Q18632459,ulus
@@ -1753,12 +1574,12 @@ Q19388266,Sæterbebyggelse
 Q19796166,Железинка
 Q19817970,Derevnja
 Q19903011,Jewish locality
+Q20102367,talaiotic village
 Q20541692,"settlement in Galicia
 Q20616831,flooded village
 Q20724701,city or town in Armenia
 Q22674925,former populated place
 Q74047,ghost town
-Q350895,abandoned village
 Q2974842,lost city
 Q7251867,proto-city
 Q14616455,destroyed city
@@ -1766,7 +1587,7 @@ Q20909618,sunken city
 Q15661340,ancient city
 Q148837,polis
 Q2202509,Roman city
-Q213468,Municipium
+Q213468,municipium
 Q756780,colonia
 Q763590,vicus
 Q918230,Roman villa
@@ -1774,18 +1595,24 @@ Q252021,villa rustica
 Q2525994,villa urbana
 Q782970,domus
 Q74523705,villa maritima
+Q3559137,Gallo-Roman city
 Q5871700,fundus
 Q26201757,Civitas foederata
 Q55780222,Roman colonies in Berber Africa
+Q93431946,civitas stipendiara
 Q69391739,Greek colony
+Q100268926,iberian settlement
 Q4205191,исчезнувшие населённые пункты Усть-Кутского района
 Q22674930,destroyed settlement
 Q14616455,destroyed city
+Q22674939,sunken settlement
+Q20909618,sunken city
 Q27654220,abandoned hamlet
-Q1708422,archaeological settlement site
+Q1708422,settlement site
 Q1797396,Küstenwohnplatz
 Q4443227,Stone Age settlement site
 Q49956097,paleolithic site
+Q56366312,Заскальная
 Q29959075,housepit
 Q64524328,kenttä
 Q55076205,kolttakenttä
@@ -1804,23 +1631,24 @@ Q4205199,исчезнувшие сёла Первомайского района
 Q4205201,исчезнувшие сёла Сакского района Крыма
 Q4205202,исчезнувшие сёла Симферопольского района Крыма
 Q4205204,исчезнувшие сёла Черноморского района Крыма
+Q12232785,כפר פלסטיני עקור
+Q14601169,human fortified settlement
 Q20616831,flooded village
 Q21507948,former village
 Q22674939,sunken settlement
-Q25504044,fortified settlement
-Q24258416,железнодорожная станция
+Q24258416,railway station
 Q25398029,exurb
+Q25450277,lähiöt Suomessa
 Q25504578,asundus
 Q26714626,large village
 Q27062006,станция
-Q27108230,campground
-Q12336629,Spejdercenter
-Q60456301,RV park
+Q27134986,place of destination
 Q27554677,former capital
 Q1025961,capital of Japan
 Q4442912,capital of Russia
 Q27905703,Portus
 Q28107315,quartier of Saint Barthélemy
+Q28169748,Amsar
 Q28203007,administrative sector
 Q87518090,municipal sector
 Q87542664,sector of Marseille
@@ -1841,16 +1669,26 @@ Q30892871,inhabited area
 Q453909,built-up area
 Q469510,30 km/h zone (20 mph zone)
 Q893555,borgo
+Q96034032,Zabudowa
+Q30892276,Застройка повышенной плотности
+Q96033523,историческая застройка
 Q40131033,member city of Eurotowns
 Q41108733,settlement of Andorra
 Q41501164,village of Crimea
-Q45242174,gazetted locality of Victoria
 Q56345297,город
-Q56885310,Compact rural community in Canada
+Q56885310,compact rural community
 Q58270523,Höhlenstation
 Q59501724,human settlement of Cyprus Republic
 Q60351842,Complex of Communities of Cyprus Republic
+Q60995739,moated settlement
+Q61089180,part of municipality in the Czech Republic
+Q585444,administrative district of Prague
+Q74728036,district administratif de Prague
+Q75338598,městská část Prahy
+Q75339006,district territorial de Prague
+Q56398194,core municipal part with the same name as the municipality in the Czech Republic
 Q62130005,villa de Uruguay
+Q67259991,Hinterland communities of  South East Queensland
 Q68982447,sector of Girona
 Q72025746,gateway city
 Q78053217,basic unit of settlement
@@ -1858,7 +1696,13 @@ Q79791637,fermtoun
 Q82350989,unenclosed settlement
 Q85775242,Kāinga
 Q87412232,Alsaroti Corner Building
-Q88397339,Railway point in Canada
+Q91730648,urban-type settlement in Belarus
+Q93445941,stork village
+Q95246722,Vila
+Q98437811,Fischersiedlung
+Q98446331,Zwiehof
+Q98966896,coastal settlement
+Q102104752,city of Bosnia and Herzegovina
 ### Q19610511, Township : _wdadd_ 
 Q19610511,township
 Q28111,township in the United States
@@ -1914,7 +1758,7 @@ Q55687066,local government area of Tasmania
 ### Q1906268, municipality of Bulgaria : _wdadd_ 
 Q1906268,municipality of Bulgaria
 ### Q1639634, local government area of Nigeria : _wdadd_ 
-Q1639634,Local Government area of Lagos State
+Q1639634,local government area of Nigeria
 ### Q3076994, commune of Cameroon : _wdadd_ 
 Q3076994,commune of Cameroon
 ### Q27676416, city or town - type of local municipality in Quebec (Quebec don’t make the difference between city or town) : _wdadd_ 
@@ -1922,8 +1766,9 @@ Q27676416,city or town
 ### Q783930, municipalities and cities of Serbia : _wdadd_ 
 Q783930,municipalities and cities of Serbia
 Q17166802,city municipality of Serbia
+Q3976659,subdivisions of Belgrade
 ### Q192287, administrative territorial entity of Russia : _wdadd_ 
-Q192287,administrative territorial entity of Russia
+Q192287,subdivisions of Russia
 Q43263,federal subject of Russia
 Q41162,republic of Russia
 Q183342,federal city of Russia
@@ -1998,7 +1843,7 @@ Q688718,administrative territorial entity of Quebec
 Q204613,regional county municipality
 Q3518817,equivalent territory
 Q2826814,urban agglomeration in Québec
-Q2986739,commission scolaire au Québec
+Q2986739,school board of Quebec
 Q2991484,county of Canada
 Q603715,county of New Brunswick
 Q2991491,historic county of Quebec
@@ -2015,7 +1860,7 @@ Q204613,regional county municipality
 Q81063407,local territorial organization
 Q3327873,local municipality of Quebec
 Q3558965,Cree village
-Q3559003,municipalité de village nordique
+Q3559003,northern village
 Q17290932,Cree reserved land
 Q27676414,city
 Q27676416,city or town
@@ -2046,7 +1891,8 @@ Q14763130,district of Ontario
 Q17344046,unorganized area of Ontario
 Q1850674,regional district of British Columbia
 Q2936646,township of Canada
-Q23019040,geographical township of Quebec
+Q23019040,geographic township of Quebec
+Q96759164,geographic township of Ontario
 Q2973938,electoral district of Canada
 Q5030865,provincial/territorial electoral district in Canada
 Q2973931,provincial electoral district of Quebec
@@ -2090,8 +1936,6 @@ Q56117998,municipal electoral district of Laval
 Q56118117,"municipal electoral district of London
 Q56118173,municipal electoral district of Mississauga
 Q3252517,list of communities in Newfoundland and Labrador
-Q3032041,local service district
-Q16466688,Local Service District
 Q3518810,unorganized area of Canada
 Q17344046,unorganized area of Ontario
 Q81066200,unorganized area in Quebec
@@ -2126,12 +1970,14 @@ Q3327874,rural municipality of Canada
 Q3327899,municipality of Ontario
 Q11774771,county of Nova Scotia
 Q15068900,town in Prince Edward Island
+Q20538317,village in Saskatchewan
 Q44529188,town
 Q44551483,city
 Q59341087,town in Nova Scotia
 Q60458065,city
 Q5283563,district of the Northwest Territories
 Q6664529,local services board
+Q14762205,municipal district of Alberta
 Q15618485,administrative territorial entity of Prince Edward Island
 Q3248567,county of Prince Edward Island
 Q3250999,community of Prince Edward Island
@@ -2142,6 +1988,9 @@ Q16211218,Indian settlement
 Q17202187,federal electoral district of Canada
 Q21507383,provincial or territorial capital city in Canada
 Q23953065,local urban district
+Q48834786,Local service district
+Q3032041,local service district
+Q16466688,Local Service District
 ### Q20732236, administrative territorial entity of Trinidad and Tobago : _wdadd_ 
 Q20732236,administrative territorial entity of Trinidad and Tobago
 Q1996198,regional corporation or municipality of Trinidad and Tobago
@@ -2220,7 +2069,7 @@ Q17305746,northern settlement of Saskatchewan
 ### Q3327873, local municipality of Quebec : _wdadd_ 
 Q3327873,local municipality of Quebec
 Q3558965,Cree village
-Q3559003,municipalité de village nordique
+Q3559003,northern village
 Q17290932,Cree reserved land
 Q27676414,city
 Q27676416,city or town
@@ -2231,10 +2080,11 @@ Q27676428,municipality
 Q27676431,naskapi village municipality
 Q27676524,parish municipality
 Q27824520,Inuit reserved land
+Q29386689,terres réservées aux Naskapis
 ### Q5532181, General Service Area : _wdadd_ 
 Q5532181,General Service Area
 ### Q2679157, commune of Ivory Coast : _wdadd_ 
-Q2679157,commune of Ivory Coast
+Q2679157,Architecte  in Ivory coast
 ### Q5172823, corregimiento of Colombia : _wdadd_ 
 Q5172823,corregimiento of Colombia
 ### Q2997887, corregimiento departamental of Colombia : _wdadd_ 
@@ -2250,12 +2100,14 @@ Q16739079,municipalities of Cyprus Republic
 Q2602693,municipality of Honduras
 ### Q2225692, fourth level administrative division in Indonesia : _wdadd_ 
 Q2225692,fourth-level administrative division in Indonesia
+Q882149,nagari
 Q4285979,gampong
 Q12488911,kampung
 Q12488913,kampung of Papua
 Q19944049,pekon
 Q23308490,dusun
 Q26211545,desa
+Q97202782,negeri
 ### Q965568, kelurahan , type of village or group of villages in Indonesia : _wdadd_ 
 Q965568,kelurahan
 ### Q2151232, townland : _wdadd_ 

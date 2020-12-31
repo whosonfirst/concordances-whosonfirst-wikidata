@@ -25,17 +25,18 @@ Q4343720,garden art
 Q7138175,park system
 Q18284446,Bindaż
 Q89423003,paisagismo brasileiro
+Q96338860,garden style
+Q21272567,Barocchetto
 Q95747,Alpine Rhine Valley
 Q101998,biome
 Q4421,forest
 Q69564,taiga
 Q61749110,Western Taiga
 Q112872,Lund Forest
-Q112876,heath forest
+Q112876,pine barrens
 Q166735,swamp
 Q2474940,flow through marsh
 Q2653463,flood marsh
-Q3199193,String bog
 Q5200372,Cypress dome
 Q7809986,Titi swamp
 Q28129994,mangrove swamp
@@ -47,7 +48,7 @@ Q612741,United States National Forest
 Q788099,Laurel forest
 Q61750125,Macaronesian laurel forests
 Q820419,Bosque de montaña
-Q884791,Blockschuttwald
+Q884791,Ravine forest
 Q910817,carr
 Q2092855,mesotrophic regularly flooded alder carr and birch wooded mires
 Q1470551,Éger- és kőrislápok
@@ -56,8 +57,11 @@ Q61749170,Fennoscandian deciduous swamp woods
 Q911190,Gallery forest
 Q61750090,Salix alba and Populus alba galleries
 Q61750092,"Riparian formations on intermittent Mediterranean water courses with Rhododendron ponticum
+Q1024867,evergreen forest
+Q3333016,mélézin
+Q3376274,pessière
 Q1048194,tropical forest
-Q199403,tropical forest
+Q27961608,forêt claire
 Q1182952,dehesa
 Q61748219,Dehesas with evergreen Quercus spp.
 Q68717218,Don Tello
@@ -66,7 +70,7 @@ Q1205478,German Forest
 Q1211122,deciduous forest
 Q1556311,temperate deciduous forest
 Q61749210,beech forest
-Q1431724,Red Beech forest
+Q1431724,European Beech forest
 Q11988030,Vápnomilná bučina
 Q12020320,Horská klenová bučina
 Q47035560,květnatá bučina
@@ -84,10 +88,11 @@ Q61750025,Apeninne beech forests with Taxus and Ilex
 Q61750035,Apennine beech forests with Abies alba and beech forests with Abies nebrodensis
 Q61750071,Hellenic beech forests with Abies borisii-regis
 Q61749364,oak forest
-Q1044760,Eichen-Hainbuchen-Wälder
+Q1044760,Dubohabřina
 Q1029465,Gyertyános–kocsánytalan tölgyes
 Q1096526,Illír jellegű gyertyános-tölgyes
 Q9282435,Galio-Carpinetum oak-hornbeam forests
+Q9282437,Eiken-haagbeukenbos
 Q61749319,Sub-Atlantic and medio-European oak or oak-hornbeam forests of the Carpinion betuli
 Q61749534,Erythronio-Carpinion
 Q61749359,Old acidophilous oak woods with Quercus robur on sandy plains
@@ -97,9 +102,11 @@ Q61750050,Quercus faginea and Quercus canariensis Iberian woods
 Q61750057,Quercus trojana woods
 Q61750065,Castanea sativa woods
 Q84847521,Hainbuchenwald
-Q1044760,Eichen-Hainbuchen-Wälder
+Q1044760,Dubohabřina
 Q84848619,Birkenwald
 Q1241755,Pusztai tölgyes
+Q1246059,Dornwald
+Q375816,Caatinga
 Q1363454,wood pasture
 Q1444595,Forests of Sweden
 Q1476287,Igapó
@@ -113,6 +120,7 @@ Q2608223,Kroezeboom
 Q2859800,nail tree
 Q1825319,Liman irrigation system
 Q6379349,Kavu
+Q11599236,bamboo grove
 Q25586878,Sacred groves of India
 Q29324828,Antarctic Beech at Comboyne
 Q1518409,Krummholz
@@ -125,8 +133,10 @@ Q61750187,High oro-Mediterranean pine forests
 Q1949342,spaartelgenbos
 Q1975546,royal forest
 Q2140056,secondary forest
-Q2165209,vredesbos
+Q2165209,foresta della pace
 Q2324919,state forest
+Q56980410,bosco statale francese
+Q57829585,Bosc Estatal de Tres Estelles
 Q2337961,slope forest
 Q2481825,Smulbos
 Q2570395,Wildbannforst
@@ -136,7 +146,7 @@ Q2720672,productiebos
 Q238804,high forest
 Q1940455,Coppice with standards
 Q2843044,tree farm
-Q2871774,aulnaie
+Q2871774,alder stand
 Q2921688,boulaie
 Q2929012,Buxus forests
 Q2972109,oakwood
@@ -161,7 +171,7 @@ Q127314,Coniferous swamp
 Q845725,Temperate rainforest
 Q1556311,temperate deciduous forest
 Q5732445,Bosque Andino Patagónico
-Q3090462,frênaie
+Q3090462,ashwood
 Q3126543,hammock
 Q3200823,klimaatbos
 Q3333016,mélézin
@@ -175,10 +185,12 @@ Q4258491,Inscription from trees
 Q4410446,light coniferous forest
 Q4410701,Forst
 Q4929169,Blue Gum High Forest
+Q4930213,Bluebell woods
 Q5250857,Deer forest
 Q5421159,experimental forest
-Q5732549,Forests of Europe
+Q5732549,forests of Europe
 Q15630273,forests of Finland
+Q5844026,Eiken-beukenbos met wilde hyacint
 Q6536864,holm oak forest
 Q6550356,spruce stand
 Q23708584,Рамень
@@ -197,6 +209,7 @@ Q9200005,Feldgehölz
 Q10431698,blåbärsgranskog
 Q10509765,border forest
 Q10549503,kronopark
+Q10982631,Sabinar
 Q11465701,屋敷林
 Q11743218,Continental fresh pine forest
 Q11879229,Uzavřený les
@@ -204,9 +217,9 @@ Q11946562,Vysokokmenný les
 Q12033032,sdružený les
 Q12033034,Les zvláštního určení
 Q12043235,Otevřený les
+Q12162478,Тропічні гірські ліси
 Q12339388,"Tilio-Acerion forests of slopes
 Q12372001,forest park
-Q13397615,smrčina
 Q13561020,spruce-fir forests
 Q15900779,Bannwald
 Q16237489,coniferous forest
@@ -222,31 +235,49 @@ Q7315273,forest reserve
 Q17057172,Лесной массив
 Q28070703,Лесная дача (территория)
 Q18397999,Bosque de frondosas
+Q21313788,Forest in Germany
 Q23059155,forest ecosystems in Latvia
 Q24194884,national forest of Brazil
 Q28172058,Droogbos
 Q28846508,bor
 Q29529886,municipal forest
+Q30114673,remízek
 Q30673884,Ghost forest
 Q53360278,Charmaie
-Q56980410,bosc estatal
-Q57829585,Bosc Estatal de Tres Estelles
-Q59296236,Bosc Comunal de Baixàs
-Q59296535,Bosc Comunal d'Espirà de l'Aglí
-Q59496293,Bosc Comunal de Matamala
+Q56371524,Діброва
+Q56980410,bosco statale francese
 Q63316629,manigua
 Q64148071,classified forest
-Q64741425,sabinar
 Q66659678,松原
 Q67625239,Sclerophyll forests
 Q66317293,Dry sclerophyll forests
 Q67625211,Wet sclerophyll forests
+Q92272084,parco forestale
+Q93734705,moist forest
+Q9444,rainforest
+Q199403,tropical forest
+Q7845816,tropical rainforest of India
+Q287852,Valdivian temperate rain forest
+Q9358804,Tique
+Q845725,Temperate rainforest
+Q1429540,Araucaria moist forests
+Q1940784,Freshwater swamp forest
+Q11177275,riparian forest
+Q1311024,tugay
+Q1587173,Bottomland hardwood forest
+Q61749484,Ulmenion minoris
+Q61606952,Riverine ash-alder woodland
+Q11754121,Lenga
+Q23582968,Seasonal tropical forest
+Q10327255,Mata seca
+Q96280248,Miyawaki forest
+Q99534252,tree beeking location
 Q19756,mangrove
 Q43262,tundra
 Q2149452,mountain tundra
-Q2492828,Waldtundra
-Q12860009,alpine tundra
 Q427038,Páramo
+Q1885183,Maiensäss
+Q2492828,Waldtundra
 Q34199430,Arctic tundra
 Q34199566,Antarctic tundra
 Q1006733,grassland
@@ -267,17 +298,26 @@ Q2082774,shieling
 Q2662247,deer park
 Q12043923,pasínek
 Q12798874,planina
+Q360593,flower meadow
 Q820045,Bergmähder
 Q1295412,Flood-meadow
 Q1434422,Flutrasen
 Q1413420,water-meadow
 Q3538336,treixe
-Q12337432,Strandwiese
+Q10728660,Översilningsäng
+Q12337432,Beach meadows
 Q17072722,Coastal meadow
 Q20106372,closa
 Q27061966,wildflower meadow
+Q90916980,Dammäng
+Q93760162,Siläng
 Q11410074,原野
-Q66758128,"Lowland hay meadows (Alopecurus pratensis
+Q61748256,Lowland hay meadow
+Q97009784,Plas-dras
+Q1246059,Dornwald
+Q1330402,microbiome
+Q24975941,mycobiome
+Q104117519,urinary microbiome
 Q2083910,vegetation zone
 Q4421,forest
 Q1006733,grassland
@@ -291,12 +331,15 @@ Q5255177,demersal zone
 Q170321,wetland
 Q30198,marsh
 Q31455,freshwater marsh
+Q3199193,String bog
 Q4953717,brackish marsh
 Q5598492,grazing marsh
+Q11888791,Pounu
+Q12828955,Odoq
 Q20106372,closa
 Q62562206,tidal marsh
 Q29925,salt marsh
-Q68487771,Meers
+Q68487771,meers
 Q166735,swamp
 Q688784,pocosin
 Q910817,carr
@@ -305,14 +348,14 @@ Q72178,Tallmyr
 Q514050,fen
 Q127314,Coniferous swamp
 Q688784,pocosin
-Q3696707,Cratoneurion
+Q3696707,cratoneurion
 Q14405085,rich fen
 Q61748363,Fennoscandian mineral-rich springs and springfens
 Q61748371,Kalkreiche Niedermoore mit Cladium mariscus und Arten von Caricion davallianae
 Q61748391,Alkaline fen
 Q61748401,Alpine pioneer formations of the Caricion bicoloris-atrofuscae
 Q66764728,Calcareous fens with Cladium mariscus and species of the Caricion davallianae
-Q844114,Opfermoor
+Q844114,sacrificial bog
 Q1250939,Dose
 Q1294726,floating mat
 Q1632562,Kondenswassermoor
@@ -326,7 +369,7 @@ Q7553432,sods
 Q10430947,blandmyr
 Q10431214,blekeområde
 Q11879994,Lähteikkö
-Q13359600,raised bog
+Q13127620,raised bog
 Q12300827,aktiv højmose
 Q12335783,Skovbevokset tørvemose
 Q61748280,Active raised bog
@@ -337,7 +380,7 @@ Q60102117,Kesselmoor
 Q61748349,Depressions on peat substrates of the Rhynchosporion
 Q61748421,Aapa mire
 Q61748425,Palsa mire
-Q3240227,湿原
+Q3240227,moor
 Q3515225,tanne
 Q3575234,Marjal
 Q6046150,interdunal wetland
@@ -345,10 +388,6 @@ Q7541461,slough
 Q9311910,Rojst
 Q10671833,floodplain lake
 Q11177275,riparian forest
-Q1311024,tugay
-Q1587173,Bottomland hardwood forest
-Q61749484,Ulmenion minoris
-Q61606952,Riverine ash-alder woodland
 Q11786447,Mszar
 Q16523447,Turjánvidék
 Q17249182,bažina
@@ -361,13 +400,19 @@ Q55463449,intermittent wetland
 Q61298831,Important Wetlands in Australia
 Q62562206,tidal marsh
 Q64502858,bonal
+Q68145761,Sutte
 Q75304241,coastal wetland
+Q100252623,pakihi
 Q184358,reef
 Q11292,coral reef
 Q2920849,low island
 Q985843,artificial reef
 Q20796686,artificial coral reef
+Q104432381,Electric reef
+Q4078911,barrier reef
 Q7578997,sponge reef
+Q16324601,stone reef
+Q25220868,oyster reef
 Q26271645,Klippe
 Q34198935,submerged rock
 Q205895,landmass
@@ -380,22 +425,23 @@ Q23442,island
 Q13691,artificial island
 Q91759,crannog
 Q1870237,Arbeitsinsel
+Q96316262,cattle mound
 Q21161,halligen
 Q202199,inland island
 Q162602,river island
-Q361950,Point bar
-Q2704612,Ait
+Q361950,point bar
+Q2704612,ait
 Q863974,lake island
 Q207524,islet
 Q216851,skerry
 Q239687,continental island
-Q503481,cay
 Q555937,tidal island
 Q1065592,desert island
 Q1161185,high island
 Q1205140,barrier island
 Q1209831,floating island
 Q750176,Chinampa
+Q100256633,peat island
 Q1226252,tied island
 Q1271762,Düneninsel
 Q1324426,coral island
@@ -403,35 +449,37 @@ Q503481,cay
 Q7285116,raised coral atoll
 Q1422391,Island resort
 Q1471571,Island castle
+Q1498174,prison island
 Q1737143,Kaupe
 Q1973360,Nebeninsel
 Q2920849,low island
 Q2984210,privately owned island
-Q5459920,Floating island
 Q9433297,冲积岛
 Q10546851,kobbe
 Q10549487,Kronoholme islands
 Q10769552,motu
+Q11926523,Illa maritimofluvial
 Q14210504,Central Line Islands
 Q16853632,Isole di Magadino
 Q17308006,island of Japan
 Q21082949,Illes dàlmates
-Q29968027,majakkasaari
+Q29968027,lighthouse island
 Q29968665,fortress island
 Q41791782,island of Portugal
 Q52103661,former island
 Q64521891,burial island
 Q75603289,leeward island
 Q75603550,windward island
+Q96631994,Indian Ocean islands
 Q33837,archipelago
 Q1515058,island arc
 Q13137873,skerry coast
 Q87195487,lake archipelago
 Q34763,peninsula
 Q191992,headland
-Q185113,cape
-Q3925637,punta
 Q2362867,presque-isle
+Q20656617,Odde
+Q21817244,Øre
 Q42523,atoll
 Q15629617,unorganized atoll of American Samoa
 Q224090,quicksand
@@ -446,11 +494,20 @@ Q829799,Beserlpark
 Q2026833,garden square
 Q3895619,Local park of supra-communal interest
 Q6972919,National Government Parks
+Q7303070,Recreational Demonstration Area
 Q10594812,national city park
 Q10620445,parker i Stockholm
+Q11429117,Boen
+Q11660700,reien
+Q11665557,scenic park
 Q11796782,Ogród jordanowski
 Q11819427,Planty (botanika)
 Q26810467,national urban park
+Q48841304,Park zdrojowy
+Q98404987,Primera Sección del Bosque de Chapultepec
+Q98458336,Segunda Sección del Bosque de Chapultepec
+Q98458859,Tercera Sección del Bosque de Chapultepec
+Q103820224,park gminny
 Q38516,dog park
 Q46169,national park
 Q167946,national park of Brazil
@@ -466,14 +523,14 @@ Q936738,national park of Vietnam
 Q940368,national park of Norway
 Q943017,national park of France
 Q1071482,national park of Japan
+Q6979639,National parks in Hokkaido
 Q1095271,national park of Hungary
 Q1216731,Protected areas of Hungary
 Q1296040,national parks in Ukraine
 Q1316973,national park of Spain
 Q1317754,national park of Poland
 Q1364273,national park of South Africa
-Q1408593,national park of Zambia
-Q1510355,national park of Italy
+Q1510355,list of national parks of Italy
 Q1565555,national park of Montenegro
 Q1585158,national park of Denmark
 Q1612885,national park of Panama
@@ -482,7 +539,7 @@ Q1754255,list of national parks of Madagascar
 Q20489083,national park of Madagascar
 Q20489120,strict nature reserve of Madagascar
 Q20489225,special reserve of Madagascar
-Q1790016,National park of Colombia
+Q1790016,national park of Colombia
 Q1847460,national park of Paraguay
 Q1896949,National Park of Canada
 Q26810467,national urban park
@@ -500,12 +557,11 @@ Q6630198,national park of El Salvador
 Q6630200,national park of Gabon
 Q6630207,national park of Seychelles
 Q6630208,national park of Uruguay
-Q6630211,list of national scenic areas in Taiwan
 Q6974775,national park of Argentina
 Q6979643,national park of Rwanda
 Q10594812,national city park
 Q11811686,national parks of Europe
-Q11811687,National parks of Asia
+Q11811687,national parks of Asia
 Q11876497,national park of Latvia
 Q12005215,national park of Tanzania
 Q13058865,national park of Bangladesh
@@ -514,6 +570,7 @@ Q14215551,national park of Finland
 Q16150156,national park of Somalia
 Q16166846,아시아의 국립공원
 Q18349163,national park of Mauritius
+Q18618819,national park of Australia
 Q18618822,national park of Iran
 Q18618832,national park of Uganda
 Q18618841,national park of Senegal
@@ -522,8 +579,9 @@ Q20488347,national park of Peru
 Q20488952,national park of the People's Republic of China
 Q20537078,national park of Croatia
 Q21815132,Nationalpark
-Q34918903,national park of the United States
+Q34918903,National Park of the United States
 Q56809587,National Park of Mexico
+Q95080679,national park of Thailand
 Q350723,country park
 Q2031250,ferme ornée
 Q5502281,French landscape garden
@@ -538,10 +596,11 @@ Q303439,Legoland Discovery Centre
 Q1149964,regional park of Germany
 Q1185274,marine park
 Q1197552,urban forest
-Q1330941,Royal Parks of London
+Q1330941,Royal Park of London
 Q1470855,pocket park
 Q1488045,Metropolitan Park System of Greater Boston
 Q1711697,wildlife park
+Q65240439,Lionsrock
 Q1759852,sculpture garden
 Q1793170,spa park
 Q1939700,rope course
@@ -549,8 +608,11 @@ Q2244647,castle park
 Q2489136,procession park
 Q2509443,bolwerkplantsoen
 Q2662247,deer park
+Q3363945,archaeological park
+Q11665453,Fudoki no Oka
 Q3364370,floral park
 Q3639892,bike park
+Q3845395,jardín público
 Q6063204,regional park
 Q5177940,county park
 Q79979740,regional park
@@ -559,22 +621,27 @@ Q6553474,linear park
 Q6988047,neighborhood  park
 Q7138594,Parklands adjoining the Yarra River
 Q7138600,parklet
+Q7138676,parks in Chennai
+Q7339681,roadside park
 Q7900150,urban prairie
 Q8564897,Fossil park
 Q9056048,parque periurbano
 Q10926872,National Garden
 Q11546861,歴史公園
-Q11637995,農業公園
+Q11559043,seaside park
+Q11637995,agricultural park
+Q11660666,震災復興公園
 Q12327290,memorial park
 Q12372001,forest park
 Q15077303,landscape garden
+Q7837534,tree avenue
 Q15895348,Somdet Phra Srinagarindra Parks
 Q15982170,leisure park
 Q3540243,trolley park
 Q16363669,sports park
-Q16587115,literay park
+Q16587115,literary park
 Q16929633,folkpark
-Q26789397,Listed parks and gardens in the United Kingdom
+Q21164403,Safari Park
 Q30326995,elevated park
 Q47167727,protected park
 Q54969670,manor park
@@ -583,15 +650,49 @@ Q56312706,recreation park
 Q57502475,topiary park
 Q61766605,parco suburbano
 Q65267595,御苑
+Q95977092,Tokyo metropolitan park
+Q96120838,parque ecológico
+Q98411615,Kępa Park in Sosnowiec
+Q102115779,Village Where You Can Meet Statues
+Q43501,zoo
+Q459886,petting zoo
+Q642682,safari park
+Q1401536,menagerie
+Q2548054,travelling menagerie
+Q1509615,geozoo
+Q1711697,wildlife park
+Q1886911,butterfly house
+Q1995305,bird park
+Q2351333,serpentarium
+Q3363934,zoological park
+Q4179884,Живой уголок
+Q9251669,exotarium
 Q57743,village green
 Q2230894,Frankische Driehoek
+Q167346,botanical garden
+Q272231,arboretum
+Q2048197,palmetum
+Q2724151,Pineta
+Q1429180,alpine garden
+Q3162438,jardín de aclimatación
+Q3555847,Verger conservatoire
+Q4179884,Живой уголок
+Q5016189,cactus garden
+Q6753404,Man'yō botanical garden
+Q7189541,Physic garden
+Q7839970,trial garden
+Q9251669,exotarium
+Q55670434,dendrological park or botanical garden in Russia
 Q1107656,garden
 Q12774,French formal garden
 Q12781,Giardino all'italiana
 Q12783,English garden
 Q15835,Japanese garden
 Q244226,Japanese rock garden
-Q11420231,Japanischer Wandelgarten
+Q402729,roji
+Q11420231,Japanese strolling garden
+Q11433351,daimyo garden
+Q11556819,Pure Land garden
 Q22746,urban park
 Q47692,Chinese garden
 Q48741,green roof
@@ -600,9 +701,7 @@ Q143970,market garden
 Q15873419,bollenteelt
 Q14252402,flower bulb cultivation in the Netherlands
 Q15873432,tree cultivation
-Q155511,plant nursery
-Q12372955,tree nursery
-Q28541343,forest tree nursery
+Q17132251,vegetable garden
 Q199098,ornamental garden
 Q1429180,alpine garden
 Q18193600,pravidelná zahrada
@@ -612,11 +711,13 @@ Q5154963,Community gardens in New Orleans
 Q16972862,Community gardens in Nebraska
 Q64011396,Community gardens in New York City
 Q291177,rose garden
+Q7368025,rose trial grounds
 Q384213,historic garden
 Q14946335,Jardín histórico
 Q60496446,historisk trädgård
 Q61607599,Jardin historique
 Q624114,kitchen garden
+Q155180,seedbed
 Q23644351,бахча
 Q735035,wildlife garden
 Q811252,cottage garden
@@ -625,13 +726,17 @@ Q3162535,jardin des Cinq sens
 Q894436,bosquet
 Q1067316,parterre
 Q1141231,rockery
+Q244226,Japanese rock garden
 Q1156696,roof garden
+Q1400737,game garden
+Q1460124,Roman gardens
 Q1481677,pleasure garden
 Q1630273,hortus conclusus
 Q1759852,sculpture garden
 Q1776417,monastic garden
 Q65180352,Wirydarz
 Q1827414,tea garden
+Q402729,roji
 Q1907509,castle garden
 Q2026833,garden square
 Q2244647,castle park
@@ -658,20 +763,21 @@ Q7189541,Physic garden
 Q4839253,back garden
 Q4841686,Bagh
 Q4843069,Bahá'í gardens
+Q5522478,gardens in India
 Q5926735,fragrant garden
 Q6431982,Korean garden
 Q6629955,forest garden
+Q6781031,Mary garden
 Q7186190,philosophical garden
 Q7397337,sacred garden
 Q7460277,shade garden
 Q7963015,walled garden
 Q8054653,allotment
 Q7116902,P-Patch
-Q55280602,allotment plot
-Q8564039,flowerbed
-Q3067433,floral clock
-Q9373842,flower tower
+Q11901469,allotment plot
+Q16596884,Allotments in Poland
 Q9182675,perennial garden
+Q10296456,御苑
 Q12005335,heather garden
 Q12021833,iridarium
 Q13406558,hedge maze
@@ -687,7 +793,7 @@ Q21573190,Jardin seco de Karensui
 Q25382555,therapeutic garden
 Q26878911,Formal garden
 Q2458241,Charbagh
-Q27613537,jardin du souvenir
+Q27613537,Jardins du souvenir
 Q28533347,forest garden
 Q30587693,winter garden
 Q30916128,ephemeral garden
@@ -701,45 +807,55 @@ Q5153959,communal garden
 Q65267595,御苑
 Q66310308,show garden
 Q167346,botanical garden
-Q272231,arboretum
-Q2048197,palmetum
-Q2833765,aurantium
-Q1429180,alpine garden
-Q3162438,jardín de aclimatación
-Q3555847,Verger conservatoire
-Q4179884,Живой уголок
-Q5016189,cactus garden
-Q7189541,Physic garden
-Q7839970,trial garden
-Q55670434,dendrological park or botanical garden in Russia
 Q66310313,museum garden
 Q75666726,royal garden
 Q84343482,memorial garden
+Q96338860,garden style
+Q98094492,Terrassengarten
+Q98141338,Gartentor
+Q98141495,Obstgarten
+Q98141531,Pfarrgarten
+Q98445735,Gartentempel
+Q98445792,Gartenvilla
 Q2662247,deer park
 Q2673934,median strip
+Q6858851,Millennium Green
+Q11480582,市民の森
+Q11542975,横浜市の市民の森
+Q11582670,県民の森
 Q12053053,artificial waterfall
 Q28937010,Geschützte Grünanlage
 Q1140140,mainland
+Q3276230,lost land
+Q2284298,paleocontinent
 Q4863385,barren vegetation
 Q25051759,Marginal land
 Q28550993,reclaimed land
 Q13691,artificial island
 Q61055947,laje
+Q96105441,drifting sand
+Q97235040,Manner
 Q222912,rolling country
 Q396118,landscape of agriculture
 Q448331,alvar
 Q571398,Antarctic oasis
-Q666258,Platform
+Q666258,platform
+Q191110,craton
+Q13405634,Orogen
 Q1061151,massif
+Q514999,alpine subgroup
+Q3777462,alpine group
 Q1107656,garden
 Q1129474,cultural landscape
 Q574377,Anthropogene Landschaft
 Q5193226,Cultural Landscapes of Japan
 Q64576748,Important Cultural Landscape Sites
+Q16587115,literary park
 Q20920354,Perinnemaisema
 Q29968390,landscape of religious buildings
 Q29969011,urban landscape
 Q29969141,industrial landscape
+Q90821394,activity area
 Q1217547,Peraia
 Q1245089,promontory
 Q191992,headland
@@ -747,6 +863,42 @@ Q12005172,tange
 Q24529780,point
 Q1286517,natural landscape
 Q179049,nature reserve
+Q23790,natural monument
+Q372363,geotope
+Q1564767,National Geotope
+Q1709247,blockfield
+Q2963896,Chirat
+Q70203198,geological monument in South Limburg
+Q626051,Natural Monument of South Korea
+Q1968322,Nationales Naturmonument
+Q2179685,Geological monument
+Q21931673,geological monument of nature in Belarus
+Q21931651,geological monument of national importance in Belarus
+Q2463242,Beschermd Natuurmonument
+Q11789735,National natural monuments in the Czech Republic
+Q14912864,natural monument in Upper Austria
+Q15732268,Natural monument in Slovakia
+Q16101984,natural monument in Tyrol (state)
+Q17269995,natural monument of Belarus
+Q21711049,Помнікі прыроды мясцовага значэння Гродзенскай вобласці
+Q21931655,natural monument of national importance in Belarus
+Q21931651,geological monument of national importance in Belarus
+Q21931673,geological monument of nature in Belarus
+Q20071150,botanical natural monument
+Q21074553,Батанічныя помнікі прыроды Беларусі
+Q20556886,אנדרטאות טבעיות במקדוניה הצפונית
+Q21100463,natural monument in the Czech Republic
+Q21573182,Naturdenkmal in Germany
+Q24255438,Hydrological natural heritage site
+Q25499506,individual protected natural object
+Q26939879,Monumento natural de España
+Q27608973,natural monument of Russia
+Q28055299,Natural monument in Latvia
+Q29549240,protected Latvian geological and geomorphological natural monument
+Q29549296,Protected dendrological plantation in Latvia
+Q29549303,Latvian protected alley
+Q29549308,Latvian protected tree
+Q96207459,Special Natural Monument
 Q295404,Ecopark
 Q544008,strict nature reserve
 Q7623619,Strict nature reserves of Finland
@@ -755,7 +907,7 @@ Q1377575,wildlife refuge
 Q1367500,marine protected area
 Q1701122,United States National Marine Sanctuary
 Q2616170,marine reserve
-Q30674761,Australian Marine Parks
+Q30674761,Australian marine park
 Q7565304,South-east Marine Parks Network
 Q55353249,Temperate East Marine Parks Network
 Q55364400,South-west Marine Parks Network
@@ -764,15 +916,17 @@ Q55546569,North Marine Parks Network
 Q56602669,Oregon marine reserve
 Q63354623,Marine Protected Area (OSPAR)
 Q3575871,marine protected area
-Q4315021,National Marine Conservation Area
+Q4315021,national marine conservation area
 Q6158975,National Estuarine Research Reserve
 Q28942323,aquatic reserve of South Australia
 Q76164741,marine management area
+Q103725443,marine nature reserve
 Q1410668,National Wildlife Refuge
 Q3046480,Easement refuge
 Q19311633,Wildschutzgebiet
 Q23905068,wildlife refuge of Brazil
 Q76163442,wildlife refuge
+Q93872398,Wildruhegebiet
 Q2415574,Vlaams natuurreservaat
 Q3457217,state forest reserve
 Q3457526,local nature reserve
@@ -792,19 +946,21 @@ Q79867180,ecological reserve of Manitoba
 Q6980934,Nature Reserves in Nailsea
 Q8545897,national nature reserve in the Czech Republic
 Q9309832,nature reserve in Poland
-Q10395987,environmental protection area in Brazil
+Q10395987,Environmental Protection Area in Brazil
+Q10395989,Area of Significant Ecological Interest
 Q11961076,Biotopvernområde
 Q13470232,nature reserve in Belarus
 Q16361793,nature reserve in Latvia
-Q16761700,nature center
-Q61461367,Audubon center
+Q17035023,Site of Biological Importance
 Q18379650,national nature reserve
 Q6974560,National Nature Reserve
 Q6974552,National Nature Reserve
+Q20108601,Paraje Natural de Interés Nacional
 Q21101734,nature reserve in the Czech Republic
 Q23073760,nature reserve (Australia)
 Q25206768,ecological reserve of Brazil
 Q28942368,nature reserve of New South Wales
+Q40887583,Protected area mosaic
 Q45754521,nature reserve
 Q48078443,italian regional park
 Q48694540,Reserva Natural (Spain)
@@ -815,10 +971,15 @@ Q61267721,reserva natural a Baden-Württemberg
 Q61766605,parco suburbano
 Q63372785,integral natural reserve
 Q63372803,partial nature reserve
-Q80797879,Nature reserve
+Q80797879,protected zones of national interest
 Q87207320,subarea of a nature reserve
+Q94982663,Naturschutzgebiet aus mehreren Naturschutzgebieten
+Q96212000,Reserva Extrativista Marinha
+Q103725443,marine nature reserve
 Q213926,sea ice
 Q576515,fast ice
+Q46966,ice shelf
+Q2406037,ice tongue
 Q1319638,grease ice
 Q13398859,pack ice
 Q612741,United States National Forest
@@ -847,8 +1008,10 @@ Q3116860,Nationaal Landschap
 Q3418933,Ribbon farm
 Q4067616,Krajobraz antropogeniczny
 Q12076660,agrolandscape
+Q4090948,Болотный микроландшафт
 Q4792560,energielandschap
 Q5394619,idyll
+Q7338349,riverscape
 Q11086396,New Eight Views of Japan
 Q11816481,pieczara
 Q11878275,velehornatina
@@ -863,3 +1026,4 @@ Q64537438,coastal margin
 Q65591957,Broek (landschap)
 Q66087614,ankerplaats
 Q84179699,landscape park
+Q100864286,Mälarlandskapen

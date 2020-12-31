@@ -5,14 +5,23 @@ Q133156,colony
 Q175358,Swedish overseas colonies
 Q179023,French colonial empire
 Q179997,Thirteen Colonies
+Q200464,Portuguese Empire
 Q302132,Danish colonial empire
 Q303598,Austrian colonies
 Q575878,Scottish colonization of the Americas
+Q617219,English overseas possession
+Q6841282,Middle Colonies
+Q7007213,New England Colonies
+Q7569779,Southern Colonies
+Q756780,colonia
 Q815524,Belgian colonial empire
 Q926295,Italian Empire
 Q983678,Russian imperialism
 Q1094394,Colonies in antiquity
 Q1140316,penal colony
+Q1351282,crown colony of the British Empire
+Q6841282,Middle Colonies
+Q7569779,Southern Colonies
 Q1782789,Stato da Màr
 Q2153453,Italian North Africa
 Q2178898,British colonial empire
@@ -23,6 +32,8 @@ Q7448101,self-governing colony of the British Empire
 Q16148626,dominion of Sweden
 Q54913594,núcleo colonial
 Q69391739,Greek colony
+Q618846,apoikia
+Q655593,emporia
 Q164142,protectorate
 Q426759,League of Nations mandate
 Q21479969,British protectorate
@@ -30,9 +41,10 @@ Q185086,Crown dependency
 Q223832,dominion of the British Empire
 Q462778,insular area
 Q609591,Commonwealth
-Q719487,overseas collectivity
+Q719487,French overseas collectivity
 Q3078827,overseas country of France
 Q734818,condominium
+Q351532,Gemeine Herrschaft
 Q2039547,pareatges
 Q2051473,Paréage
 Q783733,unincorporated territory
@@ -41,15 +53,14 @@ Q1685108,Baltic governorates
 Q2577883,occupied territory
 Q190967,Crusader states
 Q543813,Reichskommissariat
-Q575187,Israel
+Q575187,Israeli-occupied territories
 Q582706,Israeli settlement
 Q2908791,Israeli outpost
 Q1351282,crown colony of the British Empire
-Q6841282,Middle Colonies
-Q7007213,New England Colonies
-Q7569779,Southern Colonies
 Q2748708,German military administration in occupied France during World War II
 Q8731159,occupation zone
+Q2570590,Italian occupation of France during World War II
+Q12404888,ruling block
 Q20724849,general governorate of Nazi Germany
 Q5260616,dependency of Norway
 Q15379753,British Dependent Territory
@@ -67,6 +78,7 @@ Q48834899,special administrative region
 Q779415,special administrative region of China
 Q7574781,special administrative region of the Republic of China
 Q89719188,dependent territory of New Zealand
+Q90696277,European colonies in Africa
 Q1192403, Concession , _wdtcopy_ 
 Q2533461, autonomous administrative territorial entity , _wdtcopy_ 
 Q1048835, political territorial entity  , _wdtcopy_ 

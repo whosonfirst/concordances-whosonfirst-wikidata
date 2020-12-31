@@ -9,6 +9,7 @@ Q6190055,Jewish ghetto in German-occupied Poland
 Q51573395,Гетто в Долгиново (Вилейский район)
 Q51588808,Гетто в Илье (Минская область)
 Q2917049,Jewish ghetto in Europe
+Q16520910,yellow-star house
 Q163301,Ortsbezirk of Germany
 Q180928,Paris districts
 Q201759,slum
@@ -35,18 +36,24 @@ Q61298024,"neighborhood in Queens
 Q61298104,"neighborhood in Bronx
 Q61298209,"neighborhood in Staten Island
 Q61298320,"neighborhood in Brooklyn
+Q401315,Sestiere
+Q1487089,Sestieri de Génova
+Q3480608,Sestiere of Rapallo
+Q3480610,Sestiere di Milano
 Q449111,subdivision
 Q2632264,rationele verkaveling
 Q490329,dong
+Q584571,Kiez
+Q604435,microdistrict
 Q627253,working class quarter
 Q652541,poblacion
 Q674950,residential area
 Q2801464,woonschool
 Q3558972,airpark
-Q5215430,Danchi
+Q5215430,danchi
 Q5916199,housing development
 Q826553,Falowiec
-Q2140144,Tract housing
+Q2140144,tract housing
 Q7315416,residence park
 Q10715540,Residential Zone
 Q11503991,新興住宅地
@@ -59,26 +66,32 @@ Q1074523,planned community
 Q1656724,ideal city
 Q1762524,planned community in France
 Q6888356,model village
-Q15840617,Planned Capital
-Q16014774,대한민국의 계획도시
+Q15840617,planned capital city
+Q16014774,大韓民国の計画都市
 Q41560536,Innovation City
 Q41560536,Innovation City
 Q56152103,Greenbelt town
+Q65241205,ニュータウン
 Q2373919,intentional community
 Q161387,kibbutz
 Q1567101,Hakhshara
+Q2888533,Gesher HaZiv
+Q7886462,Moshav shitufi
+Q7900128,Urban kibbutz
 Q16132253,גן הנוף הקיבוצי
 Q295472,ecovillage
 Q517760,commune
 Q992194,Hutterite colony
+Q1296717,Egalitarian community
 Q4693952,Agricultural commune
 Q4797182,art commune
 Q917146,moshav
+Q7886462,Moshav shitufi
 Q992194,Hutterite colony
 Q1107167,cohousing
-Q7549943,Sober living house
+Q7549943,sober living house
 Q1762221,Neotribalism
-Q1780633,Kommunität
+Q1780633,religious intentional community
 Q2148684,co-operative living arrangements
 Q442993,group home
 Q2002507,Notschlafstelle
@@ -87,12 +100,17 @@ Q3060146,tehuis voor niet-werkenden
 Q2907285,youth village
 Q2945522,nudist community
 Q22907229,Christian Communities
+Q4691828,age-restricted community
+Q1269448,retirement community
+Q6980841,Naturally occurring retirement community
+Q4677538,active adult housing
 Q20818846,Molukse wijk
-Q30493986,villaområde
+Q30493986,villa area
 Q42402287,cité
 Q738570,central business district
 Q1050303,downtown
 Q1468524,city center
+Q11643712,都心等拠点地区
 Q66364404,繁華街
 Q748198,gay village
 Q801738,Bahnhofsviertel
@@ -128,8 +146,10 @@ Q1406988,grand ensemble
 Q7246209,private housing estate in Hong Kong
 Q14454091,Public Rental Housing
 Q19754218,Home Ownership Scheme housing estate
+Q5215430,danchi
 Q14178148,proveniershuis
 Q19760240,Eisenbahnersiedlung
+Q102329612,Grasdachsiedlung
 Q2441638,volksbuurt
 Q2640310,residential areas and neighbourhoods in Arnhem
 Q2648768,residential areas and neighbourhoods in Muiden
@@ -140,10 +160,10 @@ Q3067318,Faubourgs of Montreal
 Q3394564,Quarter of Luxembourg City
 Q3413329,neighborhood in Boston
 Q3413345,neighbourhood of Toulouse
-Q3480610,Sestiere di Milano
 Q3558430,villa
 Q3578796,Ecodistrict
 Q3610510,ethnic enclave
+Q152018,ghetto
 Q202509,Chinatown
 Q3674986,Chinatowns in Europe
 Q5100179,Chinatowns in Africa
@@ -152,13 +172,19 @@ Q5100185,Chinatowns in the Middle East
 Q904319,Koreatown
 Q907231,Japantown
 Q1544543,Greektown
+Q2636673,aljama
+Q9016264,Jewish quarter
+Q1331767,Mellah
+Q2583015,ghetto in Nazi-occupied Europe
+Q2917049,Jewish ghetto in Europe
+Q69465104,morería (neighborhood)
+Q85875185,Morería (city)
 Q6158221,Japanese Immigrant Villages in Taiwan
 Q6650409,Little India
 Q6650818,Little Manila
 Q9016264,Jewish quarter
-Q2583015,ghetto in Nazi-occupied Europe
-Q2917049,Jewish ghetto in Europe
 Q61729985,Little Italy
+Q69465104,morería (neighborhood)
 Q3689003,contrada
 Q1231729,contrada of Siena
 Q3689087,suppressed Contrada of Siena
@@ -177,8 +203,8 @@ Q11647353,hanamachi in Kanazawa
 Q3551273,Universal CityWalk
 Q28148504,museum district
 Q3927250,quarter of the city of Lugano
-Q3927262,Stadtteil von Salzburg
-Q4057659,subdivision of Kiev
+Q3927262,District of Salzburg
+Q4057659,Subdivision of Kyiv
 Q4286337,city district
 Q137773,ward of Japan
 Q5327704,special ward of Japan
@@ -204,17 +230,19 @@ Q821435,borough of Berlin
 Q13415859,Stadtbezirk in Wuppertal
 Q15632133,city district of Cologne
 Q15727673,city district of Hanover
+Q97312698,Stadtteil in Hannover
 Q17278423,district of Bremen
 Q18600372,borough of Dresden
 Q28050899,Stadtgebiet (Frankfurt (Oder))
 Q31458588,Stadtbezirk von Bremerhaven
 Q62269194,Stadtbezirke Aachens
+Q96180429,city district of Langenhagen
 Q2779745,urban district of the Netherlands
 Q15079751,submunicipality of Amsterdam
 Q2989468,Communes d'arrondissement of Senegal
 Q3032114,district of Madrid
 Q3565075,Raions of cities in Ukraine
-Q3624938,district of Brazil
+Q3624938,city district of Brazil
 Q5283507,district of Davao City
 Q7553685,municipal district of Bulgaria
 Q8561193,district of Valencia
@@ -223,6 +251,15 @@ Q610625,Municipi of Milan
 Q1410029,list of the municipi of Genoa
 Q1584957,Borough of Palermo
 Q3677930,quarter of Messina
+Q3677936,circoscrizioni di Torino
+Q36617857,Crocetta Centre
+Q104352269,circoscrizione 2
+Q104352457,circoscrizione 3
+Q104352503,circoscrizione 4
+Q104352619,circoscrizione 5
+Q104352735,circoscrizione 6
+Q104352803,circoscrizione 7
+Q104352895,circoscrizione 8
 Q3867179,municipalità of Naples
 Q3867183,municipalità of Venice
 Q3927244,boroughs of Bologna
@@ -239,20 +276,6 @@ Q15921300,sector of Bucharest
 Q17496379,City district in Austria
 Q261023,district of Vienna
 Q18559008,district of São Paulo
-Q21682724,municipal district of Finland
-Q3926693,district of Turku
-Q5283513,district of Espoo
-Q5283515,district of Jyväskylä
-Q11864758,district of Imatra
-Q15715406,neighbourhood of Helsinki
-Q17468479,district of Oulu
-Q18691318,registerby
-Q23541388,city district of Lappeenranta
-Q26844382,district of Tampere
-Q28480345,district of Vantaa
-Q28480407,district of Kuopio
-Q30020391,district of Joensuu
-Q56577270,district of Hämeenlinna
 Q21851888,district of the city
 Q75338598,městská část Prahy
 Q30339232,sector of Chișinău
@@ -263,17 +286,22 @@ Q24887340,Temporary use
 Q47012103,mixed-use building
 Q63452621,one-plus-five
 Q5333096,eco-municipality
-Q5377740,مناطق شهری تهران
+Q5377740,district of Tehran
 Q5556082,neighbourhood in Tehran
 Q5571369,quarter of a city in Italy
 Q3927245,quarter of Brescia
 Q3927259,quarter of Reggio Calabria
 Q3927261,quarter of Naples
 Q17135847,quarter of Genoa
+Q1487089,Sestieri de Génova
 Q17279532,Quarter of Verona
 Q18608436,quarter of Florence
 Q42961155,quarter of Milan
+Q100689072,Quarter of La Spezia
+Q100701580,quarter of Cagliari
+Q100705184,Quarter of Catania
 Q5875137,Hobohemia
+Q6344036,neighborhood in Almería
 Q6988049,Neighborhood planning unit
 Q6988077,neighborhoods in Providence
 Q6988097,neighborhood of Jacksonville
@@ -281,7 +309,7 @@ Q6988184,neighbourhood of Delhi
 Q7551933,mahallah
 Q8049262,courtyard neighborhood
 Q10267336,neighborhood of Madrid
-Q11361229,下町
+Q11361229,shitamachi
 Q11679959,Outskirt (Al-Andalus)
 Q11908565,Barris de Lleida
 Q12012287,Grätzl
@@ -290,7 +318,6 @@ Q12411695,שכונות חרדיות בירושלים
 Q12063697,"neighborhood of Washington
 Q12104567,housing estate
 Q12179166,أحياء الخرطوم بحري
-Q76824780,الدروشاب
 Q13645388,luxury real estate
 Q13732359,Indische buurt
 Q15715406,neighbourhood of Helsinki
@@ -303,6 +330,7 @@ Q19886692,neighbourhood of São Paulo
 Q20683285,neighbourhood in Rio de Janeiro
 Q66626479,Pátio
 Q17015330,Neighborhoods of Minneapolis
+Q17051044,mahalle
 Q17233249,Stadtteil von Stettin
 Q17278559,quarter of Bremen
 Q17468479,district of Oulu
@@ -358,24 +386,29 @@ Q54865711,Quarter of Yermasoyia Municipality
 Q54867049,Quarter of Ayios Athanasios Municipality
 Q61089180,part of municipality in the Czech Republic
 Q585444,administrative district of Prague
-Q74728036,administratief district van Praag
+Q74728036,district administratif de Prague
 Q75338598,městská část Prahy
-Q75339006,Praags territoriaal district
-Q56398194,core municipal part of the same name as the municipality
+Q75339006,district territorial de Prague
+Q56398194,core municipal part with the same name as the municipality in the Czech Republic
 Q63497359,Quartier canonial
 Q65246805,Westend
 Q66458650,sociological neighborhood
 Q202509,Chinatown
 Q61729985,Little Italy
 Q66467322,ancien quartier
+Q69465104,morería (neighborhood)
 Q75021917,neighborhood in Amman
 Q75883519,colonia
 Q5148198,colonia
 Q75884168,colonia of El Salvador
 Q75884168,colonia of El Salvador
-Q79413632,Stadtteil von Innsbruck
+Q79413632,city part of Innsbruck
 Q79414634,Stadtteil von Linz
-Q79416466,Stadtteil von Frankfurt am Main
+Q79416466,Neighborhood of Frankfurt
 Q79423884,Stadtteil von Leipzig
 Q79423998,Stadtteil von Görlitz
-Q79424059,Ortsteil von Chemnitz
+Q79424059,Stadtteil von Chemnitz
+Q90400139,vilová čtvrť
+Q93664896,neighborhood of Jordan
+Q103910131,kaupunkialueen tai taajaman osa
+Q103910453,kylä tai kulmakunta

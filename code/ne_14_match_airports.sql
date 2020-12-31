@@ -54,7 +54,7 @@ ANALYSE           newd.wd_match_airports ;
 drop table if exists          newd.ne_match_airports CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_airports  as
 select
-     ogc_fid    
+     ne_id    
     ,0::double precision as min_zoom   
     ,featurecla   
     ,name                 as ne_name

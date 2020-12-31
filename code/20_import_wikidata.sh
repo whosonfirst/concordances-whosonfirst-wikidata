@@ -7,7 +7,11 @@ set -o nounset
 echo "======== parse wof for wikidataid ==========="
 
 rm -f /wof/whosonfirst-data/wd.txt
-find /wof/whosonfirst-data/whosonfirst-data-admin-*  -name *.geojson -exec  cat {} + | grep "wd:id" | cut -d'"' -f4 > /wof/whosonfirst-data/wd.txt
+time find /wof/whosonfirst-data/whosonfirst-data-admin-??/data/*  -name *.geojson -exec  cat {} + | grep "wd:id" | cut -d'"' -f4 > /wof/whosonfirst-data/wd.txt
+
+# select duplicated wd_id
+#sort | uniq -d /wof/whosonfirst-data/wd.txt > /wof/whosonfirst-data/wd_wofdups.txt
+
 sort -u -o /wof/whosonfirst-data/wd.txt  /wof/whosonfirst-data/wd.txt
 head /wof/whosonfirst-data/wd.txt
 wc -l /wof/whosonfirst-data/wd.txt

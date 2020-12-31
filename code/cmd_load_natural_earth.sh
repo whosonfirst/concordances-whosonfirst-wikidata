@@ -1,4 +1,7 @@
 #!/bin/bash
+set -o errexit
+set -o pipefail
+set -o nounset
 
 
 tablepath=$1
@@ -14,6 +17,7 @@ echo """
     --
 """ | psql -e
 
+PGPORT=5432
 ogr2ogr \
     -f Postgresql \
     -lco DIM=2 \

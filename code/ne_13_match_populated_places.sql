@@ -52,12 +52,12 @@ ANALYSE           newd.wd_match_populated_places ;
 drop table if exists          newd.ne_match_populated_places CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_populated_places  as
 select
-     ogc_fid
+     ne_id
     ,min_zoom      
     ,featurecla   
-    ,name                as ne_name
+    ,name                      as ne_name
     ,pop_places_clean(name)    as ne_una_name        
-    ,check_number(name)  as ne_name_has_num
+    ,check_number(name)        as ne_name_has_num
     ,ARRAY[name::text,pop_places_clean(name)::text,pop_places_clean(namealt)::text,unaccent(name)::text,unaccent(namealt)::text]     as ne_name_array
     ,cartodb.CDB_TransformToWebmercator(geometry)   as ne_geom_merc
     ,ST_PointOnSurface(geometry)  as ne_point    

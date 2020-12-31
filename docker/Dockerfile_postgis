@@ -1,4 +1,5 @@
-FROM postgis/postgis:12-3.0
+#FROM postgis/postgis:13-3.1
+FROM postgis:13-3.1-bullseye
 
 ENV LANG=C.UTF-8 \
     LC_ALL=C.UTF-8
@@ -32,7 +33,25 @@ ENV CFLAGS="-march=native -g -O3 -fstack-protector -Wl,-z -Wl,now -Wl,-z -Wl,rel
 
 RUN pgxn install icu_ext
 RUN pgxn install lostgis
-RUN pgxn install madlib
+
+##RUN set -eux \
+##    && apt-get update \
+##    && apt-get install -yqq --no-install-suggests --no-install-recommends \
+##    libedit-dev \
+##    libpam-dev \
+##    libpq-dev \
+##    libpq5 \
+##    libselinux-dev \
+##    libssl-dev \
+##    postgresql-client-common \
+##    postgresql-common \
+##    postgresql-server-dev-$PG_MAJOR \
+##    libkrb5-dev \
+##    zlib1g-dev \
+##    libz-dev \
+##    && rm -rf /var/lib/apt/lists/*
+##
+##RUN pgxn install pg_bulkload
 
 # install cartodb-postgresql
 RUN   mkdir -p /cartodb-postgresql \
@@ -73,5 +92,10 @@ RUN    mkdir -p /mapnik-german-l10n \
 ADD pgtune.py            /pgtune.py
 ADD pgtune-db.sh         /docker-entrypoint-initdb.d/pgtune-db.sh
 
+ENV PGCENTER_VERSION 0.6.6
+RUN wget https://github.com/lesovsky/pgcenter/releases/download/v0.6.6/pgcenter_0.6.6_Linux_x86_64.deb \
+    && dpkg -i ./pgcenter_0.6.6_Linux_x86_64.deb \
+    && rm pgcenter_0.6.6_Linux_x86_64.deb
 
-#ADD pgxn-load.sh  /docker-entrypoint-initdb.d/pgxn-load.sh
+#  ADD pgxn-load.sh  /docker-entrypoint-initdb.d/pgxn-load.sh
+#### RUN pgxn install madlib

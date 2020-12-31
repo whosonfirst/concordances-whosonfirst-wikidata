@@ -14,14 +14,14 @@ Q936738,national park of Vietnam
 Q940368,national park of Norway
 Q943017,national park of France
 Q1071482,national park of Japan
+Q6979639,National parks in Hokkaido
 Q1095271,national park of Hungary
 Q1216731,Protected areas of Hungary
 Q1296040,national parks in Ukraine
 Q1316973,national park of Spain
 Q1317754,national park of Poland
 Q1364273,national park of South Africa
-Q1408593,national park of Zambia
-Q1510355,national park of Italy
+Q1510355,list of national parks of Italy
 Q1565555,national park of Montenegro
 Q1585158,national park of Denmark
 Q1612885,national park of Panama
@@ -30,7 +30,7 @@ Q1754255,list of national parks of Madagascar
 Q20489083,national park of Madagascar
 Q20489120,strict nature reserve of Madagascar
 Q20489225,special reserve of Madagascar
-Q1790016,National park of Colombia
+Q1790016,national park of Colombia
 Q1847460,national park of Paraguay
 Q1896949,National Park of Canada
 Q26810467,national urban park
@@ -48,12 +48,11 @@ Q6630198,national park of El Salvador
 Q6630200,national park of Gabon
 Q6630207,national park of Seychelles
 Q6630208,national park of Uruguay
-Q6630211,list of national scenic areas in Taiwan
 Q6974775,national park of Argentina
 Q6979643,national park of Rwanda
 Q10594812,national city park
 Q11811686,national parks of Europe
-Q11811687,National parks of Asia
+Q11811687,national parks of Asia
 Q11876497,national park of Latvia
 Q12005215,national park of Tanzania
 Q13058865,national park of Bangladesh
@@ -62,6 +61,7 @@ Q14215551,national park of Finland
 Q16150156,national park of Somalia
 Q16166846,아시아의 국립공원
 Q18349163,national park of Mauritius
+Q18618819,national park of Australia
 Q18618822,national park of Iran
 Q18618832,national park of Uganda
 Q18618841,national park of Senegal
@@ -70,10 +70,47 @@ Q20488347,national park of Peru
 Q20488952,national park of the People's Republic of China
 Q20537078,national park of Croatia
 Q21815132,Nationalpark
-Q34918903,national park of the United States
+Q34918903,National Park of the United States
 Q56809587,National Park of Mexico
+Q95080679,national park of Thailand
 Q174945,Area of Outstanding Natural Beauty
 Q179049,nature reserve
+Q23790,natural monument
+Q372363,geotope
+Q1564767,National Geotope
+Q1709247,blockfield
+Q2963896,Chirat
+Q70203198,geological monument in South Limburg
+Q626051,Natural Monument of South Korea
+Q1968322,Nationales Naturmonument
+Q2179685,Geological monument
+Q21931673,geological monument of nature in Belarus
+Q21931651,geological monument of national importance in Belarus
+Q2463242,Beschermd Natuurmonument
+Q11789735,National natural monuments in the Czech Republic
+Q14912864,natural monument in Upper Austria
+Q15732268,Natural monument in Slovakia
+Q16101984,natural monument in Tyrol (state)
+Q17269995,natural monument of Belarus
+Q21711049,Помнікі прыроды мясцовага значэння Гродзенскай вобласці
+Q21931655,natural monument of national importance in Belarus
+Q21931651,geological monument of national importance in Belarus
+Q21931673,geological monument of nature in Belarus
+Q20071150,botanical natural monument
+Q21074553,Батанічныя помнікі прыроды Беларусі
+Q20556886,אנדרטאות טבעיות במקדוניה הצפונית
+Q21100463,natural monument in the Czech Republic
+Q21573182,Naturdenkmal in Germany
+Q24255438,Hydrological natural heritage site
+Q25499506,individual protected natural object
+Q26939879,Monumento natural de España
+Q27608973,natural monument of Russia
+Q28055299,Natural monument in Latvia
+Q29549240,protected Latvian geological and geomorphological natural monument
+Q29549296,Protected dendrological plantation in Latvia
+Q29549303,Latvian protected alley
+Q29549308,Latvian protected tree
+Q96207459,Special Natural Monument
 Q295404,Ecopark
 Q544008,strict nature reserve
 Q7623619,Strict nature reserves of Finland
@@ -82,7 +119,7 @@ Q1377575,wildlife refuge
 Q1367500,marine protected area
 Q1701122,United States National Marine Sanctuary
 Q2616170,marine reserve
-Q30674761,Australian Marine Parks
+Q30674761,Australian marine park
 Q7565304,South-east Marine Parks Network
 Q55353249,Temperate East Marine Parks Network
 Q55364400,South-west Marine Parks Network
@@ -91,15 +128,17 @@ Q55546569,North Marine Parks Network
 Q56602669,Oregon marine reserve
 Q63354623,Marine Protected Area (OSPAR)
 Q3575871,marine protected area
-Q4315021,National Marine Conservation Area
+Q4315021,national marine conservation area
 Q6158975,National Estuarine Research Reserve
 Q28942323,aquatic reserve of South Australia
 Q76164741,marine management area
+Q103725443,marine nature reserve
 Q1410668,National Wildlife Refuge
 Q3046480,Easement refuge
 Q19311633,Wildschutzgebiet
 Q23905068,wildlife refuge of Brazil
 Q76163442,wildlife refuge
+Q93872398,Wildruhegebiet
 Q2415574,Vlaams natuurreservaat
 Q3457217,state forest reserve
 Q3457526,local nature reserve
@@ -119,19 +158,21 @@ Q79867180,ecological reserve of Manitoba
 Q6980934,Nature Reserves in Nailsea
 Q8545897,national nature reserve in the Czech Republic
 Q9309832,nature reserve in Poland
-Q10395987,environmental protection area in Brazil
+Q10395987,Environmental Protection Area in Brazil
+Q10395989,Area of Significant Ecological Interest
 Q11961076,Biotopvernområde
 Q13470232,nature reserve in Belarus
 Q16361793,nature reserve in Latvia
-Q16761700,nature center
-Q61461367,Audubon center
+Q17035023,Site of Biological Importance
 Q18379650,national nature reserve
 Q6974560,National Nature Reserve
 Q6974552,National Nature Reserve
+Q20108601,Paraje Natural de Interés Nacional
 Q21101734,nature reserve in the Czech Republic
 Q23073760,nature reserve (Australia)
 Q25206768,ecological reserve of Brazil
 Q28942368,nature reserve of New South Wales
+Q40887583,Protected area mosaic
 Q45754521,nature reserve
 Q48078443,italian regional park
 Q48694540,Reserva Natural (Spain)
@@ -142,8 +183,12 @@ Q61267721,reserva natural a Baden-Württemberg
 Q61766605,parco suburbano
 Q63372785,integral natural reserve
 Q63372803,partial nature reserve
-Q80797879,Nature reserve
+Q80797879,protected zones of national interest
 Q87207320,subarea of a nature reserve
+Q94982663,Naturschutzgebiet aus mehreren Naturschutzgebieten
+Q96212000,Reserva Extrativista Marinha
+Q103725443,marine nature reserve
+Q249565,greenway
 Q338112,recreation area
 Q1132998,National Recreation Area
 Q28942311,recreation park of South Australia
@@ -155,11 +200,12 @@ Q509827,United States National Grassland
 Q544008,strict nature reserve
 Q551334,Paratge natural municipal
 Q728904,nature park
+Q16149276,natural park
 Q19753982,parque natural de Francia
 Q1818761,regional natural park
 Q3364603,Parc naturel marin
 Q20354035,Naturpark
-Q21115023,přírodní park v Česku
+Q21115023,nature park in the Czech Republic
 Q28055278,nature park in Latvia
 Q45754653,nature park
 Q47167727,protected park
@@ -177,12 +223,17 @@ Q846385,National Wild and Scenic River
 Q864912,wildlife corridor
 Q893745,National Monument
 Q921543,water protection area
+Q4193795,source water protection
+Q7981276,wellhead protection area
+Q65078072,Drinking Water Protection Zone
+Q103857642,Lamy sourcewater protection zones
 Q936257,conservation area
 Q5162904,conservation area
 Q5162949,conservation areas of India
 Q5162994,conservation park of New Zealand
 Q11875312,Lehtojensuojelualue
 Q955236,transboundary protected area
+Q17374430,Transboundary Biosphere Reserves
 Q20537528,international park
 Q1185274,marine park
 Q1258086,National Historic Site
@@ -197,15 +248,16 @@ Q11729534,Chráněná rybí oblast
 Q11789735,National natural monuments in the Czech Republic
 Q20290500,protected landscape area of the Czech Republic
 Q21100463,natural monument in the Czech Republic
-Q21115023,přírodní park v Česku
+Q21115023,nature park in the Czech Republic
 Q21296186,Biosférická rezervace v Česku
 Q1484173,Zapovednik
-Q666294,state nature zapovednik of Russia
+Q666294,list of Natural Reserves in Russia
 Q1552255,green belt
 Q1627961,nature reserve
 Q1714096,Naturschutzgroßprojekt
 Q1714375,game reserve
 Q7164192,Pennsylvania State Game Lands
+Q65246828,Wildgehege
 Q1749279,protected area of Nepal
 Q1761072,state park
 Q16023747,state park of the United States
@@ -270,7 +322,7 @@ Q20290500,protected landscape area of the Czech Republic
 Q21197948,Chráněná krajinná oblast na Slovensku
 Q1863876,protected area of Nicaragua
 Q1959314,protected area of Russia
-Q666294,state nature zapovednik of Russia
+Q666294,list of Natural Reserves in Russia
 Q1969226,national park of Russia
 Q27608973,natural monument of Russia
 Q55670430,nature park of Russia
@@ -286,9 +338,10 @@ Q27995042,wilderness area
 Q2498169,protected area of New Zealand
 Q63248569,scenic reserve
 Q2714144,bird sanctuary
+Q2463705,Special Protection Area
 Q2828309,protected area of France
 Q943017,national park of France
-Q3058217,espace naturel sensible
+Q3058217,Espace naturel sensible
 Q3457689,nature reserve in France
 Q19753982,parque natural de Francia
 Q27962224,Zone de conservation halieutique
@@ -312,7 +365,7 @@ Q3364930,protected areas of Saskatchewan
 Q28936794,provincial park in Saskatchewan
 Q3423162,migratory bird sanctuary of Canada
 Q3575871,marine protected area
-Q4315021,National Marine Conservation Area
+Q4315021,national marine conservation area
 Q14916958,special place
 Q17015099,national landmark
 Q26989049,National Historic Site Administered by Parks Canada
@@ -325,9 +378,10 @@ Q3457112,aquatic reserve
 Q3457672,biodiversity reserve
 Q3457686,wildlife reserve of Quebec
 Q3575773,Zone d'exploitation contrôlée
-Q16509826,exceptional forest eco-system of Quebec
+Q16509826,exceptional forest eco-system
 Q79979740,regional park
-Q75787028,protected area of New Bruunswick
+Q96635145,habitat floristique
+Q75787028,protected area of New Brunswick
 Q3575969,protected natural area of New Brunswick
 Q15222729,provincial park of New Brunswick
 Q2828718,protected area of India
@@ -339,17 +393,20 @@ Q27892733,Eco-Sensitive Zone
 Q2828720,protected area of Sri Lanka
 Q2919841,protected area of Brazil
 Q4806271,ecological station
-Q7246143,private natural heritage reserve
+Q7246143,Private Natural Heritage Conservation Area
 Q10359762,Biological reserve in Brazil
-Q10359778,Sustainable development reserve
+Q10359778,Sustainable Development Reserve
 Q10359780,wildlife reserve of Brazil
-Q10395987,environmental protection area in Brazil
-Q18479032,state forest of Brazil
+Q10395987,Environmental Protection Area in Brazil
+Q10395989,Area of Significant Ecological Interest
 Q18484938,State park of Brazil
 Q23905068,wildlife refuge of Brazil
 Q24194884,national forest of Brazil
 Q25206768,ecological reserve of Brazil
 Q27038967,municipal nature park
+Q40887583,Protected area mosaic
+Q96212000,Reserva Extrativista Marinha
+Q96931656,Área de Proteção e Recuperação dos Mananciais
 Q3031290,Antarctic Specially Protected Area
 Q3364919,protected area of Cameroon
 Q20488229,natural park in Cameroon
@@ -373,6 +430,7 @@ Q45754521,nature reserve
 Q45754653,nature park
 Q72206319,protected area with unrevised protection rules
 Q3622113,protected area of South Africa
+Q3710492,conservation district
 Q3880375,oasi
 Q61853527,oasi marina
 Q3895619,Local park of supra-communal interest
@@ -382,10 +440,12 @@ Q4654172,ASEAN Heritage Park
 Q4771003,Antarctic Protected Area
 Q3031290,Antarctic Specially Protected Area
 Q3501464,Antarctic Specially Managed Area
-Q21013851,Historic Site or Monument
+Q21013851,Historic Site or Monument (Antarctica)
 Q4788667,Area of Natural and Scientific Interest
+Q5421159,experimental forest
 Q5440266,Federal Inventory of Amphibian Spawning Areas
-Q5469191,Forest parks of New Zealand
+Q5461687,Florida Underwater Archaeological Preserve
+Q5469191,forest park of New Zealand
 Q6024666,Indigenous Territory
 Q6063204,regional park
 Q5177940,county park
@@ -407,7 +467,7 @@ Q20071151,botanical reserve
 Q20071160,hydrological reserve
 Q20071167,ichthyological reserve
 Q20076707,entomological reserve
-Q20076926,загальнозоологічний заказник
+Q20076926,общезоологический заказник
 Q20081524,landscape reserve
 Q21660151,biological reserve
 Q25439137,Карстово-спелеологічний заказник
@@ -440,16 +500,16 @@ Q8001184,wilderness study area
 Q8001309,wildlife management area
 Q4705360,Alabama Wildlife Management Areas
 Q30595008,Maine Wildlife Management Areas
-Q35080211,wildlife management area
+Q35080211,wildlife management area of a state of the United States
+Q28230917,wildlife management area of Virginia
+Q96056391,wildlife management area of South Carolina
+Q96056561,wildlife management area of West Virgina
+Q96057701,wildlife management area of Idaho
+Q96058318,wildlife management area of California
 Q9390575,natural and landscape complex
-Q10551522,kyrkoreservat
 Q10595016,nature conservation area
 Q10977433,protected area of Ukraine
-Q12094812,geological monument
-Q21931673,geological monument of nature in Belarus
-Q21931651,geological monument of national importance in Belarus
 Q20071150,botanical natural monument
-Q21074553,Батанічныя помнікі прыроды Беларусі
 Q20588555,landscape park of Ukraine
 Q11643861,prefectural natural park of Japan
 Q11665558,風致地区
@@ -490,16 +550,17 @@ Q28861757,monument of landscape architecture in Moldova
 Q28861760,zoological garden in Moldova
 Q28861769,Ramsar site in Moldova
 Q13020522,forest park in Thailand
-Q13402998,Chráněný areál
+Q13402998,chráněný areál
 Q14545639,IUCN category IV: Habitat/Species Management Area
+Q7531787,Site of Special Scientific Interest
 Q14545646,IUCN category V: Protected Landscape/Seascape
 Q14545652,IUCN category VI: Protected Area with sustainable use of natural resources
 Q14748878,conservation area of Costa Rica
 Q15069452,Natura 2000 protected area
-Q796174,Site of Community Importance
+Q796174,site of community importance
 Q1191622,Special Area of Conservation
 Q2463705,Special Protection Area
-Q60534895,proposed Site of Community Importance
+Q60534895,proposed site of community importance
 Q15707454,non-hunting area in Thailand
 Q15831594,protected area of Vietnam
 Q16153818,protected area of Chile
@@ -512,10 +573,6 @@ Q28054731,Protected sea area in Latvia
 Q28055269,Nature reserve in Latvia
 Q28055278,nature park in Latvia
 Q28055299,Natural monument in Latvia
-Q29549240,protected Latvian geological and geomorphological natural monument
-Q29549296,Protected dendrological plantation in Latvia
-Q29549303,Latvian protected alley
-Q29549308,Latvian protected tree
 Q28055306,biosphere reserve in Latvia
 Q16966008,protected forest
 Q1689678,Schonwald
@@ -527,7 +584,6 @@ Q23073760,nature reserve (Australia)
 Q28942368,nature reserve of New South Wales
 Q5162993,conservation park of Australia
 Q5478580,protected area of Queensland
-Q18618819,national park of Australia
 Q7251282,protected area of South Australia
 Q28428479,conservation reserve of South Australia
 Q28941950,conservation park of South Australia
@@ -537,6 +593,7 @@ Q28942392,Wilderness Protection Area
 Q28942401,game reserve of South Australia
 Q7251288,protected area of Victoria
 Q7251291,protected area of the Northern Territory
+Q18618819,national park of Australia
 Q52063651,protected area of Western Australia (designation)
 Q23073760,nature reserve (Australia)
 Q52063668,protected area of Australian Capital Territory (designation)
@@ -546,8 +603,8 @@ Q23073760,nature reserve (Australia)
 Q17042132,protected area of Suriname
 Q17077742,Natural Heritage Area
 Q17084125,protected area of Namibia
+Q17154940,Protected Areas of Panama
 Q17334112,historical park of Thailand
-Q18376486,Landscape conservation area
 Q19284004,Geschützter Landschaftsteil
 Q16064751,Geschützter Landschaftsteil (Salzburg)
 Q19683138,Ramsar site
@@ -560,6 +617,7 @@ Q5526425,Gash-Setit
 Q20268453,faunal reserve
 Q20268756,biosphere reserve
 Q158454,biosphere reserve
+Q4915295,biosphere reserves of Pakistan
 Q17005601,biosphere reserve in Singapore
 Q17374430,Transboundary Biosphere Reserves
 Q21296186,Biosférická rezervace v Česku
@@ -587,7 +645,8 @@ Q24192790,Gulf of Maine Closed Areas
 Q24574428,Managed Nature Reserve
 Q25429352,protected area of Spain
 Q6013445,Microrreserva de flora (Spain)
-Q64495357,microrreserva
+Q16149276,natural park
+Q64495357,Microreserves in Spain
 Q25499484,karst protection area
 Q25927309,National Geological Monument
 Q26939879,Monumento natural de España
@@ -596,6 +655,7 @@ Q27670147,former protected area
 Q28777651,group of protected areas
 Q35078027,National Wildlife Refuge Complex
 Q29344764,protected area of Yemen
+Q30909892,Natural monuments in Andalusia
 Q33216710,National Heritage Corridor
 Q34891928,Wetland Management District
 Q35800652,state beach
@@ -649,9 +709,12 @@ Q1967454,National Memorial of the United States
 Q2108855,presidential memorial in the United States
 Q6979644,National parkway
 Q15836337,National Historical Park
-Q34918903,national park of the United States
+Q34918903,National Park of the United States
 Q35432882,National Battlefield
+Q100154387,national military park
+Q100222740,National Battlefield Park
 Q56602669,Oregon marine reserve
+Q103683243,tribal national park
 Q72082844,protected area section
 Q72081958,ranger district
 Q87207320,subarea of a nature reserve
@@ -662,5 +725,9 @@ Q76164372,wetland
 Q76164723,forest reserve
 Q76164741,marine management area
 Q76204169,reserva natural absoluta
-Q80797879,Nature reserve
+Q80797879,protected zones of national interest
 Q85944382,Naturerlebnisraum in Slesvig-Holstein
+Q92272084,parco forestale
+Q92417533,přechodně chráněná plocha
+Q96592761,Área Natural de Manejo Integrado Municipal Pampas del río Yacuma
+Q96592800,Área protegida municipal Lago San José

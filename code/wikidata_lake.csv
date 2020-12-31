@@ -1,17 +1,16 @@
 ### Q23397, lake : _wdadd_ 
 Q23397,lake
+Q187223,lagoon
+Q431064,barachois
+Q3705882,estuarine lagoon
+Q6401073,khawr of the Salalah Coast Reserve
+Q12027742,sludge lagoon
 Q188025,salt lake
 Q2449038,saliña
 Q2912558,hypersaline lake
 Q23647058,солёное озеро
 Q55470156,intermittent salt lake
 Q204294,turlough
-Q204324,volcanic crater lake
-Q209333,oxbow lake
-Q803749,billabong
-Q1494514,Umflut
-Q8963323,galacho
-Q55470128,intermittent oxbow lake
 Q211302,glacial lake
 Q1851937,tarn
 Q2430594,moraine-dammed lake
@@ -38,10 +37,13 @@ Q1234707,heathland pond
 Q1270793,Schlatt
 Q1320719,proglacial lake
 Q1335003,chott
+Q1424609,kettle
+Q2379791,Soll
 Q1521583,ground water lake
 Q358976,excavation lake
-Q198732,Ziegelteich
+Q198732,lake excavated by a brickyard
 Q15806772,water-pressure lake
+Q1734500,karst lake
 Q1898470,marine lake
 Q1996446,Noor
 Q2091807,tar pit
@@ -52,12 +54,7 @@ Q2915867,Rift Valley lake
 Q3215290,artificial lake
 Q131681,reservoir
 Q2534469,Forebay (reservoir)
-Q4114181,stuwmeren op de Krim
-Q7078908,Off-stream reservoir
-Q7230299,Porosity Storage Reservoir
-Q11017814,Stauseen in der Ukraine
 Q55470036,intermittent reservoir
-Q65659694,Snowmaking reservoir
 Q244326,salt evaporation pond
 Q301869,inundation
 Q358976,excavation lake
@@ -65,6 +62,8 @@ Q3632569,settling basin
 Q4994812,fire-fighting pond
 Q12049172,recultivated lake
 Q12172437,artificial bodies of water of Kherson Oblast
+Q13667953,Межгорное водохранилище
+Q94387222,naumachia
 Q3267675,holomictic lake
 Q3738260,dimictic lake
 Q4862338,monomictic lake
@@ -79,7 +78,9 @@ Q3511952,tectonic lake
 Q3916261,meerstal
 Q4735538,alpine lake
 Q4746146,amictic lake
+Q4850009,balancing lake
 Q4904826,bifurcation lake
+Q5996843,fluviatile dam
 Q6341928,rift lake
 Q7238039,prairie lake
 Q7269229,quarry lake
@@ -87,26 +88,31 @@ Q9019918,endorheic lake
 Q7205721,pluvial lake
 Q9255054,estanyol
 Q10313934,intermittent lake
+Q55470156,intermittent salt lake
 Q10671833,floodplain lake
 Q11054716,Jezioro wydmowe
 Q11157301,shoreline lake
 Q11253318,Organogenní jezero
 Q11349558,soda lake
+Q11428028,dammed lake
+Q11563255,湖沼型
 Q11726974,epishelf lake
 Q11726978,bitter lake
 Q11726982,Jezioro krasowe
 Q11726985,Jezioro limanowe
 Q11726987,Lobeliesø
-Q11726988,impact crater lake
 Q11727001,Jezioro przepływowe
 Q11891262,Rotkojärvi
 Q11990985,natural lake
 Q13586859,mere
+Q14253637,dry lake
+Q935277,salt pan
 Q16710063,oligotrophic lake
 Q1234707,heathland pond
 Q18088596,sacred lake
 Q18208386,unnamed lake
 Q19965424,Upper Eider lakes
+Q21641010,lamba
 Q27966643,hot lake
 Q47486890,former lake
 Q55965244,paleolake
@@ -115,14 +121,19 @@ Q7205721,pluvial lake
 Q56170341,lähdejärvi
 Q57498386,quiet inlet
 Q58236221,Endmoränensee
+Q61076554,Deniz Gölü
+Q65334410,Ерыклыкуль (Ишимбайский район)
 Q79860017,Auensee (Joditz)
 Q87193797,tjern / tjärn
+Q100900880,crater lake
+Q204324,volcanic crater lake
+Q11726988,impact crater lake
+Q104093746,järvi tai lampi
 ### Q1172903, Loch : _wdadd_ 
 Q1172903,loch
 ### Q2551525, water reservoir : _wdadd_ 
 Q2551525,water reservoir
 Q1501,swimming pool
-Q357380,indoor swimming pool
 Q827349,wave pool
 Q1376606,natural pool
 Q1509633,Natatio
@@ -131,23 +142,15 @@ Q2084454,Olympic-size swimming pool
 Q2351435,waterjetbad
 Q3079491,fosse de plongée
 Q4008851,Short course
-Q13586493,outdoor swimming pool
-Q1702340,Naturbad
-Q1757063,lido
-Q15849385,Lido
-Q73401793,přírodní koupaliště
-Q12045647,floating swimming pool
 Q27106886,public swimming pool
 Q28057204,Sportfondsenbad
+Q92332734,school swimming pool
+Q97071243,piscina
 Q131681,reservoir
 Q2534469,Forebay (reservoir)
-Q4114181,stuwmeren op de Krim
-Q7078908,Off-stream reservoir
-Q7230299,Porosity Storage Reservoir
-Q11017814,Stauseen in der Ukraine
 Q55470036,intermittent reservoir
-Q65659694,Snowmaking reservoir
 Q208791,aquifer
+Q177734,artesian aquifer
 Q583075,phreatic zone
 Q1479708,vadose zone
 Q3604742,acquifero confinato
@@ -158,6 +161,8 @@ Q838858,cistern
 Q303874,ab anbar
 Q2302541,Sood
 Q12829481,Ovdan
+Q14723701,aljibe
+Q93429857,ancient Roman cistern
 Q2264348,Sedimentationsanlage
 Q2509671,zoetwaterreservoir
 Q3282339,reinwaterkelder
@@ -166,10 +171,18 @@ Q1621678,elevated tank
 Q14552508,rainwater tank
 Q28659441,rain barrel
 Q28858478,watering trough
+Q96091671,water jar
+Q7078908,Off-stream reservoir
+Q7230299,Porosity Storage Reservoir
+Q7698769,temple tank
+Q7972835,Waste pond
 Q15843493,Rückhaltebecken
 Q16069438,berkad
+Q56276201,Coastal reservoir
+Q65659694,Snowmaking reservoir
 ### Q3253281, pond : _wdadd_ 
 Q3253281,pond
+Q167045,cooling pond
 Q321832,spent fuel pool
 Q746511,Kunstteich
 Q810524,Bassin
@@ -177,8 +190,9 @@ Q1265665,fish pond
 Q1734333,Karpfenteich
 Q2205480,Viskenij
 Q10857326,zazemněný rybník
+Q1328914,reflecting pool
 Q1409124,Fething
-Q1422407,plunge pool
+Q1422407,Plunge pool
 Q1521187,tide pool
 Q1712253,mill pond
 Q1734333,Karpfenteich
@@ -187,14 +201,15 @@ Q3591778,Dew pond
 Q4120828,Stabilization pond
 Q4284516,duck pond
 Q4994812,fire-fighting pond
+Q6273915,Absetzbecken
 Q6813731,Melt pond
 Q7398874,sag pond
 Q7653550,swan pit
 Q7836913,Treatment pond
 Q10633012,Plaskdamm
 Q11166712,Vaete
-Q19844170,Царицынские пруды
-Q25055053,neutral buoyancy pool
+Q19844170,Tsaritsyno Ponds
+Q25055053,Neutral buoyancy pool
 Q26271092,pensioner pond
 Q27887548,pool
 Q41746281,village pond
@@ -202,5 +217,7 @@ Q1409124,Fething
 Q50393705,decoy pond
 Q55711375,intermittent pond
 Q64129187,man-made pond
+Q64785391,sedimentation pond
 Q65659694,Snowmaking reservoir
 Q85842470,artificial pond
+Q11078915,Free Life Pond

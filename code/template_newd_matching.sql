@@ -28,13 +28,13 @@ where ( :mcond1
         :mcond2
         :mcond3
         )
-order by ogc_fid
+order by ne_id
 ;
 
 drop table if exists                      :ne_input_table:_m2  CASCADE;
 EXPLAIN ANALYZE CREATE UNLOGGED TABLE     :ne_input_table:_m2  as
 select * from :ne_input_table
-where  ogc_fid not in ( select distinct ogc_fid from :ne_wd_match:_m1 order by ogc_fid )
+where  ne_id not in ( select distinct ne_id from :ne_wd_match:_m1 order by ne_id )
 ;
 CREATE INDEX  ON :ne_input_table:_m2  USING GIST(ne_geom_merc);
 
@@ -57,7 +57,7 @@ select
 from :wd_input_table        as wd
     ,:ne_input_table:_m2    as ne
 where ( (ST_DWithin ( wd.wd_point_merc, ne.ne_geom_merc , :suggestiondistance )))
-order by ogc_fid        
+order by ne_id        
 ;
 
 
@@ -80,7 +80,7 @@ select  case
  from
   (          select * from :ne_wd_match:_m1
    union all select * from :ne_wd_match:_m2 )  as m12
- order by ogc_fid, _score, _distance
+ order by ne_id, _score, _distance
 ;
 -- ANALYSE     :ne_wd_match  ;
 
@@ -91,7 +91,7 @@ drop table if exists  :ne_wd_match_agg CASCADE;
 CREATE UNLOGGED TABLE :ne_wd_match_agg  as
 with wd_agg as
 (
-    select ogc_fid,min_zoom,featurecla,ne_name, ne_wd_id, ne_point
+    select ne_id,min_zoom,featurecla,ne_name, ne_wd_id, ne_point
         ,  (array_agg( wd_id             order by _score desc))[1:120] as a_wd_id
         ,  (array_agg(_wdstatus          order by _score desc))[1:120] as a_wdstatus          
         ,  (array_agg(_score             order by _score desc))[1:120] as a_wd_id_score
@@ -101,8 +101,8 @@ with wd_agg as
         ,  (array_agg( wd_name_en        order by _score desc))[1:120] as a_wd_name_en
         ,  (array_agg(_step              order by _score desc))[1:120] as a_step        
     from :ne_wd_match
-    group by ogc_fid,min_zoom,featurecla, ne_name ,ne_wd_id,ne_point
-    order by ogc_fid,min_zoom,featurecla, ne_name ,ne_wd_id,ne_point
+    group by ne_id,min_zoom,featurecla, ne_name ,ne_wd_id,ne_point
+    order by ne_id,min_zoom,featurecla, ne_name ,ne_wd_id,ne_point
 )
 , wd_agg_extended as
 (
@@ -178,7 +178,7 @@ select wd_agg_extended.*
 from wd_agg_extended
 left join wd.wdx             as wd     on wd_agg_extended.ne_wd_id=wd.wd_id
 left join wd.wdx             as wdl    on wd_agg_extended._suggested_wd_id=wdl.wd_id
-left join :ne_input_table    as ne     on wd_agg_extended.ogc_fid = ne.ogc_fid   
+left join :ne_input_table    as ne     on wd_agg_extended.ne_id = ne.ne_id   
 
 ;
 ANALYSE :ne_wd_match_agg ;
@@ -191,7 +191,7 @@ with
 extended_notfound as
 (
     select
-         ne.ogc_fid
+         ne.ne_id
         ,ne.min_zoom
         ,ne.featurecla
         ,ne.ne_name
@@ -214,7 +214,7 @@ extended_notfound as
         :neextrafields
     from :ne_input_table as ne
     left join wd.wdx as wd   on ne.ne_wd_id=wd.wd_id
-    where  ne.ogc_fid not in ( select ogc_fid from :ne_wd_match )
+    where  ne.ne_id not in ( select ne_id from :ne_wd_match )
 )
 
 select

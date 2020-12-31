@@ -24,7 +24,6 @@ Q20743938,eruptive center
 Q1491559,somma volcano
 Q1806785,cinder cone
 Q2143039,fissure vent
-Q2291100,active volcano
 Q2398326,subaerial volcano
 Q3562720,volcan gris
 Q3562724,volcan rouge
@@ -33,9 +32,9 @@ Q7630766,subaqueous volcano
 Q21001649,potentially active volcano
 Q21009867,dome volcano
 Q37499745,plug dome volcano
+Q100365971,lateral volcano
 Q169358,stratovolcano
 Q190250,central uplift
-Q285562,Marilyn
 Q429088,mons
 Q503269,seamount
 Q151957,guyot
@@ -50,49 +49,52 @@ Q502899,inliers and outliers
 Q14545690,Kopje
 Q21011841,kekoer
 Q1297565,Puy
-Q1320721,Munro
 Q1540003,Sydväxtberg
 Q1595289,sacred mountain
+Q11588709,Sintaisan
 Q1671747,Conical hill
 Q2739123,crag and tail
-Q3116906,Ultra prominent peak
 Q3538399,trekking peak
 Q5421955,fell
 Q28026737,tunturi
 Q5656540,Hardy
 Q6022321,Monte (geomorfología)
+Q7322441,ribu
+Q10561633,hometown Fuji
 Q11277298,ふるさと兵庫50山
+Q11397890,Kengamine
 Q11505921,日本の山
 Q11972429,Graham
 Q17142232,Traprock mountain
 Q19856996,ગુરૂનો ભોખરો
 Q20523098,Lendva-hegy
+Q20645627,mountains in the Bible
 Q26709969,Graham
-Q26711856,Furth
 Q27882366,Giri
 Q28026737,tunturi
 Q28792430,hrib
 Q35691748,highest mountain
-Q56284739,Aichkogel (Grazer Bergland)
+Q56284739,Aichkogel
 Q56408346,puig
 Q58235914,Buckelwiese
-Q61710631,Oindo
 Q62082016,Hewitt
-Q62082048,Nuttall
-Q62082171,Wainwright Outlying Fell
+Q101093742,
+Q101116137,Базмагуш (гора)
+Q101419574,"Накас (гора
+Q101548935,Будалашбаш
+Q103819970,Fyndig
 Q23397,lake
+Q187223,lagoon
+Q431064,barachois
+Q3705882,estuarine lagoon
+Q6401073,khawr of the Salalah Coast Reserve
+Q12027742,sludge lagoon
 Q188025,salt lake
 Q2449038,saliña
 Q2912558,hypersaline lake
 Q23647058,солёное озеро
 Q55470156,intermittent salt lake
 Q204294,turlough
-Q204324,volcanic crater lake
-Q209333,oxbow lake
-Q803749,billabong
-Q1494514,Umflut
-Q8963323,galacho
-Q55470128,intermittent oxbow lake
 Q211302,glacial lake
 Q1851937,tarn
 Q2430594,moraine-dammed lake
@@ -119,10 +121,13 @@ Q1234707,heathland pond
 Q1270793,Schlatt
 Q1320719,proglacial lake
 Q1335003,chott
+Q1424609,kettle
+Q2379791,Soll
 Q1521583,ground water lake
 Q358976,excavation lake
-Q198732,Ziegelteich
+Q198732,lake excavated by a brickyard
 Q15806772,water-pressure lake
+Q1734500,karst lake
 Q1898470,marine lake
 Q1996446,Noor
 Q2091807,tar pit
@@ -133,12 +138,7 @@ Q2915867,Rift Valley lake
 Q3215290,artificial lake
 Q131681,reservoir
 Q2534469,Forebay (reservoir)
-Q4114181,stuwmeren op de Krim
-Q7078908,Off-stream reservoir
-Q7230299,Porosity Storage Reservoir
-Q11017814,Stauseen in der Ukraine
 Q55470036,intermittent reservoir
-Q65659694,Snowmaking reservoir
 Q244326,salt evaporation pond
 Q301869,inundation
 Q358976,excavation lake
@@ -146,6 +146,8 @@ Q3632569,settling basin
 Q4994812,fire-fighting pond
 Q12049172,recultivated lake
 Q12172437,artificial bodies of water of Kherson Oblast
+Q13667953,Межгорное водохранилище
+Q94387222,naumachia
 Q3267675,holomictic lake
 Q3738260,dimictic lake
 Q4862338,monomictic lake
@@ -160,7 +162,9 @@ Q3511952,tectonic lake
 Q3916261,meerstal
 Q4735538,alpine lake
 Q4746146,amictic lake
+Q4850009,balancing lake
 Q4904826,bifurcation lake
+Q5996843,fluviatile dam
 Q6341928,rift lake
 Q7238039,prairie lake
 Q7269229,quarry lake
@@ -168,26 +172,31 @@ Q9019918,endorheic lake
 Q7205721,pluvial lake
 Q9255054,estanyol
 Q10313934,intermittent lake
+Q55470156,intermittent salt lake
 Q10671833,floodplain lake
 Q11054716,Jezioro wydmowe
 Q11157301,shoreline lake
 Q11253318,Organogenní jezero
 Q11349558,soda lake
+Q11428028,dammed lake
+Q11563255,湖沼型
 Q11726974,epishelf lake
 Q11726978,bitter lake
 Q11726982,Jezioro krasowe
 Q11726985,Jezioro limanowe
 Q11726987,Lobeliesø
-Q11726988,impact crater lake
 Q11727001,Jezioro przepływowe
 Q11891262,Rotkojärvi
 Q11990985,natural lake
 Q13586859,mere
+Q14253637,dry lake
+Q935277,salt pan
 Q16710063,oligotrophic lake
 Q1234707,heathland pond
 Q18088596,sacred lake
 Q18208386,unnamed lake
 Q19965424,Upper Eider lakes
+Q21641010,lamba
 Q27966643,hot lake
 Q47486890,former lake
 Q55965244,paleolake
@@ -196,28 +205,35 @@ Q7205721,pluvial lake
 Q56170341,lähdejärvi
 Q57498386,quiet inlet
 Q58236221,Endmoränensee
+Q61076554,Deniz Gölü
+Q65334410,Ерыклыкуль (Ишимбайский район)
 Q79860017,Auensee (Joditz)
 Q87193797,tjern / tjärn
+Q100900880,crater lake
+Q204324,volcanic crater lake
+Q11726988,impact crater lake
+Q104093746,järvi tai lampi
 Q23442,island
 Q13691,artificial island
 Q91759,crannog
 Q1870237,Arbeitsinsel
+Q96316262,cattle mound
 Q21161,halligen
 Q202199,inland island
 Q162602,river island
-Q361950,Point bar
-Q2704612,Ait
+Q361950,point bar
+Q2704612,ait
 Q863974,lake island
 Q207524,islet
 Q216851,skerry
 Q239687,continental island
-Q503481,cay
 Q555937,tidal island
 Q1065592,desert island
 Q1161185,high island
 Q1205140,barrier island
 Q1209831,floating island
 Q750176,Chinampa
+Q100256633,peat island
 Q1226252,tied island
 Q1271762,Düneninsel
 Q1324426,coral island
@@ -225,26 +241,28 @@ Q503481,cay
 Q7285116,raised coral atoll
 Q1422391,Island resort
 Q1471571,Island castle
+Q1498174,prison island
 Q1737143,Kaupe
 Q1973360,Nebeninsel
 Q2920849,low island
 Q2984210,privately owned island
-Q5459920,Floating island
 Q9433297,冲积岛
 Q10546851,kobbe
 Q10549487,Kronoholme islands
 Q10769552,motu
+Q11926523,Illa maritimofluvial
 Q14210504,Central Line Islands
 Q16853632,Isole di Magadino
 Q17308006,island of Japan
 Q21082949,Illes dàlmates
-Q29968027,majakkasaari
+Q29968027,lighthouse island
 Q29968665,fortress island
 Q41791782,island of Portugal
 Q52103661,former island
 Q64521891,burial island
 Q75603289,leeward island
 Q75603550,windward island
+Q96631994,Indian Ocean islands
 Q28337,shoal
 Q20703,high sand
 Q3400322,baymouth bar
@@ -259,9 +277,9 @@ Q13137873,skerry coast
 Q87195487,lake archipelago
 Q34763,peninsula
 Q191992,headland
-Q185113,cape
-Q3925637,punta
 Q2362867,presque-isle
+Q20656617,Odde
+Q21817244,Øre
 Q35509,cave
 Q40691,glacier cave
 Q89497,caverne
@@ -275,6 +293,8 @@ Q16867834,shell grotto
 Q30754717,grotto
 Q1433032,Lourdes grotto
 Q24731740,Grottoes of Mary
+Q98446107,Mariengrotte
+Q1165606,Tree Mould Caves in the Mures Gorge
 Q1266984,Durchgangshöhle
 Q1317637,ice cave
 Q1435994,pit cave
@@ -290,7 +310,8 @@ Q7558985,solutional cave
 Q1526552,Gypsum cave
 Q7827119,Torricellian chamber
 Q11269813,cave with prehistoric art
-Q21704322,քարայր
+Q11665546,wind cave
+Q21704322,cave
 Q57732276,Horizontalhöhle
 Q58214675,Tuffhöhle
 Q58214800,Halbhöhle
@@ -301,21 +322,14 @@ Q58270523,Höhlenstation
 Q61748698,Caves not open to the public
 Q79587300,Krápníková jeskyně
 Q39816,valley
-Q150784,canyon
-Q963729,submarine canyon
-Q1068071,chasma
-Q1163673,Pongo
-Q1744266,narrow canyon
-Q2294430,slot canyon
-Q4951581,Box canyon
 Q187971,wadi
 Q611796,tunnel valley
 Q649266,U-shaped valley
 Q929061,Urstromtal
+Q1169507,Strath
 Q1266922,water gap
 Q1410408,side valley
 Q1006357,hanging valley
-Q1474839,furrow
 Q1523096,Valleuse
 Q1672567,dry valley
 Q1739217,Kerbtal
@@ -323,7 +337,6 @@ Q1758298,polonyna
 Q1879248,longitudinal valley
 Q1976531,glen
 Q2197893,chine
-Q2248883,dry valley
 Q2249285,vallis
 Q2306627,Spalttal
 Q2366717,rift valley
@@ -338,6 +351,7 @@ Q5617310,gulch
 Q5972304,wind gap
 Q6562281,valleys of Afghanistan
 Q10531318,river valley
+Q11385595,erosional valley
 Q12206386,جو
 Q12751598,epigenetic valley
 Q25515536,асимметричная долина
@@ -346,8 +360,10 @@ Q55462851,gorge
 Q58235860,Asymmetrisches Tal
 Q58237146,Schmelzwassertal
 Q58237178,Sohlental
+Q97741193,Vall penjada
 Q46831,mountain range
 Q390395,Aquatic sill
+Q674541,Middle mountain range
 Q740445,ridge
 Q1070057,Chenier
 Q2532557,beach ridge
@@ -357,13 +373,13 @@ Q104698,mid-ocean ridge
 Q878223,highland
 Q1161802,Maďarské středohoří
 Q1437459,non-geologically related mountain range
-Q15766,high mountains
+Q15766,uxchigh mountains
 Q83384,fold mountain
-Q674541,Mittelgebirge
+Q674541,Middle mountain range
 Q852013,shield
 Q1706978,Kammgebirge
 Q2175685,Truncated upland
-Q22911774,mountain chain
+Q2624046,mountain chain
 Q1354045,foothills
 Q2751984,cordillera
 Q31792598,Klimek
@@ -371,21 +387,27 @@ Q1758298,polonyna
 Q2412243,laaggebergte
 Q2433581,mountain ranges in Scotland
 Q2535020,Vrchovina
-Q2624046,sierra
+Q2624046,mountain chain
 Q2690652,Alatau
 Q2751984,cordillera
 Q2956483,chapada
+Q3775635,alpine major sector
+Q3958626,alpine section
+Q3965305,alpine subsection
+Q3977906,alpine supergroup
 Q5165313,Continental Ranges
 Q10782449,altaid
 Q13538832,pásemné pohoří
 Q15662614,kerné pohoří
 Q23581538,undersea mountain range
+Q100936765,hornatina
 Q54050,hill
 Q25391,dune
 Q790510,barchan
 Q863906,inland dune
 Q1254169,compound dune
 Q1606926,coastal dune
+Q1205140,barrier island
 Q55691729,grey dune
 Q2206477,river dune
 Q2338178,estuarium dunes
@@ -398,59 +420,18 @@ Q9379281,star dune
 Q9379282,parabolic dune
 Q18018204,aklé
 Q18024432,longitudinal dune
+Q18030021,zibar
 Q18397047,kamduin
 Q20627207,Tukulan
 Q21287582,embryonal dune
 Q50810246,singing dune
 Q58236055,Dünenfeld
-Q34023,tumulus
-Q5737,kurgan
-Q12153523,Scythian kurgan
-Q18292693,курганны могільнік
-Q573958,chieftain's tomb
-Q967448,bell barrow
-Q1141225,kofun
-Q11268718,Keyhole-shaped kofun
-Q11358496,round-topped burial mound
-Q11391751,八角墳
-Q11410445,双方中円墳
-Q11480883,帆立貝形古墳
-Q11504353,方墳
-Q11608504,纒向型前方後円墳
-Q11625780,蝦夷穴
-Q80793203,長方形墳
-Q1228360,disc barrow
-Q1351659,oval barrow
-Q1652352,long barrow
-Q5069563,chambered long barrow
-Q17412974,unchambered long barrow
-Q2046325,round barrow
-Q967448,bell barrow
-Q2046310,bowl barrow
-Q40006041,round cairn
-Q2141230,tumulus above cremated remains
-Q2451979,treudd
-Q2858007,Aowelo
-Q3634310,bank barrow
-Q5069563,chambered long barrow
-Q5212069,Damb
-Q11411019,kofungun
-Q11487459,弥生墳丘墓
-Q12330017,oldtidshøj
-Q16521369,Kunhalom
-Q19922100,tumuli in the Netherlands
-Q19922104,tumuli in Belgium
-Q19947271,barrow
-Q20529645,barrow
-Q42888697,long barrow
-Q21659312,sopka
-Q26221546,Runddysse
-Q66108788,chabola tumular
 Q192701,drumlin
-Q285562,Marilyn
+Q194408,nunatak
 Q502899,inliers and outliers
 Q819511,spoil tip
 Q21539784,terril du bassin minier du Nord-Pas-de-Calais
+Q99285659,Kummerhaufen
 Q843181,Schuttberg
 Q1004689,Bult (Bodenerhebung)
 Q1018517,Byhøj
@@ -462,11 +443,13 @@ Q1142381,parasitic cone
 Q6502221,Lava cone
 Q1492017,gallows hill
 Q1845974,kapelberg
+Q1955906,Mutta
 Q2459045,granite dome
 Q2601810,Phnom
 Q2983016,colles
 Q2997316,Sopka
 Q3294251,hillock
+Q959454,hummock
 Q3541827,Tuc
 Q4299169,mill hill
 Q4670743,Abyssal hill
@@ -475,7 +458,6 @@ Q5421955,fell
 Q5656540,Hardy
 Q10435625,Brink
 Q10460934,artificial hill
-Q11964099,Corbett
 Q12302769,bakkeø
 Q13586663,Vliedberg
 Q13742933,kerkheuvel
@@ -483,33 +465,19 @@ Q16531032,Bajdzjarach
 Q16665275,morne
 Q16948722,Dewey
 Q17189807,baou
-Q20572322,HuMP
 Q21079284,dekheuvel
-Q22569524,Graham
-Q26709961,Tump
-Q26709966,Simm
-Q26709973,Donald
 Q26710654,Highland Five
 Q26710662,Donald Dewey
 Q28026737,tunturi
-Q43397044,hiiemägi
+Q43397044,hilltop site
 Q47781632,undersea hill
 Q55182635,undersea knoll
 Q57246012,klimpe
 Q58192806,Felskuppe
 Q62082113,Dodd
 Q62088999,knob
-Q55818,impact crater
-Q498794,crater chain
-Q1348589,lunar crater
-Q2542653,Wallebene
-Q12168840,цирк
-Q1517205,Ringgebirge
-Q3501670,Pedestal crater
-Q5156574,Complex crater
-Q7290026,Rampart crater
-Q7334779,ring mold crater
-Q11726988,impact crater lake
+Q100167812,boulder or hill on Mars smaller than 100 m
+Q100989082,vaara
 Q75520,plateau
 Q456555,Amba
 Q1144345,volcanic plateau
@@ -523,17 +491,13 @@ Q3593580,îlet
 Q9035629,muela
 Q22442633,ice dome
 Q41978262,high plateau
+Q97216015,tongue-shaped plateau
 Q93267,isthmus
-Q498274,Tombolo
+Q498274,tombolo
 Q105880,fumarole
 Q1501197,Solfatare
 Q107679,cliff
-Q133056,mountain pass
-Q12054251,silniční sedlo
-Q43675388,road mountain pass
-Q10383863,Tōge
-Q46112269,rail mountain pass
-Q85871133,Talwasserscheide
+Q7334494,Rimrock
 Q134851,continental shelf
 Q160091,plain
 Q163967,peneplain
@@ -586,52 +550,67 @@ Q1068705,trough
 Q55193679,undersea trough
 Q1431034,loam pit
 Q1439394,fossa
+Q1474839,furrow
 Q1988033,kom
 Q2387901,Tagebaurestloch
+Q2620655,syneclise
 Q3240715,crater
 Q55818,impact crater
+Q1348589,lunar crater
+Q1517205,Ringgebirge
+Q2542653,Wallebene
+Q1475691,Mars crater
+Q3501670,Pedestal crater
+Q5156574,complex crater
+Q28231906,peak ring crater
+Q7290026,Rampart crater
+Q7334779,ring mold crater
+Q76833930,Mercury crater
+Q17016801,ghost crater on Mercury
 Q109391,volcanic crater
 Q192503,maar
-Q2490454,adventiefkrater
-Q1475691,Mars crater
+Q2490454,Adventivkrater
+Q1361343,Makhtesh
+Q1384605,explosion crater
+Q1901620,pseudocrater
+Q3002220,subsidence crater
 Q1499003,palimpsest
 Q17016801,ghost crater on Mercury
-Q1901620,pseudocrater
-Q3002220,Subsidence crater
-Q3236743,dome
-Q522464,laccolith
-Q534282,lava dome
-Q682471,scalloped margin dome
-Q956300,tholus
 Q5259402,impact structure
-Q58215483,Innerer Wall
-Q76833930,Mercury crater
+Q103291084,gas emission crater
 Q14253637,dry lake
-Q935277,salt pan
 Q21014199,lek 
 Q51330213,deep
-Q1896346,water depth
 Q55710865,pan
 Q56044492,sinkhole
 Q56296696,Erdfall
 Q70122613,Depression
 Q3487913,cryptodepression
+Q101676790,furrow
 Q192810,graben
+Q88480,moat
+Q91764,military trench
+Q65055493,connecting trench
+Q2047311,anti-tank trench
+Q15709086,Moats
+Q15848816,Stadtgraben
+Q104177009,Burggraben
 Q1432092,rille
 Q50418595,prolom
 Q193110,floodplain
 Q207326,summit
 Q1570358,pyramidal peak
-Q3116906,Ultra prominent peak
+Q11397890,Kengamine
 Q13194830,Stùc
 Q13222531,parent peak
 Q16681565,Tête
 Q17189807,baou
 Q19941800,odlehlík
-Q22569536,Murdo
-Q26711849,Munro Top
 Q28723550,Horn
 Q34987520,unspoiled summit
+Q99703482,Pizzo dei Favi
+Q102166120,fourteener
+Q102166169,Colorado fourteeners
 Q212136,horst
 Q238851,oceanic crust
 Q272921,badlands
@@ -647,42 +626,25 @@ Q478251,bar
 Q498794,crater chain
 Q512573,lingula
 Q526644,pancake dome
-Q546284,Gill
+Q546284,gill
 Q580889,table
 Q605469,arachnoid
-Q631305,rock formation
-Q662806,dike
-Q677371,geode
-Q757301,hamada
-Q954501,natural arch
-Q1061002,Rocking stone
-Q1213895,steinerne Rinne
-Q1343179,tor
-Q1404375,rock pinnacle
-Q2042028,ravine
-Q2739123,crag and tail
-Q3506160,tea table
-Q3985001,tessellated pavement
-Q7962672,Wall rock
-Q9337566,Skalne miasto
-Q13217509,skalní jehla
-Q34198935,submerged rock
-Q58237097,Schlifffläche
-Q60214014,skalní zeď
-Q63065309,žleb
-Q65640417,petrified forest
-Q85775990,Lava tree mold
+Q613963,pingo
+Q13137483,pingoruïne
 Q648379,Solifluction
 Q653208,monolith
 Q193475,menhir
+Q247939,vishap
 Q913730,cove
 Q1145153,statue menhir
 Q1720770,Guardian stones
 Q13438553,benben stone
 Q20083772,Menhire im Châtillonnais
 Q21804535,christianized menhir
+Q97009574,Church Slavonic monolith border of Jan Nyski
 Q656136,Beehive Stone
 Q667575,wrinkle ridge
+Q729136,limestone pavement
 Q752202,Astrum
 Q757301,hamada
 Q785020,sedimentary basin
@@ -697,6 +659,10 @@ Q12079191,artesian basin
 Q828581,terrace
 Q838625,terrace
 Q3518589,Marine terrace
+Q25509745,sinter terrace
+Q31839186,Schotterterrasse
+Q96251935,submarine terrace
+Q98094328,Aussichtsterrasse
 Q847016,ponor
 Q3058856,Estavelle
 Q854550,Erdpyramide
@@ -712,6 +678,8 @@ Q89753,dungeon
 Q172896,catacombs
 Q286899,sump
 Q665247,hypogeum
+Q17633250,Infernotto
+Q853409,missile launch facility
 Q935908,dugout
 Q16258951,Zemlyanka
 Q1048337,underground lake
@@ -719,17 +687,23 @@ Q1140845,subterranean river
 Q21504956,subterranean waterfall
 Q1188673,subway
 Q1340555,deep geological repository
+Q10671734,Slutförvaring av radioaktivt avfall i Sverige
 Q1348073,underground city
+Q1550190,Grubengebäude
+Q1727928,level
+Q12088582,ventilation level
+Q27890566,intake level
+Q27890568,return air level
 Q1578744,burial vault
 Q1424583,sepulchral chapel
 Q2261752,volcanic pipe
 Q41453,Diatreme
+Q2431970,underground parking space
 Q2582077,lunar lava tube
 Q2781284,bouwput
-Q2980405,cluzeau
+Q2980405,Cluzeaux
 Q4010360,crawl space
 Q4232315,underground mine
-Q12149174,հանքավայր
 Q8024920,wine cave
 Q12146012,underground building
 Q44377,tunnel
@@ -751,15 +725,15 @@ Q27891176,gate gallery
 Q27891187,main drift
 Q27891188,approach adit
 Q47064125,Heilstollen
+Q98639272,Anfahrtstollen
 Q344859,City Tunnel
-Q1066660,Transatlantic tunnel
+Q1066660,transatlantic tunnel
 Q1187918,secret passage
 Q4000492,smuggling tunnel
 Q1188673,subway
 Q1311958,railway tunnel
 Q2133152,keertunnel
 Q2460082,Tunnel der Schnellfahrstrecke Hannover–Würzburg
-Q3174082,base tunnel
 Q10541935,Jernbanetunneler i Stockholms län
 Q14500296,tramway tunnel
 Q21000066,Kreiskehrtunnel
@@ -772,6 +746,7 @@ Q2989487,bus tunnel
 Q7814340,toll tunnel
 Q12045874,podjezd
 Q2446237,Kombinationstunnel
+Q3174082,base tunnel
 Q3541773,Jefferies tube
 Q3542190,tunnel urbain
 Q3542199,Roman tunnel
@@ -784,6 +759,7 @@ Q7853321,Tunnel washer
 Q10888740,hood tunnel
 Q11129889,underwater tunnel
 Q1317590,undersea tunnel
+Q11555864,cable tunnel
 Q12163176,Tik-Kuyu
 Q12719343,water tunnel
 Q459297,qanat
@@ -807,9 +783,10 @@ Q2915275,utility tunnel
 Q64521908,district heating tunnel
 Q64523688,freight tunnel
 Q64524051,postal railway tunnel
-Q64533002,Hohlgangsanlage
-Q5877648,Hohlgangsanlage tunnels
-Q87282975,Cycle tunnel
+Q64533002,instalaciones subterráneas
+Q69719735,drive-through tree
+Q87282975,cycling tunnel
+Q98832021,vertex tunnel
 Q58917,adit
 Q137937,souterrain
 Q1262844,refilling of shafts
@@ -820,8 +797,10 @@ Q10728951,active wine cellar
 Q11913260,Wine Cathedral
 Q1486179,road
 Q1426139,Flachen
+Q2365637,Sumpfstrecke
 Q2559065,spiral tunnel
 Q1550194,mine opening
+Q44377,tunnel
 Q58917,adit
 Q496707,Querschlag
 Q556186,mine shaft
@@ -846,19 +825,19 @@ Q63241161,Bremsschacht
 Q13101792,Bremsschapp
 Q63247833,Saigerschacht
 Q63247885,tonnlägiger Schacht
+Q99227909,Anfahrtschacht
+Q99228311,Bergeförderschacht
 Q1434884,lateral drift
 Q27891194,Nebenflügel
 Q1486179,road
-Q1727928,level
-Q2566026,ventilation level
-Q27890566,intake level
-Q27890568,return air level
+Q1737250,cavern
 Q7564106,sough
 Q12167441,Ходок
 Q56087849,Fallort
 Q1686959,underground infrastructure system
 Q10527472,headquarters civil defense
 Q18289904,framskjuten enhet
+Q1737250,cavern
 Q2162394,pneumatic transport in Hamburg
 Q2162396,pneumatic transport in Berlin
 Q2162403,pneumatic transport in Vienna
@@ -873,6 +852,7 @@ Q13724255,rock-cut architecture
 Q388774,rock-cut architecture in India
 Q1404229,rock-cut tomb
 Q21550442,cave temple
+Q102301345,Buddhist cave temple
 Q41451865,rock-cut temples in Asia
 Q64732764,cave church
 Q1931855,monolithic church
@@ -889,7 +869,7 @@ Q2630690,deep column station
 Q168565,ghost station
 Q3972171,stazioni fantasma della metropolitana di Berlino
 Q4185040,Beijing Subway restricted stations
-Q61962384,underground parking space
+Q24897103,地下道
 Q66443867,cave system
 Q864812,land bridge
 Q873398,cuesta
@@ -897,6 +877,7 @@ Q944588,slope
 Q3659047,čink
 Q25506281,astang
 Q69772701,kleiv
+Q96033515,откос
 Q945344,rift zone
 Q948516,palus
 Q956300,tholus
@@ -905,6 +886,8 @@ Q1031696,continental slope
 Q1051581,albedo feature
 Q1058792,fluctus
 Q1061151,massif
+Q514999,alpine subgroup
+Q3777462,alpine group
 Q1068071,chasma
 Q1069618,fluvial terrace
 Q3130220,Meuse terrace
@@ -912,32 +895,33 @@ Q26896973,Niederterrasse
 Q1133195,scree
 Q3214330,labes
 Q1134503,corona
-Q1136963,Couloir
+Q1136963,couloir
 Q1174791,escarpment
 Q107679,cliff
 Q848370,fall line
 Q2066176,rupes
 Q2339413,Steilhang
+Q12539352,klint
 Q58192737,Felshang
 Q1183485,Pinge
 Q1210950,channel
 Q1837011,stream channel
-Q7112064,Outflow channels
+Q7112064,outflow channel
 Q2153116,rill
 Q3074486,flumen
 Q41982239,navigation channel
+Q55436365,undersea valley
 Q55465414,lake channel
-Q55465477,marine channel
 Q81219064,NodeTube channel
 Q83287935,back channel
 Q84048354,lade
+Q97367600,Tairua
 Q1242936,Double summit
 Q1245089,promontory
 Q191992,headland
 Q12005172,tange
 Q24529780,point
-Q1358604,Giant's kettle
-Q1361343,Makhtesh
+Q1358604,giant's kettle
 Q1361400,gully
 Q1365419,snow field
 Q1367339,thermokarst
@@ -948,34 +932,12 @@ Q62059375,buttress
 Q1402592,island group
 Q1664473,chain of islands
 Q6083496,island group of the Philippines
+Q17305516,island group of Kiribati
 Q61992033,Inseln unter dem Winde
 Q1404150,rock
-Q581776,boulder
-Q372934,glacial erratic
-Q3382736,Pierrabot
-Q3382739,Pierrafortscha
-Q3387852,Pierre à Cambot
-Q5590090,Gowk Stone
-Q7089890,Omarolluk
-Q16354474,hiidrahn
-Q45897634,glacial erratic boulder
-Q2470349,Boris stones
-Q3997677,lifting stone
-Q4411732,sacred boulder
-Q1779569,sacrificial stone
-Q43450727,liukivi
-Q65087974,ristikivi
-Q15853613,ploughing block
-Q16354474,hiidrahn
-Q20249637,Kukonkivi
-Q21029955,kultsten
-Q21029984,сакральны камень
-Q17047449,Камень-кравец
-Q21029979,чортаў камень
-Q21029992,скарбавы камень
-Q45897634,glacial erratic boulder
 Q1358126,mushroom rock
 Q1774225,Climbing rock
+Q2121769,Quacke
 Q4211227,Каменные палатки
 Q17266547,Plastiglomerate
 Q83455882,cat stone
@@ -990,8 +952,8 @@ Q1019920,Börde
 Q1500341,Subrosion
 Q1530151,glacial series
 Q1531260,glacier gate
-Q1544071,Talpass
-Q1553200,Guelta
+Q1544071,narrows (landform)
+Q1553200,guelta
 Q1656082,ice rise
 Q1727788,Klinge
 Q1792880,Kuppe
@@ -1014,15 +976,14 @@ Q2289637,terreinscheur
 Q2402047,insula
 Q2419662,chaos terrain
 Q2421276,glacial landform
-Q319714,fjard
 Q332784,esker
 Q388227,cirque
 Q611796,tunnel valley
 Q649266,U-shaped valley
 Q663753,kame
 Q929061,Urstromtal
+Q1279297,drift
 Q1424609,kettle
-Q2379791,Soll
 Q2610088,moraine
 Q165493,ground moraine
 Q1368225,lateral moraine
@@ -1033,6 +994,7 @@ Q1172599,inlet
 Q554394,ria
 Q5533935,Geo
 Q63253162,ide
+Q9258947,fjard
 Q21282392,Trompetental
 Q59674586,ice cover
 Q35666,glacier
@@ -1041,6 +1003,7 @@ Q2406037,ice tongue
 Q572722,hanging glacier
 Q878077,ice cap
 Q12599,ice sheet
+Q98857704,glacial lobe
 Q1286914,polar ice cap
 Q3508956,Martian polar ice caps
 Q884736,rock glacier
@@ -1050,29 +1013,33 @@ Q2540532,ice stream
 Q3761720,debris covered glacier
 Q4009220,vedretta
 Q5365353,Glaciers of New Zealand
+Q5474230,mountain glacier
 Q5566160,Glaciers of Bhutan
 Q5566163,glaciers on Mars
 Q5566166,Glaciers of Georgia
 Q5985490,ice piedmont
 Q11762356,valley glacier
-Q11762358,mountain glacier
 Q12487785,Tidewater glacier
 Q18642275,Piedmont glacier
 Q21167371,Glaciers of Alaska
 Q23579772,cirque glacier
 Q61748725,Permanent glacier
+Q95348900,alpine glacier
+Q98857704,glacial lobe
 Q213926,sea ice
 Q576515,fast ice
+Q46966,ice shelf
 Q1319638,grease ice
 Q13398859,pack ice
 Q2426855,heuvelland
+Q2440307,Toma hill
 Q2535020,Vrchovina
 Q2558290,stuifdijk
 Q2635655,groengracht
-Q2643369,Kiltmaa
+Q2643369,plateau
 Q2897058,bank
 Q110543,Gestade
-Q361950,Point bar
+Q361950,point bar
 Q1430430,launches
 Q2107707,cut bank
 Q4119003,rocky shore
@@ -1080,16 +1047,25 @@ Q2914829,Great capes
 Q2983016,colles
 Q2997316,Sopka
 Q2998536,coteau
-Q3066957,karstpijp
+Q3066957,karst pipe
 Q3074486,flumen
 Q3077423,large ringed feature
 Q3130220,Meuse terrace
 Q3214330,labes
 Q3214576,labyrinthus
 Q3215913,lacus
-Q3240715,crater
+Q209333,oxbow lake
+Q803749,billabong
+Q1494514,Umflut
+Q8963323,galacho
+Q55470128,intermittent oxbow lake
+Q3236743,dome
+Q522464,laccolith
+Q534282,lava dome
+Q682471,scalloped margin dome
+Q956300,tholus
+Q3240227,moor
 Q3270079,hogback
-Q3290007,polar desert
 Q3306046,mensa
 Q3323149,slope
 Q3393392,highest point
@@ -1098,13 +1074,12 @@ Q56099012,dam crest
 Q3423535,regio
 Q3476035,scopulus
 Q3482498,surf break
-Q3503423,sulcus
 Q3518514,terra
 Q3519009,tessera
 Q3553883,Kleines Tal
 Q1026259,calanque
 Q3555010,vastitas
-Q3621835,Arcus
+Q3621835,arcus
 Q3627664,astrum
 Q3630267,Fog desert
 Q3647467,Syrt
@@ -1131,10 +1106,11 @@ Q201916,ventifact
 Q1256728,dreikanter
 Q319120,erg
 Q580836,yardang
+Q611668,snowdrift
 Q1182724,blowout
 Q1271762,Düneninsel
 Q3497768,Sink
-Q5477455,Desert pavement
+Q5477455,desert pavement
 Q7416252,Sandhill
 Q14253637,dry lake
 Q16963184,váté písky
@@ -1150,22 +1126,23 @@ Q5431439,Fajãs
 Q5462939,flute
 Q5641408,Hale Passage
 Q5667598,Fluvioglacial landform
-Q5862542,Flèche littorale
+Q5862542,Flecha litoral
 Q6151660,tuff ring
-Q6483963,Grzęda (geomorfologia)
+Q6483963,ridge
 Q6502866,cliffed coast
 Q6554910,butte
 Q203450,Palsa
 Q1139493,monadnock
 Q6683669,Losing stream
 Q6703801,lunar swirl
-Q7112064,Outflow channels
+Q7112064,outflow channel
 Q7540307,slide
 Q7708397,planum
 Q7912314,valley network
 Q7920645,Venus snow
 Q8352348,Cuchilla (geografía)
 Q9063395,Island province
+Q9366948,upłaz
 Q9381142,hill chain
 Q467208,push moraine
 Q878223,highland
@@ -1182,16 +1159,19 @@ Q10324856,Mar interior
 Q10327066,Marés luni-solares
 Q10338509,Nó orográfico
 Q10366782,Saco (acidente geográfico)
-Q10817299,podhůří
-Q10862618,saddle
-Q11424753,сакамото
+Q10817299,foothills
+Q11424753,sloping road
+Q11566041,激坂
 Q11907530,Badjimza
 Q11907538,Baduraya
 Q11908133,Baradān
 Q12021235,hřeben
+Q101252553,
+Q12029384,cliff
 Q12042837,opyš
 Q12045651,plošina
 Q12050023,rozsocha
+Q12055702,Spočinek
 Q12269895,rock window
 Q12388848,hoz
 Q12533634,barrancos
@@ -1217,176 +1197,6 @@ Q1520456,business park of private company
 Q1662100,industrial park
 Q59772144,startup center
 Q472577,retail park
-Q832778,campsite
-Q1198413,military camp
-Q88205,castrum
-Q89477,castellum
-Q1264690,transit camp
-Q14520137,winter camp
-Q18088164,Zomerkamp
-Q2094592,labelterrein
-Q2331845,motorcamping
-Q2337230,naturist campsite
-Q2641548,oranjecamping
-Q13980037,paalkampeerterrein
-Q839954,archaeological site
-Q172896,catacombs
-Q586552,Viking ring fortress
-Q755017,tell
-Q852811,cropmark
-Q999957,timber circle
-Q1016853,burnt mound
-Q3778145,Fulacht fiadh
-Q1152199,midden
-Q1688297,Umayyad desert castles
-Q1689802,Tor cairn
-Q1708422,archaeological settlement site
-Q1797396,Küstenwohnplatz
-Q4443227,Stone Age settlement site
-Q49956097,paleolithic site
-Q29959075,housepit
-Q64524328,kenttä
-Q55076205,kolttakenttä
-Q65037959,village site
-Q10727088,Ödesbölen
-Q65038006,foundation of a house
-Q65048099,foundations of goahti
-Q65064889,Bronze Age settlement site
-Q65065011,Iron Age settlement site
-Q1985207,non-megalithic monument
-Q1985210,Round Barrow
-Q2005278,Nuraghensiedlung
-Q2593777,grave field
-Q18292693,курганны могільнік
-Q18602615,
-Q46329023,mohylové pohřebiště
-Q65963789,tumulus field
-Q2597087,Desert kite
-Q3099808,Gaztelu zahar
-Q3118097,groupes du Néolithique en France
-Q3363945,parc archéologique
-Q3380864,table hill
-Q3395377,ancient monument
-Q602202,picture stone
-Q24608185,Norse picture stone
-Q1766565,mask stone
-Q835624,grave orb
-Q2341654,stone setting
-Q1433492,stone ship
-Q1937879,troy town
-Q64526477,hautalatomus
-Q65056240,stone compass
-Q28803049,lägenhetsbebyggelse
-Q28803060,gravhägnad
-Q3935703,Rig and furrow
-Q4235446,костище
-Q4785459,Archaeological context
-Q5375483,enclosure
-Q84268289,fort annexe
-Q10498262,relict field system
-Q10607896,offering site
-Q10607894,sacrificial spring
-Q11269813,cave with prehistoric art
-Q11495971,戦争遺跡
-Q11920611,Area of Archaeological Protection
-Q13127737,Cytiau Gwyddelod
-Q15117120,ritual landscape
-Q15120977,stone grave
-Q18690523,Jättekast
-Q20530939,Kangurkalme
-Q20531300,Kivivarekalme
-Q16942515,hut circle
-Q18088463,urnfield
-Q18292693,курганны могільнік
-Q18981006,élément particulier protégé
-Q20102367,talaiotic village
-Q21013851,Historic Site or Monument
-Q21752084,Roman archaeological site
-Q2202509,Roman city
-Q213468,Municipium
-Q756780,colonia
-Q763590,vicus
-Q918230,Roman villa
-Q252021,villa rustica
-Q2525994,villa urbana
-Q782970,domus
-Q74523705,villa maritima
-Q5871700,fundus
-Q26201757,Civitas foederata
-Q55780222,Roman colonies in Berber Africa
-Q14752696,Roman building
-Q827617,insula
-Q918230,Roman villa
-Q1051574,caupona
-Q1891165,mansio
-Q1989526,ergastulum
-Q2745854,mutatio
-Q3125390,habitation in ancient Rome
-Q3542199,Roman tunnel
-Q7362268,Roman amphitheatre
-Q24933318,Gallo-Roman amphitheatre
-Q12433046,Roman fortification
-Q88205,castrum
-Q89477,castellum
-Q142085,burgus
-Q146924,Roman limes
-Q1309639,Trajan's Wall
-Q12433056,vigilarium
-Q80818225,geographical section of Antonine Wall
-Q80830021,scheduled section of Antonine Wall
-Q80838255,Roman temporary camp
-Q81324829,temporary camp associated with the Antonine Wall
-Q80962689,fort or fortlet on the Antonine Wall
-Q22969563,bodendenkmal
-Q39420219,Bodendenkmal
-Q39422749,Bodendenkmal
-Q25504044,fortified settlement
-Q29048715,listed archaeological site in Greece
-Q29959075,housepit
-Q30504597,Mayan Civilization site
-Q4411733,Maya cave sites
-Q6796762,Maya ruins of Belize
-Q30504598,Maya site in Belize
-Q30504599,Maya site in El Salvador
-Q30504600,Maya site in Guatemala
-Q30511435,Maya site in Dolores area
-Q30504601,Maya site in Honduras
-Q30504603,Maya site in Mexico
-Q41470407,Asura site
-Q42715421,Mertz Rock Shelters
-Q43549761,iron melting site
-Q48794661,Zona Arqueológica
-Q49956097,paleolithic site
-Q52903571,local relics of Gangjin-gun
-Q53336805,megalithic site
-Q228316,Megalithic entrance
-Q2055789,passage tomb
-Q56284712,industrial archaeology site
-Q57393110,protected archaeological site of the German-speaking Community of Belgium
-Q60462093,deposit
-Q62749871,Archaeological window
-Q21402302,Archaeological windows in Aachen
-Q62911164,Archaeological windows in Zürich
-Q64526263,käräjäpaikka
-Q1236830,stone circle
-Q65007262,petroglyphic site
-Q65037638,church foundations
-Q65038006,foundation of a house
-Q65038064,cooking pit
-Q65048099,foundations of goahti
-Q65055076,fishing site
-Q1317251,fishing village
-Q65056920,gold panning site
-Q65087992,portaging site
-Q65088037,road foundation
-Q65088045,pit
-Q29959075,housepit
-Q65106639,charcoal burning site
-Q76505233,Archaeological sites in Bangladesh
-Q76505468,Archaeological sites in Barishal Division
-Q82864520,Archaeological sites in Dhaka Division
-Q85074278,early ecclesiastical site
-Q1472063,early ecclesiastical enclosure
 Q1623285,yard
 Q2749813,churchyard
 Q4839857,backyard
@@ -1394,6 +1204,7 @@ Q5505899,front yard
 Q10971470,ward
 Q381634,inner bailey
 Q1401281,outer bailey
+Q11899488,kringbyggd gårdsplan
 Q66171223,pekarangan
 Q89493416,drying yard
 Q1840800,naturistenterrein
@@ -1408,21 +1219,40 @@ Q3077815,holiday village
 Q3744583,field of fire
 Q11821599,Pole biwakowe
 Q9347317,student's tent bases
+Q12557319,Ор
 Q17071433,Brain terrain
-Q27613537,jardin du souvenir
+Q27108230,campground
+Q12336629,Spejdercenter
+Q60456301,recreational vehicle park
+Q27613537,Jardins du souvenir
 Q45289444,rugby union playing field
 Q45289446,rugby league playing field
+Q57913769,microrelief
 Q79032656,erial
 Q14785575,meander scar
 Q15727526,river bend
 Q15809483,rock face
 Q16887036,gap
+Q133056,mountain pass
+Q12054251,silniční sedlo
+Q14524467,Passhöhe
+Q43675388,road mountain pass
+Q10383863,Tōge
+Q46112269,rail mountain pass
+Q85871133,Talwasserscheide
+Q1266922,water gap
+Q2231510,col
+Q29438920,key col
+Q5972304,wind gap
+Q10862618,saddle
 Q17189807,baou
 Q17300700,cárcava
 Q18389975,flat
 Q18484922,Aresta
 Q18499668,Balneabilidade
 Q18500648,Bloco pedunculado
+Q18809877,rock
+Q16670103,Fertility rocks
 Q19368272,Tafelland
 Q19602720,stupňovina
 Q19708803,Geleira de piemonte
@@ -1436,6 +1266,162 @@ Q12060132,hillside letter
 Q42661374,horse hill figure
 Q4258491,Inscription from trees
 Q91369,trou de loup
+Q106259,polder
+Q2116473,veenpolder
+Q18088180,veenpolders in Friesland
+Q2310269,oudlandpolder
+Q2702619,nieuwlandpolder
+Q13390013,droogmakerij
+Q19884438,koog
+Q505963,artificial dwelling hill
+Q14947481,wierde
+Q819511,spoil tip
+Q985843,artificial reef
+Q20796686,artificial coral reef
+Q104432381,Electric reef
+Q1308978,cut
+Q1349587,earthwork
+Q92383,ringfort
+Q452212,cursus
+Q1416685,rampart
+Q16748868,city walls
+Q1811328,city walls of Paris
+Q65040177,stone wall
+Q1787688,Rondel enclosure
+Q7202294,platform mound
+Q11869044,pit
+Q1067958,Trapping pit
+Q2801925,saw pit
+Q11889148,purnu
+Q20919751,nauriskuoppa
+Q65038075,rakkakuoppa
+Q13530412,Viereckschanze
+Q80446812,motte
+Q1376406,constructed wetland
+Q1584134,mound
+Q755017,tell
+Q1260913,moot hill
+Q2710737,slag heap
+Q152810,landfill
+Q1152199,midden
+Q2301074,Hazardous Waste Site
+Q4369904,полигон ТБО
+Q18170047,installation de stockage de déchets dangereux
+Q25616703,dwinger
+Q28496273,installation de stockage de déchets non dangereux
+Q42664571,Landfills in Taiwan
+Q331211,spoil heap
+Q819511,spoil tip
+Q331625,ship graveyard
+Q819511,spoil tip
+Q843181,Schuttberg
+Q1911141,molehill
+Q2143837,stone run
+Q2527200,compost heap
+Q3327930,munition immergée
+Q12142491,Породний відвал
+Q819511,spoil tip
+Q15859700,coal stockpile
+Q7202294,platform mound
+Q7650105,sutra mound
+Q11667022,kubizuka
+Q13955118,earthwork
+Q91764,military trench
+Q744099,hillfort
+Q92086,promontory fort
+Q12369360,maalinn
+Q28045079,contour fort
+Q31028314,partial contour fort
+Q31028695,hillslope fort
+Q31028835,level terrain fort
+Q31028965,marsh fort
+Q31029044,multiple enclosure hillfort
+Q1130322,land reclamation
+Q106259,polder
+Q4057111,агролесомелиорация
+Q6484251,land reclamation in Monaco
+Q6484252,land reclamation in the United Arab Emirates
+Q11084037,"Land reclamation
+Q13642695,land reclamation in Hong Kong
+Q15901714,land reclamation in Macau
+Q29025841,land reclamation in Singapore
+Q61613464,land reclamation in the Netherlands
+Q7838238,Trench shoring
+Q16851290,Kabal
+Q16963827,hill-slope enclosure
+Q17123626,Hillforts in Britain
+Q20529645,burial mound
+Q5737,kurgan
+Q12153523,Scythian kurgan
+Q18292693,курганны могільнік
+Q34023,tumulus
+Q573958,chieftain's tomb
+Q967448,bell barrow
+Q1141225,kofun
+Q11268718,Keyhole-shaped kofun
+Q11358496,round-topped burial mound
+Q11391751,八角墳
+Q11410445,双方中円墳
+Q11480883,帆立貝形古墳
+Q11504353,方墳
+Q11608504,纒向型前方後円墳
+Q11625780,蝦夷穴
+Q11626716,decorated kofun
+Q80793203,長方形墳
+Q1228360,disc barrow
+Q1351659,oval barrow
+Q2046325,round barrow
+Q967448,bell barrow
+Q2046310,bowl barrow
+Q40006041,round cairn
+Q2141230,tumulus above cremated remains
+Q2451979,treudd
+Q2858007,Aowelo
+Q3634310,bank barrow
+Q5069563,chambered long barrow
+Q5212069,Damb
+Q11411019,kofungun
+Q11487459,弥生墳丘墓
+Q12330017,oldtidshøj
+Q16521369,kunhalom
+Q19922100,tumuli in the Netherlands
+Q19922104,tumuli in Belgium
+Q21659312,sopka
+Q26221546,Runddysse
+Q66108788,chabola tumular
+Q1652352,long barrow
+Q5069563,chambered long barrow
+Q17412974,unchambered long barrow
+Q19947271,barrow
+Q20529645,burial mound
+Q96316262,cattle mound
+Q1852785,trench
+Q1434416,Flutmulde
+Q1877163,tidal inlet with high tide
+Q2048319,ditch
+Q694167,Bisse
+Q1792401,Kunstgraben
+Q1870919,bermsloot
+Q2036195,pasveersloot
+Q2575255,heinsloot
+Q2890064,ditch
+Q5715032,Azarbe
+Q16669588,кювет
+Q47395013,ridge-shaped well bore
+Q50192007,main ditch
+Q2435568,tidal inlet with low tide
+Q2652662,kortsluitgeul
+Q4477366,zwin
+Q2220733,sand mine
+Q7900097,urban beach
+Q10460934,artificial hill
+Q12051318,sejp
+Q13586663,Vliedberg
+Q18511737,traverse
+Q28550993,reclaimed land
+Q13691,artificial island
+Q84077828,peat cutting
+Q98969382,Dam
 Q105190,levee
 Q806861,Banndeich
 Q1359152,sea wall
@@ -1448,7 +1434,7 @@ Q2241237,landscheiding
 Q2362303,opdijk
 Q2441961,verbindende dijk
 Q2470365,muralt wall
-Q2560503,veenkade
+Q2560503,Veenkades
 Q2613246,zomerkade
 Q2695441,schenkeldijk
 Q4789788,schaardijk
@@ -1459,135 +1445,18 @@ Q25826953,leidyk
 Q54670726,rechle
 Q60269799,zijdewende
 Q60469352,dwarsdijk
-Q106259,polder
-Q2116473,veenpolder
-Q18088180,veenpolders in Friesland
-Q2310269,oudlandpolder
-Q2702619,nieuwlandpolder
-Q13390013,droogmakerij
-Q19884438,koog
-Q188040,quarry
-Q179316,clay pit
-Q901497,lignite mine
-Q3392827,gypsum quarry
-Q8195662,gypsum quarry
-Q12148491,Угольный разрез
-Q15115254,stone quarry
-Q1697420,Schotterwerk
-Q2940297,limestone quarry
-Q3002370,chalk quarry
-Q27834360,Steinbruchbetrieb
-Q15401511,marl pit
-Q25401218,Cava a fossa
-Q27834780,Natursteinbruch
-Q505963,artificial dwelling hill
-Q14947481,wierde
-Q819511,spoil tip
-Q985843,artificial reef
-Q20796686,artificial coral reef
-Q1308978,cut
-Q1349587,earthwork
-Q92383,ringfort
-Q452212,cursus
-Q744099,hillfort
-Q92086,promontory fort
-Q12369360,maalinn
-Q28045079,contour fort
-Q31028314,partial contour fort
-Q31028695,hillslope fort
-Q31028835,level terrain fort
-Q31028965,marsh fort
-Q31029044,multiple enclosure hillfort
-Q1416685,rampart
-Q16748868,city walls
-Q1811328,city walls of Paris
-Q65040177,kivivalli
-Q1787688,Rondel enclosure
-Q7202294,platform mound
-Q11869044,pit
-Q1067958,Trapping pit
-Q2801925,saw pit
-Q11889148,purnu
-Q20919751,nauriskuoppa
-Q65038075,rakkakuoppa
-Q13530412,Viereckschanze
-Q13955118,earthworks
-Q34023,tumulus
-Q91764,military trench
-Q65055493,connecting trench
-Q744099,hillfort
-Q1130322,land reclamation
-Q106259,polder
-Q4057111,агролесомелиорация
-Q6484251,land reclamation in Monaco
-Q6484252,land reclamation in the United Arab Emirates
-Q11084037,"Land reclamation
-Q13642695,land reclamation in Hong Kong
-Q15901714,land reclamation in Macau
-Q29025841,land reclamation in Singapore
-Q61613464,land reclamation in the Netherlands
-Q16851290,Kabal
-Q16963827,hill-slope enclosure
-Q17123626,Hillforts in Britain
-Q80446812,motte
-Q1376406,constructed wetland
-Q1584134,mound
-Q200446,formation
-Q755017,tell
-Q1260913,moot hill
-Q2710737,slag heap
-Q152810,landfill
-Q1152199,midden
-Q2301074,Hazardous Waste Site
-Q4369904,полигон ТБО
-Q18170047,installation de stockage de déchets dangereux
-Q25616703,dwinger
-Q28496273,installation de stockage de déchets non dangereux
-Q331211,spoil heap
-Q331625,Ship graveyard
-Q819511,spoil tip
-Q843181,Schuttberg
-Q1911141,molehill
-Q2143837,stone run
-Q2527200,compost heap
-Q3327930,Munition immergée
-Q12142491,Породний відвал
-Q819511,spoil tip
-Q15859700,coal stockpile
-Q7202294,platform mound
-Q13955118,earthworks
-Q1852785,trench
-Q1434416,Flutmulde
-Q1877163,tidal inlet with high tide
-Q2048319,ditch
-Q88480,moat
-Q15709086,vodní příkop
-Q694167,Bisse
-Q1792401,Kunstgraben
-Q1870919,bermsloot
-Q2036195,pasveersloot
-Q2575255,heinsloot
-Q2890064,ditch
-Q16669588,кювет
-Q47395013,ridge-shaped well bore
-Q50192007,main ditch
-Q2435568,tidal inlet with low tide
-Q2652662,kortsluitgeul
-Q4477366,zwin
-Q2220733,sand mine
-Q7900097,urban beach
-Q20059264,Saúde Beach
-Q10460934,artificial hill
-Q12051318,sejp
-Q13586663,Vliedberg
-Q18511737,traverse
-Q28550993,reclaimed land
-Q13691,artificial island
-Q84077828,peat cutting
+Q892168,causeway
+Q11284064,河口堰
+Q101216902,road embankment
+Q1244922,embankment dam
+Q11285593,earth-fill dam
+Q11350418,rock-fill dam
+Q20180822,concrete-face rock-fill dam
+Q4878217,beaver dam
 Q19817101,coastal landform
 Q31796,mudflat
 Q2382399,Süßwasserwatt
-Q2584107,windwatt
+Q2584107,Windwatt
 Q40080,beach
 Q567998,public beach
 Q573367,pocket beach
@@ -1597,6 +1466,7 @@ Q6881911,separate beach
 Q7493708,shell beach
 Q7900097,urban beach
 Q9089165,sea turtles in Mexico
+Q11941943,Platges de Badalona
 Q11959973,bathing beach
 Q847935,nude beach
 Q12353867,plaĝo
@@ -1608,45 +1478,39 @@ Q28060923,white sand beach
 Q28060956,golden sand beach
 Q53800413,plage de sable fin
 Q24633899,rock beach
-Q35101126,Hundestrand
+Q35101126,dog beach
 Q35800652,state beach
 Q38051384,California state beach
+Q98375039,river beach
 Q217101,spit
 Q12323045,krumodde
 Q747957,stack
 Q885499,blowhole
+Q1205140,barrier island
 Q3518589,Marine terrace
 Q4875776,Beach cusps
 Q17018380,bight
 Q2519239,overbanked turn
-Q18390604,road curve
-Q1130302,hairpin turn
-Q2731902,kombocht
-Q3560558,bend
 Q28550993,reclaimed land
 Q35116038,shoreline indentation
 Q39594,bay
 Q31615,cove
 Q21573839,saco
-Q187223,lagoon
-Q431064,barachois
-Q3705882,estuarine lagoon
-Q6401073,khawr of the Salalah Coast Reserve
-Q12027742,sludge lagoon
 Q283202,harbor
 Q828909,wharf
 Q2327160,kwelkade
+Q2943018,Catway
+Q3126266,River stop
 Q3543043,quay
 Q7398566,safeguarded wharf
 Q1525891,typhoon shelter
 Q6034850,inland harbor
 Q10512405,guest harbor
-Q64210934,natural harbor
+Q13424466,natural harbor
 Q558116,firth
 Q1322134,gulf
 Q4990444,lagoon
 Q11859723,Flada
-Q15942175,former bay of Hong Kong
 Q55863112,voe
 Q45776,fjord
 Q11066204,Poll
@@ -1689,6 +1553,7 @@ Q2008316,polygenetic volcanic field
 Q534282,lava dome
 Q653139,volcanic plug
 Q662806,dike
+Q1977889,clastic dike
 Q718569,Lava spine
 Q792425,large igneous province
 Q1038563,Andisol
@@ -1699,15 +1564,18 @@ Q1569584,kīpuka
 Q1628501,Hornito
 Q2238314,mudpot
 Q2261752,volcanic pipe
-Q2264600,Árbol de lava
+Q2264600,Lava trees
 Q2512740,lava flow
 Q1189599,pahoehoe
 Q5985134,ice-marginal lava flow
 Q3390872,black sand beach
 Q3431710,Pressure ridge
+Q6633995,columnar basalt
+Q2157711,Jusangjeolli
 Q6745599,Mamelon
 Q7835547,trap
-Q12034896,Magma ocean
+Q7940032,Volcanic desert
+Q12034896,magma ocean
 Q13426043,volcanic arc
 Q17171019,volcano group
 Q21027468,Suc
@@ -1722,13 +1590,18 @@ Q51051122,ridge
 Q2611633,sand ridge
 Q71824976,Garst
 Q55075651,upland
+Q740445,ridge
+Q21656739,парма
 Q55182671,undersea landform
 Q119253,oceanic trench
 Q184358,reef
 Q11292,coral reef
 Q2920849,low island
 Q985843,artificial reef
+Q4078911,barrier reef
 Q7578997,sponge reef
+Q16324601,stone reef
+Q25220868,oyster reef
 Q26271645,Klippe
 Q34198935,submerged rock
 Q503269,seamount
@@ -1739,6 +1612,7 @@ Q1069932,oceanic basin
 Q1271224,oceanic plateau
 Q1377943,ocean bank
 Q6940831,fishing bank
+Q1650870,submerged continent
 Q4054763,abyssal channel
 Q4670744,abyssal fan
 Q11702690,undersea ridge
@@ -1753,9 +1627,16 @@ Q55471289,undersea hole
 Q55471305,undersea shoal
 Q55670187,undersea ledge
 Q55670193,undersea levee
+Q96251935,submarine terrace
 Q55392224,salt area
 Q55462971,fluvial landform
 Q150784,canyon
+Q963729,submarine canyon
+Q1068071,chasma
+Q1163673,Pongo
+Q1744266,narrow canyon
+Q2294430,slot canyon
+Q4951581,Box canyon
 Q1069618,fluvial terrace
 Q1141266,riffle
 Q1738704,Kendel
@@ -1763,9 +1644,10 @@ Q55462851,gorge
 Q55471069,karst area
 Q55674403,cleft
 Q55711124,interdune trough
-Q55716487,Aven
+Q55716487,aven
 Q55840778,mo
 Q56298568,Mountain range
+Q56355858,Deckgebirge
 Q56406134,mountainous area
 Q57208193,section of an island
 Q57208199,section of a peninsula
@@ -1773,6 +1655,7 @@ Q57208228,section of a plateau
 Q57208241,section of a plain
 Q57208256,section of a valley
 Q57237852,dry stream bed
+Q58215483,Innerer Wall
 Q58619735,Felsgruppe
 Q61055947,laje
 Q64744256,saxum
@@ -1784,9 +1667,16 @@ Q590992,karst spring
 Q1816468,fontaine de Vaucluse
 Q3058856,Estavelle
 Q3965085,Vauclusian spring
+Q6961841,Vrulja
 Q946033,polje
 Q3058856,Estavelle
 Q6373428,Karst fenster
 Q12031434,krasová kapsa
 Q65064611,Tower karst
+Q69301889,Marmitte dei Giganti
 Q77854728,group of mountains
+Q92432507,důlní propadlina
+Q96650765,uneven
+Q98504744,waterfall cascade
+Q100936765,hornatina
+Q100989082,vaara

@@ -2,14 +2,12 @@
 Q355304,watercourse
 Q12284,canal
 Q68530,flume
-Q1425792,Log flume
+Q1425792,log flume
 Q105731,lock
 Q14908,boat lift
 Q912618,canal inclined plane
 Q1431722,Water slope
-Q510255,Siel
-Q1784096,chain of locks
-Q2239533,staircase locks
+Q510255,discharge sluice
 Q2115826,Waaiersluizen in the Netherlands
 Q2149189,control lock
 Q2519423,blaffer
@@ -17,20 +15,22 @@ Q2431633,Klief
 Q2463979,naviduct
 Q3396433,Schleusenbrücke
 Q5616327,guillotine lock
+Q15694700,mitre gate
 Q22953352,écluse à sas
 Q2307906,Sparschleuse
 Q3033403,three way lock
 Q17651588,Écluse à bassins d'épargne
 Q81671041,sea lock
 Q128106,spicule
-Q182886,Artificial whitewater
+Q182886,artificial whitewater
 Q232826,Zweigkanal
+Q348675,summit level
 Q459297,qanat
 Q6160903,viaje de agua
 Q6799709,سقاية
 Q56299531,kariz
-Q523166,gracht
-Q2047311,anti-tank trench
+Q500717,Navigli
+Q523166,Canal
 Q2670081,grachtengordel
 Q3100831,Rui
 Q708457,wetering
@@ -39,31 +39,32 @@ Q949819,ship canal
 Q1021342,Bürgermeisterkanal
 Q1030403,navigable aqueduct
 Q1427700,canal pound
-Q348675,Scheitelhaltung
+Q348675,summit level
 Q1430419,Floßgraben
 Q1740654,khlong
+Q1784096,flight of locks
+Q2239533,staircase locks
 Q2057158,singel
 Q2154083,ringvaart
 Q2489935,singel
 Q2915361,opvaart
+Q2935978,irrigation canal
+Q735485,aryk
+Q1385463,acequia
+Q5656459,acequia de careo
+Q93307402,ditches of León
+Q55468440,underground irrigation canal
+Q58410133,Chubek Irrigation System
 Q2936105,summit level canal
-Q1009249,national waterways in Germany
+Q3883879,opera di presa
+Q3936268,rio terà
 Q5031069,canal ring
 Q5031071,canal tunnel
 Q5031104,canals of the United Kingdom
 Q5460062,flood control channel
+Q63684450,Liechtensteiner Binnenkanal
 Q7236487,power canal
 Q7279041,raceway
-Q8261440,canal for transporting water
-Q2935978,irrigation canal
-Q735485,aryk
-Q1385463,acequia
-Q607657,levada
-Q5656459,acequia de careo
-Q55468440,underground irrigation canal
-Q58410133,Chubek Irrigation System
-Q28109789,drainage canal
-Q11578893,疏水
 Q12048126,přivaděč
 Q14556915,leat
 Q15097936,Binnenkanal
@@ -72,7 +73,13 @@ Q18691143,canals in Finland
 Q28109789,drainage canal
 Q41535570,zijldiep
 Q56479602,mina d'aigua
+Q63136737,Soubor plavebních kanálů na Šumavě
 Q81282092,Tailrace
+Q97146798,Leitgraben
+Q97290396,Gewässerausleitung
+Q97146318,Ausleitbauwerk
+Q101502735,lock pond
+Q104351604,Bealere di Torino
 Q27250,tidal creek
 Q180537,meander
 Q209333,oxbow lake
@@ -81,11 +88,10 @@ Q1494514,Umflut
 Q8963323,galacho
 Q55470128,intermittent oxbow lake
 Q13049980,recolón
-Q373315,arroyo
-Q1361400,gully
 Q573344,main stream
 Q587052,Vliet
 Q661702,anabranch
+Q899514,backwater
 Q695793,rapids
 Q1844833,whitewater
 Q65238607,köngäs
@@ -93,55 +99,66 @@ Q708457,wetering
 Q832230,Maar
 Q911608,fiumara
 Q1016714,burn
+Q1210950,channel
+Q1837011,stream channel
+Q7112064,outflow channel
+Q2153116,rill
+Q3074486,flumen
+Q41982239,navigation channel
+Q55436365,undersea valley
+Q55465414,lake channel
+Q81219064,NodeTube channel
+Q83287935,back channel
+Q84048354,lade
+Q97367600,Tairua
 Q1427694,Fleet
-Q1437299,Arroyo
+Q1428635,Fließ
+Q1437299,creek
 Q2478921,channel runof
-Q1444790,streamflow
+Q1444790,surface runoff
 Q7632182,subsurface flow
 Q11932076,Llau
 Q1878752,hoofdwatergang
+Q2043393,creek
 Q2048319,ditch
-Q88480,moat
-Q15709086,vodní příkop
 Q694167,Bisse
 Q1792401,Kunstgraben
 Q1870919,bermsloot
 Q2036195,pasveersloot
 Q2575255,heinsloot
 Q2890064,ditch
+Q5715032,Azarbe
 Q16669588,кювет
 Q47395013,ridge-shaped well bore
 Q50192007,main ditch
+Q2188415,Verhang
 Q2220686,Sandgeprägter Tieflandbach
 Q2431801,deep
-Q2539735,balkengat
+Q2539735,Balkengat
 Q2855957,spiraalstroom
 Q2874701,nevengeul
 Q3001363,cours d'eau de deuxième catégorie
 Q3001367,cours d'eau de première catégorie
 Q3097686,wijk
 Q3433950,rivières aurifères en France
+Q4250086,nullah
 Q8242648,Baïne
-Q8261440,canal for transporting water
 Q9346811,Struga
 Q10857944,zdrojnice
+Q11498185,排水路
 Q11774959,veletok
-Q12099220,mountain river
 Q12719343,water tunnel
 Q459297,qanat
 Q14164550,priel
 Q14915976,Száraz-ér
 Q17021145,bourne
-Q18870689,aqueduct
-Q474,aqueduct
-Q1030403,navigable aqueduct
-Q3474226,saumoduc
-Q13218676,Roman aqueduct
-Q14556915,leat
-Q28109822,sewerage aqueduct
-Q30158320,creek
+Q41982239,navigation channel
+Q48855053,igarapé
 Q55659156,intermittent watercourse
 Q55659107,intermittent natural watercourse
+Q373315,arroyo
+Q1361400,gully
+Q1361400,gully
 Q21079327,intermittent river
 Q55659167,natural watercourse
 Q4022,river
@@ -149,8 +166,9 @@ Q100649,blackwater river
 Q159675,tributary
 Q591942,distributary
 Q12048869,Rameno delty
+Q90905898,slepé rameno
 Q653247,Arheisch
-Q794428,Entrenched river
+Q794428,entrenched river
 Q1074069,tidal river
 Q3058945,estey
 Q1140845,subterranean river
@@ -161,7 +179,6 @@ Q1531228,glacier river
 Q1720683,Kiesgeprägter Tieflandbach
 Q1746748,Kleines Niederungsfließgewässer in Fluss- und Stromtälern
 Q1986504,rain river
-Q2048585,rak
 Q2230783,Grote rivieren
 Q2375084,karstrivier
 Q2557367,whitewater river
@@ -171,28 +188,42 @@ Q4176368,Yérik
 Q4366834,transboundary river
 Q4392849,Реки Донецкой области
 Q4392856,Реки Крыма
-Q4733366,Alluvial river
+Q4733366,alluvial river
 Q4879406,bedrock river
+Q5371585,raised bed river
+Q7164110,Pennsylvania Scenic River
+Q7300165,reach
 Q7580767,spring creek
 Q8026426,winterbourne
 Q10670417,Skogsälv
 Q10875106,中央管河川
+Q11253501,river system of Norway
+Q11514609,ordinary river
 Q11553102,沢
+Q11564407,law applicable river
 Q12099220,mountain river
 Q12149663,равнинная река
 Q12309892,Elv
+Q12818517,Arna
 Q16465938,seasonal river
 Q16638716,Gaudre
+Q17105134,palaeochannel
 Q18915937,Říční koryto
 Q20529834,Rivers of Greek underworld
 Q21079327,intermittent river
 Q21573828,Río alóctono
+Q25556322,straight river
 Q27067659,former river
 Q42122394,rivers of Newfoundland and Labrador
 Q51205815,source river
+Q55610863,Endangered river
+Q56388869,Flüsse in Siebenbürgen
 Q60061427,Mixed river
 Q60823417,Igarapé
 Q71184245,Patrimonio natural de Alcalá de Henares
+Q98242145,Class A river
+Q98242280,Class B river
+Q100717822,Cut-off
 Q47521,stream
 Q16437,Alamito Creek
 Q572211,Antecedent drainage stream
@@ -211,8 +242,13 @@ Q42293497,Zandvang
 Q58193204,Bachprofil
 Q63565252,brook
 Q83287935,back channel
+Q100146272,homestream
 Q3529419,small river
 Q55659107,intermittent natural watercourse
 Q57273768,branch
 Q55999996,Významný vodní tok
 Q55999999,Drobný vodní tok
+Q97146798,Leitgraben
+Q97290396,Gewässerausleitung
+Q98094753,Rivière à écrevisses à pattes blanches
+Q100717822,Cut-off

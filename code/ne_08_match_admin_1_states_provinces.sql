@@ -51,7 +51,7 @@ ANALYSE           newd.wd_match_admin_1_states_provinces ;
 drop table if exists          newd.ne_match_admin_1_states_provinces CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_admin_1_states_provinces  as
 select
-     ogc_fid
+     ne_id
     ,min_zoom      
     ,featurecla   
     ,name                as ne_name

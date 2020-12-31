@@ -3,14 +3,14 @@ Q15324,body of water
 Q9430,ocean
 Q1982207,superocean
 Q20018921,historic superocean
-Q5250434,Deep scattering layer
 Q11802343,historic ocean
 Q20018921,historic superocean
 Q15910235,Ondergrondse oceaan
 Q34038,waterfall
 Q1105442,cataract
-Q2270442,hoefijzerwaterval
+Q2270442,horseshoe waterfall
 Q2967706,coastal waterfall
+Q11626783,urami waterfall
 Q12053053,artificial waterfall
 Q21504956,subterranean waterfall
 Q40172600,Japan's Top 100 Waterfalls
@@ -21,29 +21,24 @@ Q65238607,köngäs
 Q39594,bay
 Q31615,cove
 Q21573839,saco
-Q187223,lagoon
-Q431064,barachois
-Q3705882,estuarine lagoon
-Q6401073,khawr of the Salalah Coast Reserve
-Q12027742,sludge lagoon
 Q283202,harbor
 Q828909,wharf
 Q2327160,kwelkade
+Q2943018,Catway
+Q3126266,River stop
 Q3543043,quay
 Q7398566,safeguarded wharf
 Q1525891,typhoon shelter
 Q6034850,inland harbor
 Q10512405,guest harbor
-Q64210934,natural harbor
+Q13424466,natural harbor
 Q558116,firth
 Q1322134,gulf
 Q4990444,lagoon
 Q11859723,Flada
-Q15942175,former bay of Hong Kong
 Q55863112,voe
 Q43483,well
 Q10991,Venetian Well
-Q177734,artesian aquifer
 Q203608,Zimmerbrunnen
 Q573342,Wishing well
 Q890880,Bohrbrunnen
@@ -58,14 +53,17 @@ Q2297254,wellspring
 Q2378580,welput
 Q2421408,hollestelle
 Q2453700,Trinkwassernotbrunnen
+Q2517083,Willibrordusput
 Q2676187,boomstamput
 Q2856254,tonput
 Q3410676,air well
 Q3909778,nuragic holy well
+Q3999608,trogolo
 Q4773805,plaggenput
-Q5155879,zwingelput
+Q5155879,swingle water well
 Q5569673,gemetselde put
 Q10947367,Song Wells
+Q11278157,まいまいず井戸
 Q17080769,infiltration gallery
 Q25389953,Studnia abisyńska
 Q53628296,public water well
@@ -78,13 +76,15 @@ Q56408612,Pou amb coll
 Q56408613,Pou integrat en un marge
 Q56408615,Pou amb capelleta
 Q69512419,artesian well
+Q98141553,Pumpbrunnen
+Q98437763,Dorfbrunnen
 Q45776,fjord
 Q11066204,Poll
 Q47053,estuary
-Q3059073,Estuaire picard
+Q3059073,estuaire picard
 Q47568,iceberg
 Q4930097,Blue iceberg
-Q16555805,Growler
+Q16555805,growler
 Q42299328,Tabular iceberg
 Q124714,spring
 Q83471,geyser
@@ -93,13 +93,16 @@ Q177380,hot spring
 Q867648,hydrothermal vent
 Q1335848,black smoker
 Q2238314,mudpot
+Q12384277,Baños de Cortegada
 Q27966643,hot lake
+Q65275065,Balneario de Caldeliñas
 Q332716,overflow spring
 Q590992,karst spring
 Q1816468,fontaine de Vaucluse
 Q3058856,Estavelle
 Q3965085,Vauclusian spring
-Q992837,Spring box
+Q6961841,Vrulja
+Q992837,spring box
 Q1033779,Cantharus
 Q1365924,mineral spring
 Q655311,onsen
@@ -109,17 +112,22 @@ Q11416420,含アルミニウム泉
 Q11416426,含銅-鉄泉
 Q11428612,塩化物泉
 Q11498934,放射能泉
+Q11562971,onsenkyō
 Q11567142,炭酸水素塩泉
 Q11587674,sulphur spring
 Q11587679,硫黄泉
 Q11644442,酸性泉
+Q11645813,野湯
 Q1371047,holy well
+Q2517083,Willibrordusput
 Q3909778,nuragic holy well
 Q2234169,Schichtquelle
 Q2252145,Schuttquelle
+Q2499009,Underwater spring
+Q6961841,Vrulja
 Q3400208,pouhon
 Q3678339,citro
-Q3696707,Cratoneurion
+Q3696707,cratoneurion
 Q7376362,river source
 Q7017640,Sources of the Jordan
 Q69997952,springhead
@@ -130,28 +138,50 @@ Q11922557,fonts de Guixers
 Q11922558,fonts de Camprodon
 Q12054316,sulphur spring
 Q15517598,brine spring
+Q20440019,Kászonszék borvízforrásai és gyógyfürdői
 Q21029914,iconic source
+Q25455522,"Izvoare de apa minerala din Lazareni
+Q25456942,"Izvoare de apa minerala in Vrabia
+Q25457524,"Izvoare de apa minerala din Sânsimion
+Q25457527,"Izvoare si bai de apa minerala din Sântimbru
+Q25458129,"Izvoare de apa minerala din Sâncrăieni
+Q25459600,"Izvoare si bai de apa minerala din Ciucani
+Q25459603,"Izvoare si bai de apa minerala din Sânmartin
+Q25459610,"Izvoare si bai de apa minerala din Armășeni
+Q25459611,"Izvoare de apa minerala din Ciucsângeorgiu
+Q25459613,"Izvoare de apa minerala din Bancu
+Q28723016,Csíkzsögöd borvízforrásai
+Q28723256,Izvoare de apa minerala din Fitod
+Q28723257,Izvoare si bai de apa minerala din Ghimes
 Q34338776,thermal spring
 Q43554495,silmaallikas
 Q56170341,lähdejärvi
+Q56389196,"Izvoare si bai de apa minerala din Vlăhița
+Q56389780,"Izvoare de apa minerala din Crăciunel
+Q56390826,Izvoare de apa minerala din Corund
+Q56391508,Izovare de apa sarata din Praid
 Q57733436,Verengungsquelle
 Q58236328,Faltenquelle
 Q65073670,health spring
 Q81720784,
+Q90400113,jesenické prameny
+Q101726155,"Бурсук (родник
 Q156030,Liman
 Q170321,wetland
 Q30198,marsh
 Q31455,freshwater marsh
+Q3199193,String bog
 Q4953717,brackish marsh
 Q5598492,grazing marsh
+Q11888791,Pounu
+Q12828955,Odoq
 Q20106372,closa
 Q62562206,tidal marsh
 Q29925,salt marsh
-Q68487771,Meers
+Q68487771,meers
 Q166735,swamp
 Q2474940,flow through marsh
 Q2653463,flood marsh
-Q3199193,String bog
 Q5200372,Cypress dome
 Q7809986,Titi swamp
 Q28129994,mangrove swamp
@@ -167,14 +197,14 @@ Q72178,Tallmyr
 Q514050,fen
 Q127314,Coniferous swamp
 Q688784,pocosin
-Q3696707,Cratoneurion
+Q3696707,cratoneurion
 Q14405085,rich fen
 Q61748363,Fennoscandian mineral-rich springs and springfens
 Q61748371,Kalkreiche Niedermoore mit Cladium mariscus und Arten von Caricion davallianae
 Q61748391,Alkaline fen
 Q61748401,Alpine pioneer formations of the Caricion bicoloris-atrofuscae
 Q66764728,Calcareous fens with Cladium mariscus and species of the Caricion davallianae
-Q844114,Opfermoor
+Q844114,sacrificial bog
 Q1250939,Dose
 Q1294726,floating mat
 Q1632562,Kondenswassermoor
@@ -188,7 +218,7 @@ Q7553432,sods
 Q10430947,blandmyr
 Q10431214,blekeområde
 Q11879994,Lähteikkö
-Q13359600,raised bog
+Q13127620,raised bog
 Q12300827,aktiv højmose
 Q12335783,Skovbevokset tørvemose
 Q61748280,Active raised bog
@@ -199,7 +229,7 @@ Q60102117,Kesselmoor
 Q61748349,Depressions on peat substrates of the Rhynchosporion
 Q61748421,Aapa mire
 Q61748425,Palsa mire
-Q3240227,湿原
+Q3240227,moor
 Q3515225,tanne
 Q3575234,Marjal
 Q6046150,interdunal wetland
@@ -223,130 +253,94 @@ Q55463449,intermittent wetland
 Q61298831,Important Wetlands in Australia
 Q62562206,tidal marsh
 Q64502858,bonal
+Q68145761,Sutte
 Q75304241,coastal wetland
+Q100252623,pakihi
 Q448531,Alvarsee
 Q575279,anchialine pool
 Q812585,bayou
-Q891537,Bolong
+Q891537,Bolongs
 Q923791,polynya
 Q1103796,vernal pool
 Q1172903,loch
-Q1414773,harbor basin
-Q1553200,Guelta
-Q1996446,Noor
-Q2354300,brine pool
-Q2431801,deep
-Q2507626,water area
-Q165,sea
-Q204894,marginal sea
-Q1322134,gulf
-Q1973404,inland sea
-Q986177,mediterranean sea
-Q2578218,inland sea
-Q12714656,visserijzone van Jan Mayen
+Q1267889,waterway
 Q37901,strait
 Q491713,sound
 Q2923911,empoldered inlet
+Q15942175,former bay of Hong Kong
 Q558116,firth
 Q1051401,Turkish Straits
 Q2264838,Gat
 Q5456507,Fjords and channels of Chile
 Q11422504,国際海峡
-Q319714,fjard
+Q949819,ship canal
+Q1009249,national waterways in Germany
+Q1138251,fairway
+Q231698,Zwangsweg
+Q1726133,Wasserstraßen in Österreich
+Q1757209,sea lane
+Q3941818,refugee routes in the Mediterranean
+Q2438381,trekvaart
+Q3442198,rijksvaarweg
+Q3456796,Binnenwasserstraße
+Q3478786,water trail
+Q27895378,water trail at sea
+Q27895414,National Water Trail
+Q3815129,canal basin
+Q5458371,fleet
+Q11549275,水運
+Q11922347,vodní cesty v České republice
+Q41982239,navigation channel
+Q47471620,canal network
+Q60242562,Landeswasserstraße
+Q62059383,passage
+Q1414773,harbor basin
+Q966406,Cothon
+Q1553200,guelta
+Q1996446,Noor
+Q2354300,brine pool
+Q2479431,open water
+Q2507626,water area
+Q37901,strait
 Q447555,Bodden
 Q863944,land waters
-Q12284,canal
-Q68530,flume
-Q1425792,Log flume
-Q105731,lock
-Q14908,boat lift
-Q912618,canal inclined plane
-Q1431722,Water slope
-Q510255,Siel
-Q1784096,chain of locks
-Q2239533,staircase locks
-Q2115826,Waaiersluizen in the Netherlands
-Q2149189,control lock
-Q2519423,blaffer
-Q2431633,Klief
-Q2463979,naviduct
-Q3396433,Schleusenbrücke
-Q5616327,guillotine lock
-Q22953352,écluse à sas
-Q2307906,Sparschleuse
-Q3033403,three way lock
-Q17651588,Écluse à bassins d'épargne
-Q81671041,sea lock
-Q128106,spicule
-Q182886,Artificial whitewater
-Q232826,Zweigkanal
-Q459297,qanat
-Q6160903,viaje de agua
-Q6799709,سقاية
-Q56299531,kariz
-Q523166,gracht
-Q2047311,anti-tank trench
-Q2670081,grachtengordel
-Q3100831,Rui
-Q708457,wetering
-Q736691,mill race
-Q949819,ship canal
-Q1021342,Bürgermeisterkanal
-Q1030403,navigable aqueduct
-Q1427700,canal pound
-Q348675,Scheitelhaltung
-Q1430419,Floßgraben
-Q1740654,khlong
-Q2057158,singel
-Q2154083,ringvaart
-Q2489935,singel
-Q2915361,opvaart
-Q2936105,summit level canal
-Q1009249,national waterways in Germany
-Q5031069,canal ring
-Q5031071,canal tunnel
-Q5031104,canals of the United Kingdom
-Q5460062,flood control channel
-Q7236487,power canal
-Q7279041,raceway
-Q8261440,canal for transporting water
-Q2935978,irrigation canal
-Q735485,aryk
-Q1385463,acequia
-Q607657,levada
-Q5656459,acequia de careo
-Q55468440,underground irrigation canal
-Q58410133,Chubek Irrigation System
-Q28109789,drainage canal
-Q11578893,疏水
-Q12048126,přivaděč
-Q14556915,leat
-Q15097936,Binnenkanal
-Q18285716,vliet
-Q18691143,canals in Finland
-Q28109789,drainage canal
-Q41535570,zijldiep
-Q56479602,mina d'aigua
-Q81282092,Tailrace
+Q161598,groundwater
+Q177734,artesian aquifer
+Q1140845,subterranean river
+Q21504956,subterranean waterfall
+Q3311748,seep
+Q7404704,saline seep
+Q5611030,Groundwater on Mars
+Q7113626,overdrafting
+Q12081561,free water
+Q18511923,грунтовая вода
+Q20113712,groundwater pollution
+Q4796457,Arsenic contamination of groundwater
+Q7907368,VOC contamination of groundwater
+Q54958403,Groundwater contamination from animal agriculture
+Q100287933,alluvial groundwater
 Q285451,drainage system
-Q2908753,Class A river
-Q11253501,river system of Norway
-Q11371756,Class B river
+Q2908753,Class A river system
+Q11371756,Class B river system
 Q337567,still waters
 Q165,sea
+Q204894,marginal sea
+Q1973404,inland sea
+Q986177,mediterranean sea
+Q2578218,inland sea
+Q12714656,visserijzone van Jan Mayen
 Q23397,lake
+Q187223,lagoon
+Q431064,barachois
+Q3705882,estuarine lagoon
+Q6401073,khawr of the Salalah Coast Reserve
+Q12027742,sludge lagoon
 Q188025,salt lake
 Q2449038,saliña
 Q2912558,hypersaline lake
 Q23647058,солёное озеро
 Q55470156,intermittent salt lake
 Q204294,turlough
-Q204324,volcanic crater lake
-Q209333,oxbow lake
-Q803749,billabong
-Q1494514,Umflut
-Q8963323,galacho
-Q55470128,intermittent oxbow lake
 Q211302,glacial lake
 Q1851937,tarn
 Q2430594,moraine-dammed lake
@@ -373,10 +367,13 @@ Q1234707,heathland pond
 Q1270793,Schlatt
 Q1320719,proglacial lake
 Q1335003,chott
+Q1424609,kettle
+Q2379791,Soll
 Q1521583,ground water lake
 Q358976,excavation lake
-Q198732,Ziegelteich
+Q198732,lake excavated by a brickyard
 Q15806772,water-pressure lake
+Q1734500,karst lake
 Q1898470,marine lake
 Q1996446,Noor
 Q2091807,tar pit
@@ -387,12 +384,7 @@ Q2915867,Rift Valley lake
 Q3215290,artificial lake
 Q131681,reservoir
 Q2534469,Forebay (reservoir)
-Q4114181,stuwmeren op de Krim
-Q7078908,Off-stream reservoir
-Q7230299,Porosity Storage Reservoir
-Q11017814,Stauseen in der Ukraine
 Q55470036,intermittent reservoir
-Q65659694,Snowmaking reservoir
 Q244326,salt evaporation pond
 Q301869,inundation
 Q358976,excavation lake
@@ -400,6 +392,8 @@ Q3632569,settling basin
 Q4994812,fire-fighting pond
 Q12049172,recultivated lake
 Q12172437,artificial bodies of water of Kherson Oblast
+Q13667953,Межгорное водохранилище
+Q94387222,naumachia
 Q3267675,holomictic lake
 Q3738260,dimictic lake
 Q4862338,monomictic lake
@@ -414,7 +408,9 @@ Q3511952,tectonic lake
 Q3916261,meerstal
 Q4735538,alpine lake
 Q4746146,amictic lake
+Q4850009,balancing lake
 Q4904826,bifurcation lake
+Q5996843,fluviatile dam
 Q6341928,rift lake
 Q7238039,prairie lake
 Q7269229,quarry lake
@@ -422,26 +418,31 @@ Q9019918,endorheic lake
 Q7205721,pluvial lake
 Q9255054,estanyol
 Q10313934,intermittent lake
+Q55470156,intermittent salt lake
 Q10671833,floodplain lake
 Q11054716,Jezioro wydmowe
 Q11157301,shoreline lake
 Q11253318,Organogenní jezero
 Q11349558,soda lake
+Q11428028,dammed lake
+Q11563255,湖沼型
 Q11726974,epishelf lake
 Q11726978,bitter lake
 Q11726982,Jezioro krasowe
 Q11726985,Jezioro limanowe
 Q11726987,Lobeliesø
-Q11726988,impact crater lake
 Q11727001,Jezioro przepływowe
 Q11891262,Rotkojärvi
 Q11990985,natural lake
 Q13586859,mere
+Q14253637,dry lake
+Q935277,salt pan
 Q16710063,oligotrophic lake
 Q1234707,heathland pond
 Q18088596,sacred lake
 Q18208386,unnamed lake
 Q19965424,Upper Eider lakes
+Q21641010,lamba
 Q27966643,hot lake
 Q47486890,former lake
 Q55965244,paleolake
@@ -450,8 +451,14 @@ Q7205721,pluvial lake
 Q56170341,lähdejärvi
 Q57498386,quiet inlet
 Q58236221,Endmoränensee
+Q61076554,Deniz Gölü
+Q65334410,Ерыклыкуль (Ишимбайский район)
 Q79860017,Auensee (Joditz)
 Q87193797,tjern / tjärn
+Q100900880,crater lake
+Q204324,volcanic crater lake
+Q11726988,impact crater lake
+Q104093746,järvi tai lampi
 Q152841,puddle
 Q2939010,rietput
 Q3361668,paddenpoel
@@ -466,9 +473,9 @@ Q2379791,Soll
 Q2478912,grand canal
 Q2536008,Vät
 Q2550985,Wasserfläche
+Q2551501,Wasserspiegel
 Q2551525,water reservoir
 Q1501,swimming pool
-Q357380,indoor swimming pool
 Q827349,wave pool
 Q1376606,natural pool
 Q1509633,Natatio
@@ -477,16 +484,13 @@ Q2084454,Olympic-size swimming pool
 Q2351435,waterjetbad
 Q3079491,fosse de plongée
 Q4008851,Short course
-Q13586493,outdoor swimming pool
-Q1702340,Naturbad
-Q1757063,lido
-Q15849385,Lido
-Q73401793,přírodní koupaliště
-Q12045647,floating swimming pool
 Q27106886,public swimming pool
 Q28057204,Sportfondsenbad
+Q92332734,school swimming pool
+Q97071243,piscina
 Q131681,reservoir
 Q208791,aquifer
+Q177734,artesian aquifer
 Q583075,phreatic zone
 Q1479708,vadose zone
 Q3604742,acquifero confinato
@@ -497,6 +501,8 @@ Q838858,cistern
 Q303874,ab anbar
 Q2302541,Sood
 Q12829481,Ovdan
+Q14723701,aljibe
+Q93429857,ancient Roman cistern
 Q2264348,Sedimentationsanlage
 Q2509671,zoetwaterreservoir
 Q3282339,reinwaterkelder
@@ -505,13 +511,24 @@ Q1621678,elevated tank
 Q14552508,rainwater tank
 Q28659441,rain barrel
 Q28858478,watering trough
+Q96091671,water jar
+Q7078908,Off-stream reservoir
+Q7230299,Porosity Storage Reservoir
+Q7698769,temple tank
+Q7972835,Waste pond
 Q15843493,Rückhaltebecken
 Q16069438,berkad
+Q56276201,Coastal reservoir
+Q65659694,Snowmaking reservoir
 Q3177968,vivarium
 Q291099,Stream pool
+Q1320690,Gumpe
+Q12040386,napajedlo
 Q18620750,Eisweiher
 Q85842470,artificial pond
+Q11078915,Free Life Pond
 Q3253281,pond
+Q167045,cooling pond
 Q321832,spent fuel pool
 Q746511,Kunstteich
 Q810524,Bassin
@@ -519,8 +536,9 @@ Q1265665,fish pond
 Q1734333,Karpfenteich
 Q2205480,Viskenij
 Q10857326,zazemněný rybník
+Q1328914,reflecting pool
 Q1409124,Fething
-Q1422407,plunge pool
+Q1422407,Plunge pool
 Q1521187,tide pool
 Q1712253,mill pond
 Q1734333,Karpfenteich
@@ -529,14 +547,15 @@ Q3591778,Dew pond
 Q4120828,Stabilization pond
 Q4284516,duck pond
 Q4994812,fire-fighting pond
+Q6273915,Absetzbecken
 Q6813731,Melt pond
 Q7398874,sag pond
 Q7653550,swan pit
 Q7836913,Treatment pond
 Q10633012,Plaskdamm
 Q11166712,Vaete
-Q19844170,Царицынские пруды
-Q25055053,neutral buoyancy pool
+Q19844170,Tsaritsyno Ponds
+Q25055053,Neutral buoyancy pool
 Q26271092,pensioner pond
 Q27887548,pool
 Q41746281,village pond
@@ -544,22 +563,108 @@ Q1409124,Fething
 Q50393705,decoy pond
 Q55711375,intermittent pond
 Q64129187,man-made pond
+Q64785391,sedimentation pond
 Q65659694,Snowmaking reservoir
 Q85842470,artificial pond
+Q3391202,overground still body of fresh water
+Q23397,lake
 Q5926864,group of lakes
 Q25498657,group of interconnected lakes
+Q42055295,group of ponds
 Q61861051,laguna
 Q355304,watercourse
 Q12284,canal
+Q68530,flume
+Q1425792,log flume
+Q105731,lock
+Q14908,boat lift
+Q912618,canal inclined plane
+Q1431722,Water slope
+Q510255,discharge sluice
+Q2115826,Waaiersluizen in the Netherlands
+Q2149189,control lock
+Q2519423,blaffer
+Q2431633,Klief
+Q2463979,naviduct
+Q3396433,Schleusenbrücke
+Q5616327,guillotine lock
+Q15694700,mitre gate
+Q22953352,écluse à sas
+Q2307906,Sparschleuse
+Q3033403,three way lock
+Q17651588,Écluse à bassins d'épargne
+Q81671041,sea lock
+Q128106,spicule
+Q182886,artificial whitewater
+Q232826,Zweigkanal
+Q348675,summit level
+Q459297,qanat
+Q6160903,viaje de agua
+Q6799709,سقاية
+Q56299531,kariz
+Q500717,Navigli
+Q523166,Canal
+Q2670081,grachtengordel
+Q3100831,Rui
+Q708457,wetering
+Q736691,mill race
+Q949819,ship canal
+Q1021342,Bürgermeisterkanal
+Q1030403,navigable aqueduct
+Q1427700,canal pound
+Q348675,summit level
+Q1430419,Floßgraben
+Q1740654,khlong
+Q1784096,flight of locks
+Q2239533,staircase locks
+Q2057158,singel
+Q2154083,ringvaart
+Q2489935,singel
+Q2915361,opvaart
+Q2935978,irrigation canal
+Q735485,aryk
+Q1385463,acequia
+Q5656459,acequia de careo
+Q93307402,ditches of León
+Q55468440,underground irrigation canal
+Q58410133,Chubek Irrigation System
+Q2936105,summit level canal
+Q3883879,opera di presa
+Q3936268,rio terà
+Q5031069,canal ring
+Q5031071,canal tunnel
+Q5031104,canals of the United Kingdom
+Q5460062,flood control channel
+Q63684450,Liechtensteiner Binnenkanal
+Q7236487,power canal
+Q7279041,raceway
+Q12048126,přivaděč
+Q14556915,leat
+Q15097936,Binnenkanal
+Q18285716,vliet
+Q18691143,canals in Finland
+Q28109789,drainage canal
+Q41535570,zijldiep
+Q56479602,mina d'aigua
+Q63136737,Soubor plavebních kanálů na Šumavě
+Q81282092,Tailrace
+Q97146798,Leitgraben
+Q97290396,Gewässerausleitung
+Q97146318,Ausleitbauwerk
+Q101502735,lock pond
+Q104351604,Bealere di Torino
 Q27250,tidal creek
 Q180537,meander
 Q209333,oxbow lake
+Q803749,billabong
+Q1494514,Umflut
+Q8963323,galacho
+Q55470128,intermittent oxbow lake
 Q13049980,recolón
-Q373315,arroyo
-Q1361400,gully
 Q573344,main stream
 Q587052,Vliet
 Q661702,anabranch
+Q899514,backwater
 Q695793,rapids
 Q1844833,whitewater
 Q65238607,köngäs
@@ -567,55 +672,66 @@ Q708457,wetering
 Q832230,Maar
 Q911608,fiumara
 Q1016714,burn
+Q1210950,channel
+Q1837011,stream channel
+Q7112064,outflow channel
+Q2153116,rill
+Q3074486,flumen
+Q41982239,navigation channel
+Q55436365,undersea valley
+Q55465414,lake channel
+Q81219064,NodeTube channel
+Q83287935,back channel
+Q84048354,lade
+Q97367600,Tairua
 Q1427694,Fleet
-Q1437299,Arroyo
+Q1428635,Fließ
+Q1437299,creek
 Q2478921,channel runof
-Q1444790,streamflow
+Q1444790,surface runoff
 Q7632182,subsurface flow
 Q11932076,Llau
 Q1878752,hoofdwatergang
+Q2043393,creek
 Q2048319,ditch
-Q88480,moat
-Q15709086,vodní příkop
 Q694167,Bisse
 Q1792401,Kunstgraben
 Q1870919,bermsloot
 Q2036195,pasveersloot
 Q2575255,heinsloot
 Q2890064,ditch
+Q5715032,Azarbe
 Q16669588,кювет
 Q47395013,ridge-shaped well bore
 Q50192007,main ditch
+Q2188415,Verhang
 Q2220686,Sandgeprägter Tieflandbach
 Q2431801,deep
-Q2539735,balkengat
+Q2539735,Balkengat
 Q2855957,spiraalstroom
 Q2874701,nevengeul
 Q3001363,cours d'eau de deuxième catégorie
 Q3001367,cours d'eau de première catégorie
 Q3097686,wijk
 Q3433950,rivières aurifères en France
+Q4250086,nullah
 Q8242648,Baïne
-Q8261440,canal for transporting water
 Q9346811,Struga
 Q10857944,zdrojnice
+Q11498185,排水路
 Q11774959,veletok
-Q12099220,mountain river
 Q12719343,water tunnel
 Q459297,qanat
 Q14164550,priel
 Q14915976,Száraz-ér
 Q17021145,bourne
-Q18870689,aqueduct
-Q474,aqueduct
-Q1030403,navigable aqueduct
-Q3474226,saumoduc
-Q13218676,Roman aqueduct
-Q14556915,leat
-Q28109822,sewerage aqueduct
-Q30158320,creek
+Q41982239,navigation channel
+Q48855053,igarapé
 Q55659156,intermittent watercourse
 Q55659107,intermittent natural watercourse
+Q373315,arroyo
+Q1361400,gully
+Q1361400,gully
 Q21079327,intermittent river
 Q55659167,natural watercourse
 Q4022,river
@@ -623,19 +739,18 @@ Q100649,blackwater river
 Q159675,tributary
 Q591942,distributary
 Q12048869,Rameno delty
+Q90905898,slepé rameno
 Q653247,Arheisch
-Q794428,Entrenched river
+Q794428,entrenched river
 Q1074069,tidal river
 Q3058945,estey
 Q1140845,subterranean river
-Q21504956,subterranean waterfall
 Q1299258,Ehe
 Q1460693,Clearwater river (river type)
 Q1531228,glacier river
 Q1720683,Kiesgeprägter Tieflandbach
 Q1746748,Kleines Niederungsfließgewässer in Fluss- und Stromtälern
 Q1986504,rain river
-Q2048585,rak
 Q2230783,Grote rivieren
 Q2375084,karstrivier
 Q2557367,whitewater river
@@ -645,28 +760,42 @@ Q4176368,Yérik
 Q4366834,transboundary river
 Q4392849,Реки Донецкой области
 Q4392856,Реки Крыма
-Q4733366,Alluvial river
+Q4733366,alluvial river
 Q4879406,bedrock river
+Q5371585,raised bed river
+Q7164110,Pennsylvania Scenic River
+Q7300165,reach
 Q7580767,spring creek
 Q8026426,winterbourne
 Q10670417,Skogsälv
 Q10875106,中央管河川
+Q11253501,river system of Norway
+Q11514609,ordinary river
 Q11553102,沢
+Q11564407,law applicable river
 Q12099220,mountain river
 Q12149663,равнинная река
 Q12309892,Elv
+Q12818517,Arna
 Q16465938,seasonal river
 Q16638716,Gaudre
+Q17105134,palaeochannel
 Q18915937,Říční koryto
 Q20529834,Rivers of Greek underworld
 Q21079327,intermittent river
 Q21573828,Río alóctono
+Q25556322,straight river
 Q27067659,former river
 Q42122394,rivers of Newfoundland and Labrador
 Q51205815,source river
+Q55610863,Endangered river
+Q56388869,Flüsse in Siebenbürgen
 Q60061427,Mixed river
 Q60823417,Igarapé
 Q71184245,Patrimonio natural de Alcalá de Henares
+Q98242145,Class A river
+Q98242280,Class B river
+Q100717822,Cut-off
 Q47521,stream
 Q16437,Alamito Creek
 Q572211,Antecedent drainage stream
@@ -685,59 +814,53 @@ Q42293497,Zandvang
 Q58193204,Bachprofil
 Q63565252,brook
 Q83287935,back channel
+Q100146272,homestream
 Q3529419,small river
 Q55659107,intermittent natural watercourse
 Q57273768,branch
 Q55999996,Významný vodní tok
 Q55999999,Drobný vodní tok
+Q97146798,Leitgraben
+Q97290396,Gewässerausleitung
+Q98094753,Rivière à écrevisses à pattes blanches
+Q100717822,Cut-off
 Q723748,confluence
 Q1940488,winding hole
 Q5926864,group of lakes
 Q11563256,湖沼
+Q12372505,surface water
+Q3391202,overground still body of fresh water
 Q23958907,Asneschyzki-Kanal
 Q66023629,Dränteich
-Q899514,backwater
 Q1210950,channel
-Q1837011,stream channel
-Q7112064,Outflow channels
-Q2153116,rill
-Q3074486,flumen
-Q41982239,navigation channel
-Q55465414,lake channel
-Q55465477,marine channel
-Q81219064,NodeTube channel
-Q83287935,back channel
-Q84048354,lade
+Q9258947,fjard
 Q10952797,anchorage
 Q17165541,broadening
 Q64515968,Zeegat
 Q2529526,veenplas
-Q3196604,kill
-Q3391202,plan d'eau
+Q3177968,vivarium
 Q3449157,lens
-Q3500933,detention basin
 Q4792460,arm
 Q6966332,narrows
 Q7300165,reach
 Q7658373,Swimming hole
-Q7974142,waterhole
-Q1320690,Gumpe
-Q12040386,napajedlo
 Q11285599,sea area
 Q11566792,nada
 Q12049030,recipient
 Q12376661,artificial body of water
 Q12284,canal
+Q167045,cooling pond
+Q1413117,retention basin
+Q2887458,bassin d'orage routier
 Q3215290,artificial lake
+Q3500933,detention basin
 Q85842470,artificial pond
 Q13137984,spijkerboor
 Q17018380,bight
 Q2519239,overbanked turn
-Q18390604,road curve
-Q1130302,hairpin turn
-Q2731902,kombocht
-Q3560558,bend
 Q21550629,former body of water
+Q2923911,empoldered inlet
+Q11802343,historic ocean
 Q27067659,former river
 Q47486890,former lake
 Q35116038,shoreline indentation
@@ -748,18 +871,13 @@ Q554394,ria
 Q5533935,Geo
 Q63253162,ide
 Q39508083,intermittent body of water
+Q55470036,intermittent reservoir
 Q55659156,intermittent watercourse
-Q42055295,group of ponds
-Q55465477,marine channel
+Q55711375,intermittent pond
+Q41982239,navigation channel
 Q55468590,fishing area
 Q28455153,Salmon pool
 Q56297669,Eisdom
-Q57208127,section of a lagoon
-Q57208156,section of a lake
-Q11868379,järvenselkä
-Q57208171,section of a natural watercourse
-Q57208177,section of a wadi
-Q57208181,section of a canal
 Q59674586,ice cover
 Q35666,glacier
 Q46966,ice shelf
@@ -767,6 +885,7 @@ Q2406037,ice tongue
 Q572722,hanging glacier
 Q878077,ice cap
 Q12599,ice sheet
+Q98857704,glacial lobe
 Q1286914,polar ice cap
 Q3508956,Martian polar ice caps
 Q884736,rock glacier
@@ -776,19 +895,28 @@ Q2540532,ice stream
 Q3761720,debris covered glacier
 Q4009220,vedretta
 Q5365353,Glaciers of New Zealand
+Q5474230,mountain glacier
 Q5566160,Glaciers of Bhutan
 Q5566163,glaciers on Mars
 Q5566166,Glaciers of Georgia
 Q5985490,ice piedmont
 Q11762356,valley glacier
-Q11762358,mountain glacier
 Q12487785,Tidewater glacier
 Q18642275,Piedmont glacier
 Q21167371,Glaciers of Alaska
 Q23579772,cirque glacier
 Q61748725,Permanent glacier
+Q95348900,alpine glacier
+Q98857704,glacial lobe
 Q213926,sea ice
 Q576515,fast ice
+Q46966,ice shelf
 Q1319638,grease ice
 Q13398859,pack ice
-Q62059368,arm
+Q93441425,section of a body of water
+Q57208127,section of a lagoon
+Q57208156,section of a lake
+Q11868379,järvenselkä
+Q57208171,section of a natural watercourse
+Q57208177,section of a wadi
+Q57208181,section of a canal

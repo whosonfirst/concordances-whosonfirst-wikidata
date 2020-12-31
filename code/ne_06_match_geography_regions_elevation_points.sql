@@ -50,7 +50,7 @@ ANALYSE           newd.wd_match_geography_regions_elepoints ;
 drop table if exists          newd.ne_match_geography_regions_elepoints CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_geography_regions_elepoints as
 select
-     ogc_fid
+     ne_id
     ,min_zoom      
     ,featurecla      
     ,name                as ne_name

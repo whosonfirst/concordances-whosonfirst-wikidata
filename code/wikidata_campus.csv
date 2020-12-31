@@ -2,13 +2,15 @@
 Q62447,aerodrome
 Q502074,heliport
 Q695850,airbase
-Q165862,Royal Air Force
 Q1428515,Fliegerhorst
+Q1593547,Heeresflugplatz
 Q4073663,Advance airfield
 Q4686224,Advanced Landing Ground
+Q5124659,Joint-use airport
 Q5127959,Class A airfield
 Q6981985,naval air station
 Q21601954,naval air auxiliary station
+Q7373622,Royal Air Force station
 Q7560452,Sommerfeld Tracking
 Q10426742,Airbase 90
 Q10426743,Airbase 60
@@ -18,27 +20,29 @@ Q1104354,United States Coast Guard Air Stations
 Q1248784,airport
 Q392406,alternate airport
 Q644371,international airport
+Q92480215,greenfield international airport
 Q837800,domestic airport
 Q1479818,special airport
 Q2138424,regional airport
 Q2898467,focus city
 Q4698971,Airport of entry
 Q4811588,airline hub
-Q5124659,Civil enclave
+Q5124659,Joint-use airport
 Q5419792,Executive airport
 Q7311088,Relief airport
-Q11428082,場外離着陸場
 Q15733670,departure airport
 Q15733672,destination airport
 Q17144062,non-towered airport
 Q20977786,commercial airport
 Q20992031,abandoned airport
 Q21836433,airport
+Q25232034,Category:Binational airports
 Q44665966,proposed airport/being built
-Q55612991,Greenfield airport
+Q55612991,greenfield airport
+Q92480215,greenfield international airport
 Q62782337,general aviation airport
 Q1497053,mountain landing site
-Q2232763,Scheinflugplatz
+Q2232763,mock airfield
 Q2265915,glider airfield
 Q2301048,special airfield
 Q2516330,commercial airfield
@@ -49,10 +53,16 @@ Q3631092,airstrip
 Q1402469,Feldflugplatz
 Q4438156,aéroclub
 Q4930096,blue ice runway
+Q11428082,aérodrome
+Q11638046,aérodrome agricole
 Q11558697,Floating airport
-Q11638046,農道離着陸場
-Q48812846,Airports for antique aircraft
+Q12536763,Бірінші класты аэродром
+Q12541700,Екінші класты аэродром
+Q12575811,Қордағы аэродром
+Q12575920,Қосалқы аэродром
+Q48812846,airport for antique aircraft
 Q59388193,balloonport
+Q94993988,commercial traffic aerodrome
 ### Q194188, spaceport : _wdadd_ 
 Q194188,spaceport
 Q1192221,space center

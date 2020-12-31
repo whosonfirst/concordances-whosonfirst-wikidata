@@ -56,7 +56,7 @@ ANALYSE           newd.wd_match_admin_0_disputed_areas ;
 drop table if exists          newd.ne_match_admin_0_disputed_areas CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_admin_0_disputed_areas  as
 select
-     ogc_fid
+     ne_id
     ,min_zoom
     ,featurecla
     ,brk_name                        as ne_name

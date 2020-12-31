@@ -18,7 +18,7 @@ echo """
     -- export --
     CREATE TEMP VIEW ne_export as
     SELECT     
-         ogc_fid
+         ne_id
         ,min_zoom
         ,featurecla
         ,ne_name
@@ -71,7 +71,7 @@ echo """
         ,new_p17_country_id
         ,old_wd_label
         ,old_is_cebauno    
-     FROM ${source_table}  ${sqlfilter}  ORDER BY ogc_fid
+     FROM ${source_table}  ${sqlfilter}  ORDER BY ne_id
      ; 
     \cd :reportdir 
     \copy ( select * from ne_export ) TO '${target_table}.csv' DELIMITER ',' CSV HEADER ESCAPE '\"';

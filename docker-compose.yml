@@ -15,6 +15,8 @@ services:
      - 127.0.0.1:25433:5432
     shm_size: "2g"
     environment:
+     - POSTGRES_HOST_AUTH_METHOD=scram-sha-256
+     - POSTGRES_INITDB_ARGS=--auth-host=scram-sha-256
      - POSTGRES_DB=whosonfirst
      - POSTGRES_USER=whosonfirst
      - POSTGRES_PASSWORD=whosonfirst
@@ -41,6 +43,7 @@ services:
     volumes:
      - ../eu:/wof/eu
      - ../whosonfirst-data:/wof/whosonfirst-data
+     - ../whosonfirst-data:/wof/wfd
      - ../wikidata_dump:/wof/wikidata_dump
      - ../natural-earth-vector:/wof/natural-earth-vector
      - ../geonames:/wof/geonames
@@ -51,10 +54,12 @@ services:
      - db:db
     environment:
      - PGHOST=db
+     - PGPORT=5432
      - PGUSER=whosonfirst
      - PGDATABASE=whosonfirst
      - PGPASSWORD=whosonfirst
      - DB_HOST=db
+     - DB_PGPORT=5432
      - DB_USER=whosonfirst
      - DB_NAME=whosonfirst
      - DB_PASS=whosonfirst

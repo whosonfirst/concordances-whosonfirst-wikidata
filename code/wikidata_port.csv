@@ -1,19 +1,11 @@
 ### Q44782, port : _wdadd_ 
 Q44782,port
-Q283202,harbor
-Q828909,wharf
-Q2327160,kwelkade
-Q3543043,quay
-Q7398566,safeguarded wharf
-Q1525891,typhoon shelter
-Q6034850,inland harbor
-Q10512405,guest harbor
-Q64210934,natural harbor
 Q426875,Mulberry harbour
 Q721207,marina
 Q1919198,dry marina
 Q863915,inland port
 Q1879141,Lände
+Q58816330,river harbour
 Q913035,roadstead
 Q1310315,rafting ground
 Q1313726,iceport
@@ -30,42 +22,42 @@ Q1420027,fishing port
 Q51601018,fisheries site
 Q1449240,deep water port
 Q1476279,Sielhafen
-Q1478783,ferry port
 Q1595601,home port
 Q1602776,harbour museum
 Q2093976,industry harbour
 Q2150794,penalty port
 Q2156190,houseboat harbour
 Q2183215,port of refuge
-Q2185059,Outport
-Q2229782,harbor basin
+Q2185059,outport
 Q2518617,overnight stay harbour
 Q2742044,dock port
 Q2837192,getijhaven
-Q3114748,Grand port maritime
+Q3114748,large seaport (France)
+Q3398414,ancient port
+Q69391739,Greek colony
+Q618846,apoikia
+Q655593,emporia
 Q3398594,Port of trade
 Q3497366,whaling station
-Q4303352,passenger ship terminal
-Q66724450,ferry terminal
-Q5917104,Hoverport
 Q10952797,anchorage
 Q11326124,ハイパー中枢港湾
-Q11366207,中核国際港湾
-Q11422437,International strategic port
-Q11422440,国際拠点港湾
-Q11424389,Local port (Japan)
+Q11366207,port international principal
+Q11422437,international strategic port (Japan)
+Q11422440,international hub port (Japan)
+Q11424389,regional port (Japan)
 Q11553812,河岸
-Q11570893,Specific port
-Q11642688,避難港
-Q11644820,Priority ports
-Q11644859,重要港湾
-Q13403663,warm-water port
-Q13424466,haven
+Q11570893,specified port (Japan)
+Q11642688,port of refuge (Japan)
+Q11644859,major port (Japan)
+Q11644820,priority port (Japan)
+Q13403663,ice-free port
 Q15310171,seaport
 Q15709854,liquefied natural gas terminal
 Q3398676,regasification terminal
+Q10387679,floating storage and regasification unit
+Q17036647,Trust port
 Q17172716,Marina
 Q21028415,cruise port
+Q48814672,historical port
 Q60035547,kontejnerový přístav
-Q84266649,marine terminal
-Q84266627,marine oil terminal
+Q99732461,port of call

@@ -23,7 +23,6 @@ Q20743938,eruptive center
 Q1491559,somma volcano
 Q1806785,cinder cone
 Q2143039,fissure vent
-Q2291100,active volcano
 Q2398326,subaerial volcano
 Q3562720,volcan gris
 Q3562724,volcan rouge
@@ -32,9 +31,9 @@ Q7630766,subaqueous volcano
 Q21001649,potentially active volcano
 Q21009867,dome volcano
 Q37499745,plug dome volcano
+Q100365971,lateral volcano
 Q169358,stratovolcano
 Q190250,central uplift
-Q285562,Marilyn
 Q429088,mons
 Q503269,seamount
 Q151957,guyot
@@ -49,41 +48,43 @@ Q502899,inliers and outliers
 Q14545690,Kopje
 Q21011841,kekoer
 Q1297565,Puy
-Q1320721,Munro
 Q1540003,Sydväxtberg
 Q1595289,sacred mountain
+Q11588709,Sintaisan
 Q1671747,Conical hill
 Q2739123,crag and tail
-Q3116906,Ultra prominent peak
 Q3538399,trekking peak
 Q5421955,fell
 Q28026737,tunturi
 Q5656540,Hardy
 Q6022321,Monte (geomorfología)
+Q7322441,ribu
+Q10561633,hometown Fuji
 Q11277298,ふるさと兵庫50山
+Q11397890,Kengamine
 Q11505921,日本の山
 Q11972429,Graham
 Q17142232,Traprock mountain
 Q19856996,ગુરૂનો ભોખરો
 Q20523098,Lendva-hegy
+Q20645627,mountains in the Bible
 Q26709969,Graham
-Q26711856,Furth
 Q27882366,Giri
 Q28026737,tunturi
 Q28792430,hrib
 Q35691748,highest mountain
-Q56284739,Aichkogel (Grazer Bergland)
+Q56284739,Aichkogel
 Q56408346,puig
 Q58235914,Buckelwiese
-Q61710631,Oindo
 Q62082016,Hewitt
-Q62082048,Nuttall
-Q62082171,Wainwright Outlying Fell
+Q101093742,
+Q101116137,Базмагуш (гора)
+Q101419574,"Накас (гора
+Q101548935,Будалашбаш
+Q103819970,Fyndig
 ### Q1245089, promontory : _wdadd_ 
 Q1245089,promontory
 Q191992,headland
-Q185113,cape
-Q3925637,punta
 Q12005172,tange
 Q24529780,point
 ### Q8072, volcano : _wdadd_ 
@@ -110,7 +111,6 @@ Q20743938,eruptive center
 Q1491559,somma volcano
 Q1806785,cinder cone
 Q2143039,fissure vent
-Q2291100,active volcano
 Q2398326,subaerial volcano
 Q3562720,volcan gris
 Q3562724,volcan rouge
@@ -119,15 +119,16 @@ Q7630766,subaqueous volcano
 Q21001649,potentially active volcano
 Q21009867,dome volcano
 Q37499745,plug dome volcano
+Q100365971,lateral volcano
 ### Q1437459, non-geologically related mountain range : _wdadd_ 
 Q1437459,non-geologically related mountain range
-Q15766,high mountains
+Q15766,uxchigh mountains
 Q83384,fold mountain
-Q674541,Mittelgebirge
+Q674541,Middle mountain range
 Q852013,shield
 Q1706978,Kammgebirge
 Q2175685,Truncated upland
-Q22911774,mountain chain
+Q2624046,mountain chain
 Q1354045,foothills
 Q2751984,cordillera
 Q31792598,Klimek

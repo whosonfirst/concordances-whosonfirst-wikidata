@@ -55,10 +55,15 @@ Q13415370,county of West Virginia
 Q13415371,county of Wyoming
 Q57053,county of Croatia
 Q137535,county of Iran
+Q101057139,county of Razavi Khorasan
 Q171809,county of England
+Q180673,ceremonial county of England
+Q643815,metropolitan or non-metropolitan county of England
+Q769603,non-metropolitan county
+Q1136601,unitary authority of England
+Q769628,metropolitan county
 Q1138494,historic county of England
 Q21272231,county council area
-Q180673,ceremonial county of England
 Q630638,preserved county of Wales
 Q1317848,county of Northern Ireland
 Q2991484,county of Canada
@@ -67,13 +72,15 @@ Q2991491,historic county of Quebec
 Q3248567,county of Prince Edward Island
 Q11774771,county of Nova Scotia
 Q14763041,county of Ontario
-Q2991489,County palatine
+Q2991489,county palatine
 Q5177120,county of Tasmania
 Q7234043,Postal counties of the United Kingdom
 Q15979307,principal area of Wales
 Q16822724,county of New Zealand
 Q18224884,Condado del Sacro Romano Imperio
 Q18603529,condado (Portugal)
+Q18652293,Baoli
+Q18658990,街庄社鄉
 Q20974973,county of Australia
 Q5177126,county of Victoria
 Q15643559,county of Western Australia
@@ -92,6 +99,7 @@ Q1138494,historic county of England
 Q1317848,county of Northern Ireland
 Q1350181,shire of Scotland
 Q7309443,registration county
+Q98558416,historic county of Wales
 Q85625936,county of Jamaica
 Q85625936,county of Jamaica
 Q85637361,local government county in Ireland
@@ -165,6 +173,7 @@ Q713146,County-administered city
 Q17143371,county of South Korea
 ### Q149621, county of North Korea : _wdadd_ 
 Q149621,district
+Q11353,district of Iran
 Q50256,district of Hong Kong
 Q59136,district of Cyprus
 Q193560,district of Israel
@@ -172,16 +181,19 @@ Q216888,district of Luxembourg
 Q319796,district of Nauru
 Q398141,school district
 Q1669809,Schulsprengel
-Q2986739,commission scolaire au Québec
+Q2986739,school board of Quebec
 Q4664382,Abbott district
 Q7048928,Non-high school district
 Q7432250,"School Districts of Huron County
+Q7432341,school division
 Q7884983,unified school district
 Q7886773,union school district
+Q98560915,union free school district
 Q10771871,independent school district
 Q15726209,school district in the United States
 Q42577368,intermediate school district of Michigan
 Q64636958,school district of Oregon
+Q98560916,central school district
 Q15726214,school district of Canada
 Q16997861,joint technological education district
 Q63040043,school district of the U.S. Department of Defense
@@ -190,13 +202,17 @@ Q81268491,joint vocational school district
 Q81269968,city school district
 Q81270527,exempted village school district
 Q81271307,local school district
+Q86732061,School service centre
+Q101228049,priority enrolment area
 Q475061,amphoe
+Q505410,Congressional district
+Q7010135,New Mexico's congressional districts
 Q505830,district of Sudan
 Q545769,district of Ghana
 Q585444,administrative district of Prague
-Q74728036,administratief district van Praag
+Q74728036,district administratif de Prague
 Q75338598,městská část Prahy
-Q75339006,Praags territoriaal district
+Q75339006,district territorial de Prague
 Q662914,district in Switzerland
 Q628993,district of the canton of Valais
 Q2864107,administrative district of the canton of Bern
@@ -227,9 +243,8 @@ Q690840,district of Ethiopia
 Q3569918,special district of Ethiopia
 Q705296,district of Taiwan
 Q569614,Qingshui District
-Q706308,Beimen District
 Q765865,district of Belize
-Q831889,dzongkhag
+Q831889,districts of Bhutan
 Q854138,Bezirksamt
 Q917092,district of Paraguay
 Q1058387,district of Malawi
@@ -244,14 +259,17 @@ Q1122846,district of Japan
 Q46426234,former district of Japan
 Q1147395,district of Turkey
 Q1230110,district of Sri Lanka
-Q1230132,district of the Bahamas
+Q1230132,District of the Bahamas
 Q1243603,14 regions of Augustan Rome
 Q1649296,district of Suriname
 Q1964165,province district in Belgium
 Q1994931,district of Malaysia
+Q2179958,district of Peru
 Q2264478,district of Slovakia
 Q13442503,Mestský okres (Slovensko)
 Q2379075,district of Pakistan
+Q13388283,districts of Gilgit-Baltistan
+Q16319182,districts of Khyber Pakhtunkhwa
 Q2537537,district of Nepal
 Q2631599,district of Uzbekistan
 Q2655841,Municipality of Georgia
@@ -259,14 +277,89 @@ Q2679943,Gewest
 Q2699727,stemdistrict
 Q2702177,Nielsendistrict
 Q2749147,Castellany
-Q2755753,area of London
 Q2935973,phytogeographic district
 Q13232238,phytogeographic region of the Czech Republic
-Q3533482,SS-Oberabschnitte
 Q3539870,district of Uganda
 Q3556789,district of Madagascar
 Q3710483,district of Fiji
 Q4057728,District of Yerevan
+Q4286337,city district
+Q137773,ward of Japan
+Q5327704,special ward of Japan
+Q65281628,行政区
+Q205549,Zipserei
+Q627253,working class quarter
+Q702842,municipal arrondissement
+Q679388,municipal arrondissement of Paris
+Q2845944,former arrondissement of Paris
+Q702869,municipal arrondissement of Lyon
+Q702875,municipal arrondissement of Marseille
+Q2845944,former arrondissement of Paris
+Q1434401,dzielnica
+Q9248451,Dzielnice Gdyni
+Q1808877,deelgemeente
+Q1852119,district of Graz
+Q1985797,municipal unit of Greece
+Q2740635,Stadtbezirk
+Q253270,borough of Munich
+Q278976,borough of Hamburg
+Q317669,district of Düsseldorf
+Q821435,borough of Berlin
+Q13415859,Stadtbezirk in Wuppertal
+Q15632133,city district of Cologne
+Q15727673,city district of Hanover
+Q97312698,Stadtteil in Hannover
+Q17278423,district of Bremen
+Q18600372,borough of Dresden
+Q28050899,Stadtgebiet (Frankfurt (Oder))
+Q31458588,Stadtbezirk von Bremerhaven
+Q62269194,Stadtbezirke Aachens
+Q96180429,city district of Langenhagen
+Q2779745,urban district of the Netherlands
+Q15079751,submunicipality of Amsterdam
+Q2989468,Communes d'arrondissement of Senegal
+Q3032114,district of Madrid
+Q3565075,Raions of cities in Ukraine
+Q3624938,city district of Brazil
+Q5283507,district of Davao City
+Q7553685,municipal district of Bulgaria
+Q8561193,district of Valencia
+Q13582281,circoscrizione di decentramento comunale in Italy
+Q610625,Municipi of Milan
+Q1410029,list of the municipi of Genoa
+Q1584957,Borough of Palermo
+Q3677930,quarter of Messina
+Q3677936,circoscrizioni di Torino
+Q36617857,Crocetta Centre
+Q104352269,circoscrizione 2
+Q104352457,circoscrizione 3
+Q104352503,circoscrizione 4
+Q104352619,circoscrizione 5
+Q104352735,circoscrizione 6
+Q104352803,circoscrizione 7
+Q104352895,circoscrizione 8
+Q3867179,municipalità of Naples
+Q3867183,municipalità of Venice
+Q3927244,boroughs of Bologna
+Q3927247,borough of Florence
+Q16751551,borough of Brescia
+Q16751788,circoscrizione of Vicenza
+Q16761595,circoscrizione of Treviso
+Q17137839,circoscrizione of Verona
+Q15195406,city district in Russia
+Q4389092,district of Moscow
+Q14242187,city district of Nizhny Novgorod
+Q15634883,district of Manila
+Q15921300,sector of Bucharest
+Q17496379,City district in Austria
+Q261023,district of Vienna
+Q18559008,district of São Paulo
+Q21851888,district of the city
+Q75338598,městská část Prahy
+Q30339232,sector of Chișinău
+Q40256562,intracity district of Belarus
+Q75135425,district de Barcelone
+Q4732242,Allgemeine-SS Order of Battle
 Q5283558,district of Zimbabwe
 Q5283559,district of the Democratic Republic of the Congo
 Q6617100,district of Yemen
@@ -276,6 +369,17 @@ Q12645496,Districts of Zagreb
 Q12806962,District of Ljubljana
 Q14942893,district of Papua New Guinea
 Q15207445,fur-trading district
+Q15243209,historic district
+Q1620797,historic district in the United States
+Q2527000,protected townscape
+Q2584998,heritage district in the Netherlands
+Q15873063,Protected towns and villages in Limburg
+Q5773774,Historic overlay district
+Q15243227,beschermde stads- en dorpsgezichten
+Q13439062,Protected city and villages in Flevoland
+Q15873063,Protected towns and villages in Limburg
+Q16141600,Groups of Traditional Buildings
+Q850649,Important Preservation Districts for Groups of Traditional Buildings
 Q15618465,district of American Samoa
 Q15630906,rural district
 Q27002,selsoviet
@@ -283,20 +387,6 @@ Q1840504,national raion
 Q4414033,rural council of Ukraine
 Q15071808,selsaviet of Belarus
 Q15982377,selsoviet of Russia
-Q106658,rural district of Germany
-Q17302772,rural district of Saxony-Anhalt
-Q20738676,rural district of Baden-Württemberg
-Q20738811,rural district of North Rhine-Westphalia
-Q20738945,rural district of Thuringia
-Q61708063,rural district of Saxony
-Q61793460,rural district of Brandenburg
-Q61818979,rural district of Saarland
-Q61856889,rural district of Schleswig-Holstein
-Q61980413,rural district of Hesse
-Q85332736,rural district of Lower Saxony
-Q85482556,rural district of Bavaria
-Q85483234,rural district of Mecklenburg-Vorpommern
-Q85493040,rural district of Rhineland-Palatinate
 Q247073,powiat of Poland
 Q925381,city with powiat rights
 Q1631226,settlement council
@@ -319,12 +409,23 @@ Q15634846,district of Seoul
 Q18545121,district of Busan
 Q18545295,district of Incheon
 Q16678127,administrative territorial entity of Anguilla
+Q17202187,federal electoral district of Canada
+Q3248048,federal electoral district in Quebec
+Q4711849,federal electoral district in Alberta
+Q5774261,Historical federal electoral districts of Canada
+Q6593031,federal electoral district in Ontario
+Q6619312,federal electoral district in British Columbia
+Q15063368,federal electoral district in Manitoba
+Q15063373,federal electoral district in New Brunswick
+Q15063379,federal electoral district in Newfoundland and Labrador
+Q15063384,federal electoral district in Nova Scotia
+Q15063391,federal electoral district in Prince Edward Island
+Q15063395,federal electoral district in Saskatchewan
 Q17364572,district of Northern Ireland
 Q17601336,district of the United Kingdom
 Q349084,district of England
 Q211690,London borough
 Q1002812,metropolitan borough
-Q9046617,metropolitan borough of the County of London
 Q1187580,non-metropolitan district
 Q1136601,unitary authority of England
 Q2249932,District of Wales
@@ -335,10 +436,12 @@ Q26907711,district of the Australian Capital Territory
 Q55791821,district of Somaliland
 Q56205755,district of Rotuma
 Q56850218,district of Hawaii County
-Q62005833,distrito de Chile
+Q62005833,District of Chile
 Q63342446,District of El Salvador
+Q97705173,Irrigation and Drainage District
 ### Q149621, districts : _wdadd_ 
 Q149621,district
+Q11353,district of Iran
 Q50256,district of Hong Kong
 Q59136,district of Cyprus
 Q193560,district of Israel
@@ -346,16 +449,19 @@ Q216888,district of Luxembourg
 Q319796,district of Nauru
 Q398141,school district
 Q1669809,Schulsprengel
-Q2986739,commission scolaire au Québec
+Q2986739,school board of Quebec
 Q4664382,Abbott district
 Q7048928,Non-high school district
 Q7432250,"School Districts of Huron County
+Q7432341,school division
 Q7884983,unified school district
 Q7886773,union school district
+Q98560915,union free school district
 Q10771871,independent school district
 Q15726209,school district in the United States
 Q42577368,intermediate school district of Michigan
 Q64636958,school district of Oregon
+Q98560916,central school district
 Q15726214,school district of Canada
 Q16997861,joint technological education district
 Q63040043,school district of the U.S. Department of Defense
@@ -364,13 +470,17 @@ Q81268491,joint vocational school district
 Q81269968,city school district
 Q81270527,exempted village school district
 Q81271307,local school district
+Q86732061,School service centre
+Q101228049,priority enrolment area
 Q475061,amphoe
+Q505410,Congressional district
+Q7010135,New Mexico's congressional districts
 Q505830,district of Sudan
 Q545769,district of Ghana
 Q585444,administrative district of Prague
-Q74728036,administratief district van Praag
+Q74728036,district administratif de Prague
 Q75338598,městská část Prahy
-Q75339006,Praags territoriaal district
+Q75339006,district territorial de Prague
 Q662914,district in Switzerland
 Q628993,district of the canton of Valais
 Q2864107,administrative district of the canton of Bern
@@ -401,9 +511,8 @@ Q690840,district of Ethiopia
 Q3569918,special district of Ethiopia
 Q705296,district of Taiwan
 Q569614,Qingshui District
-Q706308,Beimen District
 Q765865,district of Belize
-Q831889,dzongkhag
+Q831889,districts of Bhutan
 Q854138,Bezirksamt
 Q917092,district of Paraguay
 Q1058387,district of Malawi
@@ -418,14 +527,17 @@ Q1122846,district of Japan
 Q46426234,former district of Japan
 Q1147395,district of Turkey
 Q1230110,district of Sri Lanka
-Q1230132,district of the Bahamas
+Q1230132,District of the Bahamas
 Q1243603,14 regions of Augustan Rome
 Q1649296,district of Suriname
 Q1964165,province district in Belgium
 Q1994931,district of Malaysia
+Q2179958,district of Peru
 Q2264478,district of Slovakia
 Q13442503,Mestský okres (Slovensko)
 Q2379075,district of Pakistan
+Q13388283,districts of Gilgit-Baltistan
+Q16319182,districts of Khyber Pakhtunkhwa
 Q2537537,district of Nepal
 Q2631599,district of Uzbekistan
 Q2655841,Municipality of Georgia
@@ -433,14 +545,89 @@ Q2679943,Gewest
 Q2699727,stemdistrict
 Q2702177,Nielsendistrict
 Q2749147,Castellany
-Q2755753,area of London
 Q2935973,phytogeographic district
 Q13232238,phytogeographic region of the Czech Republic
-Q3533482,SS-Oberabschnitte
 Q3539870,district of Uganda
 Q3556789,district of Madagascar
 Q3710483,district of Fiji
 Q4057728,District of Yerevan
+Q4286337,city district
+Q137773,ward of Japan
+Q5327704,special ward of Japan
+Q65281628,行政区
+Q205549,Zipserei
+Q627253,working class quarter
+Q702842,municipal arrondissement
+Q679388,municipal arrondissement of Paris
+Q2845944,former arrondissement of Paris
+Q702869,municipal arrondissement of Lyon
+Q702875,municipal arrondissement of Marseille
+Q2845944,former arrondissement of Paris
+Q1434401,dzielnica
+Q9248451,Dzielnice Gdyni
+Q1808877,deelgemeente
+Q1852119,district of Graz
+Q1985797,municipal unit of Greece
+Q2740635,Stadtbezirk
+Q253270,borough of Munich
+Q278976,borough of Hamburg
+Q317669,district of Düsseldorf
+Q821435,borough of Berlin
+Q13415859,Stadtbezirk in Wuppertal
+Q15632133,city district of Cologne
+Q15727673,city district of Hanover
+Q97312698,Stadtteil in Hannover
+Q17278423,district of Bremen
+Q18600372,borough of Dresden
+Q28050899,Stadtgebiet (Frankfurt (Oder))
+Q31458588,Stadtbezirk von Bremerhaven
+Q62269194,Stadtbezirke Aachens
+Q96180429,city district of Langenhagen
+Q2779745,urban district of the Netherlands
+Q15079751,submunicipality of Amsterdam
+Q2989468,Communes d'arrondissement of Senegal
+Q3032114,district of Madrid
+Q3565075,Raions of cities in Ukraine
+Q3624938,city district of Brazil
+Q5283507,district of Davao City
+Q7553685,municipal district of Bulgaria
+Q8561193,district of Valencia
+Q13582281,circoscrizione di decentramento comunale in Italy
+Q610625,Municipi of Milan
+Q1410029,list of the municipi of Genoa
+Q1584957,Borough of Palermo
+Q3677930,quarter of Messina
+Q3677936,circoscrizioni di Torino
+Q36617857,Crocetta Centre
+Q104352269,circoscrizione 2
+Q104352457,circoscrizione 3
+Q104352503,circoscrizione 4
+Q104352619,circoscrizione 5
+Q104352735,circoscrizione 6
+Q104352803,circoscrizione 7
+Q104352895,circoscrizione 8
+Q3867179,municipalità of Naples
+Q3867183,municipalità of Venice
+Q3927244,boroughs of Bologna
+Q3927247,borough of Florence
+Q16751551,borough of Brescia
+Q16751788,circoscrizione of Vicenza
+Q16761595,circoscrizione of Treviso
+Q17137839,circoscrizione of Verona
+Q15195406,city district in Russia
+Q4389092,district of Moscow
+Q14242187,city district of Nizhny Novgorod
+Q15634883,district of Manila
+Q15921300,sector of Bucharest
+Q17496379,City district in Austria
+Q261023,district of Vienna
+Q18559008,district of São Paulo
+Q21851888,district of the city
+Q75338598,městská část Prahy
+Q30339232,sector of Chișinău
+Q40256562,intracity district of Belarus
+Q75135425,district de Barcelone
+Q4732242,Allgemeine-SS Order of Battle
 Q5283558,district of Zimbabwe
 Q5283559,district of the Democratic Republic of the Congo
 Q6617100,district of Yemen
@@ -450,6 +637,17 @@ Q12645496,Districts of Zagreb
 Q12806962,District of Ljubljana
 Q14942893,district of Papua New Guinea
 Q15207445,fur-trading district
+Q15243209,historic district
+Q1620797,historic district in the United States
+Q2527000,protected townscape
+Q2584998,heritage district in the Netherlands
+Q15873063,Protected towns and villages in Limburg
+Q5773774,Historic overlay district
+Q15243227,beschermde stads- en dorpsgezichten
+Q13439062,Protected city and villages in Flevoland
+Q15873063,Protected towns and villages in Limburg
+Q16141600,Groups of Traditional Buildings
+Q850649,Important Preservation Districts for Groups of Traditional Buildings
 Q15618465,district of American Samoa
 Q15630906,rural district
 Q27002,selsoviet
@@ -457,20 +655,6 @@ Q1840504,national raion
 Q4414033,rural council of Ukraine
 Q15071808,selsaviet of Belarus
 Q15982377,selsoviet of Russia
-Q106658,rural district of Germany
-Q17302772,rural district of Saxony-Anhalt
-Q20738676,rural district of Baden-Württemberg
-Q20738811,rural district of North Rhine-Westphalia
-Q20738945,rural district of Thuringia
-Q61708063,rural district of Saxony
-Q61793460,rural district of Brandenburg
-Q61818979,rural district of Saarland
-Q61856889,rural district of Schleswig-Holstein
-Q61980413,rural district of Hesse
-Q85332736,rural district of Lower Saxony
-Q85482556,rural district of Bavaria
-Q85483234,rural district of Mecklenburg-Vorpommern
-Q85493040,rural district of Rhineland-Palatinate
 Q247073,powiat of Poland
 Q925381,city with powiat rights
 Q1631226,settlement council
@@ -493,12 +677,23 @@ Q15634846,district of Seoul
 Q18545121,district of Busan
 Q18545295,district of Incheon
 Q16678127,administrative territorial entity of Anguilla
+Q17202187,federal electoral district of Canada
+Q3248048,federal electoral district in Quebec
+Q4711849,federal electoral district in Alberta
+Q5774261,Historical federal electoral districts of Canada
+Q6593031,federal electoral district in Ontario
+Q6619312,federal electoral district in British Columbia
+Q15063368,federal electoral district in Manitoba
+Q15063373,federal electoral district in New Brunswick
+Q15063379,federal electoral district in Newfoundland and Labrador
+Q15063384,federal electoral district in Nova Scotia
+Q15063391,federal electoral district in Prince Edward Island
+Q15063395,federal electoral district in Saskatchewan
 Q17364572,district of Northern Ireland
 Q17601336,district of the United Kingdom
 Q349084,district of England
 Q211690,London borough
 Q1002812,metropolitan borough
-Q9046617,metropolitan borough of the County of London
 Q1187580,non-metropolitan district
 Q1136601,unitary authority of England
 Q2249932,District of Wales
@@ -509,7 +704,8 @@ Q26907711,district of the Australian Capital Territory
 Q55791821,district of Somaliland
 Q56205755,district of Rotuma
 Q56850218,district of Hawaii County
-Q62005833,distrito de Chile
+Q62005833,District of Chile
 Q63342446,District of El Salvador
+Q97705173,Irrigation and Drainage District
 ### Q475061, amphoe - Thailand  : _wdadd_ 
 Q475061,amphoe

@@ -1,7 +1,7 @@
 #!/bin/bash
-
-set -e
-set -u
+set -o errexit
+set -o pipefail
+set -o nounset
 
 /wof/code/cmd_load_natural_earth.sh 10m_cultural ne_10m_populated_places
 /wof/code/cmd_load_natural_earth.sh 10m_cultural ne_10m_admin_0_countries

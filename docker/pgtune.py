@@ -107,6 +107,11 @@ def calculate(total_mem, max_connections, pg_version):
     pg_conf['timezone']='UTC'
     pg_conf['datestyle']= "'iso, ymd'"
 
+
+    pg_conf['auth_delay.milliseconds'] = '5000'
+    if LooseVersion(pg_version) >= LooseVersion('10'):
+        pg_conf['password_encryption']  = 'scram-sha-256'
+
     return pg_conf
 
 
@@ -175,7 +180,7 @@ def main():
     print("listen_addresses = '%s'" % (listen_addresses))
 
     if enable_stat:
-        print("shared_preload_libraries = 'pg_stat_statements,auto_explain'")
+        print("shared_preload_libraries = 'auth_delay,pg_stat_statements,auto_explain'")
         print("pg_stat_statements.track = all")
         print("auto_explain.log_min_duration = '5s'")
         print("auto_explain.log_verbose = 'true'")
@@ -192,6 +197,8 @@ def main():
         print("log_min_duration_statement = 20")
         print("log_checkpoints = on")
         print("log_lock_waits = on")
+    else:
+        print("shared_preload_libraries = 'auth_delay'")
 
 
     print("#")

@@ -55,7 +55,7 @@ ANALYSE           newd.wd_match_admin_0_map_subunits ;
 drop table if exists          newd.ne_match_admin_0_map_subunits CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_admin_0_map_subunits  as
 select
-     ogc_fid
+     ne_id
     ,min_zoom
     ,featurecla
     ,name                as ne_name

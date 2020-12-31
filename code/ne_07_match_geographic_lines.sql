@@ -48,7 +48,7 @@ ANALYSE           newd.wd_match_geographic_lines ;
 drop table if exists          newd.ne_match_geographic_lines CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_geographic_lines as
 select
-     ogc_fid
+     ne_id
     ,min_zoom      
     ,featurecla     
     ,name                as ne_name

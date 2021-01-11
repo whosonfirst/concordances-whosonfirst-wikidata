@@ -5,7 +5,9 @@
 // testdata:
 //   const pgoutput = false
 //   time go run /wof/code/wdpp.go /wof/wikidata_dump/full-latest-all.json.gz  | grep ^{ | gzip -c > /wof/wikidata_dump/latest-all.json.gz
-
+//
+//  time go build /wof/code/wdpp.go
+//
 // TODO:  add https://github.com/mc2soft/pq-types  add PostGISPoint
 
 // Todo:  Demolished test:  https://www.wikidata.org/wiki/Q689409  Weißenstein
@@ -213,6 +215,8 @@ func init() {
 
 	//fmt.Println(wiki2grp)
 	//os.Exit(0)
+
+	taginfolist = readCsvFile("/wof/taginfo/taginfo_wikidata.csv", 'Q')
 
 	wofwd = readCsvFile("/wof/whosonfirst-data/wd_extended.csv", 'Q')
 	wofredirected = readCsvFile("/wof/whosonfirst-data/wd_redirects.csv", 'Q')
@@ -526,6 +530,11 @@ func main() {
 			wikidata.match = append(wikidata.match, "redirected")
 		}
 
+		// check if already taginfo referenced
+		if ok := taginfolist[wikidata.ID]; ok {
+			wikidata.match = append(wikidata.match, "taginfo")
+		}
+
 		// Any "admimcode" exist?  ::
 		//    ?? has any "Wikidata property for authority control for administrative subdivisions"
 		for k := range wikidata.WikiItems.Claims {
@@ -535,18 +544,44 @@ func main() {
 			}
 		}
 
-		
-
 		wikidata.checkClaims("P1566", "hasP1566") // check GeoNames ID ; P1566
-		wikidata.checkClaims("P300", "P300")      // check ISO 3166-2 code ;  P300
+		wikidata.checkClaims("P2326", "P2326")    // GNS Unique Feature ID (P2326)
+		wikidata.checkClaims("P300",  "P300")     // check ISO 3166-2 code ;  P300
+		wikidata.checkClaims("P605",  "P605")     // NUTS code (P605)
+		wikidata.checkClaims("P1997", "P1997")    // Facebook Places ID (P1997)
+		wikidata.checkClaims("P939",  "P939")     // HUNGARY: KSH code (P939)
+		wikidata.checkClaims("P1667", "P1667")    // Getty Thesaurus of Geographic Names ID (P1667)
+
 		wikidata.checkClaims("P901", "P901")      // check FIPS 10-4 (countries and regions) :P901
 		wikidata.checkClaims("P238", "P238")      // check IATA airport code : P238
 		wikidata.checkClaims("P239", "P239")      // check ICAO airport code : P239
 		wikidata.checkClaims("P240", "P240")      // check FAA airport code : P240
 		wikidata.checkClaims("P1336", "P1336")    // check territory claimed by ; P1336
 		wikidata.checkClaims("P1624", "P1624")    // check MarineTraffic Port ID  ; P1624
+		wikidata.checkClaims("P1937", "P1937")    // UN/LOCODE (P1937) geographic location code mantained by UNECE
+		wikidata.checkClaims("P7625", "P7625")    // WPI ID (P7625) port ID in World Port Index database
+
+		wikidata.checkClaims("P4093", "P4093")    // Australian Statistical Geography 2016 ID (P4093)
+		wikidata.checkClaims("P3257", "P3257")    // Queensland place ID (P3257)
+		wikidata.checkClaims("P4119", "P4119")    // Finland: NLS Geographic Names Register Place ID (P4119)
+		wikidata.checkClaims("P8649", "P8649")    // US: National Park Service place ID (P8649)
+		wikidata.checkClaims("P6987", "P6987")    // Hungarian National Namespace place ID (P6987)
+
+
+		wikidata.checkClaims("P2965", "P2965")    // EU River Basin District code (P2965)
+		wikidata.checkClaims("P2856", "P2856")    // EU Surface Water Body Code (P2856)
+		wikidata.checkClaims("P761" , "P761" )    // Lake ID (Sweden) (P761)
+		wikidata.checkClaims("P3394", "P3394")    // Finnish Lake ID (P3394)
+
+		wikidata.checkClaims("P3513", "P3513")    // peakware mountain ID (P3513)
+		wikidata.checkClaims("P3109", "P3109")    // Peakbagger mountain ID (P3109)
+		wikidata.checkClaims("P3309", "P3309")    // SummitPost mountain ID (P3309)
+		wikidata.checkClaims("P4552", "P4552")    // mountain range (P4552)
+		wikidata.checkClaims("P2660", "P2660")    // topographic prominence (P2660)
 
 		wikidata.checkClaims("P6766", "P6766")    // check Who's on First ID (P6766)
+		wikidata.checkClaims("P402",  "P402" )    // check OSM relation ID (P402)
+
 
 		// check statement disputed by ; P1310
 		p1310v := gjson.GetBytes(wikidata.WikiJson, "claims.P17.#.qualifiers.P1310")
@@ -651,6 +686,9 @@ func main() {
 		wikidata.checkClaims("P576", "demolished") // check dissolved, demolished ;  P576
 		// check P279subclass of
 		wikidata.checkClaims("P279", "hasP279") // check "Subclass of" ; P279
+
+		wikidata.checkClaims("P460",  "P460_same_as")  // said to be the same as (P460)
+		wikidata.checkClaims("P1889", "P1889")       // different from (P1889)
 
 		if !pgoutput {
 			// Write to text output

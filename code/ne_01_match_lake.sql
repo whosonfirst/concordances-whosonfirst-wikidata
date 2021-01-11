@@ -51,7 +51,7 @@ from wd.wdx
 where ( 
             (a_wof_type  &&  ARRAY['bay','lake','lakegrp'] ) 
         and (a_wof_type  @>  ARRAY['hasP625'] ) 
-        and  not iscebuano
+        -- and  not iscebuano
        )
      or 
      ( wd_id in  -- exceptions   

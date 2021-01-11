@@ -54,7 +54,7 @@ ANALYSE           newd.wd_match_ports ;
 drop table if exists          newd.ne_match_ports CASCADE;
 CREATE UNLOGGED TABLE         newd.ne_match_ports  as
 select
-     ne_id    
+     ogc_fid as ne_id    
     ,0::double precision as min_zoom   
     ,featurecla   
     ,name                 as ne_name

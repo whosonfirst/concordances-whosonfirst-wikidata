@@ -5,6 +5,8 @@ ENV DOCKER_IMAGE=$DOCKER_IMAGE
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV PG_MAJOR 13
+
+ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 
 RUN \
@@ -18,14 +20,12 @@ RUN \
         gnupg2 \
         locales \
         lsb-release \
+        software-properties-common \
         tzdata \
         wget \
     && rm -rf /var/lib/apt/lists/* /tmp/*
 
 RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
-
-RUN lsb_release
-RUN lsb_release -cs && lsb_release -cs
 
 #  Add Postgres official Repo
 RUN set -ex \
@@ -39,8 +39,12 @@ RUN set -ex \
     fi
 
 
-WORKDIR /wof/tools
+# Add R Repo
+RUN apt-key adv \
+        --keyserver keys.gnupg.net \
+        --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
 
+WORKDIR /wof/tools
 
 RUN \
     apt-get update \
@@ -55,12 +59,15 @@ RUN \
         git-lfs \
         jq \
         libdbd-pg-perl \
+        libgdal-dev \
         libgeos-dev \
         libleveldb-dev \
         libpq-dev \
+        libproj-dev \
         libprotobuf-dev \
         libsqlite3-dev \
         libtool \
+        libudunits2-dev \
         mc \
         nano \
         nodejs \
@@ -78,19 +85,35 @@ RUN \
         wget \
     && rm -rf /var/lib/apt/lists/* /tmp/*
 
+
+# Install R.
+RUN \
+    apt-get update \
+    && apt-get install -yqq \
+        libopenblas0-pthread \
+        littler \
+        r-base \
+        r-cran-littler \
+        r-recommended \
+    && rm -rf /var/lib/apt/lists/* /tmp/*
+
+RUN echo "install R packages" \
+    && Rscript -e 'install.packages("sf",dependencies=TRUE, clean=TRUE) ' \
+    && Rscript -e 'install.packages("tidyverse",dependencies=TRUE, clean=TRUE) ' \
+    && Rscript -e 'install.packages("WikidataR",dependencies=TRUE, clean=TRUE) ' \
+    && rm -rf /var/lib/apt/lists/* /tmp/*
+
 RUN sudo -H npm install --unsafe-perm -g wikidata-taxonomy \
+    && npm cache clean --force \
     && wdtaxonomy -V
 
-# Install Julia
-ENV JULIA_MAJOR=1.5
-ENV JULIA_VERSION=1.5.3
-ENV JULIA_SHA256=f190c938dd6fed97021953240523c9db448ec0a6760b574afd4e9924ab5615f1
-
+# Install Julia 1.6 beta1
+ENV JULIA_MAJOR=1.6
+ENV JULIA_VERSION=1.6.0-beta1
+ENV JULIA_SHA256=30b214c7f544c6589a20104eaa6764eb368cadac5fa834b7454b747043e5a2b8
 ENV JULIA_DIR=/usr/local/julia
 ENV JULIA_PATH=${JULIA_DIR}
 
-ENV JULIA_DIR=/usr/local/julia
-ENV JULIA_PATH=${JULIA_DIR}
 RUN mkdir ${JULIA_DIR} && \
     cd /tmp && \
     wget -q https://julialang-s3.julialang.org/bin/linux/x64/${JULIA_MAJOR}/julia-${JULIA_VERSION}-linux-x86_64.tar.gz && \
@@ -119,8 +142,9 @@ ARG GOPATH=/go
 ENV GOPATH=${GOPATH} \
     PATH=/go/bin:/usr/local/go/bin:$PATH
 
-ARG GOLANG_VERSION=1.15.6
-ARG GOLANG_DOWNLOAD_SHA256=3918e6cc85e7eaaa6f859f1bdbaac772e7a825b0eb423c63d3ae68b21f84b844
+ARG GOLANG_VERSION=1.16beta1
+ARG GOLANG_DOWNLOAD_SHA256=3931a0d493d411d6c697df6f15d5292fdd8031fde7014fded399effdad4c12d8
+
 RUN set -eux \
     && apt-get update \
     && apt-get install -yqq --no-install-suggests --no-install-recommends \
@@ -142,21 +166,21 @@ RUN    GO111MODULE=on go get -u github.com/urfave/cli@v1 \
     && GO111MODULE=on go get -u github.com/lukasmartinelli/pgclimb
 
 RUN \
-       go get github.com/Code-Hex/pget/cmd/pget \
-    && go get github.com/fd0/machma \
-    && go get github.com/klauspost/compress \
-    && go get github.com/klauspost/crc32 \
-    && go get github.com/klauspost/pgzip/... \
-    && go get github.com/miku/parallel \
-    && go get github.com/mmcloughlin/geohash \
-    && go get github.com/shenwei356/rush/ \
-    && go get github.com/svent/sift \
-    && go get github.com/tidwall/gjson \
-    && go get github.com/lib/pq
+       go get -u github.com/Code-Hex/pget/cmd/pget \
+    && go get -u github.com/fd0/machma \
+    && go get -u github.com/klauspost/compress \
+    && go get -u github.com/klauspost/crc32 \
+    && go get -u github.com/klauspost/pgzip/... \
+    && go get -u github.com/miku/parallel \
+    && go get -u github.com/mmcloughlin/geohash \
+    && go get -u github.com/shenwei356/rush/ \
+    && go get -u github.com/svent/sift \
+    && go get -u github.com/tidwall/gjson \
+    && go get -u github.com/lib/pq
 
 #    && go get github.com/lukasmartinelli/pgfutter \
-RUN    go get     github.com/omniscale/imposm3 \
-    && go install github.com/omniscale/imposm3/cmd/imposm
+RUN    go get     github.com/omniscale/imposm3@master \
+    && go install github.com/omniscale/imposm3/cmd/imposm@master
 
 #
 RUN    pip3 install --no-cache-dir --upgrade pip \
@@ -164,17 +188,18 @@ RUN    pip3 install --no-cache-dir --upgrade pip \
     && pip3 install --no-cache-dir --upgrade csvkit \
     && pip3 install --no-cache-dir --upgrade xlsx2csv
 
+
 RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-utils.git \
     && cd go-whosonfirst-utils \
-    && make bin
+    && GO111MODULE=auto make bin
 
 RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-s3.git \
     && cd go-whosonfirst-s3 \
-    && make bin
+    && GO111MODULE=auto make bin
 
 RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-concordances.git \
     && cd go-whosonfirst-concordances \
-    && make bin
+    && GO111MODULE=auto make bin
 
 RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/whosonfirst-data-utils.git \
     && cd whosonfirst-data-utils
@@ -205,38 +230,42 @@ RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/py-mapzen-whoson
 
 RUN   git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-clone.git \
     && cd go-whosonfirst-clone \
-    && make deps \
-    && make bin
+    && GO111MODULE=auto make deps \
+    && GO111MODULE=auto make bin
 
 RUN   git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-meta.git \
     && cd go-whosonfirst-meta \
-    && make tools
+    && GO111MODULE=auto make tools
 
 RUN   git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-inspector.git \
     && cd go-whosonfirst-inspector \
-    && make cli
+    && GO111MODULE=auto make cli
 
 RUN   git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-csv.git \
     && cd go-whosonfirst-csv \
-    && make tools
+    && GO111MODULE=auto make tools
 
 RUN    git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-dist.git \
     && cd go-whosonfirst-dist \
-    && make tools
+    && GO111MODULE=auto make tools
 
 RUN git clone --quiet --depth 1 https://github.com/whosonfirst/whosonfirst-properties.git
 
 RUN    git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-bundles.git  \
     && cd go-whosonfirst-bundles \
-    && make tools
+    && GO111MODULE=auto make tools
 
 RUN    git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-validate.git  \
     && cd go-whosonfirst-validate \
-    && make tools
+    && GO111MODULE=auto make tools
 
-RUN git clone  --quiet --depth 1 https://github.com/whosonfirst/whosonfirst-cookbook.git
-RUN git clone  --quiet --depth 1 https://github.com/NikolayS/postgres_dba.git
-RUN git clone  --quiet --depth 1 https://github.com/jfcoz/postgresqltuner.git \
+RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-export.git \
+    && cd go-whosonfirst-export \
+    && GO111MODULE=auto make tools
+
+RUN git clone --quiet --depth 1 https://github.com/whosonfirst/whosonfirst-cookbook.git
+RUN git clone --quiet --depth 1 https://github.com/NikolayS/postgres_dba.git
+RUN git clone --quiet --depth 1 https://github.com/jfcoz/postgresqltuner.git \
     && chmod +x /wof/tools/postgresqltuner/postgresqltuner.pl
 
 RUN git clone --depth 1 --branch master https://github.com/lesovsky/pgcenter \
@@ -247,29 +276,5 @@ RUN git clone --depth 1 --branch master https://github.com/lesovsky/pgcenter \
     && pgcenter --version
 
 ADD  .psqlrc /root/.psqlrc
-
-
-##RUN set -eux \
-##    && apt-get update \
-##    && apt-get install -yqq --no-install-suggests --no-install-recommends \
-##    bc \
-##    libedit-dev \
-##    libpam-dev \
-##    libpam0g-dev \
-##    libpq-dev \
-##    libpq5 \
-##    libselinux1-dev \
-##    libssl-dev \
-##    openssl \
-##    postgresql-client-common \
-##    postgresql-common \
-##    postgresql-server-dev-12 \
-##    libkrb5-dev \
-##    && rm -rf /var/lib/apt/lists/*
-##
-##RUN git clone  --quiet --depth 1 https://github.com/ossc-db/pg_bulkload.git \
-##   && cd pg_bulkload \
-##   && make -j 2 \
-##   && make install
 
 WORKDIR /wof/

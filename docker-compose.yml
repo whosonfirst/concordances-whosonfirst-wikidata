@@ -47,6 +47,7 @@ services:
      - ../wikidata_dump:/wof/wikidata_dump
      - ../natural-earth-vector:/wof/natural-earth-vector
      - ../geonames:/wof/geonames
+     - ../taginfo:/wof/taginfo
      - ./code:/wof/code
      - ./wdtaxonomy:/wof/wdtaxonomy
      - /var/www/html/wof-wiki-dw/output:/wof/output
@@ -66,7 +67,7 @@ services:
      - outputdir=/wof/output
 
   notebook:
-    image: wof_jupyter
+    image: jupyter/datascience-notebook
     volumes:
      - "../notebook_work:/home/jovyan/work"
     ports:

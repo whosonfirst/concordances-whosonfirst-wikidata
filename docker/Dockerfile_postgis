@@ -1,5 +1,6 @@
+FROM postgis/postgis:13-master
+#FROM postgis:13-3.1-bullseye
 #FROM postgis/postgis:13-3.1
-FROM postgis:13-3.1-bullseye
 
 ENV LANG=C.UTF-8 \
     LC_ALL=C.UTF-8
@@ -28,30 +29,8 @@ RUN apt-get update && \
       wget \
    && rm -rf /var/lib/apt/lists/*
 
-ENV CFLAGS="-march=native -g -O3 -fstack-protector -Wl,-z -Wl,now -Wl,-z -Wl,relro  -Wl,-z,max-page-size=0x100" \
-    CXXFLAGS="${CFLAGS}"
-
 RUN pgxn install icu_ext
 RUN pgxn install lostgis
-
-##RUN set -eux \
-##    && apt-get update \
-##    && apt-get install -yqq --no-install-suggests --no-install-recommends \
-##    libedit-dev \
-##    libpam-dev \
-##    libpq-dev \
-##    libpq5 \
-##    libselinux-dev \
-##    libssl-dev \
-##    postgresql-client-common \
-##    postgresql-common \
-##    postgresql-server-dev-$PG_MAJOR \
-##    libkrb5-dev \
-##    zlib1g-dev \
-##    libz-dev \
-##    && rm -rf /var/lib/apt/lists/*
-##
-##RUN pgxn install pg_bulkload
 
 # install cartodb-postgresql
 RUN   mkdir -p /cartodb-postgresql \
@@ -89,13 +68,56 @@ RUN    mkdir -p /mapnik-german-l10n \
     && make install \
     && make clean
 
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+      libcurl4-openssl-dev \
+      pkg-config \
+      uuid-dev \
+   && rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /clickhouse_fdw \
+    && git clone  --depth 1 --branch master  https://github.com/adjust/clickhouse_fdw.git \
+    && cd /clickhouse_fdw \
+    && mkdir build && cd build \
+    && cmake .. \
+    && make \
+    && make install
+
 ADD pgtune.py            /pgtune.py
 ADD pgtune-db.sh         /docker-entrypoint-initdb.d/pgtune-db.sh
 
-ENV PGCENTER_VERSION 0.6.6
-RUN wget https://github.com/lesovsky/pgcenter/releases/download/v0.6.6/pgcenter_0.6.6_Linux_x86_64.deb \
-    && dpkg -i ./pgcenter_0.6.6_Linux_x86_64.deb \
-    && rm pgcenter_0.6.6_Linux_x86_64.deb
+# ENV PGCENTER_VERSION 0.6.6
+# RUN wget https://github.com/lesovsky/pgcenter/releases/download/v0.6.6/pgcenter_0.6.6_Linux_x86_64.deb \
+#     && dpkg -i ./pgcenter_0.6.6_Linux_x86_64.deb \
+#     && rm pgcenter_0.6.6_Linux_x86_64.deb
 
 #  ADD pgxn-load.sh  /docker-entrypoint-initdb.d/pgxn-load.sh
 #### RUN pgxn install madlib
+
+# RUN set -eux \
+#     && apt-get update \
+#     && apt-get install -yqq --no-install-suggests --no-install-recommends \
+#         libedit-dev \
+#         libkrb5-dev \
+#         libpam-dev \
+#         libpq-dev \
+#         libpq5 \
+#         libreadline-dev \
+#         libselinux-dev \
+#         libssl-dev \
+#         libz-dev \
+#         postgresql-client-$PG_MAJOR \
+#         postgresql-client-common \
+#         postgresql-common \
+#         postgresql-server-dev-$PG_MAJOR \
+#         zlib1g-dev \
+#     && rm -rf /var/lib/apt/lists/*
+# RUN ln -snf /usr/lib/postgresql/${PG_MAJOR}/lib/libpgcommon.a /usr/lib/x86_64-linux-gnu/libpgcommon.a
+# RUN ln -snf /usr/lib/postgresql/${PG_MAJOR}/lib/libpgport.a /usr/lib/x86_64-linux-gnu/libpgport.a
+# RUN    mkdir -p ./pg_bulkload \
+#     && git clone --depth 1 --branch master https://github.com/etcimon/pg_bulkload.git  ./pg_bulkload  \
+#     && cd ./pg_bulkload \
+#     && USE_PGXS=1 make all \
+#     && USE_PGXS=1 make install
+# # make installcheck
+# # create extension pg_bulkload;

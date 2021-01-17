@@ -6,6 +6,7 @@ Q187062,nameplate
 Q190705,zentralorgan
 Q329669,subscription newspaper
 Q442927,party newspaper
+Q569348,Wall newspaper
 Q665319,broadsheet
 Q7572780,Spadea
 Q738377,student newspaper
@@ -47,10 +48,9 @@ Q5104179,Chojoongdong
 Q5155035,community paper
 Q5155101,commuter newspaper
 Q5276122,digital newspaper
-Q1153191,online newspaper
-Q61856389,LGBTI online newspaper
 Q17232649,news website
 Q1153191,online newspaper
+Q61856389,LGBTI online newspaper
 Q72398691,video game news website
 Q84863652,television news website
 Q5369583,mook
@@ -84,7 +84,48 @@ Q72717073,Múlt-kor
 Q87062808,Svensk-amerikanska tidningar
 Q98785129,monthly newspaper
 Q104148637,afternoon newspaper
+Q104459845,Миллет (газета)
 Q11707,restaurant
+Q30022,coffeehouse
+Q37158,Starbucks
+Q137746,cha chaan teng
+Q202092,Kafenio
+Q261335,Viennese coffee house
+Q272399,internet café
+Q1409342,Warnet
+Q478679,café-chantant
+Q5739165,café cantante
+Q769713,café-théâtre
+Q1028869,sidewalk cafe
+Q266734,Schanigarten
+Q1045860,Kissaten
+Q1349529,Manga cafe
+Q1206714,cantina
+Q1681253,bar-Tabac
+Q2785359,cat café
+Q2933004,book café
+Q3357577,kaffebar
+Q3824213,Café con piernas
+Q4236456,Kofe Khauz
+Q4236467,coffee-house
+Q5739165,café cantante
+Q6810083,Meikyoku kissa
+Q7137468,Parisian café
+Q10663835,Schweizeri
+Q10673135,soldathem
+Q11289828,Excelsior Caffé
+Q16540032,Cafe Martínez
+Q16964876,Muffin Break
+Q18214247,Café-caveau
+Q20755219,modulární kavárna
+Q38667269,Memory Café
+Q56827130,koffietent
+Q60462333,Animal cafe
+Q60632476,Tostao'
+Q62273834,Gregory's
+Q93398226,Scout & Co.
+Q93666214,kahvehane
+Q101610406,Lineage Coffee Roasting
 Q154383,take-out
 Q11996675,hot dog stand
 Q256020,inn
@@ -123,6 +164,7 @@ Q1476845,Paradores de Turismo de España
 Q56756850,Bierbude
 Q58297838,church inn
 Q102045536,sjökrog
+Q104792526,Bruiden
 Q475113,cosplay restaurant
 Q8657160,maid café
 Q86750093,Butler café
@@ -224,6 +266,7 @@ Q24439116,Greek restaurant
 Q59354278,Zaytinya
 Q24707637,Naked restaurant
 Q25325280,refreshment room
+Q27683423,čajchána
 Q27979885,sandwich shop
 Q30157210,Poffertjeskramen
 Q30919351,Meson
@@ -266,6 +309,8 @@ Q89100042,Cevicherías
 Q89279783,4 Rivers Smokehouse
 Q96111504,Lem's Bar-B-Q
 Q100235226,Pupusería
+Q104626465,Sus Hi Eatstation
+Q104664432,King Bao
 Q27686,hotel
 Q216212,motel
 Q1320569,Wigwam Motel
@@ -310,6 +355,7 @@ Q5912282,Hotels in Toronto
 Q7134426,Paradores in Puerto Rico
 Q9189264,Chatka studencka
 Q9377891,Wotel
+Q9679135,state guesthouse
 Q10512404,Gästgiveri
 Q11298947,classic hotel
 Q12767044,Berghotel
@@ -331,45 +377,6 @@ Q87487749,former hotel
 Q90913853,Badhotell
 Q99309708,4-star hotel
 Q30022,coffeehouse
-Q37158,Starbucks
-Q137746,cha chaan teng
-Q202092,Kafenio
-Q261335,Viennese coffee house
-Q272399,internet café
-Q1409342,Warnet
-Q478679,café-chantant
-Q5739165,café cantante
-Q769713,café-théâtre
-Q1028869,sidewalk cafe
-Q266734,Schanigarten
-Q1045860,Kissaten
-Q1349529,Manga cafe
-Q1206714,cantina
-Q1681253,bar-Tabac
-Q2785359,cat café
-Q2933004,book café
-Q3357577,kaffebar
-Q3824213,Café con piernas
-Q4236456,Kofe Khauz
-Q4236467,coffee-house
-Q5739165,café cantante
-Q6810083,Meikyoku kissa
-Q7137468,Parisian café
-Q10663835,Schweizeri
-Q10673135,soldathem
-Q11289828,Excelsior Caffé
-Q16540032,Cafe Martínez
-Q16964876,Muffin Break
-Q18214247,Café-caveau
-Q20755219,modulární kavárna
-Q38667269,Memory Café
-Q56827130,koffietent
-Q60462333,Animal cafe
-Q60632476,Tostao'
-Q62273834,Gregory's
-Q93398226,Scout & Co.
-Q93666214,kahvehane
-Q101610406,Lineage Coffee Roasting
 Q59545,labour hire
 Q6467543,Labour brokering
 Q6467552,Labour hire in Namibia
@@ -379,20 +386,7 @@ Q112046,transmission system operator
 Q7309246,regional transmission organization
 Q129238,startup company
 Q20983877,unicorn
-Q131734,brewery
-Q1264071,Brewhouse
-Q1548071,Großbrauerei
-Q4848030,stoombierbrouwerij
-Q5487333,microbrewery
-Q1959119,Belgian beer culture
-Q3640372,brewpub
-Q80005545,buvette
-Q27825807,Trappist brewery
-Q31240343,phantom brewery
-Q42360247,brewpub chain
-Q52058803,Hofbräu
-Q98094317,Abfüllerei
-Q98141162,Brauereikeller
+Q104704420,Ajuma Technologies
 Q132510,market
 Q57607,Christmas market
 Q1388554,Christmas Markets in Berlin
@@ -456,7 +450,6 @@ Q7785078,third parties in Canada
 Q3664326,Pirate Party
 Q3778417,Green party
 Q3896855,Islamic party
-Q4329294,regional committee of CPSU
 Q4370110,political party in the Russian Empire
 Q5032604,cannabis political party
 Q5163108,Conservative parties in Newfoundland
@@ -586,7 +579,6 @@ Q856564,library association
 Q6542557,library consortium
 Q26271642,library network
 Q11871664,library group
-Q28324850,library system
 Q16860836,library district of the United States
 Q955214,mutual organization
 Q55964662,Entidad de previsión social voluntaria
@@ -709,6 +701,7 @@ Q13307225,Category:Women's rugby union teams
 Q43009164,rugby union club
 Q58840819,national rugby union team
 Q58841125,women's national rugby union team
+Q104630756,second national rugby union teams
 Q63171169,rugby union franchise
 Q63171186,defunct rugby union club
 Q15020890,field hockey team
@@ -803,6 +796,7 @@ Q5198626,cycling club
 Q5522367,garden club
 Q6647767,literature circle
 Q6918183,motor club
+Q82682141,auto club
 Q7241637,press club
 Q5468237,Foreign Correspondents' Club
 Q8031135,women's club
@@ -843,6 +837,84 @@ Q1787675,Kreishandwerkerschaft
 Q1802386,Landesmusikrat
 Q2173157,Opperraad
 Q2265114,Plaatselijke Kamer van Verenigingen
+Q2485448,sports governing body
+Q183288,National Olympic Committee
+Q938381,bids for Olympic Games
+Q540074,bids for the 2012 Summer Olympics
+Q6671078,London bid for the 2012 Summer Olympics
+Q2021545,Bids for the 2008 Summer Olympics
+Q55216150,2026 Winter Olympics bids
+Q1368262,National Paralympic Committee
+Q1478443,association football federation
+Q5450769,Football Association of Finland district
+Q61718902,former association football federation
+Q2485448,sports governing body
+Q11422536,international sport governing body
+Q19979016,specialty sports association
+Q19979126,special sports organization in Sweden
+Q21281028,rowing governing body
+Q29592127,badminton association
+Q29902221,Spanish sport association
+Q56031668,Billiards governing body
+Q56402078,Liikunnan aluejärjestö
+Q58973026,rugby union governing body
+Q61719000,former rugby union governing bodies
+Q95741239,Free State Rugby Union
+Q59239175,rugby league governing body
+Q61718170,subcommittee
+Q61718443,former sports governing body
+Q61718902,former association football federation
+Q61719000,former rugby union governing bodies
+Q63351616,defunct handball federation
+Q63364175,ice hockey federation
+Q64168099,Club Pembinaan dan Olahraga Tenis Meja Pertamina Kota Prabumulih
+Q73169108,netball governing body
+Q84056303,Landessportverband
+Q89566111,cricket federation
+Q89943671,cue sports federation
+Q100577044,carom billiards federation
+Q96242831,Commonwealth Games Association
+Q98415434,bandy association
+Q98415732,floorball association
+Q98416491,field hockey association
+Q98416814,skiing association
+Q98416677,biathlon association
+Q98416816,shooting sport association
+Q98416677,biathlon association
+Q98417505,swimming association
+Q98426086,volleyball association
+Q98426442,track and field athletics federation
+Q98426739,tennis association
+Q98426858,table tennis association
+Q98438431,wrestling federation
+Q98713327,minigolf federation
+Q100532555,orienteering association
+Q100546947,gymnastics association
+Q100584180,throwing sports federation
+Q100584062,darts federation
+Q104537381,dodgeball federation
+Q100589227,team sports federation
+Q55379753,handball federation
+Q63351616,defunct handball federation
+Q100589360,rugby federation
+Q104537381,dodgeball federation
+Q100589232,ball game federation
+Q55379753,handball federation
+Q104537381,dodgeball federation
+Q100589331,air sports federation
+Q100589455,board game federation
+Q100589423,chess federation
+Q100589505,mind sports federation
+Q100589423,chess federation
+Q100589507,individual sports federation
+Q100589423,chess federation
+Q100589705,budō federation
+Q100589710,strength sports federation
+Q100589602,combat sports federation
+Q100589597,martial arts federation
+Q100589599,judo federation
+Q100589595,jujutsu federation
+Q100589762,contact sport federation
 Q10520687,local heritage federation in Sweden
 Q15811092,non-governmental federation
 Q47486326,Narrenvereinigung
@@ -925,6 +997,7 @@ Q2367225,university and college sports club
 Q2420513,Alphastudentenverenigingen
 Q2674774,Fachschaft
 Q2562646,studiestichting
+Q11871480,Kilta (ainejärjestö)
 Q3688092,corporation
 Q5146544,College Sport Clubs
 Q7458581,Sexmästeri
@@ -954,6 +1027,7 @@ Q77284795,Federation of University Students of Ecuador
 Q85637649,Studentské organizace v České republice po roce 1989
 Q86044603,high school athletic program
 Q97786567,Studentenclub
+Q104535624,Fem-la Pública
 Q1734138,carnival association
 Q1965390,Narrenzunft
 Q24175521,Hexenzunft
@@ -982,86 +1056,14 @@ Q16972848,Commodity checkoff program
 Q5209578,Dairy Promotion Program
 Q7157865,peak organisation
 Q21116583,inter-professional French wine-producing organization
+Q24897655,construction work
+Q24899836,construction work
 Q30589654,trade exchange
 Q2260125,Schützenverein
-Q2485448,sports governing body
-Q183288,National Olympic Committee
-Q938381,bids for Olympic Games
-Q540074,bids for the 2012 Summer Olympics
-Q6671078,London bid for the 2012 Summer Olympics
-Q2021545,Bids for the 2008 Summer Olympics
-Q55216150,2026 Winter Olympics bids
-Q1368262,National Paralympic Committee
-Q1478443,association football federation
-Q5450769,Football Association of Finland district
-Q61718902,former association football federation
-Q11422536,international sport governing body
-Q19979016,specialty sports association
-Q19979126,special sports organization in Sweden
-Q21281028,rowing governing body
-Q29592127,badminton association
-Q29902221,Spanish sport association
-Q56031668,Billiards governing body
-Q56402078,Liikunnan aluejärjestö
-Q58973026,rugby union governing body
-Q61719000,former rugby union governing bodies
-Q95741239,Free State Rugby Union
-Q59239175,rugby league governing body
-Q61718170,subcommittee
-Q61718443,former sports governing body
-Q61718902,former association football federation
-Q61719000,former rugby union governing bodies
-Q63351616,defunct handball federation
-Q63364175,ice hockey federation
-Q64168099,Club Pembinaan dan Olahraga Tenis Meja Pertamina Kota Prabumulih
-Q73169108,netball governing body
-Q84056303,Landessportverband
-Q89566111,cricket federation
-Q89943671,cue sports federation
-Q100577044,carom billiards federation
-Q96242831,Commonwealth Games Association
-Q98415434,bandy association
-Q98415732,floorball association
-Q98416491,field hockey association
-Q98416814,skiing association
-Q98416677,biathlon association
-Q98416816,shooting sport association
-Q98416677,biathlon association
-Q98417505,swimming association
-Q98426086,volleyball association
-Q98426442,track and field athletics federation
-Q98426739,tennis association
-Q98426858,table tennis association
-Q98438431,wrestling federation
-Q98713327,minigolf federation
-Q100532555,orienteering association
-Q100546947,gymnastics association
-Q100584180,throwing sports federation
-Q100584062,darts federation
-Q100589227,team sports federation
-Q55379753,handball federation
-Q63351616,defunct handball federation
-Q100589360,rugby federation
-Q100589232,ball game federation
-Q55379753,handball federation
-Q100589331,air sports federation
-Q100589455,board game federation
-Q100589423,chess federation
-Q100589505,mind sports federation
-Q100589423,chess federation
-Q100589507,individual sports federation
-Q100589423,chess federation
-Q100589705,budō federation
-Q100589710,strength sports federation
-Q100589602,combat sports federation
-Q100589597,martial arts federation
-Q100589599,judo federation
-Q100589595,jujutsu federation
-Q100589762,contact sport federation
 Q2659272,société
 Q5278332,dining club
 Q4879775,Beefsteak Club
-Q58426206,Kunstenaarssociëteit
+Q58426206,société d'artiste
 Q2867325,Association agréée de surveillance de la qualité de l'air
 Q2867418,association under local law of Alsace-Moselle
 Q88962904,assocation with mission recognized of public utility in Alsace-Moselle
@@ -1122,6 +1124,7 @@ Q2994492,Conservatoire d'espaces naturels
 Q7888544,association cultuelle
 Q2867648,diocesan association
 Q50922133,association under the French law of 1901 with public benefit status
+Q104822568,association éducative complémentaire de l'enseignement public
 Q12040992,HaNoar HaLeumi
 Q12041628,národní jednota
 Q12160242,art society
@@ -1176,6 +1179,31 @@ Q30032094,rural library
 Q47522534,biblioteca municipal (Finlandia)
 Q137655,periodical library
 Q169793,one-person library
+Q212805,digital library
+Q1224870,virtual library
+Q2527949,virtual specialist library
+Q1224984,digital archive
+Q62465093,archived version
+Q1235234,document repository
+Q22666,file sharing
+Q938892,pastebin
+Q2373485,peer-to-peer file sharing
+Q1565674,XDCC
+Q22908390,File sharing in Singapore
+Q1065413,institutional repository
+Q1334294,software repository
+Q73901520,Data Dragon Lair
+Q5281480,disciplinary repository
+Q7096323,open-access repository
+Q1065413,institutional repository
+Q45787211,preprint server
+Q14806579,repository of scientific papers
+Q5227240,data library
+Q2910253,Torah database
+Q12057995,Kramerius
+Q12328550,Netbibliotek
+Q21040941,shadow library
+Q30047053,web archive
 Q380829,private library
 Q355375,nobility library
 Q1522344,court library
@@ -1223,6 +1251,11 @@ Q2348725,collegiate library
 Q12410165,Torah library
 Q98827566,area studies library
 Q98827495,East Asian library
+Q104420423,government library
+Q2052886,parliamentary library
+Q1546583,presidential library
+Q11632449,library in Japan
+Q104708120,government documentation center
 Q627127,workers' library
 Q779419,lending library
 Q3639678,circulating library
@@ -1241,8 +1274,6 @@ Q62127981,Service interétablissement de coopération documentaire
 Q2901565,Bibliothèques interuniversitaires d'Île-de-France
 Q59677121,economic library
 Q2052886,parliamentary library
-Q1546583,presidential library
-Q11632449,library in Japan
 Q2586205,scientific library
 Q6503358,law library
 Q99231515,virtual research library
@@ -1329,7 +1360,6 @@ Q86065117,Bibliocoop
 Q89202437,library storage facility
 Q92294669,genealogical center
 Q93874634,臺中市立圖書館北屯兒童分館一般閱覽席
-Q104420423,Government libraries
 Q33506,museum
 Q218735,customs museum
 Q588140,science museum
@@ -1357,7 +1387,7 @@ Q26958661,naval museum
 Q4828724,aviation museum
 Q18704634,railway museum
 Q420962,heritage railway
-Q5278428,Dinner train
+Q5278428,dinner train
 Q1614140,tramway museum
 Q28837381,train station museum
 Q26959070,astronautical museum
@@ -1418,6 +1448,7 @@ Q10501308,writers' museum
 Q11606865,picture book museum
 Q24906026,Writer's home
 Q1954802,Museumsbus
+Q17153811,Amsterdam museum buses
 Q2066674,mill museum
 Q2087181,historic house museum
 Q11982370,artist's-home museum
@@ -1478,7 +1509,6 @@ Q10571947,county museum
 Q60731643,local museum
 Q67639546,historical society museum
 Q1934476,Gallo-Roman museum
-Q1970365,natural history museum
 Q3329412,archaeological museum
 Q636819,archaeological open-air museum
 Q3330834,Egyptian museum
@@ -1577,6 +1607,7 @@ Q94701721,Tuscan museum of regional importance
 Q94701740,didactic museum
 Q2650083,museum farm
 Q104127212,Selfie museum
+Q104713411,Вилла Функа
 Q166118,archives
 Q244904,deposit archive
 Q355358,nobility archive
@@ -1585,7 +1616,6 @@ Q635801,free archive
 Q726929,film archive
 Q1352795,cinematheque
 Q1224984,digital archive
-Q62465093,archived version
 Q1284615,Medienzentrum
 Q1574516,photo library
 Q1934883,military archive
@@ -1599,7 +1629,6 @@ Q34544468,parish archive
 Q2945282,documentation centre
 Q3621648,current archive
 Q5227240,data library
-Q2910253,Torah database
 Q7170558,Personal archiving
 Q8203685,notarial archive
 Q10605195,company archives
@@ -1849,6 +1878,7 @@ Q75843453,The Facade Commission
 Q86204774,installation (exhibition)
 Q87319988,Japan Media Arts Festival traveling exhibition
 Q94569884,art walk
+Q780576,Ausstellung des Europarates
 Q896958,Landesgartenschau
 Q1988545,Niedersächsische Landesgartenschau
 Q936821,travelling exhibition
@@ -1925,6 +1955,7 @@ Q76448963,Animal Champions
 Q76448967,Mon œil!
 Q76448971,Fraîcheur à croquer – Saveur du potager
 Q76448973,Bzzzzzz…Mouches
+Q104556011,Swiss National Exhibition 1883
 Q31842555,Prospect
 Q55599658,Rétromobile 2018
 Q60170543,Radiolympia
@@ -1942,30 +1973,9 @@ Q95750491,multimedia presentation
 Q6934459,multi-image
 Q100326673,Ethnological exhibition
 Q1569977,human zoo
+Q104771289,Unibrejk
 Q1497649,memory institution
 Q212805,digital library
-Q1224870,virtual library
-Q2527949,virtual specialist library
-Q1224984,digital archive
-Q1235234,document repository
-Q22666,file sharing
-Q938892,pastebin
-Q2373485,peer-to-peer file sharing
-Q1565674,XDCC
-Q22908390,File sharing in Singapore
-Q1065413,institutional repository
-Q1334294,software repository
-Q73901520,Data Dragon Lair
-Q5281480,disciplinary repository
-Q7096323,open-access repository
-Q1065413,institutional repository
-Q45787211,preprint server
-Q14806579,repository of scientific papers
-Q5227240,data library
-Q12057995,Kramerius
-Q12328550,Netbibliotek
-Q21040941,shadow library
-Q30047053,web archive
 Q671735,media library
 Q4751185,Anambra State University
 Q5739135,heritage centre
@@ -2296,7 +2306,7 @@ Q10286453,public foundation
 Q12016749,solidarity fund
 Q15731190,Esperanto foundation
 Q18330146,cultural foundation
-Q18631225,Stiftung (Germany)
+Q18631225,Stiftung
 Q1651129,Kuratorium
 Q1695502,party political foundation
 Q15851461,Trust Foundation
@@ -2311,7 +2321,7 @@ Q60198861,foundation recognized of public utility in France
 Q63673212,fonds de dotation
 Q18631230,Stiftung (Liechtenstein)
 Q19605764,stichting
-Q20057863,Endowment Fund
+Q20057863,endowment fund
 Q20819803,Institut d'aménagement et d'urbanisme de la Région parisienne
 Q23000060,dansk erhvervsdrivende fond
 Q23900274,Forum Gut Gödelitz
@@ -2409,7 +2419,6 @@ Q6458277,LGBTI+ rights organization
 Q12592486,LGBTI+ rights organization in South Korea
 Q84433816,Lesbian organization
 Q1968122,national Red Cross and Red Crescent society
-Q5792382,Spanish Red Cross
 Q2082226,government-organized non-governmental organization
 Q3356057,non-governmental organization for development
 Q3356062,environmental non-governmental organization
@@ -2429,6 +2438,8 @@ Q21655394,Белорусский комитет ICOMOS
 Q29518039,ONG en Italia
 Q51884140,Nyayik Sansar
 Q58195362,social organization
+Q60793921,civil society organization
+Q42610026,City of London ward clubs
 Q64485049,rapid IST testing facility
 Q65226517,Դայվինգը Հայաստանում
 Q94698791,domestic workers' organization
@@ -2457,7 +2468,7 @@ Q814273,Begabtenförderungswerk
 Q2867418,association under local law of Alsace-Moselle
 Q2945640,LGBT community center
 Q2945978,centre permanent d'initiatives pour l'environnement
-Q2964350,Choisir la cause des femmes
+Q2964350,La causa de las mujeres
 Q2996659,Coordination française pour le lobby européen des femmes
 Q3152598,Institut supérieur des métiers
 Q3190045,Junior Association
@@ -2565,7 +2576,6 @@ Q16926263,nonprofit institution
 Q17084016,nonprofit corporation
 Q92055844,section 21 company
 Q17635403,French movement for freedom of abortion and birth control
-Q18325460,501(c)(6) organization
 Q18384776,Association des femmes journalistes
 Q20715672,DevConf.cz
 Q22337472,Wikimedia user group
@@ -2620,6 +2630,7 @@ Q220142,pet store
 Q274393,bakery
 Q798436,bakehouse
 Q861651,pâtisserie
+Q8345924,Churrería
 Q2921696,boulangerie militaire
 Q4498092,mechanized bakery
 Q47505416,Konditorei
@@ -2858,7 +2869,7 @@ Q2111092,private health insurance
 Q4315979,Негосударственный пенсионный фонд
 Q13573435,direct writer
 Q16712913,Превентивні заходи в страхуванні
-Q21006406,Compagnie finlandaise d'assurance retraite
+Q21006406,Pension Insurance Companies
 Q45841276,Det norske Garantiselskab
 Q54782868,mutua de seguros
 Q76226154,car insurance company
@@ -2890,7 +2901,7 @@ Q740752,transport company
 Q249556,railway company
 Q138825,children's railway
 Q45736802,Pioniereisenbahn
-Q521458,Infrastructure Manager
+Q521458,railway infrastructure manager
 Q1064063,private railway
 Q8018268,major railway company
 Q11564393,準大手私鉄
@@ -3066,6 +3077,20 @@ Q1200676,design agency
 Q1230600,wrecking yard
 Q1252971,food manufacturer
 Q131734,brewery
+Q1264071,Brewhouse
+Q1548071,Großbrauerei
+Q4848030,stoombierbrouwerij
+Q5487333,microbrewery
+Q1959119,Belgian beer culture
+Q3640372,brewpub
+Q80005545,buvette
+Q27825807,Trappist brewery
+Q29850536,sake brewery
+Q31240343,phantom brewery
+Q42360247,brewpub chain
+Q52058803,Hofbräu
+Q98094317,Abfüllerei
+Q98141162,Brauereikeller
 Q274393,bakery
 Q3574069,confectionery store
 Q861651,pâtisserie
@@ -3075,7 +3100,6 @@ Q78839869,confections section of La Merced Market
 Q11505815,日本の味噌メーカー
 Q11506134,Soy sauce breweries in Japan
 Q19347489,champagne house
-Q29850536,sake brewery
 Q47504660,chocolate shop
 Q64699672,chocolate manufacturing company
 Q762548,chocolaterie
@@ -3105,7 +3129,7 @@ Q75851666,Yesway
 Q79391377,K-Market
 Q27676067,Amazon Go
 Q1318768,snack bar
-Q1320047,book publishing company
+Q1320047,book publisher
 Q1548890,schoolbook publisher
 Q1644277,audiobook publisher
 Q1792356,art book publisher
@@ -3130,7 +3154,7 @@ Q614297,editorial publicitaria
 Q748822,private press
 Q1114515,comics publishing company
 Q1280834,Bible society
-Q1320047,book publishing company
+Q1320047,book publisher
 Q1342296,theatre publisher
 Q1391561,specialised publisher
 Q1437818,form publisher
@@ -3151,7 +3175,7 @@ Q2201426,educational publishing company
 Q1548890,schoolbook publisher
 Q2608849,imprint
 Q1001388,budget label
-Q101001980,recueil de thésaurus
+Q101001980,thesaurus collection
 Q3579158,board game publishing company
 Q100271038,tabletop role-playing game publisher
 Q3579160,newspaper publisher
@@ -3178,7 +3202,6 @@ Q61819734,state publisher
 Q16931297,Queen's Printer
 Q63861471,Litteris Editora
 Q64477777,Imprenta y Editorial Minerva
-Q65123129,print publisher
 Q65770389,predatory publisher
 Q66010617,Kensington
 Q81529763,postcard publisher
@@ -3301,6 +3324,7 @@ Q7627897,Student television in the United Kingdom
 Q7919007,Independent station
 Q3497443,independent station
 Q15909153,Fourth Station
+Q63121712,Sada Elbalad
 Q1631103,hotel garni
 Q1660104,real estate company
 Q697852,real estate investment trust
@@ -3325,8 +3349,10 @@ Q85155772,semiconductor IP core vendor
 Q99536263,retailer
 Q507619,retail chain
 Q4985357,Buegeleisen and Jacobson
+Q21531924,ironmonger
+Q104817981,furniture retailer
 Q100134774,knife dealer
-Q1773493,literature company
+Q104817981,furniture retailer
 Q1817883,furniture manufacturer
 Q1827281,opleidingsbedrijf
 Q1917775,music publishing company
@@ -3341,6 +3367,8 @@ Q11549282,水道局
 Q2005696,commercial vehicle manufacturer
 Q2030042,Organschaft
 Q2073644,brokerage firm
+Q18357355,Bell Potter
+Q104636302,Bell Direct
 Q2111762,machine shop
 Q2139852,huiswerkinstituut
 Q2169973,service provider
@@ -3403,6 +3431,9 @@ Q17154779,Mortgage servicer
 Q25345819,trust service provider
 Q27714235,Home care provider
 Q55645123,health care provider
+Q543219,pharmacy technician
+Q2867215,assistant technique en pharmacie
+Q4582125,prescriptionist
 Q6500773,general practitioner
 Q1801944,country doctor
 Q19602626,Registrující praktický lékař
@@ -3566,6 +3597,7 @@ Q77900897,paleopathologist
 Q88211524,veterinary pathologist
 Q88364317,pathologist-anatomist
 Q3393065,podiatrist
+Q4279953,mammographist
 Q4459623,toxicologist
 Q4531850,endocrinologist
 Q7799756,thyroidologist
@@ -3908,6 +3940,10 @@ Q29881694,alternative therapist
 Q12020057,homeopath
 Q42673468,naturopath
 Q55071047,allied health professional
+Q61341,paraveterinary worker
+Q2873189,auxiliaire de santé animalier
+Q7136265,Paraveterinary workers in France
+Q97496352,愛玩動物看護師
 Q681842,emergency services personnel
 Q330204,paramedic
 Q336641,emergency physician
@@ -4021,6 +4057,7 @@ Q99317762,Timber Shop
 Q99318011,Building materials dealer
 Q2914704,advertising network
 Q2915216,umbrella company
+Q2961813,local TV channel
 Q2995256,rail vehicle manufacturer
 Q25657,MÁVAG
 Q4345732,Паровозоремонтные заводы
@@ -4044,7 +4081,7 @@ Q2051209,Koffieplantage
 Q2465988,houtgrond
 Q2948675,champignonnière
 Q3555852,seed orchard
-Q10499752,Fröplantager i Sverige
+Q10499752,fröplantager i Sverige
 Q7201627,plantations in the American South
 Q14419427,sugarcane plantation
 Q1847458,engenho
@@ -4090,7 +4127,6 @@ Q3631457,azienda agricola
 Q3661311,fashion house
 Q3751865,commercial establishment
 Q5762617,Cerería
-Q8345924,Churrería
 Q3962942,small cap company
 Q4106295,small office/home office
 Q4116756,Tourism in Saudi Arabia
@@ -4136,6 +4172,60 @@ Q64477777,Imprenta y Editorial Minerva
 Q83984126,Litografía Alemana
 Q6881511,enterprise
 Q22687,bank
+Q24354,theater
+Q153562,opera house
+Q9356212,musical theater building
+Q50802251,State Opera
+Q201946,black box theater
+Q203847,Zimmertheater
+Q808570,Baroque theatres
+Q811312,Peasants' Theatre
+Q877979,Young Spectator's Theatre
+Q1058828,Off-Broadway
+Q1143046,odeon
+Q1548406,national theater
+Q1638962,Chitalishte
+Q1698619,Schauspielhaus
+Q1830423,vlakkevloertheater
+Q1876744,lijsttheater
+Q1954948,musical theater building
+Q2111165,private theatre
+Q2289314,Singspielhalle
+Q2328181,city theatre
+Q2416110,youth theatre
+Q877979,Young Spectator's Theatre
+Q2430650,théâtre national
+Q2501058,Off-Off-Broadway
+Q2720855,Corral de comedias
+Q3476576,Scène conventionnée
+Q3476585,Scène nationale
+Q3982337,puppet theatre
+Q4053792,yose
+Q4240267,palace theatre
+Q4951589,box house
+Q5380480,Entertainment centre
+Q6430846,Koothambalam
+Q9356212,musical theater building
+Q11183017,open-air theatre
+Q19757,Roman theatre
+Q24933318,Gallo-Roman amphitheatre
+Q336514,sylvan theater
+Q3982342,teatro verzura
+Q876542,Thingstätte
+Q2860319,Greek theatre
+Q35012916,lake stage
+Q60850939,Hellenistic theatre
+Q65619961,singing stage
+Q11459155,small theater
+Q12309493,egnsteater
+Q13424808,playhouse
+Q4242935,Gorky Drama Theatre
+Q17149955,showboat
+Q18225059,Italian theater
+Q18745892,Kleinkunstbühnen in der Tschechoslowakei
+Q22117664,kaburenjō
+Q25378123,Double-decker theatre
+Q64654999,former theater
 Q129238,startup company
 Q612825,online dating service
 Q28134845,Online dating application
@@ -4148,7 +4238,7 @@ Q726870,brick and mortar
 Q734253,electronic business
 Q484847,e-commerce
 Q212930,online shopping
-Q43060,online music store
+Q43060,digital music store
 Q15794580,Click & collect
 Q368344,direct-to-consumer
 Q781384,online auction
@@ -4174,6 +4264,8 @@ Q20746571,public company limited by shares
 Q30056758,julkinen osakeyhtiö
 Q1326576,Elektrizitätsgesellschaft
 Q1416636,non-banking financial company
+Q1734300,coachbuilder
+Q833418,wheelwright
 Q1941779,Modehaus
 Q2089936,consulting company
 Q2297457,junior enterprise
@@ -4220,7 +4312,7 @@ Q273615,sovkhoz
 Q835400,combine
 Q1148315,state-owned enterprise of New Zealand
 Q1389604,unitary enterprise
-Q2324556,state broadcasting
+Q2324556,state media
 Q2324797,health establishments
 Q2324813,state bank
 Q2324835,national railway
@@ -4260,7 +4352,7 @@ Q6428421,kommunalt foretak
 Q12617875,regional public corporation in South Korea
 Q16917889,státní podnik
 Q16968466,regional health authority
-Q19390308,government-owned limited company in Norway
+Q19390308,fully government-owned limited company in Norway
 Q19391573,annet foretak ifølge særskilt lov
 Q5691177,health trust
 Q16968466,regional health authority
@@ -4295,6 +4387,7 @@ Q102194016,junta de fomento of El Salvador
 Q18388277,technology company
 Q1058914,software company
 Q13637823,Independent hardware vendor
+Q104704420,Ajuma Technologies
 Q20181766,Kellerei
 Q90302153,Sektkellerei
 Q20826099,Vertriebsgesellschaft
@@ -4314,6 +4407,8 @@ Q6954191,NHS primary care trust
 Q16986400,NHS ambulance services trust
 Q16988141,Community health NHS trust
 Q87774371,Health and Social Care Trust
+Q55190325,musical instrument manufacturing company
+Q97579135,piano manufacturing company
 Q56342478,tourism company
 Q56876011,private corporation
 Q1589009,privately held company
@@ -4325,7 +4420,7 @@ Q292704,AG & Co. KGaA
 Q1532883,GmbH & Co. KGaA
 Q2348860,Stiftung & Co. KGaA
 Q20658388,SE & Co. KGaA
-Q1780029,Kommanditgesellschaft (Germany)
+Q1780029,Kommanditgesellschaft
 Q897103,GmbH & Co. KG
 Q2348994,Stiftung GmbH & Co. KG
 Q1825483,Limited & Co. KG
@@ -4339,7 +4434,7 @@ Q1780034,Kommanditgesellschaft
 Q17050380,kommanditselskab
 Q43751707,komanditní společnost
 Q57696713,sociedad en comandita
-Q448535,sociedad civil
+Q448535,GbR
 Q8207021,asociación civil
 Q33134075,sociedad civil
 Q883188,sociedad civil profesional
@@ -4425,8 +4520,9 @@ Q13100008,d.o.o.
 Q21763580,Družba z omejeno odgovornostjo
 Q15042660,aksjeselskap
 Q11994816,Partisipantskap
-Q19390308,government-owned limited company in Norway
-Q97936688,partly government-owned limited company in Norway
+Q19390308,fully government-owned limited company in Norway
+Q97936688,government-owned limited company in Norway
+Q19390308,fully government-owned limited company in Norway
 Q15091621,société à responsabilité limitée
 Q98888901,SARL nationale
 Q98888964,SARL d'économie mixte
@@ -4498,12 +4594,12 @@ Q8007048,nail salon
 Q8073775,zombie company
 Q8303885,trust company
 Q9209474,auction house
-Q2290738,Bloemenveiling
 Q10611118,bike rental
 Q1358919,bicycle-sharing system
 Q42556547,dockless bicycle sharing system
 Q10691563,taxicab company
 Q11276329,Contents Provider
+Q11294827,camera manufacturer
 Q11353057,一般ガス事業者
 Q11753232,launch service provider
 Q11885129,Ohjelmatoimisto
@@ -4511,6 +4607,7 @@ Q12043474,public relations agency
 Q12144057,private joint stock company
 Q12366139,fish farm
 Q12654573,financial group
+Q12817454,agricultural firm
 Q12893467,industrial laundry
 Q1143034,self-service laundry
 Q13636181,financieringsmaatschappij
@@ -4550,10 +4647,6 @@ Q18019531,Arbejdsløshedskasse
 Q18124524,EHang
 Q19644607,pharmaceutical company
 Q19653548,風俗営業
-Q19984037,weaving factory
-Q1815307,linen weaving mill
-Q98108972,Silk weaver factory
-Q98128426,colour weaving workshop
 Q20015305,large business
 Q20180983,Kompanie
 Q162157,chartered company
@@ -4587,6 +4680,10 @@ Q13550832,"Vůz WRm812
 Q13550838,Vůz ARmpee832 ČD
 Q14435371,Vůz BRcm831 ČD
 Q16963199,Vůz WRmz RJ
+Q18332105,R1
+Q18332107,R2
+Q18332143,RB1
+Q19979145,R4
 Q56399133,VR Rk
 Q57179483,Grill Express self service dining car of SNCF
 Q90420120,California Zephyr dining cars
@@ -4701,7 +4798,7 @@ Q47505416,Konditorei
 Q47515998,energy provider
 Q47535966,self-managed enterprise
 Q1939471,worker cooperative
-Q50825050,Konzessionsgesellschaft
+Q50825050,Concession company
 Q50825439,supplying company
 Q51911454,tanning salon
 Q55221379,multi-billion dollar company
@@ -4729,7 +4826,7 @@ Q65553774,chain
 Q507619,retail chain
 Q65659319,racket
 Q739123,bucket shop
-Q1283181,raimundo
+Q1283181,racket
 Q18554,protection racket
 Q898242,Brandschatzung
 Q2004508,Black Hand
@@ -4748,7 +4845,6 @@ Q76362921,saw blade factory
 Q76362926,safe factory
 Q76362931,juomatehdas
 Q76362936,tapettitehdas
-Q76362939,cardboard factory
 Q76367511,hotelli-ravintola
 Q76384692,sukkatehdas
 Q76384695,copperworks
@@ -4788,3 +4884,5 @@ Q98526214,doubling mill
 Q99264077,Gillinder & Sons
 Q101049500,Biscuiterie
 Q102403401,health insurance company
+Q104602860,Managing Agency
+Q104807662,cathedral in the desert

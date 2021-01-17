@@ -1,24 +1,5 @@
 ### Q3895768, fictional location : _wdadd_ 
 Q3895768,fictional location
-Q450,mind
-Q9165,soul
-Q123178,Souls in Purgatory
-Q360536,Ka (pharaoh)
-Q1129404,Ba
-Q4764979,animal soul
-Q5284175,divine soul
-Q6435744,Kra
-Q7577931,spirit body
-Q12341716,Yooka
-Q12793650,Kian
-Q1339824,mindset
-Q1340474,systems thinking
-Q5186773,Critical systems thinking
-Q2333152,stubbornness
-Q7509786,siege mentality
-Q27629831,growth mindset
-Q16000098,Geist
-Q962010,Volksgeist
 Q617332,setting
 Q559618,fictional universe
 Q2819123,expanded universe
@@ -54,10 +35,15 @@ Q69827715,dungeon
 Q785120,Weyr
 Q1046315,level
 Q3275989,bonus stage
+Q12737784,Time Period in Chrono Trigger
 Q48893930,Secret level
 Q65068857,tutorial
 Q87906572,custom level
 Q98034294,stage
+Q104536806,plains-themed level
+Q104536808,underground-themed level
+Q104536810,underwater-themed level
+Q104536813,castle-themed level
 Q1964689,fictional city
 Q3559146,ville mythique
 Q17004377,fictional lost city
@@ -71,6 +57,8 @@ Q82551957,fictional village
 Q91338528,fictional planned capital city
 Q96146366,fictional capital
 Q2991487,Earldoms of Gwynedd
+Q3566372,warp zone
+Q104640620,World 9
 Q6619693,fictional island
 Q1615655,Hesperiden (mythologischer Ort)
 Q5459920,floating island
@@ -305,6 +293,7 @@ Q99763662,fictional skyscraper
 Q99764786,fictional retirement home
 Q99772994,fictional spaceport
 Q100324189,fictional airport
+Q104537313,fictional gymnasium
 Q63038093,fictional stadium
 Q63038129,fictional amusement ride
 Q63959446,fictional tower

@@ -130,6 +130,7 @@ Q63354623,Marine Protected Area (OSPAR)
 Q3575871,marine protected area
 Q4315021,national marine conservation area
 Q6158975,National Estuarine Research Reserve
+Q22569549,Marine Conservation Zone
 Q28942323,aquatic reserve of South Australia
 Q76164741,marine management area
 Q103725443,marine nature reserve
@@ -188,6 +189,7 @@ Q87207320,subarea of a nature reserve
 Q94982663,Naturschutzgebiet aus mehreren Naturschutzgebieten
 Q96212000,Reserva Extrativista Marinha
 Q103725443,marine nature reserve
+Q104804750,réserve naturelle reconnue
 Q249565,greenway
 Q338112,recreation area
 Q1132998,National Recreation Area
@@ -221,7 +223,7 @@ Q63354980,local protected landscape
 Q63356179,regional protected landscape
 Q846385,National Wild and Scenic River
 Q864912,wildlife corridor
-Q893745,National Monument
+Q893745,national monument
 Q921543,water protection area
 Q4193795,source water protection
 Q7981276,wellhead protection area
@@ -381,6 +383,7 @@ Q3575773,Zone d'exploitation contrôlée
 Q16509826,exceptional forest eco-system
 Q79979740,regional park
 Q96635145,habitat floristique
+Q104804750,réserve naturelle reconnue
 Q75787028,protected area of New Brunswick
 Q3575969,protected natural area of New Brunswick
 Q15222729,provincial park of New Brunswick
@@ -410,6 +413,8 @@ Q96931656,Área de Proteção e Recuperação dos Mananciais
 Q3031290,Antarctic Specially Protected Area
 Q3364919,protected area of Cameroon
 Q20488229,natural park in Cameroon
+Q3427688,Reserved forests and protected forests of India
+Q5533772,Tiger reserve of India
 Q3457162,dark-sky preserve
 Q72114039,International Dark Sky Place
 Q52216504,International Dark Sky Park
@@ -488,6 +493,7 @@ Q7251283,protected area of Swaziland
 Q7251284,protected area of Turkmenistan
 Q7251293,protected area of United Kingdom
 Q7251287,protected area of Wales
+Q22569549,Marine Conservation Zone
 Q7315119,Research Natural Area
 Q7603683,state forest
 Q12336946,state forest of Denmark
@@ -523,6 +529,7 @@ Q21159964,významný krajinný prvek v Česku
 Q12043626,monument zone
 Q2359856,Städtebaulicher Denkmalschutz
 Q11884969,vesnická památková zóna
+Q45222314,krajinná památková zóna
 Q12056856,státní přírodní rezervace
 Q12364029,limited-conservation area
 Q12720953,protected area of Moldova
@@ -550,6 +557,7 @@ Q28861757,monument of landscape architecture in Moldova
 Q28861760,zoological garden in Moldova
 Q28861769,Ramsar site in Moldova
 Q13020522,forest park in Thailand
+Q13125592,Heritage Coast
 Q13402998,chráněný areál
 Q14545639,IUCN category IV: Habitat/Species Management Area
 Q7531787,Site of Special Scientific Interest

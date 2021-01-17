@@ -59,14 +59,10 @@ Q7100770,Orders of magnitude
 Q7100771,Orders of magnitude
 Q7100772,Orders of magnitude
 Q9747038,order of temporal magnitude
-Q3910350,literary awards of fantastic fiction
 Q4808497,Assassination attempts on Alexander Ankvab
 Q4808498,assassination attempts on Hamid Karzai
 Q5356846,Electoral results for the district of Georges River
-Q5410118,Gods
-Q6489227,largest body part
-Q8035089,Works based on Alice in Wonderland
-Q10284194,fortresses of Brazil
+Q8035089,works based on Alice in Wonderland
 Q15623926,Wikimedia set index article
 Q22808320,Wikimedia human name disambiguation page
 Q26214208,set of mythological Greek characters
@@ -119,6 +115,7 @@ Q30032916,national electoral calendar
 Q33532284,Wikimedia list of lists
 Q67184635,Wikimedia list of lists of persons
 Q98851381,Wikimedia list of lists of persons by position held
+Q80789820,Wikimedia list of ranked lists
 Q59738577,end of year poll
 Q61034350,internet album discography
 Q61914117,Wikimedia video albums discography
@@ -135,8 +132,8 @@ Q66101878,conjugation table for Italian verb
 Q66385405,conjugation table for Spanish verb
 Q92896548,conjugation table for Latin verb
 Q66711852,Wikimedia list of ships
-Q67182786,Wikimedia list of historical events
 Q67182947,Wikimedia list of events
+Q67182786,Wikimedia list of historical events
 Q67325957,awards and nominations
 Q80787826,Wikimedia ranked list
 Q80789820,Wikimedia list of ranked lists
@@ -166,6 +163,7 @@ Q83790536,Wikimedia list of songs by performer
 Q100775361,Wikimedia list of musical works by composer
 Q100775825,Wikimedia list of dramatico-musical works
 Q100775856,Wikimedia list of dramatico-musical works by composer
+Q104635718,Wikimedia artist discography
 Q99168997,Electoral results for the district of Ermington
 Q99193976,Electoral results for the district of Fuller
 Q99194027,Electoral results for the district of Gladesville
@@ -207,7 +205,6 @@ Q15647814,Wikimedia administration category
 Q6465339,Wikipedia:Maintenance
 Q20769287,Wikimedia user category
 Q20010800,Wikimedia user language category
-Q87440031,Category:Wikipedians who use SWViewer
 Q23894233,Wikimedia templates category
 Q13331174,Wikimedia navboxes category
 Q23894246,Wikimedia infobox templates category
@@ -283,14 +280,10 @@ Q7100770,Orders of magnitude
 Q7100771,Orders of magnitude
 Q7100772,Orders of magnitude
 Q9747038,order of temporal magnitude
-Q3910350,literary awards of fantastic fiction
 Q4808497,Assassination attempts on Alexander Ankvab
 Q4808498,assassination attempts on Hamid Karzai
 Q5356846,Electoral results for the district of Georges River
-Q5410118,Gods
-Q6489227,largest body part
-Q8035089,Works based on Alice in Wonderland
-Q10284194,fortresses of Brazil
+Q8035089,works based on Alice in Wonderland
 Q15623926,Wikimedia set index article
 Q22808320,Wikimedia human name disambiguation page
 Q26214208,set of mythological Greek characters
@@ -343,6 +336,7 @@ Q30032916,national electoral calendar
 Q33532284,Wikimedia list of lists
 Q67184635,Wikimedia list of lists of persons
 Q98851381,Wikimedia list of lists of persons by position held
+Q80789820,Wikimedia list of ranked lists
 Q59738577,end of year poll
 Q61034350,internet album discography
 Q61914117,Wikimedia video albums discography
@@ -359,8 +353,8 @@ Q66101878,conjugation table for Italian verb
 Q66385405,conjugation table for Spanish verb
 Q92896548,conjugation table for Latin verb
 Q66711852,Wikimedia list of ships
-Q67182786,Wikimedia list of historical events
 Q67182947,Wikimedia list of events
+Q67182786,Wikimedia list of historical events
 Q67325957,awards and nominations
 Q80787826,Wikimedia ranked list
 Q80789820,Wikimedia list of ranked lists
@@ -390,6 +384,7 @@ Q83790536,Wikimedia list of songs by performer
 Q100775361,Wikimedia list of musical works by composer
 Q100775825,Wikimedia list of dramatico-musical works
 Q100775856,Wikimedia list of dramatico-musical works by composer
+Q104635718,Wikimedia artist discography
 Q99168997,Electoral results for the district of Ermington
 Q99193976,Electoral results for the district of Fuller
 Q99194027,Electoral results for the district of Gladesville
@@ -434,6 +429,12 @@ Q2496920,uncertain knowledge
 Q12780996,disestablishment
 Q21469979,merged on IMDb
 Q25235916,election result invalidated
+Q25345174,common misconception
+Q473033,old wives' tale
+Q258859,Ice Saints
+Q1870717,Lostag
+Q2451922,factoid
+Q7433816,Scientific misconceptions
 Q29569274,former name
 Q5251730,defunct placenames of New Hampshire
 Q73548809,non-existent video game
@@ -454,6 +455,7 @@ Q71533077,reason for preferred rank
 Q84597428,status of property in properties for this type
 Q96726072,Wikidata prompt for missing value
 Q104435523,given name assignment issue
+Q104637420,sourcing circumstance
 Q21469493,Wikimedia project chat in specific languages
 Q21479588,Wikimedia by language
 Q23841178,Wikimedia interface text
@@ -520,14 +522,10 @@ Q7100770,Orders of magnitude
 Q7100771,Orders of magnitude
 Q7100772,Orders of magnitude
 Q9747038,order of temporal magnitude
-Q3910350,literary awards of fantastic fiction
 Q4808497,Assassination attempts on Alexander Ankvab
 Q4808498,assassination attempts on Hamid Karzai
 Q5356846,Electoral results for the district of Georges River
-Q5410118,Gods
-Q6489227,largest body part
-Q8035089,Works based on Alice in Wonderland
-Q10284194,fortresses of Brazil
+Q8035089,works based on Alice in Wonderland
 Q15623926,Wikimedia set index article
 Q22808320,Wikimedia human name disambiguation page
 Q26214208,set of mythological Greek characters
@@ -580,6 +578,7 @@ Q30032916,national electoral calendar
 Q33532284,Wikimedia list of lists
 Q67184635,Wikimedia list of lists of persons
 Q98851381,Wikimedia list of lists of persons by position held
+Q80789820,Wikimedia list of ranked lists
 Q59738577,end of year poll
 Q61034350,internet album discography
 Q61914117,Wikimedia video albums discography
@@ -596,8 +595,8 @@ Q66101878,conjugation table for Italian verb
 Q66385405,conjugation table for Spanish verb
 Q92896548,conjugation table for Latin verb
 Q66711852,Wikimedia list of ships
-Q67182786,Wikimedia list of historical events
 Q67182947,Wikimedia list of events
+Q67182786,Wikimedia list of historical events
 Q67325957,awards and nominations
 Q80787826,Wikimedia ranked list
 Q80789820,Wikimedia list of ranked lists
@@ -627,6 +626,7 @@ Q83790536,Wikimedia list of songs by performer
 Q100775361,Wikimedia list of musical works by composer
 Q100775825,Wikimedia list of dramatico-musical works
 Q100775856,Wikimedia list of dramatico-musical works by composer
+Q104635718,Wikimedia artist discography
 Q99168997,Electoral results for the district of Ermington
 Q99193976,Electoral results for the district of Fuller
 Q99194027,Electoral results for the district of Gladesville

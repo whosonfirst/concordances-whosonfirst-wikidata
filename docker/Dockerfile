@@ -83,6 +83,7 @@ RUN \
         sqlite3 \
         sudo \
         wget \
+        time \
     && rm -rf /var/lib/apt/lists/* /tmp/*
 
 
@@ -140,11 +141,9 @@ RUN julia -e 'using CpuId, SystemBenchmark, Arrow, ClickHouse, CSV, DataFrames, 
 # Install GO
 ARG GOPATH=/go
 ENV GOPATH=${GOPATH} \
-    PATH=/go/bin:/usr/local/go/bin:$PATH
-
+    PATH=${GOPATH}/bin:/usr/local/go/bin:$PATH
 ARG GOLANG_VERSION=1.16beta1
 ARG GOLANG_DOWNLOAD_SHA256=3931a0d493d411d6c697df6f15d5292fdd8031fde7014fded399effdad4c12d8
-
 RUN set -eux \
     && apt-get update \
     && apt-get install -yqq --no-install-suggests --no-install-recommends \
@@ -157,6 +156,8 @@ RUN set -eux \
     && tar -C /usr/local -xzf go.tgz \
     && rm go.tgz  \
     && mkdir ${GOPATH} \
+    && mkdir -p "$GOPATH/src" "$GOPATH/bin" \
+    && chmod -R 777 "$GOPATH" \
     \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/*
@@ -166,20 +167,20 @@ RUN    GO111MODULE=on go get -u github.com/urfave/cli@v1 \
     && GO111MODULE=on go get -u github.com/lukasmartinelli/pgclimb
 
 RUN \
-       go get -u github.com/Code-Hex/pget/cmd/pget \
-    && go get -u github.com/fd0/machma \
-    && go get -u github.com/klauspost/compress \
-    && go get -u github.com/klauspost/crc32 \
-    && go get -u github.com/klauspost/pgzip/... \
-    && go get -u github.com/miku/parallel \
-    && go get -u github.com/mmcloughlin/geohash \
-    && go get -u github.com/shenwei356/rush/ \
-    && go get -u github.com/svent/sift \
-    && go get -u github.com/tidwall/gjson \
-    && go get -u github.com/lib/pq
+       GO111MODULE=off go get -u github.com/Code-Hex/pget/cmd/pget \
+    && GO111MODULE=off go get -u github.com/fd0/machma \
+    && GO111MODULE=off go get -u github.com/klauspost/compress \
+    && GO111MODULE=off go get -u github.com/klauspost/crc32 \
+    && GO111MODULE=off go get -u github.com/klauspost/pgzip/... \
+    && GO111MODULE=off go get -u github.com/miku/parallel \
+    && GO111MODULE=off go get -u github.com/mmcloughlin/geohash \
+    && GO111MODULE=off go get -u github.com/shenwei356/rush/ \
+    && GO111MODULE=off go get -u github.com/svent/sift \
+    && GO111MODULE=off go get -u github.com/tidwall/gjson \
+    && GO111MODULE=off go get -u github.com/lib/pq
 
 #    && go get github.com/lukasmartinelli/pgfutter \
-RUN    go get     github.com/omniscale/imposm3@master \
+RUN    go get -u  github.com/omniscale/imposm3@master \
     && go install github.com/omniscale/imposm3/cmd/imposm@master
 
 #
@@ -261,6 +262,10 @@ RUN    git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst
 
 RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-export.git \
     && cd go-whosonfirst-export \
+    && GO111MODULE=auto make tools
+
+RUN   git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-index.git \
+    && cd go-whosonfirst-index \
     && GO111MODULE=auto make tools
 
 RUN git clone --quiet --depth 1 https://github.com/whosonfirst/whosonfirst-cookbook.git

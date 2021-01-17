@@ -100,6 +100,7 @@ Q3060146,tehuis voor niet-werkenden
 Q2907285,youth village
 Q2945522,nudist community
 Q22907229,Christian Communities
+Q29641323,Womyn's land
 Q4691828,age-restricted community
 Q1269448,retirement community
 Q6980841,Naturally occurring retirement community
@@ -276,8 +277,12 @@ Q15921300,sector of Bucharest
 Q17496379,City district in Austria
 Q261023,district of Vienna
 Q18559008,district of São Paulo
-Q21851888,district of the city
-Q75338598,městská část Prahy
+Q21851888,district of the city in the Czech Republic
+Q585444,districts of Prague
+Q74728036,administrative district of Prague
+Q75338598,municipal part of Prague
+Q75339006,municipal district of Prague
+Q75338598,municipal part of Prague
 Q30339232,sector of Chișinău
 Q40256562,intracity district of Belarus
 Q75135425,district de Barcelone
@@ -385,10 +390,6 @@ Q54864872,Quarter of Mesa Geitonia Municipality
 Q54865711,Quarter of Yermasoyia Municipality
 Q54867049,Quarter of Ayios Athanasios Municipality
 Q61089180,part of municipality in the Czech Republic
-Q585444,administrative district of Prague
-Q74728036,district administratif de Prague
-Q75338598,městská část Prahy
-Q75339006,district territorial de Prague
 Q56398194,core municipal part with the same name as the municipality in the Czech Republic
 Q63497359,Quartier canonial
 Q65246805,Westend
@@ -410,5 +411,3 @@ Q79423998,Stadtteil von Görlitz
 Q79424059,Stadtteil von Chemnitz
 Q90400139,vilová čtvrť
 Q93664896,neighborhood of Jordan
-Q103910131,kaupunkialueen tai taajaman osa
-Q103910453,kylä tai kulmakunta

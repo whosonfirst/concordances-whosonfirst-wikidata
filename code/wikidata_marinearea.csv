@@ -107,7 +107,6 @@ Q187223,lagoon
 Q431064,barachois
 Q3705882,estuarine lagoon
 Q6401073,khawr of the Salalah Coast Reserve
-Q12027742,sludge lagoon
 Q188025,salt lake
 Q2449038,saliña
 Q2912558,hypersaline lake
@@ -132,7 +131,7 @@ Q551346,Acidic lakes
 Q612779,Jezioro ałasowe
 Q637600,sabkha
 Q933091,Steppe lake
-Q940023,Ibón
+Q940023,ibón
 Q1048337,underground lake
 Q1140477,subglacial lake
 Q1165822,meromictic lake
@@ -176,7 +175,10 @@ Q3488975,eutrophic lake
 Q35785773,hypereutrophic lake
 Q3496214,Dystrophic lake
 Q3505788,Jezioro słodkie
-Q11688146,Lago oligotrófico
+Q11688146,oligotrophic lake
+Q1234707,heathland pond
+Q3507951,fluvial lake
+Q11726975,Jezioro deltowe
 Q3511952,tectonic lake
 Q3916261,meerstal
 Q4735538,alpine lake
@@ -199,6 +201,7 @@ Q11253318,Organogenní jezero
 Q11349558,soda lake
 Q11428028,dammed lake
 Q11563255,湖沼型
+Q11688146,oligotrophic lake
 Q11726974,epishelf lake
 Q11726978,bitter lake
 Q11726982,Jezioro krasowe
@@ -210,8 +213,6 @@ Q11990985,natural lake
 Q13586859,mere
 Q14253637,dry lake
 Q935277,salt pan
-Q16710063,oligotrophic lake
-Q1234707,heathland pond
 Q18088596,sacred lake
 Q18208386,unnamed lake
 Q19965424,Upper Eider lakes

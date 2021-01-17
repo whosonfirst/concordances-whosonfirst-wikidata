@@ -1,5 +1,5 @@
-FROM postgis/postgis:13-master
-#FROM postgis:13-3.1-bullseye
+#FROM postgis/postgis:13-master
+FROM postgis:13-3.1-bullseye
 #FROM postgis/postgis:13-3.1
 
 ENV LANG=C.UTF-8 \

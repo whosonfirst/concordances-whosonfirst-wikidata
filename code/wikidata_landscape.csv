@@ -41,6 +41,7 @@ Q5200372,Cypress dome
 Q7809986,Titi swamp
 Q28129994,mangrove swamp
 Q63316629,manigua
+Q104774314,cypress swamp
 Q208478,old-growth forest
 Q329842,Protection forest
 Q477047,Atlantic Forest
@@ -168,7 +169,7 @@ Q3079191,Forêt équienne
 Q3079197,temperate forest
 Q144019,temperate coniferous forest
 Q127314,Coniferous swamp
-Q845725,Temperate rainforest
+Q845725,temperate rainforest
 Q1556311,temperate deciduous forest
 Q5732445,Bosque Andino Patagónico
 Q3090462,ashwood
@@ -182,6 +183,7 @@ Q3536096,tree planting
 Q3590923,Sugar bush
 Q4145459,urban forests of Perm
 Q4258491,Inscription from trees
+Q4368386,Подтайга
 Q4410446,light coniferous forest
 Q4410701,Forst
 Q4929169,Blue Gum High Forest
@@ -206,6 +208,7 @@ Q55999985,New Jersey State Forest
 Q7796290,Thorn forest
 Q9148406,Aliso
 Q9200005,Feldgehölz
+Q9282619,evergreen magellanic forest
 Q10431698,blåbärsgranskog
 Q10509765,border forest
 Q10549503,kronopark
@@ -243,6 +246,7 @@ Q28846508,bor
 Q29529886,municipal forest
 Q30114673,remízek
 Q30673884,Ghost forest
+Q35557362,колок
 Q53360278,Charmaie
 Q56371524,Діброва
 Q56980410,bosco statale francese
@@ -259,7 +263,7 @@ Q199403,tropical forest
 Q7845816,tropical rainforest of India
 Q287852,Valdivian temperate rain forest
 Q9358804,Tique
-Q845725,Temperate rainforest
+Q845725,temperate rainforest
 Q1429540,Araucaria moist forests
 Q1940784,Freshwater swamp forest
 Q11177275,riparian forest
@@ -280,6 +284,12 @@ Q1885183,Maiensäss
 Q2492828,Waldtundra
 Q34199430,Arctic tundra
 Q34199566,Antarctic tundra
+Q1246059,Dornwald
+Q1330402,microbiome
+Q24975941,mycobiome
+Q104117519,urinary microbiome
+Q2083910,vegetation zone
+Q4421,forest
 Q1006733,grassland
 Q42320,savanna
 Q1409399,wet savanna
@@ -290,6 +300,7 @@ Q6883971,mixed grass prairie
 Q7502172,shortgrass prairie
 Q7680132,tallgrass prairie
 Q390384,calcareous grassland
+Q1433901,veld
 Q7777019,meadow
 Q30121,pasture
 Q1363454,wood pasture
@@ -314,13 +325,6 @@ Q93760162,Siläng
 Q11410074,原野
 Q61748256,Lowland hay meadow
 Q97009784,Plas-dras
-Q1246059,Dornwald
-Q1330402,microbiome
-Q24975941,mycobiome
-Q104117519,urinary microbiome
-Q2083910,vegetation zone
-Q4421,forest
-Q1006733,grassland
 Q1569584,kīpuka
 Q4773884,anthropogenic biome
 Q29363648,aquatic biome
@@ -328,6 +332,29 @@ Q686881,benthic zone
 Q51235828,benthopelagic zone
 Q1851563,profundal zone
 Q5255177,demersal zone
+Q160091,plain
+Q163967,peneplain
+Q193071,lowland
+Q570554,abyssal plain
+Q656586,alluvial plain
+Q946033,polje
+Q948516,palus
+Q1058792,fluctus
+Q1132248,ice field
+Q3290341,mare
+Q180874,lunar mare
+Q3391469,planitia
+Q3497104,Równina Baranowicka
+Q3902058,till plain
+Q3917330,Čačorská rovina
+Q4386947,Равнины Армении
+Q6469154,lacustrine plain
+Q7416522,sandplain
+Q16670260,piémont
+Q20743942,lacuna
+Q25536446,Алаўская раўніна
+Q25536454,Бобруйская равнина
+Q26712576,Пухавіцкая раўніна
 Q170321,wetland
 Q30198,marsh
 Q31455,freshwater marsh
@@ -403,6 +430,7 @@ Q64502858,bonal
 Q68145761,Sutte
 Q75304241,coastal wetland
 Q100252623,pakihi
+Q104631010,quaking bog
 Q184358,reef
 Q11292,coral reef
 Q2920849,low island
@@ -460,6 +488,7 @@ Q10549487,Kronoholme islands
 Q10769552,motu
 Q11926523,Illa maritimofluvial
 Q14210504,Central Line Islands
+Q14552474,Bird Island
 Q16853632,Isole di Magadino
 Q17308006,island of Japan
 Q21082949,Illes dàlmates
@@ -509,6 +538,20 @@ Q98458336,Segunda Sección del Bosque de Chapultepec
 Q98458859,Tercera Sección del Bosque de Chapultepec
 Q103820224,park gminny
 Q38516,dog park
+Q43501,zoo
+Q459886,petting zoo
+Q642682,safari park
+Q1401536,menagerie
+Q2548054,travelling menagerie
+Q1509615,geozoo
+Q1711697,wildlife park
+Q65240439,Lionsrock
+Q1886911,butterfly house
+Q1995305,bird park
+Q2351333,serpentarium
+Q3363934,zoological park
+Q4179884,Живой уголок
+Q9251669,exotarium
 Q46169,national park
 Q167946,national park of Brazil
 Q221879,list of national parks of Honduras
@@ -599,8 +642,6 @@ Q1197552,urban forest
 Q1330941,Royal Park of London
 Q1470855,pocket park
 Q1488045,Metropolitan Park System of Greater Boston
-Q1711697,wildlife park
-Q65240439,Lionsrock
 Q1759852,sculpture garden
 Q1793170,spa park
 Q1939700,rope course
@@ -625,7 +666,7 @@ Q7138676,parks in Chennai
 Q7339681,roadside park
 Q7900150,urban prairie
 Q8564897,Fossil park
-Q9056048,parque periurbano
+Q9056048,periurban park
 Q10926872,National Garden
 Q11546861,歴史公園
 Q11559043,seaside park
@@ -654,19 +695,6 @@ Q95977092,Tokyo metropolitan park
 Q96120838,parque ecológico
 Q98411615,Kępa Park in Sosnowiec
 Q102115779,Village Where You Can Meet Statues
-Q43501,zoo
-Q459886,petting zoo
-Q642682,safari park
-Q1401536,menagerie
-Q2548054,travelling menagerie
-Q1509615,geozoo
-Q1711697,wildlife park
-Q1886911,butterfly house
-Q1995305,bird park
-Q2351333,serpentarium
-Q3363934,zoological park
-Q4179884,Живой уголок
-Q9251669,exotarium
 Q57743,village green
 Q2230894,Frankische Driehoek
 Q167346,botanical garden
@@ -823,7 +851,6 @@ Q6858851,Millennium Green
 Q11480582,市民の森
 Q11542975,横浜市の市民の森
 Q11582670,県民の森
-Q12053053,artificial waterfall
 Q28937010,Geschützte Grünanlage
 Q1140140,mainland
 Q3276230,lost land
@@ -850,6 +877,7 @@ Q1129474,cultural landscape
 Q574377,Anthropogene Landschaft
 Q5193226,Cultural Landscapes of Japan
 Q64576748,Important Cultural Landscape Sites
+Q12798874,planina
 Q16587115,literary park
 Q20920354,Perinnemaisema
 Q29968390,landscape of religious buildings
@@ -918,6 +946,7 @@ Q63354623,Marine Protected Area (OSPAR)
 Q3575871,marine protected area
 Q4315021,national marine conservation area
 Q6158975,National Estuarine Research Reserve
+Q22569549,Marine Conservation Zone
 Q28942323,aquatic reserve of South Australia
 Q76164741,marine management area
 Q103725443,marine nature reserve
@@ -976,6 +1005,7 @@ Q87207320,subarea of a nature reserve
 Q94982663,Naturschutzgebiet aus mehreren Naturschutzgebieten
 Q96212000,Reserva Extrativista Marinha
 Q103725443,marine nature reserve
+Q104804750,réserve naturelle reconnue
 Q213926,sea ice
 Q576515,fast ice
 Q46966,ice shelf
@@ -997,6 +1027,7 @@ Q26939879,Monumento natural de España
 Q27995458,akkerreservaat
 Q28853922,province domain
 Q48694540,Reserva Natural (Spain)
+Q104774336,dune landscape
 Q1558876,Gäu
 Q1639182,Hutanger
 Q1643677,Altitudinal zonation
@@ -1015,9 +1046,10 @@ Q7338349,riverscape
 Q11086396,New Eight Views of Japan
 Q11816481,pieczara
 Q11878275,velehornatina
-Q12013208,Dutch landscapes
+Q12013208,Dutch landscape
 Q14525809,zeedorpenlandschap
 Q30312340,"территории
+Q37578615,veenlandschap
 Q38738374,machinami
 Q11439937,大阪まちまみ百景
 Q17225190,かながわのまちなみ100選

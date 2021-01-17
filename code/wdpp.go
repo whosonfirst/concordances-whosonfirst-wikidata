@@ -109,6 +109,7 @@ type wiki2Group map[string]pq.StringArray
 var wofdef map[string]wdType
 var wiki2grp wiki2Group
 
+var taginfolist wdType
 var wofwd wdType
 var wofredirected wdType
 var blacklist wdType

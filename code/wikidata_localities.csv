@@ -31,10 +31,6 @@ Q2479824,altepetl
 Q2561694,city-kingdom of Cyprus
 Q4858354,barangay
 Q43185013,maritime republic
-Q200209,cities of Ukraine
-Q5124045,city with special status
-Q12131640,city of district significance
-Q208511,global city
 Q250811,sub-province-level division
 Q1050126,State-level new areas of the People's Republic of China
 Q262882,statutory city of Austria
@@ -94,15 +90,6 @@ Q1266029,edge city
 Q1375749,European City
 Q1422929,primate city
 Q1547289,Luther city
-Q1549591,big city
-Q1637706,city with millions of inhabitants
-Q174844,megacity
-Q200250,metropolis
-Q6024226,metropolitan municipality
-Q1530824,metropolitan municipality of South Africa
-Q2716259,metropolitan municipality in Turkey
-Q10329259,metropoli nacional
-Q71144301,metropolitan region
 Q1656724,ideal city
 Q1835354,Garnizoensstad
 Q1867820,City status in the United Kingdom
@@ -111,11 +98,10 @@ Q2073573,IJsselsteden
 Q2138558,regiopolis
 Q2235075,centre city
 Q2264924,port settlement
-Q11506008,日本の港町
+Q11506008,japonské přístavní město
 Q2367508,township of Taiwan
 Q12039044,urban township of Taiwan
 Q12039539,rural township of Taiwan
-Q708418,Ren'ai Township
 Q2616791,urban municipality of Poland
 Q2844893,cidade
 Q3249005,provincial city
@@ -133,6 +119,7 @@ Q5770918,city of Argentina
 Q6609673,list of cities in British Columbia
 Q7574798,special city of North Korea
 Q7819319,Czech municipality with expanded powers
+Q8069436,zero-carbon city
 Q8452914,district town
 Q9696256,capital regional
 Q9730870,centro de zona
@@ -175,6 +162,7 @@ Q16133394,ville fortifiée de l'époque de Joshua Bin Nun
 Q16181672,special autonomous city in South Korea
 Q16825568,Caravan city
 Q16858213,town in Romania
+Q16878951,private town
 Q16933701,principal city
 Q18485046,centro sub-regional
 Q19974058,groeistad
@@ -281,7 +269,7 @@ Q9386054,Zakluczyna
 Q77836349,Zarszyn
 Q3559024,village of Senegal
 Q3593580,îlet
-Q4155473,vasarnīcu ciems
+Q4155473,vacation village
 Q4102813,Valentinovka
 Q4174776,village of Japan
 Q4205192,исчезнувшие сёла Белогорского района Крыма
@@ -317,8 +305,9 @@ Q15701964,జీపాలెం
 Q15705202,నల్లపాలెం (రేణిగుంట)
 Q16346815,వెదుళ్లచెరువు
 Q16351639,aprūpes ciems
-Q16352482,scattered village
+Q16352482,skrajciems
 Q16355778,vidējciems
+Q16362394,lielciems
 Q16363214,mazciems
 Q16832602,Kommuniondorf
 Q16918164,estate village
@@ -397,7 +386,6 @@ Q78816625,Medieval villages in France
 Q90133396,Borokalia Nashkara
 Q102240431,Chinese village
 Q3957,town
-Q317548,resort town
 Q735428,town in China
 Q1059478,town of Japan
 Q1269749,town with fewer than 5000 inhabitants
@@ -438,12 +426,12 @@ Q90881611,castle town
 Q98556505,Railway towns in Australia
 Q100503226,town of the United Kingdom
 Q100961648,historic town
-Q104434365,country town
 Q5119,capital
 Q257391,federal capital
 Q377283,temporary capital
 Q1557068,Ndumba
 Q2324785,Amsterdam as a gay capital
+Q2912045,Summer capital
 Q3147563,regency seat
 Q4442912,capital of Russia
 Q11271835,state capital
@@ -455,6 +443,7 @@ Q14770218,cantonal capital of Switzerland
 Q15840617,planned capital city
 Q34843301,capital of county in Romania
 Q65589340,capital of a prefecture of Japan
+Q104600084,Winter capital
 Q15284,municipality
 Q15334,municipality of Poland
 Q2616791,urban municipality of Poland
@@ -486,7 +475,6 @@ Q2989454,commune nouvelle
 Q20899166,regional capital (France)
 Q22927548,commune in merger-association
 Q22927616,commune of France with specific status
-Q84598477,commune of French Polynesia
 Q493522,municipality of Belgium
 Q737681,municipalities with language facilities
 Q4314343,language border municipality
@@ -709,6 +697,8 @@ Q44551483,city
 Q59341087,town in Nova Scotia
 Q60458065,city
 Q6024226,metropolitan municipality
+Q1530824,metropolitan municipality of South Africa
+Q2716259,metropolitan municipality in Turkey
 Q6784672,municipality of Slovakia
 Q6936383,municipality of Lebanon
 Q6936404,Municipalities of the State of Palestine
@@ -921,6 +911,7 @@ Q3060146,tehuis voor niet-werkenden
 Q2907285,youth village
 Q2945522,nudist community
 Q22907229,Christian Communities
+Q29641323,Womyn's land
 Q4691828,age-restricted community
 Q1269448,retirement community
 Q6980841,Naturally occurring retirement community
@@ -940,6 +931,7 @@ Q4056979,agglomeration of Russia
 Q17457437,Census agglomeration
 Q215712,urban heat island
 Q245260,conurbation
+Q317548,resort town
 Q442799,faubourg
 Q471822,megalopolis
 Q1419251,Quebec City–Windsor Corridor
@@ -956,6 +948,9 @@ Q27517161,курортный посёлок в России
 Q27587491,городской посёлок
 Q19507642,курортный посёлок
 Q27517161,курортный посёлок в России
+Q5951278,urban area
+Q104774075,urbanized area
+Q104774089,urban cluster
 Q6566301,urban area in Nordic countries
 Q12304704,urban area in Denmark
 Q12813115,urban area in Sweden
@@ -982,6 +977,8 @@ Q91730648,urban-type settlement in Belarus
 Q91733160,urban settlement in Belarus
 Q91733598,resort settlement in Belarus
 Q91733790,worker settlement in Belarus
+Q104774075,urbanized area
+Q104774089,urban cluster
 Q748198,gay village
 Q748331,stanitsa
 Q4437001,stanitsa in Russia
@@ -1031,7 +1028,7 @@ Q1321241,outpost
 Q1326028,camp
 Q152081,concentration camp
 Q328468,Nazi concentration camp
-Q153813,extermination camp
+Q153813,Me vale
 Q277565,campo de educación para el trabajo
 Q523342,Emslandlager
 Q678820,Jugendkonzentrationslager
@@ -1167,8 +1164,10 @@ Q2755753,area of London
 Q2774769,cité
 Q2907285,youth village
 Q2989457,urban-type settlement
+Q3113369,Little Saigon
 Q3172900,kolonie
 Q3257686,locality
+Q532,village
 Q228385,Zugewandter Ort
 Q1350536,naukograd
 Q1529096,village in Turkey
@@ -1194,11 +1193,20 @@ Q159438,Hero City
 Q174844,megacity
 Q187768,cities and towns in Russia
 Q200209,cities of Ukraine
+Q5124045,city with special status
+Q12131640,city of district significance
 Q692581,holy city
 Q12057402,holy city of Islam
+Q896881,city with tens of thousands of inhabitants
 Q902814,border town
 Q67123843,town divided by border
 Q1549591,big city
+Q1637706,city with millions of inhabitants
+Q174844,megacity
+Q200250,metropolis
+Q6024226,metropolitan municipality
+Q10329259,metropoli nacional
+Q71144301,metropolitan region
 Q3199141,city of Indonesia
 Q11881845,town
 Q15253706,like a city
@@ -1213,6 +1221,9 @@ Q56580032,city of republic significance
 Q56580326,city of okrug significance
 Q56580425,city of oblast significance
 Q7830079,town of district significance in Russia
+Q18466065,Cidade média-pequena
+Q18466176,Cidade pequena
+Q19608753,Cidade média-grande
 Q20724701,city or town in Armenia
 Q50330360,second largest city
 Q51929311,largest city
@@ -1221,6 +1232,7 @@ Q56557664,şəhər
 Q79323854,city of oblast subordinance
 Q79324274,city of raion surbodinance
 Q89487741,city of Bulgaria
+Q104488513,proposed city
 Q11696869,Organización territorial de las Islas Pitiusas
 Q16557344,diseminado
 Q16652878,заимка
@@ -1237,6 +1249,7 @@ Q2974620,cité-jardin à Stockholm
 Q745456,business cluster
 Q3412193,business cluster in France
 Q800188,Île-de-France Clusters
+Q4826120,auto row
 Q7315048,Research-Intensive Clusters
 Q13734172,Italian industrial district
 Q3711763,tourist district
@@ -1250,7 +1263,7 @@ Q4012861,mill town
 Q4313794,populated place in Georgia
 Q109199,list of cities and towns in Georgia
 Q4373615,colony of the Russian empire
-Q4375340,починок
+Q4375340,pochinok
 Q4632675,dwelling place
 Q1021360,place of origin
 Q1852859,populated place in the Netherlands
@@ -1336,7 +1349,7 @@ Q2051209,Koffieplantage
 Q2465988,houtgrond
 Q2948675,champignonnière
 Q3555852,seed orchard
-Q10499752,fröplantager i Sverige
+Q10499752,Fröplantager i Sverige
 Q7201627,plantations in the American South
 Q14419427,sugarcane plantation
 Q1847458,engenho
@@ -1404,7 +1417,7 @@ Q12715564,husmannsplass
 Q12716802,Matrikkelgard
 Q13411064,pastoral lease
 Q16423630,abandoned farm
-Q18600709,kapteinsgård
+Q18600709,Chefsgaard
 Q18663765,stud farm
 Q108696,horse stud farm
 Q1729821,Schweizer Nationalgestüt
@@ -1443,7 +1456,6 @@ Q65665664,pasiolak
 Q2940766,Casa colonica
 Q3661417,casale
 Q4129217,vyselok
-Q4232779,кордон
 Q4379239,przysiółek
 Q5268974,Dhani and villages
 Q5756064,casería
@@ -1496,6 +1508,7 @@ Q27566198,остановочная платформа
 Q27577201,железнодорожная платформа
 Q27588300,железнодорожная площадка
 Q27588331,посёлок совхоза
+Q36728566,ranger station
 Q56312482,Сельцо
 Q57976957,historic hamlet
 Q74293993,rural municipality
@@ -1537,6 +1550,7 @@ Q13099270,Setring
 Q13134576,ambonezenkamp
 Q13410464,county of Maryland
 Q13583718,Chora
+Q14379247,Rural–urban fringe
 Q14601169,human fortified settlement
 Q14829592,Haufendorf
 Q15008703,daba
@@ -1593,7 +1607,7 @@ Q763590,vicus
 Q918230,Roman villa
 Q252021,villa rustica
 Q2525994,villa urbana
-Q782970,domus
+Q782970,Domus
 Q74523705,villa maritima
 Q3559137,Gallo-Roman city
 Q5871700,fundus
@@ -1659,6 +1673,7 @@ Q25412763,city in Chile
 Q25412766,town of Chile
 Q28942344,Indigenous Australian community
 Q7113057,outstation
+Q29043077,civil parish group
 Q29048704,traditional settlement in Greece
 Q29414133,Communities of Cyprus Republic
 Q29467088,rural municipality of Nepal
@@ -1682,10 +1697,6 @@ Q59501724,human settlement of Cyprus Republic
 Q60351842,Complex of Communities of Cyprus Republic
 Q60995739,moated settlement
 Q61089180,part of municipality in the Czech Republic
-Q585444,administrative district of Prague
-Q74728036,district administratif de Prague
-Q75338598,městská část Prahy
-Q75339006,district territorial de Prague
 Q56398194,core municipal part with the same name as the municipality in the Czech Republic
 Q62130005,villa de Uruguay
 Q67259991,Hinterland communities of  South East Queensland
@@ -1703,6 +1714,8 @@ Q98437811,Fischersiedlung
 Q98446331,Zwiehof
 Q98966896,coastal settlement
 Q102104752,city of Bosnia and Herzegovina
+Q104530309,Lagerdorf
+Q104641871,taajaman osa
 ### Q19610511, Township : _wdadd_ 
 Q19610511,township
 Q28111,township in the United States
@@ -1874,6 +1887,7 @@ Q27824520,Inuit reserved land
 Q29386689,terres réservées aux Naskapis
 Q81064299,indian reserve in Quebec
 Q81066200,unorganized area in Quebec
+Q104782082,territoire hors MRC
 Q956318,designated place of Canada
 Q1388464,regional municipality in Canada
 Q14762890,regional municipality of Ontario
@@ -2084,7 +2098,7 @@ Q29386689,terres réservées aux Naskapis
 ### Q5532181, General Service Area : _wdadd_ 
 Q5532181,General Service Area
 ### Q2679157, commune of Ivory Coast : _wdadd_ 
-Q2679157,Architecte  in Ivory coast
+Q2679157,commune of Ivory Coast
 ### Q5172823, corregimiento of Colombia : _wdadd_ 
 Q5172823,corregimiento of Colombia
 ### Q2997887, corregimiento departamental of Colombia : _wdadd_ 

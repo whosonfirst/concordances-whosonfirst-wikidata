@@ -88,7 +88,6 @@ Q187223,lagoon
 Q431064,barachois
 Q3705882,estuarine lagoon
 Q6401073,khawr of the Salalah Coast Reserve
-Q12027742,sludge lagoon
 Q188025,salt lake
 Q2449038,saliña
 Q2912558,hypersaline lake
@@ -113,7 +112,7 @@ Q551346,Acidic lakes
 Q612779,Jezioro ałasowe
 Q637600,sabkha
 Q933091,Steppe lake
-Q940023,Ibón
+Q940023,ibón
 Q1048337,underground lake
 Q1140477,subglacial lake
 Q1165822,meromictic lake
@@ -157,7 +156,10 @@ Q3488975,eutrophic lake
 Q35785773,hypereutrophic lake
 Q3496214,Dystrophic lake
 Q3505788,Jezioro słodkie
-Q11688146,Lago oligotrófico
+Q11688146,oligotrophic lake
+Q1234707,heathland pond
+Q3507951,fluvial lake
+Q11726975,Jezioro deltowe
 Q3511952,tectonic lake
 Q3916261,meerstal
 Q4735538,alpine lake
@@ -180,6 +182,7 @@ Q11253318,Organogenní jezero
 Q11349558,soda lake
 Q11428028,dammed lake
 Q11563255,湖沼型
+Q11688146,oligotrophic lake
 Q11726974,epishelf lake
 Q11726978,bitter lake
 Q11726982,Jezioro krasowe
@@ -191,8 +194,6 @@ Q11990985,natural lake
 Q13586859,mere
 Q14253637,dry lake
 Q935277,salt pan
-Q16710063,oligotrophic lake
-Q1234707,heathland pond
 Q18088596,sacred lake
 Q18208386,unnamed lake
 Q19965424,Upper Eider lakes
@@ -252,6 +253,7 @@ Q10549487,Kronoholme islands
 Q10769552,motu
 Q11926523,Illa maritimofluvial
 Q14210504,Central Line Islands
+Q14552474,Bird Island
 Q16853632,Isole di Magadino
 Q17308006,island of Japan
 Q21082949,Illes dàlmates
@@ -364,12 +366,6 @@ Q97741193,Vall penjada
 Q46831,mountain range
 Q390395,Aquatic sill
 Q674541,Middle mountain range
-Q740445,ridge
-Q1070057,Chenier
-Q2532557,beach ridge
-Q5384291,equatorial ridge
-Q11702690,undersea ridge
-Q104698,mid-ocean ridge
 Q878223,highland
 Q1161802,Maďarské středohoří
 Q1437459,non-geologically related mountain range
@@ -380,6 +376,12 @@ Q852013,shield
 Q1706978,Kammgebirge
 Q2175685,Truncated upland
 Q2624046,mountain chain
+Q740445,ridge
+Q1070057,Chenier
+Q2532557,beach ridge
+Q5384291,equatorial ridge
+Q11702690,undersea ridge
+Q104698,mid-ocean ridge
 Q1354045,foothills
 Q2751984,cordillera
 Q31792598,Klimek
@@ -481,6 +483,8 @@ Q100989082,vaara
 Q75520,plateau
 Q456555,Amba
 Q1144345,volcanic plateau
+Q17232231,pyroclastic plateau
+Q7498300,Shirasu-Daichi
 Q1271224,oceanic plateau
 Q1584293,dissected plateau
 Q2042028,ravine
@@ -489,6 +493,7 @@ Q19710837,uuro
 Q3437428,vidde / vidd
 Q3593580,îlet
 Q9035629,muela
+Q11556488,Diluvial upland
 Q22442633,ice dome
 Q41978262,high plateau
 Q97216015,tongue-shaped plateau
@@ -752,6 +757,7 @@ Q3542190,tunnel urbain
 Q3542199,Roman tunnel
 Q4000492,smuggling tunnel
 Q5031071,canal tunnel
+Q5372625,Drainage tunnel
 Q5456378,bridge–tunnel
 Q7564106,sough
 Q7631667,submerged floating tunnel
@@ -766,6 +772,7 @@ Q459297,qanat
 Q6160903,viaje de agua
 Q6799709,سقاية
 Q56299531,kariz
+Q56479602,viaje de agua
 Q13700767,Wendetunnel
 Q14906763,Tagebautunnel
 Q16187491,tunnel of aggression
@@ -777,7 +784,6 @@ Q26263224,international tunnel
 Q16187491,tunnel of aggression
 Q26882588,Stollen
 Q27464969,proposed tunnel
-Q39049570,Drainage tunnel
 Q64521892,supply tunnel
 Q2915275,utility tunnel
 Q64521908,district heating tunnel
@@ -927,6 +933,7 @@ Q1365419,snow field
 Q1367339,thermokarst
 Q1378564,drift ice
 Q1400565,spur
+Q740445,ridge
 Q55471245,undersea spur
 Q62059375,buttress
 Q1402592,island group
@@ -1084,6 +1091,7 @@ Q3627664,astrum
 Q3630267,Fog desert
 Q3647467,Syrt
 Q3699460,defile
+Q3312420,Quebrada
 Q3738266,facula
 Q3746596,flexus
 Q3753744,Frost boil
@@ -1516,6 +1524,8 @@ Q45776,fjord
 Q11066204,Poll
 Q1172599,inlet
 Q66980635,marine area
+Q20057849,mrazová kotlina
+Q20057850,mrazový srub
 Q20058140,Skalní práh
 Q20743937,arcus
 Q20743939,satellite feature
@@ -1675,8 +1685,10 @@ Q12031434,krasová kapsa
 Q65064611,Tower karst
 Q69301889,Marmitte dei Giganti
 Q77854728,group of mountains
+Q2895674,volcanic group
 Q92432507,důlní propadlina
 Q96650765,uneven
 Q98504744,waterfall cascade
 Q100936765,hornatina
 Q100989082,vaara
+Q104776847,fumarole field

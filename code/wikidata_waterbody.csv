@@ -62,6 +62,7 @@ Q3999608,trogolo
 Q4773805,plaggenput
 Q5155879,swingle water well
 Q5569673,gemetselde put
+Q6024781,motor de riego
 Q10947367,Song Wells
 Q11278157,まいまいず井戸
 Q17080769,infiltration gallery
@@ -186,6 +187,7 @@ Q5200372,Cypress dome
 Q7809986,Titi swamp
 Q28129994,mangrove swamp
 Q63316629,manigua
+Q104774314,cypress swamp
 Q688784,pocosin
 Q910817,carr
 Q2092855,mesotrophic regularly flooded alder carr and birch wooded mires
@@ -256,6 +258,7 @@ Q64502858,bonal
 Q68145761,Sutte
 Q75304241,coastal wetland
 Q100252623,pakihi
+Q104631010,quaking bog
 Q448531,Alvarsee
 Q575279,anchialine pool
 Q812585,bayou
@@ -334,7 +337,6 @@ Q187223,lagoon
 Q431064,barachois
 Q3705882,estuarine lagoon
 Q6401073,khawr of the Salalah Coast Reserve
-Q12027742,sludge lagoon
 Q188025,salt lake
 Q2449038,saliña
 Q2912558,hypersaline lake
@@ -359,7 +361,7 @@ Q551346,Acidic lakes
 Q612779,Jezioro ałasowe
 Q637600,sabkha
 Q933091,Steppe lake
-Q940023,Ibón
+Q940023,ibón
 Q1048337,underground lake
 Q1140477,subglacial lake
 Q1165822,meromictic lake
@@ -403,7 +405,10 @@ Q3488975,eutrophic lake
 Q35785773,hypereutrophic lake
 Q3496214,Dystrophic lake
 Q3505788,Jezioro słodkie
-Q11688146,Lago oligotrófico
+Q11688146,oligotrophic lake
+Q1234707,heathland pond
+Q3507951,fluvial lake
+Q11726975,Jezioro deltowe
 Q3511952,tectonic lake
 Q3916261,meerstal
 Q4735538,alpine lake
@@ -426,6 +431,7 @@ Q11253318,Organogenní jezero
 Q11349558,soda lake
 Q11428028,dammed lake
 Q11563255,湖沼型
+Q11688146,oligotrophic lake
 Q11726974,epishelf lake
 Q11726978,bitter lake
 Q11726982,Jezioro krasowe
@@ -437,8 +443,6 @@ Q11990985,natural lake
 Q13586859,mere
 Q14253637,dry lake
 Q935277,salt pan
-Q16710063,oligotrophic lake
-Q1234707,heathland pond
 Q18088596,sacred lake
 Q18208386,unnamed lake
 Q19965424,Upper Eider lakes
@@ -474,7 +478,7 @@ Q2478912,grand canal
 Q2536008,Vät
 Q2550985,Wasserfläche
 Q2551501,Wasserspiegel
-Q2551525,water reservoir
+Q2551525,reservoir
 Q1501,swimming pool
 Q827349,wave pool
 Q1376606,natural pool
@@ -484,6 +488,7 @@ Q2084454,Olympic-size swimming pool
 Q2351435,waterjetbad
 Q3079491,fosse de plongée
 Q4008851,Short course
+Q10857271,zapuštěný bazén
 Q27106886,public swimming pool
 Q28057204,Sportfondsenbad
 Q92332734,school swimming pool
@@ -497,12 +502,14 @@ Q3604742,acquifero confinato
 Q3604744,acquifero non confinato
 Q7646113,Surficial aquifer
 Q18379141,Sole Source Aquifer
+Q778817,equalizing basin
 Q838858,cistern
 Q303874,ab anbar
 Q2302541,Sood
 Q12829481,Ovdan
 Q14723701,aljibe
 Q93429857,ancient Roman cistern
+Q1117244,impluvium
 Q2264348,Sedimentationsanlage
 Q2509671,zoetwaterreservoir
 Q3282339,reinwaterkelder
@@ -602,6 +609,7 @@ Q459297,qanat
 Q6160903,viaje de agua
 Q6799709,سقاية
 Q56299531,kariz
+Q56479602,viaje de agua
 Q500717,Navigli
 Q523166,Canal
 Q2670081,grachtengordel
@@ -626,6 +634,7 @@ Q735485,aryk
 Q1385463,acequia
 Q5656459,acequia de careo
 Q93307402,ditches of León
+Q20827530,bief
 Q55468440,underground irrigation canal
 Q58410133,Chubek Irrigation System
 Q2936105,summit level canal
@@ -645,7 +654,7 @@ Q18285716,vliet
 Q18691143,canals in Finland
 Q28109789,drainage canal
 Q41535570,zijldiep
-Q56479602,mina d'aigua
+Q56479602,viaje de agua
 Q63136737,Soubor plavebních kanálů na Šumavě
 Q81282092,Tailrace
 Q97146798,Leitgraben

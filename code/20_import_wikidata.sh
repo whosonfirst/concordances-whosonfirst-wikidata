@@ -4,6 +4,10 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+echo "======== check GoLang import script ========"
+
+GO111MODULE=off go build /wof/code/wdpp.go
+
 echo "======== parse wof for wikidataid ==========="
 
 rm -f /wof/whosonfirst-data/wd.txt
@@ -34,7 +38,7 @@ cat /wof/whosonfirst-data/wd.txt                                        | sed 's
 
 
 echo "======== parse start: wikidata_dump/latest-all.json.gz ==========="
-time go run /wof/code/wdpp.go /wof/wikidata_dump/latest-all.json.gz
+GO111MODULE=off /usr/bin/time --verbose go run /wof/code/wdpp.go /wof/wikidata_dump/latest-all.json.gz
 echo "======== parse end: wikidata_dump/latest-all.json.gz ==========="
 
 

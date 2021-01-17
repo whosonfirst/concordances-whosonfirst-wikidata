@@ -33,6 +33,7 @@ Q617347,stem duchy
 Q648046,United Duchies of Jülich-Cleves-Berg
 Q672502,Ernestine duchies
 Q691981,Duchies of Silesia
+Q7398315,Saeristavo
 Q57979411,ducado
 Q171751,banana republic
 Q179164,unitary state
@@ -102,7 +103,7 @@ Q2560551,Vassal and tributary states of the Ottoman Empire
 Q3241965,tributary state
 Q26879763,Napoleonic client state
 Q26879769,state in the Confederation of the Rhine
-Q1197155,Hyperpower
+Q1197155,hyperpower
 Q1250464,realm
 Q48349,empire
 Q12548,Holy Roman Empire
@@ -176,7 +177,7 @@ Q467745,union territory of India
 Q4808085,proposed state or territory of India
 Q12443800,state of India
 Q236036,republic of the Soviet Union
-Q3336843,devolved nation within the UK
+Q3336843,nation within the UK
 Q15304003,country of the Kingdom of the Netherlands
 Q66383092,constitutional oligarchy
 Q66724388,autonomous country within the Kingdom of Denmark
@@ -239,9 +240,11 @@ Q1763527,constituent state
 Q5370783,Emerging Powers
 Q6726158,Independent country
 Q7396640,sacerdotal state
+Q10275411,bourgeois state
+Q2791533,bourgeois democracy
+Q10275429,Estado estamental
 Q10860602,Země bývalé Jugoslávie
 Q11088505,core state
-Q11143388,visa-free country
 Q11248548,fraternal country
 Q13403037,Period of appanages
 Q13417653,confessional state
@@ -364,7 +367,6 @@ Q2989454,commune nouvelle
 Q20899166,regional capital (France)
 Q22927548,commune in merger-association
 Q22927616,commune of France with specific status
-Q84598477,commune of French Polynesia
 Q493522,municipality of Belgium
 Q737681,municipalities with language facilities
 Q4314343,language border municipality
@@ -817,12 +819,13 @@ Q1138494,historic county of England
 Q1317848,county of Northern Ireland
 Q1350181,shire of Scotland
 Q7309443,registration county
+Q104631008,Scottish landward district
 Q98558416,historic county of Wales
 Q85625936,county of Jamaica
 Q85625936,county of Jamaica
 Q85637361,local government county in Ireland
 Q34876,province
-Q5098,provinces of Indonesia
+Q5098,province of Indonesia
 Q24746,province of the Philippines
 Q48336,province of Turkey
 Q50198,province of Thailand
@@ -902,7 +905,6 @@ Q17259945,province of the Spanish Empire
 Q7252696,Provincial deputation in Spanish America
 Q17304098,province of Gran Colombia
 Q22049119,province of Nepal
-Q24206782,provinces of the Kingdom of Lombardy-Venetia
 Q31073228,Disawani
 Q51306396,province of Chile
 Q56167919,historical province of Indonesia
@@ -988,418 +990,6 @@ Q50298,administrative territorial entity of Macau
 Q55313685,municipality of Macau
 Q55313687,freguesia of Macau
 Q107390,federated state
-Q123705,neighborhood
-Q55116,quarter of Monaco
-Q75848,gated community
-Q152018,ghetto
-Q519630,South African township
-Q2583015,ghetto in Nazi-occupied Europe
-Q6190055,Jewish ghetto in German-occupied Poland
-Q51573395,Гетто в Долгиново (Вилейский район)
-Q51588808,Гетто в Илье (Минская область)
-Q2917049,Jewish ghetto in Europe
-Q16520910,yellow-star house
-Q163301,Ortsbezirk of Germany
-Q180928,Paris districts
-Q201759,slum
-Q693827,favela
-Q8960966,favela in Rio de Janeiro
-Q10280357,favela in São Paulo
-Q7366200,Rookery
-Q7535038,skid row
-Q253019,Ortsteil
-Q1852178,locality of Düsseldorf
-Q15632166,city part of Cologne
-Q35034452,locality of Berlin
-Q62394014,Quarters of Aachen
-Q79337953,Stadtteil von Kiel
-Q271035,neighborhood unit
-Q272888,red-light district
-Q1060846,yūkaku
-Q28683527,yūkaku in Shimonoseki
-Q4700325,Akasen
-Q11662690,aosen
-Q287414,neighborhood in New York City
-Q61297932,"neighborhood in Manhattan
-Q61298024,"neighborhood in Queens
-Q61298104,"neighborhood in Bronx
-Q61298209,"neighborhood in Staten Island
-Q61298320,"neighborhood in Brooklyn
-Q401315,Sestiere
-Q1487089,Sestieri de Génova
-Q3480608,Sestiere of Rapallo
-Q3480610,Sestiere di Milano
-Q449111,subdivision
-Q2632264,rationele verkaveling
-Q490329,dong
-Q584571,Kiez
-Q604435,microdistrict
-Q627253,working class quarter
-Q652541,poblacion
-Q674950,residential area
-Q2801464,woonschool
-Q3558972,airpark
-Q5215430,danchi
-Q5916199,housing development
-Q826553,Falowiec
-Q2140144,tract housing
-Q7315416,residence park
-Q10715540,Residential Zone
-Q11503991,新興住宅地
-Q11505677,日本のニュータウン
-Q18587469,residential community
-Q864288,bioenergy village
-Q985488,residential community of the People's Republic of China
-Q17361402,community of the People's Republic of China
-Q1074523,planned community
-Q1656724,ideal city
-Q1762524,planned community in France
-Q6888356,model village
-Q15840617,planned capital city
-Q16014774,大韓民国の計画都市
-Q41560536,Innovation City
-Q41560536,Innovation City
-Q56152103,Greenbelt town
-Q65241205,ニュータウン
-Q2373919,intentional community
-Q161387,kibbutz
-Q1567101,Hakhshara
-Q2888533,Gesher HaZiv
-Q7886462,Moshav shitufi
-Q7900128,Urban kibbutz
-Q16132253,גן הנוף הקיבוצי
-Q295472,ecovillage
-Q517760,commune
-Q992194,Hutterite colony
-Q1296717,Egalitarian community
-Q4693952,Agricultural commune
-Q4797182,art commune
-Q917146,moshav
-Q7886462,Moshav shitufi
-Q992194,Hutterite colony
-Q1107167,cohousing
-Q7549943,sober living house
-Q1762221,Neotribalism
-Q1780633,religious intentional community
-Q2148684,co-operative living arrangements
-Q442993,group home
-Q2002507,Notschlafstelle
-Q2207993,Tehuis voor werkenden
-Q3060146,tehuis voor niet-werkenden
-Q2907285,youth village
-Q2945522,nudist community
-Q22907229,Christian Communities
-Q4691828,age-restricted community
-Q1269448,retirement community
-Q6980841,Naturally occurring retirement community
-Q4677538,active adult housing
-Q20818846,Molukse wijk
-Q30493986,villa area
-Q42402287,cité
-Q738570,central business district
-Q1050303,downtown
-Q1468524,city center
-Q11643712,都心等拠点地区
-Q66364404,繁華街
-Q748198,gay village
-Q801738,Bahnhofsviertel
-Q851110,district of Budapest
-Q851124,List of neighborhoods of Budapest
-Q860582,community area in Chicago
-Q1014933,Burgfreiheit
-Q1067867,Sestiere of Venice
-Q1128906,medina quarter
-Q1462091,várnegyed
-Q1468524,city center
-Q1622981,Hofe
-Q1739536,inner city
-Q1761572,barrio
-Q17276937,ward of Madrid
-Q10267336,neighborhood of Madrid
-Q48784221,collación
-Q64913082,neighborhood of Alicante
-Q68979886,ward of Girona
-Q68981550,Nord
-Q75880277,barrio of El Salvador
-Q1829505,tuindorp
-Q1851368,waterfront
-Q1940624,Banlieue
-Q1969642,neighborhood of San Francisco
-Q2170377,cauliflower neighborhhod
-Q2191560,Skid row
-Q2282602,housing estate
-Q1563681,HICOG-Siedlung
-Q12104567,housing estate
-Q604435,microdistrict
-Q1406988,grand ensemble
-Q7246209,private housing estate in Hong Kong
-Q14454091,Public Rental Housing
-Q19754218,Home Ownership Scheme housing estate
-Q5215430,danchi
-Q14178148,proveniershuis
-Q19760240,Eisenbahnersiedlung
-Q102329612,Grasdachsiedlung
-Q2441638,volksbuurt
-Q2640310,residential areas and neighbourhoods in Arnhem
-Q2648768,residential areas and neighbourhoods in Muiden
-Q2650121,residential areas and neighbourhoods in Graft-De Rijp
-Q2795367,neighborhood in Utrecht
-Q2841546,neighborhood of Utrecht
-Q3067318,Faubourgs of Montreal
-Q3394564,Quarter of Luxembourg City
-Q3413329,neighborhood in Boston
-Q3413345,neighbourhood of Toulouse
-Q3558430,villa
-Q3578796,Ecodistrict
-Q3610510,ethnic enclave
-Q152018,ghetto
-Q202509,Chinatown
-Q3674986,Chinatowns in Europe
-Q5100179,Chinatowns in Africa
-Q5100181,Chinatowns in Asia
-Q5100185,Chinatowns in the Middle East
-Q904319,Koreatown
-Q907231,Japantown
-Q1544543,Greektown
-Q2636673,aljama
-Q9016264,Jewish quarter
-Q1331767,Mellah
-Q2583015,ghetto in Nazi-occupied Europe
-Q2917049,Jewish ghetto in Europe
-Q69465104,morería (neighborhood)
-Q85875185,Morería (city)
-Q6158221,Japanese Immigrant Villages in Taiwan
-Q6650409,Little India
-Q6650818,Little Manila
-Q9016264,Jewish quarter
-Q61729985,Little Italy
-Q69465104,morería (neighborhood)
-Q3689003,contrada
-Q1231729,contrada of Siena
-Q3689087,suppressed Contrada of Siena
-Q3710552,cultural district
-Q1797194,arts district
-Q3055075,entertainment district
-Q272888,red-light district
-Q1574228,hanamachi
-Q1060846,yūkaku
-Q11374182,Kagai of Kyoto
-Q11439934,hanamachi in Osaka
-Q11502785,hanamachi in Niigata
-Q11524038,hanamachi in Tokyo
-Q11589724,hanamachi in Kobe
-Q11647353,hanamachi in Kanazawa
-Q3551273,Universal CityWalk
-Q28148504,museum district
-Q3927250,quarter of the city of Lugano
-Q3927262,District of Salzburg
-Q4057659,Subdivision of Kyiv
-Q4286337,city district
-Q137773,ward of Japan
-Q5327704,special ward of Japan
-Q65281628,行政区
-Q205549,Zipserei
-Q627253,working class quarter
-Q702842,municipal arrondissement
-Q679388,municipal arrondissement of Paris
-Q2845944,former arrondissement of Paris
-Q702869,municipal arrondissement of Lyon
-Q702875,municipal arrondissement of Marseille
-Q2845944,former arrondissement of Paris
-Q1434401,dzielnica
-Q1808877,deelgemeente
-Q1852119,district of Graz
-Q1985797,municipal unit of Greece
-Q2740635,Stadtbezirk
-Q253270,borough of Munich
-Q278976,borough of Hamburg
-Q317669,district of Düsseldorf
-Q821435,borough of Berlin
-Q13415859,Stadtbezirk in Wuppertal
-Q15632133,city district of Cologne
-Q15727673,city district of Hanover
-Q97312698,Stadtteil in Hannover
-Q17278423,district of Bremen
-Q18600372,borough of Dresden
-Q28050899,Stadtgebiet (Frankfurt (Oder))
-Q31458588,Stadtbezirk von Bremerhaven
-Q62269194,Stadtbezirke Aachens
-Q96180429,city district of Langenhagen
-Q2779745,urban district of the Netherlands
-Q15079751,submunicipality of Amsterdam
-Q2989468,Communes d'arrondissement of Senegal
-Q3032114,district of Madrid
-Q3565075,Raions of cities in Ukraine
-Q3624938,city district of Brazil
-Q5283507,district of Davao City
-Q7553685,municipal district of Bulgaria
-Q8561193,district of Valencia
-Q13582281,circoscrizione di decentramento comunale in Italy
-Q610625,Municipi of Milan
-Q1410029,list of the municipi of Genoa
-Q1584957,Borough of Palermo
-Q3677930,quarter of Messina
-Q3677936,circoscrizioni di Torino
-Q36617857,Crocetta Centre
-Q104352269,circoscrizione 2
-Q104352457,circoscrizione 3
-Q104352503,circoscrizione 4
-Q104352619,circoscrizione 5
-Q104352735,circoscrizione 6
-Q104352803,circoscrizione 7
-Q104352895,circoscrizione 8
-Q3867179,municipalità of Naples
-Q3867183,municipalità of Venice
-Q3927244,boroughs of Bologna
-Q3927247,borough of Florence
-Q16751551,borough of Brescia
-Q16751788,circoscrizione of Vicenza
-Q16761595,circoscrizione of Treviso
-Q17137839,circoscrizione of Verona
-Q15195406,city district in Russia
-Q4389092,district of Moscow
-Q14242187,city district of Nizhny Novgorod
-Q15634883,district of Manila
-Q15921300,sector of Bucharest
-Q17496379,City district in Austria
-Q261023,district of Vienna
-Q18559008,district of São Paulo
-Q21851888,district of the city
-Q75338598,městská část Prahy
-Q30339232,sector of Chișinău
-Q40256562,intracity district of Belarus
-Q75135425,district de Barcelone
-Q4298922,mixed-use development
-Q24887340,Temporary use
-Q47012103,mixed-use building
-Q63452621,one-plus-five
-Q5333096,eco-municipality
-Q5377740,district of Tehran
-Q5556082,neighbourhood in Tehran
-Q5571369,quarter of a city in Italy
-Q3927245,quarter of Brescia
-Q3927259,quarter of Reggio Calabria
-Q3927261,quarter of Naples
-Q17135847,quarter of Genoa
-Q1487089,Sestieri de Génova
-Q17279532,Quarter of Verona
-Q18608436,quarter of Florence
-Q42961155,quarter of Milan
-Q100689072,Quarter of La Spezia
-Q100701580,quarter of Cagliari
-Q100705184,Quarter of Catania
-Q5875137,Hobohemia
-Q6344036,neighborhood in Almería
-Q6988049,Neighborhood planning unit
-Q6988077,neighborhoods in Providence
-Q6988097,neighborhood of Jacksonville
-Q6988184,neighbourhood of Delhi
-Q7551933,mahallah
-Q8049262,courtyard neighborhood
-Q10267336,neighborhood of Madrid
-Q11361229,shitamachi
-Q11679959,Outskirt (Al-Andalus)
-Q11908565,Barris de Lleida
-Q12012287,Grätzl
-Q12054099,neighborhood of Jerusalem
-Q12411695,שכונות חרדיות בירושלים
-Q12063697,"neighborhood of Washington
-Q12104567,housing estate
-Q12179166,أحياء الخرطوم بحري
-Q13645388,luxury real estate
-Q13732359,Indische buurt
-Q15715406,neighbourhood of Helsinki
-Q15830667,quarter of Hamburg
-Q15849827,Szeneviertel
-Q16837104,bairro
-Q18475442,list of neighbourhoods in Barra da Tijuca
-Q19658107,neighborhood of Brazil
-Q19886692,neighbourhood of São Paulo
-Q20683285,neighbourhood in Rio de Janeiro
-Q66626479,Pátio
-Q17015330,Neighborhoods of Minneapolis
-Q17051044,mahalle
-Q17233249,Stadtteil von Stettin
-Q17278559,quarter of Bremen
-Q17468479,district of Oulu
-Q19832914,defined community of Minneapolis
-Q17015330,Neighborhoods of Minneapolis
-Q20968646,neighborhood of historical district of Moscow
-Q22248247,cité d'urgence
-Q22833408,"District of the city of Strasbourg
-Q23541388,city district of Lappeenranta
-Q24067406,жылы раён
-Q25391965,city (German language)
-Q26844382,district of Tampere
-Q27095194,bookshop neighbourhood
-Q27554593,stadsdeel in Lublin
-Q27702623,academic enclave
-Q28052515,Subdivision
-Q28372019,neighborhood of Yemen
-Q28539166,"quarter of the city of Basel
-Q29463880,Quarter of Limassol Municipality
-Q31271043,Rīgas apkaimes
-Q32597970,Bremerhaven district
-Q34982659,quarter of Bucharest
-Q39947311,warehouse district
-Q40553563,restaurant district
-Q47320699,Parish of Nicosia Municipality
-Q47320766,Parish of  Ayios Dhometios Municipality
-Q47320775,Parish of Strovolos Municipality
-Q47320785,Parish of Lakatamia Municipality
-Q47320794,Parish of Latsia Municipality
-Q47320804,Parish of Dali Municipality
-Q47320814,Parish of Kythrea Municipality
-Q47320908,Parish of  Morphou Municipality
-Q47320925,Parish of Prastio Nicosia
-Q47320938,Parish of Spilia
-Q47320952,Parish of Karavostasi
-Q47320964,Parish of  Xerovounos
-Q47325026,Parish of Keryneia Municipality
-Q47325112,Parish of Karavas Municipality
-Q47325202,Parish of Lapithos Municipality
-Q47325770,Parish of Paphos Municipality
-Q47325870,Parish of Yeroskipou Municipality
-Q47325959,Parish of Polis Chrysochous Municipality
-Q47326153,Quarter of Larnaca Municipality
-Q47326217,Quarter of Aradippou Municipality
-Q47326257,Quarter of Dromolaxia-Meneou Municipality
-Q47328627,Parish of Famagusta Municipality
-Q47328699,Parish of Aigialousa
-Q47328702,Parish of Rizokarpaso
-Q48098186,Neighborhoods in Zaragoza
-Q54809707,Quarter of Kato Polemidia Municipality
-Q54864872,Quarter of Mesa Geitonia Municipality
-Q54865711,Quarter of Yermasoyia Municipality
-Q54867049,Quarter of Ayios Athanasios Municipality
-Q61089180,part of municipality in the Czech Republic
-Q585444,administrative district of Prague
-Q74728036,district administratif de Prague
-Q75338598,městská část Prahy
-Q75339006,district territorial de Prague
-Q56398194,core municipal part with the same name as the municipality in the Czech Republic
-Q63497359,Quartier canonial
-Q65246805,Westend
-Q66458650,sociological neighborhood
-Q202509,Chinatown
-Q61729985,Little Italy
-Q66467322,ancien quartier
-Q69465104,morería (neighborhood)
-Q75021917,neighborhood in Amman
-Q75883519,colonia
-Q5148198,colonia
-Q75884168,colonia of El Salvador
-Q75884168,colonia of El Salvador
-Q79413632,city part of Innsbruck
-Q79414634,Stadtteil von Linz
-Q79416466,Neighborhood of Frankfurt
-Q79423884,Stadtteil von Leipzig
-Q79423998,Stadtteil von Görlitz
-Q79424059,Stadtteil von Chemnitz
-Q90400139,vilová čtvrť
-Q93664896,neighborhood of Jordan
-Q103910131,kaupunkialueen tai taajaman osa
-Q103910453,kylä tai kulmakunta
 Q132017,river basin district
 Q25344201,River Basin District Sub-unit
 Q149621,district
@@ -1439,7 +1029,6 @@ Q505410,Congressional district
 Q7010135,New Mexico's congressional districts
 Q505830,district of Sudan
 Q545769,district of Ghana
-Q585444,administrative district of Prague
 Q662914,district in Switzerland
 Q628993,district of the canton of Valais
 Q2864107,administrative district of the canton of Bern
@@ -1511,6 +1100,84 @@ Q3556789,district of Madagascar
 Q3710483,district of Fiji
 Q4057728,District of Yerevan
 Q4286337,city district
+Q137773,ward of Japan
+Q5327704,special ward of Japan
+Q65281628,行政区
+Q205549,Zipserei
+Q627253,working class quarter
+Q702842,municipal arrondissement
+Q679388,municipal arrondissement of Paris
+Q2845944,former arrondissement of Paris
+Q702869,municipal arrondissement of Lyon
+Q702875,municipal arrondissement of Marseille
+Q2845944,former arrondissement of Paris
+Q1434401,dzielnica
+Q1808877,deelgemeente
+Q1852119,district of Graz
+Q1985797,municipal unit of Greece
+Q2740635,Stadtbezirk
+Q253270,borough of Munich
+Q278976,borough of Hamburg
+Q317669,district of Düsseldorf
+Q821435,borough of Berlin
+Q13415859,Stadtbezirk in Wuppertal
+Q15632133,city district of Cologne
+Q15727673,city district of Hanover
+Q97312698,Stadtteil in Hannover
+Q17278423,district of Bremen
+Q18600372,borough of Dresden
+Q28050899,Stadtgebiet (Frankfurt (Oder))
+Q31458588,Stadtbezirk von Bremerhaven
+Q62269194,Stadtbezirke Aachens
+Q96180429,city district of Langenhagen
+Q2779745,urban district of the Netherlands
+Q15079751,submunicipality of Amsterdam
+Q2989468,Communes d'arrondissement of Senegal
+Q3032114,district of Madrid
+Q3565075,Raions of cities in Ukraine
+Q3624938,city district of Brazil
+Q5283507,district of Davao City
+Q7553685,municipal district of Bulgaria
+Q8561193,district of Valencia
+Q13582281,circoscrizione di decentramento comunale in Italy
+Q610625,Municipi of Milan
+Q1410029,list of the municipi of Genoa
+Q1584957,Borough of Palermo
+Q3677930,quarter of Messina
+Q3677936,circoscrizioni di Torino
+Q36617857,Crocetta Centre
+Q104352269,circoscrizione 2
+Q104352457,circoscrizione 3
+Q104352503,circoscrizione 4
+Q104352619,circoscrizione 5
+Q104352735,circoscrizione 6
+Q104352803,circoscrizione 7
+Q104352895,circoscrizione 8
+Q3867179,municipalità of Naples
+Q3867183,municipalità of Venice
+Q3927244,boroughs of Bologna
+Q3927247,borough of Florence
+Q16751551,borough of Brescia
+Q16751788,circoscrizione of Vicenza
+Q16761595,circoscrizione of Treviso
+Q17137839,circoscrizione of Verona
+Q15195406,city district in Russia
+Q4389092,district of Moscow
+Q14242187,city district of Nizhny Novgorod
+Q15634883,district of Manila
+Q15921300,sector of Bucharest
+Q17496379,City district in Austria
+Q261023,district of Vienna
+Q18559008,district of São Paulo
+Q21851888,district of the city in the Czech Republic
+Q585444,districts of Prague
+Q74728036,administrative district of Prague
+Q75338598,municipal part of Prague
+Q75339006,municipal district of Prague
+Q75338598,municipal part of Prague
+Q30339232,sector of Chișinău
+Q40256562,intracity district of Belarus
+Q75135425,district de Barcelone
 Q4732242,Allgemeine-SS Order of Battle
 Q5283558,district of Zimbabwe
 Q5283559,district of the Democratic Republic of the Congo
@@ -1653,12 +1320,13 @@ Q2570590,Italian occupation of France during World War II
 Q12404888,ruling block
 Q20724849,general governorate of Nazi Germany
 Q5260616,dependency of Norway
+Q10301251,Ilhas Adjacentes
 Q15379753,British Dependent Territory
 Q17147964,administrative territorial entity of the Spanish Empire
 Q4712904,Alcaldía mayor
 Q5036886,Captaincies of the Spanish Empire
 Q5589761,governorate of the Spanish Empire
-Q16263503,intendancy of the Spanish Empire
+Q5918768,intendancy of the Spanish Empire
 Q5650347,intendancy of Chile
 Q17259945,province of the Spanish Empire
 Q20203507,viceroyalty of the Spanish Empire
@@ -1704,9 +1372,11 @@ Q3518201,feudal land tenure
 Q11926032,honor regalis
 Q16836659,feudal land tenure in England
 Q3744304,imperial fiefdoms
+Q5780635,Comunidades de villa y tierra de Ávila
 Q7438071,Scottish feudal lordship
-Q8348978,comunidad de villa y tierra
+Q8348978,Comunidad de villa y tierra
 Q1074072,Comunidad de villa y tierra de Sepúlveda
+Q8348984,Comunidad de villa y tierra de Segovia
 Q10466612,Danske len
 Q11926032,honor regalis
 Q26240527,marquisate of Spain
@@ -1715,10 +1385,12 @@ Q27169777,buitenleen
 Q57979411,ducado
 Q58001476,condado (Spain)
 Q58683277,vizcondado
-Q58683981,señorio-senyoria
+Q58683981,señorio
 Q3518201,feudal land tenure
 Q11926032,honor regalis
 Q58872171,baronía
+Q104471354,senhorio
+Q104540757,senhorio de juro e herdade
 Q202008,exclusive economic zone
 Q205723,circary of the Premonstratensian Order
 Q213204,territorial waters
@@ -1756,6 +1428,7 @@ Q42915594,Scottish burgh
 Q6489113,large burgh
 Q7209568,police burgh of Scotland
 Q7543008,small burgh
+Q104630835,Scottish county of city
 Q261398,Hofmark
 Q264441,Bezirk
 Q163301,Ortsbezirk of Germany
@@ -1783,6 +1456,7 @@ Q1232459,Catalan counties
 Q1379030,counties of the United Kingdom
 Q58001343,comté (France)
 Q58001476,condado (Spain)
+Q104587080,Pfalzgrafschaft
 Q395994,capital district or territory
 Q399445,amt
 Q478847,Amt
@@ -1912,7 +1586,7 @@ Q276718,Revolutionary committee
 Q583865,territorial collectivity of France
 Q36784,region of France
 Q28332,overseas region
-Q202216,overseas department of France
+Q202216,overseas departments and regions of France
 Q12949943,Regions d'Occitània
 Q20719642,current region of France
 Q203396,Overseas France
@@ -2228,6 +1902,7 @@ Q19886676,subprefecture of São Paulo
 Q1427085,okrug
 Q648681,district of Serbia
 Q1464870,pieve
+Q104454065,Pieve milanese
 Q1494307,Landschaft
 Q1499928,Gemarkung
 Q1549534,Greater Region
@@ -2448,7 +2123,6 @@ Q83057,region of Belgium
 Q89934,community of Belgium
 Q17373496,language area of Belgium
 Q838549,municipality of Montenegro
-Q839328,Fu
 Q841753,governorate of Iraq
 Q842100,region of Iceland
 Q842420,region of Uzbekistan
@@ -2477,7 +2151,7 @@ Q874821,county of Liberia
 Q878040,division of Bangladesh
 Q913337,province of the Dominican Republic
 Q936955,parish of Jamaica
-Q971831,Մադագասկարի մարզ
+Q971831,region of Madagascar
 Q1025116,province of the Solomon Islands
 Q1044181,state of Palau
 Q1051411,province of São Tomé and Príncipe
@@ -2525,9 +2199,10 @@ Q13455645,administrative city in the Republic of Ireland
 Q85637361,local government county in Ireland
 Q3076685,region of Uganda
 Q3271886,region of Malawi
-Q3336843,devolved nation within the UK
+Q3336843,nation within the UK
 Q3345345,municipality of Latvia
 Q3365965,parish of Guernsey
+Q3559207,decentralized administration of Greece
 Q3648563,public body of the Netherlands
 Q702081,water board in the Netherlands
 Q2035651,veiligheidsregio
@@ -2551,7 +2226,7 @@ Q12084012,province level division of the Republic of China
 Q2225003,special municipality
 Q9319988,province of the Republic of China
 Q12479773,first-level administrative country subdivision in Indonesia
-Q5098,provinces of Indonesia
+Q5098,province of Indonesia
 Q12769662,Kraj
 Q12883402,sheading
 Q13220372,district of Abkhazia
@@ -2625,7 +2300,7 @@ Q99308423,commune of Monaco
 Q104117291,region of Spain
 Q13220204,second-level administrative country subdivision
 Q6465,department of France
-Q202216,overseas department of France
+Q202216,overseas departments and regions of France
 Q3044799,department of France in Algeria
 Q15089,province of Italy
 Q3924474,former provinces of Italy
@@ -2685,7 +2360,7 @@ Q917092,district of Paraguay
 Q952274,department of Argentina
 Q953822,canton of Costa Rica
 Q955655,municipality of Iceland
-Q971831,Մադագասկարի մարզ
+Q971831,region of Madagascar
 Q1054403,region of Guinea-Bissau
 Q1058387,district of Malawi
 Q1062593,province of Bolivia
@@ -3092,7 +2767,7 @@ Q1750854,parish of Saint Kitts and Nevis
 Q2140214,parish of Jersey
 Q3365965,parish of Guernsey
 Q3910694,civil parish
-Q5124673,civil parish
+Q5124673,Scottish civil parish
 Q13410524,parish of Louisiana
 Q17361329,parish
 Q25400006,parroquia
@@ -3144,7 +2819,7 @@ Q93664896,neighborhood of Jordan
 Q15640612,fifth-level administrative country subdivision
 Q484170,commune of France
 Q702842,municipal arrondissement
-Q2679157,Architecte  in Ivory coast
+Q2679157,commune of Ivory Coast
 Q3076994,commune of Cameroon
 Q7551933,mahallah
 Q12206807,block
@@ -3206,8 +2881,6 @@ Q2140699,wine-producing region
 Q166247,American Viticultural Area
 Q2318846,Belgische wijnbouwgebieden
 Q2555851,European Union wine growing zones
-Q11785436,Morawski region winiarski
-Q10861228,Znojemská vinařská podoblast
 Q11901318,vinařské oblasti Rakouska
 Q2198484,municipal district
 Q60849925,municipal district in Russia
@@ -3280,6 +2953,8 @@ Q99308423,commune of Monaco
 Q3299260,local government area
 Q1867183,local government area of Australia
 Q12479774,second-level administrative country subdivision in Indonesia
+Q104828357,County of city
+Q3373662,French-speaking country
 Q3388233,pieve
 Q3397866,poor law union
 Q3403564,ecclesiastical principality
@@ -3293,7 +2968,7 @@ Q36784,region of France
 Q234167,Makkah Region
 Q97460874,Hali
 Q236027,Al Madinah Region
-Q971831,Մադագասկարի մարզ
+Q971831,region of Madagascar
 Q1057504,region of Ethiopia
 Q1200511,Landscape
 Q379158,district of Norway
@@ -3419,6 +3094,7 @@ Q57234641,stadsförsamling
 Q57413580,Swedish church abroad
 Q58766543,Annexförsamling
 Q1208283,Diaconia
+Q1464870,pieve
 Q2072243,Personalpfarrei
 Q3080381,frairie
 Q3541259,trève
@@ -3429,7 +3105,7 @@ Q10693468,territoriella församlingar
 Q11880440,maaseurakunta
 Q13358519,parish
 Q104172772,freguesia
-Q17143723,Catholic parish
+Q17143723,catholic parish
 Q3333265,parroquia of Galicia
 Q3896496,parishes in the Roman Catholic Diocese of Treviso
 Q12798556,personal parish
@@ -3455,11 +3131,12 @@ Q427961,metropolis
 Q668130,provost church
 Q866196,episcopal see
 Q1147274,Apostolic see
-Q15788778,episcopal palace
+Q5383482,Episcopium
 Q988198,District
 Q1282276,patriarchate
 Q1736301,Catholicate
 Q2072238,archdiocese
+Q12593969,patriarchate of the Catholic Church
 Q20826541,grootaartsbisdom
 Q91454419,metropolitain archdiocese
 Q3146899,diocese of the Catholic Church
@@ -3485,6 +3162,7 @@ Q20060955,episcopal diocese
 Q66818387,Lutheran diocese
 Q2445047,diocese of the Church of Denmark
 Q67206109,diocesi vetero-cattolica
+Q97860443,Dioceses vacantes do Brasil
 Q668130,provost church
 Q1269563,Stauropegion
 Q89335587,Stauropegic monastery
@@ -3515,6 +3193,7 @@ Q19297668,general vicariate
 Q21051448,vicariate
 Q91450105,military vicariate
 Q92708983,vicariate
+Q104454065,Pieve milanese
 Q1506541,ecclesiastical region
 Q2029182,Ordensprovinz
 Q2083380,unidad pastoral
@@ -3527,7 +3206,7 @@ Q2730339,oosters-katholieke kerken in Noord-Amerika
 Q6932046,Muftiate
 Q7240820,Presbytery of Glasgow
 Q11893113,parish union
-Q17143723,Catholic parish
+Q17143723,catholic parish
 Q20926517,religious administrative territorial entity
 Q102496,parish
 Q285181,eparchy
@@ -3617,10 +3296,6 @@ Q83020,provincial city
 Q104157,city of the Philippines
 Q29946056,highly urbanized city
 Q133442,city-state
-Q200209,cities of Ukraine
-Q5124045,city with special status
-Q12131640,city of district significance
-Q208511,global city
 Q250811,sub-province-level division
 Q262882,statutory city of Austria
 Q428986,Linear city
@@ -3656,13 +3331,6 @@ Q1266029,edge city
 Q1375749,European City
 Q1422929,primate city
 Q1547289,Luther city
-Q1549591,big city
-Q1637706,city with millions of inhabitants
-Q174844,megacity
-Q200250,metropolis
-Q6024226,metropolitan municipality
-Q10329259,metropoli nacional
-Q71144301,metropolitan region
 Q1656724,ideal city
 Q1835354,Garnizoensstad
 Q1867820,City status in the United Kingdom
@@ -3671,11 +3339,10 @@ Q2073573,IJsselsteden
 Q2138558,regiopolis
 Q2235075,centre city
 Q2264924,port settlement
-Q11506008,日本の港町
+Q11506008,Japanese port settlement
 Q2367508,township of Taiwan
 Q12039044,urban township of Taiwan
 Q12039539,rural township of Taiwan
-Q708418,Ren'ai Township
 Q2616791,urban municipality of Poland
 Q2844893,cidade
 Q3249005,provincial city
@@ -3693,6 +3360,7 @@ Q5770918,city of Argentina
 Q6609673,list of cities in British Columbia
 Q7574798,special city of North Korea
 Q7819319,Czech municipality with expanded powers
+Q8069436,zero-carbon city
 Q8452914,district town
 Q9696256,capital regional
 Q9730870,centro de zona
@@ -3725,6 +3393,7 @@ Q16133394,ville fortifiée de l'époque de Joshua Bin Nun
 Q16181672,special autonomous city in South Korea
 Q16825568,Caravan city
 Q16858213,town in Romania
+Q16878951,private town
 Q16933701,principal city
 Q18485046,centro sub-regional
 Q19974058,groeistad
@@ -3763,7 +3432,6 @@ Q101500124,medieval city
 Q102104752,city of Bosnia and Herzegovina
 Q104414508,100 percent corner
 Q3957,town
-Q317548,resort town
 Q735428,town in China
 Q1059478,town of Japan
 Q1269749,town with fewer than 5000 inhabitants
@@ -3799,16 +3467,24 @@ Q90881611,castle town
 Q98556505,Railway towns in Australia
 Q100503226,town of the United Kingdom
 Q100961648,historic town
-Q104434365,country town
 Q159438,Hero City
 Q174844,megacity
 Q187768,cities and towns in Russia
 Q200209,cities of Ukraine
+Q5124045,city with special status
+Q12131640,city of district significance
 Q692581,holy city
 Q12057402,holy city of Islam
+Q896881,city with tens of thousands of inhabitants
 Q902814,border town
 Q67123843,town divided by border
 Q1549591,big city
+Q1637706,city with millions of inhabitants
+Q174844,megacity
+Q200250,metropolis
+Q6024226,metropolitan municipality
+Q10329259,metropoli nacional
+Q71144301,metropolitan region
 Q3199141,city of Indonesia
 Q11881845,town
 Q15715391,town inside a parish
@@ -3824,6 +3500,9 @@ Q56580032,city of republic significance
 Q56580326,city of okrug significance
 Q56580425,city of oblast significance
 Q7830079,town of district significance in Russia
+Q18466065,Cidade média-pequena
+Q18466176,Cidade pequena
+Q19608753,Cidade média-grande
 Q20724701,city or town in Armenia
 Q50330360,second largest city
 Q51929311,largest city
@@ -3832,6 +3511,7 @@ Q56557664,şəhər
 Q79323854,city of oblast subordinance
 Q79324274,city of raion surbodinance
 Q89487741,city of Bulgaria
+Q104488513,proposed city
 Q7968930,ward
 Q57573391,ward of the City of Cape Town Municipal Council
 Q57573517,ward of the Buffalo City Municipal Council
@@ -3854,6 +3534,7 @@ Q91075634,župy v Československu
 Q10397462,A-region
 Q10527168,hundare
 Q10553306,lagsaga
+Q10750713,mandamento
 Q10831626,Province (South Vietnam)
 Q10910840,厅 (清朝)
 Q10915529,administrative division of Taiwan under Japanese rule
@@ -3865,6 +3546,7 @@ Q70036182,city of Taiwan under Japanese rule
 Q70036463,蕃地
 Q11781066,microregion
 Q12054099,neighborhood of Jerusalem
+Q12411695,שכונות חרדיות בירושלים
 Q12055729,správní obvod
 Q76007695,administrative district of Czech municipality with expanded powers
 Q76009696,administrative district of Czech municipality with authorized municipal office
@@ -3937,6 +3619,7 @@ Q50231,administrative territorial entity of the People's Republic of China
 Q50256,district of Hong Kong
 Q779415,special administrative region of China
 Q985488,residential community of the People's Republic of China
+Q17361402,community of the People's Republic of China
 Q1044880,subprefecture-level city
 Q1070912,Zhou
 Q1208927,autonomous administrative territorial entity of China
@@ -3955,9 +3638,9 @@ Q18652188,Gaqaa
 Q20488952,national park of the People's Republic of China
 Q39357844,社区服务中心
 Q50513,administrative territorial entity of Singapore
-Q2090900,urban planning area in Singapore
 Q2091262,region of Singapore
 Q4426538,Community Development Council
+Q104527265,planning area of Singapore
 Q55292,administrative territorial entity of the German Democratic Republic
 Q1801891,state of the German Democratic Republic
 Q15630895,district of the German Democratic Republic
@@ -4660,6 +4343,7 @@ Q2513989,Verbandsgemeinde in Sachsen-Anhalt
 Q2513995,Verbandsgemeinde
 Q2520755,Verwaltungsverband of Saxony
 Q15725618,administrative community of Bavaria
+Q15630827,LAU 1 of Germany
 Q15974311,unincorporated area in Germany
 Q16522751,Erfüllende Gemeinde of Thuringia
 Q18226756,Landtag electoral district
@@ -4677,6 +4361,7 @@ Q61105239,Reserva natural a Rin del Nord - Westfàlia
 Q61114631,Reserva natural a Baviera
 Q61267721,reserva natural a Baden-Württemberg
 Q61453609,Biosphärenreservat
+Q20683403,amt of the Principality of Brunswick-Wolfenbüttel
 Q20724715,regional center of Germany
 Q253030,major regional center
 Q1401585,medium regional center
@@ -4779,14 +4464,17 @@ Q461231,administrative territorial entity of Scotland
 Q202435,lieutenancy area of Scotland
 Q383493,local government area of Scotland 1975 to 1996
 Q2138167,Scottish region
-Q6083725,Islands council areas of Scotland
+Q6083725,Scottish islands area
 Q21457810,Scottish district
 Q1350181,shire of Scotland
 Q3997444,national park of Scotland
-Q5124673,civil parish
+Q5124673,Scottish civil parish
 Q15060255,Scottish council area
 Q42915594,Scottish burgh
 Q64153217,traditional district of Scotland
+Q104630441,local government area of Scotland 1930 to 1975
+Q104631008,Scottish landward district
+Q104632385,Scottish health board area
 Q589282,ward or electoral division of the United Kingdom
 Q683738,Administrative subdivision of Wales
 Q1857731,historic county of Wales
@@ -4824,7 +4512,7 @@ Q60581134,Scottish Westminster constituencies 1708 to 1832
 Q97588718,London County Council constituency
 Q2462304,administrative territorial entity of Bermuda
 Q17134625,municipality of Bermuda
-Q3336843,devolved nation within the UK
+Q3336843,nation within the UK
 Q3403338,community council
 Q4752944,ancient borough
 Q6955655,NUTS 1 statistical regions of England
@@ -4833,6 +4521,7 @@ Q7245071,principal area
 Q15979307,principal area of Wales
 Q7251293,protected area of United Kingdom
 Q7251287,protected area of Wales
+Q22569549,Marine Conservation Zone
 Q15379753,British Dependent Territory
 Q17601336,district of the United Kingdom
 Q21503295,district with city status
@@ -4854,7 +4543,7 @@ Q2298305,eldership
 Q17166803,city municipality of Lithuania
 Q17301072,district municipality of Lithuania
 Q24036024,apylinkė
-Q836858,秦朝の行政区分
+Q836858,administrative territorial entity of Qin dynasty
 Q842412,administrative territorial entity of Turkmenistan
 Q5283544,district of Turkmenistan
 Q12014176,region of Turkmenistan
@@ -5007,6 +4696,7 @@ Q17379829,administrative territorial entity of Minnesota
 Q4079161,watershed district of Minnesota
 Q12262532,county of Minnesota
 Q19832914,defined community of Minneapolis
+Q17015330,Neighborhoods of Minneapolis
 Q42211429,township of Minnesota
 Q21074401,administrative territorial entity of California
 Q6565550,economic region of California
@@ -5187,6 +4877,7 @@ Q18333556,registration district in Sweden
 Q28045485,market town municipality of Sweden
 Q52234891,Lægd
 Q85164347,county council of Sweden
+Q104607031,Göteborgs stadsområden
 Q924986,administrative territorial entity of Kiribati
 Q17305516,island group of Kiribati
 Q1057589,administrative territorial entity of Kosovo
@@ -5217,7 +4908,7 @@ Q15634695,special administrative area of Thailand
 Q15695218,Tambon Council
 Q1087635,administrative territorial entity of Madagascar
 Q864133,province of Madagascar
-Q971831,Մադագասկարի մարզ
+Q971831,region of Madagascar
 Q1754255,list of national parks of Madagascar
 Q3192808,commune of Madagascar
 Q3556789,district of Madagascar
@@ -5368,7 +5059,7 @@ Q5327509,koaza
 Q75060638,political division of Karafuto Prefecture
 Q91704173,道
 Q1993723,administrative territorial entity of the Ottoman Empire
-Q44565,Eyalet
+Q44565,eyalet
 Q330425,sanjak
 Q935921,Qadaa
 Q1462047,vilayet of the Ottoman Empire
@@ -5438,7 +5129,7 @@ Q2635421,administrative territorial entity of Transnistria
 Q20683379,district of the Transnistria Moldavian Republic
 Q2679154,administrative territorial entity of Ivory Coast
 Q617807,department of Ivory Coast
-Q2679157,Architecte  in Ivory coast
+Q2679157,commune of Ivory Coast
 Q20717263,district of Ivory Coast
 Q20981165,subprefecture of Ivory Coast
 Q2695008,administrative territorial entity of Luxembourg
@@ -5459,6 +5150,7 @@ Q5704038,اولاد
 Q15125752,rural district of Iran
 Q17507090,region of Iran
 Q18618822,national park of Iran
+Q20110574,municipalities of Iran
 Q56557504,city of Iran
 Q2824644,administrative territorial entity of Colombia
 Q215655,department of Colombia
@@ -5488,7 +5180,7 @@ Q747074,comune of Italy
 Q854223,Districts of Trentino-Alto Adige/Südtirol
 Q905929,Italian mountain community
 Q1134686,frazione
-Q3677604,Circondario
+Q3677604,circondario
 Q13582281,circoscrizione di decentramento comunale in Italy
 Q21190155,libero consorzio comunale
 Q27961023,Unión Territorial Intermunicipal
@@ -5598,11 +5290,11 @@ Q17037161,administrative territorial entity of Madrid
 Q3032114,district of Madrid
 Q10267336,neighborhood of Madrid
 Q18674678,subcomarca of Spain
-Q22235641,Intendencia de España
+Q22235641,intendencia de España
 Q48098186,Neighborhoods in Zaragoza
 Q61763780,administrative territorial entity of Aragon
 Q104117291,region of Spain
-Q3253485,administrative divisions of the Democratic Republic of the Congo
+Q3253485,administrative territorial entity of the Democratic Republic of the Congo
 Q654140,province of the Democratic Republic of the Congo
 Q5097099,chiefdom or sector of the Democratic Republic of the Congo
 Q5283559,district of the Democratic Republic of the Congo
@@ -5673,7 +5365,7 @@ Q3076994,commune of Cameroon
 Q3364919,protected area of Cameroon
 Q20488229,natural park in Cameroon
 Q41266483,traditional state in Cameroon
-Q3395432,administrative divisions of North Macedonia
+Q3395432,administrative territorial entity of North Macedonia
 Q646793,municipality of North Macedonia
 Q19884342,village of North Macedonia
 Q98497401,cadastral municipality of Macedonia
@@ -5691,7 +5383,7 @@ Q3502443,administrative territorial entity of Benin
 Q792929,department of Benin
 Q1780506,commune of Benin
 Q3623867,arrondissement of Benin
-Q3502450,subdivisions of Montserrat
+Q3502450,administrative territorial entity of Montserrat
 Q3502463,administrative territorial entity of the Isle of Man
 Q3764344,district of the Isle of Man
 Q12780138,parish of the Isle of Man
@@ -5709,7 +5401,6 @@ Q3507889,administrative territorial entity of the Czech Republic
 Q38911,region of the Czech Republic
 Q329245,basic unit of settlement in Czechia
 Q548611,district of the Czech Republic
-Q585444,administrative district of Prague
 Q1418124,protected area of the Czech Republic
 Q619483,national park of the Czech Republic
 Q8545897,national nature reserve in the Czech Republic
@@ -5723,8 +5414,10 @@ Q5153359,municipality of the Czech Republic
 Q12049098,region soudržnosti
 Q20724764,region of Czechoslovakia
 Q20871353,cadastral area in the Czech Republic
+Q21851888,district of the city in the Czech Republic
 Q58211981,historisches Viertel in der Tschechischen Republik
 Q61089180,part of municipality in the Czech Republic
+Q56398194,core municipal part with the same name as the municipality in the Czech Republic
 Q3557016,administrative territorial entity of Equatorial Guinea
 Q867597,province of Equatorial Guinea
 Q3645512,administrative territorial entity of Mongolia
@@ -5750,6 +5443,7 @@ Q81063407,local territorial organization
 Q3327873,local municipality of Quebec
 Q81064299,indian reserve in Quebec
 Q81066200,unorganized area in Quebec
+Q104782082,territoire hors MRC
 Q956318,designated place of Canada
 Q1388464,regional municipality in Canada
 Q1536372,census division of Ontario
@@ -5923,6 +5617,7 @@ Q20683493,krai of a union republic of the Soviet Union
 Q20719675,raion of the Soviet Union
 Q21758148,national district of the Soviet Union
 Q39268377,ulus of the Soviet Union
+Q47530375,governorate of the Russian Empire
 Q65770134,губерния в составе союзных республик СССР
 Q15733039,governorate of the Russian Soviet Federative Socialist Republic
 Q65770174,округ в составе союзных республик СССР
@@ -6021,6 +5716,9 @@ Q867545,region of Tajikistan
 Q4389115,district of Tajikistan
 Q6148126,jamoat
 Q25386041,Районы Душанбе
+Q4834771,administrative territorial entity of São Tomé and Príncipe
+Q911736,district of São Tomé and Príncipe
+Q1051411,province of São Tomé and Príncipe
 Q5283489,administrative territorial entity of Mauritius
 Q1139753,district or dependency of Mauritius
 Q17484900,Outer islands of Mauritius
@@ -6036,7 +5734,7 @@ Q1230132,District of the Bahamas
 Q21601225,former district of the Bahamas
 Q6052783,administrative territorial entity of Tuvalu
 Q59369306,Council of Tuvalu
-Q6418772,subdivision of the Byzantine Empire
+Q6418772,administrative territorial entity of  the Byzantine Empire
 Q379817,theme of the Byzantine Empire
 Q946136,exarchate of the Byzantine Empire
 Q6635528,administrative territorial entity of the Liao dynasty
@@ -6062,7 +5760,7 @@ Q1054403,region of Guinea-Bissau
 Q7444736,sector of Guinea-Bissau
 Q17325066,autonomous sector of Guinea-Bissau
 Q18592472,province of Guinea-Bissau
-Q7631056,subdivisions of Lebanon
+Q7631056,administrative territorial entity of  Lebanon
 Q844713,governorate of Lebanon
 Q2693910,district of Lebanon
 Q6936383,municipality of Lebanon
@@ -6074,7 +5772,7 @@ Q7631060,administrative territorial entity of Mauritania
 Q846327,region of Mauritania
 Q2989470,commune of Mauritania
 Q3263368,department of Mauritania
-Q7631065,Subdivisions of Mozambique
+Q7631065,administrative territorial entity of Mozambique
 Q179233,administrative post of Mozambique
 Q695469,province of Mozambique
 Q2068214,district of Mozambique
@@ -6155,7 +5853,6 @@ Q7631093,administrative territorial entity of the Gambia
 Q1504917,district of the Gambia
 Q2054441,local government area
 Q15646510,region of the Gambia
-Q7700844,Tenth
 Q8435708,administrative territorial entity of Cyprus Republic
 Q59136,district of Cyprus
 Q16739079,municipalities of Cyprus Republic
@@ -6214,6 +5911,8 @@ Q14469630,administrative territorial entity of Mato Grosso
 Q14469631,administrative territorial entity of Piauí
 Q18592633,district of Santa Maria
 Q19658107,neighborhood of Brazil
+Q19886692,neighbourhood of São Paulo
+Q20683285,neighbourhood in Rio de Janeiro
 Q19868886,administrative territorial entity of Acre
 Q19868901,administrative territorial entity of Tocantins
 Q19868903,administrative territorial entity of São Paulo State
@@ -6333,7 +6032,7 @@ Q3382900,New Zealand electorate
 Q1959427,Maori electorate
 Q5283326,district health board of New Zealand
 Q89719188,dependent territory of New Zealand
-Q15072596,administrative divisions of Kazakhstan
+Q15072596,administrative territorial entity of Kazakhstan
 Q836672,region of Kazakhstan
 Q2643128,district of Kazakhstan
 Q4414032,rural district of Kazakhstan
@@ -6402,7 +6101,7 @@ Q5034016,canton of Belgium
 Q70917267,electoral district of Wallonia
 Q15623923,administrative territorial entity of Liechtenstein
 Q203300,municipality of Liechtenstein
-Q15623929,administrative division of South Sudan
+Q15623929,administrative territorial entity of South Sudan
 Q279479,county of South Sudan
 Q496539,state of South Sudan
 Q15623956,administrative territorial entity of Belize
@@ -6422,11 +6121,9 @@ Q20733617,rural community of Kyrgyzstan
 Q30970870,аильный округ
 Q15623978,administrative territorial entity of Palau
 Q1044181,state of Palau
-Q15627846,administrative territorial entity of São Tomé and Príncipe
-Q911736,district of São Tomé and Príncipe
-Q1051411,province of São Tomé and Príncipe
 Q15629195,administrative territorial entity of Montenegro
 Q838549,municipality of Montenegro
+Q15629587,province of the Kingdom of Lombardy-Venetia
 Q15631694,administrative territorial entity of Malta
 Q719592,local council of Malta
 Q2540340,district of Malta
@@ -6570,11 +6267,9 @@ Q39635453,department of Prussia
 Q19904526,administrative territorial entity of Guyana
 Q2087773,region of Guyana
 Q3075872,neighbourhood democratic council of Guyana
-Q20110574,municipalities of Iran
 Q20477540,administrative territorial entity of the Holy Roman Empire
 Q460338,imperial circle of the Holy Roman Empire
 Q20683316,zent of the Holy Roman Empire
-Q20683403,amt of the Principality of Brunswick-Wolfenbüttel
 Q20724760,administrative territorial entity of Czechoslovakia
 Q10860609,země v Československu
 Q11179000,župa v Československu
@@ -6594,7 +6289,6 @@ Q20825630,canton of the First Spanish Republic
 Q21073990,administrative territorial entity of the Comoros
 Q20732232,autonomous island of the Comoros
 Q22678370,canton of the Kingdom of Westphalia
-Q24206782,provinces of the Kingdom of Lombardy-Venetia
 Q27924168,administrative territorial entity of Kingdom of Sardinia
 Q27924172,constituency of Kingdom of Sardinia
 Q27924220,entidad territorial administrativa del Reino de Italia
@@ -6616,17 +6310,16 @@ Q51674951,Kreis in the kingdom of Bavaria
 Q57979411,ducado
 Q58001476,condado (Spain)
 Q58683277,vizcondado
-Q58683981,señorio-senyoria
+Q58683981,señorio
 Q61478101,entidad territorial administrativa de la Corona de Castilla
 Q1172788,merindad
 Q6011103,merindad mayor de Castilla
 Q58872171,baronía
-Q64606162,administrative division of the Polish-Lithuanian Commonwealth
+Q64606162,administrative territorial entity of the Polish-Lithuanian Commonwealth
 Q2034632,Starostwo
 Q4440668,starostwa Wielkiego Księstwa Litewskiego
 Q19563262,powiat de la République des Deux-Nations
 Q29113513,county of the Grand Duchy of Lithuania
-Q65089818,subdivisions of the State of Palestine
 Q65183274,administrative territorial entity of the Federal Republic of Central America
 Q65183056,state of the Federal Republic of Central America
 Q75020334,administrative division of the Ryukyu Kingdom
@@ -6642,6 +6335,7 @@ Q15644911,administrative territorial entity of the Roman Empire
 Q429699,conventus iuridicus
 Q1235532,diocese of the Roman Empire
 Q4377540,praetorian prefecture
+Q104471354,senhorio
 Q12134916,center of oblast
 Q12192570,Mikhlaf
 Q12378030,Vakus
@@ -6657,6 +6351,35 @@ Q15621274,enclave or exclave
 Q171441,enclave
 Q645659,Indo-Bangladesh enclaves
 Q3610510,ethnic enclave
+Q152018,ghetto
+Q519630,South African township
+Q2583015,ghetto in Nazi-occupied Europe
+Q6190055,Jewish ghetto in German-occupied Poland
+Q51573395,Гетто в Долгиново (Вилейский район)
+Q51588808,Гетто в Илье (Минская область)
+Q2917049,Jewish ghetto in Europe
+Q16520910,yellow-star house
+Q202509,Chinatown
+Q3674986,Chinatowns in Europe
+Q5100179,Chinatowns in Africa
+Q5100181,Chinatowns in Asia
+Q5100185,Chinatowns in the Middle East
+Q904319,Koreatown
+Q907231,Japantown
+Q1544543,Greektown
+Q2636673,aljama
+Q9016264,Jewish quarter
+Q1331767,Mellah
+Q2583015,ghetto in Nazi-occupied Europe
+Q2917049,Jewish ghetto in Europe
+Q69465104,morería (neighborhood)
+Q85875185,Morería (city)
+Q6158221,Japanese Immigrant Villages in Taiwan
+Q6650409,Little India
+Q6650818,Little Manila
+Q9016264,Jewish quarter
+Q61729985,Little Italy
+Q69465104,morería (neighborhood)
 Q4251209,Moravian enclaves in Silesia
 Q933394,exclave
 Q18010485,České exklávy v Horní Lužici
@@ -6712,6 +6435,11 @@ Q17126688,International Telecommunication Union region
 Q16323596,Fylke
 Q17130641,Syssel
 Q836634,Sýsla
+Q17147958,intendency
+Q5918768,intendancy of the Spanish Empire
+Q15977968,intendency of the First Mexican Empire
+Q21727639,intendencia de Colombia
+Q22235641,intendencia de España
 Q17152565,International zone
 Q17278559,quarter of Bremen
 Q17502520,bailiwick
@@ -6740,6 +6468,7 @@ Q4388751,Razryad
 Q5177123,county of Trinidad and Tobago
 Q5473816,Crown land
 Q681026,crown land of the Austrian Empire
+Q5780635,Comunidades de villa y tierra de Ávila
 Q6126497,sexmo
 Q7075127,oblast of the Russian Empire
 Q7830212,township
@@ -6747,7 +6476,8 @@ Q8348974,community of villages
 Q13048806,Comunidad de Aldeas de Daroca
 Q13048808,Community of villages of Teruel
 Q13048809,Comunidad de Aldeas de Albarracín
-Q8348978,comunidad de villa y tierra
+Q8348978,Comunidad de villa y tierra
+Q8348984,Comunidad de villa y tierra de Segovia
 Q11511006,旧国名
 Q1541735,Former Provinces of Hokkaidō
 Q11929519,Juz
@@ -6757,6 +6487,7 @@ Q70252,province of Kenya
 Q156246,county of Iceland
 Q184188,canton of France (until 2015)
 Q383493,local government area of Scotland 1975 to 1996
+Q426759,League of Nations mandate
 Q543813,Reichskommissariat
 Q616981,province of Brazil
 Q860290,province of Japan
@@ -6783,9 +6514,8 @@ Q472538,French sister republic
 Q506593,Outremer
 Q770281,Syro–Hittite states
 Q836688,ancient Chinese state
-Q245176,Zwölf Lehnsfürstentümer
+Q245176,Doce Principados Feudales
 Q846025,Mahajanapada
-Q899706,Peru–Bolivian Confederation
 Q1039325,Janapada
 Q1336152,princely state of the British Raj
 Q1679711,Modellstaat
@@ -6811,7 +6541,7 @@ Q99541706,historical unrecognized state
 Q3102603,pays de Bretagne
 Q3307023,former administrative units of Pakistan
 Q3573632,historic comarca of North Catalonia
-Q3677604,Circondario
+Q3677604,circondario
 Q4057673,administrative division of Ukraine
 Q4057706,administrative territorial entity of the Great Duchy of Lithuania
 Q4204495,former county of Ontario
@@ -6823,6 +6553,7 @@ Q6065096,partido de Chile
 Q6635528,administrative territorial entity of the Liao dynasty
 Q7252591,province of Libya
 Q9046617,metropolitan borough of the County of London
+Q10301251,Ilhas Adjacentes
 Q10860585,country within the Czech Republic
 Q11076354,承宣布政使司
 Q11088057,administrative territorial entity of Ming dynasty
@@ -6843,7 +6574,8 @@ Q672490,deme
 Q21996849,due demi omonimi
 Q4204491,administrative territorial entity of the Soviet Union
 Q4370308,regiment
-Q6418772,subdivision of the Byzantine Empire
+Q6418772,administrative territorial entity of  the Byzantine Empire
+Q7700844,Tenth
 Q10947702,administrative territorial entity of Song dynasty
 Q15895907,administrative territorial entity of the Achaemenid Empire
 Q17147964,administrative territorial entity of the Spanish Empire
@@ -6873,7 +6605,6 @@ Q25446687,former region of Morocco
 Q26344166,province of the Kingdom of the Two Sicilies
 Q26618428,distretto del Regno delle Due Sicilie
 Q26654367,former county
-Q22865,independent city of Germany
 Q11825811,Powiat ziemski
 Q19563262,powiat de la République des Deux-Nations
 Q64624092,former county of Sweden
@@ -6898,18 +6629,21 @@ Q56219758,constituent republic within Czechoslovakia
 Q57979411,ducado
 Q58001476,condado (Spain)
 Q58683277,vizcondado
-Q58683981,señorio-senyoria
+Q58683981,señorio
 Q60480158,มณฑลภาค
 Q62005833,District of Chile
-Q64606162,administrative division of the Polish-Lithuanian Commonwealth
+Q64606162,administrative territorial entity of the Polish-Lithuanian Commonwealth
 Q69699680,former constituency of the Althing
 Q75060638,political division of Karafuto Prefecture
 Q84582639,former voivodeships of the Crown of the Kingdom of Poland
 Q91083372,župa v Československu
 Q93350035,voisinage
 Q99324125,quarter or sector of Monaco
+Q100205512,entidad territorial administrativa de la Antigua Roma
 Q101085149,former Gram Panchayat
 Q102782189,former Block Panchayat
+Q104471354,senhorio
+Q104630441,local government area of Scotland 1930 to 1975
 Q20683371,amt of Duchy of Berg
 Q20732405,volost of the Russian Empire
 Q26240527,marquisate of Spain
@@ -6939,10 +6673,11 @@ Q28502225,Sesma de Frías de Albarracín
 Q28502235,Sesma de Jiloca
 Q42915594,Scottish burgh
 Q57979411,ducado
-Q58683981,señorio-senyoria
+Q58683981,señorio
 Q93490358,Kreis der Mark Brandenburg
 Q94730503,riding of Yorkshire
 Q104117291,region of Spain
+Q104471354,senhorio
 Q19855418,Jun
 Q19953632,former administrative territorial entity
 Q20113851,gun
@@ -6956,7 +6691,6 @@ Q20724797,general governorate of the Central Powers
 Q20755075,volební okrsek
 Q20856058,landgraviate
 Q20926517,religious administrative territorial entity
-Q21851888,district of the city
 Q22085013,eparchy
 Q59136,district of Cyprus
 Q23012917,village of Burkina Faso
@@ -6973,7 +6707,7 @@ Q25412766,town of Chile
 Q26197557,bestuurlijke indeling van Kerala
 Q26846540,Ritterkanton
 Q26934845,integral overseas territory
-Q202216,overseas department of France
+Q202216,overseas departments and regions of France
 Q27062253,Gau
 Q27587207,city municipality
 Q28017630,Municipal unit of Albania
@@ -7004,7 +6738,6 @@ Q55237813,village of New York
 Q55504400,Povoado
 Q56242923,投票区
 Q56243029,松戸市の投票区
-Q56839951,městská část a městský obvod
 Q58339518,town in India
 Q58339717,city of India
 Q58953536,municipal corporation area
@@ -7020,9 +6753,11 @@ Q66941850,local admin
 Q66980082,macro county
 Q66980180,macrohood
 Q68982447,sector of Girona
+Q74728036,administrative district of Prague
 Q78053217,basic unit of settlement
 Q79337953,Stadtteil von Kiel
 Q79414634,Stadtteil von Linz
+Q79416466,Neighborhood of Frankfurt
 Q79423884,Stadtteil von Leipzig
 Q79423998,Stadtteil von Görlitz
 Q79424059,Stadtteil von Chemnitz
@@ -7182,6 +6917,7 @@ Q1493394,Ganerbenburg
 Q1643843,cave castle
 Q1688297,Umayyad desert castles
 Q1796442,Kaiserpfalz
+Q104587080,Pfalzgrafschaft
 Q1802148,Landesburg
 Q1970243,lowland castle
 Q615810,water castle
@@ -7468,6 +7204,7 @@ Q3662252,Castellaro
 Q3773924,Fortifications et constructions de Vauban
 Q4329655,Kaitsekasarm (kindlustis)
 Q4335412,strongpoint
+Q4443106,сторожевая линия
 Q5050823,castro
 Q5087265,Chashi
 Q5138347,coastal defence and fortification
@@ -7479,6 +7216,7 @@ Q6024699,motilla
 Q7128307,Palmerston fort
 Q7265965,qalat
 Q7318330,revetment
+Q10284194,fortress of Brazil
 Q10284202,Fortificações portuguesas em Mombaça
 Q10284205,Fortificações portuguesas no rio Zambeze
 Q10682841,Stäk
@@ -7548,13 +7286,14 @@ Q81195200,Gun Shelter
 Q98795663,fortified palace
 Q102227438,přirozené opevnění
 Q104406913,Village fortifications
+Q81669,arsenal
 Q131263,barracks
 Q4204494,historical barracks in Moscow
 Q5645932,garrison posts
 Q16069635,Boostkazerne
 Q19562376,barracks in Denmark
 Q55624858,naval station
-Q83554028,Gendarmeriekaserne
+Q83554028,Gendarmerie barracks
 Q2914427,guardhouse
 Q5307555,drill hall
 Q9346578,Strażnica (wojsko)
@@ -7567,7 +7306,6 @@ Q3184407,artillery magazine
 Q10418058,arkli
 Q6857854,military road
 Q194029,Roman road
-Q959042,Decumanus Maximus
 Q1035793,Cardo
 Q2380995,Roman roads in the Netherlands
 Q2961670,Chaussée Brunehaut
@@ -7576,10 +7314,9 @@ Q7362322,Roman road
 Q66084860,Brunehaut Road
 Q14286142,Roman roads in Belgium
 Q16938838,supply depot
-Q29918961,military training centre
-Q5745869,Field of Maneuvers
+Q29918961,military training center
 Q30559999,historical military facility
-Q60983064,Depot
+Q60983064,depósito
 Q64490328,military housing
 Q1198413,military camp
 Q2543279,cantonment
@@ -7587,12 +7324,13 @@ Q66311130,Kommandantur
 Q84175963,port of embarkation
 Q86194474,Schießplatz
 Q93383538,Standortmunitionsniederlage
-Q97503720,IDF brigade training bases
+Q97503720,IDF brigade training base
 Q98104322,cadastral department
 Q98772493,administrative territorial entity of Company rule in India
 Q98772456,district of Company rule in India
 Q98807679,Tampereen aluejako
 Q98807678,Tampereen suuralue
-Q102131920,thikana
+Q102131920,Address
+Q104684704,wine subregion
 ### Q6633876, list of places in Singapore : _wdadd_ 
 Q6633876,list of places in Singapore

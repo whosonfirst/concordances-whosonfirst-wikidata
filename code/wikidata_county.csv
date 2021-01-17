@@ -99,6 +99,7 @@ Q1138494,historic county of England
 Q1317848,county of Northern Ireland
 Q1350181,shire of Scotland
 Q7309443,registration county
+Q104631008,Scottish landward district
 Q98558416,historic county of Wales
 Q85625936,county of Jamaica
 Q85625936,county of Jamaica
@@ -209,10 +210,6 @@ Q505410,Congressional district
 Q7010135,New Mexico's congressional districts
 Q505830,district of Sudan
 Q545769,district of Ghana
-Q585444,administrative district of Prague
-Q74728036,district administratif de Prague
-Q75338598,městská část Prahy
-Q75339006,district territorial de Prague
 Q662914,district in Switzerland
 Q628993,district of the canton of Valais
 Q2864107,administrative district of the canton of Bern
@@ -354,8 +351,12 @@ Q15921300,sector of Bucharest
 Q17496379,City district in Austria
 Q261023,district of Vienna
 Q18559008,district of São Paulo
-Q21851888,district of the city
-Q75338598,městská část Prahy
+Q21851888,district of the city in the Czech Republic
+Q585444,districts of Prague
+Q74728036,administrative district of Prague
+Q75338598,municipal part of Prague
+Q75339006,municipal district of Prague
+Q75338598,municipal part of Prague
 Q30339232,sector of Chișinău
 Q40256562,intracity district of Belarus
 Q75135425,district de Barcelone
@@ -477,10 +478,6 @@ Q505410,Congressional district
 Q7010135,New Mexico's congressional districts
 Q505830,district of Sudan
 Q545769,district of Ghana
-Q585444,administrative district of Prague
-Q74728036,district administratif de Prague
-Q75338598,městská část Prahy
-Q75339006,district territorial de Prague
 Q662914,district in Switzerland
 Q628993,district of the canton of Valais
 Q2864107,administrative district of the canton of Bern
@@ -622,8 +619,12 @@ Q15921300,sector of Bucharest
 Q17496379,City district in Austria
 Q261023,district of Vienna
 Q18559008,district of São Paulo
-Q21851888,district of the city
-Q75338598,městská část Prahy
+Q21851888,district of the city in the Czech Republic
+Q585444,districts of Prague
+Q74728036,administrative district of Prague
+Q75338598,municipal part of Prague
+Q75339006,municipal district of Prague
+Q75338598,municipal part of Prague
 Q30339232,sector of Chișinău
 Q40256562,intracity district of Belarus
 Q75135425,district de Barcelone

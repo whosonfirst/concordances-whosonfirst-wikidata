@@ -806,6 +806,7 @@ Q386636,Ultras
 Q11690405,hooligan
 Q808772,Barra brava
 Q7825592,Torcida organizada
+Q17112019,Outing club
 Q17148672,social club
 Q1236680,gentlemen's club
 Q4879775,Beefsteak Club
@@ -848,7 +849,6 @@ Q1368262,National Paralympic Committee
 Q1478443,association football federation
 Q5450769,Football Association of Finland district
 Q61718902,former association football federation
-Q2485448,sports governing body
 Q11422536,international sport governing body
 Q19979016,specialty sports association
 Q19979126,special sports organization in Sweden
@@ -1056,7 +1056,7 @@ Q16972848,Commodity checkoff program
 Q5209578,Dairy Promotion Program
 Q7157865,peak organisation
 Q21116583,inter-professional French wine-producing organization
-Q24897655,construction work
+Q24897655,works
 Q24899836,construction work
 Q30589654,trade exchange
 Q2260125,Schützenverein
@@ -2362,6 +2362,7 @@ Q1123526,chamber of commerce
 Q779212,German Chambers of Commerce Abroad
 Q897399,Cámara de Industria y Comercio
 Q2948359,chamber of commerce in France
+Q3651286,"Camera di commercio
 Q5008696,CANACO
 Q25381619,Handelskammer Luxemburg
 Q1139056,livery company
@@ -2666,7 +2667,6 @@ Q10433482,Bostadsförening
 Q10547908,Kooperativ hyresrättsförening
 Q12433076,Asumisoikeusasunto
 Q17038182,borettslag
-Q49095060,Bostadsaktiebolag
 Q613142,law firm
 Q4950459,boutique law firm
 Q7079698,Offshore magic circle
@@ -3315,6 +3315,7 @@ Q752106,legislature broadcaster
 Q1787375,children's interest channel
 Q5001853,business channel
 Q5287666,Documentary channel
+Q6054765,international news channel
 Q6942441,music television
 Q2920351,pirate television
 Q5155072,Community television
@@ -3324,6 +3325,7 @@ Q7627897,Student television in the United Kingdom
 Q7919007,Independent station
 Q3497443,independent station
 Q15909153,Fourth Station
+Q39058665,Star Bharat
 Q63121712,Sada Elbalad
 Q1631103,hotel garni
 Q1660104,real estate company
@@ -4283,6 +4285,7 @@ Q30892595,gas processing plant
 Q91396496,natural gas processing plant
 Q4144557,mining and processing plant
 Q4232315,underground mine
+Q12098912,гидрошахта
 Q12149240,ore mining and processing company
 Q34483580,ore mine
 Q16659620,iron mine
@@ -4305,7 +4308,7 @@ Q943876,malt house
 Q11865448,Joint Technology Initiative
 Q11895845,TGK
 Q17098338,Investment broker
-Q17990971,public enterprise
+Q17990971,state-owned enterprise
 Q66344,central bank
 Q270791,state-owned enterprise
 Q273615,sovkhoz
@@ -4601,6 +4604,7 @@ Q10691563,taxicab company
 Q11276329,Contents Provider
 Q11294827,camera manufacturer
 Q11353057,一般ガス事業者
+Q11607995,editing company
 Q11753232,launch service provider
 Q11885129,Ohjelmatoimisto
 Q12043474,public relations agency
@@ -4642,7 +4646,7 @@ Q1852060,megacorporation
 Q20919433,Mediakonserni
 Q590428,Affiliated companies
 Q17442766,Edelsteinschleiferei
-Q17990971,public enterprise
+Q17990971,state-owned enterprise
 Q18019531,Arbejdsløshedskasse
 Q18124524,EHang
 Q19644607,pharmaceutical company

@@ -588,7 +588,6 @@ Q21014199,lek
 Q51330213,deep
 Q55710865,pan
 Q56044492,sinkhole
-Q56296696,Erdfall
 Q70122613,Depression
 Q3487913,cryptodepression
 Q101676790,furrow
@@ -709,6 +708,7 @@ Q2781284,bouwput
 Q2980405,Cluzeaux
 Q4010360,crawl space
 Q4232315,underground mine
+Q12098912,гидрошахта
 Q8024920,wine cave
 Q12146012,underground building
 Q44377,tunnel
@@ -1457,7 +1457,7 @@ Q892168,causeway
 Q11284064,河口堰
 Q101216902,road embankment
 Q1244922,embankment dam
-Q11285593,earth-fill dam
+Q4316623,earth-fill dam
 Q11350418,rock-fill dam
 Q20180822,concrete-face rock-fill dam
 Q4878217,beaver dam
@@ -1524,7 +1524,7 @@ Q45776,fjord
 Q11066204,Poll
 Q1172599,inlet
 Q66980635,marine area
-Q20057849,mrazová kotlina
+Q20057849,Mrazová kotlina
 Q20057850,mrazový srub
 Q20058140,Skalní práh
 Q20743937,arcus

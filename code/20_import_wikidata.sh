@@ -23,7 +23,9 @@ wc -l /wof/whosonfirst-data/wd.txt
 
 echo "======== parse wikidataid_redirects ==========="
 
-cat /wof/wikidata_dump/wikidata_redirects.csv | go run /wof/code/wdredirect_wofparse.go             > /wof/wikidata_dump/wikidata_redirects_filtered.csv
+GO111MODULE=off go build /wof/code/wdredirect_wofparse.go
+cat /wof/wikidata_dump/wikidata_redirects.csv | ./wdredirect_wofparse > /wof/wikidata_dump/wikidata_redirects_filtered.csv
+
 echo """
     -- import
     CREATE SCHEMA IF NOT EXISTS wd;
@@ -38,7 +40,8 @@ cat /wof/whosonfirst-data/wd.txt                                        | sed 's
 
 
 echo "======== parse start: wikidata_dump/latest-all.json.gz ==========="
-GO111MODULE=off /usr/bin/time --verbose go run /wof/code/wdpp.go /wof/wikidata_dump/latest-all.json.gz
+GO111MODULE=off go build /wof/code/wdpp.go
+/usr/bin/time --verbose ./wdpp /wof/wikidata_dump/latest-all.json.gz
 echo "======== parse end: wikidata_dump/latest-all.json.gz ==========="
 
 

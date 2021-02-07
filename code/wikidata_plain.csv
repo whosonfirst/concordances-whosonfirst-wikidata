@@ -1,7 +1,7 @@
 ### Q160091, plain : _wdadd_ 
 Q160091,plain
 Q163967,peneplain
-Q193071,lowland
+Q193071,lowla
 Q570554,abyssal plain
 Q656586,alluvial plain
 Q946033,polje
@@ -25,6 +25,7 @@ Q26712576,Пухавіцкая раўніна
 ### Q1006733, grassland : _wdadd_ 
 Q1006733,grassland
 Q42320,savanna
+Q537348,miombo
 Q1409399,wet savanna
 Q123991,steppe
 Q68472588,tansy steppe
@@ -33,6 +34,7 @@ Q6883971,mixed grass prairie
 Q7502172,shortgrass prairie
 Q7680132,tallgrass prairie
 Q390384,calcareous grassland
+Q537348,miombo
 Q1433901,veld
 Q7777019,meadow
 Q30121,pasture
@@ -41,6 +43,7 @@ Q1639182,Hutanger
 Q2082774,shieling
 Q2662247,deer park
 Q12043923,pasínek
+Q12731240,Izlaz
 Q12798874,planina
 Q360593,flower meadow
 Q820045,Bergmähder

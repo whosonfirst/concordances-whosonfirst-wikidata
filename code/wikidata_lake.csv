@@ -54,6 +54,7 @@ Q3215290,artificial lake
 Q131681,reservoir
 Q2534469,Forebay (reservoir)
 Q55470036,intermittent reservoir
+Q105162118,Бахчисарайское водохранилище
 Q244326,salt evaporation pond
 Q301869,inundation
 Q358976,excavation lake
@@ -129,7 +130,7 @@ Q87193797,tjern / tjärn
 Q100900880,crater lake
 Q204324,volcanic crater lake
 Q11726988,impact crater lake
-Q104093746,järvi tai lampi
+Q104093746,lake or pond
 ### Q1172903, Loch : _wdadd_ 
 Q1172903,loch
 ### Q2551525, water reservoir : _wdadd_ 
@@ -151,6 +152,7 @@ Q97071243,piscina
 Q131681,reservoir
 Q2534469,Forebay (reservoir)
 Q55470036,intermittent reservoir
+Q105162118,Бахчисарайское водохранилище
 Q208791,aquifer
 Q177734,artesian aquifer
 Q583075,phreatic zone
@@ -167,6 +169,7 @@ Q12829481,Ovdan
 Q14723701,aljibe
 Q93429857,ancient Roman cistern
 Q1117244,impluvium
+Q1898426,tajch
 Q2264348,Sedimentationsanlage
 Q2509671,zoetwaterreservoir
 Q3282339,reinwaterkelder
@@ -189,7 +192,6 @@ Q3253281,pond
 Q167045,cooling pond
 Q321832,spent fuel pool
 Q746511,Kunstteich
-Q810524,Bassin
 Q1265665,fish pond
 Q1734333,Karpfenteich
 Q2205480,Viskenij

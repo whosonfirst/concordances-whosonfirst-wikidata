@@ -1,5 +1,7 @@
 ### Q28575, county : _wdadd_ 
 Q28575,county
+Q7695,march
+Q586186,Marca de Bretaña
 Q47168,county of the United States
 Q3301053,consolidated city-county
 Q13218382,charter city and county
@@ -195,6 +197,7 @@ Q15726209,school district in the United States
 Q42577368,intermediate school district of Michigan
 Q64636958,school district of Oregon
 Q98560916,central school district
+Q104999170,county office of education in California
 Q15726214,school district of Canada
 Q16997861,joint technological education district
 Q63040043,school district of the U.S. Department of Defense
@@ -269,7 +272,7 @@ Q13388283,districts of Gilgit-Baltistan
 Q16319182,districts of Khyber Pakhtunkhwa
 Q2537537,district of Nepal
 Q2631599,district of Uzbekistan
-Q2655841,Municipality of Georgia
+Q2655841,municipality of Georgia
 Q2679943,Gewest
 Q2699727,stemdistrict
 Q2702177,Nielsendistrict
@@ -305,7 +308,6 @@ Q821435,borough of Berlin
 Q13415859,Stadtbezirk in Wuppertal
 Q15632133,city district of Cologne
 Q15727673,city district of Hanover
-Q97312698,Stadtteil in Hannover
 Q17278423,district of Bremen
 Q18600372,borough of Dresden
 Q28050899,Stadtgebiet (Frankfurt (Oder))
@@ -358,6 +360,7 @@ Q75338598,municipal part of Prague
 Q75339006,municipal district of Prague
 Q75338598,municipal part of Prague
 Q30339232,sector of Chișinău
+Q34985575,city district
 Q40256562,intracity district of Belarus
 Q75135425,district de Barcelone
 Q4732242,Allgemeine-SS Order of Battle
@@ -463,6 +466,7 @@ Q15726209,school district in the United States
 Q42577368,intermediate school district of Michigan
 Q64636958,school district of Oregon
 Q98560916,central school district
+Q104999170,county office of education in California
 Q15726214,school district of Canada
 Q16997861,joint technological education district
 Q63040043,school district of the U.S. Department of Defense
@@ -537,7 +541,7 @@ Q13388283,districts of Gilgit-Baltistan
 Q16319182,districts of Khyber Pakhtunkhwa
 Q2537537,district of Nepal
 Q2631599,district of Uzbekistan
-Q2655841,Municipality of Georgia
+Q2655841,municipality of Georgia
 Q2679943,Gewest
 Q2699727,stemdistrict
 Q2702177,Nielsendistrict
@@ -573,7 +577,6 @@ Q821435,borough of Berlin
 Q13415859,Stadtbezirk in Wuppertal
 Q15632133,city district of Cologne
 Q15727673,city district of Hanover
-Q97312698,Stadtteil in Hannover
 Q17278423,district of Bremen
 Q18600372,borough of Dresden
 Q28050899,Stadtgebiet (Frankfurt (Oder))
@@ -626,6 +629,7 @@ Q75338598,municipal part of Prague
 Q75339006,municipal district of Prague
 Q75338598,municipal part of Prague
 Q30339232,sector of Chișinău
+Q34985575,city district
 Q40256562,intracity district of Belarus
 Q75135425,district de Barcelone
 Q4732242,Allgemeine-SS Order of Battle

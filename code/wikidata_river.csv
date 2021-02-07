@@ -81,7 +81,6 @@ Q97146798,Leitgraben
 Q97290396,Gewässerausleitung
 Q97146318,Ausleitbauwerk
 Q101502735,lock pond
-Q104351604,Bealere di Torino
 Q27250,tidal creek
 Q180537,meander
 Q209333,oxbow lake
@@ -104,6 +103,7 @@ Q1016714,burn
 Q1210950,channel
 Q1837011,stream channel
 Q7112064,outflow channel
+Q12041735,náčepní loket
 Q2153116,rill
 Q3074486,flumen
 Q41982239,navigation channel
@@ -133,7 +133,7 @@ Q5715032,Azarbe
 Q16669588,кювет
 Q47395013,ridge-shaped well bore
 Q50192007,main ditch
-Q2188415,Verhang
+Q2188415,slope (river)
 Q2220686,Sandgeprägter Tieflandbach
 Q2431801,deep
 Q2539735,Balkengat

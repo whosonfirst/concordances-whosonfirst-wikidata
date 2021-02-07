@@ -158,6 +158,7 @@ Q3215290,artificial lake
 Q131681,reservoir
 Q2534469,Forebay (reservoir)
 Q55470036,intermittent reservoir
+Q105162118,Бахчисарайское водохранилище
 Q244326,salt evaporation pond
 Q301869,inundation
 Q358976,excavation lake
@@ -233,11 +234,12 @@ Q87193797,tjern / tjärn
 Q100900880,crater lake
 Q204324,volcanic crater lake
 Q11726988,impact crater lake
-Q104093746,järvi tai lampi
+Q104093746,lake or pond
 ### Q1210950, channel : _wdadd_ 
 Q1210950,channel
 Q1837011,stream channel
 Q7112064,outflow channel
+Q12041735,náčepní loket
 Q2153116,rill
 Q3074486,flumen
 Q41982239,navigation channel

@@ -21,7 +21,6 @@ Q56876519,Wikimedia infobox importer template
 Q74980542,Wikidata-driven Wikimedia template
 Q95691391,Wikimedia medical cases chart template
 Q97303168,Wikimedia deletion template
-Q97950663,Wikimedia citation template
 Q13406463,Wikimedia list article
 Q518730,order of magnitude
 Q182460,Orders of magnitude (temperature)
@@ -203,17 +202,18 @@ Q1474116,top-level category
 Q15407973,Wikimedia disambiguation category
 Q15647814,Wikimedia administration category
 Q6465339,Wikipedia:Maintenance
-Q20769287,Wikimedia user category
-Q20010800,Wikimedia user language category
 Q23894233,Wikimedia templates category
 Q13331174,Wikimedia navboxes category
 Q23894246,Wikimedia infobox templates category
+Q97950663,Wikimedia citation template
 Q24046192,Wikimedia category of stubs
 Q24514938,Wikidata property usage tracking category
 Q30330522,Wikimedia unknown parameters category
 Q38084761,Wikimedia category for no label in Wikidata
 Q58118449,Wikimedia modules category
 Q67131190,Wikimedia tracking category
+Q20769287,Wikimedia user category
+Q20010800,Wikimedia user language category
 Q24574745,Commons category
 Q30432511,metacategory in Wikimedia projects
 Q54662266,field
@@ -242,7 +242,6 @@ Q56876519,Wikimedia infobox importer template
 Q74980542,Wikidata-driven Wikimedia template
 Q95691391,Wikimedia medical cases chart template
 Q97303168,Wikimedia deletion template
-Q97950663,Wikimedia citation template
 Q13406463,Wikimedia list article
 Q518730,order of magnitude
 Q182460,Orders of magnitude (temperature)

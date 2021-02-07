@@ -256,7 +256,7 @@ Q66659678,松原
 Q67625239,Sclerophyll forests
 Q66317293,Dry sclerophyll forests
 Q67625211,Wet sclerophyll forests
-Q92272084,parco forestale
+Q92272084,parc forestier
 Q93734705,moist forest
 Q9444,rainforest
 Q199403,tropical forest
@@ -292,6 +292,7 @@ Q2083910,vegetation zone
 Q4421,forest
 Q1006733,grassland
 Q42320,savanna
+Q537348,miombo
 Q1409399,wet savanna
 Q123991,steppe
 Q68472588,tansy steppe
@@ -300,6 +301,7 @@ Q6883971,mixed grass prairie
 Q7502172,shortgrass prairie
 Q7680132,tallgrass prairie
 Q390384,calcareous grassland
+Q537348,miombo
 Q1433901,veld
 Q7777019,meadow
 Q30121,pasture
@@ -308,6 +310,7 @@ Q1639182,Hutanger
 Q2082774,shieling
 Q2662247,deer park
 Q12043923,pasínek
+Q12731240,Izlaz
 Q12798874,planina
 Q360593,flower meadow
 Q820045,Bergmähder
@@ -334,7 +337,7 @@ Q1851563,profundal zone
 Q5255177,demersal zone
 Q160091,plain
 Q163967,peneplain
-Q193071,lowland
+Q193071,lowla
 Q570554,abyssal plain
 Q656586,alluvial plain
 Q946033,polje
@@ -407,6 +410,7 @@ Q60102117,Kesselmoor
 Q61748349,Depressions on peat substrates of the Rhynchosporion
 Q61748421,Aapa mire
 Q61748425,Palsa mire
+Q105098259,peat bog
 Q3240227,moor
 Q3515225,tanne
 Q3575234,Marjal
@@ -420,9 +424,11 @@ Q16523447,Turjánvidék
 Q17249182,bažina
 Q19683138,Ramsar site
 Q28861769,Ramsar site in Moldova
+Q61361416,Ramsar site in South Africa
 Q61457040,Ramsar site in Australia
 Q34891928,Wetland Management District
 Q36449705,peatland
+Q105098259,peat bog
 Q55463449,intermittent wetland
 Q61298831,Important Wetlands in Australia
 Q62562206,tidal marsh
@@ -453,8 +459,11 @@ Q23442,island
 Q13691,artificial island
 Q91759,crannog
 Q1870237,Arbeitsinsel
+Q28692646,artificial island airport
 Q96316262,cattle mound
 Q21161,halligen
+Q42523,atoll
+Q15629617,unorganized atoll of American Samoa
 Q202199,inland island
 Q162602,river island
 Q361950,point bar
@@ -482,6 +491,7 @@ Q1737143,Kaupe
 Q1973360,Nebeninsel
 Q2920849,low island
 Q2984210,privately owned island
+Q7415903,sand island
 Q9433297,冲积岛
 Q10546851,kobbe
 Q10549487,Kronoholme islands
@@ -509,8 +519,6 @@ Q191992,headland
 Q2362867,presque-isle
 Q20656617,Odde
 Q21817244,Øre
-Q42523,atoll
-Q15629617,unorganized atoll of American Samoa
 Q224090,quicksand
 Q855697,subcontinent
 Q1140140,mainland
@@ -599,7 +607,6 @@ Q6630197,national park of Dominica
 Q6630198,national park of El Salvador
 Q6630200,national park of Gabon
 Q6630207,national park of Seychelles
-Q6630208,national park of Uruguay
 Q6974775,national park of Argentina
 Q6979643,national park of Rwanda
 Q10594812,national city park
@@ -695,6 +702,7 @@ Q95977092,Tokyo metropolitan park
 Q96120838,parque ecológico
 Q98411615,Kępa Park in Sosnowiec
 Q102115779,Village Where You Can Meet Statues
+Q105046919,сядзібна-паркавы комплекс
 Q57743,village green
 Q2230894,Frankische Driehoek
 Q167346,botanical garden
@@ -712,6 +720,7 @@ Q7839970,trial garden
 Q9251669,exotarium
 Q55670434,dendrological park or botanical garden in Russia
 Q1107656,garden
+Q4460,Persian gardens
 Q12774,French formal garden
 Q12781,Giardino all'italiana
 Q12783,English garden
@@ -956,6 +965,7 @@ Q19311633,Wildschutzgebiet
 Q23905068,wildlife refuge of Brazil
 Q76163442,wildlife refuge
 Q93872398,Wildruhegebiet
+Q104905143,Washington state wildlife area
 Q2415574,Vlaams natuurreservaat
 Q3457217,state forest reserve
 Q3457526,local nature reserve

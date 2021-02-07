@@ -75,6 +75,7 @@ RUN \
         osmium-tool \
         parallel \
         pbzip2 \
+        pigz \
         postgresql-client-${PG_MAJOR} \
         pspg \
         python3-dev \
@@ -82,8 +83,8 @@ RUN \
         python3-pip \
         sqlite3 \
         sudo \
-        wget \
         time \
+        wget \
     && rm -rf /var/lib/apt/lists/* /tmp/*
 
 
@@ -91,18 +92,18 @@ RUN \
 RUN \
     apt-get update \
     && apt-get install -yqq \
-        libopenblas0-pthread \
+        libcairo2-dev \
         littler \
+        pandoc \
         r-base \
-        r-cran-littler \
+        r-base-dev \
+        r-base-html \
         r-recommended \
     && rm -rf /var/lib/apt/lists/* /tmp/*
 
-RUN echo "install R packages" \
-    && Rscript -e 'install.packages("sf",dependencies=TRUE, clean=TRUE) ' \
-    && Rscript -e 'install.packages("tidyverse",dependencies=TRUE, clean=TRUE) ' \
-    && Rscript -e 'install.packages("WikidataR",dependencies=TRUE, clean=TRUE) ' \
-    && rm -rf /var/lib/apt/lists/* /tmp/*
+RUN Rscript -e 'install.packages(c("sf", "tidyverse", "WikidataR"), dependencies = TRUE, repos = "https://cloud.r-project.org")'
+# R smoke test
+RUN Rscript -e 'library(sf);library(WikidataR);library(tidyverse);print("R - is working!")'
 
 RUN sudo -H npm install --unsafe-perm -g wikidata-taxonomy \
     && npm cache clean --force \
@@ -110,8 +111,8 @@ RUN sudo -H npm install --unsafe-perm -g wikidata-taxonomy \
 
 # Install Julia 1.6 beta1
 ENV JULIA_MAJOR=1.6
-ENV JULIA_VERSION=1.6.0-beta1
-ENV JULIA_SHA256=30b214c7f544c6589a20104eaa6764eb368cadac5fa834b7454b747043e5a2b8
+ENV JULIA_VERSION=1.6.0-rc1
+ENV JULIA_SHA256=72847bd2b4d4db9d5970512f79fd5a7f76ad56cf0f2ea5a80eff032364b19c8b 
 ENV JULIA_DIR=/usr/local/julia
 ENV JULIA_PATH=${JULIA_DIR}
 
@@ -134,7 +135,7 @@ RUN julia --trace-compile="traced.jl" \
                    replace_default=true) \
              ' \
     && rm traced.jl
-# check;
+# julia -  smoke test
 RUN julia -e 'using CpuId, SystemBenchmark, Arrow, ClickHouse, CSV, DataFrames, DataStreams, JSON, LibPQ, SQLite, XLSX;' \
     && julia -e 'using InteractiveUtils; versioninfo()'
 
@@ -142,8 +143,8 @@ RUN julia -e 'using CpuId, SystemBenchmark, Arrow, ClickHouse, CSV, DataFrames, 
 ARG GOPATH=/go
 ENV GOPATH=${GOPATH} \
     PATH=${GOPATH}/bin:/usr/local/go/bin:$PATH
-ARG GOLANG_VERSION=1.16beta1
-ARG GOLANG_DOWNLOAD_SHA256=3931a0d493d411d6c697df6f15d5292fdd8031fde7014fded399effdad4c12d8
+ARG GOLANG_VERSION=1.16rc1
+ARG GOLANG_DOWNLOAD_SHA256=6a62610f56a04bae8702cd2bd73bfea34645c1b89ded3f0b81a841393b6f1f14
 RUN set -eux \
     && apt-get update \
     && apt-get install -yqq --no-install-suggests --no-install-recommends \
@@ -185,9 +186,11 @@ RUN    go get -u  github.com/omniscale/imposm3@master \
 
 #
 RUN    pip3 install --no-cache-dir --upgrade pip \
-    && pip3 install --no-cache-dir --upgrade setuptools wheel \
+    && pip3 install --no-cache-dir --upgrade setuptools \
+    && pip3 install --no-cache-dir --upgrade wheel \
     && pip3 install --no-cache-dir --upgrade csvkit \
-    && pip3 install --no-cache-dir --upgrade xlsx2csv
+    && pip3 install --no-cache-dir --upgrade xlsx2csv \
+    && pip3 install --no-cache-dir --upgrade duckdb
 
 
 RUN  git clone --quiet --depth 1 https://github.com/whosonfirst/go-whosonfirst-utils.git \
@@ -275,11 +278,11 @@ RUN git clone --quiet --depth 1 https://github.com/jfcoz/postgresqltuner.git \
 
 RUN git clone --depth 1 --branch master https://github.com/lesovsky/pgcenter \
     && cd pgcenter \
-    && go get -u github.com/lib/pq@v1.8.0 \
+    && go get -u github.com/lib/pq@v1.9.0 \
     && make \
     && make install \
     && pgcenter --version
 
-ADD  .psqlrc /root/.psqlrc
+ADD .psqlrc /root/.psqlrc
 
 WORKDIR /wof/

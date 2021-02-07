@@ -16,7 +16,7 @@ Q21504956,subterranean waterfall
 Q40172600,Japan's Top 100 Waterfalls
 Q46867411,salto
 Q46868895,salto más alto
-Q60663471,Tiered waterfall
+Q60663471,tiered waterfall
 Q65238607,köngäs
 Q39594,bay
 Q31615,cove
@@ -168,6 +168,17 @@ Q81720784,
 Q90400113,jesenické prameny
 Q101726155,"Бурсук (родник
 Q156030,Liman
+Q166620,drainage basin
+Q194502,endorheic basin
+Q2908753,Class A river system
+Q7974430,watersheds of North America
+Q11253501,river system of Norway
+Q12079191,artesian basin
+Q25416216,sub-basin
+Q38833082,Drain cover
+Q65209597,Conques intercomunitàries
+Q82700259,sea basin
+Q104347069,lake system
 Q170321,wetland
 Q30198,marsh
 Q31455,freshwater marsh
@@ -231,6 +242,7 @@ Q60102117,Kesselmoor
 Q61748349,Depressions on peat substrates of the Rhynchosporion
 Q61748421,Aapa mire
 Q61748425,Palsa mire
+Q105098259,peat bog
 Q3240227,moor
 Q3515225,tanne
 Q3575234,Marjal
@@ -248,9 +260,11 @@ Q16523447,Turjánvidék
 Q17249182,bažina
 Q19683138,Ramsar site
 Q28861769,Ramsar site in Moldova
+Q61361416,Ramsar site in South Africa
 Q61457040,Ramsar site in Australia
 Q34891928,Wetland Management District
 Q36449705,peatland
+Q105098259,peat bog
 Q55463449,intermittent wetland
 Q61298831,Important Wetlands in Australia
 Q62562206,tidal marsh
@@ -304,6 +318,13 @@ Q1996446,Noor
 Q2354300,brine pool
 Q2479431,open water
 Q2507626,water area
+Q165,sea
+Q204894,marginal sea
+Q1973404,inland sea
+Q986177,mediterranean sea
+Q2578218,inland sea
+Q3652541,Межостровные моря
+Q12714656,visserijzone van Jan Mayen
 Q37901,strait
 Q447555,Bodden
 Q863944,land waters
@@ -327,12 +348,6 @@ Q2908753,Class A river system
 Q11371756,Class B river system
 Q337567,still waters
 Q165,sea
-Q204894,marginal sea
-Q1973404,inland sea
-Q986177,mediterranean sea
-Q2578218,inland sea
-Q3652541,Межостровные моря
-Q12714656,visserijzone van Jan Mayen
 Q23397,lake
 Q187223,lagoon
 Q431064,barachois
@@ -388,6 +403,7 @@ Q3215290,artificial lake
 Q131681,reservoir
 Q2534469,Forebay (reservoir)
 Q55470036,intermittent reservoir
+Q105162118,Бахчисарайское водохранилище
 Q244326,salt evaporation pond
 Q301869,inundation
 Q358976,excavation lake
@@ -463,7 +479,7 @@ Q87193797,tjern / tjärn
 Q100900880,crater lake
 Q204324,volcanic crater lake
 Q11726988,impact crater lake
-Q104093746,järvi tai lampi
+Q104093746,lake or pond
 Q152841,puddle
 Q2939010,rietput
 Q3361668,paddenpoel
@@ -511,6 +527,7 @@ Q12829481,Ovdan
 Q14723701,aljibe
 Q93429857,ancient Roman cistern
 Q1117244,impluvium
+Q1898426,tajch
 Q2264348,Sedimentationsanlage
 Q2509671,zoetwaterreservoir
 Q3282339,reinwaterkelder
@@ -539,7 +556,6 @@ Q3253281,pond
 Q167045,cooling pond
 Q321832,spent fuel pool
 Q746511,Kunstteich
-Q810524,Bassin
 Q1265665,fish pond
 Q1734333,Karpfenteich
 Q2205480,Viskenij
@@ -580,6 +596,7 @@ Q5926864,group of lakes
 Q25498657,group of interconnected lakes
 Q42055295,group of ponds
 Q61861051,laguna
+Q104901002,
 Q355304,watercourse
 Q12284,canal
 Q68530,flume
@@ -662,7 +679,6 @@ Q97146798,Leitgraben
 Q97290396,Gewässerausleitung
 Q97146318,Ausleitbauwerk
 Q101502735,lock pond
-Q104351604,Bealere di Torino
 Q27250,tidal creek
 Q180537,meander
 Q209333,oxbow lake
@@ -685,6 +701,7 @@ Q1016714,burn
 Q1210950,channel
 Q1837011,stream channel
 Q7112064,outflow channel
+Q12041735,náčepní loket
 Q2153116,rill
 Q3074486,flumen
 Q41982239,navigation channel
@@ -714,7 +731,7 @@ Q5715032,Azarbe
 Q16669588,кювет
 Q47395013,ridge-shaped well bore
 Q50192007,main ditch
-Q2188415,Verhang
+Q2188415,slope (river)
 Q2220686,Sandgeprägter Tieflandbach
 Q2431801,deep
 Q2539735,Balkengat
@@ -923,6 +940,7 @@ Q576515,fast ice
 Q46966,ice shelf
 Q1319638,grease ice
 Q13398859,pack ice
+Q1378564,drift ice
 Q93441425,section of a body of water
 Q57208127,section of a lagoon
 Q57208156,section of a lake

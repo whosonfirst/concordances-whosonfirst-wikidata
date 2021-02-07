@@ -31,7 +31,6 @@ Q11335135,block newspaper
 Q2305295,weekly newspaper
 Q2302208,sunday newspaper
 Q3402495,Sunday edition
-Q3402495,Sunday edition
 Q2328176,district newspaper
 Q2390658,village newspaper
 Q2466157,clipping paper
@@ -157,6 +156,7 @@ Q2766008,kafana
 Q5526694,Gasthaus
 Q10717186,vägkrog
 Q13136214,ijsherberg
+Q15790016,Bruiden
 Q16742329,Ausspann
 Q30919351,Meson
 Q42899902,parador
@@ -164,7 +164,6 @@ Q1476845,Paradores de Turismo de España
 Q56756850,Bierbude
 Q58297838,church inn
 Q102045536,sjökrog
-Q104792526,Bruiden
 Q475113,cosplay restaurant
 Q8657160,maid café
 Q86750093,Butler café
@@ -242,6 +241,8 @@ Q54957790,canteen
 Q568225,refectory
 Q3247621,Cenacoli of Firenze
 Q90401491,staff canteen
+Q10861387,sushi-ya
+Q1230557,conveyor belt sushi
 Q11398011,Kappo
 Q12040632,non-smoking restaurant
 Q15733260,lunch counter
@@ -335,6 +336,7 @@ Q11877099,ubytovna
 Q42307250,Hospederías in Spain
 Q42899902,parador
 Q101242692,Gay Hostel
+Q105349651,bail hostel
 Q748976,condo hotel
 Q837834,capsule hotel
 Q951791,roadhouse
@@ -396,6 +398,7 @@ Q977382,cloth hall
 Q2386997,Gostiny Dvor
 Q1415509,jumble sale
 Q1522620,farmers' market
+Q7403204,tamu
 Q13592976,livestock market
 Q10406096,牛墟
 Q2066998,Dutch cheese markets
@@ -495,6 +498,7 @@ Q67866902,registered political party
 Q92326395,Basque political party
 Q95983237,Marxist political parties
 Q100274852,political party in Ukraine
+Q43565,Russian Academy of Engineering
 Q48204,voluntary association
 Q120968,Acclimatisation society
 Q4672658,Acclimatisation societies in New Zealand
@@ -556,6 +560,7 @@ Q7257704,public benefit organization
 Q12041908,obecně prospěšná společnost
 Q62029758,zapsaný ústav
 Q7888327,United Nations Association
+Q11992356,farní charita
 Q18325436,501(c)(3) organization
 Q7246202,private foundation
 Q18690814,Rouvasväenyhdistys
@@ -564,10 +569,19 @@ Q25429218,Instituição Particular de Solidariedade Social
 Q33060455,charitable fund
 Q96943524,health charity
 Q101224664,settlement house
+Q104896077,Christian charity
 Q829080,professional association
 Q3153556,Inter-professional association
 Q6070923,Irish Linen Guild
 Q10262930,Câmara de Dirigentes Lojistas
+Q10729872,medical association
+Q306036,Österreichische Ärztekammer
+Q1516655,Tierärztekammer
+Q7373991,Royal College of Surgeons
+Q15855960,Ärztekammer
+Q144136,Zahnärztekammer
+Q144145,Zahnärztlicher Bezirksverband
+Q15995300,Medical royal colleges
 Q12057459,union of writers
 Q22679796,correspondents' association
 Q43080256,Delta Kappa Gamma
@@ -581,9 +595,15 @@ Q26271642,library network
 Q11871664,library group
 Q16860836,library district of the United States
 Q955214,mutual organization
+Q695318,mutual insurance
+Q5691091,health insurance cooperative
+Q55598711,Mutuelle de santé en France
+Q20826055,Sōgo-gaisha
 Q55964662,Entidad de previsión social voluntaria
 Q66305940,mutual domestic
 Q99691502,gjensidig forsikringsselskap
+Q105162507,Registered Society
+Q105163530,Community Benefit Society
 Q955824,learned society
 Q145050,Sprachgesellschaft
 Q162633,academy
@@ -639,10 +659,10 @@ Q182391,motorcycle club
 Q1849110,outlaw motorcycle club
 Q11294730,Kaminarizoku
 Q264542,student club
-Q394848,Matica
 Q847017,sports club
 Q31532,farm team
 Q1236324,cantera
+Q414858,Akademischer Seglerverein
 Q1181396,debating society
 Q20635181,student debating society
 Q1728211,canoe club
@@ -652,6 +672,8 @@ Q1997362,walking club
 Q2022036,golf club
 Q2071567,flying club
 Q2142568,alpine club
+Q414823,Akademischer Gebirgsverein
+Q2267256,section
 Q20755675,Německé alpské spolky v českých zemích
 Q2260125,Schützenverein
 Q2393433,dance sport team
@@ -684,6 +706,7 @@ Q11353199,一軍
 Q13027888,baseball team
 Q11299044,クラブチーム (社会人野球)
 Q13393265,basketball team
+Q28667634,BC Kupol-Rodniki
 Q46351685,national basketball team
 Q4433740,women's national basketball team
 Q17165333,FIBA Basketball World Cup teams
@@ -779,6 +802,7 @@ Q98767736,fictional sports club
 Q38034470,fictional football team
 Q99747627,roller hockey team (quad)
 Q102900903,orienteering club
+Q883801,Männerbund
 Q998421,book sales club
 Q1524210,Gilde freiheitlicher Bücherfreunde
 Q1088789,Ancient Greek clubs
@@ -827,6 +851,7 @@ Q83450242,Burns Club
 Q84768195,Erfa-Kreis
 Q97499974,Orchesterverein
 Q104042386,gun club
+Q104894798,Matica
 Q1016989,Burschenschaft (Dorfverein)
 Q1021128,community action group
 Q1156831,umbrella organization
@@ -927,6 +952,7 @@ Q1286469,Kirchenbauverein
 Q1312557,Eisenbahnverein
 Q1391145,professional society
 Q748019,scientific society
+Q386072,Afrikanische Gesellschaften
 Q414147,academy of sciences
 Q941221,Chemical Society
 Q1636672,International Cultivar Registration Authority
@@ -936,8 +962,6 @@ Q4137494,Герпетологические общества
 Q4435550,list of ornithological societies
 Q4532097,stowarzyszenie entomologiczne
 Q10729872,medical association
-Q7373991,Royal College of Surgeons
-Q15995300,Medical royal colleges
 Q42295484,zoological society
 Q77081150,archaeological society
 Q98151091,scientific societies in Colombia
@@ -1032,7 +1056,6 @@ Q1734138,carnival association
 Q1965390,Narrenzunft
 Q24175521,Hexenzunft
 Q2906832,Carnival block
-Q1566042,Ilê Aiyê
 Q47486326,Narrenvereinigung
 Q1797187,artist society
 Q1110992,Guild of Saint Luke
@@ -1360,6 +1383,7 @@ Q86065117,Bibliocoop
 Q89202437,library storage facility
 Q92294669,genealogical center
 Q93874634,臺中市立圖書館北屯兒童分館一般閱覽席
+Q105338594,diocesan library
 Q33506,museum
 Q218735,customs museum
 Q588140,science museum
@@ -1433,9 +1457,10 @@ Q68278838,Síň slávy České basketbalové federace
 Q1146002,cabinet of curiosities
 Q672603,studiolo
 Q1191610,sex museum
-Q1231888,Diocesan Museum
+Q1231888,diocesan museum
 Q1307560,Jewish museum
 Q1538669,school museum
+Q1539779,Palastmuseum
 Q1549731,interpretation centre
 Q16761700,nature center
 Q61461367,Audubon center
@@ -1458,6 +1483,7 @@ Q2106220,postal museum
 Q21550879,philatelic museum
 Q2244602,Schloss country house museum
 Q2310465,toy museum
+Q1850552,doll museum
 Q2772772,military museum
 Q1014837,museum of fortifications
 Q1465881,pioneer museum
@@ -1496,11 +1522,11 @@ Q10520688,local heritage institution in Sweden
 Q10624527,biographical museum
 Q11197854,torture museum
 Q11341528,comics museum
+Q11549301,waterworks museum
 Q11786880,Firefighting museum
 Q11895075,provincial museum in Finland
 Q11990908,nasjonalparksenter
 Q12357399,Jazz museum
-Q16000518,palace museum
 Q16735822,history museum
 Q1093436,computer museum
 Q1595639,local museum
@@ -1564,7 +1590,7 @@ Q3768550,plaster cast gallery
 Q1128500,museum of sacred art
 Q3868307,Museo diocesano de arte sacro
 Q1200701,design museum
-Q1231888,Diocesan Museum
+Q1231888,diocesan museum
 Q1415133,film museum
 Q1352795,cinematheque
 Q1475403,kunsthalle
@@ -1626,6 +1652,7 @@ Q2519292,Verwaltungsarchiv
 Q2877653,church archive
 Q11906839,episcopal archive
 Q34544468,parish archive
+Q105339419,diocesan archive
 Q2945282,documentation centre
 Q3621648,current archive
 Q5227240,data library
@@ -1706,7 +1733,6 @@ Q65651503,newspaper clippings archive
 Q61710689,LGBT archive
 Q73165306,World Center for Women's Archives
 Q73290548,Gerritsen Collection
-Q84851343,artist files
 Q85545753,religious archive
 Q167346,botanical garden
 Q272231,arboretum
@@ -1723,20 +1749,6 @@ Q7839970,trial garden
 Q9251669,exotarium
 Q55670434,dendrological park or botanical garden in Russia
 Q464980,exhibition
-Q43501,zoo
-Q459886,petting zoo
-Q642682,safari park
-Q1401536,menagerie
-Q2548054,travelling menagerie
-Q1509615,geozoo
-Q1711697,wildlife park
-Q65240439,Lionsrock
-Q1886911,butterfly house
-Q1995305,bird park
-Q2351333,serpentarium
-Q3363934,zoological park
-Q4179884,Живой уголок
-Q9251669,exotarium
 Q262478,Paris Salon
 Q21491195,médaille d'or du Salon
 Q288514,fair
@@ -1818,6 +1830,7 @@ Q2556222,Weinmesse
 Q2558300,Leading Trade Fair
 Q2613738,computer expo
 Q3428525,woonbeurs
+Q4670142,Abu Dhabi Medical Congress
 Q4931516,boat show
 Q5446981,field day
 Q11812441,Musikmesse
@@ -1961,9 +1974,6 @@ Q55599658,Rétromobile 2018
 Q60170543,Radiolympia
 Q60846629,Rétromobile 2019
 Q61890289,Malabar Craft mela
-Q66310308,show garden
-Q167346,botanical garden
-Q66310313,museum garden
 Q66486615,garden show
 Q154012,garden festival
 Q1429577,Floriade
@@ -1974,9 +1984,11 @@ Q6934459,multi-image
 Q100326673,Ethnological exhibition
 Q1569977,human zoo
 Q104771289,Unibrejk
+Q105074362,permanent exhibition
 Q1497649,memory institution
 Q212805,digital library
 Q671735,media library
+Q16735822,history museum
 Q4751185,Anambra State University
 Q5739135,heritage centre
 Q5774403,historical society
@@ -2019,6 +2031,7 @@ Q2982955,public collection
 Q11681271,curatorial department of the Louvre
 Q3075898,Fonds régional d'art contemporain
 Q3926588,Quadreria
+Q4796697,art bank
 Q11681271,curatorial department of the Louvre
 Q14167874,artist's portfolio
 Q15841793,council silver
@@ -2264,7 +2277,7 @@ Q8341875,Casal Català de Montevideo
 Q8343573,Centro Catalán de Caracas
 Q20108753,Casal Català del Quebec
 Q20613876,Colla Chobenil d'a Fabla
-Q53361238,Verein
+Q53361238,association
 Q55176272,theosophical lodge
 Q56145962,Colla sardanista
 Q56284681,rechtsfähiger Verein
@@ -2370,7 +2383,6 @@ Q2270054,schuttersgilden van Kortrijk
 Q10510504,gold wire drawing guild
 Q28668686,Guilds of Milan
 Q57658849,Guilds of Venice
-Q256648,Ärztevereinigung
 Q627272,employers' organization
 Q779212,German Chambers of Commerce Abroad
 Q806731,asociación bancaria
@@ -2389,6 +2401,7 @@ Q1470680,Jugendring
 Q62065526,Landesjugendring
 Q1666024,Mieterverein
 Q1681790,Sprecherausschuss
+Q1780353,kommunaler Spitzenverband
 Q2358057,Stubengesellschaft
 Q2511760,productschap
 Q3233801,hate group
@@ -2400,14 +2413,19 @@ Q9137381,ARGI
 Q10705442,Trygg Trafikk
 Q20191809,Wirtschaftsvereinigung
 Q20979122,Klub Lange Mensen
+Q31884698,tenants' union
+Q1666024,Mieterverein
+Q7882398,Unbought Tenants' Association
 Q58452521,Unisolar
 Q61889487,disability rights organization
 Q73287595,students' association of a university
 Q820425,Bergwaldprojekt
-Q1163643,Classification society
+Q1163643,classification society
 Q1194093,international non-governmental organization
 Q1666019,pressure group
+Q256648,Ärztevereinigung
 Q898608,Gay Mafia
+Q1201789,German-Japanese society
 Q1662123,industry association
 Q4694525,Agudath Israel of America
 Q8035344,World Agudath Israel
@@ -2476,6 +2494,7 @@ Q3190045,Junior Association
 Q3269648,community organization
 Q1605672,Youth leader
 Q6484048,Land council
+Q16142822,afoxé
 Q16237999,Men's Shed
 Q27589066,Transition Initiative
 Q43148632,Jewish Community Relations Council
@@ -2567,6 +2586,7 @@ Q11513034,association under the French law of 1901
 Q11570934,specified non-profit corporation
 Q11773904,Církev a náboženská společnost
 Q11985292,evidovaná právnická osoba církve a náboženské společnosti
+Q11992356,farní charita
 Q12041908,obecně prospěšná společnost
 Q12057447,svaz církví a náboženských společností
 Q12374962,foundation
@@ -2605,6 +2625,7 @@ Q92055844,section 21 company
 Q95678620,forening/lag/innretning
 Q100460318,soutien opérationnel virtuel
 Q104252213,public association
+Q105036956,Снежный десент
 Q190928,shipyard
 Q452020,submarine pen
 Q1745026,naval arsenal
@@ -2637,6 +2658,7 @@ Q4498092,mechanized bakery
 Q47505416,Konditorei
 Q63869420,cupcake bakery
 Q99769296,Chinese bakery
+Q105051786,WonderWaffel
 Q283315,Briquette Factory
 Q290000,shell corporation
 Q914219,Shell bank
@@ -2672,6 +2694,168 @@ Q4950459,boutique law firm
 Q7079698,Offshore magic circle
 Q20797471,Corporated law firm
 Q614084,consumer cooperative
+Q650241,financial institution
+Q182103,pension fund
+Q2069258,Pensionsfonds
+Q2925749,Pan-Europees pensioenfonds
+Q4315979,Негосударственный пенсионный фонд
+Q16584993,otwarty fundusz emerytalny
+Q23718854,Algemeen Pensioenfonds
+Q43754338,účastnický fond
+Q67583337,účastnický fond
+Q67583888,transformovaný fond
+Q103985137,industry-wide pension fund
+Q730038,credit institution
+Q22687,bank
+Q66344,central bank
+Q188506,online banking
+Q24081315,WAP banking
+Q251927,Public bank
+Q319845,investment bank
+Q4950458,boutique investment bank
+Q427670,Women-only bank
+Q568041,universal bank
+Q665634,cantonal bank
+Q779129,Auslandsbank
+Q798630,Bad bank
+Q848507,commercial bank
+Q1227557,direct bank
+Q1281016,transaction bank
+Q1548033,large bank
+Q1553482,specialized bank
+Q486547,Shinkin bank
+Q786071,banco automotor
+Q1802186,state development institution
+Q1021586,credit guarantee association
+Q5266746,development bank
+Q3633759,Community development bank
+Q6972269,national development bank
+Q22915323,group bank
+Q57416872,export-import bank
+Q57775246,agricultural bank
+Q1590999,Principal Bank
+Q1641457,mortgage bank
+Q1921438,merchant bank
+Q2111088,private bank
+Q2235168,Schiffshypothekenbank
+Q2309337,wisselbank
+Q2593736,Offshore bank
+Q2883448,chartered bank
+Q4481787,Federal Reserve Bank
+Q4966328,bridge bank
+Q6579042,national bank
+Q7309198,regional bank
+Q9645325,postal bank
+Q11343513,Mega Bank
+Q11571030,special bank
+Q11581869,相互銀行
+Q11643700,都市銀行
+Q12038586,monobanka
+Q12474542,foreign exchange bank
+Q14324749,Christian finance
+Q14948396,Regional Rural Bank
+Q15807586,CRR-Kreditinstitut
+Q15841019,Private central bank
+Q19895173,Payments bank
+Q19898415,Small finance bank
+Q20767252,Bank van Lening
+Q24936905,Sovzagranbank
+Q29944151,Postcheque
+Q31073890,Banc expropiat
+Q39049085,Challenger bank
+Q51531768,banque gratuite
+Q57775028,international bank
+Q60767305,neobank
+Q76218249,retail bank
+Q5154919,community bank
+Q157963,savings bank
+Q2917176,savings bank of Spain
+Q4375388,Postal savings system
+Q13601825,Sparkasse
+Q13905956,Nutsspaarbank
+Q17103304,sparebank
+Q449067,building society
+Q2111078,Private Bausparkasse
+Q13604004,Landesbausparkasse
+Q781369,custodian bank
+Q896525,Landesbank
+Q1416636,non-banking financial company
+Q743199,structured investment vehicle
+Q1416313,financial services institution
+Q1416371,Finanzholding-Gesellschaft
+Q2143354,insurance company
+Q294403,Öffentlicher Versicherer
+Q563787,health maintenance organization
+Q831941,company health insurance
+Q80923943,betriebsbezogene Betriebskrankenkasse
+Q80923974,geöffnete Betriebskrankenkasse
+Q835141,Allgemeine Ortskrankenkasse
+Q1519138,national health insurance
+Q1664256,Innungskrankenkasse
+Q48753320,Ersatzkasse
+Q50840899,Országos Társadalombiztosítási Intézet
+Q56669150,Direktkrankenkasse
+Q695318,mutual insurance
+Q1203773,German Pension Insurance
+Q1454939,Sterbekasse
+Q1577277,Landwirtschaftliche Sozialversicherung
+Q1701930,Unfallkasse
+Q1335076,Feuerwehr-Unfallkasse
+Q2111092,private health insurance
+Q4315979,Негосударственный пенсионный фонд
+Q13573435,direct writer
+Q16712913,Превентивні заходи в страхуванні
+Q21006406,Pension Insurance Companies
+Q45841276,Det norske Garantiselskab
+Q54782868,mutua de seguros
+Q76226154,car insurance company
+Q76226590,life insurance company
+Q76227063,property insurance company
+Q99691502,gjensidig forsikringsselskap
+Q102403401,health insurance company
+Q2563546,investment firm
+Q4230006,asset management company
+Q6899283,money services business
+Q20107444,bitcoin exchange
+Q93429784,небанковская кредитная организация
+Q2030774,Originator
+Q2082294,Pfandbriefbank
+Q1320391,Landschaft
+Q1641457,mortgage bank
+Q2441956,hypotheeknemer
+Q3277997,cooperative bank
+Q486547,Shinkin bank
+Q745877,credit union
+Q5283288,District Cooperative Central Bank
+Q6467378,Labour Bank
+Q18689035,Osuuskassa
+Q15807586,CRR-Kreditinstitut
+Q79447245,Real estate bank
+Q60970139,Bostadskreditinstitut
+Q93429702,кредитная организация
+Q1345691,international financial institution
+Q1416431,financial intermediary
+Q22687,bank
+Q1609677,clearing house
+Q1975834,Automated Clearing House
+Q85880477,手形交換所
+Q2073644,brokerage firm
+Q18357355,Bell Potter
+Q104636302,Bell Direct
+Q2091703,savings and loan association
+Q2324813,state bank
+Q2883448,chartered bank
+Q4856259,bankers' clearing house
+Q5154942,Community development financial institution
+Q5260792,Depository institution
+Q22687,bank
+Q5266746,development bank
+Q6899005,monetary authority
+Q66344,central bank
+Q10548615,credit market company
+Q11499190,政策金融機関
+Q11392025,公庫
+Q23661568,supermarket bank
 Q656208,photographic laboratory
 Q662043,Machine and Tractor Station
 Q672070,photographic studio
@@ -2750,7 +2934,6 @@ Q76214980,electronics store chain
 Q76215864,mobile phone store chain
 Q76215292,furniture store chain
 Q76218249,retail bank
-Q5154919,community bank
 Q76223357,fitness center chain
 Q4778364,Anytime Fitness
 Q76226154,car insurance company
@@ -2768,135 +2951,6 @@ Q16140622,charcuterie
 Q20011241,Pferdemetzgerei
 Q60183335,Foani
 Q730038,credit institution
-Q22687,bank
-Q66344,central bank
-Q188506,online banking
-Q24081315,WAP banking
-Q251927,Public bank
-Q319845,investment bank
-Q4950458,boutique investment bank
-Q427670,Women-only bank
-Q568041,universal bank
-Q665634,cantonal bank
-Q779129,Auslandsbank
-Q798630,Bad bank
-Q848507,commercial bank
-Q1227557,direct bank
-Q1281016,transaction bank
-Q1548033,large bank
-Q1553482,specialized bank
-Q486547,Shinkin bank
-Q786071,banco automotor
-Q1802186,state development institution
-Q1021586,credit guarantee association
-Q5266746,development bank
-Q3633759,Community development bank
-Q6972269,national development bank
-Q22915323,group bank
-Q57416872,export-import bank
-Q57775246,agricultural bank
-Q1590999,Principal Bank
-Q1641457,mortgage bank
-Q1921438,merchant bank
-Q2111088,private bank
-Q2235168,Schiffshypothekenbank
-Q2309337,wisselbank
-Q2593736,Offshore bank
-Q2883448,chartered bank
-Q4481787,Federal Reserve Bank
-Q4966328,bridge bank
-Q6579042,national bank
-Q7309198,regional bank
-Q9645325,postal bank
-Q11343513,Mega Bank
-Q11571030,special bank
-Q11581869,相互銀行
-Q11643700,都市銀行
-Q12038586,monobanka
-Q12474542,foreign exchange bank
-Q14324749,Christian finance
-Q14948396,Regional Rural Bank
-Q15807586,CRR-Kreditinstitut
-Q15841019,Private central bank
-Q19895173,Payments bank
-Q19898415,Small finance bank
-Q20767252,Bank van Lening
-Q24936905,Sovzagranbank
-Q29944151,Postcheque
-Q31073890,Banc expropiat
-Q39049085,Challenger bank
-Q51531768,banque gratuite
-Q57775028,international bank
-Q60767305,neobank
-Q76218249,retail bank
-Q157963,savings bank
-Q2917176,savings bank of Spain
-Q4375388,Postal savings system
-Q13601825,Sparkasse
-Q13905956,Nutsspaarbank
-Q17103304,sparebank
-Q449067,building society
-Q2111078,Private Bausparkasse
-Q13604004,Landesbausparkasse
-Q781369,custodian bank
-Q896525,Landesbank
-Q1416636,non-banking financial company
-Q743199,structured investment vehicle
-Q1416313,financial services institution
-Q1416371,Finanzholding-Gesellschaft
-Q2143354,insurance company
-Q294403,Öffentlicher Versicherer
-Q563787,health maintenance organization
-Q831941,company health insurance
-Q80923943,betriebsbezogene Betriebskrankenkasse
-Q80923974,geöffnete Betriebskrankenkasse
-Q835141,Allgemeine Ortskrankenkasse
-Q1519138,national health insurance
-Q1664256,Innungskrankenkasse
-Q48753320,Ersatzkasse
-Q50840899,Országos Társadalombiztosítási Intézet
-Q56669150,Direktkrankenkasse
-Q695318,mutual insurance
-Q5691091,health insurance cooperative
-Q55598711,Mutuelle de santé en France
-Q955214,mutual organization
-Q1203773,German Pension Insurance
-Q1454939,Sterbekasse
-Q1577277,Landwirtschaftliche Sozialversicherung
-Q1701930,Unfallkasse
-Q1335076,Feuerwehr-Unfallkasse
-Q2111092,private health insurance
-Q4315979,Негосударственный пенсионный фонд
-Q13573435,direct writer
-Q16712913,Превентивні заходи в страхуванні
-Q21006406,Pension Insurance Companies
-Q45841276,Det norske Garantiselskab
-Q54782868,mutua de seguros
-Q76226154,car insurance company
-Q76226590,life insurance company
-Q76227063,property insurance company
-Q99691502,gjensidig forsikringsselskap
-Q102403401,health insurance company
-Q2563546,investment firm
-Q4230006,asset management company
-Q6899283,money services business
-Q20107444,bitcoin exchange
-Q93429784,небанковская кредитная организация
-Q2030774,Originator
-Q2082294,Pfandbriefbank
-Q1320391,Landschaft
-Q1641457,mortgage bank
-Q2441956,hypotheeknemer
-Q3277997,cooperative bank
-Q486547,Shinkin bank
-Q745877,credit union
-Q5283288,District Cooperative Central Bank
-Q6467378,Labour Bank
-Q18689035,Osuuskassa
-Q15807586,CRR-Kreditinstitut
-Q79447245,Real estate bank
-Q60970139,Bostadskreditinstitut
-Q93429702,кредитная организация
 Q740752,transport company
 Q249556,railway company
 Q138825,children's railway
@@ -2911,6 +2965,7 @@ Q2035492,Railway companies in the Dutch East Indies
 Q5127989,Class III railroad
 Q5127992,Class II railroad
 Q7309233,Regional railroad
+Q7659117,switching and terminal railroad
 Q17377208,train operating company
 Q1985150,Non-federal Railway companies
 Q17102188,train operating company (Great Britain)
@@ -2988,6 +3043,7 @@ Q835400,combine
 Q858859,Big Four
 Q859936,joyería
 Q860572,photo agency
+Q105004703,news photo agency
 Q860828,sculpture foundry
 Q897403,language school
 Q1455150,eikaiwa school
@@ -3014,6 +3070,7 @@ Q100588475,video game translation company
 Q1661112,Independent software vendor
 Q1061197,radio network
 Q659541,wireless community network
+Q7603861,State radio network
 Q1072166,tea house
 Q1109680,small business
 Q1770600,Vorkosthandlung
@@ -3079,6 +3136,7 @@ Q1252971,food manufacturer
 Q131734,brewery
 Q1264071,Brewhouse
 Q1548071,Großbrauerei
+Q2687851,Gypsy brewer
 Q4848030,stoombierbrouwerij
 Q5487333,microbrewery
 Q1959119,Belgian beer culture
@@ -3121,12 +3179,13 @@ Q19840511,Online supermarkets in China
 Q7361709,convenience store
 Q151515,Trinkhalle
 Q5936320,Wawa Inc.
+Q11868562,K-Market Oy
 Q16294764,Spätkauf
 Q17051667,Mama shop
 Q30094959,dépanneur
 Q57643977,Tiger Mart
 Q75851666,Yesway
-Q79391377,K-Market
+Q11914717,colmado
 Q27676067,Amazon Go
 Q1318768,snack bar
 Q1320047,book publisher
@@ -3136,6 +3195,7 @@ Q1792356,art book publisher
 Q1321781,investment company
 Q1331793,media company
 Q192283,news agency
+Q105004703,news photo agency
 Q368290,film distributor
 Q375336,film studio
 Q1107679,animation studio
@@ -3221,13 +3281,13 @@ Q3303500,video production company
 Q62625186,video label
 Q10689397,television production company
 Q58318936,music production company
+Q97227596,Screenplay Bumilangit
 Q11499011,放送事業者
 Q11875310,news company
 Q20739124,entertainment company
 Q20679540,cinema chain
 Q20739125,Pornographic Entertainment Company
 Q20819922,opera company
-Q60741413,West Edge Opera
 Q37620527,theatre chain
 Q1341387,spa
 Q655311,onsen
@@ -3361,7 +3421,7 @@ Q1917775,music publishing company
 Q1951366,public utility
 Q1266169,telephone company
 Q1326624,electric utility
-Q1971832,Gemeentelijk energiebedrijf
+Q1971832,GEB
 Q2326317,Stadtwerk
 Q7258040,water utility
 Q11361056,下水道局
@@ -3369,8 +3429,6 @@ Q11549282,水道局
 Q2005696,commercial vehicle manufacturer
 Q2030042,Organschaft
 Q2073644,brokerage firm
-Q18357355,Bell Potter
-Q104636302,Bell Direct
 Q2111762,machine shop
 Q2139852,huiswerkinstituut
 Q2169973,service provider
@@ -3477,6 +3535,7 @@ Q1022349,Stationsarzt
 Q1068947,chief physician
 Q1251349,personal physician
 Q7189653,Physician to the President
+Q11445622,oku-ishi
 Q1360697,surgeon
 Q325855,naval surgeon
 Q1792938,cure doctor
@@ -3502,6 +3561,7 @@ Q3332427,clinical pathologist
 Q3332431,physician in France
 Q3332438,medical specialist
 Q27349,dentist
+Q1660336,implantologist
 Q2111173,dentista privado
 Q2519011,panel dentist
 Q3842067,orthodontist
@@ -3702,6 +3762,7 @@ Q10872101,anatomist
 Q88364317,pathologist-anatomist
 Q11003769,Landslæge
 Q11395613,出島の三学者
+Q11625074,domain physician
 Q11968568,fastlege
 Q11970583,fylkeslege
 Q11981167,klinisk stipendiat
@@ -3725,7 +3786,9 @@ Q19280221,gastroenterologist
 Q19386488,reservelege
 Q20088923,laryngologist
 Q21001148,insurance physician
+Q21490722,sekundář
 Q25141651,physician-scientist
+Q87379016,clinical geneticist
 Q42297156,medicinare
 Q48970157,Proceduralist
 Q50384437,spoedeisendehulparts
@@ -3737,7 +3800,6 @@ Q62606497,addictionologist
 Q64869217,Licentiate of Medicine
 Q65472776,family physician
 Q78158126,spaceship's surgeon
-Q87379016,clinical geneticist
 Q88203472,Sexualmediziner
 Q88271443,neurohistologist
 Q88655927,fellow
@@ -3746,6 +3808,7 @@ Q98523661,vagtlæge
 Q101555096,Hemläkare
 Q101584113,přednosta
 Q105186,pharmacist
+Q1131236,apothecary
 Q1501735,Generalapotheker
 Q1627196,Pharmazeut
 Q3378587,farmacéutico de hospital
@@ -3812,6 +3875,8 @@ Q18707261,mental health nurse
 Q7256232,psychiatric and mental health nurse practitioner
 Q19288251,Krankenpfleger
 Q19373138,enfermera del frente
+Q30315732,nurse attorney
+Q39086445,Nursing Associate
 Q50995783,Lazarettgehilfe
 Q58035200,Nurse Specialists
 Q69962711,pediatric nurse
@@ -3821,6 +3886,8 @@ Q67529900,public health nurse
 Q69945448,international nurses
 Q85790021,nurse midwife
 Q89554543,camillian
+Q105322593,Palliatief verpleegkundige
+Q105349477,agency nurse
 Q256698,residency
 Q689909,feldsher
 Q718927,physician assistant
@@ -4067,6 +4134,7 @@ Q3055260,French company
 Q3062125,farming business
 Q188913,plantation
 Q22715,vineyard
+Q1102346,Clos
 Q155511,plant nursery
 Q5396348,Tree breeding
 Q12372955,tree nursery
@@ -4172,62 +4240,9 @@ Q28835584,друкарня Марціна Кукты
 Q41570084,Printers in Alcalá de Henares
 Q64477777,Imprenta y Editorial Minerva
 Q83984126,Litografía Alemana
+Q6839304,Microcap stock
 Q6881511,enterprise
 Q22687,bank
-Q24354,theater
-Q153562,opera house
-Q9356212,musical theater building
-Q50802251,State Opera
-Q201946,black box theater
-Q203847,Zimmertheater
-Q808570,Baroque theatres
-Q811312,Peasants' Theatre
-Q877979,Young Spectator's Theatre
-Q1058828,Off-Broadway
-Q1143046,odeon
-Q1548406,national theater
-Q1638962,Chitalishte
-Q1698619,Schauspielhaus
-Q1830423,vlakkevloertheater
-Q1876744,lijsttheater
-Q1954948,musical theater building
-Q2111165,private theatre
-Q2289314,Singspielhalle
-Q2328181,city theatre
-Q2416110,youth theatre
-Q877979,Young Spectator's Theatre
-Q2430650,théâtre national
-Q2501058,Off-Off-Broadway
-Q2720855,Corral de comedias
-Q3476576,Scène conventionnée
-Q3476585,Scène nationale
-Q3982337,puppet theatre
-Q4053792,yose
-Q4240267,palace theatre
-Q4951589,box house
-Q5380480,Entertainment centre
-Q6430846,Koothambalam
-Q9356212,musical theater building
-Q11183017,open-air theatre
-Q19757,Roman theatre
-Q24933318,Gallo-Roman amphitheatre
-Q336514,sylvan theater
-Q3982342,teatro verzura
-Q876542,Thingstätte
-Q2860319,Greek theatre
-Q35012916,lake stage
-Q60850939,Hellenistic theatre
-Q65619961,singing stage
-Q11459155,small theater
-Q12309493,egnsteater
-Q13424808,playhouse
-Q4242935,Gorky Drama Theatre
-Q17149955,showboat
-Q18225059,Italian theater
-Q18745892,Kleinkunstbühnen in der Tschechoslowakei
-Q22117664,kaburenjō
-Q25378123,Double-decker theatre
-Q64654999,former theater
 Q129238,startup company
 Q612825,online dating service
 Q28134845,Online dating application
@@ -4242,6 +4257,7 @@ Q484847,e-commerce
 Q212930,online shopping
 Q43060,digital music store
 Q15794580,Click & collect
+Q327627,Social commerce
 Q368344,direct-to-consumer
 Q781384,online auction
 Q97066368,A:NG Auction Software
@@ -4253,6 +4269,9 @@ Q30011751,Shopping-ecosysteem
 Q41799378,online tourism
 Q50424177,Wirelessbro
 Q740752,transport company
+Q786820,automobile manufacturer
+Q15648574,racecar constructor
+Q21748148,Formula One constructor
 Q891723,public company
 Q279014,Societas Europaea
 Q498289,dual-listed company
@@ -4286,6 +4305,9 @@ Q91396496,natural gas processing plant
 Q4144557,mining and processing plant
 Q4232315,underground mine
 Q12098912,гидрошахта
+Q105064387,Булганакские каменоломни
+Q105079501,Багеровские каменоломни
+Q105337172,Караларские каменоломни
 Q12149240,ore mining and processing company
 Q34483580,ore mine
 Q16659620,iron mine
@@ -4301,7 +4323,6 @@ Q4310373,мясокомбинат
 Q4985357,Buegeleisen and Jacobson
 Q5672604,Junk shop
 Q6017411,independent business
-Q7659117,switching and terminal railroad
 Q8772125,Editorial Anagrama
 Q9386255,Produktionsanlage
 Q943876,malt house
@@ -4341,7 +4362,6 @@ Q11424358,Japanese Regional Company
 Q11361056,下水道局
 Q11549282,水道局
 Q11499190,政策金融機関
-Q11392025,公庫
 Q11900271,valtion liikelaitos
 Q12041652,národní podnik
 Q20977083,Restaurace a jídelny
@@ -4383,8 +4403,10 @@ Q11392112,公社
 Q11424434,local road corporation
 Q11391959,公営企業
 Q11391957,公営交通
+Q11480750,city tram
 Q60997348,公営バス
 Q11424358,Japanese Regional Company
+Q19710962,State-owned farm
 Q40890107,municipal enterprise
 Q102194016,junta de fomento of El Salvador
 Q18388277,technology company
@@ -4486,7 +4508,7 @@ Q102337260,limited liability partnership
 Q1630714,general partnership
 Q2054374,Partenreederei
 Q2836257,Personengesellschaft
-Q3487931,Société de droit commun
+Q3487931,société de droit commun
 Q1947319,Vlootmaatschap
 Q6158975,National Estuarine Research Reserve
 Q6428384,kommandittselskap
@@ -4497,6 +4519,7 @@ Q17000076,gōshi gaisha
 Q17375963,besloten vennootschap
 Q19340991,Offene Handelsgesellschaft
 Q20665848,GmbH & Co. OHG
+Q22004531,Local Nature Partnership
 Q97580368,Wikimedia content partnership
 Q101113045,extension service
 Q751314,family office
@@ -4519,7 +4542,7 @@ Q2624661,Sp. z o.o.
 Q6131060,Sociedad de responsabilidad limitada
 Q6832945,private company limited by shares
 Q10379632,Société à responsabilité limitée
-Q13100008,d.o.o.
+Q13100008,društvo sa ograničenom odgovornošću
 Q21763580,Družba z omejeno odgovornostjo
 Q15042660,aksjeselskap
 Q11994816,Partisipantskap
@@ -4600,6 +4623,7 @@ Q9209474,auction house
 Q10611118,bike rental
 Q1358919,bicycle-sharing system
 Q42556547,dockless bicycle sharing system
+Q105318122,e-bike sharing system
 Q10691563,taxicab company
 Q11276329,Contents Provider
 Q11294827,camera manufacturer
@@ -4658,11 +4682,13 @@ Q21980538,commercial organization
 Q23000150,selvstændig offentlig virksomhed i Danmark
 Q23006196,cidery
 Q3461355,Sagardotegi
+Q23017800,Big Cap
 Q23670565,professional services firm
 Q17157326,white shoe firm
 Q23905463,Zorgaanbieder
 Q25040717,African-American business
 Q30324278,African-American bookstore
+Q25381820,Mid Cap
 Q27038993,food establishment
 Q274393,bakery
 Q1819078,automat
@@ -4724,6 +4750,9 @@ Q24455030,whisky bar
 Q30324198,lesbian bar
 Q60029362,home bar
 Q102172957,bar à bière
+Q105321449,LGBTQ bars
+Q1043639,gay bar
+Q30324198,lesbian bar
 Q212198,pub
 Q3640372,brewpub
 Q4825087,Australian pub
@@ -4781,6 +4810,7 @@ Q27077054,mass caterer
 Q71006063,eating establishments in Tyumen
 Q27555350,entreprise de génie civil
 Q27834360,Steinbruchbetrieb
+Q28136264,Platform cooperative
 Q28823841,производитель агронавигаторов
 Q28826710,touchscreen manufacturer
 Q28827885,manufacturers of stands and mounts
@@ -4811,6 +4841,7 @@ Q55635949,tobacco factory
 Q3287051,tobacco factory in France
 Q22951861,manufacture des Tabacs du Havre
 Q56304483,Tidningsförlag
+Q56315965,Nano cap
 Q58045183,radio manufacturer
 Q59625398,Empresa de trabajo temporal
 Q60614978,distributor
@@ -4887,6 +4918,8 @@ Q98525431,bleaching plant
 Q98526214,doubling mill
 Q99264077,Gillinder & Sons
 Q101049500,Biscuiterie
+Q102167691,Communist Chinese Military Companies
 Q102403401,health insurance company
 Q104602860,Managing Agency
 Q104807662,cathedral in the desert
+Q105093233,maatwerkbedrijf

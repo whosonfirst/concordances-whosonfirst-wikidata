@@ -47,7 +47,6 @@ Q6630197,national park of Dominica
 Q6630198,national park of El Salvador
 Q6630200,national park of Gabon
 Q6630207,national park of Seychelles
-Q6630208,national park of Uruguay
 Q6974775,national park of Argentina
 Q6979643,national park of Rwanda
 Q10594812,national city park
@@ -140,6 +139,7 @@ Q19311633,Wildschutzgebiet
 Q23905068,wildlife refuge of Brazil
 Q76163442,wildlife refuge
 Q93872398,Wildruhegebiet
+Q104905143,Washington state wildlife area
 Q2415574,Vlaams natuurreservaat
 Q3457217,state forest reserve
 Q3457526,local nature reserve
@@ -255,6 +255,7 @@ Q21296186,Biosférická rezervace v Česku
 Q1484173,Zapovednik
 Q666294,list of Natural Reserves in Russia
 Q1552255,green belt
+Q2734873,Green belt
 Q1627961,nature reserve
 Q1714096,Naturschutzgroßprojekt
 Q1714375,game reserve
@@ -501,6 +502,8 @@ Q15229753,state forest of Wisconsin
 Q17053413,provincial forest
 Q18479032,state forest of Brazil
 Q55999985,New Jersey State Forest
+Q7972079,Washington Natural Areas Program
+Q104907523,Washington Natural Area Preserve System
 Q7974063,waterfowl production area
 Q8001184,wilderness study area
 Q8001309,wildlife management area
@@ -617,6 +620,7 @@ Q19284004,Geschützter Landschaftsteil
 Q16064751,Geschützter Landschaftsteil (Salzburg)
 Q19683138,Ramsar site
 Q28861769,Ramsar site in Moldova
+Q61361416,Ramsar site in South Africa
 Q61457040,Ramsar site in Australia
 Q20268453,faunal reserve
 Q20268591,wildlife reserve
@@ -735,7 +739,8 @@ Q76164741,marine management area
 Q76204169,reserva natural absoluta
 Q80797879,protected zones of national interest
 Q85944382,Naturerlebnisraum in Slesvig-Holstein
-Q92272084,parco forestale
+Q92272084,parc forestier
 Q92417533,přechodně chráněná plocha
 Q96592761,Área Natural de Manejo Integrado Municipal Pampas del río Yacuma
 Q96592800,Área protegida municipal Lago San José
+Q104905143,Washington state wildlife area

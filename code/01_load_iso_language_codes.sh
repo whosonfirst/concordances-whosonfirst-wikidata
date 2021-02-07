@@ -3,8 +3,8 @@ set -e
 set -u
 
 # TODO: check license : https://datahub.io/core/language-codes
-#rm -f language-codes-3b2_csv.csv
-#wget http://pkgstore.datahub.io/core/language-codes:language-codes-3b2_csv/data/language-codes-3b2_csv.csv
+rm -f language-codes-3b2_csv.csv
+wget http://pkgstore.datahub.io/core/language-codes:language-codes-3b2_csv/data/language-codes-3b2_csv.csv
 
 
 echo """

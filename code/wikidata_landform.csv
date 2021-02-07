@@ -5,6 +5,7 @@ Q8072,volcano
 Q169358,stratovolcano
 Q190869,central volcano
 Q193457,mud volcano
+Q2791919,Mud volcanoes in Azerbaijan
 Q212057,shield volcano
 Q723802,lunar dome
 Q995054,pyroclastic shield
@@ -138,6 +139,7 @@ Q3215290,artificial lake
 Q131681,reservoir
 Q2534469,Forebay (reservoir)
 Q55470036,intermittent reservoir
+Q105162118,Бахчисарайское водохранилище
 Q244326,salt evaporation pond
 Q301869,inundation
 Q358976,excavation lake
@@ -213,13 +215,16 @@ Q87193797,tjern / tjärn
 Q100900880,crater lake
 Q204324,volcanic crater lake
 Q11726988,impact crater lake
-Q104093746,järvi tai lampi
+Q104093746,lake or pond
 Q23442,island
 Q13691,artificial island
 Q91759,crannog
 Q1870237,Arbeitsinsel
+Q28692646,artificial island airport
 Q96316262,cattle mound
 Q21161,halligen
+Q42523,atoll
+Q15629617,unorganized atoll of American Samoa
 Q202199,inland island
 Q162602,river island
 Q361950,point bar
@@ -247,6 +252,7 @@ Q1737143,Kaupe
 Q1973360,Nebeninsel
 Q2920849,low island
 Q2984210,privately owned island
+Q7415903,sand island
 Q9433297,冲积岛
 Q10546851,kobbe
 Q10549487,Kronoholme islands
@@ -353,6 +359,7 @@ Q5617310,gulch
 Q5972304,wind gap
 Q6562281,valleys of Afghanistan
 Q10531318,river valley
+Q10855337,Arcuate rilles
 Q11385595,erosional valley
 Q12206386,جو
 Q12751598,epigenetic valley
@@ -494,6 +501,7 @@ Q3437428,vidde / vidd
 Q3593580,îlet
 Q9035629,muela
 Q11556488,Diluvial upland
+Q18389975,flat
 Q22442633,ice dome
 Q41978262,high plateau
 Q97216015,tongue-shaped plateau
@@ -506,7 +514,7 @@ Q7334494,Rimrock
 Q134851,continental shelf
 Q160091,plain
 Q163967,peneplain
-Q193071,lowland
+Q193071,lowla
 Q570554,abyssal plain
 Q656586,alluvial plain
 Q946033,polje
@@ -582,7 +590,7 @@ Q3002220,subsidence crater
 Q1499003,palimpsest
 Q17016801,ghost crater on Mercury
 Q5259402,impact structure
-Q103291084,gas emission crater
+Q65173592,gas emission crater
 Q14253637,dry lake
 Q21014199,lek 
 Q51330213,deep
@@ -603,16 +611,16 @@ Q1432092,rille
 Q50418595,prolom
 Q193110,floodplain
 Q207326,summit
+Q185552,Eight-thousander
 Q1570358,pyramidal peak
 Q11397890,Kengamine
 Q13194830,Stùc
 Q13222531,parent peak
-Q16681565,Tête
+Q16681565,tête
 Q17189807,baou
 Q19941800,odlehlík
 Q28723550,Horn
 Q34987520,unspoiled summit
-Q99703482,Pizzo dei Favi
 Q102166120,fourteener
 Q102166169,Colorado fourteeners
 Q212136,horst
@@ -670,213 +678,6 @@ Q98094328,Aussichtsterrasse
 Q847016,ponor
 Q3058856,Estavelle
 Q854550,Erdpyramide
-Q863404,subterranea
-Q27919,lava tube
-Q2582077,lunar lava tube
-Q16324533,Martian lava tube
-Q35509,cave
-Q89521,casemate
-Q2743716,Koepelkazemat Type G
-Q53844521,Gun turrets of armoured fighting vehicles in fortifications
-Q89753,dungeon
-Q172896,catacombs
-Q286899,sump
-Q665247,hypogeum
-Q17633250,Infernotto
-Q853409,missile launch facility
-Q935908,dugout
-Q16258951,Zemlyanka
-Q1048337,underground lake
-Q1140845,subterranean river
-Q21504956,subterranean waterfall
-Q1188673,subway
-Q1340555,deep geological repository
-Q10671734,Slutförvaring av radioaktivt avfall i Sverige
-Q1348073,underground city
-Q1550190,Grubengebäude
-Q1727928,level
-Q12088582,ventilation level
-Q27890566,intake level
-Q27890568,return air level
-Q1578744,burial vault
-Q1424583,sepulchral chapel
-Q2261752,volcanic pipe
-Q41453,Diatreme
-Q2431970,underground parking space
-Q2582077,lunar lava tube
-Q2781284,bouwput
-Q2980405,Cluzeaux
-Q4010360,crawl space
-Q4232315,underground mine
-Q12098912,гидрошахта
-Q8024920,wine cave
-Q12146012,underground building
-Q44377,tunnel
-Q58917,adit
-Q1260995,penstock
-Q1425971,inverted siphon
-Q361472,combined sewer
-Q1139766,storm drain
-Q1805497,sanitary sewer
-Q3326536,sewer
-Q28109814,outfall sewer
-Q27891117,ventilation adit
-Q27891167,main adit level
-Q27891158,adit
-Q27891162,water drainage gallery
-Q27891167,main adit level
-Q27891175,test gallery
-Q27891176,gate gallery
-Q27891187,main drift
-Q27891188,approach adit
-Q47064125,Heilstollen
-Q98639272,Anfahrtstollen
-Q344859,City Tunnel
-Q1066660,transatlantic tunnel
-Q1187918,secret passage
-Q4000492,smuggling tunnel
-Q1188673,subway
-Q1311958,railway tunnel
-Q2133152,keertunnel
-Q2460082,Tunnel der Schnellfahrstrecke Hannover–Würzburg
-Q10541935,Jernbanetunneler i Stockholms län
-Q14500296,tramway tunnel
-Q21000066,Kreiskehrtunnel
-Q41971160,subway tunnel
-Q1317590,undersea tunnel
-Q332257,immersed tube
-Q2216487,dive-under
-Q2354973,road tunnel
-Q2989487,bus tunnel
-Q7814340,toll tunnel
-Q12045874,podjezd
-Q2446237,Kombinationstunnel
-Q3174082,base tunnel
-Q3541773,Jefferies tube
-Q3542190,tunnel urbain
-Q3542199,Roman tunnel
-Q4000492,smuggling tunnel
-Q5031071,canal tunnel
-Q5372625,Drainage tunnel
-Q5456378,bridge–tunnel
-Q7564106,sough
-Q7631667,submerged floating tunnel
-Q7853321,Tunnel washer
-Q10888740,hood tunnel
-Q11129889,underwater tunnel
-Q1317590,undersea tunnel
-Q11555864,cable tunnel
-Q12163176,Tik-Kuyu
-Q12719343,water tunnel
-Q459297,qanat
-Q6160903,viaje de agua
-Q6799709,سقاية
-Q56299531,kariz
-Q56479602,viaje de agua
-Q13700767,Wendetunnel
-Q14906763,Tagebautunnel
-Q16187491,tunnel of aggression
-Q19947811,glacier tunnel
-Q21036993,rescue tunnel
-Q21573414,tunnel
-Q25385968,Radwegtunnel
-Q26263224,international tunnel
-Q16187491,tunnel of aggression
-Q26882588,Stollen
-Q27464969,proposed tunnel
-Q64521892,supply tunnel
-Q2915275,utility tunnel
-Q64521908,district heating tunnel
-Q64523688,freight tunnel
-Q64524051,postal railway tunnel
-Q64533002,instalaciones subterráneas
-Q69719735,drive-through tree
-Q87282975,cycling tunnel
-Q98832021,vertex tunnel
-Q58917,adit
-Q137937,souterrain
-Q1262844,refilling of shafts
-Q1349300,root cellar
-Q22995,wine cellar
-Q1922558,adega
-Q10728951,active wine cellar
-Q11913260,Wine Cathedral
-Q1486179,road
-Q1426139,Flachen
-Q2365637,Sumpfstrecke
-Q2559065,spiral tunnel
-Q1550194,mine opening
-Q44377,tunnel
-Q58917,adit
-Q496707,Querschlag
-Q556186,mine shaft
-Q322194,Ablaufbauwerk
-Q884353,blind shaft
-Q2873248,avaleresse
-Q10565770,ventilation shaft
-Q16857563,Trum
-Q27865301,ventilation shaft
-Q1823460,lightwell
-Q56098812,Wetterblindschacht
-Q27892890,surface shaft
-Q27897519,manriding shaft
-Q27897849,traveling shaft
-Q27897856,hauling shaft
-Q27897934,Zieheschacht
-Q27897863,engine-shaft
-Q27897871,pilot shaft
-Q56117844,Schurfschacht
-Q56117936,Wetterschurf
-Q63241161,Bremsschacht
-Q13101792,Bremsschapp
-Q63247833,Saigerschacht
-Q63247885,tonnlägiger Schacht
-Q99227909,Anfahrtschacht
-Q99228311,Bergeförderschacht
-Q1434884,lateral drift
-Q27891194,Nebenflügel
-Q1486179,road
-Q1737250,cavern
-Q7564106,sough
-Q12167441,Ходок
-Q56087849,Fallort
-Q1686959,underground infrastructure system
-Q10527472,headquarters civil defense
-Q18289904,framskjuten enhet
-Q1737250,cavern
-Q2162394,pneumatic transport in Hamburg
-Q2162396,pneumatic transport in Berlin
-Q2162403,pneumatic transport in Vienna
-Q2162408,pneumatic transport in Germany
-Q2466233,U-Verlagerung
-Q2497639,underground storage
-Q1349212,natural gas storage
-Q20788294,Luftschutzstollen
-Q27678942,deep bunker
-Q28194802,tunnel network
-Q13724255,rock-cut architecture
-Q388774,rock-cut architecture in India
-Q1404229,rock-cut tomb
-Q21550442,cave temple
-Q102301345,Buddhist cave temple
-Q41451865,rock-cut temples in Asia
-Q64732764,cave church
-Q1931855,monolithic church
-Q80677986,cave chapel
-Q14723701,aljibe
-Q15891674,storm cellar
-Q20919210,cavern
-Q22808403,station located underground
-Q55491,underground railway station
-Q261068,pylon station
-Q597668,shallow column station
-Q2630536,deep single-vault station
-Q2630690,deep column station
-Q168565,ghost station
-Q3972171,stazioni fantasma della metropolitana di Berlino
-Q4185040,Beijing Subway restricted stations
-Q24897103,地下道
-Q66443867,cave system
 Q864812,land bridge
 Q873398,cuesta
 Q944588,slope
@@ -890,7 +691,6 @@ Q956300,tholus
 Q999466,Buckelwiesen bei Mittenwald
 Q1031696,continental slope
 Q1051581,albedo feature
-Q1058792,fluctus
 Q1061151,massif
 Q514999,alpine subgroup
 Q3777462,alpine group
@@ -913,6 +713,7 @@ Q1183485,Pinge
 Q1210950,channel
 Q1837011,stream channel
 Q7112064,outflow channel
+Q12041735,náčepní loket
 Q2153116,rill
 Q3074486,flumen
 Q41982239,navigation channel
@@ -927,13 +728,14 @@ Q1245089,promontory
 Q191992,headland
 Q12005172,tange
 Q24529780,point
+Q1354045,foothills
 Q1358604,giant's kettle
 Q1361400,gully
 Q1365419,snow field
 Q1367339,thermokarst
-Q1378564,drift ice
 Q1400565,spur
 Q740445,ridge
+Q17081327,interlocking spur
 Q55471245,undersea spur
 Q62059375,buttress
 Q1402592,island group
@@ -1038,6 +840,7 @@ Q576515,fast ice
 Q46966,ice shelf
 Q1319638,grease ice
 Q13398859,pack ice
+Q1378564,drift ice
 Q2426855,heuvelland
 Q2440307,Toma hill
 Q2535020,Vrchovina
@@ -1124,7 +927,6 @@ Q14253637,dry lake
 Q16963184,váté písky
 Q25391,dune
 Q16887481,Sand sheet
-Q4850014,balancing rock
 Q5023667,Caloris Group
 Q5069269,loma
 Q5259261,patera
@@ -1167,7 +969,6 @@ Q10324856,Mar interior
 Q10327066,Marés luni-solares
 Q10338509,Nó orográfico
 Q10366782,Saco (acidente geográfico)
-Q10817299,foothills
 Q11424753,sloping road
 Q11566041,激坂
 Q11907530,Badjimza
@@ -1186,24 +987,6 @@ Q12533634,barrancos
 Q13576504,Elzenmeten
 Q14524493,terrain
 Q207326,summit
-Q338313,business park
-Q329683,industrial park
-Q190928,shipyard
-Q452020,submarine pen
-Q1745026,naval arsenal
-Q4057902,Military shipyard
-Q7374547,Royal Navy Dockyard
-Q12885262,Ταρσανάς
-Q19835481,Binnenschiffswerft
-Q1281153,technology park
-Q7315175,research park
-Q1976594,science park
-Q3475734,Science Parks of Wallonia
-Q28843552,factory complex
-Q30324022,organized industrial zone
-Q1520456,business park of private company
-Q1662100,industrial park
-Q59772144,startup center
 Q472577,retail park
 Q1623285,yard
 Q2749813,churchyard
@@ -1230,6 +1013,7 @@ Q9347317,student's tent bases
 Q12557319,Ор
 Q17071433,Brain terrain
 Q27108230,campground
+Q2828304,Aire naturelle de camping
 Q12336629,Spejdercenter
 Q60456301,recreational vehicle park
 Q27613537,Jardins du souvenir
@@ -1255,11 +1039,11 @@ Q5972304,wind gap
 Q10862618,saddle
 Q17189807,baou
 Q17300700,cárcava
-Q18389975,flat
 Q18484922,Aresta
 Q18499668,Balneabilidade
 Q18500648,Bloco pedunculado
 Q18809877,rock
+Q4850014,balancing rock
 Q16670103,Fertility rocks
 Q19368272,Tafelland
 Q19602720,stupňovina
@@ -1312,7 +1096,8 @@ Q1260913,moot hill
 Q2710737,slag heap
 Q152810,landfill
 Q1152199,midden
-Q2301074,Hazardous Waste Site
+Q2301074,hazardous waste site
+Q40010370,Superfund site
 Q4369904,полигон ТБО
 Q18170047,installation de stockage de déchets dangereux
 Q25616703,dwinger
@@ -1462,9 +1247,6 @@ Q11350418,rock-fill dam
 Q20180822,concrete-face rock-fill dam
 Q4878217,beaver dam
 Q19817101,coastal landform
-Q31796,mudflat
-Q2382399,Süßwasserwatt
-Q2584107,Windwatt
 Q40080,beach
 Q567998,public beach
 Q573367,pocket beach
@@ -1473,6 +1255,7 @@ Q5655097,hard
 Q6881911,separate beach
 Q7493708,shell beach
 Q7900097,urban beach
+Q8294268,Category:Beaches by city
 Q9089165,sea turtles in Mexico
 Q11941943,Platges de Badalona
 Q11959973,bathing beach
@@ -1524,7 +1307,12 @@ Q45776,fjord
 Q11066204,Poll
 Q1172599,inlet
 Q66980635,marine area
-Q20057849,Mrazová kotlina
+Q105080952,tidal flat
+Q31796,mudflat
+Q2382399,Süßwasserwatt
+Q2584107,Windwatt
+Q105081726,seashore
+Q20057849,mrazová kotlina
 Q20057850,mrazový srub
 Q20058140,Skalní práh
 Q20743937,arcus
@@ -1548,6 +1336,8 @@ Q26831154,Суходол (рельеф)
 Q29025902,volcanic landform
 Q8072,volcano
 Q27919,lava tube
+Q2582077,lunar lava tube
+Q16324533,Martian lava tube
 Q83471,geyser
 Q930710,Martian geyser
 Q105131,hotspot
@@ -1574,6 +1364,7 @@ Q1569584,kīpuka
 Q1628501,Hornito
 Q2238314,mudpot
 Q2261752,volcanic pipe
+Q41453,Diatreme
 Q2264600,Lava trees
 Q2512740,lava flow
 Q1189599,pahoehoe
@@ -1692,3 +1483,4 @@ Q98504744,waterfall cascade
 Q100936765,hornatina
 Q100989082,vaara
 Q104776847,fumarole field
+Q105100160,dunefield

@@ -35,6 +35,7 @@ Q3624078,sovereign state
 Q160016,member states of the United Nations
 Q6688521,permanent member of the United Nations Security Council
 Q179671,nation state
+Q189062,states with nuclear weapons
 Q202686,Commonwealth realm
 Q244381,microstate
 Q1377650,European microstates
@@ -43,6 +44,7 @@ Q1309121,Hermit kingdom
 Q1641089,Multinational state
 Q20181813,colonial power
 Q25449457,continental country
+Q60850204,Front Line States
 Q63791824,countries bordering the Baltic Sea
 Q39731,Baltic States
 Q5170193,core countries
@@ -62,6 +64,7 @@ Q3624078,sovereign state
 Q160016,member states of the United Nations
 Q6688521,permanent member of the United Nations Security Council
 Q179671,nation state
+Q189062,states with nuclear weapons
 Q202686,Commonwealth realm
 Q244381,microstate
 Q1377650,European microstates
@@ -70,6 +73,7 @@ Q1309121,Hermit kingdom
 Q1641089,Multinational state
 Q20181813,colonial power
 Q25449457,continental country
+Q60850204,Front Line States
 Q63791824,countries bordering the Baltic Sea
 Q39731,Baltic States
 ### Q15634554, state with limited recognition : _wdadd_ 

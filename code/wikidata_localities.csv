@@ -31,6 +31,9 @@ Q2479824,altepetl
 Q2561694,city-kingdom of Cyprus
 Q4858354,barangay
 Q43185013,maritime republic
+Q208511,global city
+Q1066984,financial centre
+Q205181,offshore financial centre
 Q250811,sub-province-level division
 Q1050126,State-level new areas of the People's Republic of China
 Q262882,statutory city of Austria
@@ -90,6 +93,16 @@ Q1266029,edge city
 Q1375749,European City
 Q1422929,primate city
 Q1547289,Luther city
+Q1549591,big city
+Q1637706,city with millions of inhabitants
+Q174844,megacity
+Q200250,metropolis
+Q6024226,metropolitan municipality
+Q1530824,metropolitan municipality of South Africa
+Q2716259,metropolitan municipality in Turkey
+Q10329259,metropoli nacional
+Q71144301,metropolitan region
+Q4249901,specific city
 Q1656724,ideal city
 Q1835354,Garnizoensstad
 Q1867820,City status in the United Kingdom
@@ -98,7 +111,7 @@ Q2073573,IJsselsteden
 Q2138558,regiopolis
 Q2235075,centre city
 Q2264924,port settlement
-Q11506008,japonské přístavní město
+Q11506008,Japanese port settlement
 Q2367508,township of Taiwan
 Q12039044,urban township of Taiwan
 Q12039539,rural township of Taiwan
@@ -176,7 +189,6 @@ Q6373489,Kartah
 Q24700892,post town
 Q25377665,gambling city
 Q25412763,city in Chile
-Q27676416,city or town
 Q28659128,city of North Korea
 Q29045252,city of South Korea
 Q4249901,specific city
@@ -199,7 +211,6 @@ Q84140257,Královské město
 Q85875185,Morería (city)
 Q97460874,Hali
 Q101500124,medieval city
-Q102104752,city of Bosnia and Herzegovina
 Q104414508,100 percent corner
 Q532,village
 Q45263,Hidden village
@@ -416,6 +427,7 @@ Q18511725,market town
 Q10571400,köping
 Q19833170,town of Portugal
 Q25412766,town of Chile
+Q27676416,city or town
 Q28067896,Kurort
 Q52132873,town
 Q55430416,town in Alberta
@@ -697,8 +709,6 @@ Q44551483,city
 Q59341087,town in Nova Scotia
 Q60458065,city
 Q6024226,metropolitan municipality
-Q1530824,metropolitan municipality of South Africa
-Q2716259,metropolitan municipality in Turkey
 Q6784672,municipality of Slovakia
 Q6936383,municipality of Lebanon
 Q6936404,Municipalities of the State of Palestine
@@ -717,11 +727,10 @@ Q587089,city with municipal rights
 Q1070990,county-level city
 Q1093829,city of the United States
 Q2215397,"English-language word ""city""
-Q102104752,city of Bosnia and Herzegovina
 Q16511251,municipality of Greenland
 Q16739079,municipalities of Cyprus Republic
 Q17134625,municipality of Bermuda
-Q18918041,municipality of West Bengal
+Q18918041,Municipality of West Bengal
 Q19730508,former municipality
 Q666943,associated commune
 Q685309,former municipality of Switzerland
@@ -954,7 +963,7 @@ Q104774089,urban cluster
 Q6566301,urban area in Nordic countries
 Q12304704,urban area in Denmark
 Q12813115,urban area in Sweden
-Q15092344,urban settlement defined by Statistics Norway
+Q15092344,urban area in Norway
 Q61492541,urban area in Finland
 Q7900093,urban area of New Zealand
 Q10499251,vacation area
@@ -964,9 +973,11 @@ Q65241205,ニュータウン
 Q65274067,町場
 Q2827758,Ai no shuku
 Q12003595,strandsted
+Q12304704,urban area in Denmark
 Q12813115,urban area in Sweden
 Q13028920,окольный город
 Q14839548,minor locality in Sweden
+Q15092344,urban area in Norway
 Q17457202,population centre
 Q20738855,urban area with a population of 150-199
 Q28502371,supermanzana
@@ -1200,13 +1211,6 @@ Q12057402,holy city of Islam
 Q896881,city with tens of thousands of inhabitants
 Q902814,border town
 Q67123843,town divided by border
-Q1549591,big city
-Q1637706,city with millions of inhabitants
-Q174844,megacity
-Q200250,metropolis
-Q6024226,metropolitan municipality
-Q10329259,metropoli nacional
-Q71144301,metropolitan region
 Q3199141,city of Indonesia
 Q11881845,town
 Q15253706,like a city
@@ -1333,6 +1337,7 @@ Q25691,crocodile farm
 Q132213,Haubarg
 Q188913,plantation
 Q22715,vineyard
+Q1102346,Clos
 Q155511,plant nursery
 Q5396348,Tree breeding
 Q12372955,tree nursery
@@ -1425,6 +1430,7 @@ Q15463116,wild horse stud farm
 Q17319854,Haras Nationaux
 Q94140445,Royal Herd of Aranjuez
 Q19393982,urgård
+Q19710962,State-owned farm
 Q21051254,Einhof
 Q22958233,farm of Norway
 Q23925100,Bischofshof
@@ -1456,7 +1462,7 @@ Q65665664,pasiolak
 Q2940766,Casa colonica
 Q3661417,casale
 Q4129217,vyselok
-Q4379239,przysiółek
+Q4379239,hameau
 Q5268974,Dhani and villages
 Q5756064,casería
 Q6017815,Kishlak
@@ -1509,6 +1515,7 @@ Q27577201,железнодорожная платформа
 Q27588300,железнодорожная площадка
 Q27588331,посёлок совхоза
 Q36728566,ranger station
+Q105080440,park entrance station
 Q56312482,Сельцо
 Q57976957,historic hamlet
 Q74293993,rural municipality
@@ -1520,6 +1527,7 @@ Q1070942,commune-level town of Vietnam
 Q10840669,Class V town
 Q2112349,district-level town of Vietnam
 Q11183787,Ortschaft
+Q105254117,Ortschaft (Baden-Württemberg)
 Q11302190,kotan
 Q11423996,zaigōmachi
 Q11457718,jinaimachi
@@ -1540,6 +1548,7 @@ Q64911820,populated area of the city of Alicante
 Q12038856,mošav ovdim
 Q12051488,populated place in Ukraine
 Q21672098,village of Ukraine
+Q12063697,"neighborhood of Washington
 Q12075102,історичне населене місце
 Q12116124,Kutan
 Q12134916,center of oblast
@@ -1583,7 +1592,7 @@ Q17634997,balneario
 Q18009853,stedelijk gebied
 Q18632459,ulus
 Q18691480,vaara-asutus
-Q19285917,Höhensiedlung
+Q19285917,hilltop settlement
 Q19388266,Sæterbebyggelse
 Q19796166,Железинка
 Q19817970,Derevnja
@@ -1702,6 +1711,7 @@ Q62130005,villa de Uruguay
 Q67259991,Hinterland communities of  South East Queensland
 Q68982447,sector of Girona
 Q72025746,gateway city
+Q74293993,rural municipality
 Q78053217,basic unit of settlement
 Q79791637,fermtoun
 Q82350989,unenclosed settlement
@@ -1710,12 +1720,13 @@ Q87412232,Alsaroti Corner Building
 Q91730648,urban-type settlement in Belarus
 Q93445941,stork village
 Q95246722,Vila
+Q97706291,market settlement
 Q98437811,Fischersiedlung
 Q98446331,Zwiehof
 Q98966896,coastal settlement
-Q102104752,city of Bosnia and Herzegovina
 Q104530309,Lagerdorf
 Q104641871,taajaman osa
+Q105254117,Ortschaft (Baden-Württemberg)
 ### Q19610511, Township : _wdadd_ 
 Q19610511,township
 Q28111,township in the United States
@@ -2017,7 +2028,6 @@ Q1781058,komuna
 Q20724701,city or town in Armenia
 ### Q3685430, municipality of Armenia : _wdadd_ 
 Q3685430,municipality of Armenia
-Q20724701,city or town in Armenia
 Q28328984,village in Armenia
 ### Q749622, Antarctic research station : _wdadd_ 
 Q749622,Antarctic research station
